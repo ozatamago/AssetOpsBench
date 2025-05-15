@@ -1,0 +1,22 @@
+venv
+src/metaagent/demo/__pycache__
+.env
+trajs
+*.pyc
+
+__pycache__/
+**/__pycache__/
+**/*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env/
+
+# Trajectory or temporary files
+trajs/
+
+# General Python cache folders anywhere in the repo
+**/__pycache__/
+src/meta_agent/__pycache__
+OLD
