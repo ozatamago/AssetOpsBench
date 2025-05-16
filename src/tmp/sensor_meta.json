@@ -1,158 +1,28 @@
 {
-    "@type": "sc:Dataset",
+    "@context": "https://mlcommons.org/croissant/context/v1",
+    "@type": "https://schema.org/Dataset",
     "name": "Chiller 6 Sensor Data",
     "description": "Sensor data from Chiller 6 collected in June 2020, including various performance metrics.",
     "license": "https://creativecommons.org/licenses/by/4.0/",
     "url": "https://github.com/IBM/AssetOpsBench/blob/main/src/assetopsbench/sample_data/chiller6_june2020_sensordata_couchdb.jsonl",
+    "creator": {
+      "@type": "Organization",
+      "name": "IBM",
+      "url": "https://www.ibm.com"
+    },
     "distribution": [
       {
-        "@type": "cr:FileObject",
-        "@id": "chiller6_data.jsonl",
-        "name": "chiller6_data.jsonl",
-        "contentUrl": "data/chiller6_data.jsonl",
+        "@type": "DataDownload",
         "encodingFormat": "application/jsonl",
-        "sha256": "your_sha256_hash_here"
+        "contentUrl": "https://github.com/IBM/AssetOpsBench/raw/main/src/assetopsbench/sample_data/chiller6_june2020_sensordata_couchdb.jsonl"
       }
     ],
-    "recordSet": [
-      {
-        "@type": "cr:RecordSet",
-        "@id": "sensor_readings",
-        "name": "Sensor Readings",
-        "description": "Sensor readings from Chiller 6.",
-        "field": [
-          {
-            "@type": "cr:Field",
-            "@id": "asset_id",
-            "description": "The identifier for the asset.",
-            "dataType": "sc:Text",
-            "source": {
-              "fileObject": { "@id": "chiller6_data.jsonl" },
-              "extract": { "column": "asset_id" }
-            }
-          },
-          {
-            "@type": "cr:Field",
-            "@id": "timestamp",
-            "description": "The timestamp of the reading.",
-            "dataType": "sc:Integer",
-            "source": {
-              "fileObject": { "@id": "chiller6_data.jsonl" },
-              "extract": { "column": "timestamp" }
-            }
-          },
-          {
-            "@type": "cr:Field",
-            "@id": "condenser_water_return_to_tower_temperature",
-            "description": "The return temperature of the condenser water to the tower.",
-            "dataType": "sc:Float",
-            "source": {
-              "fileObject": { "@id": "chiller6_data.jsonl" },
-              "extract": { "column": "condenser_water_return_to_tower_temperature" }
-            }
-          },
-          {
-            "@type": "cr:Field",
-            "@id": "chiller_efficiency",
-            "description": "The efficiency of the chiller.",
-            "dataType": "sc:Float",
-            "source": {
-              "fileObject": { "@id": "chiller6_data.jsonl" },
-              "extract": { "column": "chiller_efficiency" }
-            }
-          },
-          {
-            "@type": "cr:Field",
-            "@id": "tonnage",
-            "description": "The tonnage of the chiller.",
-            "dataType": "sc:Float",
-            "source": {
-              "fileObject": { "@id": "chiller6_data.jsonl" },
-              "extract": { "column": "tonnage" }
-            }
-          },
-          {
-            "@type": "cr:Field",
-            "@id": "supply_temperature",
-            "description": "The supply temperature of the chiller.",
-            "dataType": "sc:Float",
-            "source": {
-              "fileObject": { "@id": "chiller6_data.jsonl" },
-              "extract": { "column": "supply_temperature" }
-            }
-          },
-          {
-            "@type": "cr:Field",
-            "@id": "return_temperature",
-            "description": "The return temperature of the chiller.",
-            "dataType": "sc:Float",
-            "source": {
-              "fileObject": { "@id": "chiller6_data.jsonl" },
-              "extract": { "column": "return_temperature" }
-            }
-          },
-          {
-            "@type": "cr:Field",
-            "@id": "condenser_water_flow",
-            "description": "The flow rate of the condenser water.",
-            "dataType": "sc:Float",
-            "source": {
-              "fileObject": { "@id": "chiller6_data.jsonl" },
-              "extract": { "column": "condenser_water_flow" }
-            }
-          },
-          {
-            "@type": "cr:Field",
-            "@id": "schedule",
-            "description": "The schedule of the chiller.",
-            "dataType": "sc:Float",
-            "source": {
-              "fileObject": { "@id": "chiller6_data.jsonl" },
-              "extract": { "column": "schedule" }
-            }
-          },
-          {
-            "@type": "cr:Field",
-            "@id": "power_input",
-            "description": "The power input to the chiller.",
-            "dataType": "sc:Float",
-            "source": {
-              "fileObject": { "@id": "chiller6_data.jsonl" },
-              "extract": { "column": "power_input" }
-            }
-          },
-          {
-            "@type": "cr:Field",
-            "@id": "chiller_percent_loaded",
-            "description": "The percentage load of the chiller.",
-            "dataType": "sc:Float",
-            "source": {
-              "fileObject": { "@id": "chiller6_data.jsonl" },
-              "extract": { "column": "chiller_percent_loaded" }
-            }
-          },
-          {
-            "@type": "cr:Field",
-            "@id": "liquid_refrigerant_evaporator_temperature",
-            "description": "The evaporator temperature of the liquid refrigerant.",
-            "dataType": "sc:Float",
-            "source": {
-              "fileObject": { "@id": "chiller6_data.jsonl" },
-              "extract": { "column": "liquid_refrigerant_evaporator_temperature" }
-            }
-          },
-          {
-            "@type": "cr:Field",
-            "@id": "setpoint_temperature",
-            "description": "The setpoint temperature of the chiller.",
-            "dataType": "sc:Float",
-            "source": {
-              "fileObject": { "@id": "chiller6_data.jsonl" },
-              "extract": { "column": "setpoint_temperature" }
-            }
-          }
-        ]
-      }
-    ]
+    "temporalCoverage": "2020-06-01/2020-06-30",
+    "spatialCoverage": {
+      "@type": "Place",
+      "name": "Chiller 6, Industrial Facility"
+    },
+    "schemaVersion": "https://mlcommons.org/croissant/schema/v1",
+    "identifier": "https://github.com/IBM/AssetOpsBench/blob/main/src/assetopsbench/sample_data/chiller6_june2020_sensordata_couchdb.jsonl"
   }
   
