@@ -25,7 +25,7 @@ We developed 4 domain-specific AI agents while each agent has its own agent tool
 
 To orchestrate multiple agents and run end-to-end workflow, we developed two frameworks:
 - [MetaAgent](https://github.com/IBM/AssetOpsBench/tree/main/src/meta_agent): a reAct based single-agent-as-tool agent
-- AgentHive: a plan-and-execute sequential workflow
+- [AgentHive](https://github.com/IBM/AssetOpsBench/tree/main/src/agent_hive): a plan-and-execute sequential workflow
 
 ## Leaderboards
 We run AssetOpsBench with 7 Large Language Models and evaluate the trajectories of each run using LLM judge (Llama-4-Maverick-17B) on 6-dimentional criteria. The following is the result of MetaAgent. Please find more results in the paper.
