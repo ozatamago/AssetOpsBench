@@ -34,16 +34,7 @@ We run AssetOpsBench with 7 Large Language Models and evaluate the trajectories 
 
 ## Run AssetOpsBench By Yourself
 You can replicate our benchmarking results using our provided scripts.
-To run MetaAgent or AgentHive on all scenarios, 
-```
-python run.py <meta|hive>
-```
-Once it is finished successfully, a new folder `./results/` including all trajectories should be created.
-
-To evaluate,
-```
-python eval.py ./results/
-```
+To run MetaAgent, check running script [here](https://github.com/IBM/AssetOpsBench/tree/main/src/meta_agent/tests). To run AgentHive, check running script [here](https://github.com/IBM/AssetOpsBench/tree/main/src/agent_hive/tests). 
 
 ## CouchDB
 
