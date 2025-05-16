@@ -63,23 +63,23 @@
       "@type": "cr:FileSet",
       "@id": "AssetOpsBench-scenario-files",
       "name": "AssetOpsBench-scenario-files",
-      "description": "JSON-format AssetOpsBench datasets.",
+      "description": "JSONL-format AssetOpsBench datasets.",
       "containedIn": {
         "@id": "AssetOpsBench"
       },
-      "encodingFormat": "application/json",
-      "includes": "scenarios/**/*.json"
+      "encodingFormat": "application/jsonlines",
+      "includes": "scenarios/all_utterance.jsonl"
     }
   ],
   "recordSet": [
     {
       "@type": "cr:RecordSet",
-      "@id": "json",
-      "name": "json",
+      "@id": "jsonl",
+      "name": "jsonl",
       "field": [
         {
           "@type": "cr:Field",
-          "@id": "json/id",
+          "@id": "jsonl/id",
           "name": "id",
           "description": "id of utterance",
           "dataType": "sc:Integer",
@@ -94,7 +94,7 @@
         },
         {
           "@type": "cr:Field",
-          "@id": "json/type",
+          "@id": "jsonl/type",
           "name": "type",
           "description": "the domain type of utterance, e.g. IoT, FMSR.",
           "dataType": "sc:Text",
@@ -109,7 +109,7 @@
         },
         {
           "@type": "cr:Field",
-          "@id": "json/category",
+          "@id": "jsonl/category",
           "name": "category",
           "description": "the category of the query, e.g. Knowledge Query, Tuning Query.",
           "dataType": "sc:Text",
@@ -124,7 +124,7 @@
         },
         {
           "@type": "cr:Field",
-          "@id": "json/text",
+          "@id": "jsonl/text",
           "name": "text",
           "description": "the task description of the utterance",
           "dataType": "sc:Text",
@@ -139,7 +139,7 @@
         },
         {
           "@type": "cr:Field",
-          "@id": "json/characteristic_form",
+          "@id": "jsonl/characteristic_form",
           "name": "characteristic_form",
           "description": "the characteristics of the expected output",
           "dataType": "sc:Text",
@@ -154,7 +154,7 @@
         },
         {
           "@type": "cr:Field",
-          "@id": "json/deterministic",
+          "@id": "jsonl/deterministic",
           "name": "deterministic",
           "description": "is the expected output deterministic?",
           "dataType": "sc:Boolean",
