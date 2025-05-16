@@ -74,8 +74,8 @@
   "recordSet": [
     {
       "@type": "cr:RecordSet",
-      "@id": "jsonl",
-      "name": "jsonl",
+      "@id": "AssetOpsBench-scenario-records",
+      "name": "AssetOpsBench-scenario-records",
       "field": [
         {
           "@type": "cr:Field",
