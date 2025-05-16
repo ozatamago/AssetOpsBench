@@ -45,3 +45,9 @@ To evaluate,
 python eval.py ./results/
 ```
 
+## CouchDB
+
+CouchDB may be downloaded from [here](https://couchdb.apache.org/#download)
+
+The [test dataset](src/assetopsbench/sample_data/chiller6_june2020_sensordata_couchdb.json) may be inserted via a [bulk-docs](https://docs.couchdb.org/en/stable/api/database/bulk-api.html#db-bulk-docs) operation.
+
