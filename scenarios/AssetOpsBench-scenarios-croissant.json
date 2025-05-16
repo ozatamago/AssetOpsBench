@@ -82,7 +82,7 @@
           "@id": "json/id",
           "name": "id",
           "description": "id of utterance",
-          "dataType": "sc:Text",
+          "dataType": "sc:Integer",
           "source": {
             "fileSet": {
               "@id": "AssetOpsBench-scenario-files"
@@ -96,7 +96,7 @@
           "@type": "cr:Field",
           "@id": "json/type",
           "name": "type",
-          "description": "the domain type of utterance, i.e. IoT, FMSR.",
+          "description": "the domain type of utterance, e.g. IoT, FMSR.",
           "dataType": "sc:Text",
           "source": {
             "fileSet": {
@@ -111,7 +111,7 @@
           "@type": "cr:Field",
           "@id": "json/category",
           "name": "category",
-          "description": "the category of the query, i.e. Knowledge Query, Tuning Query.",
+          "description": "the category of the query, e.g. Knowledge Query, Tuning Query.",
           "dataType": "sc:Text",
           "source": {
             "fileSet": {
@@ -157,7 +157,7 @@
           "@id": "json/deterministic",
           "name": "deterministic",
           "description": "is the expected output deterministic?",
-          "dataType": "sc:Text",
+          "dataType": "sc:Boolean",
           "source": {
             "fileSet": {
               "@id": "AssetOpsBench-scenario-files"
