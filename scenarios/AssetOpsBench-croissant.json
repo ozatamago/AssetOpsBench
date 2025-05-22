@@ -91,6 +91,83 @@
       },
       "encodingFormat": "text/csv",
       "includes": "src/assetopsbench/sample_data/all_wo_with_code_component_events.csv"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "AssetOpsBench-alert-rule-files",
+      "name": "AssetOpsBench-alert-rule-files",
+      "description": "CSV-format AssetOpsBench alert rule files",
+      "containedIn": {
+        "@id": "AssetOpsBench"
+      },
+      "encodingFormat": "text/csv",
+      "includes": "src/assetopsbench/sample_data/alert_rule.csv"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "AssetOpsBench-alert-events-files",
+      "name": "AssetOpsBench-alert-events-files",
+      "description": "CSV-format AssetOpsBench alert events files",
+      "containedIn": {
+        "@id": "AssetOpsBench"
+      },
+      "encodingFormat": "text/csv",
+      "includes": "src/assetopsbench/sample_data/alert_events.csv"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "AssetOpsBench-alert-rule-meter-mapping-files",
+      "name": "AssetOpsBench-alert-rule-meter-mapping-files",
+      "description": "CSV-format mapping between alert rules and meters",
+      "containedIn": {
+        "@id": "AssetOpsBench"
+      },
+      "encodingFormat": "text/csv",
+      "includes": "src/assetopsbench/sample_data/alert_rule_meter_mapping.csv"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "AssetOpsBench-alert-rule-failure-code-files",
+      "name": "AssetOpsBench-alert-rule-failure-code-files",
+      "description": "CSV-format failure code mappings for alert rules",
+      "containedIn": {
+        "@id": "AssetOpsBench"
+      },
+      "encodingFormat": "text/csv",
+      "includes": "src/assetopsbench/sample_data/alert_rule_failure_code_mapping.csv"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "AssetOpsBench-anomaly-events-files",
+      "name": "AssetOpsBench-anomaly-events-files",
+      "description": "CSV-format AssetOpsBench anomaly events files",
+      "containedIn": {
+        "@id": "AssetOpsBench"
+      },
+      "encodingFormat": "text/csv",
+      "includes": "src/assetopsbench/sample_data/anomaly_events.csv"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "AssetOpsBench-anomaly-to-failure-mapping-files",
+      "name": "AssetOpsBench-anomaly-to-failure-mapping-files",
+      "description": "CSV-format mapping between anomalies and failure codes",
+      "containedIn": {
+        "@id": "AssetOpsBench"
+      },
+      "encodingFormat": "text/csv",
+      "includes": "src/assetopsbench/sample_data/anomaly_to_failure_code_mapping.csv"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "AssetOpsBench-collection-component-files",
+      "name": "AssetOpsBench-collection-component-files",
+      "description": "CSV-format AssetOpsBench collection to component mapping files",
+      "containedIn": {
+        "@id": "AssetOpsBench"
+      },
+      "encodingFormat": "text/csv",
+      "includes": "src/assetopsbench/sample_data/collection_component_mapping.csv"
     }
   ],
   "recordSet": [
@@ -485,6 +562,520 @@
             },
             "extract": {
               "column": "actual_labor_hours"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "alert-rule",
+      "name": "alert-rule",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "rule-id",
+          "name": "rule_id",
+          "description": "Unique identifier for the alert rule",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-alert-rule-files"
+            },
+            "extract": {
+              "column": "rule_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rule-name",
+          "name": "rule_name",
+          "description": "Name of the alert rule",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-alert-rule-files"
+            },
+            "extract": {
+              "column": "rule_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rule-logic",
+          "name": "rule_logic",
+          "description": "Logic or expression that defines the alert rule",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-alert-rule-files"
+            },
+            "extract": {
+              "column": "rule_logic"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "alert-events",
+      "name": "alert-events",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "equipment-id",
+          "name": "equipment_id",
+          "description": "Unique identifier for the equipment",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-alert-events-files"
+            },
+            "extract": {
+              "column": "equipment_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "equipment-name",
+          "name": "equipment_name",
+          "description": "Name of the equipment",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-alert-events-files"
+            },
+            "extract": {
+              "column": "equipment_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "alert-event-rule-id",
+          "name": "rule_id",
+          "description": "Reference to the alert rule associated with this event",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-alert-events-files"
+            },
+            "extract": {
+              "column": "rule_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "start-time",
+          "name": "start_time",
+          "description": "Start time of the alert event",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-alert-events-files"
+            },
+            "extract": {
+              "column": "start_time"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "end-time",
+          "name": "end_time",
+          "description": "End time of the alert event",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-alert-events-files"
+            },
+            "extract": {
+              "column": "end_time"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "alert-rule-meter-mapping",
+      "name": "alert-rule-meter-mapping",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "alert-rule-meter-mapping-rule-id",
+          "name": "rule_id",
+          "description": "Unique identifier for the alert rule",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-alert-rule-meter-mapping-files"
+            },
+            "extract": {
+              "column": "rule_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "alert-rule-meter-mapping-rule-name",
+          "name": "rule_name",
+          "description": "Name of the alert rule",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-alert-rule-meter-mapping-files"
+            },
+            "extract": {
+              "column": "rule_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "meter",
+          "name": "meter",
+          "description": "Identifier of the associated meter",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-alert-rule-meter-mapping-files"
+            },
+            "extract": {
+              "column": "meter"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "alert-rule-failure-code-mapping",
+      "name": "alert-rule-failure-code-mapping",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "alert-rule-failure-code-mapping-rule-id",
+          "name": "rule_id",
+          "description": "Unique identifier for the alert rule",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-alert-rule-failure-code-files"
+            },
+            "extract": {
+              "column": "rule_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "alert-rule-failure-code-mapping-rule-name",
+          "name": "rule_name",
+          "description": "Name of the alert rule",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-alert-rule-failure-code-files"
+            },
+            "extract": {
+              "column": "rule_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "primary-code",
+          "name": "primary_code",
+          "description": "Primary failure code",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-alert-rule-failure-code-files"
+            },
+            "extract": {
+              "column": "primary_code"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "primary-code-description",
+          "name": "primary_code_description",
+          "description": "Description of the primary failure code",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-alert-rule-failure-code-files"
+            },
+            "extract": {
+              "column": "primary_code_description"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "anomaly-events",
+      "name": "anomaly-events",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "timestamp",
+          "name": "timestamp",
+          "description": "Timestamp of the anomaly event",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-anomaly-events-files"
+            },
+            "extract": {
+              "column": "timestamp"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "kpi",
+          "name": "KPI",
+          "description": "Key Performance Indicator being monitored",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-anomaly-events-files"
+            },
+            "extract": {
+              "column": "KPI"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "asset-name",
+          "name": "asset_name",
+          "description": "Name of the asset being monitored",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-anomaly-events-files"
+            },
+            "extract": {
+              "column": "asset_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "value",
+          "name": "value",
+          "description": "Measured value at the time of anomaly",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-anomaly-events-files"
+            },
+            "extract": {
+              "column": "value"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "upper-bound",
+          "name": "upper_bound",
+          "description": "Upper bound threshold for the KPI",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-anomaly-events-files"
+            },
+            "extract": {
+              "column": "upper_bound"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "lower-bound",
+          "name": "lower_bound",
+          "description": "Lower bound threshold for the KPI",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-anomaly-events-files"
+            },
+            "extract": {
+              "column": "lower_bound"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "anomaly-score",
+          "name": "anomaly_score",
+          "description": "Computed score indicating likelihood of anomaly",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-anomaly-events-files"
+            },
+            "extract": {
+              "column": "anomaly_score"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "anomaly-to-failure-code-mapping",
+      "name": "anomaly-to-failure-code-mapping",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "kpi-name",
+          "name": "kpi_name",
+          "description": "Name of the key performance indicator (KPI) associated with the anomaly",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-anomaly-to-failure-mapping-files"
+            },
+            "extract": {
+              "column": "kpi_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "anomaly-type",
+          "name": "anomaly_type",
+          "description": "Type or category of the detected anomaly",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-anomaly-to-failure-mapping-files"
+            },
+            "extract": {
+              "column": "anomaly_type"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "category",
+          "name": "category",
+          "description": "Classification category of the anomaly or failure",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-anomaly-to-failure-mapping-files"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "failure-primary-code",
+          "name": "primary_code",
+          "description": "Primary fault or failure code",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-anomaly-to-failure-mapping-files"
+            },
+            "extract": {
+              "column": "primary_code"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "failure-primary-code-description",
+          "name": "primary_code_description",
+          "description": "Description of the primary fault or failure code",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-anomaly-to-failure-mapping-files"
+            },
+            "extract": {
+              "column": "primary_code_description"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "secondary-code",
+          "name": "secondary_code",
+          "description": "Secondary or related fault code",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-anomaly-to-failure-mapping-files"
+            },
+            "extract": {
+              "column": "secondary_code"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "secondary-code-description",
+          "name": "secondary_code_description",
+          "description": "Description of the secondary fault or failure code",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-anomaly-to-failure-mapping-files"
+            },
+            "extract": {
+              "column": "secondary_code_description"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "collection-component-mapping",
+      "name": "collection-component-mapping",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "component-collection",
+          "name": "collection",
+          "description": "Name or identifier of the collection",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-collection-component-files"
+            },
+            "extract": {
+              "column": "collection"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "component",
+          "name": "component",
+          "description": "Component associated with the collection",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-collection-component-files"
+            },
+            "extract": {
+              "column": "component"
             }
           }
         }
