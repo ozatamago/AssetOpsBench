@@ -49,6 +49,10 @@
   "description": "AssetOpsBench is a unified framework and environment designed to guide the development, orchestration, and evaluation of domain-specific agents for task automation in industrial asset operations and maintenance. The release of the benchmark focuses on scenarios commonly posed by domain experts\u2014such as maintenance engineers, reliability specialists, and facility planners. We devloped 4 individual domain-specific agents and 2 multi-agent orchestration frameworks to create a simulated industrial environment enabling end-to-end benchmarking of multi-agent workflows in asset operations.",
   "conformsTo": "http://mlcommons.org/croissant/1.0",
   "url": "https://github.com/IBM/AssetOpsBench",
+  "license": "https://opensource.org/licenses/MIT",
+  "version": "1.0",
+  "datePublished": "2025-05-15",
+  "citeAs": "IBM AssetOpsBench, available from https://github.com/IBM/AssetOpsBench/",
   "distribution": [
     {
       "@type": "cr:FileObject",
@@ -168,6 +172,61 @@
       },
       "encodingFormat": "text/csv",
       "includes": "src/assetopsbench/sample_data/collection_component_mapping.csv"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "AssetOpsBench-primary-failure-codes-files",
+      "name": "AssetOpsBench-primary-failure-codes-files",
+      "description": "CSV-format AssetOpsBench primary failure codes file",
+      "containedIn": {
+        "@id": "AssetOpsBench"
+      },
+      "encodingFormat": "text/csv",
+      "includes": "src/assetopsbench/sample_data/primary_failure_codes.csv"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "AssetOpsBench-meter-files",
+      "name": "AssetOpsBench-meter-files",
+      "description": "CSV-format AssetOpsBench meter files",
+      "containedIn": {
+        "@id": "AssetOpsBench"
+      },
+      "encodingFormat": "text/csv",
+      "includes": "src/assetopsbench/sample_data/meter.csv"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "AssetOpsBench-failure-mode-files",
+      "name": "AssetOpsBench-failure-mode-files",
+      "description": "CSV-format AssetOpsBench failure mode file",
+      "containedIn": {
+        "@id": "AssetOpsBench"
+      },
+      "encodingFormat": "text/csv",
+      "includes": "src/assetopsbench/sample_data/failure_mode.csv"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "AssetOpsBench-components-files",
+      "name": "AssetOpsBench-components-files",
+      "description": "CSV-format AssetOpsBench component files",
+      "containedIn": {
+        "@id": "AssetOpsBench"
+      },
+      "encodingFormat": "text/csv",
+      "includes": "src/assetopsbench/sample_data/component.csv"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "AssetOpsBench-event-files",
+      "name": "AssetOpsBench-event-files",
+      "description": "CSV-format AssetOpsBench event logs",
+      "containedIn": {
+        "@id": "AssetOpsBench"
+      },
+      "encodingFormat": "text/csv",
+      "includes": "src/assetopsbench/sample_data/event.csv"
     }
   ],
   "recordSet": [
@@ -1076,6 +1135,431 @@
             },
             "extract": {
               "column": "component"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "primary-failure-codes",
+      "name": "primary-failure-codes",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "primary-failure-category",
+          "name": "category",
+          "description": "The category of the primary failure code",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-primary-failure-codes-files"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "primary-failure-code",
+          "name": "primary_code",
+          "description": "The primary failure code identifier",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-primary-failure-codes-files"
+            },
+            "extract": {
+              "column": "primary_code"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "primary-failure-code-description",
+          "name": "primary_code_description",
+          "description": "Description of the primary failure code",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-primary-failure-codes-files"
+            },
+            "extract": {
+              "column": "primary_code_description"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "meter-records",
+      "name": "meter-records",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "meter-name",
+          "name": "meter",
+          "description": "Identifier or name of the meter",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-meter-files"
+            },
+            "extract": {
+              "column": "meter"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "meter-component",
+          "name": "component",
+          "description": "Component of the equipment associated with the meter",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-meter-files"
+            },
+            "extract": {
+              "column": "component"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "meter-measurement",
+          "name": "measurement",
+          "description": "Type of measurement recorded by the meter",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-meter-files"
+            },
+            "extract": {
+              "column": "measurement"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "meter-unit",
+          "name": "unit",
+          "description": "Unit of measurement (e.g., Celsius, kW)",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-meter-files"
+            },
+            "extract": {
+              "column": "unit"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "meter-description",
+          "name": "description",
+          "description": "Detailed description of the meter",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-meter-files"
+            },
+            "extract": {
+              "column": "description"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "meter-calculated",
+          "name": "calculated",
+          "description": "Indicates whether the meter's value is calculated",
+          "dataType": "Boolean",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-meter-files"
+            },
+            "extract": {
+              "column": "calculated"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "meter-formula",
+          "name": "formula",
+          "description": "Formula used to calculate the measurement if applicable",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-meter-files"
+            },
+            "extract": {
+              "column": "formula"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "failure-mode",
+      "name": "failure-mode",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "equipment",
+          "name": "Equipment",
+          "description": "Name or identifier of the equipment",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-failure-mode-files"
+            },
+            "extract": {
+              "column": "Equipment"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "failure-mode-name",
+          "name": "Failure Mode",
+          "description": "Type of failure mode observed",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-failure-mode-files"
+            },
+            "extract": {
+              "column": "Failure Mode"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "degradation-mechanism",
+          "name": "Degradation Mechanism",
+          "description": "Underlying degradation mechanism leading to failure",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-failure-mode-files"
+            },
+            "extract": {
+              "column": "Degradation Mechanism"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "influencing-factors",
+          "name": "Influencing Factors",
+          "description": "Factors that influence the failure or degradation process",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-failure-mode-files"
+            },
+            "extract": {
+              "column": "Influencing Factors"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "components",
+      "name": "components",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "component-equipment",
+          "name": "equipment",
+          "description": "Identifier for the equipment this component belongs to",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-components-files"
+            },
+            "extract": {
+              "column": "equipment"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "component-name",
+          "name": "component",
+          "description": "Name or identifier of the component",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-components-files"
+            },
+            "extract": {
+              "column": "component"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "component-explanation",
+          "name": "explanation",
+          "description": "Explanation or description of the component",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-components-files"
+            },
+            "extract": {
+              "column": "explanation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "event-records",
+      "name": "event-records",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "event-id",
+          "name": "event_id",
+          "description": "Unique identifier for the event",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-event-files"
+            },
+            "extract": {
+              "column": "event_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "event-group",
+          "name": "event_group",
+          "description": "Group classification of the event",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-event-files"
+            },
+            "extract": {
+              "column": "event_group"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "event-category",
+          "name": "event_category",
+          "description": "Category classification of the event",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-event-files"
+            },
+            "extract": {
+              "column": "event_category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "event-type",
+          "name": "event_type",
+          "description": "Type of the event",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-event-files"
+            },
+            "extract": {
+              "column": "event_type"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "event-description",
+          "name": "description",
+          "description": "Detailed description of the event",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-event-files"
+            },
+            "extract": {
+              "column": "description"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "equipment-id-in-event",
+          "name": "equipment_id",
+          "description": "Unique identifier for the associated equipment",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-event-files"
+            },
+            "extract": {
+              "column": "equipment_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "equipment-name-in-event",
+          "name": "equipment_name",
+          "description": "Name of the associated equipment",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-event-files"
+            },
+            "extract": {
+              "column": "equipment_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "event-time",
+          "name": "event_time",
+          "description": "Timestamp of the event",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-event-files"
+            },
+            "extract": {
+              "column": "event_time"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "event-note",
+          "name": "note",
+          "description": "Optional notes or remarks about the event",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "AssetOpsBench-event-files"
+            },
+            "extract": {
+              "column": "note"
             }
           }
         }
