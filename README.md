@@ -46,3 +46,10 @@ CouchDB may be downloaded from [here](https://couchdb.apache.org/#download)
 The [test dataset](src/assetopsbench/sample_data/chiller6_june2020_sensordata_couchdb.json) may be inserted via a [bulk-docs](https://docs.couchdb.org/en/stable/api/database/bulk-api.html#db-bulk-docs) operation.
 
 The database URL should be updated in [bmstool.py](src/IoTAgent/bmstool.py)
+
+## Contributors and Contact(*)
+
+- Dhaval Patel (pateldha@us.ibm.com)
+- Shuxin Lin
+- James Rayfield
+- Nianjun Zhou
