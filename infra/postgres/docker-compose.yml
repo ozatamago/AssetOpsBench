@@ -1,0 +1,12 @@
+services:
+  postgres:
+    build: .
+    environment:
+      POSTGRES_USER: aob
+      POSTGRES_PASSWORD: aobpass
+      POSTGRES_DB: aobdb
+    ports:
+      - "15432:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d   # ← 初期化SQLはここに置く

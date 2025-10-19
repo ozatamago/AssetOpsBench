@@ -7,8 +7,11 @@ services:
       - ./run_track_1.py:/home/run_track_1.py
       - ./entrypoint.sh:/home/entrypoint.sh
       - ../../src/agent_hive/workflows/track1_planning.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/track1_planning.py
+      - /Users/yusuke/Desktop/Program/codabench/AssetOpsBench/scenarios:/home/scenarios:ro   # ★追加
     env_file:
       - .env.local # changed from .env
+    environment:
+      DATABASE_URL: postgresql://aob:aobpass@postgres:5432/aobdb
     command: ["/home/entrypoint.sh"]
   couchdb:
     image: couchdb:3.5
@@ -22,6 +25,18 @@ services:
       - ./couchdb_setup.sh:/opt/couchdb/etc/couchdb_setup.sh # your bash script to create couchdb out of raw data
       - ../../src/assetopsbench/sample_data:/sample_data # location to raw (JSON/CSV) data for couchdb
     command: ["sh", "/opt/couchdb/etc/couchdb_setup.sh"]
+
+  postgres:
+    build: ../../infra/postgres
+    environment:
+      POSTGRES_USER: aob
+      POSTGRES_PASSWORD: aobpass
+      POSTGRES_DB: aobdb
+    ports: ["15432:5432"]
+    volumes:
+      - ../../infra/postgres/data:/var/lib/postgresql/data
+      - ../../infra/postgres/init:/docker-entrypoint-initdb.d:ro
+
 
 volumes:
   couchdb-data: {}
