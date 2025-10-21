@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "final_plan": " \n#Task1: List all available IoT sites\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: List of available IoT sites",
+  "scenario_id": 1,
+  "generated_at": "2025-10-19T15:54:45.469577Z"
+}

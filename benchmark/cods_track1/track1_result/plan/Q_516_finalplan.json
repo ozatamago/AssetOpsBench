@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "final_plan": " \n#Task1: Download historical sensor data for Chiller 6 at the MAIN site for the week of 2020-04-27.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: Historical sensor data for Chiller 6 at MAIN site for the specified week.\n\n#Task2: Analyze the downloaded historical data to identify relevant performance metrics for Chiller 6's energy consumption.\n#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency2: #S1\n#ExpectedOutput2: Relevant performance metrics for Chiller 6's energy consumption.\n\n#Task3: Forecast Chiller 6's energy consumption for next week based on the historical data.\n#Agent3: Time Series Analytics and Forecasting\n#Dependency3: #S1 #S2\n#ExpectedOutput3: Forecasted energy consumption for Chiller 6 for the next week.\n\n#Task4: Create a work order for monitoring Chiller 6's energy consumption based on the forecast.\n#Agent4: WorkOrder Agent\n#Dependency4: #S3\n#ExpectedOutput4: Work order for monitoring Chiller 6's energy consumption.",
+  "scenario_id": 516,
+  "generated_at": "2025-10-20T00:51:25.811089Z"
+}

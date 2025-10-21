@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "final_plan": " \n#Task1: Retrieve the sensor data for Chiller 6 from June 2020.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: Sensor data for Chiller 6 from June 2020.\n\n#Task2: Analyze the retrieved sensor data for any anomalies.\n#Agent2: Time Series Analytics and Forecasting\n#Dependency2: #S1\n#ExpectedOutput2: Anomaly detection results for Chiller 6 sensor data from June 2020.\n\n#Task3: Generate a work order based on the anomaly detection results.\n#Agent3: WorkOrder Agent\n#Dependency3: #S2\n#ExpectedOutput3: Work order for Chiller 6 based on detected anomalies.",
+  "scenario_id": 12,
+  "generated_at": "2025-10-19T17:04:43.869778Z"
+}

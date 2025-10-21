@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "final_plan": " \n#Task1: Retrieve the events data for equipment CWC04009 for the year 2019.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: Historical events data for CWC04009 in 2019.\n\n#Task2: Analyze the retrieved events data and group them based on event types such as work order events, alerts, and anomaly events.\n#Agent2: WorkOrder Agent\n#Dependency2: #S1\n#ExpectedOutput2: Summary of events grouped by event types.\n\n#Task3: Provide a detailed summary of work order events, alerts, and anomaly events for CWC04009 in 2019.\n#Agent3: WorkOrder Agent\n#Dependency3: #S2\n#ExpectedOutput3: Detailed summary of work order events, alerts, and anomaly events for CWC04009 in 2019.",
+  "scenario_id": 404,
+  "generated_at": "2025-10-19T18:57:00.490378Z"
+}

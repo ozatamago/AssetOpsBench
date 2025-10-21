@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "final_plan": " \n#Task1: List all failure modes of Chiller 6.\n#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency1: None\n#ExpectedOutput1: A list of failure modes of Chiller 6.\n\n#Task2: Identify the failure modes of Chiller 6 that are related to Evaporator Water side fouling.\n#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency2: #S1\n#ExpectedOutput2: The specific failure mode related to Evaporator Water side fouling.\n\n#Task3: Determine the relevant sensor for monitoring Evaporator Water side fouling in Chiller 6.\n#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency3: #S2\n#ExpectedOutput3: The most relevant sensor for monitoring Evaporator Water side fouling.",
+  "scenario_id": 113,
+  "generated_at": "2025-10-19T17:42:19.588443Z"
+}

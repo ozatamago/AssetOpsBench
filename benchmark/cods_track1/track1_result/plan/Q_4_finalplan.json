@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "final_plan": " \n#Task1: List the assets at the MAIN facility.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: List of assets at the MAIN facility.\n\n#Task2: Verify the list of assets obtained from the IoT Data Download agent.\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: Confirmation or correction of the asset list at the MAIN facility.\n\n#Task3: Analyze the asset list to ensure it includes the required assets.\n#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency3: #S1 #S2\n#ExpectedOutput3: Relevant failure modes or sensor data for the assets.\n\n#Task4: Generate a work order for any identified issues with the assets.\n#Agent4: WorkOrder Agent\n#Dependency4: #S3\n#ExpectedOutput4: Work order for identified issues.",
+  "scenario_id": 4,
+  "generated_at": "2025-10-19T16:57:56.405266Z"
+}

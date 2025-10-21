@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "final_plan": " \n#Task1: Read the CSV data from 'data/tsfm_test_data/chiller9_tsad-small.csv' and prepare it for analysis.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: The CSV data from 'data/tsfm_test_data/chiller9_tsad-small.csv' is read and prepared for analysis.\n#Task2: Analyze the time series data of 'Chiller 9 Condenser Water Flow' for anomalies.\n#Agent2: Time Series Analytics and Forecasting\n#Dependency2: #S1\n#ExpectedOutput2: Anomaly detection results for 'Chiller 9 Condenser Water Flow' are provided.\n#Task3: Generate a work order for inspecting 'Chiller 9' based on the anomaly detection results.\n#Agent3: WorkOrder Agent\n#Dependency3: #S2\n#ExpectedOutput3: A work order is generated for inspecting 'Chiller 9' based on detected anomalies.\n#Task4: Identify relevant sensors for monitoring potential failures related to 'Chiller 9 Condenser Water Flow'.\n#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency4: #S2 #S3\n#ExpectedOutput4: Relevant sensors are identified for monitoring potential failures.",
+  "scenario_id": 223,
+  "generated_at": "2025-10-19T18:46:28.955312Z"
+}

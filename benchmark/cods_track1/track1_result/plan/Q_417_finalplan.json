@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "final_plan": " \n#Task1: Retrieve historical data for equipment CWC04009 related to \"KPI Cooling Load\" to understand the context of the anomaly.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: Historical data for \"KPI Cooling Load\" of equipment CWC04009.\n\n#Task2: Analyze the retrieved data to identify any patterns or anomalies that could be related to the \"KPI Cooling Load above upper bound\" issue.\n#Agent2: Time Series Analytics and Forecasting\n#Dependency2: #S1\n#ExpectedOutput2: Analysis report highlighting patterns or anomalies in the \"KPI Cooling Load\" data.\n\n#Task3: Identify relevant failure modes for equipment CWC04009 that could be associated with the anomaly \"KPI Cooling Load above upper bound\".\n#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency3: None\n#ExpectedOutput3: List of relevant failure modes for equipment CWC04009 related to \"KPI Cooling Load\".\n\n#Task4: Generate recommended work orders based on the identified failure modes and analysis of the anomaly.\n#Agent4: WorkOrder Agent\n#Dependency4: #S2 #S3\n#ExpectedOutput4: Top three recommended work orders to address the \"KPI Cooling Load above upper bound\" anomaly for equipment CWC04009.",
+  "scenario_id": 417,
+  "generated_at": "2025-10-19T19:21:36.431814Z"
+}

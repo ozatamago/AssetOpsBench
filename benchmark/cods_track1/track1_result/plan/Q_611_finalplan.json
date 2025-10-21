@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "final_plan": " \n#Task1: Identify the relevant sensors for monitoring Evaporator Water side fouling failure in Chiller 6 at MAIN site.\n#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency1: None\n#ExpectedOutput1: List of relevant sensors for monitoring Evaporator Water side fouling failure in Chiller 6.\n\n#Task2: Prioritize the identified sensors based on their relevance to Evaporator Water side fouling failure in Chiller 6.\n#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency2: #S1\n#ExpectedOutput2: The most relevant sensor for monitoring Evaporator Water side fouling failure in Chiller 6.\n\n#Task3: Verify if the most relevant sensor is available and has historical data for Chiller 6 at MAIN site.\n#Agent3: IoT Data Download\n#Dependency3: #S2\n#ExpectedOutput3: Confirmation of the availability of historical data for the most relevant sensor.",
+  "scenario_id": 611,
+  "generated_at": "2025-10-20T01:27:35.342749Z"
+}

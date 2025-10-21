@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "final_plan": " \n#Task1: Identify the relevant sensors for monitoring compressor overheating failure in Chiller 6 at MAIN site.\n#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency1: None\n#ExpectedOutput1: List of relevant sensors for monitoring compressor overheating in Chiller 6.\n\n#Task2: Prioritize the identified sensors based on their relevance to compressor overheating failure.\n#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency2: #S1\n#ExpectedOutput2: The most relevant sensor for monitoring compressor overheating in Chiller 6.\n\n#Task3: Verify if the prioritized sensor is available in the IoT data for Chiller 6 at MAIN site.\n#Agent3: IoT Data Download\n#Dependency3: #S2\n#ExpectedOutput3: Confirmation of the availability of the prioritized sensor.\n\n#Task4: Create a work order for inspecting Chiller 6 due to suspected compressor overheating.\n#Agent4: WorkOrder Agent\n#Dependency4: #S3\n#ExpectedOutput4: Work order created for inspecting Chiller 6.",
+  "scenario_id": 610,
+  "generated_at": "2025-10-20T01:25:20.315146Z"
+}

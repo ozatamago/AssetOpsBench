@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "final_plan": " \n#Task1: Ask the Time Series Analytics and Forecasting agent how many models with context length exactly 96 are supported.\n#Agent1: Time Series Analytics and Forecasting\n#Dependency1: None\n#ExpectedOutput1: The count of models with context length exactly 96.",
+  "scenario_id": 214,
+  "generated_at": "2025-10-19T18:20:25.231426Z"
+}

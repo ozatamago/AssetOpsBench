@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "final_plan": " \n#Task1: Identify the relevant sensors for monitoring compressor motor failure of Chiller 6 at MAIN site.\n#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency1: None\n#ExpectedOutput1: List of relevant sensors for monitoring compressor motor failure of Chiller 6.\n\n#Task2: Retrieve historical data for the relevant sensors identified in Task 1 for Chiller 6 at MAIN site.\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: Historical data for the relevant sensors.\n\n#Task3: Analyze the retrieved historical data to detect anomalies in the sensor readings that could indicate compressor motor failure.\n#Agent3: Time Series Analytics and Forecasting\n#Dependency3: #S2\n#ExpectedOutput3: Anomaly detection results for the sensor data.\n\n#Task4: Generate a work order for inspecting Chiller 6 at MAIN site based on the anomaly detection results.\n#Agent4: WorkOrder Agent\n#Dependency4: #S3\n#ExpectedOutput4: Work order for inspecting Chiller 6.",
+  "scenario_id": 613,
+  "generated_at": "2025-10-20T01:34:23.396902Z"
+}

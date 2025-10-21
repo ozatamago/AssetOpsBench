@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "final_plan": " \n#Task1: Retrieve the events of equipment CWC04009 for the first week of June 2020.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: A JSON file containing the events of equipment CWC04009 for the first week of June 2020.\n#Task2: Analyze the retrieved events and provide a summary based on the event group for work order event, alert, and anomaly.\n#Agent2: WorkOrder Agent\n#Dependency2: #S1\n#ExpectedOutput2: A summary in JSON format containing the count of work order events, alerts, and anomalies for equipment CWC04009 for the first week of June 2020.\n#Task3: Verify if the summary contains the required information for work order event, alert, and anomaly.\n#Agent3: IoT Data Download\n#Dependency3: #S2\n#ExpectedOutput3: Confirmation if the summary contains the required information.",
+  "scenario_id": 410,
+  "generated_at": "2025-10-19T19:06:59.745523Z"
+}

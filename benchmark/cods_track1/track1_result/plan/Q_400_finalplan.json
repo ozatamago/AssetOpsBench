@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "final_plan": " \n#Task1: Retrieve the work order for equipment CWC04013 for the year 2017.\n#Agent1: WorkOrder Agent\n#Dependency1: None\n#ExpectedOutput1: Work order details for equipment CWC04013 for the year 2017.\n#Task2: Verify if the retrieved work order is for the correct equipment and year.\n#Agent2: WorkOrder Agent\n#Dependency2: #S1\n#ExpectedOutput2: Confirmation that the work order is for equipment CWC04013 and the year 2017.\n#Task3: Analyze the work order details to ensure they meet the requirements.\n#Agent3: WorkOrder Agent\n#Dependency3: #S2\n#ExpectedOutput3: Analyzed work order details for equipment CWC04013 for the year 2017.",
+  "scenario_id": 400,
+  "generated_at": "2025-10-19T18:49:11.416167Z"
+}

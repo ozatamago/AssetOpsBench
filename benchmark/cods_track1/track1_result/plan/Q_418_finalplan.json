@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "final_plan": " \n#Task1: Retrieve historical data for equipment CWC04009 to understand the context of the anomalies.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: Historical data for CWC04009.\n\n#Task2: Analyze the retrieved data to identify patterns or correlations related to the anomalies.\n#Agent2: Time Series Analytics and Forecasting\n#Dependency2: #S1\n#ExpectedOutput2: Analysis report highlighting patterns or anomalies.\n\n#Task3: Identify relevant failure modes or potential causes for the anomalies based on the analysis.\n#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency3: #S2\n#ExpectedOutput3: List of potential failure modes or causes.\n\n#Task4: Generate top three recommended work orders based on the identified failure modes or causes.\n#Agent4: WorkOrder Agent\n#Dependency4: #S3\n#ExpectedOutput4: Top three recommended work orders to address the anomalies.",
+  "scenario_id": 418,
+  "generated_at": "2025-10-19T19:25:02.952040Z"
+}

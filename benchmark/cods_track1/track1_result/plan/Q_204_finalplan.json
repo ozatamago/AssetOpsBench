@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "final_plan": " \n#Task1: Check if Time Series Analytics and Forecasting agent supports TTM (Tiny Time Mixture) model.\n#Agent1: Time Series Analytics and Forecasting\n#Dependency1: None\n#ExpectedOutput1: Confirmation on whether TTM (Tiny Time Mixture) is a supported time series model.",
+  "scenario_id": 204,
+  "generated_at": "2025-10-19T18:09:45.616546Z"
+}

@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "final_plan": " \n#Task1: Identify relevant sensors for chiller trip failure of MAIN chiller 6\n#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency1: None\n#ExpectedOutput1: List of relevant sensors for chiller trip failure\n\n#Task2: Determine the temporal behavior of the relevant sensors for chiller trip failure\n#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency2: #S1\n#ExpectedOutput2: Temporal behavior of the relevant sensors\n\n#Task3: Retrieve historical data for the relevant sensors identified\n#Agent3: IoT Data Download\n#Dependency3: #S1\n#ExpectedOutput3: Historical data for the relevant sensors\n\n#Task4: Analyze the historical data for anomalies in the relevant sensors\n#Agent4: Time Series Analytics and Forecasting\n#Dependency4: #S3\n#ExpectedOutput4: Anomaly detection results for the relevant sensors",
+  "scenario_id": 620,
+  "generated_at": "2025-10-20T01:54:14.012845Z"
+}
