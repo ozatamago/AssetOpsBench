@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Retrieve the historical data for CQPA AHU 1 at MAIN site on Mar 13, 2020.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: Historical data for CQPA AHU 1 at MAIN site on Mar 13, 2020, including power consumption.\n\n#Task2: Extract the power consumption data from the retrieved historical data.\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: Power consumption data for CQPA AHU 1 on Mar 13, 2020.\n\n#Task3: Analyze the extracted power consumption data to determine the power consumption of CQPA AHU 1.\n#Agent3: Time Series Analytics and Forecasting\n#Dependency3: #S2\n#ExpectedOutput3: Analyzed power consumption data for CQPA AHU 1 on Mar 13, 2020, at MAIN site.",
-  "scenario_id": 45,
-  "generated_at": "2025-10-19T17:13:31.830673Z"
-}

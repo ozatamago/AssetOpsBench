@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Download historical sensor data for Chiller 9 at the MAIN site for the week of 2020-04-27 for \"Condenser Water Flow\".\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: A JSON file containing the historical sensor data for Chiller 9's \"Condenser Water Flow\" at the MAIN site for the specified week.\n#Task2: Analyze the downloaded historical data to identify anomalies in Chiller 9's \"Condenser Water Flow\".\n#Agent2: Time Series Analytics and Forecasting\n#Dependency2: #S1\n#ExpectedOutput2: An analysis report indicating any anomalies detected in Chiller 9's \"Condenser Water Flow\" during the specified period.\n#Task3: Generate a work order for inspecting Chiller 9 if any anomalies are detected in \"Condenser Water Flow\".\n#Agent3: WorkOrder Agent\n#Dependency3: #S2\n#ExpectedOutput3: A work order for inspecting Chiller 9 due to detected anomalies, if applicable.",
-  "scenario_id": 514,
-  "generated_at": "2025-10-20T00:46:53.283193Z"
-}

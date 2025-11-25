@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "final_plan": " \n#Task1: Identify if Anomaly Detection is supported in TSFM by checking the types of time series analysis supported by the Time Series Analytics and Forecasting agent.\n#Agent1: Time Series Analytics and Forecasting\n#Dependency1: None\n#ExpectedOutput1: List of supported time series analysis types.\n#Task2: Verify the list of supported time series analysis types to confirm if Anomaly Detection is included.\n#Agent2: Time Series Analytics and Forecasting\n#Dependency2: #S1\n#ExpectedOutput2: Confirmation if Anomaly Detection is supported.\n#Task3: If Anomaly Detection is supported, provide an example of how it can be used.\n#Agent3: Time Series Analytics and Forecasting\n#Dependency3: #S2\n#ExpectedOutput3: Example of Anomaly Detection usage.",
+  "final_plan": " \n#Task1: Check if Time Series Analytics and Forecasting supports anomaly detection.\n#Agent1: Time Series Analytics and Forecasting\n#Dependency1: None\n#ExpectedOutput1: Confirmation that anomaly detection is supported.",
   "scenario_id": 207,
-  "generated_at": "2025-10-19T18:11:57.162555Z"
+  "generated_at": "2025-11-12T05:10:36.302298Z"
 }

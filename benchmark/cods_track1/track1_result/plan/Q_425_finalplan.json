@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Retrieve historical data for the relevant KPIs of the chiller equipment to analyze anomalies.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: Historical data for the relevant KPIs for a specific chiller equipment.\n#Task2: Analyze the retrieved historical data to identify anomalies across multiple KPIs.\n#Agent2: Time Series Analytics and Forecasting\n#Dependency2: #S1\n#ExpectedOutput2: Anomaly detection results for the analyzed KPIs.\n#Task3: Identify the relevant failure modes and sensors associated with the detected anomalies.\n#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency3: #S2\n#ExpectedOutput3: List of relevant failure modes and sensors causing the detected anomalies.\n#Task4: Generate a work order based on the analysis and identified failure modes to address the root cause of the anomalies.\n#Agent4: WorkOrder Agent\n#Dependency4: #S3\n#ExpectedOutput4: A generated work order for inspecting or maintaining the chiller equipment.",
-  "scenario_id": 425,
-  "generated_at": "2025-10-19T19:43:17.669098Z"
-}

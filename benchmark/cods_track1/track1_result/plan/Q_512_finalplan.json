@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Determine the start date for the week of 2020-04-27\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: The start date of the week (e.g., 2020-04-27T00:00:00-04:00)\n\n#Task2: Retrieve the sensor data for Chiller 6's Return Temperature at the MAIN site for the week of 2020-04-27\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: A JSON file containing the historical data for Chiller 6's Return Temperature\n\n#Task3: Analyze the retrieved sensor data for Chiller 6's Return Temperature to detect any anomalies\n#Agent3: Time Series Analytics and Forecasting\n#Dependency3: #S2\n#ExpectedOutput3: Anomaly detection results for Chiller 6's Return Temperature\n\n#Task4: Generate a work order if an anomaly is detected in Chiller 6's Return Temperature\n#Agent4: WorkOrder Agent\n#Dependency4: #S3\n#ExpectedOutput4: A work order for corrective action if an anomaly is detected",
-  "scenario_id": 512,
-  "generated_at": "2025-10-20T00:42:38.438245Z"
-}

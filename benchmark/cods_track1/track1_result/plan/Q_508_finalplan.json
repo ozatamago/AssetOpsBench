@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Determine the start and end dates for the week of 2020-04-27.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: The start date (2020-04-27) and end date (2020-05-03) for the specified week.\n#Task2: Download the relevant sensor data for Chiller 6 at MAIN site for the specified week.\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: Sensor data for Chiller 6 at MAIN site from 2020-04-27 to 2020-05-03.\n#Task3: Analyze the downloaded sensor data to identify any anomalies in Chiller 6's performance metrics.\n#Agent3: Time Series Analytics and Forecasting\n#Dependency3: #S2\n#ExpectedOutput3: Anomaly detection results for Chiller 6's performance metrics during the specified week.\n#Task4: Summarize the findings to determine if there have been any anomalies in Chiller 6's performance metrics.\n#Agent4: WorkOrder Agent\n#Dependency4: #S3\n#ExpectedOutput4: A summary indicating whether any anomalies were detected in Chiller 6's performance metrics during the week of 2020-04-27 at MAIN.",
-  "scenario_id": 508,
-  "generated_at": "2025-10-20T00:35:10.527992Z"
-}

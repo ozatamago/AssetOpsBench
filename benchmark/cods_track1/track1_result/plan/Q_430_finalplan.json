@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Retrieve historical data for Chiller 9 with equipment ID CWC04009 at the main site for the period from 2020-05-01T12:30:00 to 2022-06-30T19:30:00.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: Historical data for Chiller 9 (CWC04009) at the main site from 2020-05-01T12:30:00 to 2022-06-30T19:30:00.\n\n#Task2: Analyze the retrieved historical data for anomalies or operation violations related to condenser water side fouling.\n#Agent2: Time Series Analytics and Forecasting\n#Dependency2: #S1\n#ExpectedOutput2: Analysis report highlighting any anomalies or operation violations in the chiller's performance.\n\n#Task3: Identify relevant sensors for monitoring condenser water side fouling failure mode for Chiller 9.\n#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency3: None\n#ExpectedOutput3: List of relevant sensors for monitoring condenser water side fouling.\n\n#Task4: Generate a work order based on the analysis and identified anomalies or operation violations.\n#Agent4: WorkOrder Agent\n#Dependency4: #S2 #S3\n#ExpectedOutput4: Guideline on work order generation for preventive or corrective actions.",
-  "scenario_id": 430,
-  "generated_at": "2025-10-20T00:01:05.330558Z"
-}

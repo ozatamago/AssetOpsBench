@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "final_plan": " \n#Task1: Determine if any time series forecasting models are supported by the available agents.\n#Agent1: Time Series Analytics and Forecasting\n#Dependency1: None\n#ExpectedOutput1: Confirmation on whether time series forecasting models are supported.\n#Task2: Verify the specific time series forecasting capabilities of the identified agent.\n#Agent2: Time Series Analytics and Forecasting\n#Dependency2: #S1\n#ExpectedOutput2: Details on the supported time series forecasting models or techniques.\n#Task3: Provide an example of how to use the supported time series forecasting models.\n#Agent3: Time Series Analytics and Forecasting\n#Dependency3: #S1 #S2\n#ExpectedOutput3: An example demonstrating the use of a supported time series forecasting model.",
+  "final_plan": " \n#Task1: Check if Time Series Analytics and Forecasting agent supports time series forecasting models.\n#Agent1: Time Series Analytics and Forecasting\n#Dependency1: None\n#ExpectedOutput1: Confirmation on whether time series forecasting models are supported.\n#Task2: List the available time series forecasting models.\n#Agent2: Time Series Analytics and Forecasting\n#Dependency2: #S1\n#ExpectedOutput2: List of available time series forecasting models.",
   "scenario_id": 203,
-  "generated_at": "2025-10-19T18:07:58.907525Z"
+  "generated_at": "2025-11-12T05:03:44.020786Z"
 }

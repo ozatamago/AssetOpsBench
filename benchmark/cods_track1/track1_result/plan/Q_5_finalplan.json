@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: List the assets at the MAIN site to verify if Chiller 6 is present.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: A list of assets at the MAIN site, confirming the presence of Chiller 6.\n#Task2: Retrieve metadata for Chiller 6 located at the MAIN site.\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: The metadata for Chiller 6 at the MAIN site, including relevant sensor information.",
-  "scenario_id": 5,
-  "generated_at": "2025-10-19T15:57:18.999097Z"
-}

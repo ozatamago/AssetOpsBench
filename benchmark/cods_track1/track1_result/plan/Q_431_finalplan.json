@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Retrieve historical data for chiller 9 with equipment ID CWC04009 for June 2020.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: Historical data for CWC04009 in June 2020, including relevant sensor readings.\n#Task2: Analyze the retrieved data to identify any anomalies or operation violations.\n#Agent2: Time Series Analytics and Forecasting\n#Dependency2: #S1\n#ExpectedOutput2: Analysis report highlighting any anomalies or operation violations in the data for CWC04009.\n#Task3: Check if there are any corrective work orders scheduled for CWC04009 based on the anomalies detected.\n#Agent3: WorkOrder Agent\n#Dependency3: #S2\n#ExpectedOutput3: List of corrective work orders scheduled for CWC04009, if any.\n#Task4: Determine if a new work order should be generated based on the analysis and existing work orders.\n#Agent4: WorkOrder Agent\n#Dependency4: #S2 #S3\n#ExpectedOutput4: Recommendation on whether to generate a new work order for CWC04009.",
-  "scenario_id": 431,
-  "generated_at": "2025-10-20T00:04:00.434321Z"
-}

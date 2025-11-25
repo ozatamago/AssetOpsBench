@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Determine the start and end dates for the last week of April 2020.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: The start date and end date for the last week of April 2020.\n\n#Task2: Download sensor data for Chiller 6 at MAIN site for the last week of April 2020.\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: Sensor data for Chiller 6 at MAIN site for the specified date range.\n\n#Task3: Verify if the downloaded data contains all required sensor information for Chiller 6.\n#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency3: #S2\n#ExpectedOutput3: Confirmation on whether the downloaded data includes all relevant sensors for Chiller 6.",
-  "scenario_id": 11,
-  "generated_at": "2025-10-19T17:00:27.653264Z"
-}

@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Retrieve sensor data for equipment CWC04009\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: Sensor data for equipment CWC04009\n\n#Task2: Analyze the retrieved sensor data to detect anomalies\n#Agent2: Time Series Analytics and Forecasting\n#Dependency2: #S1\n#ExpectedOutput2: Anomaly detection results for equipment CWC04009\n\n#Task3: Generate candidate work orders based on the anomaly detection results\n#Agent3: WorkOrder Agent\n#Dependency3: #S2\n#ExpectedOutput3: List of candidate work orders for equipment CWC04009\n\n#Task4: Summarize the work orders as a percentage\n#Agent4: WorkOrder Agent\n#Dependency4: #S3\n#ExpectedOutput4: Summary of work orders as percentage for CWC04009",
-  "scenario_id": 415,
-  "generated_at": "2025-10-19T19:17:24.875204Z"
-}

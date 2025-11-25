@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Retrieve the historical data for \"CHILLED WATER RETURN TEMP\" for asset CQPA AHU 2B at site MAIN on Sept 19, 2020 at 7pm.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: Historical data for \"CHILLED WATER RETURN TEMP\" for asset CQPA AHU 2B at site MAIN on Sept 19, 2020 at 7pm.\n\n#Task2: Verify if the retrieved data is for the correct asset and site.\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: Confirmation that the data is for CQPA AHU 2B at site MAIN.\n\n#Task3: Save the retrieved data to a file named as per the task requirements.\n#Agent3: IoT Data Download\n#Dependency3: #S1\n#ExpectedOutput3: Data saved to a file.",
-  "scenario_id": 48,
-  "generated_at": "2025-10-19T17:18:43.022192Z"
-}

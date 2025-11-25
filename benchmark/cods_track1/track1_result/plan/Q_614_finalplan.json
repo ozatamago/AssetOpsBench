@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Identify relevant sensors for monitoring the purge unit of Chiller 6 at the MAIN site to detect excess purge failure.\n#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency1: None\n#ExpectedOutput1: List of relevant sensors that can be used to monitor the purge unit of Chiller 6 for excess purge failure.\n\n#Task2: Download historical sensor data for the identified relevant sensors for Chiller 6 at the MAIN site.\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: Historical sensor data for the relevant sensors identified in #Task1.\n\n#Task3: Analyze the downloaded historical sensor data to detect any anomalies or patterns indicative of excess purge.\n#Agent3: Time Series Analytics and Forecasting\n#Dependency3: #S2\n#ExpectedOutput3: Analysis results indicating any anomalies or patterns in the sensor data that could be indicative of excess purge.\n\n#Task4: Create a work order for maintenance based on the analysis results to early detect the failure.\n#Agent4: WorkOrder Agent\n#Dependency4: #S3\n#ExpectedOutput4: A generated work order for maintenance actions to be taken to early detect the excess purge failure of Chiller 6's purge unit.",
-  "scenario_id": 614,
-  "generated_at": "2025-10-20T01:37:45.683442Z"
-}

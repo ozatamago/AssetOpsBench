@@ -1,8 +1,11 @@
+from __future__ import annotations
 from agent_hive.task import Task
 from pydantic import Field
 from typing import Dict, Any, List
 from agent_hive.enum import ContextType
-import json
+from pathlib import Path
+from datetime import datetime
+import json, os, tempfile, logging
 from agent_hive.workflows.base_workflow import Workflow
 from reactxen.utils.model_inference import watsonx_llm
 import re
@@ -13,6 +16,14 @@ import os
 import uuid
 import psycopg  # psycopg3
 from psycopg.rows import dict_row
+import json
+import os
+from typing import Any, Dict, List, Optional
+from decimal import Decimal
+from uuid import UUID
+from datetime import date, datetime
+import psycopg
+from psycopg.rows import dict_row
 
 logger = get_custom_logger(__name__)
 
@@ -22,6 +33,8 @@ logger = get_custom_logger(__name__)
 # =========================================================
 # END OF EDITABLE SECTION
 
+RESULT_DIR = "/home/track1_result/"
+PLAN_DIR = RESULT_DIR + "plan/"
 
 class NewPlanningWorkflow(Workflow):
     """
@@ -100,8 +113,8 @@ class NewPlanningWorkflow(Workflow):
         _ = self.watsonx_embed("ping")
 
 
-    def run(self, enable_summarization=False):
-        generated_steps, run_id, plan_id = self.generate_steps()
+    def run(self, enable_summarization=False, qid=None):
+        generated_steps, run_id, plan_id = self.generate_steps(qid=qid)
 
         sequential_workflow = SequentialWorkflow(
             tasks=generated_steps, context_type=ContextType.SELECTED
@@ -213,6 +226,522 @@ class NewPlanningWorkflow(Workflow):
     #     logger.info(f"Planned Tasks: \n{planned_tasks}")
 
     #     return planned_tasks
+
+    # search_triplets.py
+
+    # --- 可搬なヘルパー ---
+
+    def _vector_literal(self, vec: List[float]) -> str:
+        """pgvector の文字列表現 [v1, v2, ...] を生成"""
+        return "[" + ", ".join(f"{float(x):.6f}" for x in vec) + "]"
+
+    def _extract_keywords_with_llm(
+        self, 
+        user_question: str,
+        *,
+        llm_fn,            # 例: watsonx_llm
+        llm_model_id: str, # 例: "16"
+        known: Optional[List[str]] = None
+    ) -> List[str]:
+        """LLMでキーワード抽出（websearch_to_tsquery 用の語彙を返す）"""
+        ctx = ""
+        if known:
+            ctx = "Known related terms: " + ", ".join(known[:6]) + "\n"
+
+        prompt = (
+            "You extract search keywords for a Postgres retrieval system with full-text search "
+            "(websearch_to_tsquery, simple config) and pgvector.\n"
+            "Return ONLY a JSON array of 5–12 strings. No prose, no markdown.\n"
+            "Rules: keep domain terms, short 2–3 word phrases, lowercase except acronyms, "
+            "avoid stopwords, deduplicate.\n\n"
+            f"{ctx}"
+            f"QUESTION:\n{user_question}\n"
+        )
+        text = llm_fn(prompt, model_id=int(llm_model_id)).get("generated_text", "").strip()
+        try:
+            kws = json.loads(text)
+            if isinstance(kws, list) and all(isinstance(x, str) for x in kws):
+                # 軽い正規化
+                out, seen = [], set()
+                for k in (s.strip() for s in kws if s and s.strip()):
+                    key = k.lower()
+                    if key in seen:
+                        continue
+                    seen.add(key)
+                    out.append(k)
+                return out
+        except Exception:
+            pass
+        # フォールバック：カンマ区切り
+        parts = [p.strip() for p in text.replace("\n", " ").split(",")]
+        out, seen = [], set()
+        for k in parts:
+            if not k:
+                continue
+            key = k.lower()
+            if key in seen:
+                continue
+            seen.add(key)
+            out.append(k)
+        return out or [user_question]
+
+    def _get_embedding(self, text: str, *, embed_fn) -> List[float]:
+        """埋め込みベクトルを取得（1536次元など、実装に依存）"""
+        if not callable(embed_fn):
+            raise RuntimeError("embed_fn is required and must be callable")
+        vec = embed_fn(text)
+        if not isinstance(vec, (list, tuple)):
+            raise TypeError("embed_fn must return list[float]")
+        return list(vec)
+
+    # --- DBハイドレーション ---
+
+    def _fetch_traj_doc(self, conn, doc_id: str) -> Optional[dict]:
+        """traj_docs + traj_tasks を取得"""
+        with conn.cursor(row_factory=dict_row) as cur:
+            cur.execute("""
+                SELECT d.doc_id, d.json_id, d.text, d.tsv_all, d.text_vec
+                FROM traj_docs d
+                WHERE d.doc_id = %s
+                LIMIT 1;
+            """, (doc_id,))
+            doc = cur.fetchone()
+            if not doc:
+                return None
+            cur.execute("""
+                SELECT task_id, doc_id, task_number, task_description, final_answer
+                FROM traj_tasks
+                WHERE doc_id = %s
+                ORDER BY task_number ASC;
+            """, (doc_id,))
+            tasks = cur.fetchall()
+        doc["tasks"] = tasks
+        return doc
+
+    def _fetch_latest_score(self, conn, doc_id: str) -> Optional[dict]:
+        """dag_trajectory_score から doc_id 最新スコア（created_at DESC）"""
+        with conn.cursor(row_factory=dict_row) as cur:
+            cur.execute("""
+                SELECT score_id, plan_id, doc_id,
+                    num_edit, correct, num_partially, num_not, error_analysis, created_at
+                FROM dag_trajectory_score
+                WHERE doc_id = %s
+                ORDER BY created_at DESC
+                LIMIT 1;
+            """, (doc_id,))
+            return cur.fetchone()
+
+    def _fetch_dag_by_plan(self, conn, plan_id: str) -> Optional[dict]:
+        """plan_dag_rounds から DAG を取得（最新 1 件想定）"""
+        with conn.cursor(row_factory=dict_row) as cur:
+            cur.execute("""
+                SELECT
+                plan_id,
+                scenario_id,
+                created_at AS generated_at,
+                dag        AS final_plan
+                FROM plan_dag_rounds
+                WHERE plan_id = %s
+                ORDER BY round_t DESC
+                LIMIT 1;
+            """, (plan_id,))
+            return cur.fetchone()
+
+    # --- 主関数：検索して (DAG, trajectory, score) を束ねる ---
+
+    def search_similar_triplets(
+        self, 
+        db_url: str,
+        user_question: str,
+        *,
+        llm_fn,                # 例: watsonx_llm
+        llm_model_id: str,     # 例: "16"
+        embed_fn=None,         # 例: lambda s: watsonx_embed(s, model_id=...)
+        fts_limit: int = 3,
+        vector_k: int = 1,
+        max_triplets: int = 5
+    ) -> dict:
+        """
+        1) キーワード抽出 -> websearch_to_tsquery(simple) で traj_tasks + traj_docs を FTS
+        2) pgvector で traj_docs.text_vec のベクトル近傍
+        3) doc_id をユニーク化して、(trajectory, 最新 score, DAG) をハイドレート
+        戻り値:
+        {
+        "keywords": [...],
+        "fts_hits": [ {src, doc_id, rank, ...}, ... ],
+        "vector_hits": [ {doc_id, sim, ...} ] | [],
+        "triplets": [
+            {
+            "doc_id": "...",
+            "plan_id": "...",         # スコアがあれば
+            "trajectory": {...},      # traj_docs + tasks
+            "dag": {"final_plan": "...", ...} | None,
+            "score": {num_edit, correct, num_partially, num_not, error_analysis, ...} | None
+            }, ...
+        ]
+        }
+        """
+        # 0) キーワード
+        keywords = self._extract_keywords_with_llm(
+            user_question, llm_fn=llm_fn, llm_model_id=llm_model_id
+        )
+        # websearch_to_tsquery 用 OR 連結
+        tsquery_str = " OR ".join(f"\"{k.replace('\"','')}\"" for k in keywords if k.strip())
+
+        # 1) ベクトル用
+        vec_lit = None
+        if callable(embed_fn):
+            q_vec = self._get_embedding(user_question, embed_fn=embed_fn)
+            vec_lit = self._vector_literal(q_vec)
+
+        out = {"keywords": keywords, "fts_hits": [], "vector_hits": [], "triplets": []}
+
+        with psycopg.connect(db_url, row_factory=dict_row) as conn:
+            # --- 1) FTS（traj_tasks + traj_docs） ---
+            with conn.cursor() as cur:
+                cur.execute("""
+                    WITH q AS (SELECT websearch_to_tsquery('simple', %s) AS tsq),
+                    t_hits AS (
+                        SELECT
+                            'traj_tasks' AS src,
+                            tt.doc_id,
+                            tt.task_id,
+                            tt.task_number,
+                            ts_rank(tt.tsv_task, (SELECT tsq FROM q)) AS rank
+                        FROM traj_tasks tt
+                        WHERE tt.tsv_task @@ (SELECT tsq FROM q)
+                        ORDER BY rank DESC
+                        LIMIT 10
+                    ),
+                    d_hits AS (
+                        SELECT
+                            'traj_docs' AS src,
+                            td.doc_id,
+                            NULL::uuid    AS task_id,
+                            NULL::int     AS task_number,
+                            ts_rank(td.tsv_all, (SELECT tsq FROM q)) AS rank
+                        FROM traj_docs td
+                        WHERE td.tsv_all @@ (SELECT tsq FROM q)
+                        ORDER BY rank DESC
+                        LIMIT 10
+                    )
+                    SELECT * FROM (
+                        SELECT * FROM t_hits
+                        UNION ALL
+                        SELECT * FROM d_hits
+                    ) u
+                    ORDER BY rank DESC
+                    LIMIT %s;
+                """, (tsquery_str, fts_limit))
+                out["fts_hits"] = [dict(r) for r in cur.fetchall()]
+
+            # --- 2) ベクトル検索（traj_docs.text_vec） ---
+            if vec_lit is not None and vector_k > 0:
+                with conn.cursor() as cur:
+                    cur.execute("""
+                        WITH params AS (SELECT CAST(%s AS vector) AS qv)
+                        SELECT
+                        td.doc_id, td.json_id, td.text,
+                        (1 - (td.text_vec <=> (SELECT qv FROM params))) AS sim
+                        FROM traj_docs td
+                        WHERE td.text_vec IS NOT NULL
+                        ORDER BY td.text_vec <=> (SELECT qv FROM params)
+                        LIMIT %s;
+                    """, (vec_lit, vector_k))
+                    out["vector_hits"] = [dict(r) for r in cur.fetchall()]
+
+            # --- 3) ハイドレート（doc_id をユニーク化して上位 max_triplets 件） ---
+            doc_order: List[str] = []
+            for h in out["fts_hits"]:
+                did = h.get("doc_id")
+                if did and did not in doc_order:
+                    doc_order.append(did)
+            for h in out["vector_hits"]:
+                did = h.get("doc_id")
+                if did and did not in doc_order:
+                    doc_order.append(did)
+
+            for doc_id in doc_order[:max_triplets]:
+                trip: Dict[str, Any] = {"doc_id": doc_id, "plan_id": None, "trajectory": None, "dag": None, "score": None}
+                traj = self._fetch_traj_doc(conn, doc_id)
+                if traj:
+                    trip["trajectory"] = traj
+
+                score = self._fetch_latest_score(conn, doc_id)
+                if score:
+                    trip["score"] = score
+                    trip["plan_id"] = score["plan_id"]
+                    dag = self._fetch_dag_by_plan(conn, score["plan_id"])
+                    if dag:
+                        trip["dag"] = dag
+
+                out["triplets"].append(trip)
+
+        return out
+
+    def _clip(self, s: Optional[str], n: int) -> str:
+        if not s:
+            return ""
+        s = " ".join(str(s).split())
+        return s if len(s) <= n else (s[: n - 1] + "…")
+
+    def _json_default(self, o):
+        # json.dumps(..., default=_json_default) から呼ばれるフォールバック
+        if isinstance(o, Decimal):
+            # 数値として扱いたいなら float へ（丸め/桁落ちが困るなら str に）
+            return float(o)
+        if isinstance(o, (datetime, date)):
+            return o.isoformat()
+        if isinstance(o, UUID):
+            return str(o)
+        # 最後の手段（未知型は文字列化）
+        return str(o)
+
+    def _coerce_for_json(self, obj):
+        # 再帰的に Decimal 等を潰す（default だけでも可だが二重に堅くする）
+        if isinstance(obj, dict):
+            return {k: self._coerce_for_json(v) for k, v in obj.items()}
+        if isinstance(obj, list):
+            return [self._coerce_for_json(v) for v in obj]
+        if isinstance(obj, Decimal):
+            return float(obj)
+        if isinstance(obj, (datetime, date)):
+            return obj.isoformat()
+        if isinstance(obj, UUID):
+            return str(obj)
+        return obj
+
+
+    # 落ちている箇所（例：line 487 付近）の置き換え
+    def _minify_json(self, obj, max_chars: int = 2000) -> str:
+        obj = self._coerce_for_json(obj)  # ← 先に潰す
+        s = json.dumps(
+            obj,
+            ensure_ascii=False,
+            separators=(",", ":"),
+            default=self._json_default,     # ← 取りこぼしを拾う保険
+        )
+        return s[:max_chars]
+
+
+    def _trajectory_summary_for_prompt(
+        self,
+        traj_doc: Dict[str, Any],
+        *,
+        max_chars: int = 1200,
+        prefer_summarizer: bool = True,
+    ) -> str:
+        """
+        traj_docs (+ tasks) をプロンプト向けに短縮。
+        既存の self.summarise_all_fields があればそれを使用（textはそのまま抽出）し、
+        なければ簡易要約（text + 先頭タスク数件の要点のみ）。
+        """
+        try:
+            # 既存の抽出フォーマットに似せて生成（text と tasks 配列）
+            extracted = {
+                "text": traj_doc.get("text", ""),
+                "tasks": [
+                    {
+                        "task_description": t.get("task_description", ""),
+                        "final_answer": t.get("final_answer", ""),
+                        "review": t.get("review", ""),
+                    }
+                    for t in (traj_doc.get("tasks") or [])
+                ],
+            }
+
+            if prefer_summarizer and hasattr(self, "summarise_all_fields"):
+                # text は要約せずそのまま、他フィールドは短縮（あなたの実装仕様）
+                summed = self.summarise_all_fields(extracted, model_id=getattr(self, "llm_model_id", 16))
+                return self._minify_json(summed, max_chars)
+            else:
+                # フォールバック：手作業で短縮
+                tasks = extracted["tasks"][:3]  # 先頭3件
+                for t in tasks:
+                    t["task_description"] = self._clip(t["task_description"], 140)
+                    t["final_answer"]     = self._clip(t["final_answer"], 120)
+                    t["review"]           = self._clip(t["review"], 160)
+                preview = {"text": extracted["text"], "tasks": tasks}
+                return self._minify_json(preview, max_chars)
+        except Exception:
+            # どんな入力でも落ちないように
+            return self._minify_json({"text": traj_doc.get("text", "")}, max_chars)
+
+    # ================== [NEW] formatter: triplets -> few-shot prompt block ==================
+    def _format_triplets_for_prompt(
+        self,
+        search_hits: Dict[str, Any],
+        *,
+        per_triplets: int = 3,
+        dag_chars: int = 1500,
+        traj_chars: int = 1200,
+        score_chars: int = 600,
+    ) -> str:
+        """
+        search_similar_triplets() の返り値 search_hits["triplets"] を
+        Few-shot 用 <examples> ブロックに整形する。
+
+        生成形式（XML風の明確な区切り）:
+        <examples>
+          <example>
+            <dag>...</dag>
+            <trajectory>...</trajectory>
+            <gold_score_json>{"num_edit":..,"correct":..,"error_analysis":"..."}</gold_score_json>
+          </example>
+          ...
+        </examples>
+        """
+        trips: List[Dict[str, Any]] = search_hits.get("triplets") or []
+        blocks: List[str] = []
+
+        for ex in trips[:per_triplets]:
+            # --- DAG ---
+            dag_obj = None
+            if isinstance(ex.get("dag"), dict) and ex["dag"].get("final_plan"):
+                # plan_dag_rounds.final_plan は文字列 (DAGスクリプト) の想定
+                # 可能なら JSON として minify、無理ならそのまま切り詰め
+                raw = ex["dag"]["final_plan"]
+                try:
+                    dag_obj = json.loads(raw)
+                    dag_min = self._minify_json(dag_obj, dag_chars)
+                except Exception:
+                    dag_min = self._clip(raw, dag_chars)
+            else:
+                dag_min = ""
+
+            # --- trajectory (要約) ---
+            traj_min = ""
+            if isinstance(ex.get("trajectory"), dict):
+                traj_min = self._trajectory_summary_for_prompt(ex["trajectory"], max_chars=traj_chars, prefer_summarizer=True)
+
+            # --- score (gold) ---
+            score_obj = ex.get("score") or {}
+            gold = {
+                "num_edit": score_obj.get("num_edit", 0),
+                "correct": score_obj.get("correct", 0),
+                "error_analysis": score_obj.get("error_analysis", ""),
+            }
+            gold_txt = self._minify_json(gold, score_chars)
+
+            block = (
+                "<example>\n"
+                "<dag>\n" + dag_min + "\n</dag>\n"
+                "<trajectory>\n" + traj_min + "\n</trajectory>\n"
+                "<gold_score_json>\n" + gold_txt + "\n</gold_score_json>\n"
+                "</example>\n"
+            )
+            blocks.append(block)
+
+        return "<examples>\n" + "".join(blocks) + "</examples>"
+
+    # ================== [/NEW formatter] =====================================
+
+    def build_prediction_prompt(
+        self,
+        user_question: str,
+        candidate_dag_text: str,
+        hits_block: str,
+    ) -> str:
+        return (
+            "You are an impartial evaluator for planning DAGs.\n"
+            "Using the few-shot examples and retrieved context, judge ONLY the candidate.\n"
+            "Return a JSON with keys: correct (0.0–1.0), error_analysis (newline-separated; each line starts with [OK]/[PARTIAL]/[NOT], ≤15 words).\n"
+            "No extra keys, no prose.\n\n"
+            + hits_block + "\n\n"
+            "<candidate>\n"
+            "<user_question>\n" + user_question + "\n</user_question>\n"
+            "<dag_json_or_text>\n" + candidate_dag_text + "\n</dag_json_or_text>\n"
+            "</candidate>\n\n"
+            'Respond with ONLY this JSON: {"correct": float, "error_analysis": "<lines>"}'
+        )
+    
+    def _parse_llm_json_strict(self, text: str) -> Dict[str, Any]:
+        """
+        LLMの出力から JSON を堅牢に取得。
+        - そのまま json.loads
+        - 失敗したら {...} を最短・最長一致でサーチ
+        """
+        text = text.strip()
+        # まず素直に
+        try:
+            return json.loads(text)
+        except Exception:
+            pass
+        # コードフェンス除去
+        text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text.strip(), flags=re.IGNORECASE)
+        try:
+            return json.loads(text)
+        except Exception:
+            pass
+        # 最後の手段：{...} を抜き出す
+        m = re.search(r"\{.*\}", text, flags=re.DOTALL)
+        if m:
+            return json.loads(m.group(0))
+        raise ValueError("Failed to parse JSON from LLM output")
+
+    def predict_score(
+        self,
+        db_url: str,
+        user_question: str,
+        candidate_dag_text: str,
+        *,
+        fts_limit: int = 3,
+        vector_k: int = 1,
+        per_triplets: int = 3,
+    ) -> Dict[str, Any]:
+        hits = self.search_similar_triplets(
+            db_url=db_url,
+            user_question=user_question,
+            llm_fn=watsonx_llm,
+            llm_model_id=16,
+            # embed_fn=self.embed_fn,
+            fts_limit=fts_limit,
+            vector_k=vector_k,
+            max_triplets=max(per_triplets, 1),
+        )
+
+        examples_block = self._format_triplets_for_prompt(
+            hits,
+            per_triplets=per_triplets,
+            dag_chars=1500,
+            traj_chars=1200,
+            score_chars=600,
+        )
+
+        prompt = self.build_prediction_prompt(
+            user_question=user_question,
+            candidate_dag_text=candidate_dag_text,
+            hits_block=examples_block,
+        )
+
+        llm_text = (watsonx_llm(prompt, model_id=16) or {}).get("generated_text", "").strip()
+        print(f"llm_text: {llm_text}")
+
+        try:
+            parsed = self._parse_llm_json_strict(llm_text)
+            print(f"parsed: {parsed}")
+
+        except Exception:
+            parsed = {"correct": 0.0, "error_analysis": ""}
+
+        correct = parsed.get("correct", 0.0)
+        try:
+            correct = float(correct)
+        except Exception:
+            correct = 0.0
+        correct = max(0.0, min(1.0, correct))
+
+        ea = parsed.get("error_analysis", "")
+        if isinstance(ea, list):
+            ea = "\n".join(str(x) for x in ea)
+        else:
+            ea = str(ea or "")
+
+        return {
+            "user_question": user_question,
+            "correct": correct,
+            "error_analysis": ea,
+        }
 
     # ================== [NEW] keyword & vector search helper ==================
     def search_task_description(
@@ -744,11 +1273,132 @@ class NewPlanningWorkflow(Workflow):
 
         return (len(errors) == 0, errors)
 
-    def _build_repair_prompt(self, base_prompt: str, original_plan: str, errors: list[str], agents_allowed):
+    def _build_repair_prompt(self, base_prompt: str, original_plan: str, errors: list[str], agents_allowed, dag_score=None):
         OUTPUT_MARKER = "Output (your generated plan) ⬇️:"
 
         # base_prompt から該当文を1回だけ除去
         base_wo_marker = base_prompt.replace(OUTPUT_MARKER, "", 1).rstrip()
+
+        tool_dependencies_explanation="""
+            Here is tool dependencies that you can use and an example of DAG according to this tool dependencies.\n
+            Create DAG by this tool dependencies with referencing this example.
+
+            DAG:
+                sites: []
+                assets(site_name): [sites]
+                sensors(site_name, assetnum): [assets(site_name)]
+                jsonreader(file_path): [sensors(site_name, assetnum)]
+                fileparser(file_path): [jsonreader(file_path)]
+                preprocess(clean_df): [fileparser(file_path)]
+                history(site_name, assetnum, start, final): [preprocess(clean_df)]
+                data_visualizer: [history(site_name, assetnum, start, final)]
+                get_failure_modes: [history(site_name, assetnum, start, final)]
+                fm_sensor_mapping: [get_failure_modes, preprocess(clean_df)]
+                aitasks: [fm_sensor_mapping, data_visualizer]
+                tsfmmodels: [aitasks]
+                tsfm_forecasting: [tsfmmodels, preprocess(clean_df)]
+                tsfm_integrated_tsad: [tsfm_forecasting]
+                reportbuilder: [tsfm_integrated_tsad]
+                servicenowapi: [reportbuilder]
+
+            question: >
+            The pump at Site B has been vibrating unusually since this morning.
+            Can you analyze the vibration and flow sensor data, compare it with historical trends,
+            and identify whether the pump is at risk of mechanical failure?
+
+            explanation: |
+            1. The user asks about abnormal vibration in a pump. The AI first locates the site and the specific pump asset
+                through `sites` and `assets`, then collects vibration and flow data from connected `sensors`.
+            2. The sensor data arrives as JSON, so `jsonreader` and `fileparser` convert it into structured numerical arrays.
+            3. The `preprocess` module cleans outliers, aligns timestamps, and filters noise in vibration signals.
+            4. The AI retrieves historical vibration and flow rate data through `history` to establish a baseline of normal operation.
+            5. Using `data_visualizer`, the system plots vibration amplitude and flow variations over time to spot visible spikes or frequency drifts.
+            6. Next, `get_failure_modes` retrieves known pump failure patterns (e.g., bearing wear, shaft misalignment),
+                and `fm_sensor_mapping` connects those failure modes to specific sensors (e.g., accelerometers, flow meters).
+            7. The `aitasks` planner decides to run anomaly detection on the vibration data using the TSFM models.
+            8. `tsfmmodels` loads appropriate models for frequency analysis and predictive monitoring.
+            9. `tsfm_forecasting` estimates the expected vibration pattern for the next few hours.
+            10. `tsfm_integrated_tsad` compares real data to the forecast, finding abnormal spikes indicating possible bearing damage.
+            11. Finally, `reportbuilder` summarizes the results — highlighting rising vibration amplitude and recommending inspection.
+                The `servicenowapi` tool automatically generates a maintenance ticket for preventive servicing.
+            expected_dag: |
+            #Task1: Discover available sites
+            #Agent1: IoT Data Download
+            #Dependency1: None
+            #ExpectedOutput1: List of site names
+
+            #Task2: Resolve assets at Site B
+            #Agent2: IoT Data Download
+            #Dependency2: #S1
+            #ExpectedOutput2: Asset list for Site B including the target pump
+
+            #Task3: List sensors for the target pump
+            #Agent3: IoT Data Download
+            #Dependency3: #S2
+            #ExpectedOutput3: Sensor list and file_path(s) for vibration and flow
+
+            #Task4: Read sensor JSON files
+            #Agent4: IoT Data Download
+            #Dependency4: #S3
+            #ExpectedOutput4: Parsed sensor tables from JSON
+
+            #Task5: Preprocess and align time-series
+            #Agent5: Time Series Analytics and Forecasting
+            #Dependency5: #S4
+            #ExpectedOutput5: Cleaned and time-aligned dataframe(s)
+
+            #Task6: Fetch historical vibration/flow data window
+            #Agent6: IoT Data Download
+            #Dependency6: #S4
+            #ExpectedOutput6: Historical timeseries dataframe(s)
+
+            #Task7: Visualize current vs historical trends
+            #Agent7: Time Series Analytics and Forecasting
+            #Dependency7: #S5 #S6
+            #ExpectedOutput7: Trend plots and summary statistics
+
+            #Task8: Retrieve pump failure modes
+            #Agent8: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+            #Dependency8: #S6
+            #ExpectedOutput8: Candidate failure modes relevant to pumps
+
+            #Task9: Map failure modes to sensors
+            #Agent9: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+            #Dependency9: #S8 #S5
+            #ExpectedOutput9: Relevant sensors per failure mode
+
+            #Task10: Short-term forecasting with TSFM
+            #Agent10: Time Series Analytics and Forecasting
+            #Dependency10: #S5
+            #ExpectedOutput10: Forecasted vibration and flow series
+
+            #Task11: Integrated TS anomaly detection vs forecast and baseline
+            #Agent11: Time Series Analytics and Forecasting
+            #Dependency11: #S6 #S10
+            #ExpectedOutput11: Anomaly scores and abnormal intervals
+
+            #Task12: Build maintenance report
+            #Agent12: WorkOrder Agent
+            #Dependency12: #S7 #S9 #S11
+            #ExpectedOutput12: Summary report with risk assessment and recommendations
+
+            #Task13: Open preventive maintenance ticket
+            #Agent13: WorkOrder Agent
+            #Dependency13: #S12
+            #ExpectedOutput13: Created ServiceNow ticket ID for inspection
+
+        """
+
+        dag_and_score=f"""
+            The original plan has the following predicted score and error
+            Fields
+            •	correct: float \in [0, 1]
+            •	error_analysis: text
+
+            {dag_score}
+
+            Create well-worked DAG based on it.
+        """
 
         rules = (
             "Fix the issues with minimal edits. If there are no problems, you must output Original Plan as is. "
@@ -764,6 +1414,8 @@ class NewPlanningWorkflow(Workflow):
 
         return (
             f"{base_wo_marker}\n\n"
+            f"Predicted DAG score and error:\n{dag_and_score}"
+            # f"Tool dependencies and question and DAG example:\n{tool_dependencies_explanation}"
             "Issues:\n- " + "\n- ".join(errors) + "\n\n"
             "Original Plan:\n" + original_plan + "\n\n" + rules + "\n\n" + OUTPUT_MARKER
         )
@@ -942,7 +1594,7 @@ class NewPlanningWorkflow(Workflow):
                 return cur.fetchall()
 
 
-    def generate_steps(self, save_plan=False, saved_plan_filename=""):
+    def generate_steps(self, save_plan=False, saved_plan_filename="", qid=None):
         task = self.tasks[0]
         agent_descriptions = ""
 
@@ -1057,15 +1709,18 @@ class NewPlanningWorkflow(Workflow):
 
         # 0.5) Pre-parse validation + reflexive repair (up to 3 rounds)
         agents_allowed = [a.name for a in task.agents]
+        print(f"agents_allowed: {agents_allowed}")
 
         T = 3
         for t in range(T):
             ok, errs = self._validate_plan_text(final_plan, agents_allowed)
+            predicted_score=self.predict_score(DB_URL, task.description, final_plan)
             print(f"ok: {ok}, errs: {errs}")
-            if ok:
-                break
+            print(f"predicted_score: {predicted_score}")
+            if ok and predicted_score["correct"]>0.6:
+                break  
 
-            repair_prompt = self._build_repair_prompt(prompt, final_plan, errs, agents_allowed)
+            repair_prompt = self._build_repair_prompt(prompt, final_plan, errs, agents_allowed, predicted_score)
             print(f"repair_prompt: {repair_prompt}")
             final_plan = watsonx_llm(repair_prompt, model_id=self.llm)["generated_text"]
             print(f"final_plan: {final_plan}")
@@ -1082,6 +1737,39 @@ class NewPlanningWorkflow(Workflow):
                 answer=final_plan,
                 dag=dag_json
             )
+
+        ok, errs = self._validate_plan_text(final_plan, agents_allowed)
+        print(f"ok: {ok}, errs: {errs}")
+        if ok:
+            out_dir = Path(PLAN_DIR)
+            out_dir.mkdir(parents=True, exist_ok=True)  
+
+            out_path = out_dir / f"Q_{qid}_finalplan.json"
+
+            payload = {
+                "ok": True,
+                "final_plan": final_plan,
+                "scenario_id": qid,
+                "generated_at": datetime.utcnow().isoformat() + "Z",
+            }
+
+            fd, tmp = tempfile.mkstemp(
+                dir=str(out_dir),
+                prefix=out_path.name + ".",
+                suffix=".tmp"
+            )
+            try:
+                with os.fdopen(fd, "w", encoding="utf-8") as f:
+                    json.dump(payload, f, ensure_ascii=False, indent=2)
+                    f.write("\n")
+                os.replace(tmp, str(out_path))  
+                print(f"[plan] wrote: {out_path}")
+            except Exception:
+                try:
+                    os.unlink(tmp)
+                except OSError:
+                    pass
+                raise
 
         # 1) Parse validated text into fields
         task_pattern = r"#Task\d+: (.+)"

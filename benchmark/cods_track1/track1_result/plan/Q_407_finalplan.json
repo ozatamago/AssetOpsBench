@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "final_plan": " \n#Task1: Retrieve the events of equipment CWC04009 for the year 2021.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: A JSON file containing the events of equipment CWC04009 for the year 2021.\n#Task2: Analyze the retrieved events and provide a daily count of alert and anomaly events for 2021.\n#Agent2: Time Series Analytics and Forecasting\n#Dependency2: #S1\n#ExpectedOutput2: A JSON file containing the daily count of alert and anomaly events for equipment CWC04009 in 2021.\n#Task3: Generate a summary report based on the daily count of alert and anomaly events.\n#Agent3: WorkOrder Agent\n#Dependency3: #S2\n#ExpectedOutput3: A summary report providing the daily count of alert and anomaly events for equipment CWC04009 in 2021.",
+  "final_plan": " \n#Task1: Download the events data for equipment CWC04009 for the year 2021.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: Events data for CWC04009 in 2021.\n\n#Task2: Analyze the downloaded events data to identify and count alert and anomaly events on a daily basis.\n#Agent2: Time Series Analytics and Forecasting\n#Dependency2: #S1\n#ExpectedOutput2: Daily count of alert and anomaly events for CWC04009 in 2021.\n\n#Task3: Generate a summary report of the daily count of alert and anomaly events for CWC04009 in 2021.\n#Agent3: WorkOrder Agent\n#Dependency3: #S2\n#ExpectedOutput3: Summary report of daily alert and anomaly event counts for CWC04009 in 2021.",
   "scenario_id": 407,
-  "generated_at": "2025-10-19T19:02:17.299107Z"
+  "generated_at": "2025-11-12T15:45:05.069893Z"
 }

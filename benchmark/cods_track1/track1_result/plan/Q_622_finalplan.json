@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Review the anomaly detection results in the file '/tmp/tsad_conformal.csv' to identify any anomalies.\n#Agent1: Time Series Analytics and Forecasting\n#Dependency1: None\n#ExpectedOutput1: Analysis of the anomalies detected in the '/tmp/tsad_conformal.csv' file.\n\n#Task2: Based on the anomalies identified, determine if a work order should be created.\n#Agent2: WorkOrder Agent\n#Dependency2: #S1\n#ExpectedOutput2: Recommendation on whether to create a work order.\n\n#Task3: If a work order is recommended, generate the work order details.\n#Agent3: WorkOrder Agent\n#Dependency3: #S2\n#ExpectedOutput3: Details of the work order.",
-  "scenario_id": 622,
-  "generated_at": "2025-10-20T02:00:29.745546Z"
-}

@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Download historical sensor data for chiller tonnage.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: Historical data for chiller tonnage in a JSON file.\n\n#Task2: Analyze the downloaded time-series data for chiller tonnage to detect anomalies.\n#Agent2: Time Series Analytics and Forecasting\n#Dependency2: #S1\n#ExpectedOutput2: Anomaly detection results for chiller tonnage.\n\n#Task3: Review the anomalies detected in the chiller tonnage data and decide on creating a work order.\n#Agent3: WorkOrder Agent\n#Dependency3: #S2\n#ExpectedOutput3: Recommendation on whether to create a work order based on the anomalies detected.\n\n#Task4: Create a work order if necessary based on the recommendation.\n#Agent4: WorkOrder Agent\n#Dependency4: #S3\n#ExpectedOutput4: Work order created if anomalies are significant.",
-  "scenario_id": 621,
-  "generated_at": "2025-10-20T01:58:08.093666Z"
-}

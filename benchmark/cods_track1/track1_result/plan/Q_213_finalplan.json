@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Identify models with context length 96 using the Time Series Analytics and Forecasting agent.\n#Agent1: Time Series Analytics and Forecasting\n#Dependency1: None\n#ExpectedOutput1: A list of models with context length 96.",
-  "scenario_id": 213,
-  "generated_at": "2025-10-19T18:19:41.807911Z"
-}

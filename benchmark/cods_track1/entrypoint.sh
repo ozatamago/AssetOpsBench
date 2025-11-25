@@ -15,17 +15,14 @@ BATCH_SIZE=10
 source /opt/conda/etc/profile.d/conda.sh
 conda activate assetopsbench
 
-# （確認だけ。無くてもOK）
 python -m pip show agent_hive || true
 python -m pip show reactxen || true
 python -m pip show fmsr_agent || true
 python -m pip show iotagent || true
 python -m pip show tsfmagent || true
 
-# 便利パッケージ（任意）
 python -m pip install -qU "psycopg[binary]>=3.1" "ibm-watsonx-ai>=1.4.0"
 
-# ==== ID 列挙 ====
 emit_ids() {
   if command -v jq >/dev/null 2>&1; then
     jq -r 'select(.id != null) | .id' "$JSONL_FILE"
@@ -48,7 +45,6 @@ PY
 extract_num() { grep -oE '[0-9]+' <<<"$1" | head -1 || true; }
 has_trajectory() { [[ -n "$1" ]] && [[ -f "${TRAJECTORY_DIR}/Q_${1}_trajectory.json" ]]; }
 
-# ==== PENDING を集める（既存はスキップ）====
 PENDING_IDS=()
 while IFS= read -r ID; do
   [[ -n "$ID" ]] || continue
@@ -69,7 +65,6 @@ if (( TOTAL == 0 )); then
   exit 0
 fi
 
-# ==== 10件ずつ実行 ====
 batch=1
 for ((i=0; i<TOTAL; i+=BATCH_SIZE)); do
   end=$(( i + BATCH_SIZE )); (( end > TOTAL )) && end=$TOTAL
@@ -86,29 +81,41 @@ for ((i=0; i<TOTAL; i+=BATCH_SIZE)); do
   ((batch++))
 done
 
-# コンテナを起動状態に維持（ログ確認用）
 tail -f /dev/null
 
+#!/bin/bash
+# Activate conda env
+source /opt/conda/etc/profile.d/conda.sh
+conda activate assetopsbench
 
-# #!/bin/bash
-# # Activate conda env
-# source /opt/conda/etc/profile.d/conda.sh
-# conda activate assetopsbench
+which python
+python --version
+python -m pip show agent_hive
+python -m pip show reactxen
+python -m pip show fmsr_agent
+python -m pip show iotagent
+python -m pip show tsfmagent
 
-# which python
-# python --version
-# python -m pip show agent_hive
-# python -m pip show reactxen
-# python -m pip show fmsr_agent
-# python -m pip show iotagent
-# python -m pip show tsfmagent
+python -m pip install -qU "psycopg[binary]>=3.1"
 
-# python -m pip install -qU "psycopg[binary]>=3.1"
+# python /home/auto_scoring.py
 
-# # Run the entire thing
-# # 1 - 141
-# python /home/run_track_1.py --utterance_ids 1
+# python /home/summarize.py Q_4
+# python /home/summarize.py Q_6
+# python /home/summarize.py Q_42
+# python /home/summarize.py Q_101
+# python /home/summarize.py Q_102
+# python /home/summarize.py Q_201
+# python /home/summarize.py Q_218
+# python /home/summarize.py Q_219
+# python /home/summarize.py Q_401
+# python /home/summarize.py Q_410
 
-# # Keep the container alive
-# tail -f /dev/null
+# Run the entire thing
+# 1 - 141
+python /home/run_track_1.py --utterance_ids 1
+
+# Keep the container alive
+tail -f /dev/null
+
 

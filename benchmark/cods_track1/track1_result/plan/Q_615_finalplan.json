@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Identify the relevant sensors for monitoring overheating failure of Chiller 6 at MAIN site.\n#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency1: None\n#ExpectedOutput1: List of relevant sensors for monitoring overheating failure of Chiller 6.\n\n#Task2: Retrieve historical data for the relevant sensors identified in Task 1 for Chiller 6 at MAIN site.\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: Historical sensor data for the relevant sensors.\n\n#Task3: Generate a machine learning recipe for detecting overheating failure using the historical data retrieved in Task 2.\n#Agent3: Time Series Analytics and Forecasting\n#Dependency3: #S2\n#ExpectedOutput3: Machine learning recipe including feature sensors and target sensor for detecting overheating failure.\n\n#Task4: Create a work order for inspecting Chiller 6 due to suspected overheating failure based on the machine learning recipe generated in Task 3.\n#Agent4: WorkOrder Agent\n#Dependency4: #S3\n#ExpectedOutput4: Work order for inspecting Chiller 6.",
-  "scenario_id": 615,
-  "generated_at": "2025-10-20T01:40:37.975668Z"
-}

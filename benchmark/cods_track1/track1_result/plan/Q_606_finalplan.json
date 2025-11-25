@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: List all failure modes of Chiller 6.\n#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency1: None\n#ExpectedOutput1: A list of failure modes associated with Chiller 6.\n\n#Task2: Identify the failure modes of Chiller 6 that can be detected by temperature sensors and power input sensors.\n#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency2: #S1\n#ExpectedOutput2: A list of failure modes of Chiller 6 that are detectable by temperature sensors and power input sensors.\n\n#Task3: Verify if Chiller 6 is located at MAIN site.\n#Agent3: IoT Data Download\n#Dependency3: None\n#ExpectedOutput3: Confirmation that Chiller 6 is at MAIN site or its location details.",
-  "scenario_id": 606,
-  "generated_at": "2025-10-20T01:14:13.020337Z"
-}

@@ -1,0 +1,11 @@
+{
+  "text": "List all failure modes of asset Chiller 6.",
+  "tasks": [
+    {
+      "task_description": "List failure modes of Chiller 6.",
+      "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
+      "final_answer": "Refrigerant Operated Control Valve Failed spring.",
+      "review": "Task Status: Accomplished | used 'Get Failure Modes' tool correctly | none</response>\n<response>used 'Get Failure Modes' tool correctly | none</response> is the solution."
+    }
+  ]
+}

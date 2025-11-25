@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Identify the relevant sensors for monitoring condenser Water side fouling failure for Chiller 9.\n#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency1: None\n#ExpectedOutput1: List of relevant sensors for monitoring condenser Water side fouling failure for Chiller 9.\n\n#Task2: Download historical sensor data for the identified relevant sensors for Chiller 9 from 2020-04-20T12:30:00 to 2020-05-12T19:30:00.\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: Historical sensor data for Chiller 9 in JSON format.\n\n#Task3: Analyze the downloaded sensor data to identify anomalous behaviors related to condenser Water side fouling.\n#Agent3: Time Series Analytics and Forecasting\n#Dependency3: #S2\n#ExpectedOutput3: Analysis report highlighting any anomalies detected in the sensor data.\n\n#Task4: Generate a work order recommendation based on the analysis report for Chiller 9.\n#Agent4: WorkOrder Agent\n#Dependency4: #S3\n#ExpectedOutput4: Work order recommendation for preventive or corrective actions for Chiller 9.",
-  "scenario_id": 433,
-  "generated_at": "2025-10-20T00:08:36.779351Z"
-}

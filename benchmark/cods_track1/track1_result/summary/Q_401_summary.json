@@ -1,0 +1,23 @@
+{
+  "text": "I would like to check the work order distribution for the equipment labeled as CWC04013 for the year 2017.",
+  "tasks": [
+    {
+      "task_description": "List work orders for equipment CWC04013 in 2017.",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "work_orders_CWC04013_2021.json",
+      "review": "Task Status: Accomplished | retrieved work orders for CWC04013 in 2017 | none. \n\nretrieved work orders for CWC04013 in 2017 | none."
+    },
+    {
+      "task_description": "Analyze distribution of identified work orders",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "Empty</response>",
+      "review": "Task Status: Not Accomplished | verify functions and provide informative response."
+    },
+    {
+      "task_description": "Check work order distribution for anomalies and potential issues.",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "",
+      "review": "Task Status: Not Accomplished | verify file names and paths"
+    }
+  ]
+}

@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Retrieve historical data for equipment CWC04009 for the last week.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: Historical data for equipment CWC04009 from 2017-12-26 to 2018-01-02.\n\n#Task2: Analyze the retrieved historical data to identify any anomalies or alerts.\n#Agent2: Time Series Analytics and Forecasting\n#Dependency2: #S1\n#ExpectedOutput2: Analysis report indicating any anomalies or alerts in the historical data.\n\n#Task3: Predict the next work order probability for equipment CWC04009 using the analysis report.\n#Agent3: WorkOrder Agent\n#Dependency3: #S2\n#ExpectedOutput3: Predicted probability of the next work order for equipment CWC04009.\n\n#Task4: Output the predicted probability.\n#Agent4: WorkOrder Agent\n#Dependency4: #S3\n#ExpectedOutput4: Output of the predict_next_work_order_probability function with the predicted probability.",
-  "scenario_id": 413,
-  "generated_at": "2025-10-19T19:13:52.132485Z"
-}

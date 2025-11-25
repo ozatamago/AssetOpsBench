@@ -1,0 +1,23 @@
+{
+  "text": "what was the supply temperature from CQPA AHU 2B on sept 19, 2020 at quarter to midnight, at site MAIN? return in a file",
+  "tasks": [
+    {
+      "task_description": "Identify correct asset and site for sensor data.",
+      "agent_name": "IoT Data Download",
+      "final_answer": "MAIN",
+      "review": "Task Status: Partially Accomplished | identified available site & assets | list assets & sites without assuming required sensor data"
+    },
+    {
+      "task_description": "Fetch supply temperature data for CQPA AHU 2B at MAIN on Sept 19 2020 at 23:45",
+      "agent_name": "IoT Data Download",
+      "final_answer": "",
+      "review": "Task Status: Not Accomplished | encountered indexing error | handle 'no_usable_index' error</response>\n```<response>encountered indexing error | handle 'no_usable_index' error</response>```"
+    },
+    {
+      "task_description": "Export retrieved data to file",
+      "agent_name": "IoT Data Download",
+      "final_answer": "EXPORT",
+      "review": "Task Status: Not Accomplished | claimed success without task completion | perform file writing operation</response>\n```<response>claimed success without task completion | perform file writing operation</response>```"
+    }
+  ]
+}

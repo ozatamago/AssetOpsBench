@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Identify if any time series forecasting models are supported by the available agents.\n#Agent1: Time Series Analytics and Forecasting\n#Dependency1: None\n#ExpectedOutput1: Confirmation on whether time series forecasting models are supported.\n\n#Task2: Analyze the capability of the identified model for energy forecasting.\n#Agent2: Time Series Analytics and Forecasting\n#Dependency2: #S1\n#ExpectedOutput2: Details on how the model can be used for energy forecasting.\n\n#Task3: Verify if the model can be applied to a specific asset, such as a chiller.\n#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency3: #S2\n#ExpectedOutput3: Information on relevant sensors for the asset that can be used with the forecasting model.\n\n#Task4: Generate a work order for maintenance based on the forecasting model's output.\n#Agent4: WorkOrder Agent\n#Dependency4: #S3\n#ExpectedOutput4: A work order for inspecting or maintaining the asset based on the forecasting results.",
-  "scenario_id": 211,
-  "generated_at": "2025-10-19T18:16:02.750763Z"
-}
