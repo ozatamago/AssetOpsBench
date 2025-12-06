@@ -1,0 +1,23 @@
+{
+  "text": "Get the daily count of alert, anomaly and work order event for the May 2020 for equipment CWC04009.",
+  "tasks": [
+    {
+      "task_description": "Download events data for equipment CWC04009 for May 2020",
+      "agent_name": "IoT Data Download",
+      "final_answer": "",
+      "review": "Task Status: Not Accomplished | identified site incorrectly | provide clear message for unrecognized asset</response>\n```<response>identified site incorrectly | provide clear message for unrecognized asset</response>```"
+    },
+    {
+      "task_description": "Analyze downloaded events data to identify different event types",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "No events or work orders found\nbecomes \nNo events or work orders found. \n\nThe final rewritten response is \nNo events or work orders found.",
+      "review": "Task Status: Accomplished | analyzed events data correctly | none</response>"
+    },
+    {
+      "task_description": "Fetch daily count of events for May 2020.",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "NO JSON</response>",
+      "review": "Task Status: Not Accomplished | failed to complete task | handle unavailable files</response> \n```<response>failed to complete task | handle unavailable files</response>```"
+    }
+  ]
+}

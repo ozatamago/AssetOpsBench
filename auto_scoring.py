@@ -280,94 +280,94 @@ def auto_score_dag_trajectory(
     }
     return result
 
-RESULT_DIR = "/home/track1_result/"
-PLAN_DIR = RESULT_DIR + "plan/"
-TRAJECTORY_DIR = RESULT_DIR + "trajectory/"
-SUMMARY_DIR = RESULT_DIR + "summary/"
+# RESULT_DIR = "/home/track1_result/"
+# PLAN_DIR = RESULT_DIR + "plan/"
+# TRAJECTORY_DIR = RESULT_DIR + "trajectory/"
+# SUMMARY_DIR = RESULT_DIR + "summary/"
 
-dag_path=f"{PLAN_DIR}Q_410_finalplan.json"
-traj_path=f"{TRAJECTORY_DIR}Q_410_trajectory.json"
-human_scored_triplets= """
-Q6
-dag: 
-{
-  "ok": true,
-  "final_plan": " \n#Task1: List the assets at the MAIN site\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: List of assets at the MAIN site\n#Task2: Verify if Chiller 9 is present in the list of assets at the MAIN site\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: Confirmation that Chiller 9 is among the assets listed\n#Task3: Retrieve asset details for Chiller 9 at the MAIN site\n#Agent3: IoT Data Download\n#Dependency3: #S2\n#ExpectedOutput3: Asset details for Chiller 9",
-  "scenario_id": 6,
-  "generated_at": "2025-10-19T15:58:17.539122Z"
-}
-trajectory: 
-{
-  "text": "Get the asset details for Chiller 9 at the MAIN site.",
-  "tasks": [
-    {
-      "task_description": "List assets at MAIN site",
-      "agent_name": "IoT Data Download",
-      "final_answer": "Question</response>",
-      "review": "Task Status: Accomplished | executed 'assets' tool successfully | avoid redundant actions</response>\n```<response>executed 'assets' tool successfully | avoid redundant actions</response>```"
-    },
-    {
-      "task_description": "Check if Chiller 9 is in MAIN site assets",
-      "agent_name": "IoT Data Download",
-      "final_answer": "MAIN</response>",
-      "review": "Task Status: Accomplished | read JSON file correctly | none</response>"
-    },
-    {
-      "task_description": "Fetch Chiller 9 asset details from MAIN.",
-      "agent_name": "IoT Data Download",
-      "final_answer": "MAIN</response>",
-      "review": "Task Status: Partially Accomplished | identified relevant JSON file | extract Chiller 9 details from JSON file."
-    }
-  ]
-}
-score: 
-Q6
-- num_edit: 0
-- correct: 0.4
-- num_partially: 1
-- num_not: 0
-- error_analysis: Symptom 1: Final answer lacks required details
-The response returns only a file path and even appends stray boilerplate (“Here’s the rewritten response… Question”), instead of extracting and presenting Chiller 9’s actual fields (e.g., id, name, site, metadata). Fix: After obtaining the file path, call jsonreader, filter for “Chiller 9”, and surface the concrete fields in the final answer. Keep the final answer clean and free of internal notes. Symptom 2: Action-input contamination A tool call was issued with site_name=MAIN ## Step 5: Analyze the result ..., causing unknown site "MAIN ## Step 5...". This is classic argument leakage from thoughts/explanations into the action payload. Fix: Enforce strict tool-call hygiene: arguments must be structured inputs only (no commentary). Many tool-use guides emphasize separating “reasoning” from “tool arguments” and keeping final outputs free of scaffolding text. Symptom 3: Redundant & brittle calls The agent repeats the assets call after already getting a valid file, then errors. Fix: Cache observations and avoid repeated identical calls unless inputs change. Transition immediately from “list” → “read/parse” → “filter” → “final answer.” This reduces surface area for failures and aligns with robust ReAct-style loops. Symptom 4: Improper output handling The final message includes scaffolding text (“Question”) and references to internal formatting, which is a form of improper output handling in agent pipelines. Fix: Post-process the final answer to strip scaffolding and ensure only the user-facing result remains (a practice echoed in LLM agent risk/best-practice write-ups). 
+# dag_path=f"{PLAN_DIR}Q_410_finalplan.json"
+# traj_path=f"{TRAJECTORY_DIR}Q_410_trajectory.json"
+# human_scored_triplets= """
+# Q6
+# dag: 
+# {
+#   "ok": true,
+#   "final_plan": " \n#Task1: List the assets at the MAIN site\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: List of assets at the MAIN site\n#Task2: Verify if Chiller 9 is present in the list of assets at the MAIN site\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: Confirmation that Chiller 9 is among the assets listed\n#Task3: Retrieve asset details for Chiller 9 at the MAIN site\n#Agent3: IoT Data Download\n#Dependency3: #S2\n#ExpectedOutput3: Asset details for Chiller 9",
+#   "scenario_id": 6,
+#   "generated_at": "2025-10-19T15:58:17.539122Z"
+# }
+# trajectory: 
+# {
+#   "text": "Get the asset details for Chiller 9 at the MAIN site.",
+#   "tasks": [
+#     {
+#       "task_description": "List assets at MAIN site",
+#       "agent_name": "IoT Data Download",
+#       "final_answer": "Question</response>",
+#       "review": "Task Status: Accomplished | executed 'assets' tool successfully | avoid redundant actions</response>\n```<response>executed 'assets' tool successfully | avoid redundant actions</response>```"
+#     },
+#     {
+#       "task_description": "Check if Chiller 9 is in MAIN site assets",
+#       "agent_name": "IoT Data Download",
+#       "final_answer": "MAIN</response>",
+#       "review": "Task Status: Accomplished | read JSON file correctly | none</response>"
+#     },
+#     {
+#       "task_description": "Fetch Chiller 9 asset details from MAIN.",
+#       "agent_name": "IoT Data Download",
+#       "final_answer": "MAIN</response>",
+#       "review": "Task Status: Partially Accomplished | identified relevant JSON file | extract Chiller 9 details from JSON file."
+#     }
+#   ]
+# }
+# score: 
+# Q6
+# - num_edit: 0
+# - correct: 0.4
+# - num_partially: 1
+# - num_not: 0
+# - error_analysis: Symptom 1: Final answer lacks required details
+# The response returns only a file path and even appends stray boilerplate (“Here’s the rewritten response… Question”), instead of extracting and presenting Chiller 9’s actual fields (e.g., id, name, site, metadata). Fix: After obtaining the file path, call jsonreader, filter for “Chiller 9”, and surface the concrete fields in the final answer. Keep the final answer clean and free of internal notes. Symptom 2: Action-input contamination A tool call was issued with site_name=MAIN ## Step 5: Analyze the result ..., causing unknown site "MAIN ## Step 5...". This is classic argument leakage from thoughts/explanations into the action payload. Fix: Enforce strict tool-call hygiene: arguments must be structured inputs only (no commentary). Many tool-use guides emphasize separating “reasoning” from “tool arguments” and keeping final outputs free of scaffolding text. Symptom 3: Redundant & brittle calls The agent repeats the assets call after already getting a valid file, then errors. Fix: Cache observations and avoid repeated identical calls unless inputs change. Transition immediately from “list” → “read/parse” → “filter” → “final answer.” This reduces surface area for failures and aligns with robust ReAct-style loops. Symptom 4: Improper output handling The final message includes scaffolding text (“Question”) and references to internal formatting, which is a form of improper output handling in agent pipelines. Fix: Post-process the final answer to strip scaffolding and ensure only the user-facing result remains (a practice echoed in LLM agent risk/best-practice write-ups). 
 
-Q410
-dag: 
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Retrieve the events of equipment CWC04009 for the first week of June 2020.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: A JSON file containing the events of equipment CWC04009 for the first week of June 2020.\n#Task2: Analyze the retrieved events and provide a summary based on the event group for work order event, alert, and anomaly.\n#Agent2: WorkOrder Agent\n#Dependency2: #S1\n#ExpectedOutput2: A summary in JSON format containing the count of work order events, alerts, and anomalies for equipment CWC04009 for the first week of June 2020.\n#Task3: Verify if the summary contains the required information for work order event, alert, and anomaly.\n#Agent3: IoT Data Download\n#Dependency3: #S2\n#ExpectedOutput3: Confirmation if the summary contains the required information.",
-  "scenario_id": 410,
-  "generated_at": "2025-10-19T19:06:59.745523Z"
-}
-trajectory: 
-{
-  "text": "Get all the events of equipment CWC04009 for the first week of June of 2020 and provide a summary based on the event group for work order event, alert, and anomaly.",
-  "tasks": [
-    {
-      "task_description": "Fetch CWC04009 events for June 1-7 2020.",
-      "agent_name": "IoT Data Download",
-      "final_answer": "MAIN</response>",
-      "review": "Task Status: Accomplished | followed logical sequence | provide detailed error handling</response>\n```<response>followed logical sequence | provide detailed error handling</response>```"
-    },
-    {
-      "task_description": "Group work order events, alerts, and anomalies by category.",
-      "agent_name": "WorkOrder Agent",
-      "final_answer": "{\"CWC04009\": {\"ALERT\": 6}} </response>\nbecomes \n{\"CWC04009\": {\"ALERT\": 6}}",
-      "review": "Task Status: Accomplished | retrieved events correctly | none</response>\n<response>retrieved events correctly | none</response>"
-    },
-    {
-      "task_description": "Check work order event alert and anomaly details in summary.",
-      "agent_name": "IoT Data Download",
-      "final_answer": "",
-      "review": "Task Status: Not Accomplished | failed to verify summary | ensure summary file is generated or available</response>\n</to-solve>"
-    }
-  ]
-}
-score: 
-Q410
-num_edit: 1
-correct: 0.0
-num_partially: 0
-num_not: 1
-error_analysis: Task 1 skipped asset ID/site reconciliation, prematurely assumed “absent at MAIN,” and failed to generate the event JSON. Task 2 aggregated only ALERTs (6 items); WO/ANOM were missing, and the result is inconsistent with Task 1’s conclusion. Task 3 was not executed (no validation performed). Add a preliminary task for “equipment ID / alias / site resolution,” ensure consistency by analyzing from a single data source, then have the verification agent check for requirement compliance.
-"""
-score = auto_score_dag_trajectory(dag_path, traj_path, human_scored_triplets, model_id=16)
-print(json.dumps(score, ensure_ascii=False, indent=2))
+# Q410
+# dag: 
+# {
+#   "ok": true,
+#   "final_plan": " \n#Task1: Retrieve the events of equipment CWC04009 for the first week of June 2020.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: A JSON file containing the events of equipment CWC04009 for the first week of June 2020.\n#Task2: Analyze the retrieved events and provide a summary based on the event group for work order event, alert, and anomaly.\n#Agent2: WorkOrder Agent\n#Dependency2: #S1\n#ExpectedOutput2: A summary in JSON format containing the count of work order events, alerts, and anomalies for equipment CWC04009 for the first week of June 2020.\n#Task3: Verify if the summary contains the required information for work order event, alert, and anomaly.\n#Agent3: IoT Data Download\n#Dependency3: #S2\n#ExpectedOutput3: Confirmation if the summary contains the required information.",
+#   "scenario_id": 410,
+#   "generated_at": "2025-10-19T19:06:59.745523Z"
+# }
+# trajectory: 
+# {
+#   "text": "Get all the events of equipment CWC04009 for the first week of June of 2020 and provide a summary based on the event group for work order event, alert, and anomaly.",
+#   "tasks": [
+#     {
+#       "task_description": "Fetch CWC04009 events for June 1-7 2020.",
+#       "agent_name": "IoT Data Download",
+#       "final_answer": "MAIN</response>",
+#       "review": "Task Status: Accomplished | followed logical sequence | provide detailed error handling</response>\n```<response>followed logical sequence | provide detailed error handling</response>```"
+#     },
+#     {
+#       "task_description": "Group work order events, alerts, and anomalies by category.",
+#       "agent_name": "WorkOrder Agent",
+#       "final_answer": "{\"CWC04009\": {\"ALERT\": 6}} </response>\nbecomes \n{\"CWC04009\": {\"ALERT\": 6}}",
+#       "review": "Task Status: Accomplished | retrieved events correctly | none</response>\n<response>retrieved events correctly | none</response>"
+#     },
+#     {
+#       "task_description": "Check work order event alert and anomaly details in summary.",
+#       "agent_name": "IoT Data Download",
+#       "final_answer": "",
+#       "review": "Task Status: Not Accomplished | failed to verify summary | ensure summary file is generated or available</response>\n</to-solve>"
+#     }
+#   ]
+# }
+# score: 
+# Q410
+# num_edit: 1
+# correct: 0.0
+# num_partially: 0
+# num_not: 1
+# error_analysis: Task 1 skipped asset ID/site reconciliation, prematurely assumed “absent at MAIN,” and failed to generate the event JSON. Task 2 aggregated only ALERTs (6 items); WO/ANOM were missing, and the result is inconsistent with Task 1’s conclusion. Task 3 was not executed (no validation performed). Add a preliminary task for “equipment ID / alias / site resolution,” ensure consistency by analyzing from a single data source, then have the verification agent check for requirement compliance.
+# """
+# score = auto_score_dag_trajectory(dag_path, traj_path, human_scored_triplets, model_id=16)
+# print(json.dumps(score, ensure_ascii=False, indent=2))

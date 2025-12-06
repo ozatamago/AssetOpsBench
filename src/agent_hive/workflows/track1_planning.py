@@ -11,6 +11,8 @@ from reactxen.utils.model_inference import watsonx_llm
 import re
 from agent_hive.workflows.sequential import SequentialWorkflow
 from agent_hive.agents.plan_reviewer_agent import PlanReviewerAgent
+from agent_hive.workflows.simulator_agent import SimulatorAgent, SIMULATOR_SYSTEM_PROMPT
+from agent_hive.workflows.critic_agent import CriticAgent
 from agent_hive.logger import get_custom_logger
 import os
 import uuid
@@ -24,7 +26,8 @@ from uuid import UUID
 from datetime import date, datetime
 import psycopg
 from psycopg.rows import dict_row
-
+# from simulator_agent import Simulator
+# from critic_agent import Critic
 logger = get_custom_logger(__name__)
 
 # =========================================================
@@ -69,24 +72,44 @@ class NewPlanningWorkflow(Workflow):
         """
         Create self.watsonx_embed(text, model_id=None) -> list[float (len=DB_EMBEDDING_DIM)].
         Uses IBM watsonx.ai Embeddings API and pads/truncates to DB_EMBEDDING_DIM.
+
+        WATSONX_EMBEDDING_MODEL は 2 通りを受け付ける:
+        1. EmbeddingTypes の属性名 (例: IBM_SLATE_30M_ENG)
+        2. API の model_id 文字列 (例: ibm/slate-30m-english-rtrvr-v2)
         """
         import os
         from ibm_watsonx_ai import Credentials
         from ibm_watsonx_ai.foundation_models import Embeddings
         from ibm_watsonx_ai.foundation_models.utils.enums import EmbeddingTypes
+        from ibm_watsonx_ai.wml_client_error import ApiRequestFailure
 
         api_key = os.getenv("WATSONX_APIKEY")
         url = os.getenv("WATSONX_URL", "https://us-south.ml.cloud.ibm.com")
         project_id = os.getenv("WATSONX_PROJECT_ID")
-        model_name = os.getenv("WATSONX_EMBEDDING_MODEL", "IBM_SLATE_30M_ENG")
-        if not (api_key and project_id):
-            raise RuntimeError("WATSONX_API_KEY / WATSONX_PROJECT_ID が未設定です。")
 
-        # EmbeddingTypes から属性で引く（例: IBM_SLATE_30M_ENG）
-        try:
-            model_id = getattr(EmbeddingTypes, model_name)
-        except AttributeError:
-            raise RuntimeError(f"未知の埋め込みモデル: {model_name}（SDKの EmbeddingTypes を確認してください）")
+        # デフォルトは v2 モデルを想定
+        raw_model = os.getenv(
+            "WATSONX_EMBEDDING_MODEL",
+            "ibm/slate-30m-english-rtrvr-v2",
+        )
+
+        if not (api_key and project_id):
+            raise RuntimeError("WATSONX_APIKEY / WATSONX_PROJECT_ID が未設定です。")
+
+        # 1. "ibm/..." で始まっていたら「API の model_id そのもの」と解釈
+        if raw_model.lower().startswith("ibm/"):
+            model_id = raw_model
+        else:
+            # 2. そうでなければ EmbeddingTypes の属性名だとみなす
+            try:
+                enum_obj = getattr(EmbeddingTypes, raw_model)
+            except AttributeError:
+                raise RuntimeError(
+                    f"未知の埋め込みモデル指定: {raw_model} "
+                    f"(EmbeddingTypes.* か 'ibm/...-english-rtrvr(-v2)' で指定して下さい)"
+                )
+            # enum の .value に実際の model_id が入っていることが多い
+            model_id = getattr(enum_obj, "value", enum_obj)
 
         creds = Credentials(api_key=api_key, url=url)
         emb = Embeddings(model_id=model_id, credentials=creds, project_id=project_id)
@@ -94,7 +117,6 @@ class NewPlanningWorkflow(Workflow):
         db_dim = int(os.getenv("DB_EMBEDDING_DIM", "1536"))
 
         def _coerce_to_db_dim(vec: list[float]) -> list[float]:
-            # Granite/Slate は 384/768 が多い。DB列の vector(1536) に合わせる。
             if len(vec) == db_dim:
                 return vec
             if len(vec) > db_dim:
@@ -107,20 +129,28 @@ class NewPlanningWorkflow(Workflow):
 
         # wire up
         self.watsonx_embed = _wx_embed
-        self.embed_model_id = model_name
+        self.embed_model_id = model_id
 
-        # quick probe
-        _ = self.watsonx_embed("ping")
+        # quick probe: ここで 404 等が出たら、わかりやすいメッセージで止める
+        try:
+            _ = self.watsonx_embed("ping")
+        except ApiRequestFailure as e:
+            raise RuntimeError(
+                f"watsonx.ai 埋め込みモデル '{model_id}' がこの環境ではサポートされていません。\n"
+                f"- IBM Cloud コンソールの watsonx.ai プロジェクトで、利用可能な Embedding モデル一覧を確認して下さい。\n"
+                f"- その上で WATSONX_EMBEDDING_MODEL を、一覧にある model_id "
+                f"(例: 'ibm/slate-30m-english-rtrvr-v2' や 'ibm/slate-125m-english-rtrvr') に変更して下さい。"
+            ) from e
 
 
     def run(self, enable_summarization=False, qid=None):
-        generated_steps, run_id, plan_id = self.generate_steps(qid=qid)
+        generated_steps, run_id, plan_id, input_tokens_count, generated_tokens_count = self.generate_steps(qid=qid)
 
         sequential_workflow = SequentialWorkflow(
             tasks=generated_steps, context_type=ContextType.SELECTED
         )
 
-        return sequential_workflow.run(), run_id, plan_id
+        return sequential_workflow.run(), run_id, plan_id, input_tokens_count, generated_tokens_count
 
     # def generate_steps(self, save_plan=False, saved_plan_filename=""):
     #     task = self.tasks[0]
@@ -235,15 +265,22 @@ class NewPlanningWorkflow(Workflow):
         """pgvector の文字列表現 [v1, v2, ...] を生成"""
         return "[" + ", ".join(f"{float(x):.6f}" for x in vec) + "]"
 
+    from typing import List, Optional, Tuple
+
     def _extract_keywords_with_llm(
-        self, 
-        user_question: str,
-        *,
-        llm_fn,            # 例: watsonx_llm
-        llm_model_id: str, # 例: "16"
-        known: Optional[List[str]] = None
-    ) -> List[str]:
-        """LLMでキーワード抽出（websearch_to_tsquery 用の語彙を返す）"""
+            self, 
+            user_question: str,
+            *,
+            llm_fn,                  # 例: watsonx_llm
+            llm_model_id: str,       # 例: "16"
+            known: Optional[List[str]] = None
+        ) -> Tuple[List[str], int, int]:
+        """
+        LLMでキーワード抽出（websearch_to_tsquery 用の語彙を返す）
+
+        Returns:
+            (keywords, input_token_count, generated_token_count)
+        """
         ctx = ""
         if known:
             ctx = "Known related terms: " + ", ".join(known[:6]) + "\n"
@@ -257,11 +294,17 @@ class NewPlanningWorkflow(Workflow):
             f"{ctx}"
             f"QUESTION:\n{user_question}\n"
         )
-        text = llm_fn(prompt, model_id=int(llm_model_id)).get("generated_text", "").strip()
+
+        # ★ llm_fn をちゃんと使う or self.llm のままでもOK（今の実装に合わせる）
+        resp = self.llm(prompt, model_id=int(llm_model_id))
+        text = resp.get("generated_text", "").strip()
+        in_tok = int(resp.get("input_token_count", 0))
+        out_tok = int(resp.get("generated_token_count", 0))
+
+        # --- JSON で返ってきた場合 ---
         try:
             kws = json.loads(text)
             if isinstance(kws, list) and all(isinstance(x, str) for x in kws):
-                # 軽い正規化
                 out, seen = [], set()
                 for k in (s.strip() for s in kws if s and s.strip()):
                     key = k.lower()
@@ -269,10 +312,11 @@ class NewPlanningWorkflow(Workflow):
                         continue
                     seen.add(key)
                     out.append(k)
-                return out
+                return out, in_tok, out_tok
         except Exception:
             pass
-        # フォールバック：カンマ区切り
+
+        # --- フォールバック：カンマ区切り ---
         parts = [p.strip() for p in text.replace("\n", " ").split(",")]
         out, seen = [], set()
         for k in parts:
@@ -283,7 +327,12 @@ class NewPlanningWorkflow(Workflow):
                 continue
             seen.add(key)
             out.append(k)
-        return out or [user_question]
+
+        if not out:
+            out = [user_question]
+
+        return out, in_tok, out_tok
+
 
     def _get_embedding(self, text: str, *, embed_fn) -> List[float]:
         """埋め込みベクトルを取得（1536次元など、実装に依存）"""
@@ -349,23 +398,29 @@ class NewPlanningWorkflow(Workflow):
 
     # --- 主関数：検索して (DAG, trajectory, score) を束ねる ---
 
+    from typing import Any, Dict, List, Optional, Tuple
+
     def search_similar_triplets(
         self, 
         db_url: str,
         user_question: str,
         *,
-        llm_fn,                # 例: watsonx_llm
+        llm_fn,                # 例: watsonx_llm（今は self.llm を使っているが型は残す）
         llm_model_id: str,     # 例: "16"
         embed_fn=None,         # 例: lambda s: watsonx_embed(s, model_id=...)
         fts_limit: int = 3,
         vector_k: int = 1,
-        max_triplets: int = 5
-    ) -> dict:
+        max_triplets: int = 5,
+    ) -> tuple[dict, int, int]:
         """
         1) キーワード抽出 -> websearch_to_tsquery(simple) で traj_tasks + traj_docs を FTS
         2) pgvector で traj_docs.text_vec のベクトル近傍
         3) doc_id をユニーク化して、(trajectory, 最新 score, DAG) をハイドレート
+
         戻り値:
+            out_dict, total_input_tokens, total_generated_tokens
+
+        out_dict の構造:
         {
         "keywords": [...],
         "fts_hits": [ {src, doc_id, rank, ...}, ... ],
@@ -381,25 +436,39 @@ class NewPlanningWorkflow(Workflow):
         ]
         }
         """
-        # 0) キーワード
-        keywords = self._extract_keywords_with_llm(
+        total_in_tok = 0
+        total_out_tok = 0
+
+        # 0) キーワード（ここで LLM を 1 回使う）
+        keywords, kw_in_tok, kw_out_tok = self._extract_keywords_with_llm(
             user_question, llm_fn=llm_fn, llm_model_id=llm_model_id
         )
-        # websearch_to_tsquery 用 OR 連結
-        tsquery_str = " OR ".join(f"\"{k.replace('\"','')}\"" for k in keywords if k.strip())
+        total_in_tok += kw_in_tok
+        total_out_tok += kw_out_tok
 
-        # 1) ベクトル用
+        # websearch_to_tsquery 用 OR 連結
+        tsquery_str = " OR ".join(
+            f"\"{k.replace('\"','')}\"" for k in keywords if k.strip()
+        )
+
+        # 1) ベクトル用（ここは embedding API なので、LLM トークンとは別扱い）
         vec_lit = None
         if callable(embed_fn):
             q_vec = self._get_embedding(user_question, embed_fn=embed_fn)
             vec_lit = self._vector_literal(q_vec)
 
-        out = {"keywords": keywords, "fts_hits": [], "vector_hits": [], "triplets": []}
+        out: Dict[str, Any] = {
+            "keywords": keywords,
+            "fts_hits": [],
+            "vector_hits": [],
+            "triplets": [],
+        }
 
         with psycopg.connect(db_url, row_factory=dict_row) as conn:
             # --- 1) FTS（traj_tasks + traj_docs） ---
             with conn.cursor() as cur:
-                cur.execute("""
+                cur.execute(
+                    """
                     WITH q AS (SELECT websearch_to_tsquery('simple', %s) AS tsq),
                     t_hits AS (
                         SELECT
@@ -432,22 +501,27 @@ class NewPlanningWorkflow(Workflow):
                     ) u
                     ORDER BY rank DESC
                     LIMIT %s;
-                """, (tsquery_str, fts_limit))
+                    """,
+                    (tsquery_str, fts_limit),
+                )
                 out["fts_hits"] = [dict(r) for r in cur.fetchall()]
 
             # --- 2) ベクトル検索（traj_docs.text_vec） ---
             if vec_lit is not None and vector_k > 0:
                 with conn.cursor() as cur:
-                    cur.execute("""
+                    cur.execute(
+                        """
                         WITH params AS (SELECT CAST(%s AS vector) AS qv)
                         SELECT
-                        td.doc_id, td.json_id, td.text,
-                        (1 - (td.text_vec <=> (SELECT qv FROM params))) AS sim
+                            td.doc_id, td.json_id, td.text,
+                            (1 - (td.text_vec <=> (SELECT qv FROM params))) AS sim
                         FROM traj_docs td
                         WHERE td.text_vec IS NOT NULL
                         ORDER BY td.text_vec <=> (SELECT qv FROM params)
                         LIMIT %s;
-                    """, (vec_lit, vector_k))
+                        """,
+                        (vec_lit, vector_k),
+                    )
                     out["vector_hits"] = [dict(r) for r in cur.fetchall()]
 
             # --- 3) ハイドレート（doc_id をユニーク化して上位 max_triplets 件） ---
@@ -462,7 +536,13 @@ class NewPlanningWorkflow(Workflow):
                     doc_order.append(did)
 
             for doc_id in doc_order[:max_triplets]:
-                trip: Dict[str, Any] = {"doc_id": doc_id, "plan_id": None, "trajectory": None, "dag": None, "score": None}
+                trip: Dict[str, Any] = {
+                    "doc_id": doc_id,
+                    "plan_id": None,
+                    "trajectory": None,
+                    "dag": None,
+                    "score": None,
+                }
                 traj = self._fetch_traj_doc(conn, doc_id)
                 if traj:
                     trip["trajectory"] = traj
@@ -477,7 +557,11 @@ class NewPlanningWorkflow(Workflow):
 
                 out["triplets"].append(trip)
 
-        return out
+        # LLM を使っているのは現状キーワード抽出だけなので、
+        # total_in_tok / total_out_tok は kw_in_tok / kw_out_tok の値になる。
+        # 将来、ここで追加の LLM 呼び出しをするときは、同じように加算していけばOK。
+        return out, total_in_tok, total_out_tok
+
 
     def _clip(self, s: Optional[str], n: int) -> str:
         if not s:
@@ -714,7 +798,10 @@ class NewPlanningWorkflow(Workflow):
             hits_block=examples_block,
         )
 
-        llm_text = (watsonx_llm(prompt, model_id=16) or {}).get("generated_text", "").strip()
+        resp = watsonx_llm(prompt, model_id=16)
+        llm_text=resp.get("generated_text", "").strip()
+        in_tok = resp.get("input_token_count", 0)
+        out_tok = resp.get("generated_token_count", 0)
         print(f"llm_text: {llm_text}")
 
         try:
@@ -749,21 +836,32 @@ class NewPlanningWorkflow(Workflow):
         db_url: str,
         question_text: str,
         *,
-        llm_fn,                # 例: watsonx_llm
-        llm_model_id: str,     # 例: self.llm
-        embed_fn=None,              # 例: self.embedder もしくはラッパー(lambdaで watsonx_embed を包む)
-        fts_limit: int = 3
+        llm_fn,                
+        llm_model_id: str,     # e.g. self.llm
+        embed_fn=None,         # e.g. self.embedder or wrapper around watsonx_embed
+        fts_limit: int = 3,
     ) -> dict:
         """
-        From task.description:
+        From task.description (question_text):
         1) extract keywords via watsonx LLM,
-        2) build embedding vector,
-        3) run FTS (top-3) and vector search (top-1),
+        2) build an embedding vector,
+        3) run FTS (top-N) and vector search (top-1),
         4) return a dict with results.
+
         Targets:
         - FTS: traj_tasks.tsv_task + traj_docs.tsv_all
         - Vector: traj_docs.text_vec
+
+        Ranking (Option B):
+        - FTS: order by is_accomplished DESC, rank DESC
+        - Vector: order by is_accomplished_doc DESC, distance
+            where is_accomplished(_doc) is derived from traj_tasks.status = 'Accomplished'.
         """
+        import json
+        import psycopg
+        from psycopg.rows import dict_row
+
+        # ----------------------- 1) Keyword extraction -----------------------
         def _extract_keywords_with_watsonx(q: str, search_hits: dict | None = None) -> list[str]:
             ctx = ""
             if search_hits:
@@ -789,15 +887,19 @@ class NewPlanningWorkflow(Workflow):
                 f"QUESTION:\n{q}\n"
             )
 
-            kw_text = watsonx_llm(prompt, model_id=llm_model_id)['generated_text']
+            resp = watsonx_llm(prompt, model_id=16)
+            kw_text = resp.get("generated_text", "")
+            in_tok = resp.get("input_token_count", 0)
+            out_tok = resp.get("generated_token_count", 0)
 
+            # Primary path: parse as JSON list[str]
             try:
                 kws = json.loads(kw_text)
                 if isinstance(kws, list) and all(isinstance(x, str) for x in kws):
-                    out = []
-                    seen = set()
+                    out: list[str] = []
+                    seen: set[str] = set()
                     for k in (s.strip() for s in kws if s and s.strip()):
-                        if len(k) < 3 and not (k.isupper() and len(k) in (2,3)):
+                        if len(k) < 3 and not (k.isupper() and len(k) in (2, 3)):
                             continue
                         key = k.lower()
                         if key in seen:
@@ -807,13 +909,15 @@ class NewPlanningWorkflow(Workflow):
                     return out
             except Exception:
                 pass
+
+            # Fallback: comma-split heuristic
             parts = [p.strip() for p in kw_text.replace("\n", " ").split(",")]
-            out, seen = [], set()
+            out: list[str] = []
+            seen: set[str] = set()
             for k in parts:
-                print(f"k: {k}")
                 if not k:
                     continue
-                if len(k) < 3 and not (k.isupper() and len(k) in (2,3)):
+                if len(k) < 3 and not (k.isupper() and len(k) in (2, 3)):
                     continue
                 key = k.lower()
                 if key in seen:
@@ -822,7 +926,9 @@ class NewPlanningWorkflow(Workflow):
                 out.append(k)
             return out
 
+        # ----------------------- 2) Embedding helper ------------------------
         if embed_fn is None:
+            # try class attributes if not provided explicitly
             if hasattr(self, "embedder") and callable(self.embedder):
                 embed_fn = self.embedder
             elif hasattr(self, "watsonx_embed") and callable(self.watsonx_embed):
@@ -834,13 +940,12 @@ class NewPlanningWorkflow(Workflow):
                     "Pass embed_fn or define self.embedder/self.watsonx_embed."
                 )
 
-        # ---- 2) embedding (project-specific; implement one of the hooks) ----
         def _get_embedding(
             text: str,
             *,
-            embed_fn=None,               # ex) self.embedder
-            watsonx_embed_fn=None,       # ex) self.watsonx_embed
-            embed_model_id=None,         # ex) self.embed_model_id
+            embed_fn=None,
+            watsonx_embed_fn=None,
+            embed_model_id=None,
         ) -> list[float]:
             """
             Returns a 1536-dim vector (list[float]) for pgvector vector(1536).
@@ -856,91 +961,124 @@ class NewPlanningWorkflow(Workflow):
                 raise TypeError("Embedding must be list[float] or tuple[float].")
             return list(vec)
 
-
         def _vector_literal(vec: list[float]) -> str:
             # pgvector textual literal: [v1, v2, ...]
             return "[" + ", ".join(f"{float(x):.6f}" for x in vec) + "]"
 
+        # ----------------------- 3) Build queries ---------------------------
         keywords = _extract_keywords_with_watsonx(question_text)
         if not keywords:
             keywords = [question_text]
 
-        # Build a websearch tsquery string: OR-join of quoted keywords for recall
-        # (e.g., "iot" OR "site" OR "chiller 4")
+        # websearch tsquery string: OR-join of quoted keywords for recall
+        # e.g. "iot" OR "site list" OR "chiller 4"
         tsquery_str = " OR ".join(
-            f"\"{k.replace('\"','')}\"" for k in keywords if k.strip()
+            f"\"{k.replace('\"', '')}\"" for k in keywords if k.strip()
         )
 
         # Embedding
         q_vec = _get_embedding(question_text, embed_fn=embed_fn)
         q_vec_lit = _vector_literal(q_vec)
 
-        # ---- 3) Run searches ----
-        results = {"keywords": keywords, "fts_top3": [], "vector_top1": None}
+        results: dict[str, object] = {
+            "keywords": keywords,
+            "fts_top3": [],
+            "vector_top1": None,
+        }
 
+        # ----------------------- 4) Run DB queries --------------------------
         with psycopg.connect(db_url, row_factory=dict_row) as conn:
             with conn.cursor() as cur:
-                # 3-a) FTS across traj_tasks + traj_docs, rank and take top-3
-                cur.execute("""
-                    WITH q AS (SELECT websearch_to_tsquery('simple', %s) AS tsq),
+                # 4-a) FTS across traj_tasks + traj_docs
+                #     Boost tasks with status='Accomplished' (Option B).
+                cur.execute(
+                    """
+                    WITH q AS (
+                        SELECT websearch_to_tsquery('simple', %s) AS tsq
+                    ),
                     t_hits AS (
-                    SELECT
-                        'traj_tasks' AS src,
-                        tt.task_id,
-                        tt.doc_id,
-                        NULL::uuid    AS run_id,
-                        NULL::uuid    AS plan_id,
-                        NULL::int     AS scenario_id,
-                        NULL::int     AS json_id,
-                        tt.task_number,
-                        tt.task_description,
-                        tt.final_answer,
-                        ts_rank(tt.tsv_task, (SELECT tsq FROM q)) AS rank
-                    FROM traj_tasks tt
-                    WHERE tt.tsv_task @@ (SELECT tsq FROM q)
-                    ORDER BY rank DESC
-                    LIMIT 10
+                        SELECT
+                            'traj_tasks' AS src,
+                            tt.task_id,
+                            tt.doc_id,
+                            NULL::uuid    AS run_id,
+                            NULL::uuid    AS plan_id,
+                            NULL::int     AS scenario_id,
+                            NULL::int     AS json_id,
+                            tt.task_number,
+                            tt.task_description,
+                            tt.final_answer,
+                            ts_rank(tt.tsv_task, (SELECT tsq FROM q)) AS rank,
+                            CASE
+                                WHEN tt.status = 'Accomplished' THEN 1
+                                ELSE 0
+                            END AS is_accomplished
+                        FROM traj_tasks tt
+                        WHERE tt.tsv_task @@ (SELECT tsq FROM q)
+                        ORDER BY rank DESC
+                        LIMIT 10
                     ),
                     d_hits AS (
-                    SELECT
-                        'traj_docs' AS src,
-                        NULL::uuid      AS task_id,
-                        td.doc_id,
-                        NULL::uuid      AS run_id,
-                        NULL::uuid      AS plan_id,
-                        NULL::int       AS scenario_id,
-                        td.json_id,
-                        NULL::int       AS task_number,
-                        td.text         AS task_description,
-                        NULL::text      AS final_answer,
-                        ts_rank(td.tsv_all, (SELECT tsq FROM q)) AS rank
-                    FROM traj_docs td
-                    WHERE td.tsv_all @@ (SELECT tsq FROM q)
-                    ORDER BY rank DESC
-                    LIMIT 10
+                        SELECT
+                            'traj_docs' AS src,
+                            NULL::uuid      AS task_id,
+                            td.doc_id,
+                            NULL::uuid      AS run_id,
+                            NULL::uuid      AS plan_id,
+                            NULL::int       AS scenario_id,
+                            td.json_id,
+                            NULL::int       AS task_number,
+                            td.text         AS task_description,
+                            NULL::text      AS final_answer,
+                            ts_rank(td.tsv_all, (SELECT tsq FROM q)) AS rank,
+                            0 AS is_accomplished
+                        FROM traj_docs td
+                        WHERE td.tsv_all @@ (SELECT tsq FROM q)
+                        ORDER BY rank DESC
+                        LIMIT 10
                     )
                     SELECT * FROM (
-                    SELECT * FROM t_hits
-                    UNION ALL
-                    SELECT * FROM d_hits
+                        SELECT * FROM t_hits
+                        UNION ALL
+                        SELECT * FROM d_hits
                     ) u
-                    ORDER BY rank DESC
-                    LIMIT 3;
-                """, (tsquery_str,))
+                    ORDER BY is_accomplished DESC, rank DESC
+                    LIMIT %s;
+                    """,
+                    (tsquery_str, fts_limit),
+                )
                 results["fts_top3"] = [dict(r) for r in cur.fetchall()]
 
-                # 3-b) Vector top-1 (traj_docs.text_vec)
-                # use a CTE to CAST the vector literal safely
-                cur.execute(f"""
-                    WITH params AS (SELECT CAST(%s AS vector) AS qv)
+                # 4-b) Vector top-1 (traj_docs.text_vec)
+                #      Prefer docs that have at least one Accomplished task.
+                cur.execute(
+                    """
+                    WITH params AS (
+                        SELECT CAST(%s AS vector) AS qv
+                    ),
+                    accomplished_docs AS (
+                        SELECT DISTINCT tt.doc_id
+                        FROM traj_tasks tt
+                        WHERE tt.status = 'Accomplished'
+                    )
                     SELECT
-                    td.doc_id, td.json_id, td.text,
-                    (1 - (td.text_vec <=> (SELECT qv FROM params))) AS sim  -- similarity in [0..1] if vectors are normalized
+                        td.doc_id,
+                        td.json_id,
+                        td.text,
+                        (1 - (td.text_vec <=> (SELECT qv FROM params))) AS sim,
+                        CASE
+                            WHEN ad.doc_id IS NOT NULL THEN 1
+                            ELSE 0
+                        END AS is_accomplished_doc
                     FROM traj_docs td
+                    LEFT JOIN accomplished_docs ad
+                        ON ad.doc_id = td.doc_id
                     WHERE td.text_vec IS NOT NULL
-                    ORDER BY td.text_vec <=> (SELECT qv FROM params)
+                    ORDER BY is_accomplished_doc DESC, td.text_vec <=> (SELECT qv FROM params)
                     LIMIT 1;
-                """, (q_vec_lit,))
+                    """,
+                    (q_vec_lit,),
+                )
                 vrow = cur.fetchone()
                 if vrow:
                     results["vector_top1"] = dict(vrow)
@@ -1260,165 +1398,123 @@ class NewPlanningWorkflow(Workflow):
             if name not in valid:
                 errors.append(f"Agent{n} unknown '{name}'. Allowed: {sorted(valid)}")
 
-        # single-line enforcement between tag lines
-        lines = plan_text.splitlines()
-        TAG = re.compile(r"^#(Task|Agent|Dependency|ExpectedOutput)\d+:", re.M)
-        idxs = [i for i, l in enumerate(lines) if TAG.match(l)] + [len(lines)]
-        for i in range(len(idxs) - 1):
-            head = idxs[i]
-            for j in range(head + 1, idxs[i + 1]):
-                if lines[j].strip() and not TAG.match(lines[j]):
-                    errors.append(f"Field after '{lines[head]}' must be single-line")
-                    break
+        # # single-line enforcement between tag lines
+        # lines = plan_text.splitlines()
+        # TAG = re.compile(r"^#(Task|Agent|Dependency|ExpectedOutput)\d+:", re.M)
+        # idxs = [i for i, l in enumerate(lines) if TAG.match(l)] + [len(lines)]
+        # for i in range(len(idxs) - 1):
+        #     head = idxs[i]
+        #     for j in range(head + 1, idxs[i + 1]):
+        #         if lines[j].strip() and not TAG.match(lines[j]):
+        #             errors.append(f"Field after '{lines[head]}' must be single-line")
+        #             break
 
         return (len(errors) == 0, errors)
 
-    def _build_repair_prompt(self, base_prompt: str, original_plan: str, errors: list[str], agents_allowed, dag_score=None):
+    def _build_repair_prompt(
+        self,
+        base_prompt: str,
+        original_plan: str,
+        errors: list[str],
+        agents_allowed,
+        spiral_feedback: dict | None = None,
+    ) -> str:
+        """
+        Build a repair prompt for the planner LLM.
+
+        - base_prompt: the original planning prompt (with OUTPUT_MARKER in it).
+        - original_plan: the current DAG plan text.
+        - errors: issues found by _validate_plan_text (format / structure problems).
+        - agents_allowed: list of valid agent names.
+        - spiral_feedback: dict returned by _spiral_evaluate_plan (or None).
+          We use 'status', 'rationale', and, if present, 'can_answer_now'
+          and 'stop_index'.
+
+        The repaired prompt explicitly asks the planner to construct a DAG
+        with the bare minimum set of tasks needed to answer the user’s
+        question, guided by SPIRAL feedback. It also briefly explains how
+        to interpret the main SPIRAL fields (status, can_answer_now,
+        stop_index) for planning.
+        """
         OUTPUT_MARKER = "Output (your generated plan) ⬇️:"
 
-        # base_prompt から該当文を1回だけ除去
+        # Remove the output marker once so we don't duplicate it
         base_wo_marker = base_prompt.replace(OUTPUT_MARKER, "", 1).rstrip()
 
-        tool_dependencies_explanation="""
-            Here is tool dependencies that you can use and an example of DAG according to this tool dependencies.\n
-            Create DAG by this tool dependencies with referencing this example.
+        # ---- SPIRAL-style evaluation summary (status, rationale, etc.) ----
+        if spiral_feedback:
+            status = spiral_feedback.get("status", "Unknown")
+            rationale = spiral_feedback.get("rationale", "")
+            can_answer_now = spiral_feedback.get("can_answer_now", None)
+            stop_index = spiral_feedback.get("stop_index", None)
 
-            DAG:
-                sites: []
-                assets(site_name): [sites]
-                sensors(site_name, assetnum): [assets(site_name)]
-                jsonreader(file_path): [sensors(site_name, assetnum)]
-                fileparser(file_path): [jsonreader(file_path)]
-                preprocess(clean_df): [fileparser(file_path)]
-                history(site_name, assetnum, start, final): [preprocess(clean_df)]
-                data_visualizer: [history(site_name, assetnum, start, final)]
-                get_failure_modes: [history(site_name, assetnum, start, final)]
-                fm_sensor_mapping: [get_failure_modes, preprocess(clean_df)]
-                aitasks: [fm_sensor_mapping, data_visualizer]
-                tsfmmodels: [aitasks]
-                tsfm_forecasting: [tsfmmodels, preprocess(clean_df)]
-                tsfm_integrated_tsad: [tsfm_forecasting]
-                reportbuilder: [tsfm_integrated_tsad]
-                servicenowapi: [reportbuilder]
+            lines_sf: list[str] = []
+            lines_sf.append("SPIRAL-style evaluation of the current plan:")
+            lines_sf.append(f"- Status: {status}")
+            if can_answer_now is not None:
+                lines_sf.append(f"- can_answer_now: {can_answer_now}")
+            if stop_index is not None:
+                lines_sf.append(
+                    f"- stop_index: {stop_index} "
+                    "(earliest step index after which SPIRAL believes the plan can already answer)"
+                )
+            lines_sf.append(f"- Critic rationale: {rationale}")
+            spiral_text = "\n".join(lines_sf) + "\n"
+        else:
+            spiral_text = (
+                "SPIRAL-style evaluation of the current plan is not available for this round.\n"
+                "Assume the current plan may still be suboptimal and try to improve it based "
+                "on the issues and the planning instructions.\n"
+            )
 
-            question: >
-            The pump at Site B has been vibrating unusually since this morning.
-            Can you analyze the vibration and flow sensor data, compare it with historical trends,
-            and identify whether the pump is at risk of mechanical failure?
+        # ---- Human / parser errors from _validate_plan_text ----
+        if errors:
+            issues_text = "Issues detected by the validator:\n- " + "\n- ".join(errors) + "\n"
+        else:
+            # Even if there are no structural errors, we still allow semantic refinement
+            issues_text = (
+                "No structural issues were detected by the validator. However, you should still "
+                "consider the SPIRAL evaluation feedback above and improve the DAG minimally if needed.\n"
+            )
 
-            explanation: |
-            1. The user asks about abnormal vibration in a pump. The AI first locates the site and the specific pump asset
-                through `sites` and `assets`, then collects vibration and flow data from connected `sensors`.
-            2. The sensor data arrives as JSON, so `jsonreader` and `fileparser` convert it into structured numerical arrays.
-            3. The `preprocess` module cleans outliers, aligns timestamps, and filters noise in vibration signals.
-            4. The AI retrieves historical vibration and flow rate data through `history` to establish a baseline of normal operation.
-            5. Using `data_visualizer`, the system plots vibration amplitude and flow variations over time to spot visible spikes or frequency drifts.
-            6. Next, `get_failure_modes` retrieves known pump failure patterns (e.g., bearing wear, shaft misalignment),
-                and `fm_sensor_mapping` connects those failure modes to specific sensors (e.g., accelerometers, flow meters).
-            7. The `aitasks` planner decides to run anomaly detection on the vibration data using the TSFM models.
-            8. `tsfmmodels` loads appropriate models for frequency analysis and predictive monitoring.
-            9. `tsfm_forecasting` estimates the expected vibration pattern for the next few hours.
-            10. `tsfm_integrated_tsad` compares real data to the forecast, finding abnormal spikes indicating possible bearing damage.
-            11. Finally, `reportbuilder` summarizes the results — highlighting rising vibration amplitude and recommending inspection.
-                The `servicenowapi` tool automatically generates a maintenance ticket for preventive servicing.
-            expected_dag: |
-            #Task1: Discover available sites
-            #Agent1: IoT Data Download
-            #Dependency1: None
-            #ExpectedOutput1: List of site names
-
-            #Task2: Resolve assets at Site B
-            #Agent2: IoT Data Download
-            #Dependency2: #S1
-            #ExpectedOutput2: Asset list for Site B including the target pump
-
-            #Task3: List sensors for the target pump
-            #Agent3: IoT Data Download
-            #Dependency3: #S2
-            #ExpectedOutput3: Sensor list and file_path(s) for vibration and flow
-
-            #Task4: Read sensor JSON files
-            #Agent4: IoT Data Download
-            #Dependency4: #S3
-            #ExpectedOutput4: Parsed sensor tables from JSON
-
-            #Task5: Preprocess and align time-series
-            #Agent5: Time Series Analytics and Forecasting
-            #Dependency5: #S4
-            #ExpectedOutput5: Cleaned and time-aligned dataframe(s)
-
-            #Task6: Fetch historical vibration/flow data window
-            #Agent6: IoT Data Download
-            #Dependency6: #S4
-            #ExpectedOutput6: Historical timeseries dataframe(s)
-
-            #Task7: Visualize current vs historical trends
-            #Agent7: Time Series Analytics and Forecasting
-            #Dependency7: #S5 #S6
-            #ExpectedOutput7: Trend plots and summary statistics
-
-            #Task8: Retrieve pump failure modes
-            #Agent8: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-            #Dependency8: #S6
-            #ExpectedOutput8: Candidate failure modes relevant to pumps
-
-            #Task9: Map failure modes to sensors
-            #Agent9: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-            #Dependency9: #S8 #S5
-            #ExpectedOutput9: Relevant sensors per failure mode
-
-            #Task10: Short-term forecasting with TSFM
-            #Agent10: Time Series Analytics and Forecasting
-            #Dependency10: #S5
-            #ExpectedOutput10: Forecasted vibration and flow series
-
-            #Task11: Integrated TS anomaly detection vs forecast and baseline
-            #Agent11: Time Series Analytics and Forecasting
-            #Dependency11: #S6 #S10
-            #ExpectedOutput11: Anomaly scores and abnormal intervals
-
-            #Task12: Build maintenance report
-            #Agent12: WorkOrder Agent
-            #Dependency12: #S7 #S9 #S11
-            #ExpectedOutput12: Summary report with risk assessment and recommendations
-
-            #Task13: Open preventive maintenance ticket
-            #Agent13: WorkOrder Agent
-            #Dependency13: #S12
-            #ExpectedOutput13: Created ServiceNow ticket ID for inspection
-
-        """
-
-        dag_and_score=f"""
-            The original plan has the following predicted score and error
-            Fields
-            •	correct: float \in [0, 1]
-            •	error_analysis: text
-
-            {dag_score}
-
-            Create well-worked DAG based on it.
-        """
-
+        # ---- Repair rules ----
+        # We explicitly instruct the planner to:
+        # - interpret SPIRAL fields briefly (status, can_answer_now, stop_index),
+        # - build a DAG with the bare minimum number of tasks needed,
+        # - and only make minimal changes if the current plan is already good.
         rules = (
-            "Fix the issues with minimal edits. If there are no problems, you must output Original Plan as is. "
-            "Output ONLY lines in this exact format:\n"
-            "#TaskN: <one-line>\n"
-            "#AgentN: <exact agent name>\n"
-            "#DependencyN: None | #S1 #S2 ... (past steps only)\n"
-            "#ExpectedOutputN: <one-line>\n"
-            f"Agents allowed: {', '.join(agents_allowed)}\n"
-            "Use N=1..K sequentially; counts across all tags must match.\n"
-            "No extra prose."
+            "Repair rules:\n"
+            "- Interpret the SPIRAL feedback as follows in your planning:\n"
+            "  * status: how complete and correct the current answer is.\n"
+            "  * can_answer_now=True: you may safely stop planning and keep the plan minimal.\n"
+            "  * stop_index: earliest step index after which the plan already supports answering.\n"
+            "- Use the SPIRAL evaluation feedback and the issues above to decide how to fix the plan.\n"
+            "- Construct the DAG using the bare minimum number of tasks required to satisfy the user question and constraints. "
+            "Avoid redundant or unnecessary tasks.\n"
+            "- Make the minimal changes necessary; if there is no problem, you MUST output the Original Plan as-is.\n"
+            "- Output ONLY lines in this exact format (no extra prose):\n"
+            "  #TaskN: <one-line>\n"
+            "  #AgentN: <exact agent name>\n"
+            "  #DependencyN: None | #S1 #S2 ... (past steps only)\n"
+            "  #ExpectedOutputN: <one-line>\n"
+            f"- Agents allowed: {', '.join(agents_allowed)}\n"
+            "- Use N = 1..K sequentially; counts across all tags must match.\n"
+            "- Do NOT output any explanation, comments, or markdown.\n"
         )
 
         return (
             f"{base_wo_marker}\n\n"
-            f"Predicted DAG score and error:\n{dag_and_score}"
-            # f"Tool dependencies and question and DAG example:\n{tool_dependencies_explanation}"
-            "Issues:\n- " + "\n- ".join(errors) + "\n\n"
-            "Original Plan:\n" + original_plan + "\n\n" + rules + "\n\n" + OUTPUT_MARKER
+            "=== SPIRAL Evaluation Feedback ===\n"
+            f"{spiral_text}\n"
+            "=== Detected Issues ===\n"
+            f"{issues_text}\n"
+            "=== Original Plan ===\n"
+            f"{original_plan}\n\n"
+            f"{rules}\n\n"
+            f"{OUTPUT_MARKER}"
         )
+
+
 
     def _extract_planned_tasks_and_dag(self, final_plan: str, task) -> tuple[list, dict]:
         """
@@ -1592,11 +1688,128 @@ class NewPlanningWorkflow(Workflow):
             with conn.cursor() as cur:
                 cur.execute(sql, {"q": q, "limit_docs": limit_docs})
                 return cur.fetchall()
+            
+    def _spiral_evaluate_plan(
+        self,
+        db_url: str,
+        user_question: str,
+        final_plan: str,
+        task,
+        max_prefix_steps: int | None = None,
+    ) -> dict:
+        """
+        Run a SPIRAL-style evaluation on the current 'final_plan':
+          1) parse it into planned_tasks,
+          2) iterate over prefixes (Step 1, Steps 1–2, ...),
+          3) at each prefix:
+             - use SimulatorAgent to predict the output for the current step,
+             - use CriticAgent to judge the candidate answer,
+             - stop early if Critic says Accomplished or Not accomplished.
+
+        Returns a dict like:
+        {
+            "stop_index": int,     # 1-based index of the prefix where we stopped
+            "status": "Accomplished" | "Partially accomplished" | "Not accomplished",
+            "can_answer_now": bool,
+            "rationale": str,
+            "predicted_answer": str,
+        }
+        """
+        input_tokens_count=0
+        generated_tokens_count=0
+        # 1) Parse plan into tasks (re-use your existing logic)
+        planned_tasks, dag_json = self._extract_planned_tasks_and_dag(final_plan, task)
+        if not planned_tasks:
+            # nothing to evaluate
+            return {
+                "stop_index": 0,
+                "status": "Not accomplished",
+                "can_answer_now": False,
+                "rationale": "No tasks parsed from plan.",
+                "predicted_answer": "",
+            }
+
+        # Optional: limit how many steps we consider
+        if max_prefix_steps is None:
+            max_prefix_steps = len(planned_tasks)
+
+        # 2) Instantiate Simulator + Critic (simple: fresh per call)
+        sim = SimulatorAgent(
+            db_url=db_url,
+            system_prompt=SIMULATOR_SYSTEM_PROMPT,
+            max_similar_tasks=5,
+        )
+        critic = CriticAgent()  # uses few-shot rubric internally
+
+        dag_prefix_for_critic: list[str] = []
+        last_result: dict | None = None
+
+        for idx, pl_task in enumerate(planned_tasks, start=1):
+            if idx > max_prefix_steps:
+                break
+
+            # Build a human-readable prefix line for Critic
+            agent_name = pl_task.agents[0].name if pl_task.agents else "<unknown>"
+            prefix_line = (
+                f"Step{idx}: Agent={agent_name}, "
+                f"Task={pl_task.description}, "
+                f"ExpectedOutput={pl_task.expected_output}"
+            )
+            dag_prefix_for_critic.append(prefix_line)
+
+            # 3) Simulator: predict output for this step
+            predicted_output, input_tokens, generated_tokens = sim.run(
+                user_question=user_question,
+                task_description=pl_task.description,
+                agent_name=agent_name,
+                dag_prefix=dag_prefix_for_critic,
+            )
+            input_tokens_count+=input_tokens
+            generated_tokens_count+=generated_tokens
+
+            # 4) Critic: evaluate whether this prefix + answer is enough
+            critic_res, input_tokens, generated_tokens  = critic.evaluate(
+                user_question=user_question,
+                candidate_answer=predicted_output,
+                dag_prefix=dag_prefix_for_critic,
+            )
+            input_tokens_count+=input_tokens
+            generated_tokens_count+=generated_tokens
+
+            last_result = {
+                "stop_index": idx,
+                "status": critic_res["status"],
+                "can_answer_now": critic_res["can_answer_now"],
+                "rationale": critic_res["rationale"],
+                "predicted_answer": predicted_output,
+            }
+
+            # SPIRAL-style stopping rule:
+            #   - If accomplished → good plan.
+            #   - If not accomplished → plan is structurally bad; no need to go deeper.
+            if (critic_res["status"] == "Accomplished") or (
+                critic_res["status"] == "Not accomplished"
+            ):
+                break
+
+        if last_result is None:
+            # Should not normally happen, but be safe.
+            return {
+                "stop_index": 0,
+                "status": "Not accomplished",
+                "can_answer_now": False,
+                "rationale": "SPIRAL evaluation did not run any step.",
+                "predicted_answer": "",
+            }
+
+        return last_result, input_tokens_count, generated_tokens_count
 
 
     def generate_steps(self, save_plan=False, saved_plan_filename="", qid=None):
         task = self.tasks[0]
         agent_descriptions = ""
+        input_tokens_count=0
+        generated_tokens_count=0
 
         # --- ensure embedder before any search / similarity ---
         if not hasattr(self, "watsonx_embed"):
@@ -1688,7 +1901,12 @@ class NewPlanningWorkflow(Workflow):
             prompt = base_prompt
 
         logger.info(f"Plan Generation Prompt (augmented): \n{prompt}")
-        llm_response = watsonx_llm(prompt, model_id=self.llm)["generated_text"]
+        resp = watsonx_llm(prompt, model_id=self.llm)
+        llm_response=resp.get("generated_text", "")
+        in_tok = resp.get("input_token_count", 0)
+        out_tok = resp.get("generated_token_count", 0)
+        input_tokens_count+=in_tok
+        generated_tokens_count+=out_tok
         logger.info(f"Plan (raw): \n{llm_response}")
 
         final_plan = llm_response
@@ -1711,21 +1929,63 @@ class NewPlanningWorkflow(Workflow):
         agents_allowed = [a.name for a in task.agents]
         print(f"agents_allowed: {agents_allowed}")
 
-        T = 3
+        T = 5
+        spiral_res: Optional[dict] = None
+
         for t in range(T):
             ok, errs = self._validate_plan_text(final_plan, agents_allowed)
-            predicted_score=self.predict_score(DB_URL, task.description, final_plan)
             print(f"ok: {ok}, errs: {errs}")
-            print(f"predicted_score: {predicted_score}")
-            if ok and predicted_score["correct"]>0.6:
-                break  
 
-            repair_prompt = self._build_repair_prompt(prompt, final_plan, errs, agents_allowed, predicted_score)
+            spiral_res = None
+
+            # 1) If the format is valid, run SPIRAL (Simulator + Critic) to evaluate the DAG
+            if ok:
+                spiral_res, in_tok, out_tok = self._spiral_evaluate_plan(
+                    db_url=DB_URL,
+                    user_question=task.description,
+                    final_plan=final_plan,
+                    task=task,
+                    max_prefix_steps=None,  # or e.g. min(len(tasks), 5)
+                )
+                print(f"[SPIRAL] result: {spiral_res}")
+                input_tokens_count+=in_tok
+                generated_tokens_count+=out_tok
+
+                status = spiral_res.get("status", "Not accomplished")
+                can_answer_now = bool(spiral_res.get("can_answer_now", False))
+
+                # 2) Acceptance rule:
+                #    - format OK
+                #    - Critic says Accomplished
+                #    - can_answer_now == True
+                if status == "Accomplished" and can_answer_now:
+                    print("[SPIRAL] Plan accepted.")
+                    break
+
+            # 3) If we reach here, we need to repair:
+            #    - either format is broken (ok == False)
+            #    - or SPIRAL says it's not good enough yet
+            spiral_hint = spiral_res if (ok and spiral_res is not None) else None
+
+            repair_prompt = self._build_repair_prompt(
+                base_prompt=prompt,
+                original_plan=final_plan,
+                errors=errs,
+                agents_allowed=agents_allowed,
+                spiral_feedback=spiral_hint,
+            )
             print(f"repair_prompt: {repair_prompt}")
-            final_plan = watsonx_llm(repair_prompt, model_id=self.llm)["generated_text"]
-            print(f"final_plan: {final_plan}")
-            logger.info("Plan was repaired based on issues:\n- " + "\n- ".join(errs))
 
+            resp = watsonx_llm(repair_prompt, model_id=self.llm)
+            final_plan=resp.get("generated_text", "")
+            in_tok = resp.get("input_token_count", 0)
+            out_tok = resp.get("generated_token_count", 0)
+            input_tokens_count+=in_tok
+            generated_tokens_count+=out_tok
+            print(f"DAG round_{t}: {final_plan}")
+            logger.info("Plan was repaired based on issues:\n- " + "\n- ".join(errs or ["(no structural issues)"]))
+
+            # Re-parse and log this repaired plan round
             planned_tasks, dag_json = self._extract_planned_tasks_and_dag(final_plan, task)
             self._save_plan_round(
                 DB_URL,
@@ -1733,14 +1993,17 @@ class NewPlanningWorkflow(Workflow):
                 scenario_id=getattr(self, "scenario_id", 0),
                 llm=self.llm,
                 round_t=t + 1,
-                prompt=repair_prompt,   
+                prompt=repair_prompt,
                 answer=final_plan,
-                dag=dag_json
+                dag=dag_json,
             )
+
 
         ok, errs = self._validate_plan_text(final_plan, agents_allowed)
         print(f"ok: {ok}, errs: {errs}")
         if ok:
+            print(f"UserQ: {task.description}")
+            print(f"final_plan: {final_plan}")
             out_dir = Path(PLAN_DIR)
             out_dir.mkdir(parents=True, exist_ok=True)  
 
@@ -1830,7 +2093,7 @@ class NewPlanningWorkflow(Workflow):
             planned_tasks.append(a_task)
 
         logger.info(f"Planned Tasks: \n{planned_tasks}")
-        return planned_tasks, self.run_id, self.plan_id
+        return planned_tasks, self.run_id, self.plan_id, input_tokens_count, generated_tokens_count
 
 
     def get_prompt(self, task_description, agent_descriptions):

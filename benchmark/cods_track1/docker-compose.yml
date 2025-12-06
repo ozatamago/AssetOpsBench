@@ -10,6 +10,9 @@ services:
       - /Users/yusuke/Desktop/Program/codabench/AssetOpsBench/scenarios:/home/scenarios:ro   # ★追加
       - /Users/yusuke/Desktop/Program/codabench/AssetOpsBench/summarize.py:/home/summarize.py   # ★追加
       - /Users/yusuke/Desktop/Program/codabench/AssetOpsBench/auto_scoring.py:/home/auto_scoring.py   # ★追加
+      - ../../src/agent_hive/workflows/simulator_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/simulator_agent.py
+      - ../../src/agent_hive/workflows/critic_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/critic_agent.py
+
     env_file:
       - .env.local # changed from .env
     environment:

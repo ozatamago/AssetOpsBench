@@ -1,0 +1,11 @@
+{
+  "text": "What IoT sites are available?",
+  "tasks": [
+    {
+      "task_description": "Retrieve available IoT sites.",
+      "agent_name": "IoT Data Download",
+      "final_answer": "MAIN</response>",
+      "review": "Task Status: Accomplished | used sites tool to retrieve list."
+    }
+  ]
+}

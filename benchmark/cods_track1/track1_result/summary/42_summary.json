@@ -1,0 +1,17 @@
+{
+  "text": "what was the supply temperature from CQPA AHU 2B on sept 19, 2020 at quarter to midnight, at site MAIN? return in a file",
+  "tasks": [
+    {
+      "task_description": "Download sensor data for CQPA AHU 2B at MAIN site on Sept 19 2020",
+      "agent_name": "IoT Data Download",
+      "final_answer": "",
+      "review": "Task Status: Not Accomplished | ```xml\nresolve indexing issue or provide alternative method\n``` \nshould be \nresolve indexing issue or use alternative method. \nOne line. \nresolve indexing issue or use alternative method."
+    },
+    {
+      "task_description": "Extract supply temperature reading from sensor data to a file.",
+      "agent_name": "IoT Data Download",
+      "final_answer": "NO_EXPORT",
+      "review": "Task Status: Not Accomplished | identified supply temperature sensor | failed to retrieve value and export"
+    }
+  ]
+}

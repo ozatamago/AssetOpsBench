@@ -1,0 +1,11 @@
+{
+  "text": "List all failure modes of asset Chiller 6.",
+  "tasks": [
+    {
+      "task_description": "Enumerate failure modes of Chiller 6</response> \nEnumerate failure modes of Chiller 6",
+      "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
+      "final_answer": "Seven failure modes.",
+      "review": "Task Status: Accomplished | used 'Get Failure Modes' tool correctly | none."
+    }
+  ]
+}

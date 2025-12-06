@@ -1,0 +1,11 @@
+{
+  "text": "List all failure modes of Chiller 6 that can be detected by Chiller 6 Supply Temperature.",
+  "tasks": [
+    {
+      "task_description": "Detect Chiller 6 failure modes via supply temperature",
+      "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
+      "final_answer": "Multiple issues detected.",
+      "review": "Task Status: Partially Accomplished | used logical reasoning for failure modes to debug and clarify."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "text": "Generate a machine learning recipe for detecting overheating failure for Chiller 6. Result should include feature sensors and target sensor.",
+  "tasks": [
+    {
+      "task_description": "Enumerate Chiller 6 failure modes to check for overheating",
+      "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
+      "final_answer": "Yes.",
+      "review": "Task Status: Accomplished | identified failure modes | none</response>"
+    },
+    {
+      "task_description": "Identify sensors for Chiller 6 overheating.",
+      "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
+      "final_answer": "temperature, pressure, current or power sensors",
+      "review": "Task Status: Accomplished | reasoned about relevant sensors for Chiller 6."
+    },
+    {
+      "task_description": "Generate Chiller 6 overheating detection machine learning recipe.",
+      "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
+      "final_answer": "compressor discharge temperature</response>\nor \n<response>Multiple values exist</response>\n\n<response>Multiple values exist</response>",
+      "review": "Task Status: Partially Accomplished | identified failure mode | correct file path, validate assumptions</response>\n```<response>identified failure mode | correct file path, validate assumptions</response>```"
+    }
+  ]
+}

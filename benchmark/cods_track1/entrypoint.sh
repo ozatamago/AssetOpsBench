@@ -2,6 +2,36 @@
 set -euo pipefail
 
 # ==== PATHS ====
+JSONL_FILE="/home/scenarios/all_utterance.jsonl"   # もう使っていないが、残しておいてもOK
+
+RESULT_DIR="/home/track1_result/"
+PLAN_DIR="${RESULT_DIR}plan/"
+TRAJECTORY_DIR="${RESULT_DIR}trajectory/"
+mkdir -p "$PLAN_DIR" "$TRAJECTORY_DIR"
+
+# ==== Conda ====
+source /opt/conda/etc/profile.d/conda.sh
+conda activate assetopsbench
+
+python -m pip show agent_hive || true
+python -m pip show reactxen || true
+python -m pip show fmsr_agent || true
+python -m pip show iotagent || true
+python -m pip show tsfmagent || true
+
+python -m pip install -qU "psycopg[binary]>=3.1" "ibm-watsonx-ai>=1.4.0"
+
+echo "========== Running utterance_ids 1–12 and 41-48 =========="
+python /home/run_track_1.py --utterance_ids "1,2,3,4,5,6,7,8,9,10,11,12,41,42,43,44,45,46,47,48"
+
+echo "All runs finished."
+tail -f /dev/null
+
+
+#!/bin/bash
+set -euo pipefail
+
+# ==== PATHS ====
 JSONL_FILE="/home/scenarios/all_utterance.jsonl"
 
 RESULT_DIR="/home/track1_result/"
@@ -83,6 +113,8 @@ done
 
 tail -f /dev/null
 
+
+
 #!/bin/bash
 # Activate conda env
 source /opt/conda/etc/profile.d/conda.sh
@@ -100,6 +132,8 @@ python -m pip install -qU "psycopg[binary]>=3.1"
 
 # python /home/auto_scoring.py
 
+# python /opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/simulator_agent.py
+python /opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/critic_agent.py
 # python /home/summarize.py Q_4
 # python /home/summarize.py Q_6
 # python /home/summarize.py Q_42
@@ -117,5 +151,4 @@ python /home/run_track_1.py --utterance_ids 1
 
 # Keep the container alive
 tail -f /dev/null
-
 

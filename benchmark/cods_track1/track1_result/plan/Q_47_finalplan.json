@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "final_plan": " \n#Task1: List all assets at site MAIN\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: List of assets at site MAIN\n\n#Task2: Identify chillers from the list of assets at site MAIN\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: List of chillers at site MAIN",
+  "final_plan": " \n#Task1: List all the assets at site MAIN\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: A list of assets at site MAIN in a JSON file.\n\n#Task2: Identify chillers from the list of assets at site MAIN\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: A list of chillers at site MAIN.",
   "scenario_id": 47,
-  "generated_at": "2025-11-12T02:35:15.091859Z"
+  "generated_at": "2025-12-06T16:50:12.169402Z"
 }

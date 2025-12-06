@@ -1,0 +1,23 @@
+{
+  "text": "Download sensor data for Chiller 6's Tonnage from the last week of 2020 at the MAIN site",
+  "tasks": [
+    {
+      "task_description": "Determine last week of 2020 date range.",
+      "agent_name": "IoT Data Download",
+      "final_answer": "2020-12-27 to 2020-12-31",
+      "review": "Task Status: Accomplished | determined date range correctly | avoid unrelated actions</response>\n```<response>determined date range correctly | avoid unrelated actions</response>```"
+    },
+    {
+      "task_description": "Check Chiller 6 exists at MAIN site and retrieve asset details",
+      "agent_name": "IoT Data Download",
+      "final_answer": "MAIN",
+      "review": "Task Status: Accomplished | verified Chiller 6 exists | provide actual asset details</response>"
+    },
+    {
+      "task_description": "Download Chiller 6 Tonnage data from MAIN site for last week 2020",
+      "agent_name": "IoT Data Download",
+      "final_answer": "MAIN</response>",
+      "review": "Task Status: Partially Accomplished | identified available sensors | alternative methods or tools for data download."
+    }
+  ]
+}

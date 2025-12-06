@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import time  
 
 from dotenv import load_dotenv
 
@@ -56,6 +57,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 from auto_scoring import auto_score_dag_trajectory
+from summarize import process_trajectory, save_summarized_task
 
 RESULT_DIR = "/home/track1_result/"
 PLAN_DIR = RESULT_DIR + "plan/"
@@ -265,21 +267,44 @@ def save_full_trajectory(
                     final_answer     = task.get("final_answer") or ""
                     raw_task_json    = task
 
+                    # ★ NEW: Critic 由来の Task Status を reviews から抽出
+                    status = extract_task_status_from_reviews(task)
+
                     # 3-a) traj_tasks
                     cur.execute(
                         """
                         INSERT INTO traj_tasks
-                          (doc_id, task_number, task_description, agent_name, response, final_answer, raw_task_json)
-                        VALUES (%s, %s, %s, %s, %s, %s, %s)
+                          (doc_id,
+                           task_number,
+                           task_description,
+                           agent_name,
+                           response,
+                           final_answer,
+                           raw_task_json,
+                           status)
+                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
                         RETURNING task_id
                         """,
-                        (doc_id, task_number, task_description, agent_name, response, final_answer, Json(raw_task_json)),
+                        (
+                            doc_id,
+                            task_number,
+                            task_description,
+                            agent_name,
+                            response,
+                            final_answer,
+                            Json(raw_task_json),
+                            status,   # ★ NEW
+                        ),
                     )
                     task_id = cur.fetchone()["task_id"]
 
                     if embed_text:
                         try:
-                            tv = embed_text(" ".join([task_description, agent_name, response, final_answer]).strip())
+                            tv = embed_text(
+                                " ".join(
+                                    [task_description, agent_name, response, final_answer]
+                                ).strip()
+                            )
                         except Exception:
                             tv = None
                         if tv:
@@ -315,11 +340,17 @@ def save_full_trajectory(
                     if embed_text:
                         try:
                             lv = embed_text(
-                                " ".join([
-                                    str(logs.get("type","")), str(logs.get("task","")), str(logs.get("environment","")),
-                                    str(logs.get("system_prompt","")), str(logs.get("demonstration","")),
-                                    str(logs.get("scratchpad","")), str(logs.get("endstate",""))
-                                ]).strip()
+                                " ".join(
+                                    [
+                                        str(logs.get("type", "")),
+                                        str(logs.get("task", "")),
+                                        str(logs.get("environment", "")),
+                                        str(logs.get("system_prompt", "")),
+                                        str(logs.get("demonstration", "")),
+                                        str(logs.get("scratchpad", "")),
+                                        str(logs.get("endstate", "")),
+                                    ]
+                                ).strip()
                             )
                         except Exception:
                             lv = None
@@ -334,25 +365,31 @@ def save_full_trajectory(
                     if steps:
                         step_params = []
                         for st in steps:
-                            step_params.append((
-                                log_id,
-                                st.get("step"),
-                                st.get("raw_llm_thought_output"),
-                                st.get("raw_llm_action_output"),
-                                st.get("raw_observation_output"),
-                                st.get("raw_llm_output"),
-                                st.get("thought"),
-                                st.get("action"),
-                                st.get("action_input"),
-                                st.get("observation"),
-                                st.get("state"),
-                                st.get("is_loop_detected"),
-                                st.get("additional_scratchpad_feedback"),
-                                st.get("step_trajectory_file_name"),
-                                st.get("step_metric_file_name"),
-                                Json(st.get("step_trajectory_json")) if st.get("step_trajectory_json") is not None else None,
-                                Json(st.get("step_metric_json")) if st.get("step_metric_json") is not None else None,
-                            ))
+                            step_params.append(
+                                (
+                                    log_id,
+                                    st.get("step"),
+                                    st.get("raw_llm_thought_output"),
+                                    st.get("raw_llm_action_output"),
+                                    st.get("raw_observation_output"),
+                                    st.get("raw_llm_output"),
+                                    st.get("thought"),
+                                    st.get("action"),
+                                    st.get("action_input"),
+                                    st.get("observation"),
+                                    st.get("state"),
+                                    st.get("is_loop_detected"),
+                                    st.get("additional_scratchpad_feedback"),
+                                    st.get("step_trajectory_file_name"),
+                                    st.get("step_metric_file_name"),
+                                    Json(st.get("step_trajectory_json"))
+                                    if st.get("step_trajectory_json") is not None
+                                    else None,
+                                    Json(st.get("step_metric_json"))
+                                    if st.get("step_metric_json") is not None
+                                    else None,
+                                )
+                            )
                         cur.executemany(
                             """
                             INSERT INTO traj_log_steps
@@ -371,14 +408,16 @@ def save_full_trajectory(
                     if history:
                         hist_params = []
                         for idx, h in enumerate(history):
-                            hist_params.append((
-                                log_id,
-                                h.get("idx", idx),
-                                h.get("role"),
-                                h.get("content"),
-                                h.get("agent"),
-                                h.get("is_demo"),
-                            ))
+                            hist_params.append(
+                                (
+                                    log_id,
+                                    h.get("idx", idx),
+                                    h.get("role"),
+                                    h.get("content"),
+                                    h.get("agent"),
+                                    h.get("is_demo"),
+                                )
+                            )
                         cur.executemany(
                             """
                             INSERT INTO traj_log_history
@@ -394,7 +433,13 @@ def save_full_trajectory(
                         inner_params = []
                         for idx, it in enumerate(inner_traj):
                             inner_params.append(
-                                (log_id, idx, it.get("thought"), it.get("action"), it.get("observation"))
+                                (
+                                    log_id,
+                                    idx,
+                                    it.get("thought"),
+                                    it.get("action"),
+                                    it.get("observation"),
+                                )
                             )
                         cur.executemany(
                             """
@@ -440,6 +485,61 @@ def save_full_trajectory(
 
         # with conn.transaction() 正常終了で自動 commit、with conn で自動 close
         return str(doc_id)
+
+    
+import re
+from typing import Any, Dict, Sequence
+
+# Precompile regex: captures text after "Task Status:" up to end-of-line
+TASK_STATUS_RE = re.compile(
+    r"Task\s+Status\s*:\s*(?P<status>.+)", re.IGNORECASE
+)
+
+def extract_task_status_from_reviews(task_dict: Dict[str, Any]) -> str:
+    """
+    Extract a normalized task status string from the 'reviews' field of a task.
+
+    Expected format in reviews (examples):
+      "Task Status: Accomplished\\nReasoning: ..."
+
+    Returns one of:
+      - 'Accomplished'
+      - 'Partially accomplished'
+      - 'Not accomplished'
+      - or 'Unknown' if no status can be parsed.
+    """
+    reviews: Sequence[str] | None = task_dict.get("reviews")
+    if not reviews:
+        return "Unknown"
+
+    for review in reviews:
+        if not isinstance(review, str):
+            continue
+
+        # Search for "Task Status: ..." line
+        m = TASK_STATUS_RE.search(review)
+        if not m:
+            continue
+
+        raw = m.group("status").strip()
+        # Use only the first line after "Task Status:", in case of long text
+        first_line = raw.splitlines()[0].strip()
+
+        # Normalize
+        s = first_line.lower()
+        if "accomplished" in s and "partially" not in s and "not" not in s:
+            return "Accomplished"
+        if "partially accomplished" in s or "partial" in s:
+            return "Partially accomplished"
+        if "not accomplished" in s or "failed" in s or "failure" in s:
+            return "Not accomplished"
+
+        # If we found something but can't classify, return raw first_line
+        return first_line
+
+    # If nothing matched in any review text
+    return "Unknown"
+
 
 import psycopg
 from psycopg.rows import dict_row
@@ -560,12 +660,16 @@ def run_planning_workflow(
             saved_plan_filename=RESULT_DIR + f"Model_{llm_model}_Q_{qid}_plan",
         )
     
-    history, run_id, plan_id = wf.run(qid=qid)
+    history, run_id, plan_id, input_tokens_count, generated_tokens_count = wf.run(qid=qid)
 
-    return history, run_id, plan_id
+    return history, run_id, plan_id, input_tokens_count, generated_tokens_count
 
 def run(utterances, generate_steps_only=False):
     os.makedirs(TRAJECTORY_DIR, exist_ok=True)
+
+    start_time = time.perf_counter()
+    input_tokens_count=0
+    generated_tokens_count=0
 
     for utterance in utterances:
         logger.info("=" * 10)
@@ -573,16 +677,26 @@ def run(utterances, generate_steps_only=False):
         dag_file = f"{PLAN_DIR}Q_{utterance['id']}_finalplan.json"
         trajectory_file = f"{TRAJECTORY_DIR}Q_{utterance['id']}_trajectory.json"
 
-        ans, run_id, plan_id = run_planning_workflow(
+        # ans, run_id, plan_id = run_planning_workflow(
+        #     utterance["text"],
+        #     utterance["id"],
+        #     generate_steps_only=generate_steps_only,
+        # )
+        ans, run_id, plan_id, input_tokens, generated_tokens= run_planning_workflow(
             utterance["text"],
             utterance["id"],
             generate_steps_only=generate_steps_only,
         )
+        input_tokens_count+=input_tokens
+        generated_tokens_count+=generated_tokens
 
         if generate_steps_only:
             continue
 
         output = {"id": utterance["id"], "text": utterance["text"], "trajectory": ans}
+
+        with open(trajectory_file, "w") as f:
+            json.dump(output, f, indent=4)
 
         doc_id = save_full_trajectory(
             db_url=os.environ["DATABASE_URL"],
@@ -595,24 +709,42 @@ def run(utterances, generate_steps_only=False):
         )
         print("saved doc_id:", doc_id)
 
-        with open(trajectory_file, "w") as f:
-            json.dump(output, f, indent=4)
+        summary, input_tokens, generated_tokens = process_trajectory(utterance["id"])
+        print(f"summary: {summary}")
+        save_summarized_task(summary, json_id=utterance["id"])
 
-        score_result = auto_score_dag_trajectory(
-            dag_path=dag_file,
-            traj_path=trajectory_file,
-            human_scored_triplets=human_scored_triplets,
-            model_id=16,
-        )
-        print(json.dumps(score_result, ensure_ascii=False, indent=2))
+        input_tokens_count+=input_tokens
+        generated_tokens_count+=generated_tokens
 
-        saved_row = save_dag_traj_score(
-            db_url=os.environ["DATABASE_URL"],
-            plan_id=plan_id,
-            doc_id=doc_id,
-            score=score_result["Q"],   # ← num_edit / correct / num_partially / num_not / error_analysis
-        )
-        print("saved score_id:", saved_row["score_id"])
+        # score_result = auto_score_dag_trajectory(
+        #     dag_path=dag_file,
+        #     traj_path=trajectory_file,
+        #     human_scored_triplets=human_scored_triplets,
+        #     model_id=16,
+        # )
+        # print(json.dumps(score_result, ensure_ascii=False, indent=2))
+
+        # saved_row = save_dag_traj_score(
+        #     db_url=os.environ["DATABASE_URL"],
+        #     plan_id=plan_id,
+        #     doc_id=doc_id,
+        #     score=score_result["Q"],   # ← num_edit / correct / num_partially / num_not / error_analysis
+        # )
+        # print("saved score_id:", saved_row["score_id"])
+
+    # ★ stop timer after the for-loop
+    end_time = time.perf_counter()
+    elapsed = end_time - start_time
+
+    # log / print total time
+    logger.info(
+        f"Processed {len(utterances)} utterances in {elapsed:.2f} seconds "
+        f"(average {elapsed/len(utterances):.2f} s per utterance)" if utterances else
+        "No utterances to process."
+    )
+    print(f"[run] total elapsed time: {elapsed:.2f} seconds")
+    print(f"[run] total input_tokens: {input_tokens_count}")
+    print(f"[run] total generated_tokens: {generated_tokens_count}")
 
 
 

@@ -1,0 +1,17 @@
+{
+  "text": "Which assets are located at the MAIN facility?",
+  "tasks": [
+    {
+      "task_description": "Confirm MAIN facility existence by listing available IoT sites",
+      "agent_name": "IoT Data Download",
+      "final_answer": "MAIN</response>",
+      "review": "Task Status: Accomplished | retrieved IoT sites list | none</response>\n```<response>retrieved IoT sites list | none</response>```"
+    },
+    {
+      "task_description": "List assets at MAIN site",
+      "agent_name": "IoT Data Download",
+      "final_answer": "/tmp/cbmdir/5462f3a2-8d2b-4d25-9213-ce45e0f7d5b6.json </response>",
+      "review": "Task Status: Accomplished | used assets tool correctly | display JSON contents or summarize assets."
+    }
+  ]
+}

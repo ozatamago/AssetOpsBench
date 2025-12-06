@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "final_plan": " \n#Task1: List all assets at site Wind Turbine\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: List of assets at the site Wind Turbine\n#Task2: Identify the sensors for the asset Wind Turbine\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: List of sensors for Wind Turbine\n#Task3: Verify the output to ensure it lists the sensors for Wind Turbine\n#Agent3: IoT Data Download\n#Dependency3: #S2\n#ExpectedOutput3: Verified list of sensors for Wind Turbine",
+  "final_plan": " \n#Task1: List all failure modes of asset Wind Turbine.\n#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency1: None\n#ExpectedOutput1: List of failure modes of Wind Turbine.\n\n#Task2: List the relevant sensors that can be used to monitor the failure modes of Wind Turbine.\n#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency2: #S1\n#ExpectedOutput2: List of sensors associated with Wind Turbine.\n\nThe final answer is: \nThe list of sensors associated with the Wind Turbine asset is available.",
   "scenario_id": 105,
-  "generated_at": "2025-11-12T02:45:25.652751Z"
+  "generated_at": "2025-12-02T14:50:26.931568Z"
 }

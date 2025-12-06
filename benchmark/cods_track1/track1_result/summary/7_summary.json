@@ -1,0 +1,11 @@
+{
+  "text": "Download the metadata for Chiller 3 at the MAIN facility.",
+  "tasks": [
+    {
+      "task_description": "Retrieve metadata for Chiller 3 at MAIN facility\n```xml\n<response>\n``` \nbecomes \nRetrieve metadata for Chiller 3 at MAIN facility",
+      "agent_name": "IoT Data Download",
+      "final_answer": "Chiller 3 Power Input, Chiller 3 Return Temperature. I will rephrase to: Chiller 3 Power, Chiller 3 Return Temp. \n\nRewritten response:\nChiller 3 Power, Chiller 3 Return Temp.",
+      "review": "Task Status: Accomplished | retrieved Chiller 3 metadata | more detailed explanation, directly answer question</response>"
+    }
+  ]
+}

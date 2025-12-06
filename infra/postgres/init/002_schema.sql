@@ -120,10 +120,15 @@ CREATE TABLE IF NOT EXISTS traj_tasks (
   final_answer     TEXT        NOT NULL,
   raw_task_json    JSONB       NOT NULL,
 
+  -- NEW: Critic / evaluation status for this task
+  -- Examples: 'Accomplished', 'Partially accomplished', 'Not accomplished', 'Unknown'
+  status           TEXT        NOT NULL DEFAULT 'Unknown',
+
   -- Vector & FTS
   task_vec         vector(1536),
   tsv_task         tsvector GENERATED ALWAYS AS (
-                     to_tsvector('simple',
+                     to_tsvector(
+                       'simple',
                        coalesce(task_description,'') || ' ' ||
                        coalesce(agent_name,'')       || ' ' ||
                        coalesce(response,'')         || ' ' ||
@@ -133,6 +138,7 @@ CREATE TABLE IF NOT EXISTS traj_tasks (
 
   created_at       TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+
 
 CREATE INDEX IF NOT EXISTS ix_traj_tasks_doc_num   ON traj_tasks (doc_id, task_number);
 CREATE INDEX IF NOT EXISTS ix_traj_tasks_tsv_gin   ON traj_tasks USING GIN (tsv_task);
@@ -358,3 +364,61 @@ CREATE TABLE IF NOT EXISTS dag_trajectory_score (
 CREATE INDEX IF NOT EXISTS idx_score_round ON dag_trajectory_score (plan_id);
 CREATE INDEX IF NOT EXISTS idx_score_doc   ON dag_trajectory_score (doc_id);
 
+
+-- ============================================================
+-- 8) Task-level summaries (1 row per (doc_id, task_id))
+-- ============================================================
+
+CREATE TABLE IF NOT EXISTS traj_task_summaries (
+  summary_id      UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
+
+  -- Identity / joins
+  doc_id          UUID        NOT NULL REFERENCES traj_docs(doc_id) ON DELETE CASCADE,
+  task_id         UUID        NOT NULL REFERENCES traj_tasks(task_id) ON DELETE CASCADE,
+  task_number     INTEGER,  -- optional, mirrors traj_tasks.task_number for convenience
+
+  -- Core task information (denormalized for easy retrieval)
+  user_question   TEXT        NOT NULL,  -- copy of traj_docs.text
+  task_description TEXT       NOT NULL,  -- copy of traj_tasks.task_description
+  agent_name      TEXT        NOT NULL,  -- copy of traj_tasks.agent_name
+  final_answer    TEXT,                  -- copy or shortened version of traj_tasks.final_answer
+  status          TEXT,                  -- e.g. 'Accomplished', 'Partially accomplished', 'Not accomplished'
+  review          TEXT,                  -- parsed / concatenated review text for this task
+
+  -- Human-readable summary
+  summary         TEXT        NOT NULL,  -- short natural-language summary of this task
+
+  -- Vector & FTS for summary-level search
+  summary_vec     vector(1536),          -- embedding of `summary` (same dim as other *_vec columns)
+  tsv_summary     tsvector GENERATED ALWAYS AS (
+                    to_tsvector(
+                      'simple',
+                      coalesce(user_question,'')   || ' ' ||
+                      coalesce(task_description,'') || ' ' ||
+                      coalesce(agent_name,'')       || ' ' ||
+                      coalesce(summary,'')
+                    )
+                  ) STORED,
+
+  created_at      TIMESTAMPTZ NOT NULL DEFAULT now(),
+
+  -- Enforce "one summary per task"
+  CONSTRAINT uq_traj_task_summaries_task UNIQUE (doc_id, task_id)
+);
+
+-- Join / lookup by doc_id + task_id
+CREATE INDEX IF NOT EXISTS ix_traj_task_summaries_doc_task
+  ON traj_task_summaries (doc_id, task_id);
+
+-- Fast lookup by doc_id + task_number (often used in ingestion / debugging)
+CREATE INDEX IF NOT EXISTS ix_traj_task_summaries_doc_num
+  ON traj_task_summaries (doc_id, task_number);
+
+-- Full-text search over summaries
+CREATE INDEX IF NOT EXISTS ix_traj_task_summaries_tsv_gin
+  ON traj_task_summaries USING GIN (tsv_summary);
+
+-- Vector similarity search over summary embeddings
+CREATE INDEX IF NOT EXISTS ix_traj_task_summaries_vec_hnsw
+  ON traj_task_summaries
+  USING hnsw (summary_vec vector_l2_ops);

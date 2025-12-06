@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "final_plan": " \n#Task1: List all sites available in the IoT data context\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: List of available sites\n\n#Task2: Verify if MAIN facility is among the listed sites or determine its corresponding site designation\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: Confirmation if MAIN facility is listed or its equivalent site designation\n\n#Task3: Retrieve the list of assets at the MAIN facility or its corresponding site designation\n#Agent3: IoT Data Download\n#Dependency3: #S2\n#ExpectedOutput3: List of assets at the MAIN facility",
+  "final_plan": " \n#Task1: List the available IoT sites to confirm the existence of the MAIN facility.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: A list of available IoT sites, confirming if MAIN is among them.\n\n#Task2: List the assets at the MAIN site.\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: A list of assets located at the MAIN facility.",
   "scenario_id": 4,
-  "generated_at": "2025-11-12T00:41:14.390182Z"
+  "generated_at": "2025-12-06T16:21:17.421128Z"
 }

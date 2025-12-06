@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "final_plan": " \n#Task1: Retrieve the power usage data for CQPA AHU 1 at the MAIN site on 6/14/20.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: Power usage data for CQPA AHU 1 at MAIN site on 6/14/20.\n\n#Task2: Analyze the retrieved data to determine the power usage.\n#Agent2: Time Series Analytics and Forecasting\n#Dependency2: #S1\n#ExpectedOutput2: Analysis of power usage for CQPA AHU 1 on 6/14/20.\n\n#Task3: Provide the final answer on the power usage of CQPA AHU 1 on 6/14/20.\n#Agent3: IoT Data Download\n#Dependency3: #S1 #S2\n#ExpectedOutput3: Final power usage value for CQPA AHU 1 on 6/14/20.\n\n#Task4: Generate a work order for inspecting CQPA AHU 1 if necessary based on the power usage analysis.\n#Agent4: WorkOrder Agent\n#Dependency4: #S2 #S3\n#ExpectedOutput4: Work order for inspecting CQPA AHU 1 if the power usage is anomalous.",
+  "final_plan": " \n#Task1: Download the sensor data for CQPA AHU 1's power usage at the MAIN site for the date 6/14/20.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: Sensor data for CQPA AHU 1's power usage on 6/14/20.\n\n#Task2: Extract the power usage reading from the downloaded sensor data.\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: Power usage reading for CQPA AHU 1 on 6/14/20.",
   "scenario_id": 43,
-  "generated_at": "2025-11-12T02:21:46.652571Z"
+  "generated_at": "2025-12-06T16:42:47.883324Z"
 }

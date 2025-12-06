@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "final_plan": " \n#Task1: Identify the correct asset and site for the required sensor data.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: Confirmation that the asset \"CQPA AHU 2B\" and site \"MAIN\" are correct for retrieving the supply temperature data.\n\n#Task2: Retrieve the supply temperature data for \"CQPA AHU 2B\" at site \"MAIN\" on Sept 19, 2020 at quarter to midnight.\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: The supply temperature data for \"CQPA AHU 2B\" at site \"MAIN\" on Sept 19, 2020 at 23:45.\n\n#Task3: Export the retrieved data into a file.\n#Agent3: IoT Data Download\n#Dependency3: #S2\n#ExpectedOutput3: A file containing the supply temperature data for \"CQPA AHU 2B\" at site \"MAIN\" on Sept 19, 2020 at 23:45.",
+  "final_plan": " \n#Task1: Download the sensor data for CQPA AHU 2B at MAIN site for Sept 19, 2020 at quarter to midnight.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: A file containing the sensor data for CQPA AHU 2B at MAIN site for the specified date and time.\n\n#Task2: Extract the supply temperature reading from the downloaded sensor data and export it to a file.\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: A file containing the supply temperature reading.",
   "scenario_id": 42,
-  "generated_at": "2025-10-19T17:08:15.425737Z"
+  "generated_at": "2025-12-06T16:41:05.372270Z"
 }
