@@ -1,6 +1,7 @@
 import argparse
 import json
 import os
+import time  
 
 from dotenv import load_dotenv
 
@@ -129,23 +130,30 @@ def run_planning_workflow(
             save_plan=True,
             saved_plan_filename=RESULT_DIR + f"Model_{llm_model}_Q_{qid}_plan",
         )
+    history, input_tokens_count, generated_tokens_count = wf.run()
 
-    return wf.run()
+    return history, input_tokens_count, generated_tokens_count
 
 
 def run(utterances, generate_steps_only=False):
     os.makedirs(TRAJECTORY_DIR, exist_ok=True)
+
+    start_time = time.perf_counter()
+    input_tokens_count=0
+    generated_tokens_count=0
 
     for utterance in utterances:
         logger.info("=" * 10)
         logger.info(f"ID: {utterance['id']}, Task: {utterance['text']}")
         trajectory_file = f"{TRAJECTORY_DIR}Q_{utterance['id']}_trajectory.json"
 
-        ans = run_planning_workflow(
+        ans, input_tokens, generated_tokens= run_planning_workflow(
             utterance["text"],
             utterance["id"],
             generate_steps_only=generate_steps_only,
         )
+        input_tokens_count+=input_tokens
+        generated_tokens_count+=generated_tokens
 
         if generate_steps_only:
             continue
@@ -154,6 +162,12 @@ def run(utterances, generate_steps_only=False):
 
         with open(trajectory_file, "w") as f:
             json.dump(output, f, indent=4)
+
+    end_time = time.perf_counter()
+    elapsed = end_time - start_time
+    print(f"[run] total elapsed time: {elapsed:.2f} seconds")
+    print(f"[run] total input_tokens: {input_tokens_count}")
+    print(f"[run] total generated_tokens: {generated_tokens_count}")
 
 
 if __name__ == "__main__":

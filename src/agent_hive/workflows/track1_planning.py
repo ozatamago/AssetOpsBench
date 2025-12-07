@@ -49,17 +49,19 @@ class NewPlanningWorkflow(Workflow):
             raise ValueError("Task must have at least one agent")
 
     def run(self, enable_summarization=False):
-        generated_steps = self.generate_steps()
+        generated_steps, input_tokens_count, generated_tokens_count = self.generate_steps()
 
         sequential_workflow = SequentialWorkflow(
             tasks=generated_steps, context_type=ContextType.SELECTED
         )
 
-        return sequential_workflow.run()
+        return sequential_workflow.run(), input_tokens_count, generated_tokens_count
 
     def generate_steps(self, save_plan=False, saved_plan_filename=""):
         task = self.tasks[0]
         agent_descriptions = ""
+        input_tokens_count=0
+        generated_tokens_count=0
 
         # =========================================================
         # TODO: Participants can edit this section ONLY
@@ -94,9 +96,12 @@ class NewPlanningWorkflow(Workflow):
 
         prompt = self.get_prompt(task.description, agent_descriptions)
         logger.info(f"Plan Generation Prompt: \n{prompt}")
-        llm_response = watsonx_llm(
-            prompt, model_id=self.llm,
-        )["generated_text"]
+        resp = watsonx_llm(prompt, model_id=self.llm)
+        llm_response=resp.get("generated_text", "")
+        in_tok = resp.get("input_token_count", 0)
+        out_tok = resp.get("generated_token_count", 0)
+        input_tokens_count+=in_tok
+        generated_tokens_count+=out_tok
         logger.info(f"Plan: \n{llm_response}")
 
         final_plan = llm_response
@@ -174,7 +179,7 @@ class NewPlanningWorkflow(Workflow):
         # END OF EDITABLE SECTION
         # =========================================================
 
-        return planned_tasks
+        return planned_tasks, input_tokens_count, generated_tokens_count
 
     def get_prompt(self, task_description, agent_descriptions):
         # =========================================================
