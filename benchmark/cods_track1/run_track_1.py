@@ -672,6 +672,7 @@ def run(utterances, generate_steps_only=False):
     generated_tokens_count=0
 
     for utterance in utterances:
+        print(f"\n\n\n\n\nSenario ID: {utterance['id']}")
         logger.info("=" * 10)
         logger.info(f"ID: {utterance['id']}, Task: {utterance['text']}")
         dag_file = f"{PLAN_DIR}Q_{utterance['id']}_finalplan.json"

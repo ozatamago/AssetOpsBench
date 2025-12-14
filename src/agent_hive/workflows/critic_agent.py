@@ -939,5 +939,5 @@ def main() -> None:
     print("=== End CriticAgent test ===")
 
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()

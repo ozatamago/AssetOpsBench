@@ -586,11 +586,11 @@ class SimulatorAgent:
         # 4) Call Watsonx LLM to simulate the output
         #    We assume model_id=16 is defined in your environment.
         llm_result = self.watsonx_llm(prompt, model_id=16)
-        llm_text = llm_result.get("generated_text", "").strip()
+        predicted_answer = llm_result.get("generated_text", "").strip()
         in_tok = llm_result.get("input_token_count", 0)
         out_tok = llm_result.get("generated_token_count", 0)
 
-        return llm_text, in_tok, out_tok
+        return predicted_answer, in_tok, out_tok
 
     def search_task_summaries(
         self,
@@ -889,5 +889,5 @@ def main() -> None:
     print("=== End ===")
 
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()

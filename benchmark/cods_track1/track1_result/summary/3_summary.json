@@ -2,10 +2,10 @@
   "text": "What assets can be found at the MAIN site?",
   "tasks": [
     {
-      "task_description": "List assets at MAIN site. \nHere is the final line: \nList assets at MAIN site. \nbecomes \nList assets at MAIN site. \n\nHere is the final response:\nList assets at MAIN site. \nbecomes \nList assets at MAIN site\n\nThe best answer is List assets at MAIN site. \nThe best answer is \nList assets at MAIN. \nHere is the final line: List assets at MAIN. \n\nThe final answer is List assets at MAIN.",
+      "task_description": "List assets at MAIN site.",
       "agent_name": "IoT Data Download",
-      "final_answer": "MAIN</response>\nor \n<response>up to 10 words</response> \n\n<response>MAIN</response>",
-      "review": "Task Status: Accomplished | executed necessary action | provide summary or content of JSON file."
+      "final_answer": "One value exists.",
+      "review": "Task Status: Accomplished | used assets tool successfully | provide JSON content summary</response>"
     }
   ]
 }

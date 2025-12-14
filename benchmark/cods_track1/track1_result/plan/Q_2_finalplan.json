@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "final_plan": "- Ensure that your plan is clear, concise, and actionable.\n\n### Plan\n\n#Task1: List the available IoT sites.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: A list of available IoT sites.\n\nThe IoT Data Download agent is capable of providing information about IoT sites. The task to list the available IoT sites can be directly solved by this agent. The expected output is a list of available IoT sites. \n\nSince the task is straightforward and the agent is designed to handle it, the plan consists of a single step.",
+  "final_plan": "- Make sure your plan is fewer than 5 steps.\n\n### Plan\n\n#Task1: List the available IoT sites\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: A list of available IoT sites\n\nThe IoT Data Download agent is capable of providing information about IoT sites. The task to list the available IoT sites can be directly solved by this agent.\n\nSince the task is straightforward and the agent is designed to handle it, there are no dependencies for this step.\n\nThe expected output is a list of available IoT sites, which will be provided by the IoT Data Download agent. \n\nThe final answer will be generated based on the output of this step.",
   "scenario_id": 2,
-  "generated_at": "2025-12-06T16:20:14.433792Z"
+  "generated_at": "2025-12-13T20:37:28.953648Z"
 }
