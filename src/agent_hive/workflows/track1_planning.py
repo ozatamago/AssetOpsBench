@@ -1410,6 +1410,74 @@ class NewPlanningWorkflow(Workflow):
         #             break
 
         return (len(errors) == 0, errors)
+    
+    def _truncate_plan_text(self, plan_text: str, stop_index: int) -> str:
+        """
+        Truncate a plan to steps 1..stop_index (inclusive) and rebuild it in the canonical
+        4-lines-per-step format used by your validator:
+
+          #TaskN: ...
+          #AgentN: ...
+          #DependencyN: None | "#S1 #S2 ..."
+          #ExpectedOutputN: ...
+
+        Notes:
+        - Always truncates (does NOT depend on can_answer_now).
+        - Filters dependencies to only include past steps (<N) within the truncated prefix.
+        - If parsing is inconsistent, falls back to returning the original plan_text.
+        """
+        if not isinstance(stop_index, int) or stop_index < 1:
+            return plan_text
+
+        TASK_RE   = re.compile(r"^#Task(\d+): (.+)$", re.M)
+        AGENT_RE  = re.compile(r"^#Agent(\d+): (.+)$", re.M)
+        DEP_RE    = re.compile(r"^#Dependency(\d+): (.+)$", re.M)
+        OUT_RE    = re.compile(r"^#ExpectedOutput(\d+): (.+)$", re.M)
+        DEP_TOKEN = re.compile(r"#S(\d+)")
+
+        # Keep any header/prefix text before the first tag line (optional but safe).
+        FIRST_TAG = re.compile(r"(?m)^#(?:Task|Agent|Dependency|ExpectedOutput)\d+:\s")
+        m0 = FIRST_TAG.search(plan_text)
+        prefix = plan_text[: m0.start()] if m0 else ""
+
+        tasks: Dict[int, str]  = {int(n): s.strip() for n, s in TASK_RE.findall(plan_text)}
+        agents: Dict[int, str] = {int(n): s.strip() for n, s in AGENT_RE.findall(plan_text)}
+        deps: Dict[int, str]   = {int(n): s.strip() for n, s in DEP_RE.findall(plan_text)}
+        outs: Dict[int, str]   = {int(n): s.strip() for n, s in OUT_RE.findall(plan_text)}
+
+        if not tasks or not agents or not deps or not outs:
+            return plan_text
+
+        # Only truncate as far as we have complete step data for all 4 fields.
+        total_complete = min(len(tasks), len(agents), len(deps), len(outs))
+        k = min(stop_index, total_complete)
+        if k < 1:
+            return plan_text
+
+        # Require a contiguous prefix 1..k; otherwise, safest fallback is no-op.
+        for i in range(1, k + 1):
+            if i not in tasks or i not in agents or i not in deps or i not in outs:
+                return plan_text
+
+        rebuilt: List[str] = []
+        for i in range(1, k + 1):
+            rebuilt.append(f"#Task{i}: {tasks[i]}")
+            rebuilt.append(f"#Agent{i}: {agents[i]}")
+
+            dep_raw = deps[i].strip()
+            if dep_raw == "None":
+                dep_fixed = "None"
+            else:
+                nums = [int(x) for x in DEP_TOKEN.findall(dep_raw)]
+                # Keep only valid, past-step dependencies within the truncated prefix.
+                nums = [x for x in nums if 1 <= x <= k and x < i]
+                dep_fixed = "None" if not nums else " ".join(f"#S{x}" for x in nums)
+
+            rebuilt.append(f"#Dependency{i}: {dep_fixed}")
+            rebuilt.append(f"#ExpectedOutput{i}: {outs[i]}")
+            rebuilt.append("")  # blank line between steps (optional)
+
+        return prefix + "\n".join(rebuilt).rstrip() + "\n"
 
     def _build_repair_prompt(
         self,
@@ -1418,6 +1486,7 @@ class NewPlanningWorkflow(Workflow):
         errors: list[str],
         agents_allowed,
         spiral_feedback: dict | None = None,
+        truncated_plan_text: str | None = None,
     ) -> str:
         """
         Build a repair prompt for the planner LLM.
@@ -1441,6 +1510,7 @@ class NewPlanningWorkflow(Workflow):
         # Remove the output marker once so we don't duplicate it
         base_wo_marker = base_prompt.replace(OUTPUT_MARKER, "", 1).rstrip()
 
+
         # ---- SPIRAL-style evaluation summary (status, rationale, etc.) ----
         if spiral_feedback:
             status = spiral_feedback.get("status", "Unknown")
@@ -1459,14 +1529,31 @@ class NewPlanningWorkflow(Workflow):
                     "(earliest step index after which SPIRAL believes the plan can already answer)"
                 )
             lines_sf.append(f"- Critic rationale: {rationale}")
+
+            # NEW: include truncated plan text (if provided)
+            if truncated_plan_text:
+                lines_sf.append("")
+                lines_sf.append("Truncated plan (use this as the current plan context for repair):")
+                lines_sf.append(truncated_plan_text.rstrip())
+
             spiral_text = "\n".join(lines_sf) + "\n"
         else:
-            spiral_text = (
+            lines_sf: list[str] = []
+            lines_sf.append(
                 "SPIRAL-style evaluation of the current plan is not available for this round.\n"
                 "Assume the current plan may still be suboptimal and try to improve it based "
-                "on the issues and the planning instructions.\n"
+                "on the issues and the planning instructions."
             )
 
+            # NEW: still include truncated plan text if you have it
+            if truncated_plan_text:
+                lines_sf.append("")
+                lines_sf.append("Truncated plan (use this as the current plan context for repair):")
+                lines_sf.append(truncated_plan_text.rstrip())
+
+            spiral_text = "\n".join(lines_sf) + "\n"
+
+            
         # ---- Human / parser errors from _validate_plan_text ----
         if errors:
             issues_text = "Issues detected by the validator:\n- " + "\n- ".join(errors) + "\n"
@@ -1951,14 +2038,19 @@ class NewPlanningWorkflow(Workflow):
                 input_tokens_count+=in_tok
                 generated_tokens_count+=out_tok
 
+                stop_index = spiral_res.get("stop_index", None)
+                truncated_plan = self._truncate_plan_text(final_plan, stop_index)
+
                 status = spiral_res.get("status", "Not accomplished")
                 can_answer_now = bool(spiral_res.get("can_answer_now", False))
+                
 
                 # 2) Acceptance rule:
                 #    - format OK
                 #    - Critic says Accomplished
                 #    - can_answer_now == True
                 if status == "Accomplished" and can_answer_now:
+                    final_plan=truncated_plan
                     print("[SPIRAL] Plan accepted.")
                     break
 
@@ -1966,6 +2058,7 @@ class NewPlanningWorkflow(Workflow):
             #    - either format is broken (ok == False)
             #    - or SPIRAL says it's not good enough yet
             spiral_hint = spiral_res if (ok and spiral_res is not None) else None
+            truncated_plan_text = truncated_plan if (ok and truncated_plan is not None) else None
 
             repair_prompt = self._build_repair_prompt(
                 base_prompt=prompt,
@@ -1973,6 +2066,7 @@ class NewPlanningWorkflow(Workflow):
                 errors=errs,
                 agents_allowed=agents_allowed,
                 spiral_feedback=spiral_hint,
+                truncated_plan_text=truncated_plan_text
             )
             print(f"repair_prompt: {repair_prompt}")
 
