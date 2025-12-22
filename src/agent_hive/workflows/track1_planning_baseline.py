@@ -57,7 +57,7 @@ class NewPlanningWorkflow(Workflow):
 
         return sequential_workflow.run(), input_tokens_count, generated_tokens_count
 
-    def generate_steps(self, save_plan=False, saved_plan_filename=""):
+    def generate_steps(self, save_plan=False, saved_plan_filename="", qid=None):
         task = self.tasks[0]
         agent_descriptions = ""
         input_tokens_count=0

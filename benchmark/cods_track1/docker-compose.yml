@@ -5,13 +5,13 @@ services:
     volumes:
       - ./track1_result:/home/track1_result
 
-      - ./run_track_1_validation.py:/home/run_track_1.py
-      - ./entrypoint_validation.sh:/home/entrypoint.sh
-      - ../../src/agent_hive/workflows/track1_planning_validation.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/track1_planning.py
+      - ./run_track_1_baseline.py:/home/run_track_1.py
+      - ./entrypoint_baseline.sh:/home/entrypoint.sh
+      - ../../src/agent_hive/workflows/track1_planning_baseline.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/track1_planning.py
 
-      - ../../scenarios:/home/scenarios:ro   # ★追加
-      - ../../summarize.py:/home/summarize.py   # ★追加
-      - ../../auto_scoring.py:/home/auto_scoring.py   # ★追加
+      - ../../scenarios:/home/scenarios:ro  
+      - ../../summarize.py:/home/summarize.py  
+      - ../../auto_scoring.py:/home/auto_scoring.py  
       - ../../src/agent_hive/workflows/simulator_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/simulator_agent.py
       - ../../src/agent_hive/workflows/critic_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/critic_agent.py
 
