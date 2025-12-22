@@ -9,9 +9,9 @@ services:
       - ./entrypoint_validation.sh:/home/entrypoint.sh
       - ../../src/agent_hive/workflows/track1_planning_validation.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/track1_planning.py
 
-      - /Users/yusuke/Desktop/Program/codabench/AssetOpsBench/scenarios:/home/scenarios:ro   # ★追加
-      - /Users/yusuke/Desktop/Program/codabench/AssetOpsBench/summarize.py:/home/summarize.py   # ★追加
-      - /Users/yusuke/Desktop/Program/codabench/AssetOpsBench/auto_scoring.py:/home/auto_scoring.py   # ★追加
+      - ../../scenarios:/home/scenarios:ro   # ★追加
+      - ../../summarize.py:/home/summarize.py   # ★追加
+      - ../../auto_scoring.py:/home/auto_scoring.py   # ★追加
       - ../../src/agent_hive/workflows/simulator_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/simulator_agent.py
       - ../../src/agent_hive/workflows/critic_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/critic_agent.py
 

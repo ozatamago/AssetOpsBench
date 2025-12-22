@@ -1,0 +1,23 @@
+Question: Download all sensor data for Chiller 6 from the last week of April '20 at the MAIN site.
+Plan:
+#Task1: Identify the relevant site and asset for Chiller 6.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of sites and assets at the MAIN site.
+
+#Task2: Download sensor data for Chiller 6 at the MAIN site for the last week of April '20.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Sensor data for Chiller 6 in JSON format.
+
+#Task3: Verify the downloaded data for any anomalies or issues.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Analysis report on the downloaded sensor data.
+
+#Task4: Generate a work order based on the analysis of the downloaded data.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Work order for Chiller 6 based on the analysis.
+
+The plan is complete.

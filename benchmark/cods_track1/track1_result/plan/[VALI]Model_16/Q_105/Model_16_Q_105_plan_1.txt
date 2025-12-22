@@ -1,0 +1,17 @@
+Question: Provide some sensors of asset Wind Turbine.
+Plan:
+ 
+#Task1: List all assets at site Wind Farm
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at Wind Farm
+
+#Task2: Get the details of asset Wind Turbine
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Details of Wind Turbine
+
+#Task3: Identify relevant sensors for Wind Turbine
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S2
+#ExpectedOutput3: List of relevant sensors for Wind Turbine

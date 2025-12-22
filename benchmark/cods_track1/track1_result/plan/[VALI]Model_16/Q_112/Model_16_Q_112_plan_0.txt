@@ -1,0 +1,13 @@
+Question:  If compressor overheating occurs for Chiller 6, which sensor should be prioritized for monitoring this specific failure?
+Plan:
+#Task1: Identify the relevant sensors for monitoring compressor overheating failure in Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of relevant sensors for monitoring compressor overheating in Chiller 6.
+
+#Task2: Prioritize the identified sensors for monitoring compressor overheating in Chiller 6.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: The sensor that should be prioritized for monitoring compressor overheating in Chiller 6.
+
+The generated plan is a 2-step process that uses the Failure Mode and Sensor Relevancy Expert for Industrial Asset agent to identify and prioritize the relevant sensors for monitoring compressor overheating in Chiller 6.
