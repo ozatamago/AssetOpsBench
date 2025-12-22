@@ -1,7 +1,0 @@
-Question: What assets can be found at the MAIN site?
-Plan:
- 
-We need to output plan. Already done. Ensure no extra spaces? Format correct. Provide exactly lines. No markdown.assistantfinal#Task1: Retrieve list of assets at the MAIN site
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: List of assets located at the MAIN site

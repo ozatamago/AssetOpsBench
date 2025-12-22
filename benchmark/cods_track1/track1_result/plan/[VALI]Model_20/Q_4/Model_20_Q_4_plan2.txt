@@ -1,3 +1,0 @@
-Question: Which assets are located at the MAIN facility?
-Plan:
- 

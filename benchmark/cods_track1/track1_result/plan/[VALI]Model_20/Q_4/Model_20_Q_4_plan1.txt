@@ -1,7 +1,0 @@
-Question: Which assets are located at the MAIN facility?
-Plan:
- 
-We need to output plan lines. Ensure tags #Task1, #Agent1, #Dependency1, #ExpectedOutput1. No extra. Let's produce.assistantfinal#Task1: Retrieve the list of assets located at the MAIN facility.  
-#Agent1: IoT Data Download  
-#Dependency1: None  
-#ExpectedOutput1: JSON list of asset IDs and names assigned to site “MAIN”.

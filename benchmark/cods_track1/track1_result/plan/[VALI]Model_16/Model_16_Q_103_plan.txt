@@ -1,8 +1,0 @@
-Question: List all failure modes of asset Wind Turbine.
-Plan:
-#Task1: List all failure modes of asset Wind Turbine.
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency1: None
-#ExpectedOutput1: A list of failure modes for Wind Turbine.
-
-Since there is only one task, the plan is complete.
