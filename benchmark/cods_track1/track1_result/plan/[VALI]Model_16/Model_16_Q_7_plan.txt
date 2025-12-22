@@ -1,8 +1,0 @@
-Question: Download the metadata for Chiller 3 at the MAIN facility.
-Plan:
-#Task1: Download the metadata for Chiller 3 at the MAIN facility.
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: Metadata for Chiller 3 at the MAIN facility.
-
-Since there is only one task, the plan is already complete with just one step. The IoT Data Download agent is capable of handling the task as described.

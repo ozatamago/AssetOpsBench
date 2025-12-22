@@ -155,11 +155,11 @@ def run_planning_workflow(
 def run(utterances, generate_steps_only=False, llm_model=16):
     os.makedirs(TRAJECTORY_DIR, exist_ok=True)
 
-    start_time = time.perf_counter()
-    input_tokens_count=0
-    generated_tokens_count=0
-
     for utterance in utterances:
+        start_time = time.perf_counter()
+        input_tokens_count=0
+        generated_tokens_count=0
+        
         logger.info("=" * 10)
         logger.info(f"ID: {utterance['id']}, Task: {utterance['text']}")
         trajectory_file = f"{TRAJECTORY_DIR}Q_{utterance['id']}_trajectory.json"
@@ -181,26 +181,26 @@ def run(utterances, generate_steps_only=False, llm_model=16):
         with open(trajectory_file, "w") as f:
             json.dump(output, f, indent=4)
 
-    end_time = time.perf_counter()
-    elapsed = end_time - start_time
-    print(f"[run] total elapsed time: {elapsed:.2f} seconds")
-    print(f"[run] total input_tokens: {input_tokens_count}")
-    print(f"[run] total generated_tokens: {generated_tokens_count}")
+        end_time = time.perf_counter()
+        elapsed = end_time - start_time
+        print(f"[run] total elapsed time: {elapsed:.2f} seconds")
+        print(f"[run] total input_tokens: {input_tokens_count}")
+        print(f"[run] total generated_tokens: {generated_tokens_count}")
 
-    payload = {
-        "llm_model": llm_model,
-        "qid": utterance["id"],  # if this is per-question; otherwise remove
-        "elapsed_seconds": elapsed,
-        "total_input_tokens": input_tokens_count,
-        "total_generated_tokens": generated_tokens_count,
-    }
+        payload = {
+            "llm_model": llm_model,
+            "qid": utterance["id"],  # if this is per-question; otherwise remove
+            "elapsed_seconds": elapsed,
+            "total_input_tokens": input_tokens_count,
+            "total_generated_tokens": generated_tokens_count,
+        }
 
-    os.makedirs(EXP_DIR, exist_ok=True)
-    exp_subdir = os.path.join(EXP_DIR, f"[VALI]Model_{llm_model}")
-    os.makedirs(exp_subdir, exist_ok=True)
+        os.makedirs(EXP_DIR, exist_ok=True)
+        exp_subdir = os.path.join(EXP_DIR, f"[VALI]Model_{llm_model}")
+        os.makedirs(exp_subdir, exist_ok=True)
 
-    time_token_path = os.path.join(exp_subdir, f"Model_{llm_model}_Q_{utterance['id']}_time_token.txt")
-    _write_time_token_file(time_token_path, payload)
+        time_token_path = os.path.join(exp_subdir, f"Model_{llm_model}_Q_{utterance['id']}_time_token.txt")
+        _write_time_token_file(time_token_path, payload)
 
 
 
