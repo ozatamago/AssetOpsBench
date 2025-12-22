@@ -336,7 +336,7 @@ class NewPlanningWorkflow(Workflow):
         if save_plan:
             RESULT_DIR = "/home/track1_result/"
             PLAN_DIR = RESULT_DIR + "plan/"
-            plan_subdir = os.path.join(PLAN_DIR, f"[VALI]Model_{self.llm}")
+            plan_subdir = os.path.join(PLAN_DIR, f"[VALID]Model_{self.llm}")
             saved_plan_prefix = os.path.join(plan_subdir, f"Model_{self.llm}_Q_{qid}_plan")
             saved_plan_filename_final = saved_plan_prefix + ".txt"
 
