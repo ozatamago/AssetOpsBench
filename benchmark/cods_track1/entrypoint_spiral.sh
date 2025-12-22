@@ -13,8 +13,8 @@ JSONL_FILE="/home/scenarios/all_utterance.jsonl"
 source /opt/conda/etc/profile.d/conda.sh
 conda activate assetopsbench
 
-export GHE_USER="willysk"
-export GHE_TOKEN="REDACTED"
+: "${GHE_USER:?GHE_USER is not set. Check compose env_file (.env.local).}"
+: "${GHE_TOKEN:?GHE_TOKEN is not set. Check compose env_file (.env.local).}"
 
 python -m pip show agent_hive || true
 # ===== Patch reactxen/utils/model_inference.py from IBM/ReActXen (public GitHub) =====
@@ -94,10 +94,6 @@ tail -f /dev/null
 # # Activate conda env
 # source /opt/conda/etc/profile.d/conda.sh
 # conda activate assetopsbench
-
-# export GHE_USER="willysk"
-# export GHE_TOKEN="REDACTED"
-
 
 # which python
 # python --version
