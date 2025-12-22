@@ -226,24 +226,24 @@ def main():
                 for d in sub["ng"]:
                     print(f"NG  {d['dir']}  file_count={d['file_count']} (limit={sub['max_files_allowed']})")
 
-        # --- NEW: one-level subdir scan for *_0.txt files ---
-    subdir_summary = validate_suffix0_in_immediate_subdirs(args.dir, agents_allowed, filename_suffix="_0.txt")
+    #     # --- NEW: one-level subdir scan for *_0.txt files ---
+    # subdir_summary = validate_suffix0_in_immediate_subdirs(args.dir, agents_allowed, filename_suffix="_0.txt")
 
-    print("\n=== One-level subdir check: files ending with _0.txt ===")
-    print(f"Subdirs scanned: {subdir_summary.get('total_dirs', 0)}")
-    print(f"Matched files:   {subdir_summary.get('total_files', 0)}")
-    print(f"OK files:        {subdir_summary.get('ok_count', 0)}")
-    print(f"OK ratio:        {subdir_summary.get('ok_ratio', 0.0):.3f}")
+    # print("\n=== One-level subdir check: files ending with _0.txt ===")
+    # print(f"Subdirs scanned: {subdir_summary.get('total_dirs', 0)}")
+    # print(f"Matched files:   {subdir_summary.get('total_files', 0)}")
+    # print(f"OK files:        {subdir_summary.get('ok_count', 0)}")
+    # print(f"OK ratio:        {subdir_summary.get('ok_ratio', 0.0):.3f}")
 
-    # Optional: per-subdir details
-    for d in subdir_summary.get("results", []):
-        print(f"\n[DIR] {d['subdir']}  (matched: {d['dir_total']}, ok: {d['dir_ok']}, ratio: {d['dir_ok_ratio']:.3f})")
-        for item in d["files"]:
-            flag = "OK " if item["ok"] else "NG "
-            print(f"  {flag} {item['path']}")
-            if not item["ok"]:
-                for e in item["errors"]:
-                    print(f"    - {e}")
+    # # Optional: per-subdir details
+    # for d in subdir_summary.get("results", []):
+    #     print(f"\n[DIR] {d['subdir']}  (matched: {d['dir_total']}, ok: {d['dir_ok']}, ratio: {d['dir_ok_ratio']:.3f})")
+    #     for item in d["files"]:
+    #         flag = "OK " if item["ok"] else "NG "
+    #         print(f"  {flag} {item['path']}")
+    #         if not item["ok"]:
+    #             for e in item["errors"]:
+    #                 print(f"    - {e}")
 
 
 if __name__ == "__main__":
