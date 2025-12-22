@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Read the CSV file 'chiller9_annotated_small_test.csv' and understand its structure.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: Understanding of the CSV file structure.\n\n#Task2: Identify the relevant columns for forecasting 'Chiller 9 Condenser Water Flow'.\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: List of relevant column names.\n\n#Task3: Forecast 'Chiller 9 Condenser Water Flow' using the Time Series Analytics and Forecasting agent.\n#Agent3: Time Series Analytics and Forecasting\n#Dependency3: #S1 #S2\n#ExpectedOutput3: Forecasted values for 'Chiller 9 Condenser Water Flow'.\n\n#Task4: Analyze the forecasted values and provide recommendations for maintenance or operational adjustments.\n#Agent4: WorkOrder Agent\n#Dependency4: #S3\n#ExpectedOutput4: Recommendations based on the forecasted values.",
-  "scenario_id": 216,
-  "generated_at": "2025-11-12T14:53:31.839602Z"
-}

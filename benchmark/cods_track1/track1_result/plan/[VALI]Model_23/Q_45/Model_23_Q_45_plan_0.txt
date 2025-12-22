@@ -1,0 +1,16 @@
+Question: What is the power consumption of CQPA AHU 1 on mar 13 '20, site MAIN?
+Plan:
+#Task1: Identify the site and asset
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The site and asset details
+
+#Task2: Download the sensor data for the asset
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: The sensor data for the asset
+
+#Task3: Analyze the sensor data to find the power consumption
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: The power consumption of the asset on the specified date

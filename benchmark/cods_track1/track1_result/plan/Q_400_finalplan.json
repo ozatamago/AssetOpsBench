@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Retrieve the list of work orders for equipment CWC04013 for the year 2017.\n#Agent1: WorkOrder Agent\n#Dependency1: None\n#ExpectedOutput1: A list of work orders for equipment CWC04013 for the year 2017.\n\n#Task2: Verify if the retrieved data is in the correct format (JSON) and contains the necessary information about work orders for CWC04013.\n#Agent2: IoT Data Download\n#Dependency2: #S1\n#ExpectedOutput2: Confirmation that the retrieved work order data is in JSON format and contains the required details.\n\n#Task3: Analyze the retrieved work orders to identify any specific maintenance or corrective actions taken on equipment CWC04013 in 2017.\n#Agent3: WorkOrder Agent\n#Dependency3: #S1 #S2\n#ExpectedOutput3: Analysis of work orders, including details on maintenance or corrective actions performed on CWC04013 in 2017.",
-  "scenario_id": 400,
-  "generated_at": "2025-11-12T15:22:48.775156Z"
-}

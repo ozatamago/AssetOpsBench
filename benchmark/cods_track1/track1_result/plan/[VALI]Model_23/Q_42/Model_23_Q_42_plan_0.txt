@@ -1,0 +1,21 @@
+Question: what was the supply temperature from CQPA AHU 2B on sept 19, 2020 at quarter to midnight, at site MAIN? return in a file
+Plan:
+#Task1: Identify the assets at the MAIN site
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of assets at the MAIN site
+
+#Task2: Identify the sensor data for CQPA AHU 2B
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: The sensor data for CQPA AHU 2B
+
+#Task3: Download the sensor data for CQPA AHU 2B
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: The downloaded sensor data for CQPA AHU 2B
+
+#Task4: Extract the supply temperature from the sensor data
+#Agent4: IoT Data Download
+#Dependency4: #S3
+#ExpectedOutput4: The supply temperature from CQPA AHU 2B on sept 19, 2020 at quarter to midnight, at site MAIN in a file

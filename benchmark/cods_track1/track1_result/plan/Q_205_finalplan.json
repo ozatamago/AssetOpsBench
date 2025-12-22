@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Check if Time Series Analytics and Forecasting agent can provide information on supported models in TSFM.\n#Agent1: Time Series Analytics and Forecasting\n#Dependency1: None\n#ExpectedOutput1: Information on whether LSTM is supported in TSFM.",
-  "scenario_id": 205,
-  "generated_at": "2025-11-12T05:07:21.096516Z"
-}

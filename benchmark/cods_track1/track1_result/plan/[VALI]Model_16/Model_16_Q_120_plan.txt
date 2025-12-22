@@ -1,0 +1,23 @@
+Question: I want to build an anomaly model for identifying a chiller trip failure for POKMAIN chiller 6. Provide me a list of sensors that I should use, along with the temporal behavior,
+Plan:
+#Task1: Identify relevant sensors for chiller trip failure of POKMAIN chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of relevant sensors for chiller trip failure
+
+#Task2: Determine the temporal behavior of the identified sensors for chiller trip failure
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: Temporal behavior of the relevant sensors
+
+#Task3: Retrieve historical data for the identified sensors from POKMAIN chiller 6
+#Agent3: IoT Data Download
+#Dependency3: #S1, #S2
+#ExpectedOutput3: Historical data for the relevant sensors
+
+#Task4: Analyze the historical data for anomalies in the relevant sensors
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: #S3
+#ExpectedOutput4: Anomaly detection results for the relevant sensors
+
+The plan is complete.

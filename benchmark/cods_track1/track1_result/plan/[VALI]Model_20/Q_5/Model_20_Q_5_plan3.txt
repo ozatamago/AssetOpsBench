@@ -1,0 +1,30 @@
+Question: Retrieve metadata for Chiller 6 located at the MAIN site.
+Plan:
+ 
+We have a plan with 1 step. 
+We need to ensure the plan is correct. 
+We need to check the problem: "Retrieve metadata for Chiller 6 located at the MAIN site." 
+We need to see if the IoT Data Download agent can retrieve metadata. The description says: "Can provide information about IoT sites, asset details, sensor data, and retrieve historical data and metadata for various assets and equipment." So yes. 
+We need to ensure the task is phrased in a way that the agent can understand. The tasks that the IoT Data Download agent can solve include: "what assets are at site SiteX". That would give asset details. So we can ask "what assets are at site MAIN". That will return metadata for all assets at MAIN, including Chiller 6. 
+Thus the plan is correct. 
+We need to ensure the format is correct: 
+- #Task1: <...> 
+- #Agent1: IoT Data Download 
+- #Dependency1: None 
+- #ExpectedOutput1: <...> 
+All good. 
+We should output exactly that. 
+We must not add any extra lines or comments. 
+We must not add any markdown. 
+We must not add any extra spaces at the start of lines. 
+We must not add any extra blank lines. 
+We must not add any extra text. 
+We must not add any extra tags. 
+We must not add any extra punctuation beyond what's needed. 
+We must ensure the plan has fewer than 5 steps. 
+We have 1 step, which is fine. 
+Thus final answer: 
+assistantfinal#Task1: Retrieve metadata for Chiller 6 located at the MAIN site
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON (or structured) response containing Chiller 6’s asset details at site MAIN, such as asset ID, type, installed sensors, commissioning date, and other descriptive metadata.

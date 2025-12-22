@@ -1,0 +1,21 @@
+Question: what was the return temperature from CQPA AHU 2B on sept 19, 2020 at 7pm, at site MAIN? return data in a file
+Plan:
+#Task1: Identify the asset and sensor for the return temperature of CQPA AHU 2B
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The asset and sensor details for the return temperature of CQPA AHU 2B
+
+#Task2: Download the sensor data for the return temperature of CQPA AHU 2B at site MAIN
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: The sensor data for the return temperature of CQPA AHU 2B at site MAIN
+
+#Task3: Extract the return temperature data for CQPA AHU 2B on sept 19, 2020 at 7pm
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: The return temperature data for CQPA AHU 2B on sept 19, 2020 at 7pm
+
+#Task4: Save the return temperature data to a file
+#Agent4: IoT Data Download
+#Dependency4: #S3
+#ExpectedOutput4: A file containing the return temperature data for CQPA AHU 2B on sept 19, 2020 at 7pm

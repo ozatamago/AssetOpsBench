@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Determine if TSFM supports time series regression tasks.\n#Agent1: Time Series Analytics and Forecasting\n#Dependency1: None\n#ExpectedOutput1: Confirmation on whether TSFM supports time series regression tasks.\n\n#Task2: Check if TSFM has a forecasting model with context length 1024.\n#Agent2: Time Series Analytics and Forecasting\n#Dependency2: #S1\n#ExpectedOutput2: Information on whether TSFM has a forecasting model that supports a context length of 1024.\n\n#Task3: Compile the findings into a final answer.\n#Agent3: Time Series Analytics and Forecasting\n#Dependency3: #S1 #S2\n#ExpectedOutput3: A comprehensive answer on TSFM's support for time series regression tasks and forecasting models with context length 1024.",
-  "scenario_id": 215,
-  "generated_at": "2025-11-12T14:50:27.939018Z"
-}

@@ -1,0 +1,14 @@
+Question: What types of time series analysis are supported?
+Plan:
+#Task1: Identify the types of time series analysis supported by the available agents.
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: List of supported time series analysis types.
+
+Since there is only one relevant agent for this task, the plan is straightforward with a single step. The Time Series Analytics and Forecasting agent is directly related to time series analysis and can provide the necessary information about the types of analysis it supports.
+
+The final answer is: 
+#Task1: Identify the types of time series analysis supported by the available agents.
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: List of supported time series analysis types.

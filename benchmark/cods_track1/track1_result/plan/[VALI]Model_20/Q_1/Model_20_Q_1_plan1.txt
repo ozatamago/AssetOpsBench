@@ -1,0 +1,12 @@
+Question: What IoT sites are available?
+Plan:
+ 
+#Task1: 
+We need to output plan lines. Provide #Task1: Retrieve the list of all IoT sites available in the system. #Agent1: IoT Data Download #Dependency1: None #ExpectedOutput1: A JSON or plain-text array containing the site identifiers, e.g., ["SiteA","SiteB","SiteX"].
+
+Make sure each line is separate. No extra spaces? It's okay.
+
+Let's produce final answer.assistantfinal#Task1: Retrieve the list of all IoT sites available in the system.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A JSON or plain‑text array containing the site identifiers, e.g., ["SiteA","SiteB","SiteX"]

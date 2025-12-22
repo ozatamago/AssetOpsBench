@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Identify available pretrained models for time series analysis\n#Agent1: Time Series Analytics and Forecasting\n#Dependency1: None\n#ExpectedOutput1: List of available pretrained models for time series analysis",
-  "scenario_id": 202,
-  "generated_at": "2025-11-12T05:02:12.798857Z"
-}

@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Identify the relevant work orders for equipment CWC04013 in the year 2017.\n#Agent1: WorkOrder Agent\n#Dependency1: None\n#ExpectedOutput1: A list of work orders for CWC04013 in 2017.\n#Task2: Analyze the distribution of the identified work orders.\n#Agent2: WorkOrder Agent\n#Dependency2: #S1\n#ExpectedOutput2: An analysis of the work order distribution for CWC04013 in 2017.\n#Task3: Verify if there are any anomalies or patterns in the work order distribution that may indicate potential issues with CWC04013.\n#Agent3: Time Series Analytics and Forecasting\n#Dependency3: #S2\n#ExpectedOutput3: Insights into any anomalies or patterns in the work order distribution.",
-  "scenario_id": 401,
-  "generated_at": "2025-10-19T18:50:53.712660Z"
-}

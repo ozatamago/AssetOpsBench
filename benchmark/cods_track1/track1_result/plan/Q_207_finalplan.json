@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Check if Time Series Analytics and Forecasting supports anomaly detection.\n#Agent1: Time Series Analytics and Forecasting\n#Dependency1: None\n#ExpectedOutput1: Confirmation that anomaly detection is supported.",
-  "scenario_id": 207,
-  "generated_at": "2025-11-12T05:10:36.302298Z"
-}

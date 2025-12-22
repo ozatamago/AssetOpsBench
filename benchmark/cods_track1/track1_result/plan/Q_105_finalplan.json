@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: List all failure modes of asset Wind Turbine.\n#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency1: None\n#ExpectedOutput1: List of failure modes of Wind Turbine.\n\n#Task2: List the relevant sensors that can be used to monitor the failure modes of Wind Turbine.\n#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency2: #S1\n#ExpectedOutput2: List of sensors associated with Wind Turbine.\n\nThe final answer is: \nThe list of sensors associated with the Wind Turbine asset is available.",
-  "scenario_id": 105,
-  "generated_at": "2025-12-02T14:50:26.931568Z"
-}

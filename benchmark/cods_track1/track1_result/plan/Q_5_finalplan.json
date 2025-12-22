@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Retrieve metadata for Chiller 6 at the MAIN site.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: Metadata for Chiller 6 located at the MAIN site.",
-  "scenario_id": 5,
-  "generated_at": "2025-12-09T19:55:07.043939Z"
-}

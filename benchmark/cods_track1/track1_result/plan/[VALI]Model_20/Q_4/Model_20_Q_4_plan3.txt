@@ -1,0 +1,22 @@
+Question: Which assets are located at the MAIN facility?
+Plan:
+ 
+We need to produce a plan with fewer than 5 steps to answer: "Which assets are located at the MAIN facility?" Use IoT Data Download agent: task 3 "what assets are at site SiteX". Need to specify site name MAIN. So one step.
+
+Provide Task, Agent, Dependency, ExpectedOutput.
+
+Let's format:
+
+#Task1: Retrieve the list of assets located at the MAIN facility.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of asset identifiers and names present at the MAIN facility.
+
+Make sure tags exactly as required: #Task<N>:, #Agent<N>:, #Dependency<N>:, #ExpectedOutput<N>:
+
+No extra spaces? Use single space after colon. Provide exactly.
+
+Let's output.assistantfinal#Task1: Retrieve the list of assets located at the MAIN facility.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A list of asset identifiers and names present at the MAIN facility.

@@ -1,0 +1,55 @@
+Question: List all installed sensors of asset Chiller 6.
+Plan:
+#Task1: List all assets at SiteX
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at SiteX
+
+#Task2: Get details of asset Chiller 6
+#Agent2: IoT Data Download
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: Details of Chiller 6 including installed sensors
+
+However, the above response is not correct. Here is the correct response:
+
+#Task1: Identify the relevant agent that can provide information about the installed sensors of Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: Confirmation that the agent can list failure modes and relevant sensors for Chiller 6.
+
+#Task2: List all failure modes of Chiller 6 to verify the agent's capability.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: List of failure modes for Chiller 6.
+
+#Task3: Identify the relevant sensors for a specific failure mode of Chiller 6.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S2
+#ExpectedOutput3: List of relevant sensors for a specific failure mode.
+
+#Task4: Compile the list of installed sensors for Chiller 6 based on the information gathered.
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency4: #S2, #S3
+#ExpectedOutput4: Comprehensive list of installed sensors for Chiller 6.
+
+The final answer is: 
+#Task1: Identify the relevant agent that can provide information about the installed sensors of Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: Confirmation that the agent can list failure modes and relevant sensors for Chiller 6.
+
+#Task2: List all failure modes of Chiller 6 to verify the agent's capability.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: List of failure modes for Chiller 6.
+
+#Task3: Identify the relevant sensors for a specific failure mode of Chiller 6.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S2
+#ExpectedOutput3: List of relevant sensors for a specific failure mode.
+
+#Task4: Compile the list of installed sensors for Chiller 6 based on the information gathered.
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency4: #S2, #S3
+#ExpectedOutput4: Comprehensive list of installed sensors for Chiller 6.

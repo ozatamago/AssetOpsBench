@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Inquire about the support for models with context length 1024 in TSFM.\n#Agent1: Time Series Analytics and Forecasting\n#Dependency1: None\n#ExpectedOutput1: Confirmation or denial of whether TSFM supports models with a context length of 1024.",
-  "scenario_id": 210,
-  "generated_at": "2025-11-12T22:51:27.433465Z"
-}

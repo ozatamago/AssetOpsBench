@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: List all failure modes of asset Chiller 6.\n#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency1: None\n#ExpectedOutput1: A list of failure modes associated with Chiller 6.",
-  "scenario_id": 102,
-  "generated_at": "2025-11-28T03:20:11.713698Z"
-}

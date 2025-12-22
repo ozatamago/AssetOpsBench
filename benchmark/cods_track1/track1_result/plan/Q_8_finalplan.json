@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: List the assets available at the \"MAIN\" site and identify if Chiller 6 is present.\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: List of assets at the \"MAIN\" site, confirming the presence of Chiller 6.\n\n#Task2: Calculate the start and end dates for the last week of 2020.\n#Agent2: IoT Data Download\n#Dependency2: None\n#ExpectedOutput2: Start and end dates for the last week of 2020.\n\n#Task3: Download sensor data for Chiller 6's Tonnage at the \"MAIN\" site for the last week of 2020.\n#Agent3: IoT Data Download\n#Dependency3: #S1 #S2\n#ExpectedOutput3: Sensor data for Chiller 6's Tonnage at the \"MAIN\" site for the last week of 2020.\n",
-  "scenario_id": 8,
-  "generated_at": "2025-12-19T18:55:38.196761Z"
-}

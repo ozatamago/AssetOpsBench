@@ -1,0 +1,6 @@
+Question: What assets can be found at the MAIN site?
+Plan:
+ #Task1: List the assets available at MAIN site.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of assets at MAIN site.

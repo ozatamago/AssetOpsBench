@@ -1,0 +1,10 @@
+Question: Is Chronos model supported in TSFM?
+Plan:
+#Task1: Check if Chronos model is supported in TSFM
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: Confirmation on whether Chronos model is supported in TSFM
+
+Since there is only one task to be performed and it directly relates to the capabilities of the Time Series Analytics and Forecasting agent, the plan consists of a single step. The task is to check if the Chronos model is supported in TSFM, and the expected output is a confirmation regarding this support. 
+
+The final answer is: $\boxed{Yes}$

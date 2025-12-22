@@ -1,0 +1,12 @@
+Question: What assets can be found at the MAIN site?
+Plan:
+ 
+#Task1: Identify the available sites.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of available sites.
+
+#Task2: Check if "MAIN" is among the available sites and list assets at MAIN site if it exists.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: A list of assets at the MAIN site if it exists, or a message indicating it does not exist.

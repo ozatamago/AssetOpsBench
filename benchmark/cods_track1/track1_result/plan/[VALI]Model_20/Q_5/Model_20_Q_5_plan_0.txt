@@ -1,0 +1,10 @@
+Question: Retrieve metadata for Chiller 6 located at the MAIN site.
+Plan:
+We need to retrieve metadata for Chiller 6 at MAIN site. Which agent can provide metadata? IoT Data Download can provide information about IoT sites, asset details, sensor data, and retrieve historical data and metadata for various assets and equipment. So we can ask "what assets are at site MAIN" or "download asset history" but metadata likely via "download asset history"? Actually metadata could be asset details. Use IoT Data Download: ask for asset details for Chiller 6 at MAIN site. The task description: "Can provide information about IoT sites, asset details, sensor data, and retrieve historical data and metadata for various assets and equipment". So we can ask "what assets are at site MAIN" then maybe "download asset history for Chiller 6 at MAIN". But we just need metadata, not history. So maybe ask "what assets are at site MAIN" then "download asset metadata for Chiller 6". There's no explicit task for metadata, but "download asset history" includes metadata? Could be. Use task 5: download asset history for CU02004 at SiteX from ... for sensors. Not metadata. However we can ask "what assets are at site MAIN" which returns asset list with details. That likely includes metadata. So plan: single step: ask IoT Data Download: "what assets are at site MAIN". Expected output: list of assets with metadata, including Chiller 6 details. Dependency None.
+
+We need fewer than 5 steps, okay.
+
+Let's format.assistantfinal#Task1: Retrieve the metadata (asset details) for Chiller 6 located at the MAIN site.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A JSON (or structured) response listing the assets at site MAIN, including the entry for Chiller 6 with its metadata such as asset ID, type, installed sensors, commissioning date, and any other descriptive fields.

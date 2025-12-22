@@ -1,0 +1,14 @@
+Question: Can you list the IoT sites?
+Plan:
+ 
+We need to output plan with fewer than 5 steps. The problem: "Can you list the IoT sites?" So we need one step: use IoT Data Download agent to get sites. Must follow format exactly, no extra spaces? The format: "#TaskN: <one-line>" etc. Must not have extra spaces at line start. Must not have markdown. Must not have extra blank lines. Must not have trailing spaces? Probably fine.
+
+We need to ensure each line is exactly as required. Use #Task1: Retrieve the list of all IoT sites. #Agent1: IoT Data Download #Dependency1: None #ExpectedOutput1: A list of IoT site names (e.g., JSON array or plain text). All on separate lines.
+
+Make sure no extra spaces before #. Also no double spaces. Provide exactly four lines.
+
+Let's output.assistantfinal
+#Task1: Retrieve the list of all IoT sites.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of IoT site names (e.g., JSON array or plain text).

@@ -1,0 +1,7 @@
+Question: Can you list the IoT sites?
+Plan:
+ 
+We need to output plan lines exactly. Already done. Ensure no extra spaces? Should be fine. Ensure #ExpectedOutput1 is one line. Provide plain text. Done.assistantfinal#Task1: Retrieve the list of all IoT sites available in the system.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A complete list of IoT site names (e.g., JSON array or plain text).

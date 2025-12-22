@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: List all assets at the MAIN site\n#Agent1: IoT Data Download\n#Dependency1: None\n#ExpectedOutput1: List of assets at the MAIN site",
-  "scenario_id": 3,
-  "generated_at": "2025-12-09T19:53:52.545221Z"
-}

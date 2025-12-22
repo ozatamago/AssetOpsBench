@@ -1,0 +1,46 @@
+Question: What assets can be found at the MAIN site?
+Plan:
+#Task1: List the assets available at the MAIN site.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of assets at the MAIN site.
+
+Since there is no "MAIN" site in the available data, we need to first identify the available sites.
+
+#Task2: Identify the available sites.
+#Agent2: IoT Data Download
+#Dependency2: None
+#ExpectedOutput2: A list of available sites.
+
+#Task3: Check if "MAIN" is among the available sites.
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: Confirmation if "MAIN" site exists.
+
+#Task4: If "MAIN" site exists, list the assets at the MAIN site.
+#Agent4: IoT Data Download
+#Dependency4: #S3
+#ExpectedOutput4: A list of assets at the MAIN site if it exists.
+
+Let's simplify the plan to meet the <5 steps constraint.
+
+#Task1: Identify the available sites.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of available sites.
+
+#Task2: Check if "MAIN" is among the available sites and list assets at MAIN site if it exists.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: A list of assets at the MAIN site if it exists, or a message indicating it does not exist.
+
+The final answer is:
+#Task1: Identify the available sites.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of available sites.
+
+#Task2: Check if "MAIN" is among the available sites and list assets at MAIN site if it exists.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: A list of assets at the MAIN site if it exists, or a message indicating it does not exist.

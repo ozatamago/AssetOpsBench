@@ -1,6 +1,0 @@
-{
-  "ok": true,
-  "final_plan": " \n#Task1: Identify the potential failure that causes a drop in power input for Chiller 6.\n#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset\n#Dependency1: None\n#ExpectedOutput1: List of potential failures that cause a drop in power input for Chiller 6.\n\n#Task2: Retrieve the historical data for Chiller 6 power input.\n#Agent2: IoT Data Download\n#Dependency2: None\n#ExpectedOutput2: Historical data for Chiller 6 power input.\n\n#Task3: Analyze the historical data for Chiller 6 power input to identify any anomalies or patterns.\n#Agent3: Time Series Analytics and Forecasting\n#Dependency3: #S2\n#ExpectedOutput3: Analysis of the historical data for Chiller 6 power input, highlighting any anomalies or patterns.\n\n#Task4: Generate a work order based on the identified potential failure and analysis.\n#Agent4: WorkOrder Agent\n#Dependency4: #S1 #S3\n#ExpectedOutput4: A work order for inspecting or maintaining Chiller 6 based on the potential failure identified.",
-  "scenario_id": 118,
-  "generated_at": "2025-12-02T16:18:39.952442Z"
-}

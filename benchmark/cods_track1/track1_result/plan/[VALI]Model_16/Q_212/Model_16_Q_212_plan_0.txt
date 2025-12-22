@@ -1,0 +1,8 @@
+Question: Find a model for energy forecasting with context length 96 and nothing else.
+Plan:
+#Task1: Find a model for energy forecasting with context length 96
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: A model for energy forecasting with context length 96
+
+Since the task is straightforward and directly related to one of the available agents, the plan consists of a single step. The Time Series Analytics and Forecasting agent is capable of assisting with forecasting tasks, including specifying context lengths for various time series data, which aligns with the task of finding a model for energy forecasting with a context length of 96.
