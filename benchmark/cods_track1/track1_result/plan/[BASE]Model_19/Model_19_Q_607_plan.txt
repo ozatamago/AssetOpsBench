@@ -1,0 +1,37 @@
+Question: Get failure modes for Chiller 6 at MAIN site and only include in final response those that can be monitored using the available sensors.
+Plan:
+
+#Task<1>: Get the list of failure modes for Chiller 6 at MAIN site
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: None
+#ExpectedOutput<1>: List of failure modes for Chiller 6 at MAIN site
+
+#Task<2>: Identify failure modes that can be monitored using available sensors for Chiller 6 at MAIN site
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S1
+#ExpectedOutput<1>: List of failure modes for Chiller 6 at MAIN site that can be monitored using available sensors
+
+#Task<3>: Analyze time-series data for anomalies related to the identified failure modes
+#Agent<2>: Time Series Analytics and Forecasting
+#Dependency<1>: #S2
+#ExpectedOutput<1>: Report of anomalies in time-series data related to the identified failure modes
+
+#Task<4>: Generate work orders for preventive maintenance based on identified failure modes
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: List of generated work orders for preventive maintenance
+
+#Task<5>: Present the final response including failure modes, anomalies, and work orders
+#None
+#Dependency<1>: #S4
+#ExpectedOutput<1>: Comprehensive report on failure modes, anomalies, and preventive maintenance work orders for Chiller 6 at MAIN site
+
+***Note: The plan assumes that the necessary data and metadata are accessible through the IoT Data Download agent and that the Time Series Analytics and Forecasting agent has access to the required time-series data files.***
+
+***Note: The plan is structured to ensure that the failure modes are first identified, then monitored for anomalies, and finally addressed through preventive maintenance work orders.***
+
+***Note: The plan adheres to the constraint of using fewer than 5 steps and utilizes the provided agents effectively to solve the problem.***
+
+***Note: The plan is clear, unambiguous, and actionable, with each step specifying the agent, dependencies, and expected output.***
+
+***Note: The plan does not introduce any new agents or modify the base ReAct agent and Executor component, adhering to the given constraints.***

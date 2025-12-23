@@ -1,0 +1,703 @@
+Question: What IoT sites are available?
+Plan:
+#Task<1>: Find out the IoT sites available
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: List of IoT sites
+
+#Task<2>: Analyze the list of sites for chillers
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S1
+#ExpectedOutput<1>: List of chillers and their relevant failure modes
+
+#Task<3>: Forecast temperature anomalies for each chiller
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S2
+#ExpectedOutput<1>: Forecasted temperature anomalies for each chiller
+
+#Task<4>: Generate work orders for chillers with anomalies
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Work orders for chillers with detected anomalies
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on IoT sites, chiller status, forecasted anomalies, and generated work orders.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Identify the chillers with compressor overheating issues and suggest preventive maintenance actions.
+
+Output (your generated plan) ⬇️:
+#Task<1>: List chillers with compressor overheating issues
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: None
+#ExpectedOutput<1>: List of chillers with compressor overheating failure modes
+
+#Task<2>: Identify relevant sensors for monitoring compressor overheating
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Sensors that can detect compressor overheating
+
+#Task<3>: Analyze historical sensor data for compressor overheating
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S2
+#ExpectedOutput<1>: Historical sensor data for chillers with compressor overheating
+
+#Task<4>: Generate preventive maintenance recommendations
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Preventive maintenance work orders for chillers with compressor overheating
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on chillers with compressor overheating, relevant sensors, historical data, and preventive maintenance recommendations.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Determine if there are any anomalies in the power consumption of Chiller 6 at Site X and suggest corrective actions if found.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Analyze Chiller 6 power consumption data
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: None
+#ExpectedOutput<1>: Identification of anomalies in Chiller 6 power consumption
+
+#Task<2>: Identify potential causes of anomalies
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S1
+#ExpectedOutput<1>: List of potential failure modes causing anomalies in Chiller 6 power consumption
+
+#Task<3>: Generate corrective work orders
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S2
+#ExpectedOutput<1>: Corrective work orders for identified anomalies
+
+#Task<4>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on Chiller 6 power consumption anomalies, potential causes, and corrective actions.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Evaluate the efficiency of Chiller 6 at Site X over the past year and recommend improvements.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Retrieve Chiller 6 efficiency data for the past year
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Chiller 6 efficiency data for the past year
+
+#Task<2>: Analyze efficiency trends
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Efficiency trends and patterns over the past year
+
+#Task<3>: Identify factors affecting efficiency
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: Failure modes and sensor relevancy impacting Chiller 6 efficiency
+
+#Task<4>: Generate improvement recommendations
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Recommendations for improving Chiller 6 efficiency
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on Chiller 6 efficiency evaluation, trends, factors, and improvement recommendations.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Assess the performance of all chillers across all sites and recommend maintenance actions for those showing suboptimal performance.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Gather performance data for all chillers
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Performance data for all chillers across all sites
+
+#Task<2>: Analyze performance metrics
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Performance trends and metrics for each chiller
+
+#Task<3>: Identify chillers with suboptimal performance
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: List of chillers with suboptimal performance and potential causes
+
+#Task<4>: Generate maintenance recommendations
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Maintenance work orders for chillers with suboptimal performance
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on chiller performance assessment, suboptimal chillers, causes, and maintenance recommendations.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Determine if there are any correlations between sensor readings and energy consumption for Chiller 6 at Site X, and suggest adjustments to improve energy efficiency.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Retrieve sensor readings and energy consumption data for Chiller 6 at Site X
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Sensor readings and energy consumption data for Chiller 6 at Site X
+
+#Task<2>: Analyze correlation between sensor readings and energy consumption
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Correlation analysis between sensor readings and energy consumption
+
+#Task<3>: Identify sensors with significant impact on energy consumption
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: Sensors with significant impact on Chiller 6 energy consumption
+
+#Task<4>: Generate energy efficiency improvement recommendations
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Recommendations for adjustments to improve energy efficiency
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on correlation analysis, impactful sensors, and energy efficiency improvement recommendations.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Evaluate the effectiveness of the current maintenance schedule for all chillers across all sites and propose adjustments to optimize maintenance efforts.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Gather maintenance records for all chillers
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Maintenance records for all chillers across all sites
+
+#Task<2>: Analyze maintenance schedule effectiveness
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Analysis of maintenance schedule effectiveness, including downtime and failure rates
+
+#Task<3>: Identify areas for maintenance optimization
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: Areas where maintenance schedule can be optimized
+
+#Task<4>: Generate optimized maintenance schedule recommendations
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Recommendations for an optimized maintenance schedule
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on maintenance schedule effectiveness, areas for optimization, and proposed adjustments.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Investigate the relationship between ambient temperature and chiller performance at Site Y.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Retrieve ambient temperature and chiller performance data for Site Y
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Ambient temperature and chiller performance data for Site Y
+
+#Task<2>: Analyze the correlation between ambient temperature and chiller performance
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Correlation analysis between ambient temperature and chiller performance
+
+#Task<3>: Identify optimal ambient temperature range for chiller performance
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: Optimal ambient temperature range for chiller performance at Site Y
+
+#Task<4>: Generate recommendations for adjusting chiller operation based on ambient temperature
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Recommendations for adjusting chiller operation to optimize performance based on ambient temperature
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on the relationship between ambient temperature and chiller performance at Site Y, including correlation analysis, optimal temperature range, and recommendations.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Determine if there are any seasonal patterns in energy consumption for all chillers across all sites and propose adjustments to optimize energy usage.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Gather energy consumption data for all chillers across all sites
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Energy consumption data for all chillers across all sites
+
+#Task<2>: Analyze energy consumption data for seasonal patterns
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Identification of seasonal patterns in energy consumption
+
+#Task<3>: Identify chillers with significant seasonal energy consumption variations
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: List of chillers with significant seasonal energy consumption variations and potential causes
+
+#Task<4>: Generate energy optimization recommendations
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Recommendations for adjusting chiller operation to optimize energy usage based on seasonal patterns
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on seasonal patterns in energy consumption, chillers with significant variations, causes, and optimization recommendations.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Assess the impact of recent maintenance activities on the overall performance of Chiller 5 at Site Z.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Retrieve pre- and post-maintenance performance data for Chiller 5 at Site Z
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Pre- and post-maintenance performance data for Chiller 5 at Site Z
+
+#Task<2>: Analyze performance changes due to recent maintenance
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Analysis of performance changes before and after maintenance
+
+#Task<3>: Identify any residual issues post-maintenance
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: List of any residual issues or failure modes post-maintenance
+
+#Task<4>: Generate recommendations for further maintenance actions
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Recommendations for additional maintenance actions if needed
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on the impact of recent maintenance on Chiller 5 at Site Z, including performance analysis, residual issues, and recommendations.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Evaluate the effectiveness of the current refrigerant management strategy for all chillers across all sites and propose improvements.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Gather refrigerant level and chiller performance data for all sites
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Refrigerant level and chiller performance data for all chillers across all sites
+
+#Task<2>: Analyze refrigerant usage patterns
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Analysis of refrigerant usage patterns and trends
+
+#Task<3>: Identify chillers with inefficient refrigerant usage
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: List of chillers with inefficient refrigerant usage and potential causes
+
+#Task<4>: Generate refrigerant management improvement recommendations
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Recommendations for improving refrigerant management strategy
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on the effectiveness of the current refrigerant management strategy, inefficient chillers, causes, and improvement recommendations.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Determine if there are any unusual patterns in water flow rates for Chiller 1 at Site A and suggest corrective actions if found.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Retrieve water flow rate data for Chiller 1 at Site A
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Water flow rate data for Chiller 1 at Site A
+
+#Task<2>: Analyze water flow rate data for unusual patterns
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Identification of unusual patterns in water flow rates
+
+#Task<3>: Identify potential causes of unusual water flow patterns
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: List of potential causes for unusual water flow patterns
+
+#Task<4>: Generate corrective action recommendations
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Recommendations for corrective actions to address unusual water flow patterns
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on unusual water flow rate patterns, potential causes, and corrective action recommendations for Chiller 1 at Site A.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Evaluate the impact of recent changes in cooling load on the performance of Chiller 2 at Site B.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Gather cooling load and Chiller 2 performance data for Site B
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Cooling load and Chiller 2 performance data for Site B
+
+#Task<2>: Analyze the correlation between cooling load and Chiller 2 performance
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Correlation analysis between cooling load and Chiller 2 performance
+
+#Task<3>: Identify performance degradation due to recent changes in cooling load
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: Assessment of Chiller 2 performance degradation caused by recent changes in cooling load
+
+#Task<4>: Generate performance improvement recommendations
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Recommendations for improving Chiller 2 performance in response to changes in cooling load
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on the impact of recent changes in cooling load on Chiller 2 at Site B, including correlation analysis, performance degradation, and improvement recommendations.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Assess the reliability of the current predictive maintenance strategy for all chillers across all sites and propose enhancements.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Gather predictive maintenance records and chiller performance data for all sites
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Predictive maintenance records and chiller performance data for all chillers across all sites
+
+#Task<2>: Analyze the effectiveness of the current predictive maintenance strategy
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Analysis of the effectiveness of the current predictive maintenance strategy, including downtime reduction and failure prediction accuracy
+
+#Task<3>: Identify areas for improvement in predictive maintenance
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: Areas where the predictive maintenance strategy can be enhanced
+
+#Task<4>: Generate enhanced predictive maintenance recommendations
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Recommendations for improving the predictive maintenance strategy
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on the reliability of the current predictive maintenance strategy, areas for improvement, and enhanced recommendations.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Determine if there are any correlations between vibration levels and chiller performance for Chiller 3 at Site C, and suggest adjustments to improve performance if correlations are found.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Retrieve vibration level and chiller performance data for Chiller 3 at Site C
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Vibration level and chiller performance data for Chiller 3 at Site C
+
+#Task<2>: Analyze correlation between vibration levels and chiller performance
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Correlation analysis between vibration levels and chiller performance
+
+#Task<3>: Identify vibration levels impacting chiller performance
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: Vibration levels that significantly impact Chiller 3 performance
+
+#Task<4>: Generate performance improvement recommendations
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Recommendations for adjustments to improve Chiller 3 performance based on vibration levels
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on the correlation between vibration levels and chiller performance for Chiller 3 at Site C, impacting vibration levels, and performance improvement recommendations.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Evaluate the effectiveness of the current energy management system for all chillers across all sites and propose adjustments to optimize energy usage.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Gather energy consumption and chiller performance data for all sites
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Energy consumption and chiller performance data for all chillers across all sites
+
+#Task<2>: Analyze energy consumption patterns
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Analysis of energy consumption patterns and trends
+
+#Task<3>: Identify inefficient energy usage patterns
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: Inefficient energy usage patterns and potential causes
+
+#Task<4>: Generate energy management optimization recommendations
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Recommendations for optimizing energy usage in the energy management system
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on the effectiveness of the current energy management system, inefficient energy usage patterns, causes, and optimization recommendations.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Investigate the relationship between outdoor air temperature and chiller performance at Site D.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Retrieve outdoor air temperature and chiller performance data for Site D
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Outdoor air temperature and chiller performance data for Site D
+
+#Task<2>: Analyze the correlation between outdoor air temperature and chiller performance
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Correlation analysis between outdoor air temperature and chiller performance
+
+#Task<3>: Identify optimal outdoor air temperature range for chiller performance at Site D
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: Optimal outdoor air temperature range for chiller performance at Site D
+
+#Task<4>: Generate recommendations for adjusting chiller operation based on outdoor air temperature
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Recommendations for adjusting chiller operation to optimize performance based on outdoor air temperature
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on the relationship between outdoor air temperature and chiller performance at Site D, including correlation analysis, optimal temperature range, and recommendations.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Determine if there are any anomalies in the refrigerant pressure of Chiller 4 at Site E and suggest corrective actions if found.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Retrieve refrigerant pressure data for Chiller 4 at Site E
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Refrigerant pressure data for Chiller 4 at Site E
+
+#Task<2>: Analyze refrigerant pressure data for anomalies
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Identification of anomalies in refrigerant pressure
+
+#Task<3>: Identify potential causes of anomalies
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: List of potential failure modes causing anomalies in refrigerant pressure
+
+#Task<4>: Generate corrective work orders
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Corrective work orders for identified anomalies
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on Chiller 4 refrigerant pressure anomalies, potential causes, and corrective actions.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Evaluate the effectiveness of the current control strategy for Chiller 5 at Site F and propose adjustments to improve performance.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Gather control strategy parameters and Chiller 5 performance data for Site F
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Control strategy parameters and Chiller 5 performance data for Site F
+
+#Task<2>: Analyze control strategy effectiveness
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Analysis of control strategy effectiveness, including performance metrics and efficiency
+
+#Task<3>: Identify areas for control strategy improvement
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: Areas where the control strategy can be improved
+
+#Task<4>: Generate control strategy adjustment recommendations
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Recommendations for adjusting the control strategy to improve Chiller 5 performance
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on the effectiveness of the current control strategy for Chiller 5 at Site F, areas for improvement, and adjustment recommendations.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Assess the impact of recent software updates on the performance of all chillers across all sites.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Gather performance data and software update logs for all chillers
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Performance data and software update logs for all chillers across all sites
+
+#Task<2>: Analyze performance changes post-software updates
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Analysis of performance changes following software updates
+
+#Task<3>: Identify chillers with performance degradation due to software updates
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: List of chillers with performance degradation caused by software updates and potential causes
+
+#Task<4>: Generate software update impact mitigation recommendations
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Recommendations for mitigating the impact of software updates on chiller performance
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on the impact of recent software updates on chiller performance, chillers with degradation, causes, and mitigation recommendations.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Determine if there are any correlations between water treatment chemical levels and chiller performance for Chiller 6 at Site G, and suggest adjustments to improve performance if correlations are found.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Retrieve water treatment chemical levels and Chiller 6 performance data for Site G
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Water treatment chemical levels and Chiller 6 performance data for Site G
+
+#Task<2>: Analyze correlation between water treatment chemical levels and chiller performance
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Correlation analysis between water treatment chemical levels and Chiller 6 performance
+
+#Task<3>: Identify chemical levels impacting chiller performance
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: Water treatment chemical levels that significantly impact Chiller 6 performance
+
+#Task<4>: Generate performance improvement recommendations
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Recommendations for adjusting water treatment chemical levels to improve Chiller 6 performance
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on the correlation between water treatment chemical levels and Chiller 6 performance for Site G, impacting chemical levels, and performance improvement recommendations.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Evaluate the effectiveness of the current energy recovery system for all chillers across all sites and propose adjustments to optimize energy savings.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Gather energy consumption, recovery system performance data, and chiller performance data for all sites
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Energy consumption, recovery system performance data, and chiller performance data for all chillers across all sites
+
+#Task<2>: Analyze energy savings from the current recovery system
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Analysis of energy savings from the current recovery system
+
+#Task<3>: Identify chillers with suboptimal energy recovery
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: List of chillers with suboptimal energy recovery and potential causes
+
+#Task<4>: Generate energy recovery optimization recommendations
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Recommendations for optimizing the energy recovery system
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<1>: Comprehensive report on the effectiveness of the current energy recovery system, chillers with suboptimal recovery, causes, and optimization recommendations.
+
+🔁 Please repeat this format and strictly adhere to the constraints for the next problem. 🔁
+
+## Problem to solve: ##
+Investigate the relationship between condenser water temperature and chiller performance at Site H.
+
+Output (your generated plan) ⬇️:
+#Task<1>: Retrieve condenser water temperature and chiller performance data for Site H
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Condenser water temperature and chiller performance data for Site H
+
+#Task<2>: Analyze the correlation between condenser water temperature and chiller performance
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Correlation analysis between condenser water temperature and chiller performance
+
+#Task<3>: Identify optimal condenser water temperature range for chiller performance at Site H
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: Optimal condenser water temperature range for chiller performance at Site H
+
+#Task<4>: Generate recommendations for adjusting chiller operation based on condenser water temperature
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<1>: Recommendations for adjusting chiller operation to optimize performance based on condenser water temperature
+
+#Task<5>: Present findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#

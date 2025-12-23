@@ -1,0 +1,29 @@
+Question: Here is an output of anomaly model in file with absolute path '/tmp/tsad_conformal.csv', can you check if there are any anomalies, and do you think I should create a work order after reviewing the anomalies?
+Plan:
+
+#Task<1>: Check for anomalies in the time-series data
+#Agent<1>: Time Series Analytics and Forecasting
+#Dependency<1>: None
+#ExpectedOutput<1>: A report detailing any anomalies detected in the time-series data in '/tmp/tsad_conformal.csv'
+
+#Task<2>: Analyze anomalies for Chiller 6
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S1
+#ExpectedOutput<2>: Insights on the potential failure modes associated with the detected anomalies in Chiller 6
+
+#Task<3>: Review anomalies and determine maintenance needs
+#Agent<3>: WorkOrder Agent
+#Dependency<2>: #S2
+#ExpectedOutput<3>: A recommendation on whether to create a work order for Chiller 6 based on the analysis of anomalies and potential failure modes
+
+#Task<4>: Create work order if recommended
+#Agent<4>: WorkOrder Agent
+#Dependency<3>: #S3
+#ExpectedOutput<4>: A generated work order for Chiller 6, if recommended by the WorkOrder Agent
+
+#Task<5>: (Optional) Download relevant sensor data
+#Agent<5>: IoT Data Download
+#Dependency<4>: None
+#ExpectedOutput<5>: Sensor data for Chiller 6, if needed for further analysis or work order creation
+
+Note: Steps #4 and #5 are optional and depend on the recommendation from the WorkOrder Agent in Step #3. If the agent does not recommend creating a work order, these steps can be skipped.

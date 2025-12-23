@@ -1,0 +1,21 @@
+Question: Get failure modes for Chiller 6 at MAIN site and only include in final response those that can be monitored using the available sensors.
+Plan:
+#Task1: Get the list of all failure modes for Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of all failure modes for Chiller 6
+
+#Task2: Get the list of all sensors available for Chiller 6 at MAIN site
+#Agent2: IoT Data Download
+#Dependency2: None
+#ExpectedOutput2: A list of all sensors available for Chiller 6 at MAIN site
+
+#Task3: Filter the failure modes from Task1 to only include those that can be monitored using the sensors from Task2
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S1, #S2
+#ExpectedOutput3: A filtered list of failure modes for Chiller 6 that can be monitored using the available sensors
+
+#Task4: Compile the final response with the filtered failure modes
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency4: #S3
+#ExpectedOutput4: A final response containing only the failure modes for Chiller 6 that can be monitored using the available sensors

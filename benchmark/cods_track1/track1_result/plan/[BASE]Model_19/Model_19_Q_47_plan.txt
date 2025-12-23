@@ -1,0 +1,30 @@
+Question: list all the chillers at site MAIN
+Plan:
+#Task<1>: Get a list of chillers at site MAIN
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: A list of chillers at site MAIN
+
+#Task<2>: Analyze the list of chillers for any anomalies in their performance
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<2>: #S1
+#ExpectedOutput<2>: A report detailing any anomalies in the performance of the chillers
+
+#Task<3>: Generate work orders for any chillers identified with anomalies
+#Agent<4>: WorkOrder Agent
+#Dependency<3>: #S2
+#ExpectedOutput<3>: A list of generated work orders for chillers with anomalies
+
+#Task<4>: (Optional) If necessary, consult the Failure Mode and Sensor Relevancy Expert for Industrial Asset agent for further insights on the anomalies
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<4>: None
+#ExpectedOutput<4>: Insights on potential failure modes and relevant sensors for the anomalies
+
+#Task<5>: (Optional) If needed, download additional sensor data or asset history for further analysis
+#Agent<1>: IoT Data Download
+#Dependency<5>: #S4
+#ExpectedOutput<5>: Additional sensor data or asset history as required
+
+Note: Tasks 4 and 5 are optional and should be executed based on the findings from the previous tasks.
+
+This plan first retrieves the list of chillers at site MAIN using the IoT Data Download agent. Then, it analyzes the time-series data for anomalies using the Time Series Analytics and Forecasting agent. If anomalies are detected, work orders are generated for the affected chillers using the WorkOrder Agent. Optionally, the Failure Mode and Sensor Relevancy Expert for Industrial Asset agent can be consulted for further insights, and additional data can be downloaded if necessary.

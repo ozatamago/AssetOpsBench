@@ -1,0 +1,27 @@
+Question: What's the forecast for Chiller 6's Tonnage for next week based on the data from the week of 2020-04-27 at MAIN?
+Plan:
+We need forecast for Chiller 6's Tonnnage next week based on data from week of 2020-04-27 at MAIN. Need to get data: likely need IoT Data Download to get sensor data for Chiller 6 Tonnage at site MAIN for that week. Then use Time Series Analytics and Forecasting to forecast next week. Then maybe generate work order? Not needed. So two steps.
+
+Step1: download sensor data for Chiller 6 at MAIN for Tonnage metric for week 2020-04-27 to 2020-05-03. Use IoT Data Download agent. Task: download sensor data for asset (maybe CU identifier) but we have asset name Chiller 6. Use generic. Provide date range. Expected output: JSON file with time series.
+
+Step2: Forecast next 7 days using Time Series Analytics and Forecasting agent. Input file from step1. Expected output: forecast values.
+
+We need dependencies: step2 depends on step1.
+
+Make plan with <5 steps.
+
+Let's craft.
+
+Note: need specify agent names exactly as given.
+
+Ok.assistantfinal**Step #1**  
+#Task1: Download the historical sensor data for “Tonnage” of **Chiller 6** at site **MAIN** covering the week of **2020‑04‑27** to **2020‑05‑03**.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A JSON file (e.g., `chiller6_tonnage_20200427_20200503.json`) containing timestamped “Tonnage” readings for the specified period.  
+
+**Step #2**  
+#Task2: Using the JSON file produced in Step 1, generate a 7‑day forecast (next week) for Chiller 6’s “Tonnage”.  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: A forecast table or JSON (e.g., `chiller6_tonnage_forecast_next_week.json`) listing predicted “Tonnage” values for each day of the upcoming week, together with confidence intervals if available.

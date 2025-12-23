@@ -1,0 +1,29 @@
+Question: Provide some sensors of asset Wind Turbine.
+Plan:
+
+#Task<1>: Retrieve the list of assets at SiteY
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: A list of assets at SiteY
+
+#Task<2>: Identify the Wind Turbine asset at SiteY
+#Agent<2>: IoT Data Download
+#Dependency<1>: #S1
+#ExpectedOutput<2>: Details of the Wind Turbine asset, including its identifier
+
+#Task<3>: List relevant sensors for Wind Turbine
+#Agent<3>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<2>: #S2
+#ExpectedOutput<3>: A list of sensors relevant to the Wind Turbine asset, along with their corresponding failure modes
+
+#Task<4>: Analyze sensor data for anomalies
+#Agent<4>: Time Series Analytics and Forecasting
+#Dependency<2>: #S2
+#ExpectedOutput<4>: A report on any anomalies detected in the sensor data of the Wind Turbine
+
+#Task<5>: Generate preventive maintenance recommendations
+#Agent<5>: WorkOrder Agent
+#Dependency<2>, <S4>: #S2, #S4
+#ExpectedOutput<5>: A set of preventive maintenance recommendations based on the sensor data analysis and identified failure modes
+
+⬆️ This plan outlines the steps to identify relevant sensors for a Wind Turbine asset at SiteY, analyze its sensor data for anomalies, and generate preventive maintenance recommendations using the provided agents.

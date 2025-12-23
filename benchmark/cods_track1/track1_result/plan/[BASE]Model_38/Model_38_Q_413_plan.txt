@@ -1,0 +1,21 @@
+Question: Assuming that the current date is 2018-01-02, can you predict next work order probability for me for equipment CWC04009 using predict_next_work_order_probability function?
+Plan:
+#Task1: Determine the relevant failure modes for equipment CWC04009
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of failure modes for CWC04009
+
+#Task2: Analyze historical sensor data for CWC04009 to identify any anomalies or patterns
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomalies and patterns in sensor data for CWC04009
+
+#Task3: Generate a machine learning recipe for predicting work order probability based on the identified failure modes and sensor data patterns
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Machine learning recipe for work order probability prediction
+
+#Task4: Use the predict_next_work_order_probability function with the generated machine learning recipe to predict the next work order probability for CWC04009
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Predicted next work order probability for CWC04009

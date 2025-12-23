@@ -1,0 +1,16 @@
+Question: I would like to predict the next work order probability for the equipment labeled as CWC04013.
+Plan:
+#Task1: Retrieve historical work order data for equipment CWC04013
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: Historical work order data for CWC04013
+
+#Task2: Analyze the historical work order data to identify patterns and trends
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Identified patterns and trends in the work order data
+
+#Task3: Use the identified patterns and trends to predict the next work order probability for CWC04013
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Predicted probability of the next work order for CWC04013

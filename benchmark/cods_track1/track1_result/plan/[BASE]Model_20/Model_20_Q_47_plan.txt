@@ -1,0 +1,15 @@
+Question: list all the chillers at site MAIN
+Plan:
+We need to list all chillers at site MAIN. Use IoT Data Download agent: task "what assets are at site SiteX". So we need to query assets at site MAIN. That's one step. No dependencies. Expected output: list of assets (chillers) at site MAIN. Possibly need to filter for chillers. But agent may return all assets; we can assume it returns assets including chillers. Could add step to filter for chillers using maybe no agent? Could use IoT Data Download to get assets then maybe use internal processing. But we have only agents. Could use IoT Data Download to get assets, then maybe use a generic processing step (no agent) but not allowed? We can just have one step: get assets at site MAIN. Expected output: list of chillers. Provide plan with <5 steps. So one step.
+
+Let's format.
+
+#Task1: Retrieve the list of all assets located at site MAIN and identify which of them are chillers.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON or textual list of asset identifiers at site MAIN, filtered to include only those that are chillers (e.g., assets with names or types indicating chiller equipment).
+
+That's it.assistantfinal#Task1: Retrieve the list of all assets located at site **MAIN** and identify which of them are chillers.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A JSON (or plain‑text) list of asset identifiers/names at site MAIN, filtered to include only the assets that are chillers (e.g., assets whose type or name contains “Chiller”).

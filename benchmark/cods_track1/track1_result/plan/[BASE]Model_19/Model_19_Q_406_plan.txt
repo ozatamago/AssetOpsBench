@@ -1,0 +1,29 @@
+Question: Get the summary of the events of equipment CWC04009 for the June of 2020 and provide a summary based on the event group.
+Plan:
+
+#Task<1>: Retrieve sensor data and historical metadata for CWC04009 for June 2020
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: A JSON file containing sensor data and historical metadata for CWC04009 for June 2020
+
+#Task<2>: Analyze the retrieved data for anomalies
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<2>: #S1
+#ExpectedOutput<2>: A report detailing any anomalies detected in the time-series data for CWC04009 in June 2020
+
+#Task<3>: Identify event groups based on anomalies
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<3>: #S2
+#ExpectedOutput<3>: A categorization of anomalies into event groups, each associated with a potential failure mode
+
+#Task<4>: Summarize events for each event group
+#Agent<4>: WorkOrder Agent
+#Dependency<4>: #S3
+#ExpectedOutput<4>: A summary report of events for each event group, including potential failure modes and recommended actions
+
+#Task<5>: Present the summary report
+#Agent<4>: WorkOrder Agent
+#Dependency<5>: #S4
+#ExpectedOutput<5>: A comprehensive summary report of events for CWC04009 in June 2020, categorized by event group, potential failure modes, and recommended actions
+
+This plan involves using the IoT Data Download agent to gather relevant data for CWC04009 in June 2020. The Time Series Analytics and Forecasting agent then analyzes this data for anomalies. The Failure Mode and Sensor Relevancy Expert for Industrial Asset agent categorizes these anomalies into event groups, associating each with a potential failure mode. Finally, the WorkOrder Agent compiles a summary report of events for each group, including potential failure modes and recommended actions, which is then presented as the final output.

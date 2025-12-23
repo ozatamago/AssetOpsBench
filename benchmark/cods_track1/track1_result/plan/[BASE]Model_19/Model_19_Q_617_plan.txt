@@ -1,0 +1,50 @@
+Question: When compressor motor of Chiller 6 at MAIN site fails, what is the temporal behavior of the power input?
+Plan:
+
+#Task<1>: Retrieve power input data for Chiller 6 at MAIN site
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: A JSON file containing the power input data for Chiller 6 at MAIN site
+
+#Task<2>: Analyze the retrieved power input data for anomalies
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<2>: #S1
+#ExpectedOutput<2>: Identified anomalies in Chiller 6 power input data, including any sudden spikes or drops
+
+#Task<3>: Determine the temporal behavior of power input during compressor motor failure
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<3>: #S2
+#ExpectedOutput<3>: Description of the temporal behavior of the power input when the compressor motor of Chiller 6 fails, including any relevant failure modes and sensor information
+
+#Task<4>: Summarize findings
+#Agent<Any>: Summarize
+#Dependency<4>: #S3
+#ExpectedOutput<4>: A concise summary of the temporal behavior of the power input during compressor motor failure for Chiller 6 at MAIN site, including insights from both data analysis and failure mode expertise.
+
+This plan involves using the IoT Data Download agent to retrieve the necessary power input data for Chiller 6 at the MAIN site. The Time Series Analytics and Forecasting agent then analyzes this data for anomalies, such as sudden spikes or drops, which could indicate a compressor motor failure. The Failure Mode and Sensor Relevancy Expert for Industrial Asset agent is consulted to provide insights into the temporal behavior of the power input during such failures, referencing the identified anomalies. Finally, a summary of the findings is compiled, integrating both the data analysis and failure mode expertise to present a comprehensive understanding of the temporal behavior of the power input when the compressor motor of Chiller 6 fails.
+
+🔔 Please follow the instructions and adhere to the constraints provided.
+
+#Plan<1>:
+
+#Task<1>: Retrieve power input data for Chiller 6 at MAIN site
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: A JSON file containing the power input data for Chiller 6 at MAIN site
+
+#Task<2>: Analyze the retrieved power input data for anomalies
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<2>: #S1
+#ExpectedOutput<2>: Identified anomalies in Chiller 6 power input data, including any sudden spikes or drops
+
+#Task<3>: Determine the temporal behavior of power input during compressor motor failure
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<3>: #S2
+#ExpectedOutput<3>: Description of the temporal behavior of the power input when the compressor motor of Chiller 6 fails, including any relevant failure modes and sensor information
+
+#Task<4>: Summarize findings
+#Agent<Any>: Summarize
+#Dependency<4>: #S3
+#ExpectedOutput<4>: A concise summary of the temporal behavior of the power input during compressor motor failure for Chiller 6 at MAIN site, including insights from both data analysis and failure mode expertise.
+
+This plan involves using the IoT Data Download agent to retrieve the necessary power input data for Chiller 6 at the MAIN site. The Time Series Analytics and Forecasting agent then analyzes this data for anomalies, such as sudden spikes or drops, which could indicate a compressor motor failure. The Failure Mode and Sensor Relevancy Expert for Industrial Asset agent is consulted to provide insights into the temporal behavior of the power input during such failures, referencing the identified anomalies. Finally, a summary of the findings is compiled, integrating both the data analysis and failure mode expertise to present a comprehensive understanding of the temporal behavior of the power input when the compressor motor of Chiller 6 fails.

@@ -1,0 +1,50 @@
+Question: We are building an early detection system for a potential failure condenser Water side fouling for Chiller 9. Monitor Chiller 9 at main site site from 2020-04-20T12:30:00 to 2020-05-12T19:30:00, identify anomalous behaviors and provide a work order recommendation if there is no such corrective work order created already.
+Plan:
+We need to produce a plan with <5 steps. Steps: download sensor data for Chiller 9 (CU02004? Actually asset ID unknown; but we need sensor data for condenser water side fouling. Likely need temperature sensors: "CONDENSER WATER INLET TEMP" and "CONDENSER WATER OUTLET TEMP"? Not given. But we can request IoT Data Download to download sensor data for Chiller 9 at main site for the given time range. Then use Time Series Analytics to analyze for anomalies. Then check if a work order exists? We have WorkOrder Agent can create work order but not retrieve existing. Could maybe ask WorkOrder Agent to create work order if none exists. But we need to check if already created. Not possible with given agents. Could assume none exists and create. So steps:
+
+1. IoT Data Download: download sensor data for Chiller 9 at main site for the period, for relevant sensors (maybe "CONDENSER WATER INLET TEMP" and "CONDENSER WATER OUTLET TEMP"). Provide asset ID? Use generic request: download sensor data for Chiller 9 at main site. We'll specify sensors.
+
+2. Time Series Analytics and Forecasting: analyze the downloaded data for anomalies in condenser water side temperature (maybe "CONDENSER WATER OUTLET TEMP").
+
+3. Based on anomalies, decide if work order needed. Use WorkOrder Agent to create a corrective work order for Chiller 9 due to suspected condenser water side fouling.
+
+We have only 3 steps, within limit.
+
+Let's format.
+
+Need #Task<N>, #Agent<N>, #Dependency<N>, #ExpectedOutput<N>.
+
+Step1: download data.
+
+Step2: analyze anomalies.
+
+Step3: create work order.
+
+Make dependencies: step2 depends on step1, step3 depends on step2.
+
+Let's craft.
+
+Also need to specify expected output: step1 returns JSON file with sensor data. step2 returns anomaly report. step3 returns work order ID.
+
+Let's produce final answer.assistantfinal**Plan (3 steps – < 5)**  
+
+---  
+
+#Task1: Download historical sensor data for Chiller 9 at the main site covering 2020‑04‑20T12:30:00 to 2020‑05‑12T19:30:00 for the condenser‑water temperature sensors (e.g., “CONDENSER WATER INLET TEMP” and “CONDENSER WATER OUTLET TEMP”).  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A JSON file (e.g., `chiller9_condensor_temp_20200420_20200512.json`) containing timestamped values for the requested sensors.  
+
+---  
+
+#Task2: Perform time‑series anomaly detection on the downloaded JSON file, focusing on the condenser‑water outlet temperature (primary indicator of water‑side fouling). Summarize any detected anomalous periods (date‑time ranges, magnitude, and confidence).  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: An anomaly‑detection report (e.g., `chiller9_anomaly_report.txt`) listing any abnormal temperature spikes/drops that suggest possible fouling, with timestamps and severity scores.  
+
+---  
+
+#Task3: If the anomaly report indicates a potential fouling event and no existing corrective work order is known, generate a corrective work order for Chiller 9 to inspect/clean the condenser water side. Include a brief description of the detected anomaly and recommended action.  
+#Agent3: WorkOrder Agent  
+#Dependency3: #S2  
+#ExpectedOutput3: Confirmation of the newly created work order (e.g., `WO-XXXXX`) with details of the issue, priority, and assigned technician.  

@@ -1,0 +1,45 @@
+Question: How can I analyze anomalies across multiple KPIs to better diagnose the root cause of these issues?
+Plan:
+We need to produce a plan with fewer than 5 steps, each step includes Task, Agent, Dependency, ExpectedOutput. The problem: "How can I analyze anomalies across multiple KPIs to better diagnose the root cause of these issues?" We need to use the agents provided. The agents: IoT Data Download (download sensor data, etc.), Failure Mode and Sensor Relevancy Expert (list failure modes, relevant sensors), Time Series Analytics and Forecasting (analyze time series for anomalies), WorkOrder Agent (create work orders). The problem is about analyzing anomalies across multiple KPIs to diagnose root cause. So we need to get data for multiple KPIs (maybe CHILLED WATER LEAVING TEMP, CHILLED WATER RETURN TEMP, maybe other sensors). Then run anomaly detection across them using Time Series Analytics. Then map anomalies to failure modes using Failure Mode and Sensor Relevancy Expert. Then maybe generate work order based on root cause. So we can have steps:
+
+Step 1: Use IoT Data Download to download sensor data for relevant KPIs for a specific asset (e.g., CU02004 at SiteX) for a time range. Task: download sensor data for multiple KPIs (CHILLED WATER LEAVING TEMP, CHILLED WATER RETURN TEMP, maybe others). Agent: IoT Data Download. Dependency: None. ExpectedOutput: JSON file(s) containing time series data for the selected KPIs.
+
+Step 2: Use Time Series Analytics and Forecasting to analyze the downloaded data for anomalies across the KPIs. Task: Analyze the time-series data in the JSON file and look for anomalies in each KPI. Agent: Time Series Analytics and Forecasting. Dependency: #S1. ExpectedOutput: Anomaly report listing timestamps and KPI anomalies.
+
+Step 3: Use Failure Mode and Sensor Relevancy Expert to map identified anomalies to potential failure modes and relevant sensors. Task: Provide relevant failure modes for the asset based on the anomalies detected, and suggest which sensors are most indicative. Agent: Failure Mode and Sensor Relevancy Expert. Dependency: #S2. ExpectedOutput: List of probable failure modes and sensor relevance mapping.
+
+Step 4: Use WorkOrder Agent to create a work order for investigating the root cause based on the analysis. Task: Create a work order for inspecting the asset due to the identified potential failure. Agent: WorkOrder Agent. Dependency: #S3. ExpectedOutput: Work order ID and details.
+
+That's 4 steps, within limit (<5). Provide plan accordingly.
+
+Make sure each step format: #Task<N>: ... #Agent<N>: ... #Dependency<N>: ... #ExpectedOutput<N>: ...
+
+Let's produce final answer.assistantfinal**Step‑by‑step plan (4 steps)**  
+
+---  
+
+#Task1: Download historical sensor data for all relevant KPIs of the target asset (e.g., CU02004 at SiteX) – “CHILLED WATER LEAVING TEMP”, “CHILLED WATER RETURN TEMP”, and any other available temperature/pressure sensors.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: One or more JSON files (e.g., `kpi_data.json`) containing timestamped readings for each requested KPI over the selected period.  
+
+---  
+
+#Task2: Perform multi‑KPI anomaly detection on the downloaded time‑series data. Identify timestamps where each KPI deviates from normal behavior (spikes, drops, outliers).  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: An anomaly report (JSON or tabular) listing for each KPI the anomalous timestamps, magnitude of deviation, and confidence score.  
+
+---  
+
+#Task3: Map the detected anomalies to likely failure modes and determine which sensors are most indicative of each failure. Provide a concise root‑cause hypothesis for the asset.  
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency3: #S2  
+#ExpectedOutput3: A list of probable failure modes (e.g., compressor overheating, loose wiring, refrigerant charge loss) with associated sensor relevance rankings and a short diagnostic narrative linking the KPI anomalies to these failures.  
+
+---  
+
+#Task4: Generate a preventive/corrective work order to investigate the hypothesized root cause on the asset, including recommended sensor checks or component inspections.  
+#Agent4: WorkOrder Agent  
+#Dependency4: #S3  
+#ExpectedOutput4: A newly created work order (e.g., WO‑XXXXX) containing description, priority, suggested actions, and assigned technician.  

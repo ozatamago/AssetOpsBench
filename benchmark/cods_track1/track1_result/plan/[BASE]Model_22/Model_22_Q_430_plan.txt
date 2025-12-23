@@ -1,0 +1,21 @@
+Question: We are building an early detection and remediation system for potential failures, such as condenser water side fouling, for Chiller 9 with equipment ID CWC04009 at main site site with two month’s period from 2020-05-01T12:30:00 to 2022-06-30T19:30:00.  We like to review the chiller’s performance of the period with any anomalies or operation violations as alerts, and provide the guideline on work order generation?
+Plan:
+#Task1: Download sensor data for Chiller 9 with equipment ID CWC04009 at main site for the period from 2020-05-01T12:30:00 to 2022-06-30T19:30:00
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON file containing the sensor data for Chiller 9 with equipment ID CWC04009 at main site for the specified period
+
+#Task2: Analyze the time-series data for Chiller 9 to identify any anomalies or operation violations
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: A report highlighting any anomalies or operation violations in the Chiller 9's performance during the specified period
+
+#Task3: Generate a work order for Chiller 9 based on the identified anomalies or operation violations
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A work order detailing the necessary actions to address the identified anomalies or operation violations for Chiller 9
+
+#Task4: Provide guidelines on work order generation for potential failures like condenser water side fouling
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency4: None
+#ExpectedOutput4: A set of guidelines outlining the steps to generate work orders for potential failures such as condenser water side fouling in Chiller 9

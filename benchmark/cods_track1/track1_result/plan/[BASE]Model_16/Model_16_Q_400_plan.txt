@@ -1,0 +1,34 @@
+Question: Get the work order of equipment CWC04013 for year 2017.
+Plan:
+#Task1: Identify the relevant agent to retrieve work order data for equipment CWC04013 for the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: The WorkOrder Agent is capable of retrieving work order data.
+
+#Task2: Formulate the specific task to retrieve work order data for equipment CWC04013 for the year 2017 using the WorkOrder Agent.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: A specific task or query to retrieve work order data for CWC04013 in 2017.
+
+#Task3: Execute the task to retrieve the work order data for equipment CWC04013 for the year 2017.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: The work order data for equipment CWC04013 for the year 2017.
+
+Since the WorkOrder Agent is the most relevant agent for this task and it can directly retrieve or generate work orders, the plan involves using this agent to achieve the desired output. The steps are straightforward, leveraging the capabilities of the WorkOrder Agent.
+
+The final answer is:
+#Task1: Identify the relevant agent to retrieve work order data for equipment CWC04013 for the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: The WorkOrder Agent is capable of retrieving work order data.
+
+#Task2: Formulate the specific task to retrieve work order data for equipment CWC04013 for the year 2017 using the WorkOrder Agent.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: A specific task or query to retrieve work order data for CWC04013 in 2017.
+
+#Task3: Execute the task to retrieve the work order data for equipment CWC04013 for the year 2017.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: The work order data for equipment CWC04013 for the year 2017.

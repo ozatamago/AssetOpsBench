@@ -1,0 +1,26 @@
+Question: Are there any anomalies detected in Chiller 9's Tonnage in the week of 2020-04-27 at the MAIN site?
+Plan:
+
+#Task<1>: Retrieve Chiller 9's Tonnage data for the MAIN site for the week of 2020-04-27
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: A JSON file containing Chiller 9's Tonnage data for the MAIN site for the week of 2020-04-27
+
+#Task<2>: Analyze the time-series data for anomalies in Chiller 9's Tonnage
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<2>: #S1
+#ExpectedOutput<2>: A report indicating any detected anomalies in Chiller 9's Tonnage for the specified period
+
+#Task<3>: (Optional) Investigate potential failure modes related to the detected anomalies
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<3>: #S2
+#ExpectedOutput<3>: A list of potential failure modes associated with the detected anomalies in Chiller 9's Tonnage
+
+#Task<4>: (Optional) Generate a work order for further inspection or maintenance
+#Agent<4>: WorkOrder Agent
+#Dependency<4>: #S3
+#ExpectedOutput<4>: A work order for further inspection or maintenance of Chiller 9, if applicable
+
+#Note: Task 3 and Task 4 are optional and depend on the results of Task 2. If no anomalies are detected, these tasks will not be executed.
+
+This plan involves using the IoT Data Download agent to retrieve Chiller 9's Tonnage data for the MAIN site during the specified week. The Time Series Analytics and Forecasting agent will then analyze this data for anomalies. If anomalies are detected, the plan includes optional steps to investigate potential failure modes using the Failure Mode and Sensor Relevancy Expert for Industrial Asset agent and generate a work order for further inspection or maintenance using the WorkOrder Agent. These optional steps depend on the results of the anomaly detection.

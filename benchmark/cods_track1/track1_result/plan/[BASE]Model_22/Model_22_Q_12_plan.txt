@@ -1,0 +1,21 @@
+Question: Retrieve sensor data for Chiller 6 from June 2020.
+Plan:
+#Task1: Retrieve the list of sites to identify where Chiller 6 is located
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of sites where Chiller 6 is located
+
+#Task2: Download sensor data for Chiller 6 at the identified site for June 2020
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Sensor data for Chiller 6 for June 2020 in JSON format
+
+#Task3: Analyze the downloaded sensor data for any anomalies or patterns
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Analysis report highlighting any anomalies or patterns in the sensor data
+
+#Task4: Generate a work order if any critical anomalies are detected in the sensor data
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: A work order for addressing the detected anomalies in Chiller 6

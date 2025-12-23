@@ -1,0 +1,28 @@
+Question: Is any model with context length 96 supported in TSFM?
+Plan:
+#Task<1>: Check if TSFM model with context length 96 is supported
+#Agent<1>: Time Series Analytics and Forecasting
+#Dependency<1>: None
+#ExpectedOutput<1>: Confirmation of support for TSFM model with context length 96
+
+#Task<2>: If supported, provide details on model performance and limitations
+#Agent<1>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<2>: Information on model performance and limitations for context length 96
+
+#Task<3>: If not supported, suggest alternative models or context lengths
+#Agent<1>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1, #S2
+#ExpectedOutput<3>: Alternative model recommendations or context length suggestions
+
+#Task<4>: Document findings
+#Agent<None>: User
+#Dependency<1>: #S1, #S2
+#ExpectedOutput<4>: Summary of model support, performance, limitations, and alternatives documented
+
+#Task<5>: Share findings with relevant stakeholders
+#Agent<None>: User
+#Dependency<1>: #S1, #S2, #S3
+#ExpectedOutput<5>: Communication of results to interested parties, including any recommendations for model adoption or adjustments
+
+This plan involves querying the Time Series Analytics and Forecasting agent to determine support for a TSFM model with a context length of 96. It then requests details on model performance and limitations if supported, or alternative recommendations if not. The findings are documented and shared with relevant stakeholders for informed decision-making.

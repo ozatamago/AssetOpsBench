@@ -1,0 +1,10 @@
+Question: Are any time series forecasting models supported?
+Plan:
+We need to answer: "Are any time series forecasting models supported?" This is a question about capabilities of the Time Series Analytics and Forecasting agent. We need to produce a plan with steps using agents to answer. Likely just ask the Time Series Analytics and Forecasting agent about supported models. The agent description says it can assist with time series analysis, forecasting, anomaly detection, model selection, and supports pretrained models, context length specifications, and regression tasks. So answer: Yes, it supports forecasting models, pretrained models, etc.
+
+We need to produce plan with fewer than 5 steps. One step: ask Time Series Analytics and Forecasting agent to list supported forecasting models. Use #Task1: Ask the Time Series Analytics and Forecasting agent to list the time series forecasting models it supports. #Agent1: Time Series Analytics and Forecasting. #Dependency1: None. #ExpectedOutput1: A list of supported forecasting models (e.g., ARIMA, Prophet, LSTM, pretrained models, etc.) Or a statement confirming support.
+
+Thus final answer: plan with one step. Provide format.assistantfinal#Task1: Ask the Time Series Analytics and Forecasting agent to list the time‑series forecasting models it supports (e.g., ARIMA, Prophet, LSTM, pretrained models, etc.) and confirm that forecasting is a supported capability.  
+#Agent1: Time Series Analytics and Forecasting  
+#Dependency1: None  
+#ExpectedOutput1: A clear response enumerating the forecasting models the agent can use (or stating that forecasting models are supported) and any relevant details about context length or pretrained options.

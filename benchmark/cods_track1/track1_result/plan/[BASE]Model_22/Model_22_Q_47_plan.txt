@@ -1,0 +1,11 @@
+Question: list all the chillers at site MAIN
+Plan:
+#Task1: Retrieve the list of all assets at site MAIN
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of all assets at site MAIN
+
+#Task2: Filter the list of assets to identify all chillers
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: A filtered list containing only chiller assets at site MAIN

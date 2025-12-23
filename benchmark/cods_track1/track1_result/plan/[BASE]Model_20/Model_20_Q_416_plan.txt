@@ -1,0 +1,61 @@
+Question: When an anomaly happens for equipment CWC04009, can you recommend top three work orders to address this problem?
+Plan:
+We need to produce a plan with fewer than 5 steps. The problem: "When an anomaly happens for equipment CWC04009, can you recommend top three work orders to address this problem?" So we need to identify anomaly detection for equipment CWC04009, then recommend top three work orders. We have agents: IoT Data Download (to get sensor data), Failure Mode and Sensor Relevancy Expert (to map failures to sensors), Time Series Analytics (to detect anomalies), WorkOrder Agent (to create work orders). The question: "When an anomaly happens for equipment CWC04009, can you recommend top three work orders to address this problem?" So we need to detect anomaly? Or we assume anomaly already happened. We need to recommend top three work orders. Likely we need to identify relevant failure modes for CWC04009, then generate work orders. Steps: 1) Get sensor data for CWC04009 (maybe relevant sensors). 2) Use Failure Mode expert to list failure modes and relevant sensors for CWC04009. 3) Use Time Series Analytics to analyze data for anomalies and identify which failure mode likely. 4) Use WorkOrder Agent to generate top three work orders based on identified failure modes.
+
+We need fewer than 5 steps, so maybe 4 steps. Provide Task, Agent, Dependency, ExpectedOutput.
+
+Step1: Retrieve sensor data for CWC04009 (maybe specific sensors). Use IoT Data Download: download sensor data for CWC04009 at its site. Expected output: JSON file with sensor readings.
+
+Step2: Identify relevant failure modes and sensors for CWC04009 using Failure Mode expert. Input: equipment ID. Expected output: list of failure modes and associated sensors.
+
+Step3: Analyze sensor data for anomalies using Time Series Analytics. Input: sensor data JSON and failure mode list. Expected output: identified anomaly and likely failure mode.
+
+Step4: Generate top three work orders using WorkOrder Agent based on identified failure mode(s). Expected output: three work order recommendations.
+
+Make sure dependencies: step2 depends on step1? Not necessarily. But step3 depends on step1 and step2. Step4 depends on step3.
+
+Let's craft plan.
+
+We need to follow format:
+
+#Task1: ...
+#Agent1: ...
+#Dependency1: None
+#ExpectedOutput1: ...
+
+Similarly for others.
+
+Make sure less than 5 steps.
+
+Let's produce final answer.assistantfinal**Plan (4 steps)**  
+
+---  
+
+#Task1: Retrieve recent sensor data for equipment **CWC04009** (all available sensors) from its site.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file (e.g., `CWC04009_sensor_data.json`) containing timestamped readings for each sensor attached to CWC04009.  
+
+---  
+
+#Task2: Obtain the list of possible **failure modes** for equipment CWC04009 and the **relevant sensors** that indicate each failure mode.  
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency2: None  
+#ExpectedOutput2: Structured list (e.g., JSON or table) mapping each failure mode of CWC04009 to the sensor(s) that are most indicative (e.g., “compressor overheating → power input sensor”, “loose wiring → vibration sensor”, etc.).  
+
+---  
+
+#Task3: Analyze the sensor data (from #S1) using the failure‑mode‑sensor mapping (from #S2) to **detect anomalies** and infer the most likely failure mode(s) currently affecting CWC04009.  
+#Agent3: Time Series Analytics and Forecasting  
+#Dependency3: #S1, #S2  
+#ExpectedOutput3: Report identifying any anomalous patterns (e.g., spikes, drops) in the sensor streams, the timestamp(s) of the anomaly, and the top‑ranked failure mode(s) responsible (e.g., “compressor overheating”, “loose wiring”).  
+
+---  
+
+#Task4: Generate **the top three recommended work orders** to address the identified failure mode(s) for CWC04009.  
+#Agent4: WorkOrder Agent  
+#Dependency4: #S3  
+#ExpectedOutput4: Three concrete work‑order suggestions (including brief description, priority, and recommended actions) such as:  
+1. Inspect and clean the compressor motor (high priority – compressor overheating).  
+2. Verify and tighten wiring connections on sensor board (medium priority – loose wiring).  
+3. Replace/ recalibrate the power‑input sensor (low priority – sensor drift).  

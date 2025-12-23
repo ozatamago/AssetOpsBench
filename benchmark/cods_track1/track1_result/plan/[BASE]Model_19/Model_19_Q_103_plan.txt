@@ -1,0 +1,29 @@
+Question: List all failure modes of asset Wind Turbine.
+Plan:
+
+#Task<1>: Retrieve failure modes of Wind Turbine
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: None
+#ExpectedOutput<1>: List all failure modes of Wind Turbine
+
+#Task<2>: Analyze time-series data for anomalies
+#Agent<2>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<2>: Identified anomalies in Wind Turbine time-series data
+
+#Task<3>: Generate work orders based on anomalies
+#Agent<3>: WorkOrder Agent
+#Dependency<1>: #S2
+#ExpectedOutput<3>: Work orders for inspecting or repairing Wind Turbine components affected by anomalies
+
+#Task<4>: (Optional) Forecast future performance
+#Agent<4>: Time Series Analytics and Forecasting
+#Dependency<1>: #S2
+#ExpectedOutput<4>: Forecast of Wind Turbine performance based on identified anomalies
+
+#Task<5>: (Optional) Provide sensor relevancy information
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: None
+#ExpectedOutput<5>: Relevant sensors for monitoring Wind Turbine failure modes
+
+Note: The plan assumes that the Wind Turbine asset is recognized by the agents. If not, #Task<2> would require first identifying the Wind Turbine asset using the IoT Data Download agent.

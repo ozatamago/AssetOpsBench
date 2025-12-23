@@ -1,0 +1,39 @@
+Question: List all failure modes of Chiller 6 that can be detected by Chiller 6 Supply Temperature.
+Plan:
+We need to produce a plan with fewer than 5 steps, each step includes Task, Agent, Dependency, ExpectedOutput.
+
+Goal: List all failure modes of Chiller 6 that can be detected by Chiller 6 Supply Temperature.
+
+We have an agent "Failure Mode and Sensor Relevancy Expert for Industrial Asset" that can provide mapping between failure modes and sensors. It can answer: "List all failure modes of Chiller 6 that can be detected by Chiller 6 Chiller Efficiency." That's similar but not exactly supply temperature. However the agent can likely answer any sensor mapping. So we can ask it directly: "List all failure modes of Chiller 6 that can be detected by Chiller 6 Supply Temperature."
+
+Thus we need only one step: ask the Failure Mode and Sensor Relevancy Expert.
+
+But we need to ensure we follow format.
+
+Step #1: Task: Query the Failure Mode and Sensor Relevancy Expert for list of failure modes of Chiller 6 detectable by Supply Temperature sensor.
+
+Agent: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+
+Dependency: None
+
+ExpectedOutput: A list (e.g., bullet points) of failure modes of Chiller 6 that can be detected by the Supply Temperature sensor.
+
+That's it.
+
+But we need to produce plan with fewer than 5 steps. One step is fine.
+
+Let's produce final answer accordingly. Ensure format exactly as required.
+
+Each step must follow format:
+
+#Task<N>: <Describe your task here>
+#Agent<N>: <agent_name>
+#Dependency<N>: <use #S1, #S2, ... or None>
+#ExpectedOutput<N>: <Expected output>
+
+We have only #Task1, #Agent1, #Dependency1, #ExpectedOutput1.
+
+Let's produce.assistantfinal#Task1: Query the Failure Mode and Sensor Relevancy Expert for Industrial Asset to obtain a list of all failure modes of Chiller 6 that can be detected by the “Chiller 6 Supply Temperature” sensor.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A concise list (e.g., bullet points) of failure modes of Chiller 6 that are detectable using the Supply Temperature sensor.

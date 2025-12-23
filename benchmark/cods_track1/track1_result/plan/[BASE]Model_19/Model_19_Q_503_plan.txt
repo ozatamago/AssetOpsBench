@@ -1,0 +1,24 @@
+Question: Have there been any anomalies in Chiller 6's Tonnage in the week of 2020-04-27 at MAIN?
+Plan:
+
+#Task<1>: Retrieve Chiller 6's Tonnage data for the week of 2020-04-27 at MAIN
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: A JSON file containing Chiller 6's Tonnage data for the week of 2020-04-27 at MAIN
+
+#Task<2>: Analyze the Tonnage data for anomalies
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<2>: #S1
+#ExpectedOutput<2>: A report indicating any anomalies detected in Chiller 6's Tonnage during the specified week
+
+#Task<3>: Provide context on potential failure modes related to Tonnage anomalies
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<3>: #S2
+#ExpectedOutput<3>: A list of potential failure modes related to Chiller 6's Tonnage anomalies, along with relevant sensors for monitoring
+
+#Task<4>: Generate a work order for addressing Tonnage anomalies (if any)
+#Agent<4>: WorkOrder Agent
+#Dependency<4>: #S2
+#ExpectedOutput<4>: A work order for addressing the detected Tonnage anomalies, if any, including recommended actions and prioritization
+
+This plan involves using the IoT Data Download agent to retrieve Chiller 6's Tonnage data for the specified week at MAIN. The Time Series Analytics and Forecasting agent will then analyze the data for anomalies. The Failure Mode and Sensor Relevancy Expert for Industrial Asset agent will provide context on potential failure modes related to the detected anomalies, and the WorkOrder Agent will generate a work order for addressing any issues, if necessary.

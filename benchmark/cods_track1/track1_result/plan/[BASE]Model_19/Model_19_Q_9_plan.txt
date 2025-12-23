@@ -1,0 +1,27 @@
+Question: Retrieve sensor data for Chiller 6's % Loaded from June 2020 at MAIN.
+Plan:
+
+#Task<1>: Retrieve sensor data for Chiller 6's % Loaded from June 2020 at MAIN.
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: A JSON file containing the sensor data for Chiller 6's % Loaded from June 2020 at MAIN.
+
+#Task<2>: Analyze the retrieved data for anomalies.
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<2>: #S1
+#ExpectedOutput<2>: A report highlighting any anomalies detected in Chiller 6's % Loaded during June 2020.
+
+#Task<3>: Identify potential failure modes related to the anomalies.
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<3>: #S2
+#ExpectedOutput<3>: A list of potential failure modes associated with the detected anomalies in Chiller 6's % Loaded.
+
+#Task<4>: Generate a work order for further investigation of the identified anomalies.
+#Agent<4>: WorkOrder Agent
+#Dependency<4>: #S3
+#ExpectedOutput<4>: A work order for inspecting Chiller 6 due to the identified anomalies in % Loaded.
+
+#Task<5>: Close the work order after investigation and resolution.
+#Agent<4>: WorkOrder Agent
+#Dependency<5>: Confirmation of successful investigation and resolution
+#ExpectedOutput<5>: A closed work order confirming the resolution of the anomalies in Chiller 6's % Loaded.

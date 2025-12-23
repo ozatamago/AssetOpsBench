@@ -1,0 +1,19 @@
+Question: Find all models with context length 96.
+Plan:
+We need to find all models with context length 96. Which agents can help? None directly. Maybe we need to retrieve model list? Not among agents. Could be a trick: Use Time Series Analytics and Forecasting? No. Maybe we need to use IoT Data Download to get list of models? Not. Failure Mode expert? No. WorkOrder? No.
+
+Thus maybe we cannot solve? But we must produce plan using agents. Could interpret "models" as "machine learning models" used by Time Series Analytics and Forecasting. That agent can assist with time series analysis, forecasting, anomaly detection, and model selection, and supports pretrained models, context length specifications. So we can ask it to list all models with context length 96. So step: ask Time Series Analytics and Forecasting agent to list models with context length 96.
+
+Thus single step.
+
+Plan:
+
+#Task1: Request a list of all pretrained models supported by the Time Series Analytics and Forecasting agent that have a context length of 96.
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: A list (e.g., JSON or plain text) of model names and brief descriptions that have context length 96.
+
+That's it. Ensure fewer than 5 steps. Done.assistantfinal#Task1: Request a list of all pretrained models supported by the Time Series Analytics and Forecasting agent that have a context length of 96.  
+#Agent1: Time Series Analytics and Forecasting  
+#Dependency1: None  
+#ExpectedOutput1: A concise list (e.g., JSON array or plain‑text bullet list) of model identifiers/names that are configured with a context length of 96, along with any brief description if available.

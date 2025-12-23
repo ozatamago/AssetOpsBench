@@ -1,0 +1,19 @@
+Question: Get sensor data for both Chiller 6 and Chiller 9's Tonnage from first week of June 2020 at MAIN in a single file.
+Plan:
+
+#Task<1>: Retrieve sensor data for Chiller 6's Tonnage from the first week of June 2020 at MAIN site
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: A JSON file containing Chiller 6's Tonnage data for the first week of June 2020 at MAIN site
+
+#Task<2>: Retrieve sensor data for Chiller 9's Tonnage from the first week of June 2020 at MAIN site
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<2>: A JSON file containing Chiller 9's Tonnage data for the first week of June 2020 at MAIN site
+
+#Task<3>: Merge Chiller 6 and Chiller 9 Tonnage data into a single JSON file
+#Agent<6>: IoT Data Download
+#Dependency<3>: #S1, #S2
+#ExpectedOutput<3>: A single JSON file containing Tonnage data for both Chiller 6 and Chiller 9 from the first week of June 2020 at MAIN site
+
+#Note: The IoT Data Download agent is used twice for retrieving data from separate chillers and then once more to merge the data into a single file. The merging process might require additional instructions or another agent if the IoT Data Download agent does not support merging directly. If that's the case, an external merging tool or agent would be needed, which is not available in this scenario. Please adjust the plan accordingly if such limitations are known.

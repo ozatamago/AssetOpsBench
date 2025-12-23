@@ -1,0 +1,29 @@
+Question: Has any anomaly been detected in Chiller 6's Return Temperature in the week of 2020-04-27 at the MAIN site?
+Plan:
+
+#Task<1>: Retrieve Chiller 6's Return Temperature data for the MAIN site from 2020-04-27 to 2020-05-03
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: A JSON file containing the Return Temperature data for Chiller 6 at the MAIN site for the specified period.
+
+#Task<2>: Analyze the retrieved data for anomalies
+#Agent<2>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<2>: A report indicating whether anomalies were detected in Chiller 6's Return Temperature during the specified period.
+
+#Task<3>: If anomalies are detected, generate a work order for inspection
+#Agent<3>: WorkOrder Agent
+#Dependency<1>: #S2
+#ExpectedOutput<3>: A work order for inspecting Chiller 6 at the MAIN site due to suspected anomalies in Return Temperature.
+
+#Task<4>: (Optional) If relevant, suggest potential failure modes and relevant sensors
+#Agent<4>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<4>: A list of potential failure modes related to the detected anomalies and relevant sensors for monitoring.
+
+#Task<5>: (Optional) If needed, provide a machine learning recipe for anomaly detection
+#Agent<4>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<5>: A machine learning recipe tailored for detecting anomalies in Chiller 6's Return Temperature.
+
+#Note: Tasks 4 and 5 are optional and depend on the results of Task 2. If anomalies are not detected, these tasks will not be executed.

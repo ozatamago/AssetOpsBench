@@ -1,0 +1,18 @@
+Question: Get sensor data for both Chiller 6 and Chiller 9's Tonnage from first week of June 2020 at MAIN in a single file.
+Plan:
+#Task1: Get the sensor data for Chiller 6 Tonnage at MAIN for the first week of June 2020.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON file containing the sensor data for Chiller 6 Tonnage.
+
+#Task2: Get the sensor data for Chiller 9 Tonnage at MAIN for the first week of June 2020.
+#Agent2: IoT Data Download
+#Dependency2: None
+#ExpectedOutput2: A JSON file containing the sensor data for Chiller 9 Tonnage.
+
+#Task3: Merge the JSON files from Task 1 and Task 2 into a single JSON file.
+#Agent3: IoT Data Download
+#Dependency3: #S1, #S2
+#ExpectedOutput3: A single JSON file containing both Chiller 6 and Chiller 9's Tonnage data.
+
+The plan is complete.

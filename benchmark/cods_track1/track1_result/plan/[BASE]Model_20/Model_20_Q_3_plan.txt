@@ -1,0 +1,10 @@
+Question: What assets can be found at the MAIN site?
+Plan:
+We need to answer: "What assets can be found at the MAIN site?" Use IoT Data Download agent. It can answer "what assets are at site SiteX". So we need to ask for assets at site MAIN. So one step: ask IoT Data Download agent to list assets at site MAIN. No dependencies. Expected output: list of assets (JSON). Provide plan with fewer than 5 steps. So just one step.
+
+Make sure format: #Task1, #Agent1, #Dependency1, #ExpectedOutput1.
+
+Let's produce.assistantfinal#Task1: Retrieve the list of assets located at the MAIN site.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A JSON (or plain text) list of all assets present at the MAIN site, e.g., `["AssetA", "AssetB", "AssetC", ...]`.

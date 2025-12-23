@@ -1,0 +1,11 @@
+Question: Use data in 'chiller9_annotated_small_test.csv' to forecast 'Chiller 9 Condenser Water Flow' with 'Timestamp' as a timestamp.
+Plan:
+#Task1: Download the sensor data for Chiller 9 from 'chiller9_annotated_small_test.csv'
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON file containing the sensor data for Chiller 9
+
+#Task2: Analyze the time-series data in the JSON file to forecast 'Chiller 9 Condenser Water Flow' with 'Timestamp' as a timestamp.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: A forecast of 'Chiller 9 Condenser Water Flow' with 'Timestamp' as a timestamp.

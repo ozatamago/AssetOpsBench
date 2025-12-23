@@ -1,0 +1,29 @@
+Question: List all failure modes of asset Chiller 6.
+Plan:
+
+#Task<1>: Retrieve failure modes of Chiller 6
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: None
+#ExpectedOutput<1>: List of failure modes for Chiller 6
+
+#Task<2>: Analyze retrieved failure modes for relevance to sensor data
+#Agent<2>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<2>: Identified failure modes relevant to available sensor data
+
+#Task<3>: Generate work orders for identified failure modes
+#Agent<3>: WorkOrder Agent
+#Dependency<2>: #S2
+#ExpectedOutput<3>: Work orders for preventive maintenance of Chiller 6 based on identified failure modes
+
+#Task<4>: (Optional) Forecast potential failures
+#Agent<4>: Time Series Analytics and Forecasting
+#Dependency<2>: #S2
+#ExpectedOutput<4>: Forecast of potential future failures based on historical data and identified failure modes
+
+#Task<5>: (Optional) Provide sensor relevancy information
+#Agent<2>: Time Series Analytics and Forecasting
+#Dependency<2>: #S2
+#ExpectedOutput<5>: Recommendations on prioritizing sensors for monitoring based on failure modes
+
+Note: Tasks #4 and #5 are optional and depend on the need for predictive maintenance insights and sensor prioritization. The primary objective of this plan is to list the failure modes of Chiller 6 and generate work orders for preventive maintenance based on those failure modes.

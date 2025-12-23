@@ -1,0 +1,26 @@
+Question: Which assets are located at the MAIN facility?
+Plan:
+#Task<1>: Retrieve asset information for the MAIN facility
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: A list of assets located at the MAIN facility
+
+#Task<2>: Analyze the list of assets for potential anomalies or issues
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<2>: #S1
+#ExpectedOutput<2>: A report on any potential failure modes or issues identified for the assets at the MAIN facility
+
+#Task<3>: Forecast maintenance needs for the assets at the MAIN facility
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<3>: #S1
+#ExpectedOutput<3>: A forecast of maintenance needs for each asset at the MAIN facility, including potential anomalies or issues
+
+#Task<4>: Generate work orders for preventive maintenance
+#Agent<4>: WorkOrder Agent
+#Dependency<4>: #S2
+#ExpectedOutput<4>: A set of work orders for preventive maintenance based on the forecasted needs and identified issues
+
+#Task<5>: Review and finalize work orders
+#Agent<5>: WorkOrder Agent
+#Dependency<5>: #S3, #S4
+#ExpectedOutput<5>: Finalized work orders for submission to maintenance teams

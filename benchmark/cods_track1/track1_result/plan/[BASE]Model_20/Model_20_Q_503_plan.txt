@@ -1,0 +1,35 @@
+Question: Have there been any anomalies in Chiller 6's Tonnage in the week of 2020-04-27 at MAIN?
+Plan:
+We need to produce a plan with <5 steps. The problem: "Have there been any anomalies in Chiller 6's Tonnage in the week of 2020-04-27 at MAIN?" So we need to check anomalies in Tonnage for Chiller 6 for that week at site MAIN. We have agents: IoT Data Download can download sensor data for a specific asset at a site, and can download asset history for a time range for specific parameters. It can also merge JSON files, read JSON, etc. The sensor name "Tonnage" presumably is a sensor measurement. So we need to download sensor data for Chiller 6 at MAIN for the week of 2020-04-27. Then we need to analyze for anomalies. The Time Series Analytics and Forecasting agent can analyze time-series data in a JSON file and look for anomalies in a specific variable. It can do "Analyze the time-series data in file xxxxx.json and look for anomalies in Chiller 6 Return Temperature." So we can ask it to analyze anomalies in Tonnage. So steps:
+
+Step 1: Use IoT Data Download to download asset history for Chiller 6 at MAIN from start to end of week 2020-04-27. The week of 2020-04-27 presumably Monday 2020-04-27 to Sunday 2020-05-03 (or maybe 7 days). So we need to specify start and end timestamps. Use ISO format with timezone? The example uses "2016-07-14T20:30:00-04:00". So we can use "2020-04-27T00:00:00-04:00" to "2020-05-03T23:59:59-04:00". Provide sensor name "TONNAGE". So step 1: download asset history for Chiller 6 at MAIN for Tonnage.
+
+Step 2: Use Time Series Analytics and Forecasting to analyze the downloaded JSON file for anomalies in Tonnage.
+
+Step 3: Possibly interpret the output and answer the question. Could be done by the ReAct agent itself, but we can include a step to produce answer. However we need to produce plan steps only. The final answer can be derived from step 2 output. So we can have step 3: Summarize anomalies detection result. Use ReAct? Not an external agent. But we can treat step 3 as "Interpretation" using the base ReAct agent (the system). However the plan only includes external agents. The base ReAct agent is fixed and can be used for final answer. So we can have step 3: Use ReAct to generate answer based on anomaly detection output. But the plan format expects #Agent<N> to be one of the listed agents. The base ReAct agent is not listed as an external agent but is part of system. The instructions: "Only use the agents listed below. No new agents may be added. The base ReAct agent and Executor component are fixed. Do not change them." So we can include a step that uses "ReAct" as agent? Not listed. But maybe we can just have two steps: download data and analyze anomalies. The final answer can be derived from the output of step 2. The plan can be just two steps. The question: "Have there been any anomalies in Chiller 6's Tonnage in the week of 2020-04-27 at MAIN?" So after step 2 we will have answer. So we can produce plan with 2 steps.
+
+Let's craft:
+
+#Task1: Download historical sensor data for Chiller 6 at site MAIN for the metric "TONNAGE" covering the week of 2020-04-27 (2020-04-27 to 2020-05-03).
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file (e.g., tonnage_week.json) containing timestamped Tonnage values for Chiller 6 at MAIN for the specified period.
+
+#Task2: Analyze the downloaded JSON file to detect any anomalies in the Tonnage time series for Chiller 6.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Report indicating whether anomalies were found, including timestamps and description of each anomaly (or a statement that no anomalies were detected).
+
+That should be sufficient.
+
+Make sure to follow format exactly: #Task<N>: ... #Agent<N>: ... #Dependency<N>: ... #ExpectedOutput<N>: ...
+
+Let's produce final answer.assistantfinal#Task1: Download historical sensor data for Chiller 6 at site MAIN for the metric “TONNAGE” covering the week of 2020‑04‑27 (2020‑04‑27T00:00:00‑04:00 to 2020‑05‑03T23:59:59‑04:00).  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file (e.g., `tonnage_week.json`) containing timestamped Tonnage values for Chiller 6 at MAIN for the specified period.  
+
+#Task2: Analyze the downloaded JSON file to detect any anomalies in the Tonnage time‑series for Chiller 6.  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: Anomaly‑detection report stating whether any anomalies were found, including timestamps and brief descriptions of each anomaly (or a statement that no anomalies were detected).

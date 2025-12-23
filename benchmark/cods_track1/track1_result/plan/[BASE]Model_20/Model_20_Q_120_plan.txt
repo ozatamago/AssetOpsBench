@@ -1,0 +1,40 @@
+Question: I want to build an anomaly model for identifying a chiller trip failure for POKMAIN chiller 6. Provide me a list of sensors that I should use, along with the temporal behavior,
+Plan:
+We need to produce a plan with <5 steps. The problem: build an anomaly model for identifying a chiller trip failure for POKMAIN chiller 6. Provide list of sensors to use, along with temporal behavior.
+
+We need to use agents: Failure Mode and Sensor Relevancy Expert for Industrial Asset (to get sensors relevant to chiller trip failure and temporal behavior). Possibly also Time Series Analytics and Forecasting (to analyze data for anomalies) but the request is just list sensors and temporal behavior, not actual modeling. So we can get sensors and temporal behavior from Failure Mode expert. Possibly also need IoT Data Download to get sensor data for chiller 6? But not required. The request: "Provide me a list of sensors that I should use, along with the temporal behavior". So we need to ask the Failure Mode expert: "When chiller trip failure occurs for POKMAIN chiller 6, what sensors are relevant and what is the temporal behavior of those sensor signals". That is likely covered by tasks: "When compressor motor of a chiller fails, what is the temporal behavior of the power input." Not exactly chiller trip. But we can ask: "What are the relevant sensors that can be used to monitor the chiller trip failure of Chiller 6? If a chiller trip occurs, what is the temporal behavior of the sensor signals?" The agent may answer.
+
+Thus we need a single step: ask Failure Mode and Sensor Relevancy Expert.
+
+But we might need to first identify the asset name: "POKMAIN chiller 6". The Failure Mode expert may need asset name "Chiller 6". So we can ask directly.
+
+Thus plan:
+
+Step 1: Query Failure Mode and Sensor Relevancy Expert for list of sensors relevant to chiller trip failure for POKMAIN chiller 6 and describe temporal behavior.
+
+No dependencies.
+
+Expected output: list of sensor names and description of temporal patterns (e.g., sudden drop in power, temperature spikes, pressure changes) that indicate a chiller trip.
+
+We could also add a second step: Use Time Series Analytics to analyze historical data for those sensors to confirm anomalies, but not required.
+
+But the problem: "I want to build an anomaly model for identifying a chiller trip failure for POKMAIN chiller 6. Provide me a list of sensors that I should use, along with the temporal behavior". So just need list and behavior. So one step is enough.
+
+But we need to produce plan with fewer than 5 steps. So one step is fine.
+
+Let's format:
+
+#Task1: Retrieve the list of sensors relevant for detecting a chiller trip failure on POKMAIN chiller 6 and describe the expected temporal behavior of each sensor during a trip event.
+
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+
+#Dependency1: None
+
+#ExpectedOutput1: A concise list of sensor names (e.g., power input, leaving water temperature, suction pressure, compressor current, etc.) with a brief description of the temporal pattern each sensor exhibits when a chiller trip occurs (e.g., sudden drop to zero, rapid temperature rise, pressure spike, etc.).
+
+That should satisfy.
+
+Let's output plan.assistantfinal#Task1: Retrieve the list of sensors that are most relevant for detecting a chiller‑trip failure on **POKMAIN Chiller 6** and describe the expected temporal behavior of each sensor during a trip event.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A concise list of sensor names (e.g., Power Input, Leaving Water Temperature, Suction Pressure, Compressor Current, etc.) together with a brief description of the temporal pattern each sensor exhibits when a chiller‑trip occurs (e.g., sudden drop to zero, rapid temperature rise, pressure spike, abrupt change in current, etc.).

@@ -1,0 +1,29 @@
+Question: List all sensors of Chiller 6 that are potentially relevant to Compressor Overheating.
+Plan:
+
+#Task<1>: Retrieve asset information for Chiller 6
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Asset details for Chiller 6, including sensor list
+
+#Task<2>: Identify relevant sensors for Compressor Overheating
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S1
+#ExpectedOutput<2>: List of sensors relevant to Compressor Overheating for Chiller 6
+
+#Task<3>: Validate sensor relevancy with time-series data
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S2
+#ExpectedOutput<3>: Confirmation of sensor relevance through time-series analysis
+
+#Task<4>: Generate work order for sensor maintenance (if necessary)
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<4>: Work order for maintenance or replacement of identified sensors
+
+#Task<5>: Document findings
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<5>: Comprehensive report on relevant sensors for Compressor Overheating in Chiller 6
+
+This plan involves using the IoT Data Download agent to retrieve asset information and sensor lists, the Failure Mode and Sensor Relevancy Expert to identify relevant sensors, the Time Series Analytics and Forecasting agent to validate sensor relevance through time-series analysis, and the WorkOrder Agent to create a work order for any necessary sensor maintenance. The final step involves documenting the findings in a comprehensive report.

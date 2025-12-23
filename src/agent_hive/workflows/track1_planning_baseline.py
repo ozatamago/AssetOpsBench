@@ -136,6 +136,7 @@ class NewPlanningWorkflow(Workflow):
                 f.write(saved_plan_text)
 
         planned_tasks = []
+        task_description = ""
         for i in range(len(tasks)):
             task_description = tasks[i]
             if i == len(agents):
@@ -158,10 +159,26 @@ class NewPlanningWorkflow(Workflow):
             if selected_agent is None:
                 selected_agent = task.agents[0]
 
+            dependency = "None"
+            context = []
             if dependency != "None":
-                numbers = re.findall(r"#S(\d+)", dependency)
-                numbers = list(map(int, numbers))
-                context = [planned_tasks[i - 1] for i in numbers]
+                try:
+                    # Extract step numbers like "#S12" -> ["12", ...]
+                    numbers = re.findall(r"#S(\d+)", dependency)
+                    numbers = list(map(int, numbers))
+
+                    # If any index would be invalid, treat as "no context"
+                    n = len(planned_tasks)
+                    if (n == 0) or any(i < 1 or i > n for i in numbers):
+                        context = []
+                    else:
+                        context = [planned_tasks[i - 1] for i in numbers]
+
+                except (ValueError, IndexError, TypeError):
+                    # ValueError: int conversion failed (unexpected)
+                    # IndexError: out-of-range index
+                    # TypeError: planned_tasks or dependency unexpected type
+                    context = []
             else:
                 context = []
 

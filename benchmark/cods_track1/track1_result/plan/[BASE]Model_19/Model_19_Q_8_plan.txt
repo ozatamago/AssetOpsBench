@@ -1,0 +1,27 @@
+Question: Download sensor data for Chiller 6's Tonnage from the last week of 2020 at the MAIN site
+Plan:
+
+#Task<1>: Download sensor data for Chiller 6's Tonnage from the last week of 2020 at the MAIN site
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: A JSON file containing the Tonnage sensor data for Chiller 6 at the MAIN site for the last week of 2020
+
+#Task<2>: Analyze the time-series data in the downloaded file for anomalies
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<2>: #S1
+#ExpectedOutput<2>: A report highlighting any anomalies detected in the Chiller 6 Tonnage data for the last week of 2020
+
+#Task<3>: Generate a work order for addressing any detected anomalies
+#Agent<4>: WorkOrder Agent
+#Dependency<3>: #S2
+#ExpectedOutput<3>: A work order document for addressing the anomalies identified in the Chiller 6 Tonnage data
+
+#Task<4>: (Optional) If necessary, consult the Failure Mode and Sensor Relevancy Expert for Industrial Asset agent to understand potential causes of anomalies
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<4>: None
+#ExpectedOutput<4>: Insights into potential failure modes causing the anomalies and relevant sensors for monitoring
+
+#Task<5>: (Optional) If required, create a machine learning recipe for predicting similar anomalies in the future
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<5>: #S4
+#ExpectedOutput<5>: A machine learning recipe for predicting Chiller 6 Tonnage anomalies based on historical data and relevant sensors

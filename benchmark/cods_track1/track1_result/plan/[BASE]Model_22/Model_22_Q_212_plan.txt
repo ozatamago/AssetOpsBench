@@ -1,0 +1,16 @@
+Question: Find a model for energy forecasting with context length 96 and nothing else.
+Plan:
+#Task1: Identify relevant sensors for energy forecasting
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of sensors relevant to energy forecasting
+
+#Task2: Retrieve historical sensor data for the identified sensors
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: JSON file containing historical sensor data for the identified sensors
+
+#Task3: Analyze the time-series data and develop a forecasting model with context length 96
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Energy forecasting model with context length 96

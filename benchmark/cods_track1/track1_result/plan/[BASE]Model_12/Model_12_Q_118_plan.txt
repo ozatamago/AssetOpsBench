@@ -1,0 +1,696 @@
+Question: When power input of Chiller 6 drops, what is the potential failure that causes it?
+Plan:
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of Chiller 6
+
+#Task2: Determine the relevant sensors to monitor for the identified potential failures
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors to monitor for the identified potential failures
+
+#Task3: Analyze the sensor data to confirm the potential failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: An analysis of the sensor data confirming the potential failure
+
+#Task4: Generate a work order for the confirmed failure
+#Agent4: WorkOrder Agent
+#Dependency4: #Task3
+#ExpectedOutput4: A generated work order for the confirmed failure
+
+Note: The above plan is just a sample and may not be the correct solution to the problem. You should create your own plan based on the problem and the available agents. 
+
+Please go ahead and create your plan to solve the problem. ⬇️
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of potential failures that can cause a drop in power input of

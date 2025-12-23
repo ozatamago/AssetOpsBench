@@ -1,0 +1,29 @@
+Question: What is the forecast for Chiller 6's Setpoint Temperature for next week based on the week of 2020-04-27 data?
+Plan:
+
+#Task<1>: Retrieve Chiller 6's Setpoint Temperature data for the week of 2020-04-27
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: A JSON file containing Chiller 6's Setpoint Temperature data for the week of 2020-04-27
+
+#Task<2>: Analyze the Setpoint Temperature data for anomalies
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<2>: #S1
+#ExpectedOutput<2>: An analysis report indicating any anomalies in Chiller 6's Setpoint Temperature data for the week of 2020-04-27
+
+#Task<3>: Forecast Chiller 6's Setpoint Temperature for the next week
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<3>: #S2
+#ExpectedOutput<3>: A forecast for Chiller 6's Setpoint Temperature for the next week
+
+#Task<4>: Review forecast for potential failure modes
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<4>: #S3
+#ExpectedOutput<4>: A list of potential failure modes associated with the forecasted Setpoint Temperature values
+
+#Task<5>: Generate a preventive maintenance work order based on the forecast
+#Agent<4>: WorkOrder Agent
+#Dependency<5>: #S4
+#ExpectedOutput<5>: A work order for preventive maintenance on Chiller 6, based on the forecasted Setpoint Temperature values
+
+This plan involves retrieving the Setpoint Temperature data for Chiller 6 for the specified week, analyzing it for anomalies, forecasting the Setpoint Temperature for the next week, reviewing the forecast for potential failure modes, and generating a preventive maintenance work order based on the forecast.

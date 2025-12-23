@@ -1,0 +1,29 @@
+Question: How can reasoning on operation alerts help in generating significant warning message to improve maintenance recommendations for Chiller 9 with equipment ID CWC04009?
+Plan:
+
+#Task<1>: Retrieve relevant sensor data for Chiller 9
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Sensor data for Chiller 9, including "CHILLED WATER LEAVING TEMP", "CHILLED WATER RETURN TEMP", and other relevant metrics.
+
+#Task<2>: Analyze sensor data for anomalies
+#Agent<2>: Time Series Analytics and Forecasting
+#Dependency<2>: #S1
+#ExpectedOutput<2>: Identified anomalies in Chiller 9's sensor data, including potential causes and temporal patterns.
+
+#Task<3>: Determine failure modes related to anomalies
+#Agent<3>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<3>: #S2
+#ExpectedOutput<3>: List of failure modes associated with the identified anomalies in Chiller 9's sensor data.
+
+#Task<4>: Generate maintenance recommendations
+#Agent<4>: WorkOrder Agent
+#Dependency<4>: #S3
+#ExpectedOutput<4>: A set of maintenance recommendations based on the determined failure modes, prioritized for urgency and potential impact.
+
+#Task<5>: Craft significant warning message
+#Agent<5>: [Create a new agent or use existing one]
+#Dependency<5>: #S4
+#ExpectedOutput<5>: A clear, actionable warning message incorporating the key findings from the analysis, including identified anomalies, potential failure modes, and recommended maintenance actions.
+
+Please note that in the current setup, there isn't a direct agent for crafting a warning message. You would need to either create a new agent or use an existing one capable of processing the information from tasks #2, #3, and #4 to generate a comprehensive warning message. Alternatively, you could leverage the WorkOrder Agent (#4) to produce a structured warning message as part of its maintenance recommendations. Adjust the plan accordingly based on the available agents and your specific requirements.

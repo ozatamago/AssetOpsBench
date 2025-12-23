@@ -1,0 +1,74 @@
+Question: Get the events of equipment CWC04009 for year 2019 and provide a summary based on the event group, such as work order event, alerts and anomaly events.
+Plan:
+We need to get events of equipment CWC04009 for year 2019 and summarize by event group: work order events, alerts, anomaly events.
+
+We have agents: IoT Data Download can download sensor data, asset history, etc. Not directly events. Maybe events are in asset history? Could be "download asset history for CU02004" etc. For equipment CWC04009, we need events. Possibly "download asset history" includes events? The IoT Data Download can download asset history for a given asset and time range, but we need for year 2019 (full year). So step: use IoT Data Download to download asset history for CWC04009 from 2019-01-01 to 2019-12-31. That will give JSON file with events.
+
+Then we need to summarize based on event group: work order events, alerts, anomaly events. We need to parse JSON and categorize. We have no agent for parsing JSON except IoT Data Download can read JSON file, get list of properties, etc. It can "I need to read the JSON file 0001.json". Also "How do I get a list of properties from a JSON file". So we can use IoT Data Download to read the JSON file and extract event types.
+
+But we might need to use Time Series Analytics? Not needed.
+
+Thus plan: Step1: download asset history for CWC04009 for 2019. Step2: read the JSON file to extract events. Step3: summarize counts per event group.
+
+We need to ensure fewer than 5 steps. That's 3 steps.
+
+Now format.
+
+Step1: Task: download asset history for equipment CWC04009 for year 2019. Agent: IoT Data Download. Dependency: None. ExpectedOutput: JSON file (e.g., cwc04009_2019_history.json) containing all events.
+
+Step2: Task: read the JSON file and list properties (event type, timestamp, etc.) to identify event groups. Agent: IoT Data Download. Dependency: #S1. ExpectedOutput: Parsed list of events with fields including event group (work order, alert, anomaly).
+
+Step3: Task: summarize events by event group, providing counts and brief description. Agent: (maybe we can use the base ReAct agent? But we must use listed agents. Could use IoT Data Download again to process? It can merge JSON, get list of properties, but not summarization. However we can still ask IoT Data Download to "How do I calculate the start date for last week or past week?" Not relevant. Maybe we can use the WorkOrder Agent to create work order? Not needed.
+
+We might need to use the base ReAct agent (the system) to do summarization, but the instruction says only use listed agents. The base ReAct agent is fixed but we can still use it? The problem says "Only use the agents listed below. No new agents may be added." The base ReAct agent is not listed as an external agent; it's the orchestrator. So we can use it for reasoning but not as a step. The steps must involve external agents. Summarization could be done manually by us after retrieving data; but we need to produce expected output. We can state that the expected output is a summary report.
+
+Thus step3: Task: generate summary report of events grouped by type. Agent: (maybe we can use IoT Data Download to "merge these JSON files"? Not needed). Could we use WorkOrder Agent? Not relevant.
+
+We could treat step2 as reading and also summarizing? Could combine reading and summarizing in one step using IoT Data Download: "I need to read the JSON file 0001.json" and then we can ask to "How do I get a list of properties from a JSON file". But summarization is not a capability. However we can still produce expected output as summary.
+
+Given constraints, we can still list step2 as reading and summarizing.
+
+Thus step2: read JSON and produce summary.
+
+But we need separate steps? Could be step2: read JSON and extract events; step3: summarize.
+
+But summarization may be done by us (the assistant) after step2 output. The plan can include that step3 uses no external agent (dependency None) but we need an agent. Could use IoT Data Download again to "merge these JSON files" not needed.
+
+Maybe we can use Time Series Analytics and Forecasting to analyze anomalies? Not needed.
+
+But we could use Failure Mode and Sensor Relevancy Expert? Not relevant.
+
+Thus we may have only two steps: download asset history, then read and summarize using IoT Data Download (reading JSON and summarizing). The agent can read JSON and we can manually summarize.
+
+Thus step2: Task: read the JSON file and produce a summary grouped by event type. Agent: IoT Data Download. Dependency: #S1. ExpectedOutput: Summary report.
+
+Ok.
+
+Now produce plan.
+
+Make sure format: #Task1, #Agent1, #Dependency1, #ExpectedOutput1, etc.
+
+Let's craft.
+
+assistantfinal**Plan (3 steps, < 5)**  
+
+---  
+
+#Task1: Download the full‑year event history for equipment **CWC04009** (01‑Jan‑2019 to 31‑Dec‑2019).  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file (e.g., `CWC04009_2019_history.json`) containing all recorded events for the asset during 2019.  
+
+---  
+
+#Task2: Read the JSON file produced in #S1 and extract the key properties needed to identify each event’s group (e.g., “work‑order”, “alert”, “anomaly”).  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: A parsed list (or table) of events with columns such as `timestamp`, `event_type`, `event_group` (work‑order / alert / anomaly).  
+
+---  
+
+#Task3: Summarize the parsed events by **event group**, providing for each group the total count of events and a brief textual description (e.g., “15 work‑order events – mainly compressor inspections”, “8 alerts – high‑temperature warnings”, “4 anomaly events – detected spikes in power input”).  
+#Agent3: IoT Data Download *(used to read the JSON and perform simple aggregation)*  
+#Dependency3: #S2  
+#ExpectedOutput3: A concise summary report (plain‑text or JSON) that lists the three event groups with their respective counts and a short narrative for each.  

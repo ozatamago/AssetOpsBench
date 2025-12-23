@@ -1,0 +1,10 @@
+Question: When power input of Chiller 6 drops, what is the potential failure that causes it?
+Plan:
+We need to answer: "When power input of Chiller 6 drops, what is the potential failure that causes it?" This is a question about failure mode mapping. The appropriate agent is "Failure Mode and Sensor Relevancy Expert for Industrial Asset". It can answer: "When power input of Chiller 6 drops, what is the potential failure that causes it?" That's exactly task 5 of that agent. So we need a plan with fewer than 5 steps. Probably just one step: ask the expert agent. No dependencies. Expected output: description of potential failure(s) causing power input drop.
+
+Thus produce plan with #Task1, #Agent1, #Dependency1: None, #ExpectedOutput1: textual answer.
+
+Make sure format matches. Provide plan.assistantfinal#Task1: Determine the potential failure that causes a drop in power input of Chiller 6.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A concise description of the most likely failure(s) (e.g., compressor motor failure, loose wiring, refrigerant charge loss, etc.) that would result in a drop in power input for Chiller 6, including any relevant context or reasoning.

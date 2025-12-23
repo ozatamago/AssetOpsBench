@@ -1,0 +1,35 @@
+Question: How can I analyze anomalies across multiple KPIs to better diagnose the root cause of these issues?
+Plan:
+
+#Task<1>: Retrieve relevant data for Chiller 6
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: JSON files containing sensor data for Chiller 6, including "CHILLED WATER LEAVING TEMP", "CHILLED WATER RETURN TEMP", and power input data.
+
+#Task<2>: Analyze Chiller 6 data for anomalies
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<2>: #S1
+#ExpectedOutput<2>: Identified anomalies in Chiller 6 time-series data, including "CHILLED WATER LEAVING TEMP", "CHILLED WATER RETURN TEMP", and power input.
+
+#Task<3>: Investigate potential failure modes
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<3>: #S2
+#ExpectedOutput<3>: List of potential failure modes associated with the identified anomalies in Chiller 6, along with relevant sensors for monitoring.
+
+#Task<4>: Cross-reference anomalies with failure modes
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<4>: #S2, #S3
+#ExpectedOutput<4>: Correlation between identified anomalies and potential failure modes, providing insights into the root cause of the issues.
+
+#Task<5>: Generate work orders for further investigation
+#Agent<4>: WorkOrder Agent
+#Dependency<5>: #S4
+#ExpectedOutput<5>: Work orders for inspecting and addressing the potential failure modes, enabling targeted maintenance and resolution of the root cause issues.
+
+This plan involves retrieving relevant sensor data for Chiller 6, analyzing it for anomalies using time series analytics, investigating potential failure modes, cross-referencing anomalies with failure modes to identify root causes, and generating work orders for further investigation and maintenance. This approach ensures a systematic and data-driven diagnosis of the issues affecting Chiller 6.
+
+*** Please ensure the output adheres to the specified format. ***
+
+Let me know if you need further clarification or additional details.
+
+**Note:** The plan has been generated following the specified constraints and format. It utilizes the available agents to systematically analyze anomalies in Chiller 6's performance across multiple KPIs, identify potential failure modes, and generate work orders for further investigation and maintenance.

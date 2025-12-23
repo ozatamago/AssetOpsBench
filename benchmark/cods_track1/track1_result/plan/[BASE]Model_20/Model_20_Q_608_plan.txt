@@ -1,0 +1,24 @@
+Question: Are there any failure modes of Chiller 6 at MAIN site that can be predicted by monitoring the vibration sensor data?
+Plan:
+We need to answer: "Are there any failure modes of Chiller 6 at MAIN site that can be predicted by monitoring the vibration sensor data?" So we need to list failure modes of Chiller 6 that can be predicted using vibration sensor data. We have agents: Failure Mode and Sensor Relevancy Expert for Industrial Asset can provide mapping between failure modes and sensors. It can answer: "What are the relevant sensors that can be used to monitor the loose wiring failure of Chiller 6? If compressor overheating occurs for Chiller 6, which sensor should be prioritized for monitoring this specific failure?" Also can list failure modes. So we need to ask for failure modes of Chiller 6 that can be detected by vibration sensor. The agent can answer mapping. So we need a single step: ask the Failure Mode and Sensor Relevancy Expert: "List all failure modes of Chiller 6 that can be predicted by monitoring the vibration sensor data." That matches its capability? It can provide mapping between failure modes and sensors. So we can ask: "List all failure modes of Chiller 6 that can be detected by the vibration sensor." That is within its tasks: "List all failure modes of Chiller 6 that can be detected by Chiller 6 Chiller Efficiency." That's a specific sensor. But we need vibration sensor. The agent can likely answer any sensor mapping. So we can ask.
+
+Thus plan: one step.
+
+But we need to include site MAIN? The failure modes of Chiller 6 at MAIN site. The asset is Chiller 6 at MAIN site. The expert likely knows asset-level failure modes independent of site. So we can ask.
+
+Thus produce plan with step #1.
+
+Let's format.
+
+#Task1: Query the Failure Mode and Sensor Relevancy Expert for Industrial Asset to list all failure modes of Chiller 6 at the MAIN site that can be predicted/monitored using vibration sensor data.
+
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+
+#Dependency1: None
+
+#ExpectedOutput1: A list of failure modes (e.g., loose wiring, bearing wear, compressor motor failure, etc.) for Chiller 6 at MAIN site that are associated with the vibration sensor, indicating they can be predicted by monitoring vibration data.
+
+That's it. Ensure fewer than 5 steps. Provide plan.assistantfinal#Task1: Query the Failure Mode and Sensor Relevancy Expert for Industrial Asset to list all failure modes of **Chiller 6** at the **MAIN** site that can be predicted/monitored using **vibration sensor** data.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A concise list (e.g., “bearing wear”, “loose wiring”, “compressor motor imbalance”, etc.) of failure modes for Chiller 6 at the MAIN site that are associated with the vibration sensor, indicating they can be predicted by monitoring vibration data.

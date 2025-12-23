@@ -203,9 +203,6 @@ def main():
     agents_allowed = args.agents if args.agents else default_agents
 
     summary = validate_plans_in_dir(args.dir, agents_allowed, recursive=args.recursive)
-    print(f"TXT files: {summary['total']}")
-    print(f"OK files:  {summary['ok_count']}")
-    print(f"OK ratio:  {summary['ok_ratio']:.3f}")
 
     for item in summary["results"]:
         flag = "OK " if item["ok"] else "NG "
@@ -225,6 +222,10 @@ def main():
             else:
                 for d in sub["ng"]:
                     print(f"NG  {d['dir']}  file_count={d['file_count']} (limit={sub['max_files_allowed']})")
+
+    print(f"TXT files: {summary['total']}")
+    print(f"OK files:  {summary['ok_count']}")
+    print(f"OK ratio:  {summary['ok_ratio']:.3f}")
 
     #     # --- NEW: one-level subdir scan for *_0.txt files ---
     # subdir_summary = validate_suffix0_in_immediate_subdirs(args.dir, agents_allowed, filename_suffix="_0.txt")

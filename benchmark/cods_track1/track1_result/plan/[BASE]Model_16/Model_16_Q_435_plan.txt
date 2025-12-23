@@ -1,0 +1,18 @@
+Question: Assume today is early of July 2020, I would like to review the alerts for chiller 9 with equipment ID CWC04009 for June 2020 and the work order should be generated based on the type of alerts.
+Plan:
+#Task1: Retrieve historical data for chiller 9 (CWC04009) for June 2020 to identify alerts.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for CWC04009 in June 2020.
+
+#Task2: Analyze the retrieved data to identify alerts and determine the type of alerts for chiller 9.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: List of alerts and their types for CWC04009.
+
+#Task3: Generate a work order based on the type of alerts identified for chiller 9.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Work order for CWC04009 based on the alerts.
+
+The plan is complete.

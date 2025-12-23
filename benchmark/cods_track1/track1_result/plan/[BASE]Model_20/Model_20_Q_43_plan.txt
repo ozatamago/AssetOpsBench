@@ -1,0 +1,39 @@
+Question: how much power was CQPA AHU 1 (MAIN site) using on 6/14/20?
+Plan:
+We need to answer: "how much power was CQPA AHU 1 (MAIN site) using on 6/14/20?" So we need power consumption data for asset "CQPA AHU 1" at "MAIN site" on date 6/14/20 (presumably June 14, 2020). We need to retrieve sensor data for power usage. Which agents can help? IoT Data Download can download sensor data for a given asset and site. It can download sensor data for CU02004 at SiteX (example). It can also download asset history for a given asset and site for specific sensors and time range. So we can use IoT Data Download to download asset history for CQPA AHU 1 at MAIN site for power sensor on that date. Then we need to compute total power usage? The question: "how much power was CQPA AHU 1 (MAIN site) using on 6/14/20?" Could be total energy consumption for that day, or average power? Likely they want total power usage (maybe kWh) for that day. We may need to sum the power readings over the day. We could use Time Series Analytics and Forecasting to analyze the time series data and compute total sum. However the Time Series agent can analyze anomalies, forecast, etc. It may not directly compute sum, but we could ask it to "Analyze the time-series data in file X and compute total power usage for the day". Not listed as a task, but we can still ask it to "Analyze the time-series data in file X and look for anomalies" but not sum. However we could use the IoT Data Download to retrieve the data, then we could manually compute sum? As AI, we can compute sum from data if we have it. But we need to output plan steps only, not actual answer. So we need to produce plan with fewer than 5 steps. Steps:
+
+Step 1: Use IoT Data Download to download asset history for CQPA AHU 1 at MAIN site for power sensor on 2020-06-14 (maybe specify start and end times). Provide start and end timestamps: 2020-06-14T00:00:00 to 2020-06-14T23:59:59 (or appropriate timezone). The sensor name likely "POWER" or "POWER USAGE". Not given. We can ask for "POWER" sensor. Use task 5: download asset history for asset at site from start to end for specific sensor(s). So #Task1: download asset history for CQPA AHU 1 at MAIN site for "POWER" sensor from 2020-06-14T00:00:00 to 2020-06-14T23:59:59.
+
+Step 2: Use Time Series Analytics and Forecasting to compute total power usage from the downloaded JSON file. However the agent tasks don't include sum. Could ask to "Analyze the time-series data in file X and look for anomalies in power". Not sum. But we could compute sum ourselves after retrieving data. The plan could include a step where we compute sum manually (the AI can do that). The plan steps can include internal processing (no agent). But each step must specify an agent. Could use "IoT Data Download" again to "How do I calculate the start date for last week or past week?" Not relevant. Could use "Failure Mode and Sensor Relevancy Expert" not relevant. Could use "WorkOrder Agent" not relevant. So we may need to rely on the AI itself to compute sum after retrieving data. That could be done as a step with no external agent? The format requires #Agent<N>. Could we set #Agent<N>: None? Not allowed? The instructions: "Only use the agents listed below. No new agents may be added." It doesn't say we cannot have a step with no agent. But each step must have #Agent<N>. Could we set #Agent<N>: "Self" or "Internal"? Not listed. Might be okay to set #Agent<N>: "None" but not an agent. Safer to use Time Series Analytics and Forecasting to "Analyze the time-series data in file X and look for anomalies in power". Then we can manually compute sum after that step. But the plan expects expected output from each step. So step 2 expected output could be "Time series analysis results and data summary for power usage". Then we can compute total power usage ourselves (internal). But we need to produce final answer? The plan only, not answer. So we just need plan.
+
+Thus steps:
+
+#Task1: Download asset history for CQPA AHU 1 at MAIN site for "POWER" sensor for June 14, 2020.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file (e.g., cqpa_ahu1_power_20200614.json) containing timestamped power readings for the specified date.
+
+#Task2: Analyze the downloaded power time series to calculate total energy consumption for the day.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Summary indicating total power usage (e.g., sum of readings or integrated energy) for June 14, 2020.
+
+That's only 2 steps, within limit.
+
+But does Time Series Analytics agent have a task to compute total? Not listed. However we can ask it to "Analyze the time-series data in file X and look for anomalies in power". Not sum. But we can still ask it to "Analyze the time-series data in file X and compute total power usage". The description says "Can assist with time series analysis, forecasting, anomaly detection, and model selection, and supports pretrained models, context length specifications, and regression tasks". It can likely compute aggregates. So we can ask it to compute total.
+
+Thus final plan.
+
+Make sure format: #Task<N>: ... #Agent<N>: ... #Dependency<N>: ... #ExpectedOutput<N>: ...
+
+Will use #S1 for step 1, #S2 for step 2.
+
+Let's produce final answer.assistantfinal#Task1: Download the historical sensor data for asset **CQPA AHU 1** at **MAIN site** for the **POWER** sensor covering the full day of **2020‑06‑14** (from 2020‑06‑14T00:00:00 to 2020‑06‑14T23:59:59).  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A JSON file (e.g., `cqpa_ahu1_power_20200614.json`) containing timestamped power readings for the specified date.
+
+#Task2: Analyze the downloaded power time‑series to compute the total energy consumed by **CQPA AHU 1** on **2020‑06‑14** (e.g., sum or integration of the power readings over the day).  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: A concise result stating the total power usage (e.g., “Total power consumption on 2020‑06‑14: X kWh”).

@@ -1,0 +1,47 @@
+Question: List all sensors of Chiller 6 at MAIN site that are potentially relevant to Compressor Overheating.
+Plan:
+#Task1: List all assets at MAIN site
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at MAIN site
+
+#Task2: Identify relevant sensors for Compressor Overheating failure mode of Chiller 6
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: List of relevant sensors for Compressor Overheating of Chiller 6
+
+#Task3: Filter the sensors that are actually available for Chiller 6 at MAIN site
+#Agent3: IoT Data Download
+#Dependency3: #S1, #S2
+#ExpectedOutput3: List of available sensors for Chiller 6 at MAIN site that are relevant to Compressor Overheating
+
+The generated plan has 3 steps, which is fewer than 5. The instructions are clear and follow the required format. 
+
+To further improve the response, I can add a brief explanation of the plan. 
+
+Here's the enhanced response:
+
+To solve the problem, we will follow a 3-step plan.
+
+1. First, we need to identify the assets available at the MAIN site. We will use the IoT Data Download agent to retrieve this information.
+
+2. Next, we will use the Failure Mode and Sensor Relevancy Expert for Industrial Asset agent to identify the sensors relevant to the Compressor Overheating failure mode of Chiller 6.
+
+3. Finally, we will filter the relevant sensors to ensure they are available for Chiller 6 at the MAIN site by cross-referencing the output from the first two steps.
+
+The step-by-step plan is as follows:
+
+#Task1: List all assets at MAIN site
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at MAIN site
+
+#Task2: Identify relevant sensors for Compressor Overheating failure mode of Chiller 6
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: List of relevant sensors for Compressor Overheating of Chiller 6
+
+#Task3: Filter the sensors that are actually available for Chiller 6 at MAIN site
+#Agent3: IoT Data Download
+#Dependency3: #S1, #S2
+#ExpectedOutput3: List of available sensors for Chiller 6 at MAIN site that are relevant to Compressor Overheating

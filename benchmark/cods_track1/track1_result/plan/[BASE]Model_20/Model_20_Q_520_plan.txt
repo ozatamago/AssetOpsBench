@@ -1,0 +1,66 @@
+Question: What is the forecast for Chiller 6's energy consumption for next week based on data from the week of 2020-04-27 at the MAIN site?
+Plan:
+We need forecast for Chiller 6's energy consumption next week based on data from week of 2020-04-27 at MAIN site.
+
+We have agents: IoT Data Download can download sensor data for asset CU02004 at SiteX etc. But we need Chiller 6 at MAIN site. Possibly asset ID unknown. Could use "what sites are there" then "what assets are at site MAIN". Then download sensor data for Chiller 6 energy consumption for week of 2020-04-27. Then use Time Series Analytics and Forecasting to forecast next week.
+
+We need less than 5 steps. Steps:
+
+1. Get list of sites to confirm MAIN exists. (maybe not needed if we assume). Could skip.
+
+2. Get assets at MAIN site to identify asset ID for Chiller 6. Use IoT Data Download: "what assets are at site MAIN". Expected output list includes Chiller 6 with asset ID.
+
+3. Download sensor data for Chiller 6 energy consumption for week 2020-04-27 to 2020-05-03 (week). Use IoT Data Download: download sensor data for asset ID (from step2) at MAIN site for "ENERGY CONSUMPTION" between dates.
+
+4. Use Time Series Analytics and Forecasting to forecast next week (2020-05-04 to 2020-05-10) based on downloaded data. Expected output forecast values.
+
+That's 4 steps.
+
+Make sure dependencies: step2 depends on step1? Could skip step1. We'll just start with assets list.
+
+Step1: Get assets at MAIN site.
+
+Step2: Download sensor data for Chiller 6 energy consumption for week.
+
+Step3: Forecast next week.
+
+We need less than 5 steps, okay.
+
+Let's craft plan.
+
+Step numbers #S1 etc.
+
+Provide Task, Agent, Dependency, ExpectedOutput.
+
+Let's write.
+
+Step1: #Task1: Retrieve list of assets at the MAIN site to identify the asset identifier for Chiller 6. #Agent1: IoT Data Download #Dependency1: None #ExpectedOutput1: JSON list of assets at MAIN site, including Chiller 6 with its asset ID (e.g., "CU02004").
+
+Step2: #Task2: Download historical sensor data for the identified Chiller 6 asset, specifically the "ENERGY CONSUMPTION" metric, covering the week from 2020-04-27 to 2020-05-03. #Agent2: IoT Data Download #Dependency2: #S1 #ExpectedOutput2: JSON file (e.g., chiller6_energy_week.json) containing timestamped energy consumption values for the specified period.
+
+Step3: #Task3: Perform time‑series forecasting on the downloaded energy consumption data to predict Chiller 6’s energy usage for the following week (2020-05-04 to 2020-05-10). #Agent3: Time Series Analytics and Forecasting #Dependency3: #S2 #ExpectedOutput3: Forecast results (e.g., a table or JSON with predicted daily/hourly energy consumption values for the next week) and confidence intervals.
+
+That's 3 steps, within limit.
+
+Return plan.assistantfinal**Step‑by‑step plan (≤ 5 steps)**  
+
+---  
+
+**#Task1:** Retrieve the list of assets located at the **MAIN** site to obtain the exact asset identifier for *Chiller 6*.  
+**#Agent1:** IoT Data Download  
+**#Dependency1:** None  
+**#ExpectedOutput1:** JSON array of assets at site MAIN, e.g., `[{ "assetName": "Chiller 6", "assetId": "CU02004", ... }, …]`  
+
+---  
+
+**#Task2:** Download the historical sensor data for the identified *Chiller 6* asset, focusing on the **ENERGY CONSUMPTION** metric, for the week **2020‑04‑27 to 2020‑05‑03**.  
+**#Agent2:** IoT Data Download  
+**#Dependency2:** #S1 (use the `assetId` from the output of Task 1)  
+**#ExpectedOutput2:** JSON file (e.g., `chiller6_energy_week.json`) containing timestamped energy‑consumption readings for the specified period.  
+
+---  
+
+**#Task3:** Apply time‑series forecasting to the downloaded energy‑consumption data to predict *Chiller 6*’s energy usage for the **next week (2020‑05‑04 to 2020‑05‑10)**.  
+**#Agent3:** Time Series Analytics and Forecasting  
+**#Dependency3:** #S2 (use the JSON file from Task 2)  
+**#ExpectedOutput3:** Forecast results (e.g., JSON or table) with predicted daily/hourly energy‑consumption values for 2020‑05‑04 – 2020‑05‑10, including confidence intervals or error metrics.  

@@ -1,0 +1,21 @@
+Question: List all failure modes of Chiller 6 at MAIN site that can be detected by temperature sensors.
+Plan:
+
+#Task<1>: Retrieve asset information for Chiller 6 at MAIN site
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Asset details for Chiller 6 at MAIN site, including sensor list
+
+#Task<2>: Identify temperature sensors for Chiller 6 at MAIN site
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1
+#ExpectedOutput<1>: List of temperature sensors for Chiller 6 at MAIN site
+
+#Task<3>: List failure modes detectable by identified temperature sensors
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S2
+#ExpectedOutput<1>: List of failure modes of Chiller 6 at MAIN site detectable by temperature sensors
+
+#Note: The WorkOrder Agent and Time Series Analytics and Forecasting agents are not required for this specific problem.
+
+This plan involves using the IoT Data Download agent to first retrieve asset information for Chiller 6 at the MAIN site, then identify the temperature sensors associated with it. Subsequently, the Failure Mode and Sensor Relevancy Expert agent will be used to list the failure modes detectable by those temperature sensors. The WorkOrder Agent and Time Series Analytics and Forecasting agents are not necessary for solving this problem.

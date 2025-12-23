@@ -1,0 +1,16 @@
+Question: how much power was CQPA AHU 1 (MAIN site) using on 6/14/20?
+Plan:
+#Task1: Retrieve the power consumption data for CQPA AHU 1 at MAIN site on 6/14/20
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON file containing the power consumption data for CQPA AHU 1 at MAIN site on 6/14/20
+
+#Task2: Analyze the retrieved power consumption data to determine the total power usage
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: The total power consumption value for CQPA AHU 1 at MAIN site on 6/14/20
+
+#Task3: Generate a work order if the power consumption is abnormal or requires maintenance
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A work order for CQPA AHU 1 if the power consumption is abnormal or requires maintenance, otherwise a confirmation that no work order is needed

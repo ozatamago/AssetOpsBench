@@ -1,0 +1,24 @@
+Question: We are building an early detection system for a potential failure condenser Water side fouling for Chiller 9. Monitor Chiller 9 at main site site from 2020-04-20T12:30:00 to 2020-05-12T19:30:00, identify anomalous behaviors and provide a work order recomendation.
+Plan:
+
+#Task<1>: Retrieve sensor data and asset information for Chiller 9
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: A JSON file containing sensor data and asset details for Chiller 9 at the main site from 2020-04-20T12:30:00 to 2020-05-12T19:30:00
+
+#Task<2>: Analyze sensor data for anomalies related to condenser Water side fouling
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<2>: #S1
+#ExpectedOutput<2>: An analysis report highlighting anomalous behaviors in Chiller 9's sensor data, specifically focusing on potential indicators of condenser Water side fouling
+
+#Task<3>: Identify relevant failure modes and sensors for condenser Water side fouling
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<3>: None
+#ExpectedOutput<3>: A list of failure modes associated with condenser Water side fouling in Chiller 9 and the corresponding relevant sensors
+
+#Task<4>: Generate a work order recommendation based on anomalies and failure modes
+#Agent<4>: WorkOrder Agent
+#Dependency<4>: #S2, #S3
+#ExpectedOutput<4>: A work order recommendation for preventive maintenance or inspection of Chiller 9, addressing the identified anomalies and potential failure modes related to condenser Water side fouling
+
+This plan outlines the necessary steps to build an early detection system for potential condenser Water side fouling in Chiller 9. By following this plan, you can effectively utilize the available agents to retrieve relevant data, analyze it for anomalies, identify failure modes, and generate a work order recommendation for timely maintenance actions.

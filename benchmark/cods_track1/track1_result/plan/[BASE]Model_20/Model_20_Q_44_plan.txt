@@ -1,0 +1,27 @@
+Question: Can I list all the metrics monitored by CQPA AHU 2B? use site MAIN
+Plan:
+We need to list all metrics monitored by CQPA AHU 2B at site MAIN. Which agent can provide? IoT Data Download can provide info about IoT sites, assets, sensor data, etc. It can answer "what sites are there", "what assets are at site SiteX". It can also "download sensor data for CU02004 at SiteX". But we need list of metrics (sensor types) monitored by a specific asset. Possibly "what assets are at site SiteX" returns asset details maybe includes metrics. Or "download sensor data for CU02004 at SiteX" would give data but not list of metrics. There's no direct task for listing metrics. However we can use IoT Data Download to "download sensor data for CQPA AHU 2B at site MAIN" which may include all sensor types. Then we can parse JSON to extract metric names. Need to use IoT Data Download to get data, then maybe use its ability to "How do I get a list of properties from a JSON file" to extract metric names. So two steps: Step1 download sensor data for asset. Step2 get list of properties (metrics) from JSON file.
+
+Thus plan with 2 steps.
+
+Step1: Task: download sensor data for CQPA AHU 2B at site MAIN. Agent: IoT Data Download. Dependency: None. Expected output: JSON file (e.g., cqpa_ahu2b_data.json) containing sensor readings with metric fields.
+
+Step2: Task: extract list of metric names (properties) from the JSON file obtained. Agent: IoT Data Download (task 7). Dependency: #S1. Expected output: list of metric names.
+
+Make sure format.
+
+Let's craft final answer.assistantfinal**Step‑by‑step plan (2 steps)**  
+
+---  
+
+#Task1: Download all sensor data for asset **CQPA AHU 2B** at site **MAIN**.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A JSON file (e.g., `cqpa_ahu2b_data.json`) containing the time‑stamped sensor readings for the asset. The file will include all metric fields recorded for this AHU.  
+
+---  
+
+#Task2: Extract the list of metric (property) names from the JSON file produced in Step 1.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: A plain‑text list (or JSON array) of all distinct metric names (e.g., `["SUPPLY AIR TEMP", "RETURN AIR TEMP", "FAN SPEED", …]`) that are monitored for **CQPA AHU 2B** at site **MAIN**.

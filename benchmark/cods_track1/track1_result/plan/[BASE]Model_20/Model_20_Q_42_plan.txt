@@ -1,0 +1,37 @@
+Question: what was the supply temperature from CQPA AHU 2B on sept 19, 2020 at quarter to midnight, at site MAIN? return in a file
+Plan:
+We need supply temperature from CQPA AHU 2B on Sept 19 2020 at quarter to midnight (i.e., 23:45?) at site MAIN. Need to return in a file. Steps: get site list, assets at site MAIN, find asset CQPA AHU 2B, download sensor data for supply temperature at that timestamp. Likely need IoT Data Download agent: task 4 download sensor data for asset. Provide date range maybe specific time. Use task 5 to download asset history with start and end times. Provide sensor name "SUPPLY TEMPERATURE". Then maybe need to output file. So plan: Step1: Identify asset ID for CQPA AHU 2B at site MAIN using IoT Data Download task 3. Step2: Download sensor data for that asset for supply temperature around the time using task 5 with start and end times 2020-09-19T23:45:00 to 2020-09-19T23:45:00 (or a small window). Expected output JSON file. Step3: Return file. Could combine steps. Need <5 steps. Provide dependencies.
+
+Let's craft.
+
+Step1: Get assets at site MAIN. Agent IoT Data Download task 3. Output list.
+
+Step2: From list, find asset identifier for CQPA AHU 2B. Could be manual extraction; but we can assume we parse output. Expected output: asset ID string.
+
+Step3: Download sensor data for that asset for "SUPPLY TEMPERATURE" at specific timestamp. Use task 5 with start and end times. Expected output: JSON file containing value.
+
+Step4: Return file as final output.
+
+Let's produce plan.assistantfinal**Step #1**  
+#Task1: Retrieve the list of assets that are located at site **MAIN**.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON list of assets at site MAIN (e.g., `[{ "assetId": "AHU-2B", "name": "CQPA AHU 2B", ... }, …]`)
+
+**Step #2**  
+#Task2: From the asset list obtained in #S1, extract the exact **asset identifier** (e.g., `CU02004`‑style ID) for the asset named **“CQPA AHU 2B”**.  
+#Agent2: (no external call – internal parsing of #S1 output)  
+#Dependency2: #S1  
+#ExpectedOutput2: The asset ID string for CQPA AHU 2B (e.g., `AHU2B-MAIN`)
+
+**Step #3**  
+#Task3: Download the historical sensor data for the identified asset (**asset ID from #S2**) for the sensor **“SUPPLY TEMPERATURE”** covering the exact time **2020‑09‑19 23:45:00** (quarter‑to‑midnight). Use a narrow window (e.g., start = 2020‑09‑19T23:44:00‑04:00, end = 2020‑09‑19T23:46:00‑04:00) to ensure the value is captured.  
+#Agent3: IoT Data Download – task 5 (download asset history)  
+#Dependency3: #S2  
+#ExpectedOutput3: A JSON file (e.g., `supply_temp_20200919_2345.json`) containing the timestamped supply‑temperature reading for CQPA AHU 2B.
+
+**Step #4**  
+#Task4: Return the JSON file produced in #S3 as the final answer.  
+#Agent4: (no external call – simply provide the file)  
+#Dependency4: #S3  
+#ExpectedOutput4: The file `supply_temp_20200919_2345.json` containing the requested supply temperature value.

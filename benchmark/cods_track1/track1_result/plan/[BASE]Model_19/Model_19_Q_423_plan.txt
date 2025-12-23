@@ -1,0 +1,22 @@
+Question: I am using historical work order information upto end of June 2020 for prioritizing maintenance. Which work orders should I prioritize first for Chiller 9 with equipment ID CWC04009 in July 2020?
+Plan:
+
+#Task<1>: Retrieve historical work orders for Chiller 9 with equipment ID CWC04009 up to the end of June 2020
+#Agent<1>: WorkOrder Agent
+#Dependency<1>: None
+#ExpectedOutput<1>: A list of work orders for Chiller 9 with equipment ID CWC04009 up to June 30, 2020
+
+#Task<2>: Analyze the retrieved work orders to identify recurring issues or patterns
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S1
+#ExpectedOutput<2>: A summary of recurring issues and their associated sensors for Chiller 9 with equipment ID CWC04009
+
+#Task<3>: Prioritize work orders based on the identified recurring issues and their severity
+#Agent<3>: WorkOrder Agent
+#Dependency<1>: #S2
+#ExpectedOutput<3>: A prioritized list of work orders for Chiller 9 with equipment ID CWC04009 in July 2020
+
+#Task<4>: Review and adjust the prioritized list based on the availability of resources and urgency
+#Agent<4>: Executor
+#Dependency<1>: None
+#ExpectedOutput<4>: A final prioritized list of work orders for Chiller 9 with equipment ID CWC04009 in July 2020, ready for execution

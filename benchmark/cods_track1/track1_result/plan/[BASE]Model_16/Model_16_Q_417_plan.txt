@@ -1,0 +1,30 @@
+Question: Just notice an anomaly 'KPI Cooling Load above upper bound' happens for equipment CWC04009, can you recommend top three work orders to address this problem?
+Plan:
+#Task1: Identify relevant sensors and potential failure modes for equipment CWC04009 related to 'KPI Cooling Load above upper bound'.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of relevant sensors and potential failure modes.
+
+#Task2: Retrieve historical sensor data for CWC04009 related to the identified relevant sensors.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Historical sensor data for relevant sensors.
+
+#Task3: Analyze the retrieved historical sensor data to identify any anomalies or patterns related to 'KPI Cooling Load above upper bound'.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Analysis results highlighting anomalies or patterns.
+
+#Task4: Based on the analysis results, generate top three recommended work orders to address the anomaly 'KPI Cooling Load above upper bound' for CWC04009.
+#Agent4: WorkOrder Agent
+#Dependency4: #S1, #S3
+#ExpectedOutput4: Top three recommended work orders.
+
+The plan is a 4-step process that leverages the capabilities of the available agents to address the anomaly 'KPI Cooling Load above upper bound' for equipment CWC04009. 
+
+1. The Failure Mode and Sensor Relevancy Expert for Industrial Asset is used to identify relevant sensors and potential failure modes related to the anomaly.
+2. The IoT Data Download agent retrieves historical sensor data for the identified relevant sensors.
+3. The Time Series Analytics and Forecasting agent analyzes the retrieved data to identify anomalies or patterns.
+4. The WorkOrder Agent generates top three recommended work orders based on the analysis results and the initial identification of relevant sensors and failure modes.
+
+This plan is clear, actionable, and follows the required format. It also adheres to the constraints of using only the available agents and producing a plan with fewer than 5 steps.

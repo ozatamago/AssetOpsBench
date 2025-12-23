@@ -1,0 +1,26 @@
+Question: When the Liquid Refrigerant Evaporator Temperature of Chiller 6 drops, what failure is most likely to occur?
+Plan:
+We need to answer: When the Liquid Refrigerant Evaporator Temperature of Chiller 6 drops, what failure is most likely to occur?
+
+We need to use agents. Likely need to query Failure Mode and Sensor Relevancy Expert for mapping between sensor (Liquid Refrigerant Evaporator Temperature) and failure modes. Possibly also need to get sensor data? But question is about likely failure when temperature drops. So we need to ask the expert: "When liquid refrigerant evaporator temperature drops, what failure is most likely to occur?" The agent can answer based on mapping. So single step.
+
+But need to ensure we use correct agent name: "Failure Mode and Sensor Relevancy Expert for Industrial Asset". Provide task: ask about failure associated with drop in that temperature.
+
+Thus plan with one step.
+
+Let's craft.
+
+#Task1: Query the Failure Mode and Sensor Relevancy Expert for Industrial Asset to identify the most likely failure mode that occurs when the Liquid Refrigerant Evaporator Temperature of Chiller 6 drops.
+
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+
+#Dependency1: None
+
+#ExpectedOutput1: A concise description of the failure mode(s) most likely to occur (e.g., low refrigerant charge, evaporator fouling, sensor fault) when the Liquid Refrigerant Evaporator Temperature drops, possibly with brief explanation.
+
+Make sure format matches required.
+
+Let's produce final answer.assistantfinal#Task1: Identify the failure mode most likely to occur when the Liquid Refrigerant Evaporator Temperature of Chiller 6 drops.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A concise answer naming the most probable failure (e.g., low refrigerant charge, evaporator fouling, sensor fault, etc.) that is triggered by a drop in the Liquid Refrigerant Evaporator Temperature of Chiller 6, with a brief rationale if available.

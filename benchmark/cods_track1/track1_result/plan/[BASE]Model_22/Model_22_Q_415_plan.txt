@@ -1,0 +1,21 @@
+Question: When an anomaly happens for equipment CWC04009, can you recommend a list of candidate work orders and give me a summary of work order as percentage?
+Plan:
+#Task1: Retrieve sensor data for equipment CWC04009
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file containing sensor data for CWC04009
+
+#Task2: Analyze the sensor data for anomalies in CWC04009
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Report identifying any anomalies in the sensor data
+
+#Task3: Generate candidate work orders based on the detected anomalies
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: List of recommended work orders with descriptions
+
+#Task4: Summarize the work orders as a percentage breakdown
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Percentage summary of the recommended work orders by type/category

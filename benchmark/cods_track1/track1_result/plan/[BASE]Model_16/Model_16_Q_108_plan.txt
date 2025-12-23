@@ -1,0 +1,23 @@
+Question: List all failure modes of Chiller 6 that can be detected by temperature sensors and power input sensors.
+Plan:
+#Task1: List all failure modes of Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes of Chiller 6.
+
+#Task2: Identify the failure modes of Chiller 6 that can be detected by temperature sensors.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: A list of failure modes of Chiller 6 detectable by temperature sensors.
+
+#Task3: Identify the failure modes of Chiller 6 that can be detected by power input sensors.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S1
+#ExpectedOutput3: A list of failure modes of Chiller 6 detectable by power input sensors.
+
+#Task4: Combine the results from Task 2 and Task 3 to get the final list of failure modes detectable by temperature sensors and power input sensors.
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency4: #S2, #S3
+#ExpectedOutput4: A list of failure modes of Chiller 6 detectable by temperature sensors and power input sensors.
+
+The provided plan has 4 steps, which is within the limit of fewer than 5 steps. It uses the available agents and follows the required format. The plan is clear, unambiguous, and actionable.

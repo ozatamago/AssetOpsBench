@@ -1,0 +1,18 @@
+Question:  If compressor overheating occurs for Chiller 6 at MAIN site, which sensor should be prioritized for monitoring this specific failure?
+Plan:
+We need to answer: "If compressor overheating occurs for Chiller 6 at MAIN site, which sensor should be prioritized for monitoring this specific failure?" Use Failure Mode and Sensor Relevancy Expert for Industrial Asset. Possibly need site info? Not needed. So single step: ask that agent. Provide expected output: sensor name. Provide plan with <5 steps. So one step.
+
+Let's format.
+
+#Task1: Identify the sensor that should be prioritized for monitoring compressor overheating failure of Chiller 6 at MAIN site.
+
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+
+#Dependency1: None
+
+#ExpectedOutput1: The name (or ID) of the sensor most relevant for detecting/compressor overheating in Chiller 6, e.g., "Compressor Discharge Temperature Sensor" or similar.
+
+Make sure format matches. Provide final answer.assistantfinal#Task1: Identify the sensor that should be prioritized for monitoring compressor overheating failure of Chiller 6 at the MAIN site.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: The name (or ID) of the most relevant sensor for detecting compressor overheating in Chiller 6 (e.g., “Compressor Discharge Temperature Sensor” or the specific sensor designated for this failure mode).

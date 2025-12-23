@@ -1,0 +1,11 @@
+Question: Are there any anomalies detected in Chiller 9's Tonnage in the week of 2020-04-27 at the MAIN site?
+Plan:
+#Task1: Retrieve historical data for Chiller 9's Tonnage at the MAIN site for the week of 2020-04-27
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file containing historical Tonnage data for Chiller 9 at MAIN site from 2020-04-27 to 2020-05-03
+
+#Task2: Analyze the historical Tonnage data for anomalies using time series analysis
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: List of detected anomalies in Chiller 9's Tonnage during the specified week, along with timestamps and severity levels

@@ -1,0 +1,23 @@
+Question: I would like to review the performance of chiller 9 with equipment ID CWC04009 at main site site for June 2020 and track any anomalies or operation alerts. Tell me what corrective work orders have been scheduled, and whether new work order should generate.
+Plan:
+#Task1: Retrieve historical data for chiller 9 (CWC04009) at main site for June 2020.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for CWC04009 at main site for June 2020.
+
+#Task2: Analyze the retrieved data for anomalies or operation alerts in chiller 9 (CWC04009).
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly detection results and operation alerts for CWC04009.
+
+#Task3: Retrieve corrective work orders scheduled for chiller 9 (CWC04009) at main site.
+#Agent3: WorkOrder Agent
+#Dependency3: #S1, #S2
+#ExpectedOutput3: List of corrective work orders for CWC04009.
+
+#Task4: Determine if a new work order should be generated based on anomaly detection results and existing work orders.
+#Agent4: WorkOrder Agent
+#Dependency4: #S2, #S3
+#ExpectedOutput4: Recommendation on whether to generate a new work order for CWC04009.
+
+The plan is a 4-step process that involves retrieving historical data, analyzing it for anomalies, retrieving existing corrective work orders, and determining if a new work order is needed.

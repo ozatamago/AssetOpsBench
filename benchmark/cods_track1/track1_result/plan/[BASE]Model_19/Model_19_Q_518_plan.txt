@@ -1,0 +1,22 @@
+Question: Can you forecast energy usage for Chiller 9 for next week using data from the week of 2020-04-27 at the MAIN site?
+Plan:
+
+#Task<1>: Retrieve Chiller 9 sensor data for the week of 2020-04-27
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: A JSON file containing Chiller 9 sensor data for the week of 2020-04-27
+
+#Task<2>: Analyze the time-series data for Chiller 9 energy usage
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<2>: #S1
+#ExpectedOutput<2>: A report with analysis of Chiller 9 energy usage time-series data, including any anomalies or patterns
+
+#Task<3>: Forecast energy usage for Chiller 9 for the next week
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<3>: #S2
+#ExpectedOutput<3>: A forecast of Chiller 9 energy usage for the week starting 2020-05-04
+
+#Task<4>: Generate a work order for preventive maintenance based on the forecast and analysis
+#Agent<4>: WorkOrder Agent
+#Dependency<4>: #S3
+#ExpectedOutput<4>: A work order for preventive maintenance of Chiller 9, scheduled for a time when energy usage is expected to be lower

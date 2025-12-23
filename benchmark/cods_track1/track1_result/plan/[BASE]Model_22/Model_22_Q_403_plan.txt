@@ -1,0 +1,21 @@
+Question: I would like to retrieve the corrective work order details for the equipment labeled as CWC04013 for the year 2017.
+Plan:
+#Task1: Retrieve the list of corrective work orders for the equipment labeled as CWC04013 for the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: A list of corrective work orders for the equipment labeled as CWC04013 for the year 2017, including details such as work order ID, date, description, and status.
+
+#Task2: Analyze the retrieved work orders to identify any patterns or recurring issues.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: An analysis report highlighting any patterns or recurring issues in the corrective work orders for CWC04013 in 2017.
+
+#Task3: Generate recommendations for preventive maintenance based on the identified patterns.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A set of recommendations for preventive maintenance actions to address the recurring issues identified in the corrective work orders for CWC04013.
+
+#Task4: Create a preventive maintenance work order based on the recommendations.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: A preventive maintenance work order for CWC04013, including details such as work order ID, date, description, and recommended actions.

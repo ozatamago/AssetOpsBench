@@ -1,0 +1,53 @@
+Question: List all installed sensors of asset Chiller 6 at MAIN site.
+Plan:
+We need to list all installed sensors of asset Chiller 6 at MAIN site. Which agents can provide that? IoT Data Download can provide info about assets at a site, maybe list sensors? It can "send me the values for CU02004 at SiteX for ..." but also "what assets are at site SiteX". Not sensors. Failure Mode and Sensor Relevancy Expert can provide relevant sensors for failures, not full list. No direct agent for listing all installed sensors. Could combine: maybe IoT Data Download can "download sensor data for CU02004 at SiteX" but need sensor list. Could request "what assets are at site SiteX" then maybe get sensor list? Not explicit. Could use IoT Data Download to "download asset history" maybe includes sensor list? Not sure.
+
+We might need to request IoT Data Download to "what assets are at site MAIN". Then maybe we can infer sensors? But not list sensors.
+
+Maybe we can ask Failure Mode and Sensor Relevancy Expert: "What are the relevant sensors that can be used to monitor the loose wiring failure of Chiller 6?" Not full list.
+
+Given constraints, we may need to combine steps: first get asset details for Chiller 6 at MAIN site using IoT Data Download (maybe asset details include sensors). Then parse JSON to extract sensor list. Use IoT Data Download's tasks: "I need to read the JSON file 0001.json" and "How do I get a list of properties from a JSON file". So we can download asset details (maybe as JSON), then read file, then list properties (sensors). So plan:
+
+Step1: Use IoT Data Download to get assets at MAIN site (maybe includes asset IDs). Expected output: list of assets including Chiller 6.
+
+Step2: Use IoT Data Download to download sensor data for Chiller 6 at MAIN site (maybe returns JSON with sensor list). Expected output: JSON file containing sensor data.
+
+Step3: Use IoT Data Download to read the JSON file (e.g., 0001.json). Expected output: content.
+
+Step4: Use IoT Data Download to get list of properties from JSON file (which would be sensor names). Expected output: list of sensors.
+
+But we have limit <5 steps, okay 4 steps.
+
+Check dependencies: step2 depends on step1 to know asset ID maybe. Step3 depends on step2 file name. Step4 depends on step3.
+
+Let's craft plan. Ensure each step format.
+
+Step1: Task: retrieve list of assets at MAIN site. Agent: IoT Data Download. Dependency: None. Expected output: JSON list of assets including Chiller 6.
+
+Step2: Task: download sensor data (metadata) for asset Chiller 6 at MAIN site. Agent: IoT Data Download. Dependency: #S1. Expected output: JSON file (e.g., chiller6_sensors.json) containing sensor information.
+
+Step3: Task: read the JSON file produced in step2. Agent: IoT Data Download. Dependency: #S2. Expected output: displayed JSON content.
+
+Step4: Task: extract list of sensor properties from the JSON content. Agent: IoT Data Download. Dependency: #S3. Expected output: list of installed sensor names for Chiller 6.
+
+Make sure tasks align with agent capabilities: IoT Data Download can "download sensor data for CU02004 at SiteX" - generic. So we can ask to download sensor data for Chiller 6 at MAIN site. Also can "I need to read the JSON file 0001.json". So we can read file. Also "How do I get a list of properties from a JSON file". So step4 is okay.
+
+Let's produce final answer.assistantfinal#Task1: Retrieve the list of assets located at the MAIN site.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON array of assets at MAIN site, including an entry for “Chiller 6”.
+
+#Task2: Download the sensor metadata (installed sensors) for asset “Chiller 6” at the MAIN site.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: JSON file (e.g., `chiller6_sensors.json`) containing all sensor records for Chiller 6.
+
+#Task3: Read the JSON file produced in Step 2.  
+#Agent3: IoT Data Download  
+#Dependency3: #S2  
+#ExpectedOutput3: Full JSON content of `chiller6_sensors.json` displayed in the response.
+
+#Task4: Extract and list all sensor property names (installed sensor identifiers) from the JSON content.  
+#Agent4: IoT Data Download  
+#Dependency4: #S3  
+#ExpectedOutput4: Plain‑text list of all installed sensors for Chiller 6 at the MAIN site.

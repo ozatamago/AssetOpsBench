@@ -1,0 +1,36 @@
+Question: List all installed sensors of asset Chiller 6.
+Plan:
+We need to list all installed sensors of asset Chiller 6. Which agent can provide that? IoT Data Download can provide info about assets at a site, sensor data, etc. It can "what assets are at site SiteX" and "download sensor data for CU02004 at SiteX". But not directly list sensors of Chiller 6. However maybe we can use IoT Data Download to "download sensor data for CU02004 at SiteX" but we need sensors of Chiller 6. Could be asset ID? Not given. Could be we need to ask "what assets are at site SiteX" then find Chiller 6, then maybe "download sensor data for Chiller 6 at SiteX". The agent tasks list includes "download sensor data for CU02004 at SiteX". That's specific asset ID. Not generic. So maybe we cannot get sensor list directly. Could use Failure Mode and Sensor Relevancy Expert: It can provide relevant sensors for failures, but not list all installed sensors. Not suitable.
+
+Maybe we need to combine: Use IoT Data Download to "download asset history for CU02004..." but not sensors.
+
+Thus maybe we cannot directly answer with given agents. But we can approximate: Use IoT Data Download to "what assets are at site SiteX" then "download sensor data for CU02004 at SiteX" but that gives sensor data, not list.
+
+But the problem: "List all installed sensors of asset Chiller 6." Could be answered by IoT Data Download if we ask for sensor data for that asset, which would include sensor list. The task "download sensor data for CU02004 at SiteX" is an example; we can adapt to Chiller 6. The agent likely can handle generic asset ID. So we can request sensor data for Chiller 6.
+
+Thus plan: Step 1: Use IoT Data Download to retrieve sensor data for asset Chiller 6 (maybe at its site). Expected output: JSON containing sensor readings and sensor metadata, including list of installed sensors.
+
+We may need to know site of Chiller 6. Could first ask "what sites are there" then "what assets are at site X" to locate Chiller 6. But maybe not needed.
+
+Simplify: Step1: Query IoT Data Download: "download sensor data for Chiller 6". Expected output: JSON with sensor list.
+
+Thus plan with one step.
+
+But need to follow format with #Task1, #Agent1, #Dependency1, #ExpectedOutput1.
+
+Let's produce.
+
+If need two steps: first get site and asset list, then download sensor data.
+
+Let's do two steps to be safe.
+
+Step1: Get list of sites. Step2: Get assets at site containing Chiller 6 (maybe we need to know site). But we don't know which site. Could just ask "what assets are at site SiteX" but we need site name. Could ask "what sites are there" then manually identify site containing Chiller 6. But we can't manually process; we need agent to give assets list.
+
+Simplify: Use IoT Data Download to "download sensor data for Chiller 6". Assume it works.
+
+Thus one step.
+
+Let's output plan.assistantfinal#Task1: Retrieve the list of all installed sensors for the asset named **Chiller 6**.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A JSON file (or JSON text) containing metadata for **Chiller 6**, including a field that enumerates all installed sensors (e.g., sensor IDs, names, types, and associated measurement points).

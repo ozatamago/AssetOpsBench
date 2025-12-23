@@ -1,0 +1,14 @@
+Question: Is Time Series Classification supported in TSFM?
+Plan:
+We need to answer: "Is Time Series Classification supported in TSFM?" TSFM likely stands for Time Series Foundation Model? Or Time Series Forecasting Model? The question: "Is Time Series Classification supported in TSFM?" We need to answer yes/no. Use agents: maybe Time Series Analytics and Forecasting can answer? It can do analysis, forecasting, anomaly detection, model selection, supports pretrained models, context length specifications, and regression tasks. It may know about TSFM capabilities. So we can ask Time Series Analytics and Forecasting agent: "Is Time Series Classification supported in TSFM?" That is a question. The agent description: can assist with time series analysis, forecasting, anomaly detection, model selection, and supports pretrained models, context length specifications, and regression tasks. It may know about classification support. So we can ask it.
+
+Thus plan: single step: ask Time Series Analytics and Forecasting agent. No dependencies. Expected output: answer yes/no with explanation.
+
+We need fewer than 5 steps, okay.
+
+Thus produce plan. Use format. Step #1. Provide Task, Agent, Dependency, ExpectedOutput.
+
+Let's craft.assistantfinal#Task1: Determine whether Time Series Classification is supported in TSFM.
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: A concise answer (Yes/No) indicating if TSFM supports Time Series Classification, along with a brief explanation or reference to the relevant capability.

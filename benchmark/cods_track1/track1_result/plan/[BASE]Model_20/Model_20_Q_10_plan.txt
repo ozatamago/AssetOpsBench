@@ -1,0 +1,46 @@
+Question: Get sensor data for both Chiller 6 and Chiller 9's Tonnage from first week of June 2020 at MAIN in a single file.
+Plan:
+We need to produce a plan with fewer than 5 steps, each step includes Task, Agent, Dependency, ExpectedOutput. The problem: "Get sensor data for both Chiller 6 and Chiller 9's Tonnage from first week of June 2020 at MAIN in a single file."
+
+We have agents: IoT Data Download can download sensor data for assets, can merge JSON files, etc. It can also retrieve historical data for specific assets and sensors. It can also merge JSON files. So we can use IoT Data Download to download sensor data for Chiller 6 and Chiller 9's Tonnage for first week of June 2020 at site MAIN. Then merge them into a single file.
+
+We need to produce a plan with steps:
+
+Step 1: Use IoT Data Download to download sensor data for Chiller 6 at MAIN for "TONNAGE" from 2020-06-01 to 2020-06-07 (first week). Expected output: JSON file (maybe file1.json) containing data.
+
+Step 2: Use IoT Data Download to download sensor data for Chiller 9 at MAIN for "TONNAGE" same date range. Expected output: JSON file (file2.json).
+
+Step 3: Use IoT Data Download to merge these JSON files file1.json and file2.json into a single JSON file. Expected output: merged JSON file (merged.json) containing both data.
+
+We have only 3 steps, less than 5. Dependencies: step 3 depends on step 1 and step 2.
+
+Make sure to use correct naming: #Task1, #Agent1, #Dependency1, #ExpectedOutput1, etc.
+
+We need to be clear about the date format. The IoT Data Download agent can download asset history for a given asset and time range. The task description: "download asset history for CU02004 at SiteX from 2016-07-14T20:30:00-04:00 to 2016-07-14T23:30:00-04:00 for "CHILLED WATER LEAVING TEMP" and "CHILLED WATER RETURN TEMP". So we can adapt that to our assets: "download asset history for Chiller 6 at MAIN from 2020-06-01T00:00:00-04:00 to 2020-06-07T23:59:59-04:00 for "TONNAGE"."
+
+But the agent's tasks list includes "download sensor data for CU02004 at SiteX" and "download asset history for CU02004 at SiteX from ... for ...". So we can request asset history for the specific sensor.
+
+Thus step 1: "download asset history for Chiller 6 at MAIN from 2020-06-01T00:00:00-04:00 to 2020-06-07T23:59:59-04:00 for 'TONNAGE'". Expected output: file1.json.
+
+Step 2: same for Chiller 9.
+
+Step 3: "merge these JSON files file1.json and file2.json into a single JSON file". Expected output: merged.json.
+
+We need to include #Task, #Agent, #Dependency, #ExpectedOutput for each step.
+
+Make sure to use correct naming: #Task1, #Agent1, #Dependency1, #ExpectedOutput1, etc.
+
+Now produce final answer.assistantfinal#Task1: Download asset history for Chiller 6 at site **MAIN** from 2020‑06‑01T00:00:00‑04:00 to 2020‑06‑07T23:59:59‑04:00 for the sensor **TONNAGE**.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file **chiller6_tonnage_2020W1.json** containing the requested time‑series data.
+
+#Task2: Download asset history for Chiller 9 at site **MAIN** from 2020‑06‑01T00:00:00‑04:00 to 2020‑06‑07T23:59:59‑04:00 for the sensor **TONNAGE**.  
+#Agent2: IoT Data Download  
+#Dependency2: None  
+#ExpectedOutput2: JSON file **chiller9_tonnage_2020W1.json** containing the requested time‑series data.
+
+#Task3: Merge the two JSON files **chiller6_tonnage_2020W1.json** and **chiller9_tonnage_2020W1.json** into a single JSON file.  
+#Agent3: IoT Data Download  
+#Dependency3: #S1, #S2  
+#ExpectedOutput3: Merged JSON file **chiller6_9_tonnage_2020W1.json** that includes sensor data for both Chiller 6 and Chiller 9.

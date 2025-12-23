@@ -1,0 +1,21 @@
+Question: I need to perform Time Series anomaly detection of 'Chiller 9 Condenser Water Flow' using data in chiller9_tsad.csv
+Plan:
+#Task1: Download the sensor data for Chiller 9 Condenser Water Flow
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON file containing the sensor data for Chiller 9 Condenser Water Flow
+
+#Task2: Analyze the time-series data in the downloaded JSON file and look for anomalies in Chiller 9 Condenser Water Flow
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: A report highlighting any anomalies detected in the Chiller 9 Condenser Water Flow data
+
+#Task3: Generate a maintenance work order to inspect Chiller 9 due to detected anomalies in Condenser Water Flow
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A work order for inspecting Chiller 9 due to detected anomalies in Condenser Water Flow
+
+#Task4: Close the work order after confirming successful inspection and resolution of the anomalies in Chiller 9 Condenser Water Flow
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: A confirmation that the work order for Chiller 9 has been closed after successful inspection and resolution of the anomalies

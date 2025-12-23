@@ -1,0 +1,33 @@
+Question: what was the supply temperature from CQPA AHU 2B on sept 19, 2020 at quarter to midnight, at site MAIN? return in a file
+Plan:
+
+#Task<1>: Retrieve supply temperature data for CQPA AHU 2B at site MAIN on September 19, 2020, at 11:45 PM.
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: A file containing the supply temperature data for CQPA AHU 2B at site MAIN on the specified date and time.
+
+#Task<2>: Analyze the retrieved data for anomalies.
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: The output file from Task<1>
+#ExpectedOutput<2>: A report indicating whether the data contains any anomalies or not.
+
+#Task<3>: If no anomalies are detected, format the data into a structured file.
+#Agent<1>: IoT Data Download
+#Dependency<2>: The anomaly report from Task<2> stating no anomalies
+#ExpectedOutput<3>: A structured file (e.g., CSV or JSON) containing the supply temperature data for CQPA AHU 2B at site MAIN on September 19, 2020, at 11:45 PM.
+
+#Task<4>: (Optional) If anomalies are detected, consult the Failure Mode and Sensor Relevancy Expert for Industrial Asset to understand potential causes.
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<2>: The anomaly report from Task<2> indicating anomalies
+#ExpectedOutput<4>: A list of potential failure modes and relevant sensors associated with the detected anomalies.
+
+#Task<5>: Generate a work order if necessary based on the analysis.
+#Agent<4>: WorkOrder Agent
+#Dependency<2>: The structured file from Task<3> or potential failure modes from Task<4> if anomalies were detected
+#ExpectedOutput<5>: A work order document for further investigation or maintenance action, if applicable.
+
+#Note: The plan assumes no anomalies are detected. If anomalies are found, Task<4> and Task<5> would be executed to investigate potential causes and generate a work order, respectively.
+
+#Final Output: The structured file from Task<3> or the work order from Task<5>, depending on the outcome of Task<2>.
+
+This plan focuses on retrieving the required data, analyzing it for anomalies, and preparing a structured output file. If anomalies are detected, additional steps are included to investigate potential causes and generate a work order for further action.

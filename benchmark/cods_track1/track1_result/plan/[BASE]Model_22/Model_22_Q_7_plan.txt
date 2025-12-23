@@ -1,0 +1,11 @@
+Question: Download the metadata for Chiller 3 at the MAIN facility.
+Plan:
+#Task1: Retrieve the list of sites to confirm the MAIN facility exists
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of sites including the MAIN facility
+
+#Task2: Download the metadata for Chiller 3 at the MAIN facility
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Metadata for Chiller 3 at the MAIN facility in JSON format

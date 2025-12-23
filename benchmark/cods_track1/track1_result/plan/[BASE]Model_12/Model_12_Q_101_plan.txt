@@ -1,0 +1,40 @@
+Question: List all failure modes of asset Chiller.
+Plan:
+#Task1: Identify the asset for which we need to list failure modes
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: The asset for which we need to list failure modes is Chiller.
+
+#Task2: List all failure modes of the identified asset
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of all failure modes of Chiller.
+
+#Task3: Review and verify the list of failure modes
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #Task2
+#ExpectedOutput3: A verified list of failure modes of Chiller.
+
+#Task4: Provide the final list of failure modes
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency4: #Task3
+#ExpectedOutput4: The final list of failure modes of Chiller.
+
+However, the above plan has 4 steps which is more than the limit of fewer than 5 steps. Here is the corrected plan with fewer than 5 steps:
+
+#Task1: Identify the asset for which we need to list failure modes and list all failure modes of the identified asset
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of all failure modes of Chiller.
+
+#Task2: Review and verify the list of failure modes
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A verified list of failure modes of Chiller.
+
+However, the above plan still has 2 steps which can be further optimized into a single step as the task of identifying the asset and listing failure modes can be combined into a single task and the review and verification can be done internally by the agent. Here is the optimized plan:
+
+#Task1: List all failure modes of asset Chiller
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of all failure modes of Chiller.

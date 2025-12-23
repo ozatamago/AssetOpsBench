@@ -1,0 +1,16 @@
+Question: Can you forecast energy usage for Chiller 9 for next week using data from the week of 2020-04-27 at the MAIN site?
+Plan:
+#Task1: Download sensor data for Chiller 9 at MAIN site for the week of 2020-04-27
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file containing sensor data for Chiller 9 at MAIN site for the specified week
+
+#Task2: Analyze the time-series data in the downloaded file and forecast energy usage for Chiller 9 for the next week
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Forecasted energy usage data for Chiller 9 for the next week
+
+#Task3: Generate a maintenance work order based on the forecasted energy usage data
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Maintenance work order for Chiller 9 based on the forecasted energy usage data

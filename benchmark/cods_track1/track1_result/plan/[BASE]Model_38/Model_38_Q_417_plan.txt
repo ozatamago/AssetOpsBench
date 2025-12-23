@@ -1,0 +1,16 @@
+Question: Just notice an anomaly 'KPI Cooling Load above upper bound' happens for equipment CWC04009, can you recommend top three work orders to address this problem?
+Plan:
+#Task1: Identify the failure modes of CWC04009 that could cause the 'KPI Cooling Load above upper bound' anomaly
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of failure modes of CWC04009 that could cause the 'KPI Cooling Load above upper bound' anomaly
+
+#Task2: Determine the relevant sensors for monitoring the identified failure modes of CWC04009
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: List of relevant sensors for monitoring the identified failure modes of CWC04009
+
+#Task3: Generate a work order for the most critical failure mode of CWC04009 based on the identified sensors
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Work order for the most critical failure mode of CWC04009 based on the identified sensors

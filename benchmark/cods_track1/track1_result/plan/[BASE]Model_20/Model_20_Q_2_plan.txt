@@ -1,0 +1,17 @@
+Question: Can you list the IoT sites?
+Plan:
+We need to produce a plan with fewer than 5 steps. The problem: "Can you list the IoT sites?" So we need to use IoT Data Download agent, task 2: "what sites are there". So a single step plan.
+
+We need to follow format:
+
+#Task1: <description>
+#Agent1: <agent_name>
+#Dependency1: None
+#ExpectedOutput1: <expected output>
+
+Make sure to be clear.
+
+Let's produce plan.assistantfinal#Task1: Retrieve the list of all IoT sites available in the system.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A JSON (or plain‑text) list containing the names/identifiers of all IoT sites, e.g., `["SiteA","SiteB","SiteX",...]`.

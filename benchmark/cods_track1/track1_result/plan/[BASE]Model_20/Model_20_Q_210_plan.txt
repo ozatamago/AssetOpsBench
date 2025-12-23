@@ -1,0 +1,20 @@
+Question: Is any model with context length 1024 supported in TSFM?
+Plan:
+We need to answer: "Is any model with context length 1024 supported in TSFM?" TSFM likely stands for Time Series Foundation Models? The question: "Is any model with context length 1024 supported in TSFM?" We need to answer using agents. Which agent can answer? Possibly the Time Series Analytics and Forecasting agent can answer about models? But its description: can assist with time series analysis, forecasting, anomaly detection, model selection, supports pretrained models, context length specifications, and regression tasks. So it can answer about supported models and context length. So we need to ask that agent a question: "Is any model with context length 1024 supported in TSFM?" So we need a plan with steps: maybe just one step: ask the Time Series Analytics and Forecasting agent. No dependencies. Expected output: answer yes/no and list models.
+
+Thus produce plan with <5 steps. Use format.
+
+Let's produce:
+
+#Task1: Query the Time Series Analytics and Forecasting agent to determine whether any model with a context length of 1024 is supported in TSFM, and if so, list the model names.
+
+#Agent1: Time Series Analytics and Forecasting
+
+#Dependency1: None
+
+#ExpectedOutput1: A concise answer stating whether a 1024‑context‑length model is supported in TSFM, and if yes, the names of the supported model(s) (e.g., “TSFM‑1024‑v1”, etc.). If none, a statement that no such model is currently supported.
+
+That's it. Ensure format.assistantfinal#Task1: Ask the Time Series Analytics and Forecasting agent whether any model with a context length of 1024 is supported in TSFM, and if so, request the names of those models.  
+#Agent1: Time Series Analytics and Forecasting  
+#Dependency1: None  
+#ExpectedOutput1: A clear answer indicating **yes** or **no**. If “yes”, list the model name(s) that have a 1024‑context length (e.g., “TSFM‑1024‑v1”). If “no”, state that no 1024‑context‑length model is currently supported in TSFM.

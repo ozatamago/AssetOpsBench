@@ -1,0 +1,32 @@
+Question: When an anomaly happens for equipment CWC04009, can you recommend a list of candidate work orders and give me a summary of work order as percentage?
+Plan:
+We need to produce a plan with <5 steps. Need to recommend candidate work orders when an anomaly happens for equipment CWC04009, and give summary of work order as percentage. Likely need to get sensor data for CWC04009, detect anomalies, then map to failure modes and relevant sensors, then generate work orders. Steps: 1) Download sensor data for CWC04009 (maybe specific sensors). Use IoT Data Download agent. 2) Analyze time series for anomalies using Time Series Analytics agent. 3) Use Failure Mode and Sensor Relevancy Expert to map anomalies to failure modes and relevant sensors, and generate candidate work orders. 4) Use WorkOrder Agent to create work order suggestions and summarize percentages. That's 4 steps.
+
+We need to specify dependencies. Step1 no dependency. Step2 depends on #S1. Step3 depends on #S2. Step4 depends on #S3.
+
+Expected outputs: Step1: JSON file with sensor data. Step2: Anomaly report list. Step3: List of candidate work orders with relevance percentages. Step4: Summary of work order percentages.
+
+Let's craft. Ensure each step format. Use #Task1 etc. Provide clear tasks.assistantfinal#Task1: Retrieve historical sensor data for equipment **CWC04009** covering the period of interest (e.g., last week) for all relevant temperature and pressure sensors.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A JSON file (e.g., `cwc04009_data.json`) containing timestamped readings for the requested sensors.
+
+#Task2: Perform time‑series anomaly detection on the data file from #S1, focusing on each sensor’s temperature and pressure trends. Identify timestamps and sensor names where anomalies occur.  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: An anomaly report (JSON or text) listing anomalous sensor readings for CWC04009, e.g., `[{ "sensor":"CHILLED WATER LEAVING TEMP", "timestamp":"2023‑07‑15T14:32:00Z", "type":"spike" }, …]`.
+
+#Task3: For each detected anomaly, determine the most likely failure mode(s) of CWC04009 and the sensors that are most relevant for diagnosing those failures. Produce a ranked list of candidate work‑order actions with an associated confidence/percentage for each.  
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency3: #S2  
+#ExpectedOutput3: A table or JSON array of candidate work orders, each entry containing:  
+- Failure mode (e.g., “compressor overheating”)  
+- Recommended work‑order action (e.g., “Inspect compressor and clean heat exchangers”)  
+- Confidence/percentage that this work order addresses the observed anomaly.
+
+#Task4: Generate a concise summary that aggregates the candidate work‑order percentages, showing the overall distribution (e.g., “Inspect compressor – 45 %, Replace sensor – 30 %, Verify refrigerant charge – 25 %”). Also, draft brief work‑order descriptions ready for creation.  
+#Agent4: WorkOrder Agent  
+#Dependency4: #S3  
+#ExpectedOutput4:  
+1. A summary paragraph with percentage breakdown of recommended work orders.  
+2. A list of ready‑to‑use work‑order drafts (title, description, priority) for each candidate identified in #S3.

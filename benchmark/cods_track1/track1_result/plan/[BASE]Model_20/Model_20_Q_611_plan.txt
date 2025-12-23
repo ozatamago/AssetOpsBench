@@ -1,0 +1,18 @@
+Question:  If Evaporator Water side fouling occurs for Chiller 6 at MAIN site, which sensor is most relevant for monitoring this specific failure?
+Plan:
+We need to answer: If Evaporator Water side fouling occurs for Chiller 6 at MAIN site, which sensor is most relevant for monitoring this specific failure?
+
+We have agents: IoT Data Download (provides sensor data, site info, assets), Failure Mode and Sensor Relevancy Expert for Industrial Asset (provides mapping between failure modes and sensors). The question is about failure mode "Evaporator Water side fouling" for Chiller 6 at MAIN site, and we need the most relevant sensor.
+
+Thus we can use Failure Mode and Sensor Relevancy Expert to answer directly: "What are the relevant sensors that can be used to monitor the Evaporator Water side fouling failure of Chiller 6?" The agent can answer. So we need a plan with steps.
+
+We can do a single step: ask the Failure Mode and Sensor Relevancy Expert for the relevant sensor(s). The expected output: sensor name(s) (most relevant). Possibly also mention that it's at MAIN site, but sensor mapping is per asset.
+
+Thus plan: #Task1: Query the Failure Mode and Sensor Relevancy Expert for the most relevant sensor for monitoring Evaporator Water side fouling in Chiller 6. #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset. #Dependency1: None. #ExpectedOutput1: Name of the most relevant sensor (e.g., Evaporator Water Inlet Temperature sensor, or Evaporator Pressure sensor, etc.)
+
+We need fewer than 5 steps, so 1 step is fine.
+
+Thus output.assistantfinal#Task1: Identify the most relevant sensor for monitoring Evaporator Water side fouling on Chiller 6 at the MAIN site.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: The name (or ID) of the sensor that is most directly indicative of Evaporator Water side fouling for Chiller 6 (e.g., “Evaporator Water Inlet Temperature sensor”, “Evaporator Pressure sensor”, etc.).

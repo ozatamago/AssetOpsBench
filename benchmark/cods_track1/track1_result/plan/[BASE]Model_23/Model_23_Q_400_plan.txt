@@ -1,0 +1,16 @@
+Question: Get the work order of equipment CWC04013 for year 2017.
+Plan:
+#Task1: Identify the site where the equipment CWC04013 is located.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The site where the equipment CWC04013 is located.
+
+#Task2: Download the asset history for equipment CWC04013 for the year 2017.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: The asset history for equipment CWC04013 for the year 2017.
+
+#Task3: Generate a work order for the equipment CWC04013 based on the asset history.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: The work order for the equipment CWC04013 based on the asset history.

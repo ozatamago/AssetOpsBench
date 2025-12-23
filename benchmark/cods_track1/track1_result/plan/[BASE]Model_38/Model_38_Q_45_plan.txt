@@ -1,0 +1,6 @@
+Question: What is the power consumption of CQPA AHU 1 on mar 13 '20, site MAIN?
+Plan:
+#Task1: Retrieve the power consumption data for CQPA AHU 1 on March 13, 2020, at the MAIN site
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Power consumption data for CQPA AHU 1 on March 13, 2020, at the MAIN site

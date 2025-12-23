@@ -1,0 +1,35 @@
+Question: Find all models with context length 96.
+Plan:
+#Task<1>: Find all models with context length 96.
+#Agent<1>: None
+#Dependency<1>: None
+#ExpectedOutput<1>: List of models with context length 96.
+
+#Task<2>: Analyze the list of models for compatibility with IoT data.
+#Agent<2>: Time Series Analytics and Forecasting
+#Dependency<1>: #S1
+#ExpectedOutput<2>: Compatibility report for each model with IoT data.
+
+#Task<3>: Identify models suitable for anomaly detection.
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S2
+#ExpectedOutput<3>: List of models suitable for anomaly detection.
+
+#Task<4>: Generate work orders for preventive maintenance based on identified models.
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S3
+#ExpectedOutput<4>: Preventive maintenance work orders.
+
+#Task<5>: Execute work orders and update system with new models.
+#Agent<5>: WorkOrder Agent
+#Dependency<1>: #S4
+#ExpectedOutput<5>: Confirmation of work order execution and updated system status.
+
+#Task<6>: Monitor system performance with new models and IoT data.
+#Agent<6>: Time Series Analytics and Forecasting
+#Dependency<1>: #S5
+#ExpectedOutput<6>: Performance report with anomaly detection results.
+
+#Note: The plan assumes that the Time Series Analytics and Forecasting agent can handle tasks beyond its original description, such as model compatibility analysis and work order generation. If this is not the case, the plan should be adjusted accordingly.
+
+#Final Output: Compilation of all models with context length 96, compatibility report, list of suitable anomaly detection models, preventive maintenance work orders, confirmation of work order execution, and performance report with anomaly detection results.

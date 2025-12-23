@@ -1,0 +1,31 @@
+Question: Just notice an anomaly 'KPI Cooling Load above upper bound' happens for equipment CWC04009, can you recommend top three work orders to address this problem?
+Plan:
+
+#Task<1>: Retrieve relevant sensor data for CWC04009
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Sensor data for CWC04009, including "KPI Cooling Load" and other relevant metrics
+
+#Task<2>: Analyze sensor data for anomalies
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<2>: #S1
+#ExpectedOutput<2>: Identified anomalies in the time-series data for CWC04009, focusing on "KPI Cooling Load"
+
+#Task<3>: Identify potential failure modes
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<3>: #S2
+#ExpectedOutput<3>: List of failure modes associated with the "KPI Cooling Load above upper bound" anomaly for CWC04009
+
+#Task<4>: Generate work order recommendations
+#Agent<4>: WorkOrder Agent
+#Dependency<4>: #S3
+#ExpectedOutput<4>: Top three work orders to address the identified failure modes
+
+#Task<5>: Present work order recommendations
+#Agent<N>: (Executor)
+#Dependency<5>: #S4
+#ExpectedOutput<5>: Display the top three work orders to the user, along with justifications based on the analysis and failure mode identification.
+
+## End of output ⬆️
+
+This plan outlines a systematic approach to address the anomaly in CWC04009 by first gathering relevant sensor data, analyzing it for anomalies, identifying potential failure modes, and generating work order recommendations. The final step involves presenting these recommendations to the user with justifications based on the previous analyses.

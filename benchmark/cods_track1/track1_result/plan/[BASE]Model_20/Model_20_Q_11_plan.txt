@@ -1,0 +1,76 @@
+Question: Download all sensor data for Chiller 6 from the last week of April '20 at the MAIN site.
+Plan:
+We need to produce a plan with fewer than 5 steps. The problem: "Download all sensor data for Chiller 6 from the last week of April '20 at the MAIN site."
+
+We have agents: IoT Data Download can download sensor data for a specific asset at a site. It can also calculate start date for last week or past week. It can also provide site list, asset list, etc.
+
+We need to get sensor data for Chiller 6 (asset ID maybe "CHL-6"? Not sure). The asset name is "Chiller 6". The site is "MAIN". The time period: last week of April 2020. That is April 24-30, 2020 (assuming week Monday-Sunday). Or maybe last week of April '20 meaning the week ending April 30, 2020. So we need to download sensor data for that period.
+
+We need to produce a plan with steps: maybe first get the asset ID for Chiller 6 at MAIN site (if needed). Then calculate start and end dates for last week of April 2020. Then download sensor data for that asset for that period.
+
+We have to use the agents. The IoT Data Download agent can "download sensor data for CU02004 at SiteX" (example). It can also "download asset history for CU02004 at SiteX from start to end for specific sensors". It can also "merge JSON files". It can also "calculate the start date for last week or past week". So we can ask it to calculate start date for last week of April 2020. But the agent's task "how do I calculate the start date for last week or past week?" is a question, not a direct function. But we can ask it to compute start date. However we need to produce a plan; we can ask the IoT Data Download agent to "download asset history for Chiller 6 at MAIN site from 2020-04-24T00:00:00 to 2020-04-30T23:59:59". But we need to know the asset ID. Maybe the asset ID is "CHL-6". The problem says "Chiller 6". The IoT Data Download agent expects asset ID like "CU02004". We might need to first query "what assets are at site MAIN". That will give list of assets and IDs. Then we can identify the ID for Chiller 6. Then we can download asset history.
+
+Thus steps:
+
+1. Use IoT Data Download to list assets at site MAIN. (to get asset ID for Chiller 6)
+2. Use IoT Data Download to calculate start and end dates for last week of April 2020. (or we can compute ourselves, but we can ask the agent)
+3. Use IoT Data Download to download asset history for the identified asset ID at MAIN site from start to end dates for all sensors (maybe we need to specify sensors? The task "download asset history for CU02004 at SiteX from start to end for 'CHILLED WATER LEAVING TEMP' and 'CHILLED WATER RETURN TEMP'". It expects specific sensors. But we need all sensor data. The agent may not have a task for "all sensors". However we could request "download sensor data for CU02004 at SiteX" which may retrieve all sensors. The task list includes "download sensor data for CU02004 at SiteX". That likely returns all sensor data for that asset (maybe recent?). But we need for a specific time range. There's also "download asset history for CU02004 at SiteX from start to end for specific sensors". That requires specifying sensors. We could request "download asset history for Chiller 6 at MAIN site from start to end for all sensors". Not sure if allowed. But we can maybe request "download sensor data for Chiller 6 at MAIN site" and then filter by date? Not ideal.
+
+Given constraints, we can produce plan with 3 steps:
+
+Step 1: Get asset ID for Chiller 6 at MAIN site.
+Step 2: Determine start and end timestamps for last week of April 2020.
+Step 3: Download asset history for that asset ID at MAIN site from start to end for all sensors (or specify a wildcard). We'll assume the agent can handle "all sensors".
+
+We need to include #Dependency for each step.
+
+Now produce plan.
+
+Make sure each step includes Task, Agent, Dependency, ExpectedOutput.
+
+Let's craft.
+
+Step #1: Query assets at MAIN site.
+
+Agent: IoT Data Download.
+
+Expected output: JSON list of assets with IDs, including entry for Chiller 6.
+
+Step #2: Compute start and end dates for last week of April 2020.
+
+Agent: IoT Data Download (since it can answer "how do I calculate the start date for last week or past week?").
+
+But we need both start and end. We can ask for start date of last week of April 2020 and end date (maybe start+6 days). The expected output: start and end timestamps.
+
+Step #3: Download asset history for Chiller 6 (using ID from step1) at MAIN site from start to end dates (from step2) for all sensors.
+
+Agent: IoT Data Download.
+
+Expected output: JSON file containing sensor data for the period.
+
+We need fewer than 5 steps, we have 3.
+
+Now produce final answer.assistantfinal**Plan to download all sensor data for Chiller 6 from the last week of April 2020 at the MAIN site**
+
+| # | Description |
+|---|-------------|
+| **#Task1** | Retrieve the list of assets at the **MAIN** site to obtain the exact asset‑ID for *Chiller 6*. |
+| **#Agent1** | **IoT Data Download** |
+| **#Dependency1** | None |
+| **#ExpectedOutput1** | JSON array of assets at site MAIN, e.g. `[{ "assetId": "CHL-6", "name": "Chiller 6", … }, …]`. |
+
+| # | Description |
+|---|-------------|
+| **#Task2** | Compute the exact start‑ and end‑timestamps for the **last calendar week of April 2020** (Monday 24 Apr 2020 00:00 to Sunday 30 Apr 2020 23:59 UTC). |
+| **#Agent2** | **IoT Data Download** |
+| **#Dependency2** | #S1 |
+| **#ExpectedOutput2** | JSON object with `startDate: "2020-04-24T00:00:00Z"` and `endDate: "2020-04-30T23:59:59Z"`. |
+
+| # | Description |
+|---|-------------|
+| **#Task3** | Download the **full sensor history** for the asset identified as *Chiller 6* (assetId from #S1) at site MAIN, covering the period from `startDate` to `endDate` obtained in #S2. |
+| **#Agent3** | **IoT Data Download** |
+| **#Dependency3** | #S1, #S2 |
+| **#ExpectedOutput3** | A single JSON file (e.g., `chiller6_main_20200424_20200430.json`) containing **all sensor readings** for Chiller 6 at MAIN site within the specified week. |
+
+**Result** – After executing the three steps, you will have the complete sensor dataset for Chiller 6 for the last week of April 2020 at the MAIN site.

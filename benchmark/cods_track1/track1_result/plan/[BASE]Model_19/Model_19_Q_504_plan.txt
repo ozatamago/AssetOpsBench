@@ -1,0 +1,31 @@
+Question: Can you forecast Chiller 6's performance for next week based on the data from 2020-04-27 at the MAIN site?
+Plan:
+
+#Task<1>: Retrieve Chiller 6 sensor data from MAIN site
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: A JSON file containing Chiller 6 sensor data from MAIN site on 2020-04-27
+
+#Task<2>: Analyze sensor data for anomalies
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<2>: #S1
+#ExpectedOutput<2>: An analysis report identifying any anomalies in Chiller 6 sensor data
+
+#Task<3>: Identify relevant failure modes
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<3>: #S2
+#ExpectedOutput<3>: A list of failure modes relevant to Chiller 6 performance
+
+#Task<4>: Forecast Chiller 6 performance
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<4>: #S1, #S3
+#ExpectedOutput<4>: A forecast of Chiller 6 performance for the next week
+
+#Task<5>: Generate work orders for preventive maintenance
+#Agent<4>: WorkOrder Agent
+#Dependency<5>: #S3
+#ExpectedOutput<5>: Work orders for preventive maintenance actions based on forecast and anomaly analysis
+
+This plan involves retrieving Chiller 6 sensor data from the MAIN site, analyzing it for anomalies, identifying relevant failure modes, forecasting Chiller 6 performance for the next week, and generating work orders for preventive maintenance based on the analysis and forecast.
+
+**Note:** The plan assumes that the IoT Data Download agent can merge and provide relevant data files upon request, and that the Time Series Analytics and Forecasting agent can handle the combined data for analysis and forecasting. Additionally, the WorkOrder Agent can generate work orders based on the combined insights from anomaly detection, failure mode identification, and performance forecasting.

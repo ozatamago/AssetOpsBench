@@ -1,0 +1,28 @@
+Question:  If Evaporator Water side fouling occurs for Chiller 6, which sensor is most relevant for monitoring this specific failure?
+Plan:
+We need to answer: If Evaporator Water side fouling occurs for Chiller 6, which sensor is most relevant for monitoring this specific failure?
+
+We have agents: Failure Mode and Sensor Relevancy Expert for Industrial Asset can provide relevant sensors for specific failures. So we need to ask that agent: "What are the relevant sensors that can be used to monitor the Evaporator Water side fouling failure of Chiller 6?" Or similar.
+
+Thus we need a single step: ask the Failure Mode and Sensor Relevancy Expert.
+
+We need to produce plan with fewer than 5 steps. So one step.
+
+We need to include Task, Agent, Dependency, ExpectedOutput.
+
+Thus:
+
+#Task1: Identify the most relevant sensor for monitoring Evaporator Water side fouling failure in Chiller 6.
+
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+
+#Dependency1: None
+
+#ExpectedOutput1: The name of the sensor (e.g., Evaporator Water Inlet Temperature sensor) that is most relevant for monitoring Evaporator Water side fouling in Chiller 6, possibly with brief justification.
+
+Make sure format matches.
+
+Let's produce final answer.assistantfinal#Task1: Identify the most relevant sensor for monitoring Evaporator Water side fouling failure in Chiller 6.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: The name of the sensor (e.g., “Evaporator Water Leaving Temperature” or “Evaporator Water Flow” sensor) that is most relevant for detecting/monitoring Evaporator Water side fouling in Chiller 6, along with a brief justification of why it is the primary sensor for this failure.

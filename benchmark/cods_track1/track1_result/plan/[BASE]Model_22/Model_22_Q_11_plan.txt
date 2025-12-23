@@ -1,0 +1,21 @@
+Question: Download all sensor data for Chiller 6 from the last week of April '20 at the MAIN site.
+Plan:
+#Task1: Download sensor data for Chiller 6 at MAIN site from the last week of April '20
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file containing sensor data for Chiller 6 at MAIN site from the last week of April '20
+
+#Task2: Analyze the time-series data in the downloaded file and look for anomalies in Chiller 6
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Report highlighting any anomalies detected in Chiller 6 sensor data
+
+#Task3: Generate a maintenance work order for any detected anomalies in Chiller 6
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Work order for maintenance of Chiller 6 based on detected anomalies
+
+#Task4: Close the work order after confirming successful maintenance of Chiller 6
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Closed work order for Chiller 6 maintenance

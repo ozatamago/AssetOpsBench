@@ -1,0 +1,11 @@
+Question: What's the forecast for Chiller 6's Tonnage for next week based on the data from the week of 2020-04-27 at MAIN?
+Plan:
+#Task1: Retrieve historical data for Chiller 6's Tonnage for the week of 2020-04-27 at MAIN
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file containing historical data for Chiller 6's Tonnage
+
+#Task2: Analyze the historical data and forecast Chiller 6's Tonnage for next week
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Forecasted values for Chiller 6's Tonnage for next week

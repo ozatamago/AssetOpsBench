@@ -1,0 +1,14 @@
+Question: What are time series pretrained models are available in system?
+Plan:
+We need to answer: "What are time series pretrained models are available in system?" This is a question about system capabilities. Likely the Time Series Analytics and Forecasting agent can answer about pretrained models. It can provide info about time series pretrained models. So we need a plan: ask Time Series Analytics and Forecasting agent to list available pretrained models. No dependencies. One step.
+
+But need to follow format with #Task1, #Agent1, #Dependency1, #ExpectedOutput1.
+
+Thus produce plan with one step.
+
+Check constraints: fewer than 5 steps, okay.
+
+Thus final answer.assistantfinal#Task1: List all time series pretrained models available in the system.
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: A concise list (or description) of all pretrained time‑series models that the system provides, e.g., ARIMA, Prophet, LSTM, Transformer‑based models, etc.

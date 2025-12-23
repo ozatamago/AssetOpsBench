@@ -1,0 +1,31 @@
+Question: what was the return temperature from CQPA AHU 2B on sept 19, 2020 at 7pm, at site MAIN? return data in a file
+Plan:
+We need to retrieve return temperature from CQPA AHU 2B on Sept 19, 2020 at 7pm at site MAIN, and return data in a file. Use IoT Data Download to get sensor data for that asset and sensor. Likely need to know asset ID? "CQPA AHU 2B" maybe asset code. Use IoT Data Download to download sensor data for that asset at site MAIN for return temperature. Then maybe need to filter to specific timestamp. Could also use Time Series Analytics to filter? But we just need data file. So steps: 1) Identify asset ID for CQPA AHU 2B at site MAIN (maybe using IoT Data Download: what assets are at site MAIN). 2) Download sensor data for that asset for "RETURN TEMP" (or appropriate sensor) for date range around Sept 19 2020 7pm (maybe a small window). Use IoT Data Download: download sensor data for asset. Provide start and end timestamps. 3) Possibly extract the specific timestamp value and save to file. Could use IoT Data Download to read JSON and filter? It has tasks: "How do I get a list of properties from a JSON file" and "I need to read the JSON file 0001.json". Not directly filter. Could use Time Series Analytics to analyze and maybe extract? Not needed. Could just output the downloaded file containing data. So plan: Step1 get asset ID. Step2 download sensor data for return temperature for that date/time. Step3 maybe use Time Series Analytics to extract value at 7pm? Not needed but could. However we need return data in a file. So step2 will produce file with data. That's sufficient.
+
+We need <5 steps. We'll do 2 steps: 1) get asset ID, 2) download sensor data for return temperature for that timestamp range.
+
+But step2 depends on asset ID. So dependency.
+
+Let's craft.
+
+#Task1: Retrieve list of assets at site MAIN to identify the asset ID for "CQPA AHU 2B".
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON list of assets at site MAIN, including asset ID for CQPA AHU 2B.
+
+#Task2: Download sensor data for the identified asset (CQPA AHU 2B) for the sensor "RETURN TEMP" covering 2020-09-19T19:00:00 to 2020-09-19T19:05:00 at site MAIN, and save to a file.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: JSON file (e.g., return_temp_20200919_1900.json) containing the return temperature readings for the specified time window.
+
+That is 2 steps. Ensure format: #Task<N>, #Agent<N>, #Dependency<N>, #ExpectedOutput<N>. Use #S1 referencing step1.
+
+Let's produce final answer.assistantfinal#Task1: Retrieve the list of assets at site **MAIN** to identify the asset ID for **CQPA AHU 2B**.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON array of assets at site MAIN, including the asset record for “CQPA AHU 2B” with its asset ID (e.g., `assetId: "AHU-2B-001"`).  
+
+#Task2: Download sensor data for the identified asset (CQPA AHU 2B) for the sensor **RETURN TEMP** covering the interval **2020‑09‑19T19:00:00** to **2020‑09‑19T19:05:00** at site MAIN, and save the result to a file.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: JSON file (e.g., `CQPA_AHU_2B_return_temp_20200919_1900.json`) containing the return‑temperature readings for the specified time window, ready for downstream use.

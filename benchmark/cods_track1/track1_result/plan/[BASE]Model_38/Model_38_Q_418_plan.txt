@@ -1,0 +1,16 @@
+Question: Just notice two anomalies 'KPI Cooling Load above upper bound' and 'KPI Delta Setpoint above upper bound' happened for equipment CWC04009, can you recommend top three work orders to address this problem?
+Plan:
+#Task1: Retrieve the list of failure modes for equipment CWC04009
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes for equipment CWC04009
+
+#Task2: Identify the relevant sensors that can be used to monitor the failure modes related to 'KPI Cooling Load above upper bound' and 'KPI Delta Setpoint above upper bound'
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: A list of relevant sensors for the identified failure modes
+
+#Task3: Generate a work order for each of the top three relevant sensors to address the anomalies
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Three work orders for the top three relevant sensors

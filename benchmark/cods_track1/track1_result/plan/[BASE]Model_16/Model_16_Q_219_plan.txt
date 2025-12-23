@@ -1,0 +1,23 @@
+Question: Forecast 'Chiller 9 Condenser Water Flow' using data in 'chiller9_annotated_small_test.csv'. Use the following parameters as inputs 'Chiller 9 Liquid Refrigerant Evaporator Temperature,Chiller 9 Return Temperature,Chiller 9 Tonnage,Chiller 9 Setpoint Temperature,Chiller 9 Supply Temperature,Chiller 9 Chiller % Loaded,Chiller 9 Condenser Water Supply To Chiller Temperature,Chiller 9 Power Input,Chiller 9 Chiller Efficiency'
+Plan:
+#Task1: Download the data for 'Chiller 9 Condenser Water Flow' and other required input parameters from IoT site.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for 'Chiller 9 Condenser Water Flow', 'Chiller 9 Liquid Refrigerant Evaporator Temperature', 'Chiller 9 Return Temperature', 'Chiller 9 Tonnage', 'Chiller 9 Setpoint Temperature', 'Chiller 9 Supply Temperature', 'Chiller 9 Chiller % Loaded', 'Chiller 9 Condenser Water Supply To Chiller Temperature', 'Chiller 9 Power Input', 'Chiller 9 Chiller Efficiency'
+
+#Task2: Analyze the downloaded data to check for anomalies and ensure it's suitable for forecasting.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Analysis report indicating whether the data is suitable for forecasting 'Chiller 9 Condenser Water Flow'
+
+#Task3: Use the analyzed data to forecast 'Chiller 9 Condenser Water Flow' based on the given input parameters.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S1, #S2
+#ExpectedOutput3: Forecasted values for 'Chiller 9 Condenser Water Flow'
+
+#Task4: Create a work order for maintenance based on the forecasted values if any anomalies or issues are detected.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Work order for maintenance if necessary
+
+The plan is a 4-step process that involves downloading the required data, analyzing it for anomalies, forecasting 'Chiller 9 Condenser Water Flow', and creating a work order if necessary.

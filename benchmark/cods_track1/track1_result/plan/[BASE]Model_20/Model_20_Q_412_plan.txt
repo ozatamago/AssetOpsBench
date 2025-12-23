@@ -1,0 +1,56 @@
+Question: I would like to predict the next work order probability for the equipment labeled as CWC04013.
+Plan:
+We need to predict next work order probability for equipment CWC04013. Steps: get sensor data for that equipment (maybe from IoT Data Download). Then use Time Series Analytics to forecast anomalies or failure probability? Actually need probability of next work order. Could use Failure Mode and Sensor Relevancy to identify relevant sensors for failures, then Time Series Analytics to forecast sensor trends, then WorkOrder Agent to generate probability? WorkOrder Agent can create work orders but not predict probability. So we need to combine: get sensor data, identify relevant sensors for failures, analyze time series for anomalies or trends, then estimate probability (maybe via forecasting anomalies). Since no explicit probability agent, we can approximate by forecasting likelihood of failure using Time Series Analytics (maybe anomaly detection). We'll produce plan with 4 steps.
+
+Step1: IoT Data Download: download sensor data for CWC04013 (maybe need specific sensors). Use task 4.
+
+Step2: Failure Mode and Sensor Relevancy Expert: list relevant sensors for common failure modes of CWC04013 (assuming it's a chiller). Use task 3.
+
+Step3: Time Series Analytics: analyze downloaded sensor data focusing on relevant sensors to detect anomalies and forecast risk of failure (maybe produce probability). Use task 1 or custom? Use task 1: analyze time-series data and look for anomalies.
+
+Step4: WorkOrder Agent: based on analysis, generate a work order probability estimate (maybe create a work order with probability). Use task 1? Not available. Could use create work order but not probability. Could still ask to "Create a work order recommendation with probability". Not defined. Might need to just output probability. Could use WorkOrder Agent to "Create a work order for inspecting ..." but not probability. Maybe we can just output probability ourselves after analysis. But need to use agents only. Could use WorkOrder Agent to "Create a work order for inspecting CWC04013 due to predicted failure" and include probability in description. That's acceptable.
+
+Let's craft plan.
+
+Make sure dependencies: step2 depends on step1? Not necessarily. Step3 depends on step1 and step2. Step4 depends on step3.
+
+Provide ExpectedOutput.
+
+Let's write.assistantfinal**Plan (4 steps)**  
+
+#Task1: Retrieve historical sensor data for equipment CWC04013  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file (e.g., `CWC04013_sensor_data.json`) containing time‑stamped readings for all available sensors on CWC04013 over the past 3 months  
+
+---  
+
+#Task2: Identify the sensors that are most relevant for detecting the common failure modes of CWC04013  
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency2: None (can be run in parallel with Task 1)  
+#ExpectedOutput2: A concise list (e.g., `["CHILLED WATER LEAVING TEMP","CHILLED WATER RETURN TEMP","POWER INPUT","VIBRATION"]`) that maps each major failure mode of CWC04013 to the sensor(s) best suited for monitoring it  
+
+---  
+
+#Task3: Perform time‑series analysis on the retrieved data, focusing on the relevant sensors, to detect anomalies and forecast the likelihood of a future failure that would trigger a work order  
+#Agent3: Time Series Analytics and Forecasting  
+#Dependency3: #S1, #S2  
+#ExpectedOutput3: A report (e.g., `CWC04013_anomaly_forecast_report.json`) that includes:  
+- Detected anomalies for each relevant sensor (timestamp, magnitude)  
+- Forecasted sensor trajectories for the next 48 hours  
+- An estimated probability (0 – 1) that a work‑order‑triggering failure will occur within the forecast horizon (derived from anomaly scores and trend deviations)  
+
+---  
+
+#Task4: Generate a work‑order recommendation for CWC04013 that incorporates the predicted probability of a future work order  
+#Agent4: WorkOrder Agent  
+#Dependency4: #S3  
+#ExpectedOutput4: A draft work‑order (e.g., `WO‑CWC04013‑PREDICTED`) containing:  
+- Equipment ID: CWC04013  
+- Suggested action (e.g., “Inspect and service based on predicted failure risk”)  
+- Predicted probability of a work order within the next 48 hours (as computed in #S3)  
+- Priority level derived from the probability (e.g., High if > 0.7)  
+
+---  
+
+**Result:** Following this plan will produce a data‑driven probability estimate for the next work order on equipment CWC04013 and a corresponding work‑order recommendation.

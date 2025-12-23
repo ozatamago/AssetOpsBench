@@ -1,0 +1,46 @@
+Question: I am using historical work order information upto end of June 2020 for prioritizing maintenance. Which work orders should I prioritize first for Chiller 9 with equipment ID CWC04009 in July 2020?
+Plan:
+We need to produce a plan with <5 steps. Need to prioritize maintenance using historical work order info up to end June 2020 for Chiller 9 equipment ID CWC04009 in July 2020. We need to retrieve historical work orders for that equipment up to June 2020, analyze them to prioritize. Agents: WorkOrder Agent can retrieve, analyze, generate work orders. It can create, generate, schedule, raise, close. It does not have a task to retrieve historical work orders. But maybe it can "retrieve, analyze, and generate work orders". So we can ask it to retrieve historical work orders for that equipment up to June 2020 and prioritize. That seems plausible.
+
+We need to produce plan steps: Step 1: Use WorkOrder Agent to retrieve historical work orders for Chiller 9 (CWC04009) up to end June 2020. Expected output: list of work orders with details (date, issue, severity). Step 2: Use WorkOrder Agent to analyze and prioritize those work orders for July 2020 maintenance. Expected output: prioritized list.
+
+We have only two steps, under 5. Provide dependencies.
+
+Let's craft.
+
+#Task1: Retrieve historical work orders for Chiller 9 (equipment ID CWC04009) up to June 30, 2020.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: JSON or table of work orders (WO ID, date, issue, severity, status) for that equipment up to June 2020.
+
+#Task2: Analyze the retrieved work orders and determine which should be prioritized first for maintenance in July 2020, based on factors such as failure severity, recurrence, and impact.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: Ranked list of work order recommendations for July 2020, with justification.
+
+That is plan. Ensure format matches required: #Task<N>, #Agent<N>, #Dependency<N>, #ExpectedOutput<N>. Use #S1 etc? They said use #S1, #S2 for dependencies. So we need to label steps as #S1, #S2? Actually they said #Dependency<N>: use #S1, #S2, ... So we need to refer to step identifiers. We'll label steps as #S1 and #S2.
+
+Thus:
+
+#Task1: ...
+#Agent1: ...
+#Dependency1: None
+#ExpectedOutput1: ...
+
+But dependency referencing #S1? Actually step numbers are N, but dependency uses #S1 etc. So we need to assign step IDs like #S1 for step 1, #S2 for step 2. In dependency we refer to #S1. So we need to include #S1 label? Not required but we can mention.
+
+Let's produce final answer.assistantfinal**Plan (2 steps – under 5 total)**  
+
+---  
+
+#Task1: Retrieve all historical work orders for **Chiller 9 (equipment ID CWC04009)** that were created **up to 30 June 2020**.  
+#Agent1: WorkOrder Agent  
+#Dependency1: None  
+#ExpectedOutput1: A structured list (e.g., JSON or table) containing each work order’s ID, creation date, reported issue/failure mode, severity rating, status, and any notes for the specified equipment and date range.  
+
+---  
+
+#Task2: Analyze the retrieved work‑order list and **rank the maintenance actions that should be prioritized first for July 2020**. Prioritization should consider factors such as failure severity, recurrence frequency, impact on chiller performance, and any pending corrective actions.  
+#Agent2: WorkOrder Agent  
+#Dependency2: #S1   *(uses the output from Task 1)*  
+#ExpectedOutput2: A ranked (high‑to‑low) recommendation list for July 2020, each entry showing the work‑order ID, recommended priority level, and a brief justification (e.g., “high severity compressor overheating – recurring issue”).  

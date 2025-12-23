@@ -1,0 +1,17 @@
+Question: What types of time series analysis are supported?
+Plan:
+We need to answer: "What types of time series analysis are supported?" This is a question about capabilities of the Time Series Analytics and Forecasting agent. We need to produce a plan with fewer than 5 steps, using agents. Likely we need to ask the Time Series Analytics and Forecasting agent to list supported analysis types. The agent description says it can assist with time series analysis, forecasting, anomaly detection, model selection, supports pretrained models, context length specifications, and regression tasks. So we need to ask it to enumerate supported types. So step: ask Time Series Analytics and Forecasting agent: "List the types of time series analysis you support." No dependencies. Expected output: list of analysis types.
+
+Thus one step plan.
+
+We must follow format:
+
+#Task1: ...
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: ...
+
+Let's craft.assistantfinal#Task1: Ask the Time Series Analytics and Forecasting agent to enumerate all types of time‑series analysis it supports (e.g., forecasting, anomaly detection, trend analysis, seasonality decomposition, regression, model selection, etc.).
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: A clear list of the supported time‑series analysis types, such as forecasting, anomaly detection, trend/seasonality analysis, regression, model selection, pretrained model usage, context‑length specification, and any other capabilities the agent can perform.

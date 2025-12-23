@@ -1,0 +1,42 @@
+Question: I want to build an anomaly model for identifying a chiller trip failure for POKMAIN chiller 6. Provide me a list of sensors that I should use, along with the temporal behavior,
+Plan:
+
+#Task<1>: Identify the relevant sensors for chiller trip failure
+#Agent<1>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: None
+#ExpectedOutput<1>: List of sensors relevant to chiller trip failure for POKMAIN chiller 6
+
+#Task<2>: Analyze sensor data for anomalies
+#Agent<1>: IoT Data Download
+#Dependency<1>: #S1
+#ExpectedOutput<1>: Sensor data for POKMAIN chiller 6
+
+#Task<3>: Analyze the sensor data for anomalies
+#Agent<2>: Time Series Analytics and Forecasting
+#Dependency<1>: #S2
+#ExpectedOutput<3>: Anomaly detection report for POKMAIN chiller 6 sensor data
+
+#Task<4>: Generate a machine learning model for anomaly detection
+#Agent<3>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S3
+#ExpectedOutput<4>: Machine learning model for chiller trip failure detection
+
+#Task<5>: Validate and refine the model
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S4
+#ExpectedOutput<5>: Refined anomaly detection model for POKMAIN chiller 6
+
+
+Explanation of the plan:
+
+1. The Failure Mode and Sensor Relevancy Expert for Industrial Asset (Agent 1) is tasked with identifying the relevant sensors for chiller trip failure for POKMAIN chiller 6 (#Task<1>).
+2. The IoT Data Download agent (Agent 1) is instructed to retrieve the sensor data for POKMAIN chiller 6 (#Task<2>). This data will be used for anomaly detection.
+3. The Time Series Analytics and Forecasting agent (Agent 2) analyzes the sensor data for anomalies (#Task<3>) and generates an anomaly detection report (#ExpectedOutput<3>).
+4. The Failure Mode and Sensor Relevancy Expert for Industrial Asset (Agent 1) is then asked to generate a machine learning model for anomaly detection based on the identified relevant sensors and the anomaly detection report (#Task<4>).
+5. Finally, the Time Series Analytics and Forecasting agent (Agent 2) refines the model using the anomalies detected in the sensor data (#Task<5>), resulting in a validated and refined anomaly detection model for POKMAIN chiller 6 (#ExpectedOutput<5>).
+
+This plan ensures that the relevant sensors are identified, the data is analyzed for anomalies, and a machine learning model is generated and refined for detecting chiller trip failures in POKMAIN chiller 6.
+
+*** Please ensure the plan adheres to the constraints provided. ***
+
+Let me know if you need any adjustments.

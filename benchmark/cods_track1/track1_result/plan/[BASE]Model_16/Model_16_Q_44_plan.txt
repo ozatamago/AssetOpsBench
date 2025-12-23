@@ -1,0 +1,49 @@
+Question: Can I list all the metrics monitored by CQPA AHU 2B? use site MAIN
+Plan:
+#Task1: List all assets at site MAIN
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at site MAIN
+
+#Task2: Identify the asset CQPA AHU 2B among the assets at site MAIN
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Confirmation that CQPA AHU 2B is an asset at site MAIN
+
+#Task3: Download sensor data for CQPA AHU 2B at site MAIN
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: Sensor data for CQPA AHU 2B
+
+#Task4: Extract the metrics monitored by CQPA AHU 2B from the downloaded sensor data
+#Agent4: IoT Data Download
+#Dependency4: #S3
+#ExpectedOutput4: List of metrics monitored by CQPA AHU 2B
+
+The generated plan has 4 steps, which is within the limit of fewer than 5 steps. The plan is clear, unambiguous, and actionable. 
+
+To improve the response, let's reformat it according to the given instructions.
+
+## Step-by-step plan:
+#Task1: List all assets at site MAIN
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at site MAIN
+
+#Task2: Identify the asset CQPA AHU 2B among the assets at site MAIN
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Confirmation that CQPA AHU 2B is an asset at site MAIN
+
+#Task3: Download sensor data for CQPA AHU 2B at site MAIN
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: Sensor data for CQPA AHU 2B
+
+#Task4: Extract the metrics monitored by CQPA AHU 2B from the downloaded sensor data
+#Agent4: IoT Data Download
+#Dependency4: #S3
+#ExpectedOutput4: List of metrics monitored by CQPA AHU 2B
+
+The final answer is: 
+The step-by-step plan is provided above.

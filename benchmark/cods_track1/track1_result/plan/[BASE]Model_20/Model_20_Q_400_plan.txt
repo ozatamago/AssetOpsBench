@@ -1,0 +1,23 @@
+Question: Get the work order of equipment CWC04013 for year 2017.
+Plan:
+We need to produce a plan with fewer than 5 steps, each step includes Task, Agent, Dependency, ExpectedOutput. The problem: "Get the work order of equipment CWC04013 for year 2017."
+
+We have agents: IoT Data Download (can provide info about IoT sites, assets, sensor data, download historical data, etc.) It can retrieve asset history, but not work orders. WorkOrder Agent can retrieve, analyze, generate work orders, but tasks listed: create, generate, schedule, raise, close. Not retrieve existing work orders. However maybe we can ask WorkOrder Agent to retrieve work order for equipment CWC04013 for year 2017. The description says "The Work Order (WO) agent can retrieve, analyze, and generate work orders for equipment based on historical data, anomalies, alerts, and performance metrics". So retrieving is possible. So we can ask WorkOrder Agent to retrieve work order for equipment CWC04013 for year 2017.
+
+Thus we need a single step: Task: retrieve work order for equipment CWC04013 for year 2017. Agent: WorkOrder Agent. Dependency: None. ExpectedOutput: list of work orders (or the work order details) for that equipment in 2017.
+
+But we must ensure the plan includes less than 5 steps. So one step is fine.
+
+Let's format:
+
+#Task1: Retrieve the work order(s) for equipment CWC04013 for the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: A list (or details) of work order(s) associated with equipment CWC04013 that were created or active during 2017, including work order IDs, descriptions, dates, and status.
+
+Make sure to follow the format exactly: each step must have #Task<N>, #Agent<N>, #Dependency<N>, #ExpectedOutput<N>. Provide plan.
+
+Let's produce final answer.assistantfinal#Task1: Retrieve the work order(s) for equipment CWC04013 for the year 2017.  
+#Agent1: WorkOrder Agent  
+#Dependency1: None  
+#ExpectedOutput1: A list of work order details for equipment CWC04013 that were created or active in 2017, including work order IDs, titles/descriptions, creation dates, status, and any relevant notes.

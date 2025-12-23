@@ -1,0 +1,21 @@
+Question: What IoT sites are available?
+Plan:
+#Task1: Retrieve a list of available IoT sites
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of available IoT sites
+
+#Task2: Select a specific site from the list for further analysis
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Confirmation of the selected site and its details
+
+#Task3: Retrieve asset details for the selected site
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: A list of assets at the selected site
+
+#Task4: Download sensor data for a specific asset at the selected site
+#Agent4: IoT Data Download
+#Dependency4: #S3
+#ExpectedOutput4: Sensor data for the specified asset at the selected site

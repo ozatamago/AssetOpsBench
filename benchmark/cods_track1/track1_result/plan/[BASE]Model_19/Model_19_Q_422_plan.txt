@@ -1,0 +1,29 @@
+Question: After checking existing work orders, anomalies and alerts in May and June 2020 for Chiller 9 with equipment ID CWC04009, should I recommend a new work order or is it too early to decide for July 2020?
+Plan:
+
+#Task<1>: Retrieve historical data and metadata for Chiller 9
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: JSON files containing historical data and metadata for Chiller 9 for May, June, and July 2020
+
+#Task<2>: Analyze Chiller 9 data for anomalies and alerts
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<2>: #S1
+#ExpectedOutput<2>: Report on anomalies and alerts for Chiller 9 in May and June 2020
+
+#Task<3>: Identify failure modes related to detected anomalies
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<3>: #S2
+#ExpectedOutput<3>: List of failure modes associated with the anomalies in Chiller 9 for May and June 2020
+
+#Task<4>: Evaluate potential risks for July 2020
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<4>: #S3
+#ExpectedOutput<4>: Assessment of the likelihood of failure modes recurring in July 2020
+
+#Task<5>: Recommend work order or wait for further data
+#Agent<4>: WorkOrder Agent
+#Dependency<5>: #S4, #S5
+#ExpectedOutput<5>: Recommendation on whether to create a new work order for Chiller 9 for July 2020 or wait for more data
+
+This plan involves using the IoT Data Download agent to retrieve historical data and metadata for Chiller 9 for May, June, and July 2020. The Time Series Analytics and Forecasting agent will then analyze this data for anomalies and alerts. The Failure Mode and Sensor Relevancy Expert for Industrial Asset agent will identify failure modes related to the detected anomalies and assess the likelihood of these failure modes recurring in July 2020. Finally, the WorkOrder Agent will use the information gathered to recommend whether to create a new work order for Chiller 9 for July 2020 or wait for more data.

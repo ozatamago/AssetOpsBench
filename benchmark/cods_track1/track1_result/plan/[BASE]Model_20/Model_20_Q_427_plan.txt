@@ -1,0 +1,51 @@
+Question: Since we know 80% of alerts are likely spurious, can you identify the meaningful 20% for further analysis for any chillers?
+Plan:
+We need to identify meaningful 20% alerts for any chillers. Use IoT Data Download to get alerts? Not listed. Use Failure Mode and Sensor Relevancy Expert to map failure modes to sensors. Use Time Series Analytics to detect anomalies. Use WorkOrder to create work orders? Plan: 1) Download sensor data for chillers. 2) Analyze for anomalies to find meaningful alerts. 3) Identify failure modes related to anomalies. 4) Generate work orders for those. Need <5 steps. Use 4 steps.assistantanalysisWe need to produce plan with steps, each with Task, Agent, Dependency, ExpectedOutput. Must be fewer than 5 steps. Use available agents only. The problem: "Since we know 80% of alerts are likely spurious, can you identify the meaningful 20% for further analysis for any chillers?" So we need to identify meaningful alerts. Approach: download sensor data for chillers, run anomaly detection to find significant anomalies (meaningful alerts). Then maybe map those anomalies to failure modes using Failure Mode expert. Then maybe generate work orders for those. So steps:
+
+#Task1: Download recent sensor data for all chillers (or a specific chiller) for relevant temperature and power sensors. Use IoT Data Download agent.
+
+#Task2: Analyze the downloaded time-series data to detect anomalies in key metrics (e.g., return temperature, power consumption) using Time Series Analytics and Forecasting agent.
+
+#Task3: For each detected anomaly, consult Failure Mode and Sensor Relevancy Expert to determine which failure modes are likely associated with the anomalous sensor, thus confirming meaningful alerts.
+
+#Task4: Summarize the meaningful alerts (20%) with associated failure modes and recommended actions; optionally generate work orders using WorkOrder Agent.
+
+We need to keep steps <5, so 4 steps is okay.
+
+Now format each step with #Task<N>, #Agent<N>, #Dependency<N>, #ExpectedOutput<N>.
+
+Make clear.
+
+Let's craft.
+
+assistantfinal**Step‑by‑step plan (4 steps)**  
+
+---  
+
+#Task1: Retrieve recent sensor data for all chillers (e.g., temperature, pressure, power) needed for alert analysis.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A set of JSON files (one per chiller) containing time‑stamped sensor readings for the last 7 days for key variables such as “CHILLED WATER LEAVING TEMP”, “CHILLED WATER RETURN TEMP”, “POWER INPUT”, etc.  
+
+---  
+
+#Task2: Detect anomalous points in the downloaded time‑series data that are statistically significant (i.e., likely true alerts).  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: A report (JSON or tabular) listing each chiller, the sensor(s) with detected anomalies, timestamps of the anomalies, and an anomaly‑severity score. Only the top 20 % of highest‑severity anomalies (based on the score) are retained.  
+
+---  
+
+#Task3: Map each retained anomaly to the most relevant failure mode(s) for the corresponding chiller, confirming that the alert is meaningful.  
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency3: #S2  
+#ExpectedOutput3: A table linking every high‑severity anomaly (chiller + sensor + timestamp) to one or more probable failure modes (e.g., compressor overheating, loose wiring, low refrigerant charge) and a brief justification.  
+
+---  
+
+#Task4: Summarize the meaningful alerts and generate preventive/corrective work orders for the identified failure modes.  
+#Agent4: WorkOrder Agent  
+#Dependency4: #S3  
+#ExpectedOutput4: A consolidated document containing:  
+- A list of the meaningful 20 % alerts with chiller ID, sensor, timestamp, anomaly score, and associated failure mode.  
+- Corresponding work orders (one per failure mode) ready for execution (e.g., “Inspect CHL‑A100 for compressor overheating”, “Check wiring on CHL‑B200”, etc.).  

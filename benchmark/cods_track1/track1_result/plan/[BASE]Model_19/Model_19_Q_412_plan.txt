@@ -1,0 +1,29 @@
+Question: I would like to predict the next work order probability for the equipment labeled as CWC04013.
+Plan:
+
+#Task<1>: Retrieve asset information for CWC04013
+#Agent<1>: IoT Data Download
+#Dependency<1>: None
+#ExpectedOutput<1>: Asset details, including type and location, for CWC04013
+
+#Task<2>: Analyze historical data for CWC04013 for failure modes and relevant sensors
+#Agent<2>: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency<1>: #S1
+#ExpectedOutput<2>: List of failure modes and relevant sensors for CWC04013
+
+#Task<3>: Analyze historical sensor data for CWC04013 for anomalies
+#Agent<3>: Time Series Analytics and Forecasting
+#Dependency<1>: #S2
+#ExpectedOutput<3>: Identified anomalies in sensor data for CWC04013
+
+#Task<4>: Predict next work order probability for CWC04013
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S1, #S3
+#ExpectedOutput<4>: Probability of the next work order for CWC04013, along with potential reasons and recommended actions
+
+#Task<5>: Generate a preventive maintenance work order if necessary
+#Agent<4>: WorkOrder Agent
+#Dependency<1>: #S1, #S2, #S3, #S4
+#ExpectedOutput<5>: Preventive maintenance work order for CWC04013, if recommended
+
+This plan involves using the IoT Data Download agent to retrieve asset information and historical data, the Failure Mode and Sensor Relevancy Expert to identify failure modes and relevant sensors, the Time Series Analytics and Forecasting agent to detect anomalies, and the WorkOrder Agent to predict the next work order probability and generate a preventive maintenance work order if necessary. The dependencies ensure that each step uses the appropriate outputs from the previous steps.

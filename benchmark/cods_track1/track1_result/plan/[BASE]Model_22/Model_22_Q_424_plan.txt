@@ -1,0 +1,21 @@
+Question: Can you provide guidance on bundling corrective work orders together to optimize the maintenance schedule for Chiller 9 with equipment ID CWC04009 covering years of 2017, 2018 and 2019, bundle has to be happen within two weeks and have at least two work orders, also tell the details of each bundle?
+Plan:
+#Task1: Retrieve historical data for Chiller 9 with equipment ID CWC04009 covering years of 2017, 2018 and 2019
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for Chiller 9 with equipment ID CWC04009 covering years of 2017, 2018 and 2019
+
+#Task2: Analyze the historical data to identify potential failures and anomalies for Chiller 9 with equipment ID CWC04009
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: List of potential failures and anomalies for Chiller 9 with equipment ID CWC04009
+
+#Task3: Generate corrective work orders for the identified failures and anomalies for Chiller 9 with equipment ID CWC04009
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: List of corrective work orders for Chiller 9 with equipment ID CWC04009
+
+#Task4: Bundle the corrective work orders together to optimize the maintenance schedule for Chiller 9 with equipment ID CWC04009 within two weeks and have at least two work orders
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Optimized maintenance schedule for Chiller 9 with equipment ID CWC04009 with bundled work orders and their details
