@@ -1,0 +1,7 @@
+Question: List all failure modes of Chiller 6 at MAIN site that can be detected by temperature sensors and power input sensors.
+Plan:
+ 
+We need to output plan lines exactly. Ensure no extra spaces at end. Provide #Task1 line, #Agent1 line, #Dependency1 line, #ExpectedOutput1 line. No extra lines. Let's produce.assistantfinal#Task1: List all failure modes of Chiller 6 at the MAIN site that can be detected by temperature sensors and power input sensors.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A concise list of relevant failure modes for Chiller 6 at the MAIN site, each annotated with the detecting sensor type(s) (temperature, power‑input).

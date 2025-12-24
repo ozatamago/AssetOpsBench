@@ -1,0 +1,16 @@
+Question: List all failure modes of asset Chiller 6 at MAIN site.
+Plan:
+ 
+assistantanalysisWe need to produce plan with fewer than 5 steps. Problem: "List all failure modes of asset Chiller 6 at MAIN site." We can directly ask Failure Mode expert for list of failure modes of asset Chiller 6. No need to verify asset presence. So single step.
+
+Task: List all failure modes of asset Chiller 6 at MAIN site. Agent: Failure Mode and Sensor Relevancy Expert for Industrial Asset. Dependency: None. Expected output: list of failure modes.
+
+Thus produce #Task1 etc.
+
+Make sure format: #Task1: ... #Agent1: ... #Dependency1: None #ExpectedOutput1: ...
+
+Let's output.assistantfinal
+#Task1: List all failure modes of asset Chiller 6 at the MAIN site.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: Complete list of failure modes for Chiller 6.

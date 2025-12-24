@@ -1,0 +1,16 @@
+Question: Get all the events of equipment CWC04009 for the first week of June of 2020 and provide a summary based on the event group for work order event, alert, and anomaly.
+Plan:
+ #Task1: Get the start and end date for the first week of June 2020
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Start and end date for the first week of June 2020
+
+#Task2: Download the asset history for CWC04009 for the first week of June 2020
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Asset history for CWC04009 for the first week of June 2020
+
+#Task3: Summarize the events based on the event group for work order event, alert, and anomaly
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Summary of events based on the event group for work order event, alert, and anomaly

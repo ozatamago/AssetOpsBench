@@ -1,0 +1,17 @@
+Question: Can you forecast energy usage for Chiller 9 for next week using data from the week of 2020-04-27 at the MAIN site?
+Plan:
+ 
+We need to ensure format: each line separate, no blank lines? The example shows blank lines between steps maybe allowed but better to keep blank line? The instruction: Output ONLY lines in this exact format (no extra prose). Probably blank lines okay? Safer to not include blank lines. Also ensure #Dependency uses #S1 etc. Should be #S1 not #S1? In earlier spec they used #S1. Use #S1. Provide exactly three steps. Ensure no trailing spaces. Provide each line. Let's output without blank lines.assistantfinal#Task1: Identify the asset ID for Chiller 9 at the MAIN site.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Asset list for MAIN site including Chiller 9 with its asset ID (e.g., CU02009).
+
+#Task2: Download energy usage sensor data for the identified Chiller 9 asset for 2020-04-27 to 2020-05-03.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: JSON file (e.g., chiller9_energy_week.json) containing timestamped energy usage readings for the specified week.
+
+#Task3: Forecast energy usage for the next week using the downloaded data.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Forecast results (JSON or table) with predicted energy usage values for each day of the upcoming week and confidence intervals.

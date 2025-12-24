@@ -1,0 +1,12 @@
+Question: I would like to retrieve the preventive work order details for the equipment labeled as CWC04013 for the year 2017.
+Plan:
+ 
+We need to output plan lines exactly as required. Ensure no extra spaces? Format: "#Task1: ..." etc. Use exact agent name "WorkOrder Agent". Dependency "None". Expected output one line. Provide concise description. Let's craft.
+
+#Task1: Retrieve the preventive work order details for equipment CWC04013 for the year 2017.  
+#Agent1: WorkOrder Agent  
+#Dependency1: None  
+#ExpectedOutput1: A JSON list of all preventive work orders for CWC04013 in 2017, each with work order ID, creation date, scheduled date, description, status, and notes.assistantfinal#Task1: Retrieve the preventive work order details for equipment CWC04013 for the year 2017.  
+#Agent1: WorkOrder Agent  
+#Dependency1: None  
+#ExpectedOutput1: A JSON list of all preventive work orders for CWC04013 in 2017, each with work order ID, creation date, scheduled date, description, status, and notes.

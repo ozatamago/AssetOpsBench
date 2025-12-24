@@ -1,0 +1,17 @@
+Question: When compressor motor of Chiller 6 fails, what is the temporal behavior of the power input?
+Plan:
+ 
+#Task1: Understand the task and identify the relevant agent to solve it.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: The agent should be able to provide information on the temporal behavior of the power input when the compressor motor of Chiller 6 fails.
+
+#Task2: Use the identified agent to get the temporal behavior of the power input when the compressor motor of Chiller 6 fails.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: The temporal behavior of the power input when the compressor motor of Chiller 6 fails.
+
+#Task3: Verify if the output from the agent is sufficient to answer the problem.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S2
+#ExpectedOutput3: Confirmation that the temporal behavior of the power input is provided.

@@ -1,0 +1,16 @@
+Question: I would like to retrieve the preventive work order details for the equipment labeled as CWC04013 for the year 2017.
+Plan:
+We need to retrieve preventive work order details for equipment CWC04013 for year 2017. Which agents can do that? WorkOrder Agent can retrieve, analyze, generate work orders, but tasks listed are specific: create, generate, schedule, raise, close. No retrieval of existing work orders. IoT Data Download can retrieve asset history, sensor data, but not work orders. Failure Mode expert not relevant. Time Series analytics not relevant.
+
+Thus maybe we need to combine: Use IoT Data Download to download asset history for CWC04013 for 2017? But that gives sensor data, not work orders. However maybe asset history includes work orders? The description: "download asset history for CU02004 at SiteX from ... for sensors". Not generic.
+
+Thus maybe we cannot directly retrieve work order details. But we could ask WorkOrder Agent to "retrieve preventive work order details" - not listed but maybe can handle? The tasks list is not exhaustive? The description says "retrieve, analyze, and generate work orders". So retrieving is possible. So we can use WorkOrder Agent to retrieve preventive work order details for equipment CWC04013 for 2017.
+
+Thus single step: Task: retrieve preventive work order details for equipment CWC04013 for year 2017. Agent: WorkOrder Agent. Dependency: None. Expected output: list of work order details (IDs, dates, description, status) for that equipment in 2017.
+
+Plan with <5 steps, just one step.
+
+Let's produce plan.assistantfinal#Task1: Retrieve the preventive work order details for equipment CWC04013 for the calendar year 2017.  
+#Agent1: WorkOrder Agent  
+#Dependency1: None  
+#ExpectedOutput1: A structured list (e.g., JSON or table) containing all preventive work orders associated with equipment CWC04013 that were created, scheduled, or completed in 2017. Each entry should include at least the work order ID, creation date, scheduled date, description of the preventive task, status, and any relevant notes.

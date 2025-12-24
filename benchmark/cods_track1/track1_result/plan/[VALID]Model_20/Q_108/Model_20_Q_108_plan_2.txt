@@ -1,0 +1,9 @@
+Question: List all failure modes of Chiller 6 that can be detected by temperature sensors and power input sensors.
+Plan:
+ 
+We need to ensure format: #Task1: ... #Agent1: ... #Dependency1: None #ExpectedOutput1: ...
+
+Make sure no extra spaces? It's okay. Ensure each line separate. No extra lines. Provide exactly four lines. Let's output.assistantfinal_output#Task1: List all failure modes of Chiller 6 that can be detected by temperature sensors and power input sensors.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of Chiller 6 failure modes indicating detection by temperature sensors, power input sensors, or both.

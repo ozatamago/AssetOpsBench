@@ -1,0 +1,8 @@
+Question: Find a model for energy forecasting with context length 96 and nothing else.
+Plan:
+
+
+#Task1: Provide a recommendation for an energy forecasting model that uses a context length of 96 time steps, with no additional specifications.  
+#Agent1: Time Series Analytics and Forecasting  
+#Dependency1: None  
+#ExpectedOutput1: A concise model recommendation (including model type and any relevant settings) suitable for energy time‑series forecasting with a context length of 96.

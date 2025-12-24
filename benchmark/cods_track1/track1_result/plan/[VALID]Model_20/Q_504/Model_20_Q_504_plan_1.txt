@@ -1,0 +1,17 @@
+Question: Can you forecast Chiller 6's performance for next week based on the data from 2020-04-27 at the MAIN site?
+Plan:
+ 
+We need to output plan with steps. Must follow format exactly. Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1 etc. Ensure no extra spaces? The format: "#Task<N>: <Describe your task here>" etc. Use allowed agents exactly. Ensure no extra spaces after agent name. Use "IoT Data Download". Use "Time Series Analytics and Forecasting". Provide dependencies as "#S1" etc. Use #ExpectedOutput lines. Provide only lines, no extra text. Let's produce.assistantfinal#Task1: Identify the asset ID for “Chiller 6” at the MAIN site.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON list of assets at the MAIN site, including the asset ID for Chiller 6.  
+
+#Task2: Download the full‑day sensor data for the identified Chiller 6 asset on 2020‑04‑27 for “CHILLED WATER LEAVING TEMP”.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: JSON file (e.g., chiller6_20200427_temp.json) containing timestamped temperature readings for the entire day.  
+
+#Task3: Forecast the next 7 days of “CHILLED WATER LEAVING TEMP” for Chiller 6 using the downloaded data, providing confidence intervals and anomaly flags.  
+#Agent3: Time Series Analytics and Forecasting  
+#Dependency3: #S2  
+#ExpectedOutput3: Forecast report (JSON/CSV) with hourly predicted temperatures for the next week, confidence bounds, and any predicted anomaly indicators.

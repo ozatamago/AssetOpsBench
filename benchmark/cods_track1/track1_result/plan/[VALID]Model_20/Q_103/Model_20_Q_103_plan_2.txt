@@ -1,0 +1,16 @@
+Question: List all failure modes of asset Wind Turbine.
+Plan:
+ 
+The user says "Repair rules: ... Output (your generated plan) ⬇️:" So we need to output the plan lines only, no extra. The plan we gave includes double spaces after each line? We need each line separate, no extra spaces at end. Also no markdown. Provide exactly four lines.
+
+Let's produce:
+
+#Task1: List all failure modes of the Wind Turbine asset.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A comprehensive list of failure modes for the Wind Turbine (e.g., blade fatigue, gearbox failure, generator overheating, pitch system malfunction, bearing wear, hydraulic leak, etc.) 
+
+Make sure no trailing spaces. Provide exactly.assistantfinal#Task1: List all failure modes of the Wind Turbine asset.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A comprehensive list of failure modes for the Wind Turbine (e.g., blade fatigue, gearbox failure, generator overheating, pitch system malfunction, bearing wear, hydraulic leak, etc.)

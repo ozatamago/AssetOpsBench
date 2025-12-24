@@ -1,0 +1,7 @@
+Question: Which assets are located at the MAIN facility?
+Plan:
+ 
+We need to output plan lines. Already done. Ensure no extra spaces at end? Should be fine. Ensure #Dependency1: None exactly. Provide final answer.assistantfinal_output#Task1: Retrieve the list of assets located at the MAIN facility.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A JSON or plain‑text list of all asset identifiers (e.g., CU02004, CHL‑A100, etc.) that are registered at the site named “MAIN”.

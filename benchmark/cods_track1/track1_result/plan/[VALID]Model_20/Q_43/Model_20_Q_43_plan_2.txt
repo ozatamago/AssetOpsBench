@@ -1,0 +1,18 @@
+Question: how much power was CQPA AHU 1 (MAIN site) using on 6/14/20?
+Plan:
+ 
+We need to ensure format exactly: each line starts with #TaskN: etc. No extra spaces? Should be fine.
+
+Check dependencies: #Dependency2: #S1 (since step1 is S1). Use #S1 not #S1? In spec they used #S1, #S2. So okay.
+
+Make sure each line separate.
+
+Let's produce final answer.assistantfinal#Task1: Retrieve list of assets at MAIN site to confirm identifier for CQPA AHU 1
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at MAIN site including "CQPA AHU 1"
+
+#Task2: Download asset history for the POWER sensor of CQPA AHU 1 at MAIN site from 2020-06-14T00:00:00 to 2020-06-14T23:59:59 and calculate total power used that day
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Total power consumption (kWh) of CQPA AHU 1 on 2020-06-14

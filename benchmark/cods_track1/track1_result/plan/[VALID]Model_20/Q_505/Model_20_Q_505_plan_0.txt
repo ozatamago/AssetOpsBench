@@ -1,0 +1,21 @@
+Question: What's the forecast for Chiller 6's Tonnage for next week based on the data from the week of 2020-04-27 at MAIN?
+Plan:
+We need forecast for Chiller 6's Tonnage next week based on data from week of 2020-04-27 at MAIN. Need to get data: likely need IoT Data Download to get sensor data for Chiller 6 Tonnage at site MAIN for that week. Then Time Series Analytics to forecast next week. Then maybe WorkOrder not needed. So steps: 1 download data. 2 forecast. Output forecast.
+
+We must use agents listed. Step1: IoT Data Download: download sensor data for asset (Chiller 6) at site MAIN for metric "TONNAGE" from 2020-04-27 to 2020-05-03 (week). Need specify date range. Use task 4? "download sensor data for CU02004 at SiteX" generic. Could adapt: download sensor data for Chiller 6 at MAIN. We'll assume agent can handle. Step2: Time Series Analytics and Forecasting: forecast next 7 days for Tonnage using file from step1. Provide forecast.
+
+Thus plan with 2 steps.
+
+Let's craft. Ensure dependencies. Expected outputs: step1 JSON file with time series. step2 forecast values.
+
+Proceed.assistantfinal**Step #1**  
+#Task1: Retrieve the historical sensor data for “TONNAGE” of Chiller 6 at site **MAIN** covering the week of **2020‑04‑27** (i.e., 2020‑04‑27 00:00 to 2020‑05‑03 23:59).  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A JSON file (e.g., `chiller6_tonnage_20200427_20200503.json`) containing timestamped “TONNAGE” readings for the specified period.  
+
+**Step #2**  
+#Task2: Using the JSON file produced in #S1, generate a 7‑day forecast (next week) for Chiller 6’s “TONNAGE”.  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: A forecast table (or JSON) listing the predicted “TONNAGE” values for each day of the upcoming week (2020‑05‑04 to 2020‑05‑10), including any confidence intervals if available.

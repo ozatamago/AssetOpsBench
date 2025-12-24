@@ -1,0 +1,32 @@
+Question: Get the daily count of the events of alert, anomaly for 2021 for equipment CWC04009.
+Plan:
+We need daily count of events of alert, anomaly for 2021 for equipment CWC04009. Likely need to download sensor data? IoT Data Download can download sensor data for asset. But need alerts/anomalies events, maybe from time series analytics? Could analyze data to detect anomalies? But we need count of events of alert, anomaly. Possibly the IoT data includes events? Not clear. Could use IoT Data Download to download asset history for CWC04009 for 2021? Then use Time Series Analytics to analyze anomalies? But need alerts count too. Might need to just retrieve events count from IoT data? The IoT agent can download sensor data, but not events. However maybe asset history includes alerts? Not specified. Could assume we can download sensor data and then use Time Series Analytics to detect anomalies and count them per day. Also alerts maybe separate? Could treat alerts as anomalies? Might need to ask Failure Mode expert? Not relevant.
+
+Thus plan:
+Step1: Use IoT Data Download to download sensor data for CWC04009 for 2021 (maybe need date range). Provide start and end timestamps for whole year. Use task 4? "download sensor data for CU02004 at SiteX" generic. We'll adapt: download sensor data for CWC04009 for 2021. Expected output: JSON file with sensor readings timestamps.
+
+Step2: Use Time Series Analytics and Forecasting agent to analyze the downloaded data and identify anomalies (and alerts?) for the year, output daily counts of anomalies and alerts. Task: "Analyze the time-series data in file xxxxx.json and look for anomalies in ..." We'll adapt to count events. Expected output: JSON or table with date and counts.
+
+Step3: Use WorkOrder Agent? Not needed. Maybe just final output.
+
+We need fewer than 5 steps, okay 2 steps.
+
+But need dependency: step2 depends on step1.
+
+Let's craft plan.
+
+Make sure tasks are clear.
+
+Step1: download sensor data for equipment CWC04009 for 2021 (specify start 2021-01-01T00:00:00Z to 2021-12-31T23:59:59Z). Use IoT Data Download agent, task 5 maybe asset history with date range. Provide sensor list? Not needed.
+
+Step2: Analyze time series data to detect anomalies and alerts, produce daily counts. Use Time Series Analytics agent, task 1.
+
+Let's produce plan.assistantfinal#Task1: Download all sensor readings for equipment **CWC04009** covering the full year **2021** (from 2021‑01‑01T00:00:00Z to 2021‑12‑31T23:59:59Z).  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A JSON file (e.g., `CWC04009_2021_sensor_data.json`) containing timestamped sensor values for the entire year.
+
+#Task2: Analyze the JSON file produced in #S1 to identify every **alert** and **anomaly** event, then aggregate the results to produce a **daily count** (date → number of alerts, number of anomalies) for 2021.  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: A table or JSON (e.g., `CWC04009_2021_daily_event_counts.json`) with two columns per date – `alert_count` and `anomaly_count` – covering every day of 2021.

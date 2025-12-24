@@ -1,0 +1,7 @@
+Question: List all failure modes of Chiller 6 that can be detected by Chiller 6 Supply Temperature.
+Plan:
+ 
+We need to ensure format: #Task1, #Agent1, #Dependency1, #ExpectedOutput1. No extra spaces at start. Should be exactly. Also ensure no extra blank lines. Provide final answer.assistantfinal#Task1: List all failure modes of Chiller 6 that can be detected by the Chiller 6 Supply Temperature sensor.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes for Chiller 6 that are detectable via the Supply Temperature sensor.

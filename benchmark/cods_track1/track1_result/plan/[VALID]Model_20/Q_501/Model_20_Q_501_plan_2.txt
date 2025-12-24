@@ -1,0 +1,17 @@
+Question: Is there any anomaly detected in Chiller 6's Tonnage in the week of 2020-04-27 at the MAIN site?
+Plan:
+ 
+We need to output plan lines exactly as format. Ensure no extra spaces after agent names. Use correct agent names exactly as listed. Ensure #Dependency uses #S1 etc. Use #ExpectedOutput one line. Provide final answer.assistantfinal#Task1: Retrieve the list of assets at the MAIN site to identify the asset ID for Chiller 6.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON array of assets at the MAIN site, including the entry for “Chiller 6” with its asset identifier.  
+
+#Task2: Download historical sensor data for the TONNAGE sensor of Chiller 6 at the MAIN site for the week 2020‑04‑27 to 2020‑05‑03.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: JSON file containing timestamped Tonnage readings for Chiller 6 during the specified week.  
+
+#Task3: Perform anomaly detection on the downloaded Tonnage time‑series to determine if any anomalies occurred during that week.  
+#Agent3: Time Series Analytics and Forecasting  
+#Dependency3: #S2  
+#ExpectedOutput3: Report indicating whether an anomaly was detected, with details of any anomalous timestamps and severity, or a statement that no anomalies were found.

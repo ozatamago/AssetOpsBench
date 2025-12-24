@@ -1,0 +1,14 @@
+Question: Download the metadata for Chiller 3 at the MAIN facility.
+Plan:
+We need to produce a plan with fewer than 5 steps. The problem: "Download the metadata for Chiller 3 at the MAIN facility."
+
+We have agents: IoT Data Download can provide information about IoT sites, asset details, sensor data, and retrieve historical data and metadata for various assets and equipment. It can do tasks like "download asset history for CU02004 at SiteX from ... for ...". It also can "download sensor data for CU02004 at SiteX". It can "send me the values for CU02004 at SiteX for ...". It can "what sites are there". It can "what assets are at site SiteX". It can "merge these JSON files". It can "How do I get a list of properties from a JSON file". It can "I need to read the JSON file 0001.json". It can "how do I calculate the start date for last week or past week?".
+
+But the problem: "Download the metadata for Chiller 3 at the MAIN facility." This is likely a request to retrieve metadata (maybe asset details) for a specific asset (Chiller 3) at a site (MAIN). The IoT Data Download agent can provide "information about IoT sites, asset details, sensor data, and retrieve historical data and metadata for various assets and equipment". So we can use that agent to retrieve metadata.
+
+Thus we need a plan with a single step: ask IoT Data Download to "download asset metadata for Chiller 3 at MAIN facility". However the tasks list does not explicitly include a "download metadata" task. It includes "download asset history" and "download sensor data". But the description says it can retrieve historical data and metadata. So we can assume we can ask for metadata. The plan should be clear: #Task1: Request metadata for Chiller 3 at MAIN facility. #Agent1: IoT Data Download. #Dependency1: None. #ExpectedOutput1: JSON file containing metadata for Chiller 3 at MAIN facility.
+
+Thus produce plan with one step. Ensure format. Let's produce final answer.assistantfinal#Task1: Retrieve the metadata for asset **Chiller 3** located at the **MAIN** facility.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A JSON file (or JSON text) containing the full metadata for Chiller 3 at the MAIN site (e.g., asset ID, description, installed sensors, manufacturer, model, commissioning date, etc.).

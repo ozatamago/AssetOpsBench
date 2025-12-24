@@ -1,0 +1,23 @@
+Question: Find a model for energy forecasting with context length 96 and nothing else.
+Plan:
+We need to produce a plan with fewer than 5 steps, each step includes Task, Agent, Dependency, ExpectedOutput. The problem: "Find a model for energy forecasting with context length 96 and nothing else."
+
+Interpretation: The user wants a model for energy forecasting with context length 96. Likely they want to use the Time Series Analytics and Forecasting agent to suggest a model (maybe a pretrained model) that can forecast energy consumption given a context length of 96 (maybe 96 time steps). The request: "Find a model for energy forecasting with context length 96 and nothing else." So we need to produce a plan that uses the Time Series Analytics and Forecasting agent to get a model recommendation. The agent can "assist with time series analysis, forecasting, anomaly detection, and model selection, and supports pretrained models, context length specifications, and regression tasks for various time series data". So we can ask it to "provide a model for energy forecasting with context length 96". That is a direct request.
+
+Thus we need a plan with maybe one step: ask the Time Series Analytics and Forecasting agent to provide a model for energy forecasting with context length 96. No dependencies. Expected output: a model recommendation (e.g., "Use a Temporal Fusion Transformer with context length 96" or "Use a N-BEATS model with context length 96").
+
+We need to follow the format:
+
+#Task1: <describe>
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: <expected output>
+
+Make sure less than 5 steps. Provide clear instructions.
+
+Thus final answer: a plan with one step.
+
+Let's produce that.assistantfinal#Task1: Request a suitable forecasting model for energy consumption that uses a context length of 96 time steps, without any additional requirements.  
+#Agent1: Time Series Analytics and Forecasting  
+#Dependency1: None  
+#ExpectedOutput1: A concise recommendation of a forecasting model (e.g., specific architecture, pretrained model name, and any relevant hyper‑parameters) that is appropriate for energy time‑series data and explicitly supports a context length of 96.

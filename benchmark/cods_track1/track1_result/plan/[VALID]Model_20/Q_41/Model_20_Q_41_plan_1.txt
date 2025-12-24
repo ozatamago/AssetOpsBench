@@ -1,0 +1,12 @@
+Question: What was the latest supply humidity from CQPA AHU 1 at site MAIN on sept 3 2015? return in a file
+Plan:
+ 
+We need to output plan with correct format. Ensure #Task1, #Agent1, #Dependency1, #ExpectedOutput1, then #Task2 etc. Use exact agent names. For Agent2, we need to use "IoT Data Download". The description includes reading JSON, but we just specify same agent. So both steps use IoT Data Download. Ensure no extra spaces. Provide #Dependency2: #S1. Use #S1 reference. Provide expected output lines. No extra text. Let's produce.assistantfinal#Task1: Download the historical sensor data for the “Supply Humidity” sensor of asset CQPA AHU 1 at site MAIN covering the full day of 2015‑09‑03.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file (e.g., supply_humidity_2015-09-03.json) containing timestamped humidity readings for the requested date.  
+
+#Task2: Read the JSON file produced in #S1, identify the record with the most recent timestamp, and write that timestamp‑value pair to a plain‑text file.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: Text file (e.g., latest_supply_humidity.txt) containing the latest supply humidity value and its timestamp for 2015‑09‑03.

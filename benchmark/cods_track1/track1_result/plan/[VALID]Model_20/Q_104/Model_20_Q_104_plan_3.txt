@@ -1,0 +1,25 @@
+Question: List all installed sensors of asset Chiller 6.
+Plan:
+ 
+#Task1: 
+We need to answer **...** 
+We ... 
+...
+The ... 
+...
+
+
+
+
+We need to output plan lines only. The original plan had one step. We need to fill #Task1 line with description. Should be one line. Provide concise description. Let's produce:
+
+#Task1: List all installed sensors of asset Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A complete list of sensor identifiers and names installed on Chiller 6.
+
+Make sure no extra spaces. Provide exactly four lines. No extra blank lines. Let's output.
+#Task1: List all installed sensors of asset Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A complete list of sensor identifiers and names installed on Chiller 6.

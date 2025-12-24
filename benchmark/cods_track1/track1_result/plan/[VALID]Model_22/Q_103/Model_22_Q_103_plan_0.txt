@@ -1,0 +1,21 @@
+Question: List all failure modes of asset Wind Turbine.
+Plan:
+#Task1: List all failure modes of asset Wind Turbine.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of all failure modes of asset Wind Turbine.
+
+#Task2: For each failure mode, list all relevant sensors that can be used to monitor the failure mode.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: A list of relevant sensors for each failure mode of asset Wind Turbine.
+
+#Task3: Analyze the time-series data for each failure mode and identify any anomalies.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S1, #S2
+#ExpectedOutput3: A report of any anomalies detected in the time-series data for each failure mode of asset Wind Turbine.
+
+#Task4: Generate a maintenance work order for each failure mode with detected anomalies.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: A set of maintenance work orders for each failure mode of asset Wind Turbine with detected anomalies.

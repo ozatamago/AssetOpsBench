@@ -1,0 +1,63 @@
+Question: Assuming that the current date is 2018-01-02, can you predict next work order probability for me for equipment CWC04009 using predict_next_work_order_probability function?
+Plan:
+ 
+"""
+
+We need to output the corrected plan with proper numbering and format, no extra text. Must follow exact format lines.
+
+We need to ensure each line is exactly as required: "#TaskN: <one-line>", "#AgentN: <exact agent name>", "#DependencyN: None | #S1 #S2 ...", "#ExpectedOutputN: <one-line>"
+
+Make sure no line breaks within a line. Use spaces appropriately.
+
+We have 4 steps.
+
+Let's write them.
+
+Step1:
+
+#Task1: Retrieve the list of all IoT sites.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of site names (e.g., ["SiteA","SiteB"])
+
+Step2:
+
+#Task2: Retrieve the list of assets at the site that contains equipment CWC04009 (use the site name from step 1).
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: List of assets at the selected site confirming CWC04009 is present
+
+Step3:
+
+#Task3: Download historical sensor data for equipment CWC04009 at the identified site for the period 2017-01-01 to 2017-12-31.
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: JSON file (e.g., cwc04009_history.json) containing the requested sensor data
+
+Step4:
+
+#Task4: Predict the probability of the next work order for equipment CWC04009 as of 2018-01-02 using the downloaded data.
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: #S3
+#ExpectedOutput4: Predicted probability value (e.g., 0.73) for the next work order
+
+Make sure each line ends with a period? Not required but okay.
+
+Now output exactly these lines, no extra blank lines? Probably okay to have line breaks between steps.
+
+Let's produce final answer.assistantfinalassistantfinal#Task1: Retrieve the list of all IoT sites.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of site names (e.g., ["SiteA","SiteB"])
+#Task2: Retrieve the list of assets at the site that contains equipment CWC04009 (use the site name from step 1).
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: List of assets at the selected site confirming CWC04009 is present
+#Task3: Download historical sensor data for equipment CWC04009 at the identified site for the period 2017-01-01 to 2017-12-31.
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: JSON file (e.g., cwc04009_history.json) containing the requested sensor data
+#Task4: Predict the probability of the next work order for equipment CWC04009 as of 2018-01-02 using the downloaded data.
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: #S3
+#ExpectedOutput4: Predicted probability value (e.g., 0.73) for the next work order

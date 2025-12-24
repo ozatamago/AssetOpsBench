@@ -1,0 +1,16 @@
+Question: Could you identify any causal linkages between anomalies across KPIs to better understand the severity and interconnectedness?
+Plan:
+#Task1: Identify relevant KPIs and anomalies for analysis
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of KPIs with associated anomalies
+
+#Task2: Analyze causal linkages between identified anomalies
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Causal relationships and severity rankings of anomalies
+
+#Task3: Generate a report summarizing findings
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Report detailing interconnectedness and severity of anomalies

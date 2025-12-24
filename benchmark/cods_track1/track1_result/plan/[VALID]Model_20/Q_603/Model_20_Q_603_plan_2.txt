@@ -1,0 +1,15 @@
+Question: List all installed sensors of asset Chiller 6 at MAIN site.
+Plan:
+ 
+We need to ensure format exactly. Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1 lines. Then blank line? The example shows blank line between steps. That's okay. Ensure no extra spaces. Use exact agent name "IoT Data Download". No extra spaces. Ensure dependency uses #S1 referencing step 1. Should be "#Dependency2: #S1". Good.
+
+Let's output.assistantfinal_outputassistantfinal_output
+#Task1: Get list of assets at MAIN site to verify Chiller 6 exists
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at MAIN site including Chiller 6
+
+#Task2: Retrieve sensor metadata for asset Chiller 6 at MAIN site (list of installed sensors)
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: List (or JSON) of all sensors installed on Chiller 6 at MAIN site

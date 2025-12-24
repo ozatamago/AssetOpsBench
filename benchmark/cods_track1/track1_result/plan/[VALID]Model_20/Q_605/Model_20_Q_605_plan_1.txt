@@ -1,0 +1,28 @@
+Question: List all failure modes of Chiller 6 at MAIN site that can be detected by temperature sensors.
+Plan:
+ 
+We need to produce a plan with fewer than 5 steps. The problem: "List all failure modes of Chiller 6 at MAIN site that can be detected by temperature sensors."
+
+We have agents: IoT Data Download (site/asset info), Failure Mode and Sensor Relevancy Expert (failure modes and sensor mapping). The answer can be obtained directly from the Failure Mode and Sensor Relevancy Expert: they can list failure modes and mapping to sensors, so we can ask for those detectable by temperature sensors.
+
+Thus we can do a single step:
+
+Task: Retrieve a list of all failure modes of Chiller 6 at MAIN site that are detectable using temperature sensors.
+
+Agent: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+
+Dependency: None
+
+Expected output: A concise list of failure mode names (e.g., "Compressor Overheating", etc.) that can be detected by temperature sensors for Chiller 6 at MAIN site.
+
+We must follow the exact format:
+
+#Task1: ...
+#Agent1: ...
+#Dependency1: None
+#ExpectedOutput1: ...
+
+No extra text.assistantfinal#Task1: Retrieve a list of all failure modes of Chiller 6 at the MAIN site that can be detected by temperature sensors
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A concise list of failure‑mode names for Chiller 6 at MAIN that are detectable using temperature sensors.

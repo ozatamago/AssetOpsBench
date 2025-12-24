@@ -1,0 +1,21 @@
+Question: Generate an anomaly detection recipe for detecting compressor motor failure for Chiller 6 at MAIN site.
+Plan:
+#Task1: Retrieve historical sensor data for Chiller 6 at MAIN site
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical sensor data for Chiller 6 at MAIN site
+
+#Task2: Analyze the historical sensor data to identify relevant sensors for detecting compressor motor failure
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: List of relevant sensors for detecting compressor motor failure in Chiller 6
+
+#Task3: Use the relevant sensors to train a machine learning model for detecting compressor motor failure
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Trained machine learning model for detecting compressor motor failure
+
+#Task4: Generate an anomaly detection recipe using the trained machine learning model
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: #S3
+#ExpectedOutput4: Anomaly detection recipe for detecting compressor motor failure for Chiller 6 at MAIN site

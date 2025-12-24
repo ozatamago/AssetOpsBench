@@ -1,0 +1,41 @@
+Question: how much power was CQPA AHU 1 (MAIN site) using on 6/14/20?
+Plan:
+assistantanalysisWe need to output plan with steps. Must be fewer than 5 steps. Provide #Task1 etc. Use allowed agents. Ensure format exactly.
+
+Let's craft steps as described.
+
+Step1: Get assets at MAIN site.
+
+Step2: Download sensor data for CQPA AHU 1 at MAIN site (maybe all sensors) to identify power sensor.
+
+Step3: Download asset history for power sensor for date 2020-06-14.
+
+Step4: Compute total power usage from the retrieved data (could be done manually, but we can state expected output as total power consumption value). Agent could be "Executor (generic computation component)" but not allowed. Must use allowed agents only. We could use Time Series Analytics to compute sum? Not a defined task. But we could still use it to "Analyze the time-series data in file ... and look for anomalies". Not sum. However we could use it to "forecast" not sum. Maybe we can combine step3 to include calculation? Not possible. Could we use WorkOrder Agent? No.
+
+Maybe we can reduce to 3 steps: Step1 get assets, Step2 download asset history for power sensor directly (assuming we know sensor name). Then we can manually compute and answer. The expected output could be the total power usage value derived from the data. But we need to compute; we as assistant can compute after retrieving data? In plan we just specify expected output as "Total power usage (kWh) for CQPA AHU 1 on 2020-06-14". That's fine.
+
+Thus 2 steps maybe enough: Step1 get assets to confirm asset ID, Step2 download asset history for power sensor and compute total.
+
+Let's do 2 steps.
+
+Step1: #Task1: Retrieve list of assets at MAIN site to confirm identifier for CQPA AHU 1.
+Agent: IoT Data Download
+Dependency: None
+ExpectedOutput: List of assets at MAIN site including "CQPA AHU 1".
+
+Step2: #Task2: Download asset history for the power consumption sensor of CQPA AHU 1 at MAIN site for 2020-06-14 and calculate total power used that day.
+Agent: IoT Data Download
+Dependency: #S1
+ExpectedOutput: Total power consumption (e.g., kWh) of CQPA AHU 1 on 2020-06-14.
+
+But the task "download asset history" requires specifying sensor name. We assume sensor name "POWER". Could include that.
+
+Thus final output.assistantfinal#Task1: Retrieve list of assets at MAIN site to confirm identifier for CQPA AHU 1
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at MAIN site including "CQPA AHU 1"
+
+#Task2: Download asset history for the POWER sensor of CQPA AHU 1 at MAIN site from 2020-06-14T00:00:00 to 2020-06-14T23:59:59 and calculate total power used that day
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Total power consumption (kWh) of CQPA AHU 1 on 2020-06-14

@@ -1,0 +1,71 @@
+Question: List all failure modes of asset Chiller 6 at MAIN site.
+Plan:
+#Task1: List all failure modes of asset Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes for Chiller 6.
+
+#Task2: Verify if Chiller 6 is located at MAIN site.
+#Agent2: IoT Data Download
+#Agent2: What assets are at site MAIN?
+#Dependency2: None
+#ExpectedOutput2: Confirmation that Chiller 6 is at MAIN site.
+
+#Task3: If Chiller 6 is at MAIN site, provide the list of failure modes obtained in Task 1.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #Task1, #Task2
+#ExpectedOutput3: The list of failure modes for Chiller 6 if it is at MAIN site.
+
+The final answer is:
+#Task1: Identify the site where Chiller 6 is located.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The site where Chiller 6 is located.
+
+#Task2: List all failure modes of Chiller 6.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: None
+#ExpectedOutput2: A list of failure modes for Chiller 6.
+
+#Task3: Verify if the site identified in Task 1 is MAIN.
+#Agent3: IoT Data Download
+#Dependency3: #Task1
+#ExpectedOutput3: Confirmation if the site is MAIN.
+
+#Task4: Provide the list of failure modes if the site is MAIN.
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency4: #Task2, #Task3
+#ExpectedOutput4: The list of failure modes for Chiller 6 if it is at MAIN site.
+
+However, a more optimized plan can be formulated as follows:
+
+#Task1: List all failure modes of asset Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes for Chiller 6.
+
+#Task2: Identify the site where Chiller 6 is located.
+#Agent2: IoT Data Download
+#Dependency2: None
+#ExpectedOutput2: The site where Chiller 6 is located.
+
+#Task3: Check if the site is MAIN and provide the list of failure modes if true.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #Task1, #Task2
+#ExpectedOutput3: The list of failure modes for Chiller 6 if it is at MAIN site.
+
+The most optimized plan is:
+#Task1: List all failure modes of Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes for Chiller 6.
+
+#Task2: Verify if Chiller 6 is at MAIN site.
+#Agent2: IoT Data Download
+#Dependency2: None
+#ExpectedOutput2: Confirmation that Chiller 6 is at MAIN site.
+
+#Task3: Provide the list of failure modes if Chiller 6 is at MAIN site.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #Task1, #Task2
+#ExpectedOutput3: The list of failure modes for Chiller 6 if it is at MAIN site.

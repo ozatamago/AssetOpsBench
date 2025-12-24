@@ -1,0 +1,7 @@
+Question: Find all models with context length 96.
+Plan:
+ 
+#Task1: Identify models with context length 96
+#Agent1: None
+#Dependency1: None
+#ExpectedOutput1: Not possible with available agents.

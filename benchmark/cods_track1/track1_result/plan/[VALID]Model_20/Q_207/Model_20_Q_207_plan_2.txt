@@ -1,0 +1,7 @@
+Question: Is Anomaly Detection supported in TSFM?
+Plan:
+ 
+We need to output plan lines. Ensure each line starts with #Task1 etc. No extra spaces? The format: "#TaskN: <one-line>" etc. Provide exactly. Let's produce.assistantfinal #Task1: Ask the Time Series Analytics and Forecasting agent whether anomaly detection is supported in TSFM.  
+#Agent1: Time Series Analytics and Forecasting  
+#Dependency1: None  
+#ExpectedOutput1: Confirmation that anomaly detection is supported in TSFM.

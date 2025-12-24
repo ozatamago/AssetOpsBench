@@ -1,0 +1,22 @@
+Question: What is the predicted energy consumption for Chiller 9 in the week of 2020-04-27 based on data from the MAIN site?
+Plan:
+ 
+The answer must be exactly the plan. Ensure tags #Task1, #Agent1, #Dependency1, #ExpectedOutput1, then #Task2 etc. No extra spaces at start? It's okay. Ensure #Dependency2: #S1 (not #S1?). The spec says use #S1, #S2 etc. In plan we used #S1. Good. Ensure each line starts with #Task<N>: etc. No extra blank lines? Probably okay to have blank line between steps? Might be okay but safer to have no blank lines. Provide exactly 4 steps. Ensure counts match. Let's output.assistantfinal#Task1: Retrieve the list of all IoT sites to confirm the exact name of the site that contains the data for “MAIN”.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON list of site names including “MAIN”.
+
+#Task2: Obtain the list of assets at the “MAIN” site and identify the asset ID for “Chiller 9”.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: JSON list of assets at MAIN with the entry for “Chiller 9” and its asset ID.
+
+#Task3: Download historical sensor data for the identified Chiller 9 asset that captures its energy consumption (e.g., “POWER INPUT”) from 2020‑04‑01 to 2020‑05‑15.
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: JSON file (e.g., chiller9_power_20200401_20200515.json) containing timestamped energy‑consumption readings.
+
+#Task4: Forecast the total energy consumption for Chiller 9 for the week of 2020‑04‑27 (2020‑04‑27 to 2020‑05‑03) using the downloaded data and provide daily predictions and the aggregated weekly total.
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: #S3
+#ExpectedOutput4: Report with predicted daily energy consumption for each day of the target week and the summed weekly total.

@@ -1,0 +1,34 @@
+Question: List all installed sensors of asset Chiller 6 at MAIN site.
+Plan:
+ 
+We need to output plan with steps. Must be fewer than 5 steps. Provide minimal steps to list all installed sensors of asset Chiller 6 at MAIN site.
+
+We can do 2 steps maybe: Step1: IoT Data Download: "what assets are at site MAIN". Step2: IoT Data Download: "download sensor data for Chiller 6 at MAIN". But we need list of sensors, not data. Could assume sensor data includes sensor names, which satisfies list. So final answer can be sensor data list. So step2 expected output: list of installed sensors (or JSON containing sensor names). That may be acceptable.
+
+Thus 2 steps.
+
+Let's craft.
+
+#Task1: Get list of assets at MAIN site to verify Chiller 6 exists.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: List of assets at MAIN site including Chiller 6.
+
+#Task2: Retrieve sensor metadata for asset Chiller 6 at MAIN site (list of installed sensors).  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: List (or JSON) of all sensors installed on Chiller 6 at MAIN site.
+
+Check format: tags #TaskN, #AgentN, #DependencyN, #ExpectedOutputN. Use #S1 for dependency referencing step 1.
+
+Make sure no extra lines.
+
+Let's output.assistantfinal_outputassistantfinal_output#Task1: Get list of assets at MAIN site to verify Chiller 6 exists
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at MAIN site including Chiller 6
+
+#Task2: Retrieve sensor metadata for asset Chiller 6 at MAIN site (list of installed sensors)
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: List (or JSON) of all sensors installed on Chiller 6 at MAIN site

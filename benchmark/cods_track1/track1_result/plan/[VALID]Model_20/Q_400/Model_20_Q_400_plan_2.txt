@@ -1,0 +1,7 @@
+Question: Get the work order of equipment CWC04013 for year 2017.
+Plan:
+ 
+We need to produce plan with fewer than 5 steps. The problem: "Get the work order of equipment CWC04013 for year 2017." Use WorkOrder Agent. The plan: one step. Must follow format exactly. Ensure tags #Task1, #Agent1, #Dependency1, #ExpectedOutput1. Provide one line each. No extra spaces? Should be fine. Provide exactly.assistantfinal#Task1: Retrieve all work orders for equipment CWC04013 that were created in the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: A list of work order records for CWC04013 from 2017, each including work order ID, creation date, description, status, and any relevant notes.

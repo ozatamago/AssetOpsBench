@@ -1,0 +1,14 @@
+Question: What is the forecast for Chiller 6's energy consumption for next week based on data from the week of 2020-04-27 at the MAIN site?
+Plan:
+ 
+assistantanalysisWe need to ensure format exactly as required. The plan must have #Task1, #Agent1, #Dependency1, #ExpectedOutput1, then #Task2 etc. No extra lines. Ensure no extra spaces after agent names. Use exact agent names as listed. Provide ExpectedOutput one line.
+
+Let's craft final answer.assistantfinal #Task1: Retrieve Chiller 6 energy‑consumption sensor data for the week of 2020‑04‑27 (2020‑04‑27 00:00 to 2020‑05‑03 23:59) at the MAIN site.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file (e.g., chiller6_energy_20200427_20200503.json) with timestamped energy‑consumption readings for Chiller 6 at MAIN site.  
+
+#Task2: Forecast Chiller 6’s energy consumption for the next 7 days using the data from #S1.  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: JSON file (e.g., chiller6_energy_forecast_next_week.json) containing predicted energy‑consumption values (hourly or daily) for each time step of the upcoming week, with confidence intervals.

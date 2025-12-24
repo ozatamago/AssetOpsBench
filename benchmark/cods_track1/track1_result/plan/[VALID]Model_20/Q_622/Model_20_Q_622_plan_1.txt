@@ -1,0 +1,41 @@
+Question: Here is an output of anomaly model in file with absolute path '/tmp/tsad_conformal.csv', can you check if there are any anomalies, and do you think I should create a work order after reviewing the anomalies?
+Plan:
+ 
+We need to output plan lines only. No extra text. Must be less than 5 steps. Provide tasks as per earlier plan. Ensure correct formatting. Use #Task1 etc. Provide #Agent names exactly. Provide #Dependency as None or #S1 etc. Provide #ExpectedOutput one line.
+
+Let's craft.
+
+#Task1: Retrieve and parse the CSV file /tmp/tsad_conformal.csv into a structured list of records with anomaly flags.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON array of rows each containing timestamp, metric values, and anomaly indicator.  
+
+#Task2: Extract all records flagged as anomalies from the parsed data.  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: List of timestamps and metrics that are anomalous.  
+
+#Task3: Recommend whether a maintenance work order should be created based on the identified anomalies.  
+#Agent3: WorkOrder Agent  
+#Dependency3: #S2  
+#ExpectedOutput3: Recommendation statement either to create a work order for the affected asset or not.  
+
+#Task4: If recommendation is to create, generate a work order describing the issue and suggested action.  
+#Agent4: WorkOrder Agent  
+#Dependency4: #S3  
+#ExpectedOutput4: Work order details including asset, issue description, and priority.   Need to ensure each line is one line, no extra line breaks. Provide exactly as required. Let's output.assistantfinal#Task1: Retrieve and parse the CSV file /tmp/tsad_conformal.csv into a structured list of records with anomaly flags.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON array of rows each containing timestamp, metric values, and anomaly indicator.
+#Task2: Extract all records flagged as anomalies from the parsed data.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: List of timestamps and metrics that are anomalous.
+#Task3: Recommend whether a maintenance work order should be created based on the identified anomalies.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Recommendation statement either to create a work order for the affected asset or not.
+#Task4: If recommendation is to create, generate a work order describing the issue and suggested action.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Work order details including asset, issue description, and priority.

@@ -1,0 +1,57 @@
+Question: When an anomaly happens for equipment CWC04009, can you recommend a list of candidate work orders and give me a summary of work order as percentage?
+Plan:
+We need to produce a plan with <5 steps. Need to recommend candidate work orders and give summary as percentage when an anomaly happens for equipment CWC04009.
+
+We have agents: IoT Data Download (to get sensor data), Failure Mode and Sensor Relevancy Expert (to map failures to sensors), Time Series Analytics (to detect anomalies), WorkOrder Agent (to create work orders). The problem: "When an anomaly happens for equipment CWC04009, can you recommend a list of candidate work orders and give me a summary of work order as percentage?" So we need to detect anomaly for equipment CWC04009 (maybe using sensor data). Then map to possible failure modes and relevant sensors, then generate candidate work orders (maybe using WorkOrder Agent). Then summarize as percentage (maybe percentage distribution of work order types). Steps: 1) Download sensor data for CWC04009 (maybe specific sensors). 2) Analyze time series for anomalies using Time Series Analytics. 3) Identify relevant failure modes and sensors using Failure Mode Expert. 4) Generate candidate work orders using WorkOrder Agent. 5) Summarize percentages (maybe compute distribution). But we need <5 steps, so maybe combine steps: 1) Download data, 2) Analyze anomalies and get failure modes, 3) Generate work orders and summary. Could be 3 steps.
+
+But we need to specify ExpectedOutput for each step. Step1: JSON sensor data. Step2: List of detected anomalies and associated failure modes. Step3: List of candidate work orders with percentage summary.
+
+We need to use appropriate agents: IoT Data Download for step1, Time Series Analytics for step2 (anomaly detection), Failure Mode Expert maybe also needed to map anomalies to failure modes; could combine with step2 using both agents? But each step has one agent. Could do step2 with Time Series Analytics to detect anomalies, step3 with Failure Mode Expert to map anomalies to failure modes, step4 with WorkOrder Agent to generate work orders and summary. That's 4 steps, within limit.
+
+Let's craft plan:
+
+#Task1: Retrieve recent sensor data for equipment CWC04009 (e.g., all relevant temperature and pressure sensors) for the last week.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file (e.g., cwc04009_data.json) containing timestamped sensor readings.
+
+#Task2: Perform anomaly detection on the retrieved time series data for each sensor to identify any abnormal events.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: List of timestamps and sensor names where anomalies were detected.
+
+#Task3: For each detected anomaly, determine the most likely failure modes and the key sensors that should be inspected.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S2
+#ExpectedOutput3: Mapping of anomaly (timestamp, sensor) to candidate failure modes (e.g., compressor overheating, sensor drift) and recommended inspection actions.
+
+#Task4: Generate a set of candidate work orders based on the failure mode mapping and provide a percentage breakdown of work order categories (e.g., inspection, repair, replacement).
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: List of work order titles with brief description and a summary table showing each work order type and its percentage of the total candidate list.
+
+That's 4 steps, good.
+
+Make sure format matches required: #Task<N>: ... #Agent<N>: ... #Dependency<N>: ... #ExpectedOutput<N>: ...
+
+Let's produce final answer.assistantfinal#Task1: Retrieve recent sensor data for equipment **CWC04009** (all relevant temperature, pressure, and flow sensors) for the past week.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file `cwc04009_data.json` containing timestamped readings for each requested sensor.
+
+#Task2: Run anomaly detection on the time‑series data in `cwc04009_data.json` to identify any abnormal events per sensor.  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: List of anomalies – each entry includes sensor name, timestamp, and anomaly severity score.
+
+#Task3: For every detected anomaly, determine the most likely failure modes and the key sensors that should be inspected or replaced.  
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency3: #S2  
+#ExpectedOutput3: Mapping of each anomaly (sensor + timestamp) → candidate failure mode(s) (e.g., compressor overheating, sensor drift) and recommended inspection actions.
+
+#Task4: Generate a set of candidate work orders based on the failure‑mode mapping and provide a percentage breakdown of work‑order categories (inspection, repair, replacement, etc.).  
+#Agent4: WorkOrder Agent  
+#Dependency4: #S3  
+#ExpectedOutput4:  
+- List of work‑order titles with brief descriptions (e.g., “Inspect compressor of CWC04009 – possible overheating”).  
+- Summary table showing each work‑order type and its proportion of the total candidate list (e.g., Inspection 45 %, Repair 35 %, Sensor Replacement 20 %).

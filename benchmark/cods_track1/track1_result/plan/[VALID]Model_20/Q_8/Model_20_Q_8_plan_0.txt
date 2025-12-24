@@ -1,0 +1,29 @@
+Question: Download sensor data for Chiller 6's Tonnage from the last week of 2020 at the MAIN site
+Plan:
+We need to produce a plan with fewer than 5 steps, each step includes Task, Agent, Dependency, ExpectedOutput. The problem: "Download sensor data for Chiller 6's Tonnage from the last week of 2020 at the MAIN site". We need to use the agents. Which agent can download sensor data? The IoT Data Download agent can "download sensor data for CU02004 at SiteX". It can also "download asset history for CU02004 at SiteX from start to end for certain sensors". It can also "how do I calculate the start date for last week or past week?" So we can use IoT Data Download to download sensor data for Chiller 6's Tonnage at MAIN site for last week of 2020. We need to compute the date range: last week of 2020 is presumably the week containing Dec 24-30? Or last week of the year: 2020-12-24 to 2020-12-31? We need to ask the IoT Data Download agent to calculate start date for last week of 2020. It can answer "how do I calculate the start date for last week or past week?" So we can ask that. Then we can use IoT Data Download to download asset history for Chiller 6 at MAIN site from start to end for "Tonnage". The asset ID maybe "Chiller 6"? The IoT Data Download expects asset ID like CU02004. But we can assume we can request "download asset history for Chiller 6 at MAIN site from start to end for Tonnage". So step 1: ask IoT Data Download to calculate start and end dates for last week of 2020. Step 2: use IoT Data Download to download asset history for Chiller 6 at MAIN site for Tonnage using those dates. That's two steps. That satisfies <5 steps.
+
+We need to include #Task1, #Agent1, #Dependency1, #ExpectedOutput1, etc.
+
+Make sure to follow format exactly.
+
+Let's produce plan:
+
+#Task1: Determine the start and end timestamps for the last week of 2020 (Monday to Sunday) to define the download period.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Start and end datetime strings in ISO8601 format (e.g., 2020-12-21T00:00:00-05:00 to 2020-12-27T23:59:59-05:00) for the last week of 2020.
+
+#Task2: Download the historical sensor data for the "Tonnage" sensor of Chiller 6 at the MAIN site for the period obtained in Task1.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: A JSON file (e.g., chiller6_tonnage_lastweek2020.json) containing timestamped values of the Tonnage sensor for Chiller 6 at the MAIN site covering the specified week.
+
+That's it. Ensure we use #S1 for dependency referencing step 1. Use correct formatting. Provide plan.assistantfinal#Task1: Determine the ISO‑8601 start and end timestamps for the last calendar week of 2020 (Monday 00:00 to Sunday 23:59) to define the download period.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: Start and end datetime strings (e.g., `2020-12-21T00:00:00-05:00` to `2020-12-27T23:59:59-05:00`) that represent the last week of 2020.  
+
+#Task2: Download the historical sensor data for the **Tonnage** sensor of **Chiller 6** at the **MAIN** site for the period obtained in Task 1.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: A JSON file (e.g., `chiller6_tonnage_lastweek2020.json`) containing timestamped Tonnage values for Chiller 6 at the MAIN site covering the specified week.

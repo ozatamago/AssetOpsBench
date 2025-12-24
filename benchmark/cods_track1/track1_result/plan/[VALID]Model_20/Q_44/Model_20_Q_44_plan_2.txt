@@ -1,0 +1,22 @@
+Question: Can I list all the metrics monitored by CQPA AHU 2B? use site MAIN
+Plan:
+We need to correct issues: Task lines missing? Actually original plan had #Task1 line but missing #Task2 etc. Only one step, that's okay. But validator says "Task lines missing" maybe because they expect #Task1, #Agent1, #Dependency1, #ExpectedOutput1 all present. They are present. However maybe they require #Task1: <...> line, #Agent1: <...>, #Dependency1: <...>, #ExpectedOutput1: <...>. That's satisfied.
+
+But also "Agent1 unknown 'IoT Data Download  '. Allowed: ..." maybe there is trailing spaces in agent name. In original plan: "#Agent1: IoT Data Download  " (two spaces). Need exact name "IoT Data Download". So fix.
+
+Also ensure counts match: we have 1 task, 1 agent, 1 dependency, 1 expected output. Good.
+
+Thus produce corrected plan with proper formatting.
+
+We need to list all metrics monitored by CQPA AHU 2B at site MAIN. The IoT Data Download agent can answer "what assets are at site SiteX" etc. It can also "download sensor data for CU02004 at SiteX". But not directly list metrics. However maybe we can ask "download asset history" which includes sensor names. But the task is to list metrics. The agent may have ability to "send me the values for ..." but not list metrics. However we can still ask "download asset history for asset" which returns data with metrics. But the question: "Can I list all the metrics monitored by CQPA AHU 2B? use site MAIN". The best we can do: ask IoT Data Download to "download asset history for CQPA AHU 2B at site MAIN" maybe with a date range. That would give sensor data and thus metrics. But the task is to list metrics, not data. However we can still request asset history and then parse metrics. But we only have one step. Could we ask IoT Data Download to "download asset history for CQPA AHU 2B at site MAIN from 2023-01-01T00:00:00Z to 2023-01-02T00:00:00Z"? That would give data for all sensors? Not guaranteed.
+
+Alternatively we could ask "what assets are at site MAIN" then "download sensor data for CQPA AHU 2B at site MAIN". That returns sensor data for all sensors? The task list includes "download sensor data for CU02004 at SiteX". So we can use that to get sensor data for the asset, which includes metrics. So we can ask to download sensor data for CQPA AHU 2B at site MAIN. That will return JSON with sensor values and metric names. Then we can extract metric names. But the ExpectedOutput should be "JSON array of metric names". So we can state that.
+
+Thus step: #Task1: Download sensor data for asset CQPA AHU 2B at site MAIN to obtain list of monitored metrics. #Agent1: IoT Data Download #Dependency1: None #ExpectedOutput1: JSON array of metric names.
+
+Make sure agent name exact.
+
+Let's produce final plan.assistantfinal#Task1: Download sensor data for asset CQPA AHU 2B at site MAIN to obtain the list of monitored metrics.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON array of metric names, e.g., ["Supply Air Temp","Return Air Temp","Fan Speed","CO₂ Level",...]

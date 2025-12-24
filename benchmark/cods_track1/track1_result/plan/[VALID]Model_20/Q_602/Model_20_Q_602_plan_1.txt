@@ -1,0 +1,13 @@
+Question: List all failure modes of asset Chiller 6 at MAIN site.
+Plan:
+ 
+#Task1: 
+We need to output plan lines only. Let's produce final answer.assistantfinal#Task1: Retrieve the list of assets at the MAIN site to confirm Chiller 6 is present.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: List of assets at site MAIN, including Chiller 6.  
+
+#Task2: List all failure modes of asset Chiller 6.  
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency2: #S1  
+#ExpectedOutput2: Complete list of failure modes for Chiller 6.

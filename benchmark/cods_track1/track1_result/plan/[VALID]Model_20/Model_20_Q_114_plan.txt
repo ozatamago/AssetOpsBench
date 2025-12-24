@@ -1,0 +1,21 @@
+Question: What are the failure modes of Chiller 6 that can be identified by analyzing the data from the available sensors?
+Plan:
+ 
+We need to ensure format exactly: each line starts with #TaskN: etc. No extra spaces? Should be fine.
+
+Make sure #Agent name matches exactly: "Failure Mode and Sensor Relevancy Expert for Industrial Asset". No extra spaces.
+
+Dependencies: #S1 referencing step 1.
+
+Make sure each line ends with newline. No extra blank lines? Probably okay.
+
+Let's output.assistantfinal_outputassistantfinal_output
+#Task1: List all failure modes of Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of failure modes for Chiller 6.
+
+#Task2: Provide a mapping of each Chiller 6 failure mode to the sensors that can detect it, and identify which failure modes are detectable via sensor data.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: Mapping of failure modes to relevant sensors and a list of failure modes that can be identified through sensor analysis.

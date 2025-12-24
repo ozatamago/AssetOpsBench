@@ -1,0 +1,21 @@
+Question: Find a model for energy forecasting.
+Plan:
+#Task1: Download historical sensor data for a specific asset (e.g., Chiller 6) at a given site (e.g., SiteX) for relevant parameters (e.g., "CHILLED WATER LEAVING TEMP" and "CHILLED WATER RETURN TEMP").
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON file containing the historical sensor data for the specified asset and parameters.
+
+#Task2: Identify relevant failure modes and sensors for the asset (e.g., Chiller 6) to understand potential issues that could affect energy consumption.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: None
+#ExpectedOutput2: A list of failure modes and relevant sensors for the specified asset.
+
+#Task3: Analyze the historical sensor data to identify any anomalies or patterns that could impact energy forecasting.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S1
+#ExpectedOutput3: An analysis report highlighting anomalies, patterns, and potential impacts on energy forecasting.
+
+#Task4: Generate a work order for any necessary maintenance or inspections based on the analysis and identified failure modes.
+#Agent4: WorkOrder Agent
+#Dependency4: #S2, #S3
+#ExpectedOutput4: A work order detailing the required maintenance or inspections to ensure accurate energy forecasting.

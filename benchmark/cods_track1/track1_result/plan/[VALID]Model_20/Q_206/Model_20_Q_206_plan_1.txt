@@ -1,0 +1,7 @@
+Question: Is Chronos model supported in TSFM?
+Plan:
+ 
+We need to output plan lines only. Ensure no extra spaces? Format: "#Task1: ..." etc. Provide exactly. No extra lines. Let's produce.assistantfinalassistantfinal#Task1: Determine whether the Chronos model is supported in the Time Series Foundation Model (TSFM) framework.  
+#Agent1: Time Series Analytics and Forecasting  
+#Dependency1: None  
+#ExpectedOutput1: A clear answer stating if the Chronos model is supported in TSFM, including any relevant details or references.

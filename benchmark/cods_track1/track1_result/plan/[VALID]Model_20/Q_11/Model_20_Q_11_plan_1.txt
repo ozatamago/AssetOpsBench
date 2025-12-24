@@ -1,0 +1,7 @@
+Question: Download all sensor data for Chiller 6 from the last week of April '20 at the MAIN site.
+Plan:
+ 
+assistantfinal #Task1: Download all sensor data (full asset history) for Chiller 6 at the MAIN site covering the last week of April 2020 (2020‑04‑24 00:00:00 to 2020‑04‑30 23:59:59).  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A single JSON file (e.g., `chiller6_main_20200424_20200430.json`) containing the complete time‑stamped sensor readings for Chiller 6 across the specified date range.

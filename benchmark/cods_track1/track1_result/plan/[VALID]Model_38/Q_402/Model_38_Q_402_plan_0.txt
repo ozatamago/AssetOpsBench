@@ -1,0 +1,6 @@
+Question: I would like to retrieve the preventive work order details for the equipment labeled as CWC04013 for the year 2017.
+Plan:
+#Task1: Retrieve preventive work order details for equipment CWC04013 in 2017
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: List of preventive work orders for CWC04013 in 2017

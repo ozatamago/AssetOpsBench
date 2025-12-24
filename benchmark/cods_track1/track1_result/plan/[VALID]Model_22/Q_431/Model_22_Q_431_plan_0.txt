@@ -1,0 +1,21 @@
+Question: Assume today is early of July 2020, I would like to review the performance of chiller 9 with equipment ID CWC04009 for June 2020 and track any anomalies or operation violations as alerts. Tell me what corrective work orders have been scheduled, and whether new work order should generate.
+Plan:
+#Task1: Retrieve historical sensor data for chiller 9 (CWC04009) for June 2020
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file containing sensor data for CWC04009 for June 2020
+
+#Task2: Analyze the time-series data for anomalies and operation violations
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Report highlighting any anomalies or operation violations in the chiller's performance
+
+#Task3: Check existing work orders for chiller 9 (CWC04009) related to the identified anomalies
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: List of existing work orders for CWC04009 and their statuses
+
+#Task4: Generate new work orders if necessary based on the analysis and existing work orders
+#Agent4: WorkOrder Agent
+#Dependency4: #S2, #S3
+#ExpectedOutput4: New work orders created for any unresolved anomalies or operation violations

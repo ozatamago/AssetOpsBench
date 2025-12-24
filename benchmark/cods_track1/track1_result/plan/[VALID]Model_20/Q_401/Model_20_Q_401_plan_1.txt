@@ -1,0 +1,7 @@
+Question: I would like to check the work order distribution for the equipment labeled as CWC04013 for the year 2017.
+Plan:
+ 
+We need to output plan lines exactly. Already prepared. Ensure format: #Task1: ... #Agent1: WorkOrder Agent #Dependency1: None #ExpectedOutput1: ... All on separate lines. No extra spaces? Should be fine. Ensure no extra punctuation. Provide concise.assistantfinal#Task1: Retrieve the work order distribution (e.g., count of work orders by type/status) for equipment CWC04013 for the calendar year 2017.  
+#Agent1: WorkOrder Agent  
+#Dependency1: None  
+#ExpectedOutput1: A concise report (e.g., table or JSON) showing the number of work orders associated with CWC04013 in 2017, broken down by work‑order type or status.

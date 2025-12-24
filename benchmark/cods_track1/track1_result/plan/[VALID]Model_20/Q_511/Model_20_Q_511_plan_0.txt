@@ -1,0 +1,16 @@
+Question: Can you predict Chiller 9's energy usage for next week based on data from the week of 2020-04-27 at MAIN?
+Plan:
+We need to predict energy usage for Chiller 9 next week based on data from week of 2020-04-27 at MAIN. Steps: get site list, assets, download sensor data for energy usage (maybe power consumption) for Chiller 9 at MAIN for that week. Then use Time Series Analytics to forecast next week. Then maybe generate work order? Not needed. So plan: Step1: use IoT Data Download to get sites to confirm MAIN exists. Step2: download sensor data for Chiller 9 at MAIN for week 2020-04-27 to 2020-05-03 (7 days) for energy usage sensor (maybe "POWER INPUT" or "ENERGY USAGE"). Need to specify sensor name. Could be "POWER INPUT". We'll assume. Step3: Time Series Analytics to forecast next week (7 days) using downloaded data. Output forecast. That's 3 steps. Provide dependencies. Let's craft.assistantfinal#Task1: Retrieve the list of available sites to confirm that “MAIN” is a valid site name.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON list of site names that includes “MAIN”.  
+
+#Task2: Download the historical sensor data for Chiller 9 at site “MAIN” covering the week of 2020‑04‑27 to 2020‑05‑03 (inclusive) for the energy‑usage related sensor (e.g., “POWER INPUT” or “ENERGY USAGE”).  
+#Agent2: IoT Data Download  
+#Dependency2: #S1 (site list confirming “MAIN”)  
+#ExpectedOutput2: JSON file (e.g., `chiller9_main_week20200427.json`) containing timestamped readings of the selected energy‑usage sensor for the specified week.  
+
+#Task3: Perform a time‑series forecast to predict Chiller 9’s energy usage for the next calendar week (7 days) using the downloaded data.  
+#Agent3: Time Series Analytics and Forecasting  
+#Dependency3: #S2 (the JSON data file)  
+#ExpectedOutput3: Forecast results (e.g., a JSON or table) showing predicted energy‑usage values for each day (or hour) of the upcoming week, along with confidence intervals or error metrics.

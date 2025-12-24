@@ -1,0 +1,7 @@
+Question: List all failure modes of asset Chiller 6.
+Plan:
+ 
+We need to output plan with fewer than 5 steps. Only one step needed. Ensure format exactly. No extra spaces? Should be fine. Provide #Task1 line, #Agent1 line, #Dependency1 line, #ExpectedOutput1 line. No extra blank lines. Ensure agent name matches exactly: "Failure Mode and Sensor Relevancy Expert for Industrial Asset". No trailing spaces. Provide expected output concise. Let's output.assistantfinal#Task1: List all failure modes of asset Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A comprehensive list of failure modes applicable to Chiller 6.

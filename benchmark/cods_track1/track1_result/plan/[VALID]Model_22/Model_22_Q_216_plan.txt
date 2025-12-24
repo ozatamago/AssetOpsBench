@@ -1,0 +1,21 @@
+Question: Forecast 'Chiller 9 Condenser Water Flow' using data in 'chiller9_annotated_small_test.csv'. Use parameter 'Timestamp' as a timestamp. Use the following parameters as inputs 'Chiller 9 Liquid Refrigerant Evaporator Temperature,Chiller 9 Return Temperature,Chiller 9 Tonnage,Chiller 9 Setpoint Temperature,Chiller 9 Supply Temperature,Chiller 9 Chiller % Loaded,Chiller 9 Condenser Water Supply To Chiller Temperature,Chiller 9 Power Input,Chiller 9 Chiller Efficiency'
+Plan:
+#Task1: Analyze the time-series data in file chiller9_annotated_small_test.csv and forecast the next 24 hours of Chiller 9 Condenser Water Flow using the following parameters as inputs 'Chiller 9 Liquid Refrigerant Evaporator Temperature,Chiller 9 Return Temperature,Chiller 9 Tonnage,Chiller 9 Setpoint Temperature,Chiller 9 Supply Temperature,Chiller 9 Chiller % Loaded,Chiller 9 Condenser Water Supply To Chiller Temperature,Chiller 9 Power Input,Chiller 9 Chiller Efficiency'
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: A forecast of the next 24 hours of Chiller 9 Condenser Water Flow based on the provided parameters and time-series data.
+
+#Task2: Create a work order for inspecting Chiller 9 due to potential issues identified in the forecast
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: A work order for inspecting Chiller 9, including details of potential issues identified in the forecast.
+
+#Task3: List all failure modes of Chiller 9 that can be detected by the parameters used in the forecast
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S1
+#ExpectedOutput3: A list of failure modes of Chiller 9 that can be detected by the parameters used in the forecast, such as 'Chiller 9 Liquid Refrigerant Evaporator Temperature', 'Chiller 9 Return Temperature', etc.
+
+#Task4: Analyze the time-series data in file chiller9_annotated_small_test.csv and look for anomalies in the parameters used in the forecast
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: #S1
+#ExpectedOutput4: A report of any anomalies detected in the parameters used in the forecast, such as 'Chiller 9 Liquid Refrigerant Evaporator Temperature', 'Chiller 9 Return Temperature', etc.

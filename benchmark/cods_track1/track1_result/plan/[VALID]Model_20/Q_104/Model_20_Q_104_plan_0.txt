@@ -1,0 +1,34 @@
+Question: List all installed sensors of asset Chiller 6.
+Plan:
+We need to list all installed sensors of asset Chiller 6. Which agents can provide that? IoT Data Download can provide asset details, maybe "what assets are at site SiteX" but not sensors. Failure Mode and Sensor Relevancy Expert can provide relevant sensors for failures, but not all installed sensors. However maybe they can list sensors for asset? Not explicitly. Could use IoT Data Download to "download sensor data for CU02004 at SiteX" but need asset ID. Not given. Could ask "what assets are at site SiteX". Not helpful.
+
+We might need to combine: Use IoT Data Download to get asset details for Chiller 6? Not listed. But maybe "download asset history" includes sensors? Not.
+
+Maybe we can ask Failure Mode and Sensor Relevancy Expert: "List all installed sensors of asset Chiller 6." Not among tasks but could be considered similar to "What are the relevant sensors that can be used to monitor the loose wiring failure of Chiller 6?" That's specific to failure. Not all sensors.
+
+Thus we may need to use IoT Data Download to retrieve sensor list via metadata. Not explicit but maybe "download asset history" includes sensor list. Not.
+
+Given constraints, we must produce plan using available agents. Perhaps we can request IoT Data Download: "what assets are at site SiteX" then maybe asset includes sensor list. But we need sensors for Chiller 6, not site.
+
+Maybe we can assume asset ID known, and we can request "download sensor data for CU02004 at SiteX" but need sensor list.
+
+We could use IoT Data Download to "download asset history for CU02004 at SiteX ..." Not sensors.
+
+Thus maybe the best is to use Failure Mode and Sensor Relevancy Expert to list sensors relevant to failures, which may approximate installed sensors. But the question is "List all installed sensors of asset Chiller 6." Could be answered by that expert.
+
+Thus plan: single step.
+
+#Task1: Ask Failure Mode and Sensor Relevancy Expert for Industrial Asset to list all installed sensors of asset Chiller 6.
+
+Agent: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+
+Dependency: None
+
+ExpectedOutput: List of sensor names/types installed on Chiller 6.
+
+Let's craft plan with <5 steps. One step.
+
+Proceed.assistantanalysisWe need to output plan.assistantfinal#Task1: Request a complete list of all installed sensors for the asset **Chiller 6**.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A concise enumeration (e.g., JSON array or bullet list) of every sensor that is physically installed on Chiller 6, including sensor identifiers and descriptive names (e.g., “Chilled Water Leaving Temp”, “Compressor Power Input”, etc.).

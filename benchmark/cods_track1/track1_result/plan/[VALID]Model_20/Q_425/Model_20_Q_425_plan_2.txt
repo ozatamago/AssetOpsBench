@@ -1,0 +1,31 @@
+Question: How can I analyze anomalies across multiple KPIs to better diagnose the root cause of these issues?
+Plan:
+ 
+We need to ensure the plan meets constraints: fewer than 5 steps (we have 4). Use correct agent names exactly as listed. Check agent names: "IoT Data Download", "Failure Mode and Sensor Relevancy Expert for Industrial Asset", "Time Series Analytics and Forecasting", "WorkOrder Agent". Good.
+
+Check dependencies: #S1, #S2, #S3 referencing previous steps. Should be "#S1" not "#S1 #S2"? For each step, we list dependencies as "#S1" etc. The format says "#Dependency<N>: <use #S1, #S2, ... or None>". So we can list multiple if needed. For step 2, dependency is #S1. Good.
+
+Make sure each line is exactly as required, no extra spaces at end. Also ensure each line ends with newline. Provide final answer with only those lines.
+
+Check that #ExpectedOutput lines are one line each, no line breaks. Good.
+
+Now produce final answer.assistantfinalassistantfinal
+#Task1: Download asset history for CU02004 at SiteX from the last week for "CHILLED WATER LEAVING TEMP" and "CHILLED WATER RETURN TEMP"
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file cu02004_lastweek.json containing timestamps and values for the two KPIs
+
+#Task2: Detect anomalies in both KPIs using the downloaded time‑series data
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomalies report anomalies.json listing timestamp, KPI name, and anomaly severity
+
+#Task3: Identify plausible failure modes that could explain the detected anomalies and the most relevant sensor for each
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S2
+#ExpectedOutput3: Diagnostic summary mapping each anomaly to one or more likely failure modes (e.g., loose wiring, compressor overheating)
+
+#Task4: Create a corrective work order to investigate the most likely failure mode identified
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Work order WO-XXXXX with description of the issue and recommended inspection actions

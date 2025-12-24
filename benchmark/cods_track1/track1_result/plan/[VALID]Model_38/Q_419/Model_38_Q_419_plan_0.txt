@@ -1,0 +1,11 @@
+Question: Using your knowledge of the industrial asset, can you suggest me a work order for alert RUL0014 with the context of 'Chiller - Cooling Substance Delta T Low' for closed-loop water-cool chiller its load is higher than the upper bound?
+Plan:
+#Task1: Retrieve relevant information about the alert RUL0014 and the context 'Chiller - Cooling Substance Delta T Low' for the closed-loop water-cool chiller with higher than upper bound load
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List all failure modes of Chiller 6 that can be detected by Chiller 6 Chiller Efficiency. What are the relevant sensors that can be used to monitor the loose wiring failure of Chiller 6? If compressor overheating occurs for Chiller 6, which sensor should be prioritized for monitoring this specific failure?
+
+#Task2: Generate a work order based on the retrieved information and the alert context
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: Create a work order for inspecting CHL-A100 due to suspected compressor overheating

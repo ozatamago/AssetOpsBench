@@ -1,0 +1,17 @@
+Question: Can you forecast Chiller 6's performance for next week based on the data from 2020-04-27 at the MAIN site?
+Plan:
+ 
+We need to output plan lines only. Ensure no extra spaces after agent names. Use exactly "IoT Data Download". Use "#S1" referencing step numbers? In dependencies they used "#S1"? In spec they said "#Dependency<N>: <use #S1, #S2, ... or None>". So we should reference #S1 etc. Use #S1 for step1, #S2 for step2. Provide exactly lines. No extra blank lines? Probably okay to have blank lines between steps. Ensure each line starts with #Task1 etc. Provide no extra text. Let's output.assistantfinalassistantfinalassistantfinal#Task1: Identify the asset ID for “Chiller 6” at the MAIN site.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON list of assets at the MAIN site, including the asset ID for Chiller 6.  
+
+#Task2: Download the full‑day sensor data for the identified Chiller 6 asset on 2020‑04‑27 for “CHILLED WATER LEAVING TEMP”.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: JSON file (e.g., chiller6_20200427_temp.json) containing timestamped temperature readings for the entire day.  
+
+#Task3: Forecast the next 7 days of “CHILLED WATER LEAVING TEMP” for Chiller 6 using the downloaded data, providing confidence intervals and anomaly flags.  
+#Agent3: Time Series Analytics and Forecasting  
+#Dependency3: #S2  
+#ExpectedOutput3: Forecast report (JSON/CSV) with hourly predicted temperatures for the next week, confidence bounds, and any predicted anomaly indicators.

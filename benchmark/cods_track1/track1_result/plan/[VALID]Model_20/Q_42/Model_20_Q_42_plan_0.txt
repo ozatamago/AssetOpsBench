@@ -1,0 +1,29 @@
+Question: what was the supply temperature from CQPA AHU 2B on sept 19, 2020 at quarter to midnight, at site MAIN? return in a file
+Plan:
+We need to retrieve supply temperature from CQPA AHU 2B on Sept 19, 2020 at quarter to midnight (i.e., 23:45?) at site MAIN. Need to return in a file. Use IoT Data Download agent to download sensor data for that asset and time. Then maybe need to extract the specific value and write to file. Agents: IoT Data Download can download sensor data for CU02004 etc. But can we specify asset name? It can download sensor data for CU02004 at SiteX. Might be generic. We'll assume we can request sensor data for asset "CQPA AHU 2B" at site MAIN for "SUPPLY TEMPERATURE" at specific timestamp. So step1: request download sensor data for that asset and time range (maybe from 23:45 to 23:45). Use IoT Data Download. Expected output: JSON file with sensor readings.
+
+Step2: Use Time Series Analytics and Forecasting? Not needed. Could use IoT Data Download to read JSON and extract value? It has tasks: read JSON file, get list of properties. Could use to extract value. So step2: read the JSON file and extract the supply temperature value at that timestamp. Use IoT Data Download agent task 8 (read JSON file) and maybe task 7 to list properties. But we need to produce file with the value. Could use IoT Data Download to merge? Not needed. Could just output file containing the value. Maybe we can use IoT Data Download to write to file? Not defined. Could assume we can produce a file as output of step1 and step2. We'll produce final file with the temperature.
+
+Thus plan with 2 steps.
+
+Let's craft.
+
+Step1: download sensor data for asset CQPA AHU 2B at site MAIN for "SUPPLY TEMPERATURE" on 2020-09-19 23:45 (quarter to midnight). Use IoT Data Download agent task 4 or 5 (download sensor data). Provide time range maybe 23:45 to 23:45.
+
+Expected output: JSON file (e.g., supply_temp_20200919_2345.json) containing timestamp and value.
+
+Step2: read the JSON file, extract the temperature value, and write to a new file (e.g., CQPA_AHU2B_supply_temp_20200919.txt). Use IoT Data Download agent tasks 8 (read JSON) and maybe 7 (list properties) to get value. Expected output: text file with temperature.
+
+Let's produce plan.assistantfinal**Step #1**  
+**#Task1:** Download the sensor data for asset **“CQPA AHU 2B”** at site **MAIN** for the parameter **“SUPPLY TEMPERATURE”** covering the exact time **2020‑09‑19 23:45** (quarter‑to‑midnight).  
+**#Agent1:** IoT Data Download  
+**#Dependency1:** None  
+**#ExpectedOutput1:** A JSON file (e.g., `CQPA_AHU2B_supply_temp_20200919_2345.json`) containing the timestamp 2020‑09‑19 23:45 and the corresponding supply‑temperature value.
+
+---
+
+**Step #2**  
+**#Task2:** Read the JSON file produced in Step 1, extract the supply‑temperature value for the requested timestamp, and write that single value to a plain‑text file (e.g., `CQPA_AHU2B_supply_temp_20200919.txt`).  
+**#Agent2:** IoT Data Download (use task 8 “I need to read the JSON file …” and task 7 “How do I get a list of properties from a JSON file” to locate the value).  
+**#Dependency2:** #S1  
+**#ExpectedOutput2:** A text file named `CQPA_AHU2B_supply_temp_20200919.txt` containing only the supply temperature reading for 2020‑09‑19 23:45.

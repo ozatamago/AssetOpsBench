@@ -1,0 +1,41 @@
+Question: Get the daily count of the events of alert, anomaly for 2021 for equipment CWC04009.
+Plan:
+ 
+We need to output plan with fewer than 5 steps. The plan currently has 2 steps, okay. Must ensure format exactly: each line starts with #Task<N>: etc. No extra spaces at line ends. No extra text. Must not include "Repair rules:" etc. So final answer should be 8 lines (Task, Agent, Dependency, ExpectedOutput for each step). Ensure no extra blank lines. Let's produce.
+
+Check agent names exactly: "IoT Data Download" and "Time Series Analytics and Forecasting". Good.
+
+ExpectedOutput lines: one line each.
+
+Let's craft.
+
+#Task1: Download all sensor readings for equipment CWC04009 for the year 2021 (2021-01-01 to 2021-12-31).  
+But need no double spaces. Also no trailing spaces. Use plain text.
+
+Let's write.
+
+#Task1: Download all sensor readings for equipment CWC04009 for the year 2021 (2021-01-01 to 2021-12-31)  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file CWC04009_2021_sensor_data.json containing timestamped sensor values for the full year  
+
+#Task2: Analyze the JSON from #S1 to count daily alert and anomaly events for 2021 and produce a date‑wise summary  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: JSON or table CWC04009_2021_daily_event_counts.json with each date and its alert and anomaly counts  
+
+Make sure no blank lines? The format expects each line sequentially, but blank lines may be okay? Better to avoid blank lines. Provide exactly 8 lines, no blank lines.
+
+Let's produce 8 lines.
+
+Check line count: 8 lines.
+
+Let's write final answer.
+#Task1: Download all sensor readings for equipment CWC04009 for the year 2021 (2021-01-01 to 2021-12-31)
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file CWC04009_2021_sensor_data.json containing timestamped sensor values for the full year
+#Task2: Analyze the JSON from #S1 to count daily alert and anomaly events for 2021 and produce a date‑wise summary
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: JSON or table CWC04009_2021_daily_event_counts.json with each date and its alert and anomaly counts

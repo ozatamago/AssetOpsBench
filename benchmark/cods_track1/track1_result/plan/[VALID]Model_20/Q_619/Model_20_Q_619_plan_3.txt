@@ -1,0 +1,13 @@
+Question: When the Liquid Refrigerant Evaporator Temperature of Chiller 6 at MAIN site drops, what failure is most likely to occur?
+Plan:
+ 
+We need to ensure format exactly. The plan must have fewer than 5 steps. We have one step. Must match tags count. Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1. Ensure no extra spaces after colon? The format says "#Task<N>: <Describe your task here>" So colon then space then description. We'll follow.
+
+Agent name must match exactly: "Failure Mode and Sensor Relevancy Expert for Industrial Asset". Good.
+
+Expected output one line. Provide answer.
+
+Let's output.assistantfinalassistantfinal#Task1: Identify the most likely failure when the Liquid Refrigerant Evaporator Temperature of Chiller 6 at MAIN site drops
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: Low refrigerant charge is most likely, because a drop in evaporator temperature typically indicates insufficient refrigerant.

@@ -1,0 +1,21 @@
+Question: Get the daily count of the events of alert, anomaly for 2021 for equipment CWC04009.
+Plan:
+#Task1: Identify the relevant sensors for the equipment CWC04009
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of relevant sensors for the equipment CWC04009
+
+#Task2: Download the sensor data for the equipment CWC04009
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: A JSON file containing the sensor data for the equipment CWC04009
+
+#Task3: Analyze the sensor data for anomalies and alerts
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: A JSON file containing the anomalies and alerts for the equipment CWC04009
+
+#Task4: Count the daily events of alerts and anomalies for 2021
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: #S3
+#ExpectedOutput4: A JSON file containing the daily count of alerts and anomalies for 2021 for the equipment CWC04009

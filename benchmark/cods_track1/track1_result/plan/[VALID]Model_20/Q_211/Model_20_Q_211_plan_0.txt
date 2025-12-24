@@ -1,0 +1,33 @@
+Question: Find a model for energy forecasting.
+Plan:
+We need to produce a plan with fewer than 5 steps to find a model for energy forecasting. Use available agents: IoT Data Download, Failure Mode and Sensor Relevancy Expert, Time Series Analytics and Forecasting, WorkOrder Agent.
+
+Goal: "Find a model for energy forecasting." Likely need to get data (sensor data) for energy consumption, then use Time Series Analytics and Forecasting to forecast energy. So steps: 1) Download sensor data for energy (maybe power consumption) for a specific asset/site. Use IoT Data Download agent to download sensor data for asset CU02004 at SiteX (maybe includes power). Or we could request "download sensor data for CU02004 at SiteX". That will give us a JSON file. Step 2) Use Time Series Analytics and Forecasting agent to forecast next 24 hours of energy consumption (maybe power). Provide file name from step1. So we need to specify expected output: forecast results.
+
+We might also need to identify relevant sensors for energy consumption using Failure Mode and Sensor Relevancy Expert. But not necessary if we already have sensor data. However to "find a model for energy forecasting", we might need to request a model recommendation from Time Series Analytics and Forecasting. The agent can assist with model selection. So step 2 could be "Select appropriate forecasting model for energy consumption based on the downloaded data". Or "Forecast the next 24 hours of energy consumption using appropriate model". The expected output: forecast values and model details.
+
+Thus plan with 2 steps.
+
+Let's craft:
+
+#Task1: Download historical power consumption sensor data for asset CU02004 at SiteX covering the last week.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file (e.g., power_data.json) containing timestamps and power consumption values for the specified period.
+
+#Task2: Analyze the downloaded power consumption time series, select an appropriate forecasting model, and generate a 24‑hour energy forecast.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Forecast results for the next 24 hours, including predicted energy values and the name/type of the model used (e.g., Prophet, ARIMA, LSTM).
+
+Make sure format matches required: #Task<N>, #Agent<N>, #Dependency<N>, #ExpectedOutput<N>. Use #S1 for step1? Actually they said use #S1, #S2 for dependencies. So step numbers maybe #S1, #S2. We'll label steps as #S1, #S2.
+
+Thus final answer.assistantfinal#Task1: Download historical power‑consumption sensor data for asset **CU02004** at **SiteX** covering the most recent week.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file (e.g., `power_data.json`) containing timestamps and power‑consumption values for the requested period.  
+
+#Task2: Perform time‑series analysis on the downloaded power data, select an appropriate forecasting model, and generate a 24‑hour energy forecast.  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: Forecast results for the next 24 hours, including predicted energy values and the identified model type (e.g., Prophet, ARIMA, LSTM) with brief performance metrics.

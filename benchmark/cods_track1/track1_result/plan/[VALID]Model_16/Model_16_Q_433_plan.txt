@@ -1,0 +1,23 @@
+Question: We are building an early detection system for a potential failure condenser Water side fouling for Chiller 9. Monitor Chiller 9 at main site site from 2020-04-20T12:30:00 to 2020-05-12T19:30:00, identify anomalous behaviors and provide a work order recomendation.
+Plan:
+#Task1: Download historical sensor data for Chiller 9 at the main site from 2020-04-20T12:30:00 to 2020-05-12T19:30:00.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical sensor data for Chiller 9 in JSON format.
+
+#Task2: Analyze the downloaded data to identify any anomalies in the behavior of Chiller 9 that could indicate condenser water side fouling.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly detection results indicating potential condenser water side fouling.
+
+#Task3: Determine the relevant sensors for monitoring condenser water side fouling in Chiller 9.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: None
+#ExpectedOutput3: List of relevant sensors for monitoring condenser water side fouling.
+
+#Task4: Generate a work order recommendation based on the anomaly detection results and relevant sensors.
+#Agent4: WorkOrder Agent
+#Dependency4: #S2, #S3
+#ExpectedOutput4: Work order recommendation for preventive or corrective actions.
+
+The plan is a 4-step process that leverages the available agents to download historical data, analyze it for anomalies, identify relevant sensors for a specific failure mode, and generate a work order recommendation.

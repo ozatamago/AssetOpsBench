@@ -1,0 +1,11 @@
+Question:  If Evaporator Water side fouling occurs for Chiller 6 at MAIN site, which sensor is most relevant for monitoring this specific failure?
+Plan:
+#Task1: Identify the relevant sensors for monitoring Evaporator Water side fouling for Chiller 6 at MAIN site
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of relevant sensors for monitoring Evaporator Water side fouling for Chiller 6 at MAIN site
+
+#Task2: Prioritize the most relevant sensor for monitoring Evaporator Water side fouling for Chiller 6 at MAIN site
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: The most relevant sensor for monitoring Evaporator Water side fouling for Chiller 6 at MAIN site

@@ -1,0 +1,49 @@
+Question: What are the failure modes of Chiller 6 at MAIN site that can be identified by analyzing the data from the available sensors?
+Plan:
+We need to produce plan with fewer than 5 steps. We have 4 steps. Must ensure format exactly: each line "#Task<N>: ..." "#Agent<N>: ..." "#Dependency<N>: ..." "#ExpectedOutput<N>: ...". No extra spaces at end? Should be fine.
+
+Check agent names exactly as allowed list: "IoT Data Download", "Failure Mode and Sensor Relevancy Expert for Industrial Asset". Must match exactly.
+
+Dependencies: Use "#S1" etc. Must be space-separated list. For multiple dependencies, list "#S2 #S3". Ensure order.
+
+Now produce final answer. Ensure no extra lines. Let's craft.
+
+#Task1: Retrieve the list of assets at the MAIN site to identify the asset ID for Chiller 6.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON array of assets at MAIN site including Chiller 6 with its asset identifier.
+
+#Task2: Download recent sensor data for the Chiller 6 asset obtained in Step 1 to get the set of available sensor properties.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: JSON file containing timestamped readings for Chiller 6; sensor property names can be extracted.
+
+#Task3: Provide a mapping of all failure modes of Chiller 6 to the sensors that can detect each failure mode.  
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency3: #S1  
+#ExpectedOutput3: Structured list (e.g., JSON or table) linking each Chiller 6 failure mode with one or more relevant sensor names.
+
+#Task4: Using the sensor list from Step 2 and the failure‑mode‑sensor mapping from Step 3, list only those failure modes of Chiller 6 at the MAIN site that can be identified with the available sensors.  
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency4: #S2 #S3  
+#ExpectedOutput4: Concise text enumerating each identifiable failure mode of Chiller 6 at MAIN site together with the sensor(s) that enable its detection. 
+
+But need to ensure each line is one line, no line breaks within. The above includes line breaks after each line, that's fine. However the content after colon must be one line; we have line breaks after each line, that's okay. Ensure no extra spaces at start. Provide final answer.assistantfinal#Task1: Retrieve the list of assets at the MAIN site to identify the asset ID for Chiller 6.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON array of assets at MAIN site including Chiller 6 with its asset identifier.  
+
+#Task2: Download recent sensor data for the Chiller 6 asset obtained in Step 1 to get the set of available sensor properties.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: JSON file containing timestamped readings for Chiller 6; sensor property names can be extracted.  
+
+#Task3: Provide a mapping of all failure modes of Chiller 6 to the sensors that can detect each failure mode.  
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency3: #S1  
+#ExpectedOutput3: Structured list linking each Chiller 6 failure mode with one or more relevant sensor names.  
+
+#Task4: Using the sensor list from Step 2 and the failure‑mode‑sensor mapping from Step 3, list only those failure modes of Chiller 6 at the MAIN site that can be identified with the available sensors.  
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency4: #S2 #S3  
+#ExpectedOutput4: Concise text enumerating each identifiable failure mode of Chiller 6 at MAIN site together with the sensor(s) that enable its detection.

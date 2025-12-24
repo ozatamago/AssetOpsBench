@@ -1,0 +1,15 @@
+Question: I would like to review the performance of chiller 9 with equipment ID CWC04009 at main site site for June 2020 and track any anomalies or operation alerts. Tell me what corrective work orders have been scheduled, and whether new work order should generate.
+Plan:
+ 
+assistantfinal #Task1: Download historical sensor data for asset CWC04009 at the main site from 2020-06-01 to 2020-06-30 for sensors "CHILLED WATER LEAVING TEMP", "CHILLED WATER RETURN TEMP", and "POWER INPUT"
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file (e.g., cwc04009_june2020.json) containing timestamped readings for the requested sensors and period
+#Task2: Perform anomaly detection on the downloaded JSON file for the three sensors and produce a summary of any detected anomalies with timestamps
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly report listing sensor names, timestamps, and nature of each detected anomaly
+#Task3: If anomalies are reported, create a corrective work order for asset CWC04009 describing the issue and recommended action
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Work order ID and details confirming the corrective work order has been generated (or a statement that no work order is needed if no anomalies)

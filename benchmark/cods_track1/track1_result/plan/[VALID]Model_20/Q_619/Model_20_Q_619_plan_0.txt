@@ -1,0 +1,37 @@
+Question: When the Liquid Refrigerant Evaporator Temperature of Chiller 6 at MAIN site drops, what failure is most likely to occur?
+Plan:
+We need to answer: When the Liquid Refrigerant Evaporator Temperature of Chiller 6 at MAIN site drops, what failure is most likely to occur?
+
+We need to use agents. Likely need to get failure modes related to temperature drop. Use Failure Mode and Sensor Relevancy Expert to get failure modes for Chiller 6 and maybe mapping to sensor "Liquid Refrigerant Evaporator Temperature". Then infer most likely failure when temperature drops. Could also need to get sensor data to see correlation? But question asks "most likely to occur". Could be based on known failure modes mapping. So steps:
+
+1. Use Failure Mode and Sensor Relevancy Expert to list failure modes of Chiller 6 that are associated with "Liquid Refrigerant Evaporator Temperature". Maybe ask: "What failure is most likely when the Liquid Refrigerant Evaporator Temperature drops for Chiller 6?" That directly yields answer.
+
+If not, maybe need to get sensor data and analyze anomalies. Use IoT Data Download to download sensor data for that sensor, then Time Series Analytics to detect drops and correlate with failures? But we don't have failure labels.
+
+Simplify: Use Failure Mode expert to get mapping. So single step.
+
+But need to include dependency none.
+
+Plan with <5 steps.
+
+Let's produce:
+
+#Task1: Query the Failure Mode and Sensor Relevancy Expert for Chiller 6 to identify which failure mode is most likely triggered when the Liquid Refrigerant Evaporator Temperature sensor shows a drop.
+
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+
+#Dependency1: None
+
+#ExpectedOutput1: A concise answer naming the most likely failure (e.g., "low refrigerant charge" or "evaporator fouling") with brief justification linking the temperature drop to that failure.
+
+That's it. Provide plan.assistantfinal**Step‑by‑step plan (1 step, < 5 steps)**  
+
+---  
+
+#Task1: Identify the failure mode that is most likely to occur when the **Liquid Refrigerant Evaporator Temperature** of **Chiller 6** at the **MAIN** site drops.  
+
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+
+#Dependency1: None  
+
+#ExpectedOutput1: A concise answer naming the most probable failure (e.g., “low refrigerant charge”, “evaporator fouling”, “compressor overheating”, etc.) and a brief justification that links the temperature‑drop symptom to that failure based on the expert’s knowledge of sensor‑failure mappings for Chiller 6.

@@ -1,0 +1,16 @@
+Question: What is the predicted energy consumption for Chiller 9 in the week of 2020-04-27 based on data from the MAIN site?
+Plan:
+#Task1: Retrieve historical energy consumption data for Chiller 9 at the MAIN site
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file containing historical energy consumption data for Chiller 9 at MAIN site
+
+#Task2: Analyze the historical data to identify patterns and trends
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Insights into the energy consumption patterns and trends of Chiller 9
+
+#Task3: Generate a forecast for the energy consumption of Chiller 9 for the week of 2020-04-27
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Predicted energy consumption values for Chiller 9 for the specified week

@@ -1,0 +1,35 @@
+Question: What is the forecast for Chiller 6's energy consumption for next week based on data from the week of 2020-04-27 at the MAIN site?
+Plan:
+ 
+We need to correct plan: tasks numbers must be sequential starting at 1. Use #Task1, #Task2 etc. Also Dependency tags should be #S1? In original they used #S1 but spec says #Dependency<N>: use #S1, #S2 ...? Actually earlier description: "#Dependency<N>: <use #S1, #S2, ... or None>" So step references are #S1 etc. So we need to output #Task1, #Agent1, #Dependency1, #ExpectedOutput1, then #Task2 etc.
+
+Make sure agent names exactly match allowed list: "IoT Data Download" and "Time Series Analytics and Forecasting". No extra spaces.
+
+Also ensure ExpectedOutput concise.
+
+Let's craft plan:
+
+#Task1: Download energy consumption sensor data for Chiller 6 at MAIN site for the week of 2020-04-27 to 2020-05-03.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file (e.g., chiller6_energy_20200427_20200503.json) with timestamped energy consumption readings.
+
+#Task2: Forecast Chiller 6 energy consumption for the next 7 days using the data from #S1.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: JSON file (e.g., chiller6_energy_forecast_next_week.json) containing predicted daily/hourly energy consumption for the upcoming week with confidence intervals.
+
+Check counts: 2 tasks, each has Agent, Dependency, ExpectedOutput. Good.
+
+Return only lines. No extra. Ensure no extra spaces at end. Use exactly #Task1 etc.
+
+Let's output.
+#Task1: Download energy consumption sensor data for Chiller 6 at MAIN site for the week of 2020‑04‑27 to 2020‑05‑03  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file (e.g., chiller6_energy_20200427_20200503.json) with timestamped energy‑consumption readings  
+
+#Task2: Forecast Chiller 6 energy consumption for the next 7 days using the data from #S1  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: JSON file (e.g., chiller6_energy_forecast_next_week.json) containing predicted daily/hourly consumption for the upcoming week with confidence intervals

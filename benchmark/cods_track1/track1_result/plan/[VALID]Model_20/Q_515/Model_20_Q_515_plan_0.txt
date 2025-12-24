@@ -1,0 +1,25 @@
+Question: Can you predict Chiller 9's performance for next week based on data from the week of 2020-04-27 at MAIN?
+Plan:
+We need to predict Chiller 9's performance for next week based on data from week of 2020-04-27 at MAIN. Need to get data: sensor data for Chiller 9 at MAIN for that week. Use IoT Data Download to download sensor data for that period. Then use Time Series Analytics and Forecasting to forecast next week performance (maybe temperature). Need to define performance metric? Probably use available sensor like "CHILLED WATER LEAVING TEMP". We'll assume forecasting that metric.
+
+Plan steps: 1) Download sensor data for Chiller 9 at MAIN for week 2020-04-27 to 2020-05-03 (7 days). Use IoT Data Download agent with appropriate request. 2) Use Time Series Analytics and Forecasting to forecast next week (7 days) for performance metric (e.g., leaving temp). Provide forecast output.
+
+We need less than 5 steps. Two steps enough.
+
+Define dependencies: step2 depends on step1.
+
+Expected outputs: step1 JSON file with data. step2 forecast results.
+
+Let's craft plan.assistantfinal**Step #1**  
+**#Task1:** Download the historical sensor data for **Chiller 9** at site **MAIN** covering the week of **2020‑04‑27** (i.e., from 2020‑04‑27 00:00 to 2020‑05‑03 23:59) for the key performance sensor **“CHILLED WATER LEAVING TEMP”** (or the primary temperature sensor used to assess chiller performance).  
+**#Agent1:** IoT Data Download  
+**#Dependency1:** None  
+**#ExpectedOutput1:** A JSON file (e.g., `chiller9_main_20200427_20200503.json`) containing timestamped readings of the requested sensor for the specified period.
+
+---
+
+**Step #2**  
+**#Task2:** Using the JSON file produced in #S1, perform a time‑series forecast to predict the same sensor’s values for the **next calendar week** (7 days following 2020‑05‑03). Return the forecasted values with confidence intervals.  
+**#Agent2:** Time Series Analytics and Forecasting  
+**#Dependency2:** #S1  
+**#ExpectedOutput2:** A forecast report (e.g., `chiller9_main_forecast_next_week.json`) that lists the predicted “CHILLED WATER LEAVING TEMP” for each hour (or appropriate granularity) of the upcoming week, together with prediction intervals.

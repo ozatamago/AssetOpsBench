@@ -1,0 +1,57 @@
+Question: Purge unit of chiller 6 at MAIN site have possibility to excess purge, what is the plan by the maintenance experts to early detect the failure?
+Plan:
+We need to produce a plan with fewer than 5 steps, each step includes Task, Agent, Dependency, ExpectedOutput. The problem: "Purge unit of chiller 6 at MAIN site have possibility to excess purge, what is the plan by the maintenance experts to early detect the failure?" So we need to produce a plan to early detect the failure of purge unit excess purge. We have agents: IoT Data Download, Failure Mode and Sensor Relevancy Expert for Industrial Asset, Time Series Analytics and Forecasting, WorkOrder Agent.
+
+We need to produce a plan that uses these agents to answer the question: "what is the plan by the maintenance experts to early detect the failure?" So we need to identify relevant sensors for purge unit excess purge detection, maybe get sensor data, analyze for anomalies, and then generate a work order or maintenance plan.
+
+We need to produce a plan with fewer than 5 steps. So maybe 3 steps:
+
+Step 1: Use Failure Mode and Sensor Relevancy Expert to identify relevant sensors for detecting excess purge in purge unit of chiller 6 at MAIN site. Task: "What are the relevant sensors that can be used to monitor excess purge in the purge unit of Chiller 6?" Agent: Failure Mode and Sensor Relevancy Expert. Dependency: None. ExpectedOutput: List of sensor names and descriptions.
+
+Step 2: Use IoT Data Download to download historical sensor data for those sensors for a recent period (maybe last week). Task: "Download sensor data for the identified sensors for Chiller 6 at MAIN site for the past week." Agent: IoT Data Download. Dependency: #S1. ExpectedOutput: JSON file(s) containing sensor data.
+
+Step 3: Use Time Series Analytics and Forecasting to analyze the data for anomalies indicating excess purge. Task: "Analyze the time-series data for the identified sensors and detect anomalies that could indicate excess purge." Agent: Time Series Analytics and Forecasting. Dependency: #S2. ExpectedOutput: Anomaly detection report with timestamps and severity.
+
+Step 4 (optional): Use WorkOrder Agent to generate a preventive maintenance work order based on the detection plan. Task: "Create a preventive maintenance work order for monitoring purge unit of Chiller 6 based on sensor thresholds and anomaly detection." Agent: WorkOrder Agent. Dependency: #S3. ExpectedOutput: Work order details.
+
+But we need fewer than 5 steps, so we can have 4 steps. That's okay.
+
+We need to ensure each step includes #Task<N>, #Agent<N>, #Dependency<N>, #ExpectedOutput<N>. Use #S1, #S2, etc. The steps should be numbered sequentially.
+
+Let's produce the plan.
+
+Make sure the tasks are clear and actionable.
+
+Now produce final answer.assistantfinal**Step‑by‑step plan (4 steps – < 5)**  
+
+---
+
+#Task1: Identify the sensors that can indicate an excess‑purge condition in the purge unit of Chiller 6 (MAIN site).  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A concise list (sensor name, tag, and brief description) of the most relevant sensors for monitoring purge‑unit excess purge (e.g., purge flow‑rate, suction pressure, discharge pressure, temperature differentials, etc.).  
+
+---
+
+#Task2: Retrieve recent historical data for the sensors identified in #S1.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: One or more JSON files (e.g., `purge_sensors_last_week.json`) containing timestamped readings for each identified sensor over the past 7 days (or a comparable recent period).  
+
+---
+
+#Task3: Perform anomaly detection on the retrieved sensor time‑series to spot early signs of excess purge.  
+#Agent3: Time Series Analytics and Forecasting  
+#Dependency3: #S2  
+#ExpectedOutput3: An anomaly‑detection report that lists any out‑of‑range events, spikes, or trend deviations for the purge‑unit sensors, including timestamps, severity scores, and a brief interpretation (e.g., “purge flow > threshold for > 5 min – potential excess purge”).  
+
+---
+
+#Task4: Generate a preventive‑maintenance work order that defines the early‑detection monitoring plan and required actions if an anomaly is observed.  
+#Agent4: WorkOrder Agent  
+#Dependency4: #S3  
+#ExpectedOutput4: A ready‑to‑issue work order (e.g., WO‑XXXXX) that includes:  
+- Scope: Continuous monitoring of purge‑unit sensors identified in #S1.  
+- Trigger: Any anomaly flagged in #S3.  
+- Action: Inspect purge valve, verify flow set‑points, and perform corrective adjustments.  
+- Priority and scheduling recommendations.  

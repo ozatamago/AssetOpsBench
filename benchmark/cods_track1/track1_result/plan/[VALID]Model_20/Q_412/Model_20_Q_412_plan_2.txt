@@ -1,0 +1,45 @@
+Question: I would like to predict the next work order probability for the equipment labeled as CWC04013.
+Plan:
+ 
+assistantfinalassistantanalysisWe need to ensure the plan meets validator constraints.
+
+Check each line:
+
+- #Task1: ... (one line). It includes a period at end? That's fine.
+
+- #Agent1: IoT Data Download (exact name). Good.
+
+- #Dependency1: None
+
+- #ExpectedOutput1: JSON file CWC04013_sensor_data.json with timestamped sensor readings.
+
+All good.
+
+- #Task2: ... (one line). Good.
+
+- #Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset (exact). Good.
+
+- #Dependency2: None
+
+- #ExpectedOutput2: Report mapping failure modes to key sensors for CWC04013.
+
+- #Task3: ... (one line). Ensure it's not too long but still one line. It includes "#S1 #S2". Good.
+
+- #Agent3: Time Series Analytics and Forecasting (exact). Good.
+
+- #Dependency3: #S1 #S2
+
+- #ExpectedOutput3: Probability value (e.g., 0.68) with brief justification.
+
+All lines are separate lines. No extra spaces at end. Ensure no extra blank lines. Provide exactly as final answer.assistantfinal#Task1: Download historical sensor data for equipment CWC04013 (all sensors) covering the past 6 months.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file CWC04013_sensor_data.json with timestamped sensor readings.  
+#Task2: List the failure modes of CWC04013 that typically lead to work orders and identify the most relevant sensors for each failure mode.  
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency2: None  
+#ExpectedOutput2: Report mapping failure modes to key sensors for CWC04013.  
+#Task3: Analyze the sensor data from #S1 using the sensor‑failure mapping from #S2 to detect recent anomalies, model their historical link to work orders, and forecast the probability of a new work order for CWC04013 in the next 7 days.  
+#Agent3: Time Series Analytics and Forecasting  
+#Dependency3: #S1 #S2  
+#ExpectedOutput3: Probability value (e.g., 0.68) with brief justification.

@@ -1,0 +1,7 @@
+Question: Are there any failure modes of Chiller 6 that can be predicted by monitoring the vibration sensor data?
+Plan:
+ 
+We need to output plan lines. Ensure format exactly. Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1. No extra spaces? Should be fine. Provide concise one-line expected output. Let's produce.assistantfinal#Task1: Identify all failure modes of Chiller 6 that can be predicted or detected by monitoring the vibration sensor data.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A concise list of Chiller 6 failure modes that are associated with the vibration sensor, indicating they can be predicted using vibration data.

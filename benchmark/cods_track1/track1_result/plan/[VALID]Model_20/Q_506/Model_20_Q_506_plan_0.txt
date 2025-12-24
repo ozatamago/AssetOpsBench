@@ -1,0 +1,30 @@
+Question: Is there any anomaly detected in Chiller 9's Condenser Water Flow in the week of 2020-04-27 at MAIN?
+Plan:
+We need to detect anomaly in Chiller 9's Condenser Water Flow during week of 2020-04-27 at site MAIN. Steps: get site list, assets, download sensor data for that asset and sensor, maybe specify date range. Then use Time Series Analytics to analyze for anomalies. Then maybe generate work order if anomaly found? Problem only asks if any anomaly detected. So plan: Step1: Use IoT Data Download to get assets at site MAIN (to confirm asset ID for Chiller 9). Step2: Download sensor data for Chiller 9's Condenser Water Flow for week of 2020-04-27 (date range). Step3: Use Time Series Analytics to analyze for anomalies. Output answer.
+
+We need <5 steps. That's 3 steps.
+
+Define tasks.
+
+Step1: get assets at site MAIN. Agent IoT Data Download, task 3. Expected output list of assets including Chiller 9 ID.
+
+Step2: download sensor data for that asset (Chiller 9) for sensor "Condenser Water Flow" for date range 2020-04-27 to 2020-05-03 (week). Use task 4? "download sensor data for CU02004 at SiteX" generic. Might need specify asset ID and sensor. We'll assume can request. Expected output JSON file.
+
+Step3: Analyze time-series data for anomalies using Time Series Analytics agent, task 1 (Analyze time-series data in file and look for anomalies). Expected output statement whether anomalies detected.
+
+Let's craft plan. Ensure dependencies: step2 depends on step1 to get asset ID. Step3 depends on step2.
+
+Provide format.assistantfinal#Task1: Retrieve the list of assets located at site **MAIN** to identify the exact asset identifier for *Chiller 9*.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON list of assets at site MAIN, including the asset ID/name for Chiller 9 (e.g., “CHL‑9” or similar).
+
+#Task2: Download the historical sensor data for the **Condenser Water Flow** sensor of the identified Chiller 9 asset for the week of **2020‑04‑27** (2020‑04‑27 00:00 to 2020‑05‑03 23:59) at site MAIN.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: JSON file (e.g., `chiller9_cwf_week20200427.json`) containing timestamped readings of the Condenser Water Flow sensor for the specified period.
+
+#Task3: Perform a time‑series anomaly detection on the downloaded Condenser Water Flow data to determine whether any anomalies occurred during that week.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: A concise report stating **whether an anomaly was detected** in Chiller 9’s Condenser Water Flow for the week of 2020‑04‑27, including any relevant anomaly timestamps or severity indicators.

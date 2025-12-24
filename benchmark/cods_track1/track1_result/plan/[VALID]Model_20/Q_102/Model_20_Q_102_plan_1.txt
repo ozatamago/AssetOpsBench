@@ -1,0 +1,7 @@
+Question: List all failure modes of asset Chiller 6.
+Plan:
+ 
+We need to output plan lines exactly as described. Already done. Ensure no extra spaces? Format: "#Task1: ..." etc. Should be fine. No extra lines. Provide exactly those four lines.assistantfinal#Task1: List all failure modes of asset Chiller 6.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A complete list of failure modes applicable to Chiller 6 (e.g., “Compressor Overheating”, “Loose Wiring”, “Low Refrigerant Charge”, etc.).

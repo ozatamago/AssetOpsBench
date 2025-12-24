@@ -1,0 +1,16 @@
+Question: Assuming that the current date is 2018-01-02, can you predict next work order probability for me for equipment CWC04009?
+Plan:
+#Task1: Download historical data for equipment CWC04009 for the past week
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON file containing the historical data for CWC04009 for the past week
+
+#Task2: Analyze the historical data for anomalies and potential failure modes
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: A report identifying any anomalies and potential failure modes in the historical data
+
+#Task3: Generate a work order probability prediction based on the anomalies and failure modes identified
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A probability prediction for the next work order for equipment CWC04009

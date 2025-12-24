@@ -1,0 +1,21 @@
+Question: When compressor motor of Chiller 6 fails, what is the temporal behavior of the power input?
+Plan:
+#Task1: Identify the relevant sensors for monitoring the compressor motor failure of Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of relevant sensors for monitoring the compressor motor failure of Chiller 6
+
+#Task2: Download historical sensor data for the relevant sensors identified in Task 1 for Chiller 6
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Historical sensor data for the relevant sensors of Chiller 6
+
+#Task3: Analyze the time-series data of the power input sensor to identify the temporal behavior when the compressor motor fails
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Analysis report detailing the temporal behavior of the power input when the compressor motor of Chiller 6 fails
+
+#Task4: Generate a work order for inspecting Chiller 6 due to the identified temporal behavior of the power input
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: A work order for inspecting Chiller 6 based on the temporal behavior of the power input during compressor motor failure

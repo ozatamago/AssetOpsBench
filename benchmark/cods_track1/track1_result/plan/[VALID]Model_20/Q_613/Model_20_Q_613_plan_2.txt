@@ -1,0 +1,45 @@
+Question: Generate an anomaly detection recipe for detecting compressor motor failure for Chiller 6 at MAIN site.
+Plan:
+ 
+We need to produce plan with minimal changes. The original plan we gave earlier is correct but we need to ensure format exactly: each line separate, no extra spaces at start, no blank lines. Also need to ensure #TaskN lines are one line, not broken. In our previous final answer we used line breaks after each line but also included double spaces? We need to ensure each line is separate, no extra spaces at start. Also we need to ensure #Task1 line does not contain line break within. It should be a single line. Our previous answer had "#Task1: Identify sensors relevant for detecting compressor motor failure of Chiller 6 at the MAIN site." That's fine. Then "#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset". Good. "#Dependency1: None". "#ExpectedOutput1: List of sensor names (e.g., Power Input, Motor Vibration, Motor Current, Discharge Temperature) linked to compressor‑motor‑failure detection." That's okay.
+
+But we need to ensure we don't have any extra spaces at start of lines. Also we need to ensure we don't have any blank lines between steps. The previous answer had a blank line after #ExpectedOutput1? Actually we inserted a line break then "#Task2". In the text we wrote a line break after #ExpectedOutput1 and then "#Task2". That's okay; it's just a new line, not a blank line. However we need to ensure there is no empty line (i.e., a line with nothing). In our previous answer we had a line break after #ExpectedOutput1 then "#Task2". That's fine. But we also had a line break after #ExpectedOutput2 then "#Task3". That's fine.
+
+But we also included a trailing space after each line? Not needed.
+
+Now we need to ensure the plan uses #S1, #S2 references correctly. In #Dependency2 we used "#S1". That's correct. In #Dependency3 we used "#S2". Good.
+
+Now we need to ensure the agent names exactly match allowed list: "Failure Mode and Sensor Relevancy Expert for Industrial Asset", "IoT Data Download", "Time Series Analytics and Forecasting". Our agent names match exactly.
+
+Now we need to ensure we have exactly 12 lines (4 per step). Let's count:
+
+1 #Task1
+2 #Agent1
+3 #Dependency1
+4 #ExpectedOutput1
+5 #Task2
+6 #Agent2
+7 #Dependency2
+8 #ExpectedOutput2
+9 #Task3
+10 #Agent3
+11 #Dependency3
+12 #ExpectedOutput3
+
+Yes.
+
+Now we need to ensure no extra lines after #ExpectedOutput3. The previous answer had a blank line after #ExpectedOutput3? It ended with a period. We need to ensure no extra newline after? Usually newline at end is okay. But no extra lines with content.
+
+Now produce final answer with exactly those lines. Ensure no markdown formatting. No extra explanation. Let's output.assistantfinalassistantfinal
+#Task1: Identify sensors relevant for detecting compressor motor failure of Chiller 6 at the MAIN site.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of sensor names (e.g., Power Input, Motor Vibration, Motor Current, Discharge Temperature) linked to compressor‑motor‑failure detection.
+#Task2: Download historical time‑series data for the sensors returned in #S1 for Chiller 6 at the MAIN site covering the last 30 days.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: JSON file(s) with timestamped readings for each identified sensor over the requested period.
+#Task3: Analyze the downloaded sensor data and generate a complete anomaly‑detection recipe for compressor‑motor‑failure.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Detailed anomaly‑detection recipe (pre‑processing steps, model type, hyper‑parameters, threshold method, and mapping to a compressor‑motor‑failure alert).

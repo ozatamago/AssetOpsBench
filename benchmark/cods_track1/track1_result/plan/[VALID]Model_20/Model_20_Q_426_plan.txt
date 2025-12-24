@@ -1,0 +1,18 @@
+Question: Could you identify any causal linkages between anomalies across KPIs to better understand the severity and interconnectedness?
+Plan:
+ 
+assistantfinal
+#Task1: Download historical sensor data for CU02004 at SiteX for "CHILLED WATER LEAVING TEMP" and "CHILLED WATER RETURN TEMP" covering a recent period
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: sensor_history.json containing time‑stamped values for the two KPIs
+
+#Task2: Analyze sensor_history.json to detect anomalies in both KPIs and list their timestamps and severity
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: AnomalyReport.json with detected anomaly times and severity scores for each KPI
+
+#Task3: Identify likely failure modes associated with the detected anomalies and explain any causal linkage between the two KPIs
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S2
+#ExpectedOutput3: CausalLinkageReport.json describing probable failure modes and how anomalies in one KPI may cause or relate to anomalies in the other

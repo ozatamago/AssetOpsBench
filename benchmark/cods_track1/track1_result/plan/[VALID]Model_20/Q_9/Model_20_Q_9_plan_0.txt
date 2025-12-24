@@ -1,0 +1,34 @@
+Question: Retrieve sensor data for Chiller 6's % Loaded from June 2020 at MAIN.
+Plan:
+We need to produce a plan with <5 steps. Need to retrieve sensor data for Chiller 6's % Loaded from June 2020 at MAIN. Use IoT Data Download agent to download sensor data. Possibly need to know site name MAIN, asset ID for Chiller 6? Might need to query sites, assets. Steps: 1) ask IoT Data Download: what sites are there? to confirm site name MAIN. 2) ask IoT Data Download: what assets are at site MAIN? to find asset ID for Chiller 6. 3) download sensor data for that asset for % Loaded from June 2020. The agent can download sensor data for CU02004 at SiteX (example). It can also download asset history for a time range. The task list includes "download sensor data for CU02004 at SiteX". Not specific to date range. But we can use "download asset history for CU02004 at SiteX from start to end for sensors". That matches need: we need % Loaded sensor. So step 3: download asset history for asset (Chiller 6) at MAIN from 2020-06-01 to 2020-06-30 for "% Loaded". Provide expected output: JSON file with data.
+
+We need <5 steps, so 3 steps okay.
+
+Make sure dependencies: step2 depends on step1, step3 depends on step2.
+
+Let's craft plan.
+
+Step1: retrieve list of sites to confirm MAIN exists.
+
+Step2: retrieve assets at site MAIN to identify asset identifier for Chiller 6.
+
+Step3: download asset history for that asset at MAIN from 2020-06-01T00:00:00 to 2020-06-30T23:59:59 for sensor "% Loaded".
+
+Make sure agent names: IoT Data Download.
+
+All steps use same agent.
+
+Let's produce output.assistantfinal#Task1: Retrieve the list of available sites to confirm that the site named **MAIN** exists.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON list of site names (e.g., `["MAIN", "SiteA", "SiteB", ...]`).  
+
+#Task2: Retrieve the list of assets located at site **MAIN** to identify the asset identifier for **Chiller 6**.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: JSON list of assets at MAIN, including asset names/IDs (e.g., `[{ "assetId": "CHL-006", "name": "Chiller 6", ... }, ...]`).  
+
+#Task3: Download the historical sensor data for the **% Loaded** sensor of **Chiller 6** at site **MAIN** for the entire month of June 2020.  
+#Agent3: IoT Data Download  
+#Dependency3: #S2  
+#ExpectedOutput3: JSON file (e.g., `chiller6_loaded_june2020.json`) containing timestamps and % Loaded values from `2020-06-01T00:00:00` to `2020-06-30T23:59:59`.

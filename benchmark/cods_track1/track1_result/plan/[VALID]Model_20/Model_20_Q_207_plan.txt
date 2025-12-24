@@ -1,0 +1,7 @@
+Question: Is Anomaly Detection supported in TSFM?
+Plan:
+ 
+We need to produce plan with fewer than 5 steps. Only one step needed: ask TSF agent if anomaly detection is supported. Ensure format exactly. Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1. No extra spaces at end. Ensure agent name matches exactly: "Time Series Analytics and Forecasting". No extra spaces. Provide expected output: "Yes, anomaly detection is supported in TSFM." maybe. Provide clear. Let's output.assistantfinal#Task1: Inquire whether anomaly detection is supported in TSFM using the Time Series Analytics and Forecasting agent.  
+#Agent1: Time Series Analytics and Forecasting  
+#Dependency1: None  
+#ExpectedOutput1: Confirmation stating that anomaly detection is supported in TSFM.

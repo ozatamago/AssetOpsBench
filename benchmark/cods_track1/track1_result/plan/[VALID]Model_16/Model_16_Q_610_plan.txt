@@ -1,0 +1,23 @@
+Question:  If compressor overheating occurs for Chiller 6 at MAIN site, which sensor should be prioritized for monitoring this specific failure?
+Plan:
+#Task1: Identify the relevant sensors for monitoring compressor overheating failure of Chiller 6 at MAIN site.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of relevant sensors for monitoring compressor overheating failure of Chiller 6.
+
+#Task2: Verify if the identified sensors are available at MAIN site for Chiller 6.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Confirmation of the availability of the identified sensors at MAIN site for Chiller 6.
+
+#Task3: Prioritize the sensor for monitoring compressor overheating failure based on the available data.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S1, #S2
+#ExpectedOutput3: The prioritized sensor for monitoring compressor overheating failure of Chiller 6.
+
+The plan has 3 steps, which is fewer than 5. 
+
+To execute this plan, the ReAct agent will follow the steps outlined above, using the specified agents and dependencies to solve the problem. 
+
+Let's start! 🚀
+The final answer is: $\boxed{3}$

@@ -1,0 +1,39 @@
+Question: Get sensor data for both Chiller 6 and Chiller 9's Tonnage from first week of June 2020 at MAIN in a single file.
+Plan:
+ 
+We need to output plan lines only. Ensure format: #Task1: ... #Agent1: ... #Dependency1: ... #ExpectedOutput1: ... each on separate lines? The instruction says "Output ONLY lines in this exact format (no extra prose): #TaskN: <one-line> #AgentN: <exact agent name> #DependencyN: None | #S1 #S2 ... (past steps only) #ExpectedOutputN: <one-line>" So each line separate. Provide 3 steps.
+
+Make sure agent name exactly "IoT Data Download". No extra spaces. Dependency format: "None" or "#S1 #S2". Use "#S1 #S2". Provide #ExpectedOutput lines.
+
+Let's craft.
+
+#Task1: Download Chiller 6 TONNAGE sensor data for 2020-06-01 to 2020-06-07 at site MAIN.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file chiller6_tonnage.json with the requested data.  
+
+#Task2: Download Chiller 9 TONNAGE sensor data for 2020-06-01 to 2020-06-07 at site MAIN.  
+#Agent2: IoT Data Download  
+#Dependency2: None  
+#ExpectedOutput2: JSON file chiller9_tonnage.json with the requested data.  
+
+#Task3: Merge chiller6_tonnage.json and chiller9_tonnage.json into a single file.  
+#Agent3: IoT Data Download  
+#Dependency3: #S1 #S2  
+#ExpectedOutput3: Merged JSON file combined_tonnage.json containing both chillers' data.
+
+Make sure each line separate, no extra spaces at end. Provide exactly.
+
+Let's output.
+#Task1: Download Chiller 6 TONNAGE sensor data for 2020-06-01 to 2020-06-07 at site MAIN.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file chiller6_tonnage.json with the requested data.  
+#Task2: Download Chiller 9 TONNAGE sensor data for 2020-06-01 to 2020-06-07 at site MAIN.  
+#Agent2: IoT Data Download  
+#Dependency2: None  
+#ExpectedOutput2: JSON file chiller9_tonnage.json with the requested data.  
+#Task3: Merge chiller6_tonnage.json and chiller9_tonnage.json into a single file.  
+#Agent3: IoT Data Download  
+#Dependency3: #S1 #S2  
+#ExpectedOutput3: Merged JSON file combined_tonnage.json containing both chillers' data.

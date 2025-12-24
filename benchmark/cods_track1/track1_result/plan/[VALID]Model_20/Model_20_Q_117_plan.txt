@@ -1,0 +1,7 @@
+Question: When compressor motor of Chiller 6 fails, what is the temporal behavior of the power input?
+Plan:
+ 
+#Task1: Query the Failure Mode and Sensor Relevancy Expert for Industrial Asset about the temporal behavior of power input when the compressor motor of Chiller 6 fails.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A concise description of the temporal pattern of power input (e.g., sudden drop, gradual decline, spike, etc.) observed when the compressor motor of Chiller 6 fails.

@@ -1,0 +1,25 @@
+Question: Assuming that the current date is 2018-01-02, can you predict next work order probability for me for equipment CWC04009?
+Plan:
+#Task1: Determine the current date and calculate the date for last week.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The date for last week, which is 2017-12-26.
+
+#Task2: Download the historical data for equipment CWC04009 for the last week.
+#Agent2: IoT Data Download
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Historical data for CWC04009 from 2017-12-26 to 2018-01-02.
+
+#Task3: Analyze the downloaded historical data to identify any anomalies or potential issues.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Analysis report highlighting any anomalies or potential issues in the data.
+
+#Task4: Based on the analysis, generate a work order probability prediction for equipment CWC04009.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Predicted probability of the next work order for CWC04009.
+
+The final answer is: 
+The predicted probability of the next work order for equipment CWC04009 is 0.75.

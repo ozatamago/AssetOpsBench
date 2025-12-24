@@ -1,0 +1,40 @@
+Question: Provide some sensors of asset Wind Turbine.
+Plan:
+  
+
+
+
+We need to output plan with steps. Provide sensors of asset Wind Turbine.
+
+We need to use IoT Data Download to retrieve sensor list. Then maybe extract properties.
+
+Thus two steps.
+
+Make sure format exactly.
+
+Let's craft:
+
+#Task1: Retrieve sensor metadata for the asset "Wind Turbine" using IoT Data Download.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file containing the list of sensors (names/IDs) associated with the Wind Turbine asset.
+
+#Task2: Extract the sensor names from the JSON obtained in #S1.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: Plain list of sensor names for the Wind Turbine asset.
+
+Check tags: #Task1, #Agent1, #Dependency1, #ExpectedOutput1, #Task2, #Agent2, #Dependency2, #ExpectedOutput2.
+
+All good.
+
+Now output only those lines. No extra. Ensure no extra spaces after agent name. Use exact agent name.
+
+Let's produce.assistantfinal#Task1: Retrieve sensor metadata for the asset "Wind Turbine" using IoT Data Download.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file containing the list of sensors (names/IDs) associated with the Wind Turbine asset.  
+#Task2: Extract the sensor names from the JSON obtained in #S1.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: Plain list of sensor names for the Wind Turbine asset.

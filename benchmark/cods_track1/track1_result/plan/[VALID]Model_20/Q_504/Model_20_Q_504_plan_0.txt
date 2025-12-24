@@ -1,0 +1,31 @@
+Question: Can you forecast Chiller 6's performance for next week based on the data from 2020-04-27 at the MAIN site?
+Plan:
+We need to forecast Chiller 6's performance for next week based on data from 2020-04-27 at MAIN site. Need to get data: likely sensor data for Chiller 6 at MAIN site for date 2020-04-27. Use IoT Data Download agent to download sensor data for Chiller 6 (asset ID maybe CU02004? Not sure). We need to specify asset ID? Problem says Chiller 6. Use IoT Data Download to download sensor data for Chiller 6 at MAIN site. Then use Time Series Analytics and Forecasting agent to forecast next week performance. Define performance metric? Could be temperature, efficiency. We'll assume we forecast a key metric like "CHILLED WATER LEAVING TEMP". Use Time Series Analytics agent to forecast next 7 days.
+
+Plan steps (<5). Step1: Get list of assets at MAIN site to identify asset ID for Chiller 6. Step2: Download sensor data for Chiller 6 for date 2020-04-27 (maybe multiple sensors). Step3: Use Time Series Analytics agent to forecast next week performance (e.g., temperature) based on downloaded data.
+
+We might need to specify which sensor. Could ask Failure Mode expert for relevant sensor for performance. But we can assume we forecast "CHILLED WATER LEAVING TEMP". Could add step to ask Failure Mode expert for relevant sensor for performance. That's optional.
+
+We have 4 steps max. Let's do 3 steps.
+
+Step1: IoT Data Download - get assets at MAIN site. Step2: IoT Data Download - download sensor data for Chiller 6 at MAIN site for 2020-04-27 (maybe all sensors). Step3: Time Series Analytics - forecast next week performance (e.g., temperature) using the data.
+
+Make dependencies accordingly.
+
+Let's craft plan.assistantfinal**Step #1**  
+#Task1: Identify the asset ID for “Chiller 6” at the MAIN site.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON list of assets at the MAIN site, including the asset ID (e.g., “CU02004”) that corresponds to Chiller 6.  
+
+**Step #2**  
+#Task2: Download the historical sensor data for the identified Chiller 6 asset on 2020‑04‑27 (full‑day data) for the key performance sensor “CHILLED WATER LEAVING TEMP”.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1 (need the asset ID from Step 1)  
+#ExpectedOutput2: JSON file (e.g., `chiller6_20200427_temp.json`) containing timestamped temperature readings for the entire day.  
+
+**Step #3**  
+#Task3: Using the downloaded time‑series data, generate a 7‑day forecast (next week) of the “CHILLED WATER LEAVING TEMP” for Chiller 6. Include confidence intervals and flag any predicted anomalies.  
+#Agent3: Time Series Analytics and Forecasting  
+#Dependency3: #S2 (requires the JSON file from Step 2)  
+#ExpectedOutput3: Forecast report (JSON or CSV) with predicted temperature values for each hour of the next 7 days, confidence bounds, and any detected anomaly flags.

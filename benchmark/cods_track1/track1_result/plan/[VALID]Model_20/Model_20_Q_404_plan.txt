@@ -1,0 +1,19 @@
+Question: Get the events of equipment CWC04009 for year 2019 and provide a summary based on the event group, such as work order event, alerts and anomaly events.
+Plan:
+ 
+We need to ensure plan meets constraints: fewer than 5 steps, correct numbering, each tag appears same count. Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1, then #Task2 etc. Ensure no extra spaces? Format: "#Task1: ..." etc. Ensure #Dependency2: #S1 (space after colon). Should be "#Dependency2: #S1". Good.
+
+Check allowed agents: IoT Data Download is allowed.
+
+Check that tasks are one-line. Yes.
+
+Check that ExpectedOutput lines are one-line.
+
+All good. Provide final answer.assistantfinal#Task1: Download all events for equipment CWC04009 for the year 2019
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file (e.g., CWC04009_2019_events.json) containing the full event list
+#Task2: Summarize the downloaded events by event group (work order, alerts, anomalies)
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Text summary with counts for each event group

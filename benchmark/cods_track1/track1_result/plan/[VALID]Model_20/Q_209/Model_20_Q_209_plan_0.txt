@@ -1,0 +1,8 @@
+Question: Is any model with context length 96 supported in TSFM?
+Plan:
+We need to answer: "Is any model with context length 96 supported in TSFM?" TSFM likely Time Series Foundation Model. Need to check if any model with context length 96 is supported. Use Time Series Analytics and Forecasting agent? It can assist with time series analysis, forecasting, anomaly detection, and model selection, and supports pretrained models, context length specifications, and regression tasks. So we can ask it about supported models with context length 96. So single step: ask TSFA agent. No dependencies. Expected output: answer yes/no and list models.
+
+Thus plan with one step. Ensure format.assistantfinal#Task1: Determine whether any Time Series Foundation Model (TSFM) supports a context length of 96, and if so, list the model(s) that do.
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: A concise response indicating whether any TSFM model supports a context length of 96, and if applicable, the name(s) of the model(s) with that capability.

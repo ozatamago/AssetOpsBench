@@ -1,0 +1,21 @@
+Question: Is LSTM model supported in TSFM?
+Plan:
+#Task1: Determine if LSTM model is supported in TSFM
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: Confirmation of whether LSTM model is supported in TSFM, along with any relevant details or limitations.
+
+#Task2: If LSTM is supported, request an example of how to use LSTM in TSFM for a specific time series forecasting task
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Example code or instructions on how to implement LSTM in TSFM for time series forecasting, including any necessary parameters or configurations.
+
+#Task3: If LSTM is not supported, ask for alternative models or methods that can be used in TSFM for time series forecasting
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S1
+#ExpectedOutput3: List of alternative models or methods supported in TSFM for time series forecasting, along with brief descriptions of their use cases and advantages.
+
+#Task4: Summarize the findings and provide recommendations based on the information gathered
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: #S1, #S2, #S3
+#ExpectedOutput4: Summary of whether LSTM is supported in TSFM, along with recommendations for using LSTM or alternative models for time series forecasting tasks.

@@ -1,0 +1,8 @@
+Question: What IoT sites are available?
+Plan:
+ 
+
+We need to output plan lines exactly as required. Provide #Task1, #Agent1, #Dependency1, #ExpectedOutput1. Ensure no extra spaces? Format: "#Task1: ..." etc. Provide exactly. No extra lines. Let's produce.assistantfinal#Task1: Retrieve the list of all IoT sites that are available.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A JSON array (or plain‑text list) containing the names/identifiers of every IoT site, e.g., ["SiteA","SiteB","SiteX",...]

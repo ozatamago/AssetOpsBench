@@ -1,0 +1,11 @@
+Question: Which corrective work orders for equipment CWC04009 in year 2017 can be bundled in the next maintenance window? A bundle means that several work orders are executed in a short period, say in two weeks.
+Plan:
+ 
+We need to output only the plan lines, no extra text. The plan we have is correct. Ensure no extra blank lines before or after. Provide exactly the lines. Let's output them.assistantanalysisWe need to output only the plan lines, no extra text. Ensure no extra blank lines.assistantfinal#Task1: Retrieve all corrective work orders for equipment CWC04009 created in the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: List of work orders (ID, CreationDate, Description) for CWC04009 in 2017.
+#Task2: From the list in #S1, determine which work orders can be scheduled together within a two‑week maintenance window and output the bundleable set.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: Subset of work order IDs that can be bundled, with suggested grouping dates.

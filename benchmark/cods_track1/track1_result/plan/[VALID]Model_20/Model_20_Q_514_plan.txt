@@ -1,0 +1,23 @@
+Question: Can you detect any anomalies in Chiller 9's Condenser Water Flow in the week of 2020-04-27 at MAIN?
+Plan:
+ 
+assistantanalysisWe need to ensure counts match. We have 3 tasks, each with Agent, Dependency, ExpectedOutput. Use #S1 referencing previous step? In spec they said #Dependency<N>: <use #S1, #S2, ... or None>. So we should reference #S1 etc. For step2 dependency #S1, step3 #S2. That's fine.
+
+Check formatting: each line starts with #Task1: etc. No extra spaces before. Ensure no extra blank lines? Probably okay to have blank line between steps? Might be okay but safer to not have blank lines? The spec didn't forbid blank lines. But to be safe, maybe keep a blank line between steps as they did in example. It's okay.
+
+Make sure agent names exactly match. "IoT Data Download" and "Time Series Analytics and Forecasting". Good.
+
+Return final answer.assistantfinal#Task1: Retrieve the list of assets at site MAIN and identify the asset ID for Chiller 9
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at MAIN with the asset identifier for Chiller 9 (e.g., CU09001)
+
+#Task2: Download sensor data for the identified Chiller 9 asset, sensor “Condenser Water Flow”, for 2020-04-27 to 2020-05-03
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: JSON file (e.g., chiller9_cwf_2020-04-27_2020-05-03.json) containing timestamped flow readings for the week
+
+#Task3: Detect anomalies in the “Condenser Water Flow” time series from the downloaded JSON file
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Anomaly detection report listing timestamps, values, and brief description of each detected anomaly

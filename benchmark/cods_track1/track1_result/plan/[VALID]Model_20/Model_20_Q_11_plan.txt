@@ -1,0 +1,22 @@
+Question: Download all sensor data for Chiller 6 from the last week of April '20 at the MAIN site.
+Plan:
+ 
+#Task1: 
+#Agent1: 
+#Dependency1: 
+#ExpectedOutput1: 
+The user gave a "Repair rules" instruction. They want us to output only lines in exact format, no extra prose. They gave a template with placeholders. We need to fill in with our plan.
+
+We previously gave a plan with #Task1 etc. Need to output exactly:
+
+#Task1: Download all sensor data for Chiller 6 at the MAIN site covering the last week of April 2020 (2020‑04‑24 00:00:00 to 2020‑04‑30 23:59:59)
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON file (e.g., `chiller6_main_20200424_20200430.json`) containing the complete time‑stamped sensor readings for Chiller 6 across the specified date range.
+
+Make sure no extra spaces at line ends? It's fine.
+
+Let's output exactly those four lines. No extra blank lines.assistantfinal>#Task1: Download all sensor data for Chiller 6 at the MAIN site covering the last week of April 2020 (2020‑04‑24 00:00:00 to 2020‑04‑30 23:59:59)  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A JSON file (e.g., `chiller6_main_20200424_20200430.json`) containing the complete time‑stamped sensor readings for Chiller 6 across the specified date range.

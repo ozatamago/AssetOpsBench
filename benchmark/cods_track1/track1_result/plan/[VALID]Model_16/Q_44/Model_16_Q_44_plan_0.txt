@@ -1,0 +1,23 @@
+Question: Can I list all the metrics monitored by CQPA AHU 2B? use site MAIN
+Plan:
+#Task1: List all assets at site MAIN
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at site MAIN
+
+#Task2: Identify if CQPA AHU 2B is an asset at site MAIN
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Confirmation if CQPA AHU 2B is an asset at site MAIN
+
+#Task3: Retrieve the list of metrics monitored by CQPA AHU 2B
+#Agent3: IoT Data Download
+#Dependency3: #S1, #S2
+#ExpectedOutput3: List of metrics monitored by CQPA AHU 2B
+
+The plan is as follows:
+1. List all assets at site MAIN.
+2. Check if CQPA AHU 2B is among the assets listed.
+3. If CQPA AHU 2B is an asset, retrieve the metrics monitored by it.
+
+Let's proceed with the plan.

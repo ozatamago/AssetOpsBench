@@ -1,0 +1,21 @@
+Question: Since we know 80% of alerts are likely spurious, can you identify the meaningful 20% for further analysis for any chillers?
+Plan:
+#Task1: Identify meaningful alerts for further analysis
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: List of meaningful alerts for further analysis
+
+#Task2: Analyze the meaningful alerts
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: Failure modes and relevant sensors for the identified alerts
+
+#Task3: Forecast the behavior of the identified alerts
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Forecasted behavior of the identified alerts
+
+#Task4: Generate a work order for the identified alerts
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Work order for the identified alerts

@@ -1,0 +1,25 @@
+Question: Is there any anomaly detected in Chiller 9's Condenser Water Flow in the week of 2020-04-27 at MAIN?
+Plan:
+ 
+We need to ensure format: each step includes #Task<N>, #Agent<N>, #Dependency<N>, #ExpectedOutput<N>. Must be fewer than 5 steps. Already 3 steps. Need to ensure dependencies reference #S1 etc? In description they used #S1 placeholder. In plan we used #S1, #S2. Should be #S1 referencing step1 output. That's okay. Ensure #Dependency2: #S1 (space after colon). Already done. #Dependency3: #S2. Good.
+
+Check counts: we have 3 tasks, 3 agents, 3 dependencies, 3 expected outputs. Good.
+
+Make sure no extra spaces at line start. Ensure each line starts with #Task1: etc. Already.
+
+Check that #ExpectedOutput lines are one line, no line breaks. Good.
+
+Return final answer.assistantfinalassistantfinal#Task1: Retrieve the list of assets at site MAIN to identify Chiller 9’s asset ID
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON list of assets at MAIN including the identifier for Chiller 9
+
+#Task2: Download Condenser Water Flow sensor data for the identified Chiller 9 asset for 2020‑04‑27 to 2020‑05‑03
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: JSON file (e.g., chiller9_cwf_20200427_20200503.json) with timestamped flow readings for that week
+
+#Task3: Analyze the downloaded time‑series to detect any anomalies in Chiller 9’s Condenser Water Flow during the week
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Report stating whether an anomaly was detected, including any anomaly timestamps or severity details

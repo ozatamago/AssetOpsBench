@@ -1,0 +1,7 @@
+Question: I would like to retrieve the preventive work order details for the equipment labeled as CWC04013 for the year 2017.
+Plan:
+ 
+We need to output plan with #Task1 etc. Already done. Ensure no extra spaces after colon? It's okay. Ensure #Dependency1: None exactly. Ensure #ExpectedOutput1: one line. Good. No extra lines.assistantfinalassistantfinalassistantfinal#Task1: Retrieve the preventive work order details for equipment CWC04013 for the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: A JSON list of all preventive work orders for CWC04013 in 2017, each with work order ID, creation date, scheduled date, description, status, and notes.

@@ -1,0 +1,7 @@
+Question: I would like to retrieve the preventive work order details for the equipment labeled as CWC04013 for the year 2017.
+Plan:
+ 
+The user gave a plan with #Task1 etc. Need to ensure format correct: no extra spaces after colon? The spec: "#TaskN: <one-line>" okay. Ensure no double spaces. Also ensure agent name exactly "WorkOrder Agent". No trailing spaces. Ensure ExpectedOutput one line. Provide as final answer.assistantfinal#Task1: Retrieve the preventive work order details for equipment CWC04013 for the year 2017.  
+#Agent1: WorkOrder Agent  
+#Dependency1: None  
+#ExpectedOutput1: A JSON list of all preventive work orders for CWC04013 in 2017, each with work order ID, creation date, scheduled date, description, status, and notes.

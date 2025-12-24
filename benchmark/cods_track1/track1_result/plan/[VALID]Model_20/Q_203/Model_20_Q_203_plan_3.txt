@@ -1,0 +1,7 @@
+Question: Are any time series forecasting models supported?
+Plan:
+ 
+We need to output plan lines only. Already done. Ensure no extra spaces? It's fine. Ensure #ExpectedOutput1 one line. Good.assistantfinal#Task1: Ask the Time Series Analytics and Forecasting agent to list the time‑series forecasting models it supports and confirm forecasting capability.  
+#Agent1: Time Series Analytics and Forecasting  
+#Dependency1: None  
+#ExpectedOutput1: A response indicating which forecasting models are supported (e.g., ARIMA, Prophet, LSTM, pretrained models) or confirming that forecasting models are supported.

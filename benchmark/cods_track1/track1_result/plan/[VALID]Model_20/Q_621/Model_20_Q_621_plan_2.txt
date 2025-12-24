@@ -1,0 +1,17 @@
+Question: Can you check if there are any anomalies for chiller tonnage, and do you think I should create a work order after reviewing the anomalies?
+Plan:
+ 
+We need to output plan exactly as per format. Ensure each line starts with #TaskN: etc. No extra spaces at start. Use #DependencyN: None or #S1 etc. For multiple dependencies separate by space? The spec says "#DependencyN: None | #S1 #S2 ...". So we can use "#Dependency2: #S1". Good.
+
+Make sure each line is separate. No blank lines? Probably okay to have line breaks. Provide exactly 12 lines (4 per step). Let's output.assistantfinal_outputassistantfinal_output#Task1: Download sensor data for the chiller (e.g., Chiller 6) to obtain time‑series values for chiller tonnage.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file (e.g., chiller_tonnage.json) containing timestamped chiller tonnage measurements.
+#Task2: Analyze the downloaded time‑series data for anomalies in chiller tonnage.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly detection report indicating any abnormal tonnage values or periods, with severity assessment.
+#Task3: If anomalies are reported, generate a work order to investigate the chiller tonnage issue; otherwise, state that no work order is required.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Work order ID and description for tonnage anomaly investigation, or a statement that no work order is needed.

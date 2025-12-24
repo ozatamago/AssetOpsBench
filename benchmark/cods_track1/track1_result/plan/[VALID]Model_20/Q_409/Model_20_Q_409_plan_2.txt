@@ -1,0 +1,68 @@
+Question: Get the daily count of alert, anomaly and work order event for the May 2020 for equipment CWC04009.
+Plan:
+ 
+We need to correct plan to meet constraints: tasks numbered sequentially 1..N. Must have matching counts. Agents must be exact names without extra spaces. Also need fewer than 5 steps (original has 4, okay). Ensure dependencies use #S1 etc? In spec earlier they used #S1 but in format they said #Dependency<N>: <use #S1, #S2, ... or None>. So we should reference step numbers as #S1 etc. Provide plan with 4 steps.
+
+Check each step: #Task1: Download sensor data for equipment CWC04009 for May 2020. Agent IoT Data Download. Dependency None. Expected output JSON file.
+
+But IoT Data Download tasks list includes "download sensor data for CU02004 at SiteX" and "download asset history for CU02004 at SiteX from ...". Not generic. However we can assume it can download sensor data for equipment CWC04009 for date range. We'll phrase as "download sensor data for CWC04009 for May 2020". Acceptable.
+
+Step2: Extract alerts count. Could be done by IoT Data Download? It can "How do I get a list of properties from a JSON file" etc. Not exactly. But we could use same agent to process JSON? Might be okay. Or we could use Time Series Analytics for anomaly detection only. For alert count extraction maybe we can still use IoT Data Download (since it's data handling). Accept.
+
+Step3: Perform anomaly detection using Time Series Analytics.
+
+Step4: Retrieve work order events using WorkOrder Agent.
+
+All good.
+
+Make sure dependencies: Step2 depends on #S1. Step3 depends on #S1. Step4 none.
+
+Now produce final plan lines.
+
+Check formatting: each line starts with #Task<N>: ... #Agent<N>: ... #Dependency<N>: ... #ExpectedOutput<N>: ...
+
+No extra spaces after agent names.
+
+Let's craft.
+
+#Task1: Download sensor data for equipment CWC04009 for May 2020  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file cwc04009_may2020.json containing timestamped sensor readings and alert flags  
+
+#Task2: Extract alert flags from cwc04009_may2020.json and compute daily alert counts for May 2020  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: CSV file alert_counts_may2020.csv with columns date, alert_count  
+
+#Task3: Run anomaly detection on cwc04009_may2020.json to obtain daily anomaly counts for May 2020  
+#Agent3: Time Series Analytics and Forecasting  
+#Dependency3: #S1  
+#ExpectedOutput3: CSV file anomaly_counts_may2020.csv with columns date, anomaly_count  
+
+#Task4: Retrieve work order events for equipment CWC04009 in May 2020 and compute daily work order counts  
+#Agent4: WorkOrder Agent  
+#Dependency4: None  
+#ExpectedOutput4: CSV file workorder_counts_may2020.csv with columns date, workorder_count
+
+Check agent names exactly: "IoT Data Download", "Time Series Analytics and Forecasting", "WorkOrder Agent". Good.
+
+Now output only these lines. No extra blank lines? Probably okay to have line breaks between steps. Provide as plain text.assistantfinal#Task1: Download sensor data for equipment CWC04009 for May 2020
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file cwc04009_may2020.json containing timestamped sensor readings and alert flags
+
+#Task2: Extract alert flags from cwc04009_may2020.json and compute daily alert counts for May 2020
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: CSV file alert_counts_may2020.csv with columns date, alert_count
+
+#Task3: Run anomaly detection on cwc04009_may2020.json to obtain daily anomaly counts for May 2020
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S1
+#ExpectedOutput3: CSV file anomaly_counts_may2020.csv with columns date, anomaly_count
+
+#Task4: Retrieve work order events for equipment CWC04009 in May 2020 and compute daily work order counts
+#Agent4: WorkOrder Agent
+#Dependency4: None
+#ExpectedOutput4: CSV file workorder_counts_may2020.csv with columns date, workorder_count

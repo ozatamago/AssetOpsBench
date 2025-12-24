@@ -1,0 +1,9 @@
+Question: Is LSTM model supported in TSFM?
+Plan:
+ 
+We have to output only lines in exact format. No extra. So we output the plan. Ensure each line starts with #Task1 etc. No extra spaces? The format: "#Task<N>: <Describe your task here>" etc. Provide exactly.
+
+Thus final answer: four lines.assistantfinal#Task1: Ask the Time Series Analytics and Forecasting agent whether the LSTM model is supported in the TSFM framework.
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: A clear answer indicating if LSTM is supported in TSFM, with any relevant details.

@@ -1,0 +1,21 @@
+Question: Using your knowledge of the industrial asset, can you suggest me a work order for alert RUL0014 with the context of 'Chiller - Cooling Substance Delta T Low' for closed-loop water-cool chiller its load is higher than the upper bound?
+Plan:
+#Task1: Retrieve relevant sensor data for the chiller associated with alert RUL0014
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file containing historical sensor data for the chiller, including "CHILLED WATER LEAVING TEMP" and "CHILLED WATER RETURN TEMP"
+
+#Task2: Analyze the sensor data to identify anomalies or patterns related to the "Cooling Substance Delta T Low" alert
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Analysis report highlighting anomalies, trends, or specific time periods where the cooling substance delta T was abnormally low
+
+#Task3: Determine the most likely failure mode based on the analysis and the context of the alert
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S2
+#ExpectedOutput3: Identification of the most probable failure mode (e.g., low refrigerant charge, fouling, sensor failure) and relevant sensors for monitoring
+
+#Task4: Generate a work order based on the identified failure mode and analysis
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Work order detailing the recommended corrective actions, prioritization, and any additional diagnostic steps needed to address the "Cooling Substance Delta T Low" alert for the chiller

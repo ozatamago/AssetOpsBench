@@ -1,0 +1,16 @@
+Question: what was the return temperature from CQPA AHU 2B on sept 19, 2020 at 7pm, at site MAIN? return data in a file
+Plan:
+ 
+We need to ensure format: #Task1, #Agent1, #Dependency1, #ExpectedOutput1, then #Task2 etc. No extra lines beyond those. Also ensure no extra spaces at start. Also ensure #Dependency uses #S1? Actually earlier spec: Dependency uses #S1, #S2 referencing steps? In example they used #S1. Should we use #S1? The spec says "#Dependency<N>: <use #S1, #S2, ... or None>". So we should reference step numbers as #S1 etc. So for step2 dependency on step1, use #S1. Let's adjust.
+
+Also ensure ExpectedOutput one line. Provide file name.
+
+Let's produce final.assistantfinalassistantfinalassistantfinal#Task1: Retrieve the list of assets at site MAIN to confirm the exact asset identifier for CQPA AHU 2B.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON array of assets at site MAIN including the entry for CQPA AHU 2B.
+
+#Task2: Download sensor data for the identified asset CQPA AHU 2B at site MAIN for sensor "RETURN TEMP" covering 2020-09-19T19:00:00 to 2020-09-19T19:05:00 and save to file return_temp_20200919_19.json.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: JSON file return_temp_20200919_19.json containing timestamped return temperature values for the specified interval.

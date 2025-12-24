@@ -1,0 +1,21 @@
+Question: Could you identify any causal linkages between anomalies across KPIs to better understand the severity and interconnectedness?
+Plan:
+#Task1: Retrieve historical sensor data for relevant assets and KPIs
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON files containing historical sensor data for specified assets and KPIs
+
+#Task2: Analyze the time-series data for anomalies in the specified KPIs
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Report identifying anomalies in the KPIs and their timestamps
+
+#Task3: Identify potential failure modes and relevant sensors for the assets showing anomalies
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S1, #S2
+#ExpectedOutput3: List of potential failure modes and relevant sensors for the assets with anomalies
+
+#Task4: Generate work orders for preventive or corrective actions based on the identified anomalies and failure modes
+#Agent4: WorkOrder Agent
+#Dependency4: #S2, #S3
+#ExpectedOutput4: Work orders for addressing the identified anomalies and potential failures

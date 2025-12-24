@@ -1,0 +1,8 @@
+Question: what was the supply temperature from CQPA AHU 2B on sept 19, 2020 at quarter to midnight, at site MAIN? return in a file
+Plan:
+#Task1: Retrieve the supply temperature data for CQPA AHU 2B at Site MAIN on Sept 19, 2020, at 23:45.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A file containing the supply temperature data for CQPA AHU 2B at Site MAIN on Sept 19, 2020, at 23:45.
+
+The plan is complete. Let's execute it.

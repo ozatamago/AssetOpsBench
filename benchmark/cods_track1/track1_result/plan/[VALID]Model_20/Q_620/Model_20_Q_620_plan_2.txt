@@ -1,0 +1,22 @@
+Question: I want to build an anomaly model for identifying a chiller trip failure for MAIN chiller 6. Provide me a list of sensors that I should use, along with the temporal behavior,
+Plan:
+ 
+The user wants a plan to solve the problem: "I want to build an anomaly model for identifying a chiller trip failure for MAIN chiller 6. Provide me a list of sensors that I should use, along with the temporal behavior". The validator flagged that the original plan used an unknown agent name "Failure Mode and Sensor Relevancy Expert for Industrial Asset  " (extra spaces). The allowed agent name is exactly "Failure Mode and Sensor Relevancy Expert for Industrial Asset". So we need to produce a corrected plan with proper agent name.
+
+We need fewer than 5 steps. The plan can be just one step: ask the Failure Mode and Sensor Relevancy Expert for Industrial Asset to provide list of sensors and temporal behavior. That matches the problem.
+
+We must output in the required format: #Task1: ..., #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset, #Dependency1: None, #ExpectedOutput1: ...
+
+Make sure no extra spaces in agent name. Provide concise expected output.
+
+Let's craft.
+
+#Task1: Provide a list of sensors to monitor a chiller‑trip failure for MAIN Chiller 6 and describe their temporal behavior during the trip event.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: List of relevant sensor names (e.g., power input, compressor discharge temperature, suction pressure, flow rate) and a brief description of each sensor’s expected temporal pattern (e.g., sudden power drop, rapid temperature rise, pressure collapse, duration of transient) that characterize a chiller‑trip failure.
+
+Make sure each line is separate, no extra spaces at end. Provide exactly as required. No markdown. Let's output.assistantfinal#Task1: Provide a list of sensors to monitor a chiller‑trip failure for MAIN Chiller 6 and describe their temporal behavior during the trip event.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: List of relevant sensor names (e.g., power input, compressor discharge temperature, suction pressure, flow rate) and a brief description of each sensor’s expected temporal pattern (e.g., sudden power drop, rapid temperature rise, pressure collapse, duration of transient) that characterize a chiller‑trip failure.

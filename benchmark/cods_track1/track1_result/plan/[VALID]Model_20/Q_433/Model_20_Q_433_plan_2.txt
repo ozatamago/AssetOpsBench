@@ -1,0 +1,19 @@
+Question: We are building an early detection system for a potential failure condenser Water side fouling for Chiller 9. Monitor Chiller 9 at main site site from 2020-04-20T12:30:00 to 2020-05-12T19:30:00, identify anomalous behaviors and provide a work order recomendation.
+Plan:
+ 
+We need to output plan lines exactly as format. The previous answer already matches. Need to ensure no extra spaces at line ends, and no extra blank lines. Also ensure each line starts with #Task1 etc. The spec says "Output ONLY lines in this exact format (no extra prose)". So we must output only the plan lines, no extra text. The previous answer includes a blank line at start? It starts with "#Task1: ..." That's fine. Ensure no extra blank line at end. Provide exactly 16 lines. Let's produce final answer.assistantfinal#Task1: Retrieve the list of assets at main site to identify the asset ID for Chiller 9.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON list of assets at main site, including Chiller 9 and its asset ID.  
+#Task2: Download historical sensor data for the identified Chiller 9 asset from 2020‑04‑20T12:30:00 to 2020‑05‑12T19:30:00 for condenser water sensors.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: JSON file (e.g., chiller9_condenser_data.json) with timestamped readings for the requested sensors.  
+#Task3: Perform time‑series anomaly detection on the downloaded data to flag abnormal patterns indicative of condenser‑water fouling.  
+#Agent3: Time Series Analytics and Forecasting  
+#Dependency3: #S2  
+#ExpectedOutput3: Anomaly‑detection report listing timestamps, severity, and interpretation of potential fouling.  
+#Task4: Generate a preventive‑maintenance work order for Chiller 9 recommending inspection/cleaning of the condenser water circuit based on the anomaly report.  
+#Agent4: WorkOrder Agent  
+#Dependency4: #S3  
+#ExpectedOutput4: Work‑order document (e.g., WO‑XXXXX) with description, priority, assigned technician, and suggested actions.

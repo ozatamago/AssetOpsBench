@@ -1,0 +1,20 @@
+Question: Finetune a forecasting model for 'Chiller 9 Condenser Water Flow' using data in 'chiller9_finetuning_small.csv' with 'Timestamp' as a timestamp.
+Plan:
+ 
+#Task1: 
+#Agent1: 
+#Dependency1: 
+#ExpectedOutput1: 
+ 
+
+(If you need to add a step, increment N and repeat the four tags.) 
+(If you need to add a dependency, reference a prior step with #S<N>.) 
+(If you need to add a new agent, use the exact name from the list above.) 
+(If you need to add a new expected output, be concise and specific.) 
+(If you need to add a new dependency, use the exact format #S<N>.) 
+(If you need to add a new step, increment N and repeat the four tags.) 
+(If you need to add a new step, increment N and repeat the four tags.) 
+(If you need to add a new step, increment N and repeat the four tags.) 
+(If you need to add a new step, increment N and repeat the four tags.) 
+(If you need to add a new step, increment N 
+```

@@ -1,0 +1,21 @@
+Question: Find a model for energy forecasting.
+Plan:
+#Task1: Identify the relevant sensors for energy forecasting.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of relevant sensors for energy forecasting.
+
+#Task2: Download the sensor data for the relevant sensors.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: A JSON file containing the sensor data for the relevant sensors.
+
+#Task3: Analyze the sensor data to identify patterns and anomalies.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: A report identifying patterns and anomalies in the sensor data.
+
+#Task4: Generate a model for energy forecasting based on the analysis.
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: #S3
+#ExpectedOutput4: A model for energy forecasting.

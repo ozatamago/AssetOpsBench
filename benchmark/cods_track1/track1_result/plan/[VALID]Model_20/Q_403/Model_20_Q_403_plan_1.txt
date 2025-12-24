@@ -1,0 +1,11 @@
+Question: I would like to retrieve the corrective work order details for the equipment labeled as CWC04013 for the year 2017.
+Plan:
+ 
+
+
+
+
+#Task1: Retrieve corrective work order details for equipment CWC04013 for the year 2017.  
+#Agent1: WorkOrder Agent  
+#Dependency1: None  
+#ExpectedOutput1: A structured response (e.g., JSON or table) listing all corrective work orders associated with equipment CWC04013 that were created or active in 2017, including work order ID, description, creation date, status, corrective actions taken, and any relevant notes.

@@ -1,0 +1,17 @@
+Question: Retrieve sensor data for Chiller 6's % Loaded from June 2020 at MAIN.
+Plan:
+ 
+We need to ensure format: #Task1: ... #Agent1: ... #Dependency1: ... #ExpectedOutput1: ... then #Task2 etc. No extra spaces? Should be fine. Ensure agent names exactly as allowed. Use "IoT Data Download". Dependencies: #S1 etc. Use #S1 referencing step1. Good. Provide plan.assistantfinal#Task1: Retrieve the list of available sites to confirm that the site named MAIN exists.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON list of site names including "MAIN".  
+
+#Task2: Retrieve the list of assets at site MAIN to identify the asset identifier for Chiller 6.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: JSON list of assets at MAIN with Chiller 6’s asset ID.  
+
+#Task3: Download historical data for the "% Loaded" sensor of Chiller 6 at site MAIN for June 2020.  
+#Agent3: IoT Data Download  
+#Dependency3: #S2  
+#ExpectedOutput3: JSON file containing timestamps and % Loaded values from 2020-06-01 to 2020-06-30.

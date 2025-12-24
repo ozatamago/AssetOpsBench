@@ -1,0 +1,21 @@
+Question: List all sensors of Chiller 6 at MAIN site that are potentially relevant to Compressor Overheating.
+Plan:
+ 
+We need to ensure minimal changes. The original plan had 3 steps, but we need to check if any step is redundant. The problem: "List all sensors of Chiller 6 at MAIN site that are potentially relevant to Compressor Overheating."
+
+We need to get sensors relevant to compressor overheating. We might not need to download sensor data; just need list of sensors relevant. The Failure Mode and Sensor Relevancy Expert can provide relevant sensors given asset name. It may not need asset ID. However we need to ensure we refer to Chiller 6 at MAIN site. The expert likely knows asset name "Chiller 6". So step 1 to retrieve asset ID may be unnecessary. We can directly ask expert: "What are the relevant sensors for compressor overheating for Chiller 6 at MAIN site?" The expert can answer. So we can reduce to single step.
+
+Thus minimal plan: one step.
+
+#Task1: List all sensors of Chiller 6 at the MAIN site that are potentially relevant to compressor overheating.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of sensor names relevant to compressor overheating for Chiller 6 at the MAIN site
+
+Check format: correct.
+
+Let's output that.
+#Task1: List all sensors of Chiller 6 at the MAIN site that are potentially relevant to compressor overheating
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of sensor names relevant to compressor overheating for Chiller 6 at the MAIN site

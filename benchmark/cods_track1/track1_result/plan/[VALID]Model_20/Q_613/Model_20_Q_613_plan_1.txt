@@ -1,0 +1,40 @@
+Question: Generate an anomaly detection recipe for detecting compressor motor failure for Chiller 6 at MAIN site.
+Plan:
+ 
+The user gave a set of repair rules. They want the output to be only lines in exact format, no extra prose, no markdown. The plan must have #TaskN, #AgentN, #DependencyN, #ExpectedOutputN lines for each step. Must be sequential N=1..K. Must match counts. Must not include any extra lines. Must not include any explanation. Must not include markdown. Must not include any extra text.
+
+We need to produce the plan we drafted, but ensure format exactly: each step includes four lines: #TaskN: <one-line>, #AgentN: <exact agent name>, #DependencyN: None or #S1 #S2..., #ExpectedOutputN: <one-line>. No blank lines? The example includes blank lines between steps. The rule says "Output ONLY lines in this exact format (no extra prose): #TaskN: <one-line> #AgentN: <exact agent name> #DependencyN: None | #S1 #S2 ... (past steps only) #ExpectedOutputN: <one-line>". It doesn't forbid blank lines between steps, but they might be considered extra lines. Safer to not include blank lines. Provide continuous lines.
+
+We need to ensure #DependencyN uses #S1 etc. The steps we have: #Task1, #Agent1, #Dependency1: None, #ExpectedOutput1. #Task2 depends on #S1. So #Dependency2: #S1. #Task3 depends on #S2. So #Dependency3: #S2.
+
+Make sure each line is one line. Provide concise one-line descriptions.
+
+Let's craft:
+
+#Task1: Identify sensors relevant for detecting compressor motor failure of Chiller 6 at the MAIN site.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: List of sensor names (e.g., Power Input, Motor Vibration, Motor Current, Discharge Temperature) linked to compressor‑motor‑failure detection.
+
+But the ExpectedOutput must be one line, but can be long. It's okay.
+
+Similarly for Task2: "Download historical time‑series data for the sensors returned in #S1 for Chiller 6 at the MAIN site covering the last 30 days." #Agent2: IoT Data Download. #Dependency2: #S1. #ExpectedOutput2: JSON file(s) with timestamped readings for each identified sensor over the requested period.
+
+Task3: "Analyze the downloaded sensor data and generate a complete anomaly‑detection recipe for compressor‑motor‑failure." #Agent3: Time Series Analytics and Forecasting. #Dependency3: #S2. #ExpectedOutput3: Detailed anomaly‑detection recipe (pre‑processing steps, model type, hyper‑parameters, threshold method, mapping to failure alert).
+
+Make sure no extra spaces at start. Use exactly "#Task1:" etc.
+
+Let's produce final output with no blank lines. Ensure each line ends with newline. Provide exactly 12 lines (4 per step). No extra lines.
+
+Proceed.assistantfinal#Task1: Identify sensors relevant for detecting compressor motor failure of Chiller 6 at the MAIN site.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: List of sensor names (e.g., Power Input, Motor Vibration, Motor Current, Discharge Temperature) linked to compressor‑motor‑failure detection.  
+#Task2: Download historical time‑series data for the sensors returned in #S1 for Chiller 6 at the MAIN site covering the last 30 days.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: JSON file(s) with timestamped readings for each identified sensor over the requested period.  
+#Task3: Analyze the downloaded sensor data and generate a complete anomaly‑detection recipe for compressor‑motor‑failure.  
+#Agent3: Time Series Analytics and Forecasting  
+#Dependency3: #S2  
+#ExpectedOutput3: Detailed anomaly‑detection recipe (pre‑processing steps, model type, hyper‑parameters, threshold method, and mapping to a compressor‑motor‑failure alert).

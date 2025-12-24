@@ -1,0 +1,21 @@
+Question: List all failure modes of asset Chiller.
+Plan:
+#Task1: List all failure modes of asset Chiller
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of all failure modes of asset Chiller
+
+#Task2: List all failure modes of Chiller that can be detected by Chiller Efficiency
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: None
+#ExpectedOutput2: A list of all failure modes of Chiller that can be detected by Chiller Efficiency
+
+#Task3: Identify relevant sensors for monitoring specific failure modes of Chiller
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S1, #S2
+#ExpectedOutput3: A list of relevant sensors for monitoring specific failure modes of Chiller
+
+#Task4: Analyze time-series data for anomalies in Chiller Return Temperature
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: None
+#ExpectedOutput4: Analysis of time-series data for anomalies in Chiller Return Temperature

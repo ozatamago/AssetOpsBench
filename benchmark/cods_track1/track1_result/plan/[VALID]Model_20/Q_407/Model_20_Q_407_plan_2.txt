@@ -1,0 +1,13 @@
+Question: Get the daily count of the events of alert, anomaly for 2021 for equipment CWC04009.
+Plan:
+ 
+We need to output only the plan lines, no extra text. The plan currently includes a "Repair rules:" block and other text. Must remove that. Only output the 8 lines. Ensure no extra spaces at line ends. Also ensure #ExpectedOutput lines are one line, no line breaks. Provide concise description.
+
+Let's produce final answer with exactly those 8 lines.assistantfinalassistantfinal#Task1: Download all sensor readings for equipment CWC04009 covering the full year 2021 (2021-01-01 to 2021-12-31).  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file CWC04009_2021_sensor_data.json with timestamped sensor values for the year.  
+#Task2: Analyze the JSON from #S1 to identify every alert and anomaly event and aggregate a daily count (date → alert_count, anomaly_count) for 2021.  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: JSON or table CWC04009_2021_daily_event_counts.json listing each date with alert and anomaly counts.

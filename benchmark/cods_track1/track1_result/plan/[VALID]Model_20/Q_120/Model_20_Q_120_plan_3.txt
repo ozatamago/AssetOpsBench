@@ -1,0 +1,7 @@
+Question: I want to build an anomaly model for identifying a chiller trip failure for POKMAIN chiller 6. Provide me a list of sensors that I should use, along with the temporal behavior,
+Plan:
+ 
+assistantanalysisWe need to ensure format exactly. No extra spaces at line start? Should start with #Task1: . Provide one line each. Ensure no extra blank lines. Provide exactly four lines. Let's output.assistantfinal #Task1: Identify the sensors needed to detect a chiller‑trip failure for POKMAIN Chiller 6 and describe their temporal behavior during such an event.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: List of relevant sensors (e.g., compressor power, suction pressure, discharge pressure, evaporator/condensor temperatures, flow rates) and a brief description of each sensor’s typical time‑series pattern (e.g., rapid drop, spike, duration) when a chiller‑trip occurs.

@@ -1,0 +1,41 @@
+Question: How can I analyze anomalies across multiple KPIs to better diagnose the root cause of these issues?
+Plan:
+"
+
+We need to produce final plan with correct numbering and no extra spaces. Ensure agent names exactly match allowed list. Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1, etc. Use #S1 for dependency referencing step numbers? The format says "#Dependency<N>: <use #S1, #S2, ... or None>". So we need to refer to previous steps using #S1 etc. So for step 2, dependency is #S1. For step 3, dependency is #S2. For step 4, dependency is #S3.
+
+Make sure each line is exactly as required, no extra spaces at end. Provide one line per tag.
+
+Let's craft.
+
+Step 1: download asset history. Use IoT Data Download. Task description: "Download asset history for CU02004 at SiteX from last week (e.g., 2023-09-18T00:00:00-04:00 to 2023-09-25T00:00:00-04:00) for the KPIs 'CHILLED WATER LEAVING TEMP' and 'CHILLED WATER RETURN TEMP'." That's fine.
+
+Expected output: "JSON file cu02004_lastweek.json containing timestamps and values for the two KPIs."
+
+Step 2: Analyze anomalies. Use Time Series Analytics. Task: "Analyze cu02004_lastweek.json and detect anomalies in both KPIs." Expected output: "Anomalies report anomalies.json listing timestamp, KPI, and anomaly flag."
+
+Step 3: Identify failure modes. Use Failure Mode and Sensor Relevancy Expert. Task: "Based on the anomalies in 'CHILLED WATER LEAVING TEMP' and 'CHILLED WATER RETURN TEMP', list plausible failure modes and the most relevant sensor for each." Expected output: "Diagnostic summary mapping each anomaly to possible failure modes (e.g., loose wiring, compressor overheating)."
+
+Step 4: Create work order. Use WorkOrder Agent. Task: "Create a corrective work order to investigate the most likely failure mode identified." Expected output: "Work order WO-XXXXX with description and recommended actions."
+
+Make sure each line is one line.
+
+Now produce final answer.assistantfinal#Task1: Download asset history for CU02004 at SiteX from the last week for "CHILLED WATER LEAVING TEMP" and "CHILLED WATER RETURN TEMP"
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file cu02004_lastweek.json containing timestamps and values for the two KPIs
+
+#Task2: Detect anomalies in both KPIs using the downloaded time‑series data
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomalies report anomalies.json listing timestamp, KPI name, and anomaly severity
+
+#Task3: Identify plausible failure modes that could explain the detected anomalies and the most relevant sensor for each
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S2
+#ExpectedOutput3: Diagnostic summary mapping each anomaly to one or more likely failure modes (e.g., loose wiring, compressor overheating)
+
+#Task4: Create a corrective work order to investigate the most likely failure mode identified
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Work order WO-XXXXX with description of the issue and recommended inspection actions

@@ -1,0 +1,13 @@
+Question: When power input of Chiller 6 at MAIN site drops, what is the potential failure that causes it?
+Plan:
+ 
+We need to output plan with steps less than 5. The problem: "When power input of Chiller 6 at MAIN site drops, what is the potential failure that causes it?" This is a direct query to Failure Mode and Sensor Relevancy Expert. So one step is enough.
+
+We must ensure format: #Task1: ... #Agent1: ... #Dependency1: None #ExpectedOutput1: ...
+
+No extra spaces at start of lines. Ensure each line ends with newline. No markdown. Provide exactly four lines.
+
+Let's produce.assistantfinalassistantfinalassistantfinal#Task1: Identify the potential failure that causes a drop in power input of Chiller 6 at the MAIN site.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A concise description of the most likely failure mode (e.g., compressor failure, loose wiring, etc.) that would result in a power‑input drop for Chiller 6 at the MAIN site.

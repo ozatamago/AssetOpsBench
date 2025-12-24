@@ -1,0 +1,20 @@
+Question: When the Liquid Refrigerant Evaporator Temperature of Chiller 6 drops, what failure is most likely to occur?
+Plan:
+We need to answer: When the Liquid Refrigerant Evaporator Temperature of Chiller 6 drops, what failure is most likely to occur? We need to use agents. Likely need to map sensor (Liquid Refrigerant Evaporator Temperature) to failure modes. Use Failure Mode and Sensor Relevancy Expert for Industrial Asset. It can answer: "When power input of Chiller 6 drops, what is the potential failure that causes it?" That's similar but not exactly. It can list failure modes, mapping sensors to failures. So we can ask: "When the Liquid Refrigerant Evaporator Temperature of Chiller 6 drops, what failure is most likely to occur?" That's a mapping question. Use Failure Mode and Sensor Relevancy Expert.
+
+Thus single step: ask that agent. No dependencies. Expected output: description of likely failure (e.g., low refrigerant charge, evaporator fouling, sensor fault). Provide answer.
+
+Plan with <5 steps, just one.
+
+Let's format.
+
+#Task1: Query the Failure Mode and Sensor Relevancy Expert for Industrial Asset to identify the most likely failure mode associated with a drop in the Liquid Refrigerant Evaporator Temperature of Chiller 6.
+
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+
+#Dependency1: None
+
+#ExpectedOutput1: A concise answer naming the most probable failure (e.g., low refrigerant charge, evaporator fouling, sensor malfunction) and a brief rationale linking the temperature drop to that failure.assistantanalysisWe need to ensure the plan meets constraints: fewer than 5 steps, includes Task, Agent, Dependency, ExpectedOutput. Yes. Provide final answer.assistantfinal#Task1: Query the Failure Mode and Sensor Relevancy Expert for Industrial Asset to identify the most likely failure mode associated with a drop in the Liquid Refrigerant Evaporator Temperature of Chiller 6.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A concise answer naming the most probable failure (e.g., low refrigerant charge, evaporator fouling, sensor malfunction) and a brief rationale linking the temperature drop to that failure.

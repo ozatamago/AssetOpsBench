@@ -1,0 +1,16 @@
+Question: Here is an output of anomaly model in file with absolute path '/tmp/tsad_conformal.csv', can you check if there are any anomalies, and do you think I should create a work order after reviewing the anomalies?
+Plan:
+#Task1: Analyze the time-series data in file /tmp/tsad_conformal.csv and look for anomalies
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: A report indicating whether anomalies were found in the data, including details about the anomalies if present
+
+#Task2: Review the anomalies found in the data and determine if a work order should be created
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: A recommendation on whether to create a work order based on the anomalies found, including the type of work order if applicable
+
+#Task3: If a work order is recommended, create the appropriate work order based on the anomalies and recommendations
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A generated work order with details on the equipment, issue, and recommended actions

@@ -1,0 +1,62 @@
+Question: Just notice two anomalies 'KPI Cooling Load above upper bound' and 'KPI Delta Setpoint above upper bound' happened for equipment CWC04009, can you recommend top three work orders to address this problem?
+Plan:
+We need to produce a plan with fewer than 5 steps. The problem: two anomalies 'KPI Cooling Load above upper bound' and 'KPI Delta Setpoint above upper bound' for equipment CWC04009. Need to recommend top three work orders to address this problem.
+
+We have agents: IoT Data Download (can get sensor data, asset info), Failure Mode and Sensor Relevancy Expert (can list failure modes, relevant sensors), WorkOrder Agent (can create work orders). We need to recommend top three work orders. Likely need to identify relevant failure modes for equipment CWC04009 based on anomalies, then generate work orders. Steps: 1) Get asset details for CWC04009 (maybe using IoT Data Download: what assets are at site? but we need asset details). Use IoT Data Download: maybe "what assets are at site SiteX" but we need asset info for CWC04009. Could ask "what sites are there" then "what assets are at site X". But we might not need site. Could directly ask Failure Mode Expert: list failure modes for asset CWC04009. Then ask for relevant sensors for those failure modes. Then generate work orders using WorkOrder Agent: create three work orders addressing top issues.
+
+Thus plan steps:
+
+#Task1: Retrieve list of failure modes for equipment CWC04009.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of failure modes for CWC04009.
+
+#Task2: Identify which failure modes are most likely related to the observed anomalies (KPI Cooling Load above upper bound, KPI Delta Setpoint above upper bound) using the failure mode list and domain knowledge (maybe the expert can map anomalies to failure modes). Could ask the expert: "Which failure modes correspond to high cooling load and delta setpoint anomalies for CWC04009?" So same agent.
+
+#Task3: Generate three prioritized work orders to address the identified failure modes using WorkOrder Agent.
+
+But we need to produce top three work orders. Could combine step 2 and 3? But we need separate steps.
+
+We have limit <5 steps, okay.
+
+Thus steps:
+
+1. Get failure modes for CWC04009.
+2. Get relevant sensors for those failure modes (maybe needed for work orders). Use Failure Mode Expert again.
+3. Create three work orders using WorkOrder Agent based on failure modes and sensors.
+
+We might also need asset details to know site for work order creation? WorkOrder Agent may need equipment ID. Probably fine.
+
+Thus produce plan.
+
+Make sure format: #Task<N>: ... #Agent<N>: ... #Dependency<N>: ... #ExpectedOutput<N>: ...
+
+Let's craft.
+
+Step numbers: #Task1, #Agent1, #Dependency1, #ExpectedOutput1, etc.
+
+Ok.assistantfinal#Task1: Retrieve the complete list of failure modes for equipment **CWC04009**.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A JSON‑formatted list (or plain list) of all known failure modes for asset CWC04009 (e.g., “Compressor overheating”, “Refrigerant charge low”, “Cooling load sensor drift”, etc.).
+
+---
+
+#Task2: Identify which of the retrieved failure modes are most likely to cause the observed anomalies **“KPI Cooling Load above upper bound”** and **“KPI Delta Setpoint above upper bound”** for CWC04009, and obtain the primary sensors that should be inspected/monitored for each identified failure mode.  
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency2: #S1  
+#ExpectedOutput2: A ranked (high‑to‑medium) list of failure modes linked to the two KPI anomalies, each entry including:  
+- Failure mode name  
+- Reason it relates to the KPI anomaly  
+- One or two key sensors to check (e.g., “Cooling Load Sensor”, “Setpoint Control Valve Position”, “Power Input”, etc.).
+
+---
+
+#Task3: Create three prioritized work orders to address the top failure modes identified in #S2. Each work order should specify the action, the responsible team, and any required sensor checks or replacements.  
+#Agent3: WorkOrder Agent  
+#Dependency3: #S2  
+#ExpectedOutput3: A set of three work order descriptions (e.g., WO‑00123, WO‑00124, WO‑00125) that include:  
+1. Work order title and brief description (e.g., “Inspect and calibrate Cooling Load sensor for CWC04009”).  
+2. Priority level (high/medium).  
+3. Recommended corrective action (inspection, sensor replacement, control logic review, etc.).  
+4. Assigned maintenance crew or specialist.

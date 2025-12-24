@@ -1,0 +1,17 @@
+Question: When compressor motor of Chiller 6 fails, what is the temporal behavior of the power input?
+Plan:
+We need to answer: "When compressor motor of Chiller 6 fails, what is the temporal behavior of the power input?" This is a question about failure mode and sensor relevancy. The appropriate agent is "Failure Mode and Sensor Relevancy Expert for Industrial Asset". It can answer: "When compressor motor of a chiller fails, what is the temporal behavior of the power input." Indeed, that is exactly one of its tasks: "When compressor motor of a chiller fails, what is the temporal behavior of the power input."
+
+Thus we need a plan with fewer than 5 steps. Likely just one step: ask the expert agent. No dependencies. Expected output: description of temporal behavior (e.g., power input drops to zero, then maybe spikes, etc.)
+
+Thus produce plan:
+
+#Task1: Query the Failure Mode and Sensor Relevancy Expert for Industrial Asset about the temporal behavior of power input when compressor motor of Chiller 6 fails.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A concise description of the temporal pattern of power input (e.g., sudden drop, gradual decline, etc.) when the compressor motor fails for Chiller 6.
+
+That's it. Ensure format.assistantfinal#Task1: Query the Failure Mode and Sensor Relevancy Expert for Industrial Asset about the temporal behavior of power input when the compressor motor of Chiller 6 fails.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A concise description of the temporal pattern of power input (e.g., sudden drop, gradual decline, spike, etc.) observed when the compressor motor of Chiller 6 fails.

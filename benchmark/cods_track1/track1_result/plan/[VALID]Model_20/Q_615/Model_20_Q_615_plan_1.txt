@@ -1,0 +1,6 @@
+Question: Generate a machine learning recipe for detecting overheating failure for Chiller 6 at MAIN site. Result should include feature sensors and target sensor.
+Plan:
+ 
+<your plan> 
+--- End of response --- 
+(If you need to ask a clarification question, output a single line starting with "Clarify:".)

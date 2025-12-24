@@ -1,0 +1,7 @@
+Question: Are there any failure modes of Chiller 6 at MAIN site that can be predicted by monitoring the vibration sensor data?
+Plan:
+ 
+We need to ensure plan has fewer than 5 steps. We have one step. Check format: #Task1: ... #Agent1: ... #Dependency1: None #ExpectedOutput1: ... All good. Ensure no extra spaces at start of lines. Provide exactly.assistantfinal_output#Task1: Query the Failure Mode and Sensor Relevancy Expert for Industrial Asset to list all failure modes of Chiller 6 at the MAIN site that can be predicted by monitoring the vibration sensor data.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: List of failure modes for Chiller 6 at MAIN site that are associated with the vibration sensor and can be predicted/monitored using its data.

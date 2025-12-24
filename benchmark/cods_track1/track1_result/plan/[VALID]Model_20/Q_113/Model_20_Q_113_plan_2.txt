@@ -1,0 +1,21 @@
+Question:  If Evaporator Water side fouling occurs for Chiller 6, which sensor is most relevant for monitoring this specific failure?
+Plan:
+We need to correct the plan. The issue: Agent name has extra spaces? In original plan, "#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset". That matches allowed list exactly? The allowed list includes 'Failure Mode and Sensor Relevancy Expert for Industrial Asset' (no extra spaces). The original plan seems fine. However the validator said "Agent1 unknown 'Failure Mode and Sensor Relevancy Expert for Industrial Asset  '. Allowed: ['Failure Mode and Sensor Relevancy Expert for Industrial Asset', ...]" It indicates there may be trailing spaces after the name in the original plan. Indeed the original plan line may have a trailing space after the name. We need to output corrected plan with exact name, no trailing spaces. Also ensure format matches.
+
+We need only one step. Provide #Task1, #Agent1, #Dependency1, #ExpectedOutput1.
+
+Make sure no extra spaces at end of line. Provide exactly.
+
+Let's craft:
+
+#Task1: Identify the most relevant sensor for monitoring evaporator water‑side fouling on Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: Sensor name/ID (e.g., “Evaporator Water Outlet Temperature sensor”) with brief justification.
+
+Check counts: 4 lines. Good.
+
+Return only those lines. No extra spaces at end. Ensure no trailing spaces after agent name. Provide final answer.assistantfinal#Task1: Identify the most relevant sensor for monitoring evaporator water‑side fouling on Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: Sensor name/ID (e.g., “Evaporator Water Outlet Temperature sensor”) with brief justification.

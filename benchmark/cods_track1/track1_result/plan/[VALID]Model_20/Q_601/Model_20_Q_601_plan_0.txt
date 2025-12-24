@@ -1,0 +1,41 @@
+Question: List all failure modes of asset Chiller 6 at MAIN site.
+Plan:
+We need to produce a plan with fewer than 5 steps. The problem: "List all failure modes of asset Chiller 6 at MAIN site."
+
+We have agents: IoT Data Download (provides site info, asset details), Failure Mode and Sensor Relevancy Expert for Industrial Asset (can list failure modes of asset Chiller 6). The problem asks for failure modes of asset Chiller 6 at MAIN site. Likely we need to confirm that Chiller 6 is at MAIN site, maybe using IoT Data Download to get assets at site MAIN. Then use Failure Mode expert to list all failure modes.
+
+Thus steps:
+
+Step 1: Use IoT Data Download to get assets at site MAIN (or confirm Chiller 6 is there). Task: "what assets are at site MAIN". Expected output: list of assets including Chiller 6.
+
+Step 2: Use Failure Mode and Sensor Relevancy Expert to list all failure modes of asset Chiller 6. Task: "List all failure modes of asset Chiller 6." Expected output: list of failure modes.
+
+Dependency: Step 2 depends on Step 1 (to ensure asset exists at site). Could also combine but we need separate steps.
+
+Thus plan with 2 steps.
+
+Make sure format:
+
+#Task1: ...
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: ...
+
+#Task2: ...
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: ...
+
+But the format uses #S1? The instruction says use #S1, #S2, ... for dependencies. So we need to label steps as #S1, #S2? Actually they said #Task<N>, #Agent<N>, #Dependency<N>, #ExpectedOutput<N>. So we can use #Task1, #Agent1, #Dependency1, #ExpectedOutput1. For dependency we refer to #S1? The instruction says "use #S1, #S2, ...". Might be they want to refer to step numbers as #S1. So we can set #Dependency2: #S1.
+
+Thus final answer.
+
+Let's produce plan.assistantfinal#Task1: Retrieve the list of assets located at the MAIN site to confirm that Chiller 6 is present.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A JSON or plain‑text list of assets at site “MAIN”, including an entry for “Chiller 6”.
+
+#Task2: List all failure modes associated with the asset Chiller 6.  
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency2: #S1  
+#ExpectedOutput2: A comprehensive list of failure modes for Chiller 6 (e.g., compressor overheating, refrigerant leak, sensor drift, etc.).

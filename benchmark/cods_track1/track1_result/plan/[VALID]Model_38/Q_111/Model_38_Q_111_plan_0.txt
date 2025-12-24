@@ -1,0 +1,6 @@
+Question: List all sensors of Chiller 6 that are potentially relevant to Compressor Overheating.
+Plan:
+#Task1: List all sensors of Chiller 6 that are potentially relevant to Compressor Overheating
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of sensors relevant to Compressor Overheating for Chiller 6

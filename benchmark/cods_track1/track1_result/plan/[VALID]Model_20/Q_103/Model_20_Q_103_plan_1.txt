@@ -1,0 +1,19 @@
+Question: List all failure modes of asset Wind Turbine.
+Plan:
+ 
+#Task1: 
+We need to produce final answer with correct format. The plan: one step. Provide #Task1 line with description. #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset. #Dependency1: None. #ExpectedOutput1: list of failure modes.
+
+Make sure each line exactly as required, no extra spaces? The format: "#TaskN: <one-line>" etc. Provide no extra blank lines. Provide only those four lines.
+
+Let's craft:
+
+#Task1: List all failure modes of the Wind Turbine asset.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A comprehensive list of failure modes for the Wind Turbine (e.g., blade fatigue, gearbox failure, generator overheating, pitch system malfunction, bearing wear, hydraulic leak, etc.)
+
+Make sure no extra spaces at start. Provide exactly.assistantfinal#Task1: List all failure modes of the Wind Turbine asset.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A comprehensive list of failure modes for the Wind Turbine (e.g., blade fatigue, gearbox failure, generator overheating, pitch system malfunction, bearing wear, hydraulic leak, etc.)

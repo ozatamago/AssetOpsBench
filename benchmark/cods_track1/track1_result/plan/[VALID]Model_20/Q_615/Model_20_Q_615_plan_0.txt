@@ -1,0 +1,17 @@
+Question: Generate a machine learning recipe for detecting overheating failure for Chiller 6 at MAIN site. Result should include feature sensors and target sensor.
+Plan:
+We need to produce a plan with <5 steps. Use agents: Failure Mode and Sensor Relevancy Expert for Industrial Asset (to get relevant sensors for overheating failure). Possibly also IoT Data Download to get sensor data for those sensors. Then Time Series Analytics and Forecasting to generate ML recipe? Actually the recipe generation is a task of Failure Mode and Sensor Relevancy Expert: "can generate machine learning recipes for specific failures". The description says can generate machine learning recipes for specific failures. So we can directly ask that agent to generate recipe for overheating failure for Chiller 6 at MAIN site. That would give feature sensors and target sensor. So only one step needed.
+
+But we need to include feature sensors and target sensor. The agent can produce that. So plan:
+
+#Task1: Generate ML recipe for detecting overheating failure for Chiller 6 at MAIN site, including feature sensors and target sensor.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A machine learning recipe detailing the target sensor (e.g., compressor temperature or power input) and a list of relevant feature sensors (e.g., chilled water leaving temp, return temp, power input, vibration, etc.) for detecting overheating failure.
+
+That's within constraints (<5 steps). Provide plan. Ensure format.assistantfinal#Task1: Generate a machine learning recipe for detecting the overheating failure of **Chiller 6** at the **MAIN** site. The recipe must list the **target sensor** (the sensor whose readings will be used as the label) and all **feature sensors** (the inputs) that are relevant for this failure mode.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A concise ML recipe that includes:  
+- **Target sensor** (e.g., “Compressor Power Input” or “Compressor Temperature”).  
+- **Feature sensor list** (e.g., “Chilled Water Leaving Temp”, “Chilled Water Return Temp”, “Vibration Sensor”, “Ambient Temperature”, etc.) with brief justification for each sensor’s relevance to overheating detection.

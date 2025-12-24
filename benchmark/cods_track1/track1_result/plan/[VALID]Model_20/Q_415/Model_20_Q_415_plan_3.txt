@@ -1,0 +1,18 @@
+Question: When an anomaly happens for equipment CWC04009, can you recommend a list of candidate work orders and give me a summary of work order as percentage?
+Plan:
+assistantanalysisWe need to correct formatting: no double spaces, no markdown, each line separate, no blank lines. Also need to ensure #Dependency uses #S1 etc. Should be "#Dependency1: None". Also ensure no trailing spaces. Also ensure each line is exactly as required. Provide 16 lines. Let's produce.assistantfinal#Task1: Retrieve recent sensor data for equipment CWC04009 for the past week.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file cwc04009_data.json with timestamped sensor readings.  
+#Task2: Detect anomalies in the time‑series data from cwc04009_data.json for each sensor.  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: List of anomaly records (timestamp, sensor) identified.  
+#Task3: Map each detected anomaly to likely failure modes and recommend inspection actions.  
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency3: #S2  
+#ExpectedOutput3: Mapping of anomalies to candidate failure modes and key sensors.  
+#Task4: Generate candidate work orders based on the failure‑mode mapping and provide a percentage breakdown of work‑order types.  
+#Agent4: WorkOrder Agent  
+#Dependency4: #S3  
+#ExpectedOutput4: List of work order titles with brief descriptions and a summary table showing each work‑order category percentage.

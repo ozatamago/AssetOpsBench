@@ -1,0 +1,40 @@
+Question: I would like to predict the next work order probability for the equipment labeled as CWC04013.
+Plan:
+We need to predict next work order probability for equipment CWC04013. Steps: get sensor data for that equipment (maybe from IoT Data Download). Then use Time Series Analytics to forecast anomalies or failure probability? Actually need probability of next work order. Could use Failure Mode and Sensor Relevancy to identify relevant sensors for failures leading to work orders. Then use Time Series Analytics to forecast sensor behavior and compute probability? But we have limited agents. We can: 1) download sensor data for CWC04013 (maybe specific sensors). Use IoT Data Download agent step. 2) Use Failure Mode and Sensor Relevancy Expert to list failure modes and relevant sensors for CWC04013 (maybe similar to chiller). But we need equipment label CWC04013; not sure which asset type. Could assume it's a chiller? Might be a cooling water circuit. Use agent to get relevant sensors for failures that lead to work orders. 3) Use Time Series Analytics to forecast sensor values and detect anomalies, which can be used to estimate probability of work order. 4) Use WorkOrder Agent to generate probability? It doesn't have such task. But we could create a work order based on predicted issue. However the ask is to predict probability, not create work order. Maybe we can use Time Series Analytics to forecast probability directly? Not supported. Could use Time Series Analytics to forecast sensor anomalies, then interpret as probability. Provide expected output as probability estimate.
+
+We need <5 steps. Let's propose 3 steps.
+
+Step1: Download historical sensor data for equipment CWC04013 for relevant sensors (maybe all). Use IoT Data Download agent with task "download sensor data for CWC04013 at SiteX" (need site). Not given. Could first ask "what sites are there" then "what assets are at site". But limited steps. Could combine: assume site known. Use IoT Data Download to download sensor data.
+
+Step2: Use Failure Mode and Sensor Relevancy Expert to list failure modes and relevant sensors for CWC04013 that typically trigger work orders.
+
+Step3: Use Time Series Analytics to analyze the downloaded sensor data, focusing on the relevant sensors, and forecast the probability of a work order in next period (e.g., next week) based on anomaly detection and historical work order correlation (we may need to assume model). Provide probability.
+
+We need to specify dependencies: Step2 may not depend on Step1, but could be independent. Step3 depends on Step1 and Step2.
+
+Let's craft plan.
+
+Make sure format: #Task1, #Agent1, #Dependency1, #ExpectedOutput1, etc.
+
+Let's produce final answer.assistantfinal**Plan (3 steps – ≤ 5)**  
+
+---  
+
+#Task1: Retrieve historical sensor data for equipment **CWC04013** (all available sensors) covering the past 6 months.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A JSON file (e.g., `CWC04013_sensor_data.json`) containing timestamped readings for each sensor attached to CWC04013.  
+
+---  
+
+#Task2: Identify the failure modes that typically generate work orders for **CWC04013** and list the sensors that are most relevant for detecting those failures.  
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency2: None  
+#ExpectedOutput2: A concise report that (a) enumerates the key failure modes of CWC04013 likely to trigger a work order, and (b) maps each failure mode to the most indicative sensor(s).  
+
+---  
+
+#Task3: Using the sensor data from **#S1** and the sensor‑failure mapping from **#S2**, perform time‑series analysis to (a) detect recent anomalies on the critical sensors, (b) model the historical relationship between such anomalies and issued work orders, and (c) forecast the probability that a new work order will be generated for CWC04013 in the next 7 days.  
+#Agent3: Time Series Analytics and Forecasting  
+#Dependency3: #S1, #S2  
+#ExpectedOutput3: A probability value (e.g., “0.73 ≈ 73 %”) together with a brief justification (anomaly scores, model confidence, and key sensor drivers).  

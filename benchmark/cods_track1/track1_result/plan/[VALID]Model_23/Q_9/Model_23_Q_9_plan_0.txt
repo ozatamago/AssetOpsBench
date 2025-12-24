@@ -1,0 +1,11 @@
+Question: Retrieve sensor data for Chiller 6's % Loaded from June 2020 at MAIN.
+Plan:
+#Task1: Retrieve the list of assets at MAIN.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of assets at MAIN.
+
+#Task2: Download sensor data for Chiller 6's % Loaded from June 2020 at MAIN.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Sensor data for Chiller 6's % Loaded from June 2020 at MAIN.

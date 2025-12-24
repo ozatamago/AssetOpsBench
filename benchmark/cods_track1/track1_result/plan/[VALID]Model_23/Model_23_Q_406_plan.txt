@@ -1,0 +1,21 @@
+Question: Get the summary of the events of equipment CWC04009 for the June of 2020 and provide a summary based on the event group.
+Plan:
+#Task1: Identify the sites and assets
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of sites and assets
+
+#Task2: Download the sensor data for the asset
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Sensor data for the asset
+
+#Task3: Analyze the sensor data for anomalies
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Anomalies in the sensor data
+
+#Task4: Generate a summary of the events
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Summary of the events based on the event group

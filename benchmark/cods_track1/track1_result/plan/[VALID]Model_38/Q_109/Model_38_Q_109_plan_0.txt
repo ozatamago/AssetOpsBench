@@ -1,0 +1,11 @@
+Question: Get failure modes for Chiller 6 and only include in final response those that can be monitored using the available sensors.
+Plan:
+#Task1: Get failure modes for Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of failure modes for Chiller 6
+
+#Task2: Identify failure modes that can be monitored using available sensors
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: List of failure modes for Chiller 6 that can be monitored using available sensors

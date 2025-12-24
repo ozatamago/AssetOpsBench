@@ -1,0 +1,46 @@
+Question: Which corrective work orders for equipment CWC04009 in year 2017 can be bundled in the next maintenance window? A bundle means that several work orders are executed in a short period, say in two weeks.
+Plan:
+ 
+We need to output plan with steps. The previous answer got truncated. Need to produce final plan with correct format. Must be fewer than 5 steps. Provide minimal steps.
+
+We need to ensure each line is exactly as format: "#TaskN: ..." etc. No extra spaces? Use exactly as described.
+
+We need to reference dependencies using #S1 etc? The spec says "#Dependency<N>: None | #S1 #S2 ... (past steps only)". So we should use #S1 to refer to step 1. So step 2 dependency "#Dependency2: #S1". Ensure no extra spaces after colon? They have a space after colon. Use same.
+
+Now produce plan:
+
+Step1 retrieve corrective work orders for equipment CWC04009 in 2017.
+
+Step2 identify which of those can be bundled in next maintenance window (two weeks). Provide list.
+
+Thus output:
+
+#Task1: Retrieve all corrective work orders for equipment CWC04009 created in the year 2017.  
+#Agent1: WorkOrder Agent  
+#Dependency1: None  
+#ExpectedOutput1: List of work orders (ID, CreationDate, Description) for CWC04009 in 2017.  
+
+#Task2: From the list in #S1, determine which work orders can be scheduled together within a two‑week maintenance window and output the bundleable set.  
+#Agent2: WorkOrder Agent  
+#Dependency2: #S1  
+#ExpectedOutput2: Subset of work order IDs that can be bundled, with suggested grouping dates.
+
+Make sure each line is one line, no extra line breaks within. Use exactly one line per tag. No extra blank lines? Probably okay to have blank line between steps? Might be okay but safer to not include blank lines. Provide continuous lines.
+
+Let's output exactly:
+
+#Task1: Retrieve all corrective work orders for equipment CWC04009 created in the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: List of work orders (ID, CreationDate, Description) for CWC04009 in 2017.
+#Task2: From the list in #S1, determine which work orders can be scheduled together within a two‑week maintenance window and output the bundleable set.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: Subset of work order IDs that can be bundled, with suggested grouping dates.assistantfinalassistantanalysisWe need to ensure the format exactly matches: each line starts with #TaskN: etc. No extra spaces at start. Use N sequential. Use #S1 reference. Ensure no extra punctuation beyond one line. Provide exactly as above.assistantfinal#Task1: Retrieve all corrective work orders for equipment CWC04009 created in the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: List of work orders (ID, CreationDate, Description) for CWC04009 in 2017.
+#Task2: From the list in #S1, determine which work orders can be scheduled together within a two‑week maintenance window and output the bundleable set.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: Subset of work order IDs that can be bundled, with suggested grouping dates.

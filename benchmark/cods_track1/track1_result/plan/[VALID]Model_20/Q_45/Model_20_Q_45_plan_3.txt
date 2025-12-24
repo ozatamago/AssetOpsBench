@@ -1,0 +1,16 @@
+Question: What is the power consumption of CQPA AHU 1 on mar 13 '20, site MAIN?
+Plan:
+ 
+We need to ensure #Dependency2: #S1 (space after colon). Should be "#Dependency2: #S1". Good.
+
+Check #ExpectedOutput2: one line. Good.
+
+Make sure no extra spaces at line ends. Provide exactly as required.assistantfinal#Task1: Download asset history for CQPA AHU 1 at site MAIN for 2020-03-13 covering the "POWER CONSUMPTION" sensor
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file containing timestamped power consumption values for CQPA AHU 1 on 2020-03-13
+
+#Task2: Read the JSON file from step 1 and calculate the total power consumption for the day
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Total power consumption value for CQPA AHU 1 on 2020-03-13 at site MAIN (e.g., "Power consumption on 2020-03-13: X kW")

@@ -1,0 +1,16 @@
+Question: Can you predict Chiller 9's energy usage for next week based on data from the week of 2020-04-27 at MAIN?
+Plan:
+#Task1: Identify the relevant sensors for Chiller 9
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of sensors relevant to Chiller 9
+
+#Task2: Download the sensor data for Chiller 9
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: A JSON file containing the sensor data for Chiller 9
+
+#Task3: Forecast the energy usage for Chiller 9
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: A forecast of Chiller 9's energy usage for the next week

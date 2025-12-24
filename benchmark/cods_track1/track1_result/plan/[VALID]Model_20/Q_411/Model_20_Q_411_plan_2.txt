@@ -1,0 +1,23 @@
+Question: Which corrective work orders for equipment CWC04009 in year 2017 can be bundled in the next maintenance window? A bundle means that several work orders are executed in a short period, say in two weeks.
+Plan:
+ 
+assistantfinal_outputassistantanalysisWe need to ensure the output matches the required format exactly. The instructions say: Output ONLY lines in this exact format (no extra prose). So we must not include any extra blank lines? It says "Output (your generated plan) ⬇️:" but we should just output the plan lines. Probably we should not include any extra blank lines. The plan lines should be exactly as required.
+
+We need to ensure each line starts with #TaskN: etc. No extra spaces before #. Also ensure the agent name matches exactly "WorkOrder Agent". No trailing spaces.
+
+We have two steps, which is less than 5 steps.
+
+Check dependencies: #Dependency2: #S1 is correct.
+
+Check expected output lines: one line each.
+
+Make sure there is no extra punctuation after the lines. The lines themselves can end with a period. That's fine.
+
+Now produce final answer with just those lines.assistantfinal#Task1: Retrieve all corrective work orders for equipment CWC04009 created in the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: List of work orders (ID, CreationDate, Description) for CWC04009 in 2017.
+#Task2: From the list in #S1, determine which work orders can be scheduled together within a two‑week maintenance window and output the bundleable set.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: Subset of work order IDs that can be bundled, with suggested grouping dates.

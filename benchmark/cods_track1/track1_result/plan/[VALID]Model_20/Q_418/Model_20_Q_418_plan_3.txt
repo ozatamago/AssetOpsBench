@@ -1,0 +1,39 @@
+Question: Just notice two anomalies 'KPI Cooling Load above upper bound' and 'KPI Delta Setpoint above upper bound' happened for equipment CWC04009, can you recommend top three work orders to address this problem?
+Plan:
+We need to correct plan: tasks must be #Task1, #Task2, #Task3 etc. Agents must match exactly names. Also need fewer than 5 steps, okay 3 steps fine. Ensure #Dependency uses #S1 etc? Actually format says #Dependency<N>: <use #S1, #S2, ... or None>. In original they used #S1 but should be #S1? The placeholder maybe #S1 refers to step1. Should be #S1. We'll keep.
+
+Agents: "Failure Mode and Sensor Relevancy Expert for Industrial Asset" exact. "WorkOrder Agent" exact.
+
+Let's produce corrected plan.
+
+#Task1: Retrieve all failure modes for equipment CWC04009.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: List of failure modes applicable to CWC04009.
+
+#Task2: Determine which failure modes are most likely associated with the anomalies “KPI Cooling Load above upper bound” and “KPI Delta Setpoint above upper bound” and identify key sensors to inspect.  
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency2: #S1  
+#ExpectedOutput2: Ranked failure modes with corresponding primary sensors for each anomaly.
+
+#Task3: Create three prioritized work orders to address the top failure modes, including recommended actions and sensor checks.  
+#Agent3: WorkOrder Agent  
+#Dependency3: #S2  
+#ExpectedOutput3: Three detailed work order descriptions ready for execution.
+
+Check formatting: each line starts with #TaskN: etc. No extra spaces at start? fine.
+
+Return only those lines.assistantfinal#Task1: Retrieve all failure modes for equipment CWC04009.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: List of failure modes applicable to CWC04009.  
+
+#Task2: Determine which failure modes are most likely associated with the anomalies “KPI Cooling Load above upper bound” and “KPI Delta Setpoint above upper bound” and identify key sensors to inspect.  
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency2: #S1  
+#ExpectedOutput2: Ranked failure modes with corresponding primary sensors for each anomaly.  
+
+#Task3: Create three prioritized work orders to address the top failure modes, including recommended actions and sensor checks.  
+#Agent3: WorkOrder Agent  
+#Dependency3: #S2  
+#ExpectedOutput3: Three detailed work order descriptions ready for execution.

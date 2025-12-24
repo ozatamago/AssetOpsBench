@@ -1,0 +1,49 @@
+Question: List all sensors of Chiller 6 at MAIN site that are potentially relevant to Compressor Overheating.
+Plan:
+ 
+We need to produce a plan with fewer than 5 steps (so max 4 steps). Must follow format exactly. Must include #Task1, #Agent1, #Dependency1, #ExpectedOutput1, etc.
+
+We need to list all sensors of Chiller 6 at MAIN site that are potentially relevant to Compressor Overheating.
+
+We have agents: IoT Data Download (can list assets at site, download sensor data). Failure Mode and Sensor Relevancy Expert for Industrial Asset (can list relevant sensors for a failure). So we need to combine.
+
+We can do 3 steps:
+
+Step1: Use IoT Data Download to list assets at site MAIN to confirm asset identifier for Chiller 6.
+
+Step2: Use IoT Data Download to download sensor data for Chiller 6 at MAIN site (maybe recent period). This will give JSON with sensor readings; we can extract sensor names (properties). The expected output: JSON file containing sensor data (including sensor names).
+
+Step3: Use Failure Mode and Sensor Relevancy Expert for Industrial Asset to list sensors relevant to compressor overheating for Chiller 6.
+
+Step4: (optional) Intersect lists to produce final list. But we can maybe combine step2 and step3 manually without an agent. The plan can have up to 4 steps; we could include step4 as a processing step using no external agent (maybe we can use the base ReAct internal processing). However the constraints say "Only use the agents listed below. No new agents may be added." The base ReAct agent and Executor component are fixed. The plan steps refer to agents; we could set #Agent4: ReAct (internal processing) but the validator flagged unknown agent 'ReAct'. So we cannot use ReAct as an agent name. So we cannot have a step that uses no agent; each step must specify an allowed agent. So we need to produce final answer ourselves after receiving outputs; but the plan must include steps only using allowed agents. The final step could be omitted; we can produce final answer after receiving step outputs, but the plan may not include that step. The problem asks to list sensors; we can produce answer after steps. The plan can be just three steps; after we get outputs we can compute intersection manually and produce final answer. That's acceptable.
+
+Thus plan with 3 steps.
+
+Check constraints: fewer than 5 steps (3 ok). Provide Task, Agent, Dependency, ExpectedOutput.
+
+Step1: #Task1: Retrieve list of assets at the MAIN site to identify the asset ID for Chiller 6. #Agent1: IoT Data Download #Dependency1: None #ExpectedOutput1: List of assets at MAIN site including Chiller 6 with its asset identifier.
+
+Step2: #Task2: Download recent sensor data for the identified Chiller 6 asset at the MAIN site. #Agent2: IoT Data Download #Dependency2: #S1 #ExpectedOutput2: JSON file containing sensor readings for Chiller 6, from which sensor names can be extracted.
+
+Step3: #Task3: Obtain the list of sensors that are relevant to detecting compressor overheating for Chiller 6. #Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset #Dependency3: #S1 #ExpectedOutput3: List of sensor names relevant to compressor overheating for Chiller 6.
+
+We could also add step4 to intersect, but not needed.
+
+Make sure format exactly: "#Task1: ..." "#Agent1: ..." "#Dependency1: None" "#ExpectedOutput1: ..." etc.
+
+Make sure no extra spaces at end of agent names. Use exact agent names as listed: "IoT Data Download" and "Failure Mode and Sensor Relevancy Expert for Industrial Asset". No extra spaces.
+
+Now produce final answer.assistantfinal#Task1: Retrieve the list of assets at the MAIN site to identify the asset ID for Chiller 6
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at the MAIN site, including Chiller 6 with its asset identifier
+
+#Task2: Download recent sensor data for the identified Chiller 6 asset at the MAIN site
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: JSON file containing sensor readings for Chiller 6 (sensor names can be extracted from the JSON properties)
+
+#Task3: Get the list of sensors that are relevant to detecting compressor overheating for Chiller 6
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S1
+#ExpectedOutput3: List of sensor names that are relevant to compressor overheating for Chiller 6

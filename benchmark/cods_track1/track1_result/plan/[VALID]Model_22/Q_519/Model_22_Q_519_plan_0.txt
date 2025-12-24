@@ -1,0 +1,16 @@
+Question: Is there any anomaly detected in Chiller 9's Power Input in the week of 2020-04-27 at MAIN?
+Plan:
+#Task1: Download sensor data for Chiller 9's Power Input at MAIN site for the week of 2020-04-27
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON file containing the sensor data for Chiller 9's Power Input at MAIN site for the specified week
+
+#Task2: Analyze the downloaded sensor data for anomalies in Chiller 9's Power Input
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: A report indicating whether any anomalies were detected in Chiller 9's Power Input during the specified week
+
+#Task3: If anomalies are detected, create a work order for further inspection or maintenance of Chiller 9
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A work order for inspecting or maintaining Chiller 9, if anomalies were detected in the previous step

@@ -1,0 +1,61 @@
+Question: Get failure modes for Chiller 6 at MAIN site and only include in final response those that can be monitored using the available sensors.
+Plan:
+We need to produce a plan with fewer than 5 steps. The problem: "Get failure modes for Chiller 6 at MAIN site and only include in final response those that can be monitored using the available sensors."
+
+We have agents: IoT Data Download (to get site info, assets, sensor data), Failure Mode and Sensor Relevancy Expert for Industrial Asset (to list failure modes, map to sensors), Time Series Analytics and Forecasting (analysis), WorkOrder Agent (work orders). The task: get failure modes for Chiller 6 at MAIN site, and only include those that can be monitored using the available sensors. So we need to get failure modes of Chiller 6, then filter to those that have relevant sensors. The Failure Mode and Sensor Relevancy Expert can list failure modes and also provide relevant sensors for a specific failure. It can also list failure modes that can be detected by a specific sensor (like "Chiller Efficiency"). But we need to get all failure modes that can be monitored using the available sensors. We need to know what sensors are available for Chiller 6 at MAIN site. That can be obtained via IoT Data Download: "what assets are at site SiteX" (but we need MAIN site). So we can ask "what assets are at site MAIN" to get asset list, then maybe "download sensor data for CU02004 at SiteX" but we need sensors for Chiller 6. The IoT Data Download can provide "information about IoT sites, asset details, sensor data, and retrieve historical data and metadata for various assets and equipment". It can answer "what assets are at site SiteX". So we can ask "what assets are at site MAIN". That will give asset IDs, maybe includes Chiller 6. Then we need to get sensors for Chiller 6. The IoT Data Download may have a task to "download sensor data for CU02004 at SiteX" but not generic. However we can ask "what sites are there" to get site list. But we need sensors. The Failure Mode and Sensor Relevancy Expert can provide relevant sensors for a failure. So we could ask it to list all failure modes of Chiller 6, and for each failure mode, ask which sensors are relevant. Then we can filter to those where sensors exist (i.e., the sensor list is non-empty). But we also need to know which sensors are actually available for Chiller 6 at MAIN site. The IoT Data Download could provide sensor metadata for the asset. It may have a task "download asset history for CU02004 at SiteX" but not sensor list. However we could ask "download sensor data for CU02004 at SiteX" which would give sensor data for all sensors? Not sure. But we can assume that the IoT Data Download can provide sensor list for an asset. The tasks list includes "download sensor data for CU02004 at SiteX". That implies we need asset ID. For Chiller 6, we need its asset ID. Could be "CHL-6" or something. But we can ask "what assets are at site MAIN" to get asset IDs, then identify Chiller 6's ID. Then we can request sensor data for that asset, which will include sensor names. Then we can cross-check with sensors relevant to each failure mode.
+
+Simplify: Use Failure Mode and Sensor Relevancy Expert to list failure modes of Chiller 6 that can be detected by any sensor (maybe it can list failure modes that can be detected by a specific sensor, but we need all). It can also answer "What are the relevant sensors that can be used to monitor the loose wiring failure of Chiller 6? If compressor overheating occurs for Chiller 6, which sensor should be prioritized for monitoring this specific failure?" So we can ask for each failure mode, but we need to know which sensors are available. Could ask IoT Data Download to list sensors for Chiller 6 at MAIN site. Then we can filter.
+
+Thus plan steps:
+
+Step 1: Use IoT Data Download to get list of assets at site MAIN. (to confirm asset ID for Chiller 6). Dependency None.
+
+Step 2: Use IoT Data Download to get sensor list (or sensor data) for Chiller 6 asset at MAIN site. Could be "download sensor data for <asset> at MAIN". This will give available sensors.
+
+Step 3: Use Failure Mode and Sensor Relevancy Expert to list all failure modes of Chiller 6. Dependency #S1 (maybe not needed but we need asset ID). Use #S2 to filter.
+
+Step 4: Use Failure Mode and Sensor Relevancy Expert to get relevant sensors for each failure mode of Chiller 6. Could be a single request: "For each failure mode of Chiller 6, list relevant sensors". Dependency #S3 and #S2 (need failure modes and sensor list). Then filter to those where the relevant sensors intersect with available sensors from #S2.
+
+Step 5: Compile final response: list failure modes that have at least one relevant sensor available. This can be done by the orchestrator (no agent needed) or we could use a generic "ReAct" base agent? But we only have listed agents. We could treat step 5 as final output generation, no external agent needed. But the format expects each step to have an agent. Could use "ReAct" base agent? Not listed. But we can maybe use "Failure Mode and Sensor Relevancy Expert" again to filter. Or we can use "IoT Data Download" to merge JSON files? Not needed. Could use "WorkOrder Agent"? Not relevant. Could use "Time Series Analytics"? Not relevant. Could use "ReAct" base agent? Not listed but base ReAct agent is fixed but not listed as an agent name. The instruction says only use agents listed below. So we need to assign an agent for each step. For final compilation, we could use "Failure Mode and Sensor Relevancy Expert" to "list failure modes of Chiller 6 that can be monitored using the available sensors". That could be a direct query: "List all failure modes of Chiller 6 that can be monitored using the available sensors at MAIN site". But the agent may not know which sensors are available. So we need to provide sensor list as context. Could ask the expert to filter given sensor list. Might be possible.
+
+Alternatively, we could combine steps: Step 1: Get assets at MAIN site. Step 2: Get sensor list for Chiller 6. Step 3: Ask Failure Mode and Sensor Relevancy Expert to list failure modes of Chiller 6 that can be detected by any of the sensors we have (provide sensor list). That would be a single request. So we can have 3 steps total.
+
+Thus plan:
+
+#Task1: Retrieve list of assets at site MAIN to identify Chiller 6 asset ID.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON list of assets at MAIN site, including asset ID/name for Chiller 6.
+
+#Task2: Retrieve the list of sensors (or sensor metadata) associated with the Chiller 6 asset at MAIN site.
+#Agent2: IoT Data Download
+#Dependency2: #S1 (need asset ID)
+#ExpectedOutput2: JSON list of sensor names/IDs available for Chiller 6.
+
+#Task3: Obtain all failure modes of Chiller 6 and filter to those that have at least one relevant sensor present in the sensor list from #S2.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S1, #S2
+#ExpectedOutput3: JSON list of failure modes of Chiller 6 that can be monitored using the available sensors (include the sensor(s) that enable monitoring for each failure mode).
+
+That's 3 steps, under 5.
+
+Make sure format matches: #Task<N>, #Agent<N>, #Dependency<N>, #ExpectedOutput<N>.
+
+Let's produce final answer.assistantfinal#Task1: Retrieve the list of assets located at the **MAIN** site to identify the exact asset identifier for *Chiller 6*.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON array of assets at site MAIN, including the asset ID/name for Chiller 6 (e.g., `"assetId":"CHL-6"`).
+
+#Task2: Obtain the complete set of sensors (sensor IDs and descriptive names) that are installed on the identified *Chiller 6* asset at the MAIN site.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: JSON list of sensors attached to Chiller 6 (e.g., `["CHILLER_EFFICIENCY","RETURN_TEMP","LEAVING_TEMP","POWER_INPUT", …]`).
+
+#Task3: Using the Failure Mode and Sensor Relevancy Expert, list **all failure modes of Chiller 6** and filter them to keep only those whose relevant monitoring sensors appear in the sensor list obtained in #S2. Return each qualifying failure mode together with the sensor(s) that enable its detection.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S1, #S2
+#ExpectedOutput3: JSON array of failure‑mode objects, each containing:
+- `failureMode`: name/description  
+- `monitoringSensors`: list of sensors (from #S2) that can detect this failure  
+
+Only failure modes with at least one matching sensor are included.

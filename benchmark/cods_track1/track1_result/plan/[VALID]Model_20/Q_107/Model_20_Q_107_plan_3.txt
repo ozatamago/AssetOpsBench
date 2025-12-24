@@ -1,0 +1,20 @@
+Question: List all failure modes of Chiller 6 that can be detected by temperature sensors.
+Plan:
+ 
+#Task1: 
+#Agent1 
+#Dependency1: 
+#ExpectedOutput1: 
+We need to output the plan with proper lines. The previous answer gave plan with lines but maybe missing #Task1 content? It had content. The new instruction says "Output ONLY lines in this exact format (no extra prose)". So we must output exactly the four lines with proper content. Ensure no extra spaces after colon? Format: "#TaskN: <one-line>" etc.
+
+Let's produce:
+
+#Task1: List all failure modes of Chiller 6 that can be detected by temperature sensors.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: Bullet‑point list of Chiller 6 failure modes detectable via temperature sensors.
+
+Make sure no extra spaces at end. Provide exactly four lines. No markdown.assistantfinal#Task1: List all failure modes of Chiller 6 that can be detected by temperature sensors.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: Bullet‑point list of Chiller 6 failure modes detectable via temperature sensors.

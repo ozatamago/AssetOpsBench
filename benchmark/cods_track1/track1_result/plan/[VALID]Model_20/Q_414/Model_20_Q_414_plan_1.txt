@@ -1,0 +1,46 @@
+Question: Assuming that the current date is 2018-01-02, can you predict next work order probability for me for equipment CWC04009?
+Plan:
+ 
+We need to output plan with steps. Must be <=5 steps. Provide #Task1 etc. Ensure tags match counts. Use allowed agents exactly. Provide ExpectedOutput one line.
+
+Let's craft 4 steps as earlier.
+
+Make sure each line exactly as format.
+
+#Task1: Retrieve recent sensor data for equipment CWC04009 (CHILLED WATER LEAVING TEMP and CHILLED WATER RETURN TEMP) for the last 7 days (2017-12-26 to 2018-01-01).  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file cwc04009_lastweek.json with timestamps and sensor values.  
+
+#Task2: Detect anomalies and forecast the next 24 hours for the two temperature series using the data from #S1.  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: Anomaly report and 24‑hour forecast values with anomaly scores.  
+
+#Task3: List failure modes of equipment CWC04009 and map the two temperature sensors to those failure modes.  
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency3: #S1  
+#ExpectedOutput3: Table of failure modes and relevance of each temperature sensor.  
+
+#Task4: Generate a work‑order recommendation that includes a probability rating (High/Medium/Low) for a work order in the next 24 hours based on the anomaly scores (#S2) and sensor‑failure relevance (#S3).  
+#Agent4: WorkOrder Agent  
+#Dependency4: #S2 #S3  
+#ExpectedOutput4: Work‑order recommendation with priority and probability rating.   Need to output exactly lines, no extra spaces? Should be fine. Ensure each line starts with #TaskN: etc. No extra blank lines? Probably okay to have blank lines between steps? Might be okay but safer to have each step block separated by a blank line. Provide exactly as required.assistantfinal #Task1: Retrieve recent sensor data for equipment CWC04009 (CHILLED WATER LEAVING TEMP and CHILLED WATER RETURN TEMP) for the last 7 days (2017-12-26 to 2018-01-01)
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file cwc04009_lastweek.json with timestamps and sensor values
+
+#Task2: Detect anomalies and forecast the next 24 hours for the two temperature series using the data from #S1
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly report and 24‑hour forecast values with anomaly scores
+
+#Task3: List failure modes of equipment CWC04009 and map the two temperature sensors to those failure modes
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S1
+#ExpectedOutput3: Table of failure modes and relevance of each temperature sensor
+
+#Task4: Generate a work‑order recommendation that includes a probability rating (High/Medium/Low) for a work order in the next 24 hours based on the anomaly scores (#S2) and sensor‑failure relevance (#S3)
+#Agent4: WorkOrder Agent
+#Dependency4: #S2 #S3
+#ExpectedOutput4: Work‑order recommendation with priority and probability rating

@@ -1,0 +1,8 @@
+Question: Can I list all the metrics monitored by CQPA AHU 2B? use site MAIN
+Plan:
+
+
+#Task1: Download sensor data for asset CQPA AHU 2B at site MAIN to obtain the list of monitored metrics.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON array of metric names, e.g., ["Supply Air Temp","Return Air Temp","Fan Speed","CO₂ Level",...]

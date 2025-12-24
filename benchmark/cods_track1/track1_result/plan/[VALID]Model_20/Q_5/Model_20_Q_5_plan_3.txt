@@ -1,0 +1,13 @@
+Question: Retrieve metadata for Chiller 6 located at the MAIN site.
+Plan:
+We need to correct issues: The plan must have Task, Agent, Dependency, ExpectedOutput lines. The original plan had #Task1 line but missing #S? Actually they used #Task1: ... #Agent1: IoT Data Download #Dependency1: None #ExpectedOutput1: ... That's fine. But the validator said "Agent1 unknown 'IoT Data Download  '. Allowed: ..." maybe there is trailing spaces? In original plan they wrote "IoT Data Download  " with two spaces? Actually they wrote "#Agent1: IoT Data Download  " maybe extra spaces. We need to output exactly "IoT Data Download". Also need to ensure counts match. Provide plan with one step.
+
+Thus final answer:
+
+#Task1: Retrieve metadata for Chiller 6 located at the MAIN site.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON containing Chiller 6 metadata at the MAIN site (asset ID, description, sensor list, installation date, location details).assistantfinal#Task1: Retrieve metadata for Chiller 6 located at the MAIN site.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON containing Chiller 6 metadata at the MAIN site (asset ID, description, sensor list, installation date, location details).

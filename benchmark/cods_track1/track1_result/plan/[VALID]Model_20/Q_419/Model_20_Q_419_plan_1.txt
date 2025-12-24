@@ -1,0 +1,12 @@
+Question: Using your knowledge of the industrial asset, can you suggest me a work order for alert RUL0014 with the context of 'Chiller - Cooling Substance Delta T Low' for closed-loop water-cool chiller its load is higher than the upper bound?
+Plan:
+ 
+The user gave a "Repair rules" and wants the plan. The plan we gave matches format. Need to ensure each line exactly as required: "#TaskN: <one-line>", "#AgentN: <exact agent name>", "#DependencyN: None | #S1 #S2 ...", "#ExpectedOutputN: <one-line>". No extra spaces? Should be fine. Ensure no extra punctuation. Provide exactly two steps. Ensure agent names exactly match allowed list. "Failure Mode and Sensor Relevancy Expert for Industrial Asset" matches. "WorkOrder Agent" matches. Provide #Dependency1: None. #Dependency2: #S1. Use #S1 referencing step 1. Good. Provide one-line expected outputs. Ensure no line breaks within. Provide final answer.assistantfinal#Task1: Identify the failure mode(s) and relevant sensors associated with a low cooling‑substance ΔT condition (alert RUL0014) in a closed‑loop water‑cooled chiller.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: Description of likely failure mode(s) (e.g., low refrigerant charge, heat‑exchanger fouling) and list of key sensors to monitor (e.g., evaporator leaving water temperature, condenser inlet temperature, pressure sensors).  
+
+#Task2: Create a work order to address alert RUL0014, using the failure‑mode and sensor information from #S1, and explicitly note that the chiller’s load is above the upper bound.  
+#Agent2: WorkOrder Agent  
+#Dependency2: #S1  
+#ExpectedOutput2: Formatted work order (title, description, priority, recommended actions, required parts/tools, assigned team, follow‑up checks) for the affected chiller.

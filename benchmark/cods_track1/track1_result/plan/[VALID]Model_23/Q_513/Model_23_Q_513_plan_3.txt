@@ -1,0 +1,21 @@
+Question: What is the forecast for Chiller 6's Setpoint Temperature for next week based on the week of 2020-04-27 data?
+Plan:
+ #Task1: Calculate the start date for the week of 2020-04-27
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The start date for the week of 2020-04-27
+
+#Task2: Calculate the end date for the week of 2020-04-27
+#Agent2: IoT Data Download
+#Dependency2: None
+#ExpectedOutput2: The end date for the week of 2020-04-27
+
+#Task3: Download the historical data for Chiller 6's Setpoint Temperature from the start date to the end date
+#Agent3: IoT Data Download
+#Dependency3: #S1 #S2
+#ExpectedOutput3: A JSON file containing the historical data for Chiller 6's Setpoint Temperature from the start date to the end date
+
+#Task4: Forecast the Setpoint Temperature for Chiller 6 for the next week based on the downloaded data
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: #S3
+#ExpectedOutput4: A forecast for Chiller 6's Setpoint Temperature for the next week

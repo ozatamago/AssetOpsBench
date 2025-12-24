@@ -1,0 +1,24 @@
+Question: Generate a machine learning recipe for detecting overheating failure for Chiller 6 at MAIN site. Result should include feature sensors and target sensor.
+Plan:
+ 
+We need to produce a plan with fewer than 5 steps to generate a machine learning recipe for detecting overheating failure for Chiller 6 at MAIN site. The recipe should include feature sensors and target sensor.
+
+We have agents: IoT Data Download (to get sensor data), Failure Mode and Sensor Relevancy Expert for Industrial Asset (to provide relevant sensors for failure mode), Time Series Analytics and Forecasting (to analyze data, but not needed for recipe generation), WorkOrder Agent (not needed). The recipe generation likely requires the Failure Mode and Sensor Relevancy Expert to list relevant sensors for overheating failure, and maybe also to provide target sensor (maybe the sensor that indicates overheating, like compressor temperature). The problem: "Generate a machine learning recipe for detecting overheating failure for Chiller 6 at MAIN site. Result should include feature sensors and target sensor."
+
+Thus we need to ask the Failure Mode and Sensor Relevancy Expert for the relevant sensors for overheating failure of Chiller 6, and also which sensor should be target (maybe "Compressor Temperature" or "Power Input" etc). The agent can answer: "What are the relevant sensors that can be used to monitor the loose wiring failure of Chiller 6? If compressor overheating occurs for Chiller 6, which sensor should be prioritized for monitoring this specific failure?" That's task 3. So we can ask that. The answer will include relevant sensors and prioritized sensor. That can be used as feature sensors and target sensor.
+
+Thus we need a single step: ask the Failure Mode and Sensor Relevancy Expert for sensors for overheating failure. The expected output: list of feature sensors and target sensor.
+
+Thus plan:
+
+#Task1: Identify the feature sensors and target sensor for detecting compressor overheating failure of Chiller 6 at MAIN site.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of relevant feature sensors and the prioritized target sensor for monitoring compressor overheating in Chiller 6.
+
+That's it. Ensure format. Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1.
+
+Let's output.assistantfinal#Task1: Identify the feature sensors and target sensor for detecting compressor overheating failure of Chiller 6 at MAIN site.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of relevant feature sensors and the prioritized target sensor for monitoring compressor overheating in Chiller 6.

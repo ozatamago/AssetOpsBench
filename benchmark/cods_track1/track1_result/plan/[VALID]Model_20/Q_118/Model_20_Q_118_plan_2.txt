@@ -1,0 +1,7 @@
+Question: When power input of Chiller 6 drops, what is the potential failure that causes it?
+Plan:
+ 
+We need to produce plan with minimal steps. The problem: "When power input of Chiller 6 drops, what is the potential failure that causes it?" So we need to ask Failure Mode and Sensor Relevancy Expert. Only one step needed. Ensure format exactly. No extra spaces? Should be "#Task1: ..." etc. Provide exactly four lines. No extra blank lines. Let's output.assistantfinalassistantfinalassistantfinal#Task1: Identify the potential failure that causes a drop in power input of Chiller 6.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A concise description of the most likely failure(s) responsible for a power input drop in Chiller 6, with brief reasoning.

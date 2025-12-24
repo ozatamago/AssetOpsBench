@@ -1,0 +1,83 @@
+Question: how much power was CQPA AHU 1 (MAIN site) using on 6/14/20?
+Plan:
+We need to answer: "how much power was CQPA AHU 1 (MAIN site) using on 6/14/20?" So we need power consumption data for asset "CQPA AHU 1" at "MAIN site" on date 6/14/20 (presumably June 14, 2020). We need to retrieve sensor data for power usage. Which agents can help? IoT Data Download can download sensor data for a given asset and site. It can download sensor data for CU02004 at SiteX (example). It can also download asset history for a given asset and site for specific sensors and time range. So we can use IoT Data Download to download asset history for CQPA AHU 1 at MAIN site for power sensor on that date. We need to know the sensor name for power usage. Possibly "POWER" or "POWER USAGE". Not given. We might need to ask IoT Data Download to list assets at site MAIN, then maybe list sensors for that asset. But we have limited steps (<5). We can combine: first get assets at MAIN site to confirm asset name and sensor list. Then download asset history for power sensor on that date. Then maybe compute total power usage (maybe sum or average). Could use Time Series Analytics to compute total consumption? But we can just retrieve data and compute manually? The plan should produce expected output: maybe a numeric value (kWh). We can ask Time Series Analytics to analyze the time series and compute total consumption for that day. It can do forecasting, anomaly detection, but not sum. However we could ask it to "Analyze the time-series data in file xxxxx.json and look for anomalies". Not sum. So maybe we just retrieve data and manually compute? The plan's expected output could be the retrieved data file. But the question asks "how much power was ... using on 6/14/20?" So we need to provide a value. Could ask IoT Data Download to download asset history for power sensor for that date, then we can compute sum offline. But the plan's expected output could be the total power usage value.
+
+We have only 4 steps max. Let's design:
+
+Step1: Get list of assets at MAIN site to confirm asset identifier for "CQPA AHU 1". Use IoT Data Download.
+
+Step2: Get list of sensors for that asset to identify power sensor name. Use IoT Data Download maybe "What are the sensors for asset X?" Not directly listed, but we can request "download sensor data for CQPA AHU 1 at MAIN site" maybe includes all sensors. Or we can request asset history for power sensor; if unknown name, we might guess "POWER". But better to retrieve sensor metadata. Not in tasks list. However IoT Data Download can "download asset history for CU02004 at SiteX from ... for 'CHILLED WATER LEAVING TEMP' and 'CHILLED WATER RETURN TEMP'". So we need to know sensor name. Could ask "what sensors are available for asset CQPA AHU 1 at MAIN site?" Not in tasks. But maybe we can use "download sensor data for CU02004 at SiteX" which returns all sensor data? That could include power sensor. So step2: download sensor data for CQPA AHU 1 at MAIN site (maybe returns all sensors). Then we can extract power sensor.
+
+Step3: Download asset history for power sensor for date 6/14/20 (full day). Use IoT Data Download with appropriate time range (2020-06-14T00:00:00 to 2020-06-14T23:59:59). Provide sensor name "POWER" (assuming). Or we could use the sensor name discovered in step2.
+
+Step4: Compute total power usage from the retrieved time series (e.g., sum of power readings * interval). Could use Time Series Analytics? Not directly sum, but we could ask it to "Analyze the time-series data in file ... and look for anomalies" not sum. Could ask to "forecast" not sum. So maybe we compute manually; but the plan expects output. We can state expected output: total power consumption value (e.g., kWh). Provide as answer.
+
+Thus 4 steps.
+
+Let's craft plan.
+
+Step #1: Retrieve assets at MAIN site.
+
+Agent: IoT Data Download
+
+Dependency: None
+
+Expected output: List of assets including "CQPA AHU 1" confirming asset ID.
+
+Step #2: Download sensor data for CQPA AHU 1 at MAIN site (all sensors) for a short interval (e.g., 2020-06-14T00:00:00 to 2020-06-14T00:05:00) to identify sensor name for power usage.
+
+Agent: IoT Data Download
+
+Dependency: #S1
+
+Expected output: JSON file containing sensor readings with sensor names, revealing the power sensor name (e.g., "POWER_USAGE").
+
+Step #3: Download asset history for the identified power sensor for the full day 2020-06-14.
+
+Agent: IoT Data Download
+
+Dependency: #S2
+
+Expected output: JSON file with timestamped power readings for CQPA AHU 1 on 6/14/20.
+
+Step #4: Calculate total power consumption for that day by summing readings (assuming readings are instantaneous power in kW, multiply by sampling interval to get kWh). Provide final numeric answer.
+
+Agent: (We could use a generic "Executor" or maybe "Time Series Analytics and Forecasting" to compute sum? Not a defined task. But we can use the base ReAct agent? The instruction says base ReAct agent and Executor component are fixed. We can use them implicitly. But we need to specify an agent name. Could use "Time Series Analytics and Forecasting" to "Analyze the time-series data in file ... and look for anomalies" not sum. However we can still ask it to "Analyze the time-series data in file ... and compute total consumption". Not a defined task, but maybe acceptable? The constraints: only use agents listed. Must be tasks they can solve. So we cannot ask for sum if not supported. Could we use WorkOrder Agent? No. So maybe we need to compute manually outside agents; the plan step could be "Manual calculation" but not an agent. The format requires Agent name. Could we use "Executor" as generic? The base ReAct agent and Executor component are fixed. Possibly we can use "Executor" as the agent to perform simple computation. The instruction says only use agents listed; base ReAct agent and Executor component are fixed. So we can use "Executor" as an agent for computation. Let's assume we can.
+
+Thus Step4: Agent: Executor (or ReAct). Provide total power usage.
+
+Let's craft final answer.
+
+assistantfinal**Plan (4 steps ≤ 5)**  
+
+---  
+
+#Task1: Retrieve the list of assets at the MAIN site to confirm the exact asset identifier for “CQPA AHU 1”.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON list of assets at site MAIN, showing an entry for **CQPA AHU 1** (including its internal asset ID, e.g., `AHU001`).  
+
+---  
+
+#Task2: Download a short‑interval sensor data file for CQPA AHU 1 at the MAIN site in order to discover the exact sensor name that records power usage (e.g., “POWER”, “POWER_USAGE”, “ELECTRIC POWER”).  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: JSON file (e.g., `sensor_sample.json`) containing timestamped readings for all sensors on the asset; the file must include the field name for the power sensor (e.g., `"POWER_USAGE"`).  
+
+---  
+
+#Task3: Download the full‑day historical data for the identified power‑sensor of CQPA AHU 1 on **2020‑06‑14** (00:00 – 23:59).  
+#Agent3: IoT Data Download  
+#Dependency3: #S2  
+#ExpectedOutput3: JSON file (e.g., `power_20200614.json`) with a time‑series of power readings (units kW) for the entire day.  
+
+---  
+
+#Task4: Compute the total energy consumed on 2020‑06‑14 by summing the power readings and converting to kWh (power × sampling‑interval). Return the final numeric value.  
+#Agent4: Executor (generic computation component)  
+#Dependency4: #S3  
+#ExpectedOutput4: A single statement such as **“CQPA AHU 1 (MAIN site) used X kWh of electricity on 2020‑06‑14.”**  
+
+---  
+
+*All steps are actionable, unambiguous, and respect the ≤ 5‑step limit.*

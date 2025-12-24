@@ -1,0 +1,12 @@
+Question: what was the supply temperature from CQPA AHU 2B on sept 19, 2020 at quarter to midnight, at site MAIN? return in a file
+Plan:
+ 
+We need to output only lines in exact format. No extra text. Provide #Task1, #Agent1, #Dependency1, #ExpectedOutput1, then #Task2 etc. Ensure no extra spaces? Format: "#Task<N>: <one-line>" etc. Provide exactly. Let's produce.assistantfinal#Task1: Download sensor data for asset "CQPA AHU 2B" at site MAIN for "SUPPLY TEMPERATURE" on 2020-09-19 23:45
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file named CQPA_AHU2B_supply_temp_20200919_2345.json containing the timestamp and temperature value
+
+#Task2: Read the JSON file from Step 1, extract the temperature value for the requested timestamp, and write it to a plain‑text file
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Text file named CQPA_AHU2B_supply_temp_20200919.txt containing only the supply temperature reading for 2020‑09‑19 23:45

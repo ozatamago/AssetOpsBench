@@ -1,0 +1,21 @@
+Question: Get the daily count of alert, anomaly and work order event for the May 2020 for equipment CWC04009.
+Plan:
+#Task1: Retrieve historical data for equipment CWC04009 for May 2020
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file containing historical data for CWC04009 for May 2020
+
+#Task2: Analyze the historical data to identify alerts and anomalies
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: List of alerts and anomalies detected in the historical data for May 2020
+
+#Task3: Retrieve work orders for equipment CWC04009 for May 2020
+#Agent3: WorkOrder Agent
+#Dependency3: None
+#ExpectedOutput3: List of work orders for CWC04009 for May 2020
+
+#Task4: Compile the daily count of alerts, anomalies, and work orders for May 2020
+#Agent4: IoT Data Download
+#Dependency4: #S2, #S3
+#ExpectedOutput4: Daily count of alerts, anomalies, and work orders for CWC04009 for May 2020

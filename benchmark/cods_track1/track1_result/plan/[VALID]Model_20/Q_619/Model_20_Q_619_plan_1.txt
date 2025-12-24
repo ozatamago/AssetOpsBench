@@ -1,0 +1,16 @@
+Question: When the Liquid Refrigerant Evaporator Temperature of Chiller 6 at MAIN site drops, what failure is most likely to occur?
+Plan:
+ 
+The problem: "When the Liquid Refrigerant Evaporator Temperature of Chiller 6 at MAIN site drops, what failure is most likely to occur?" We need to answer using agents. The plan should be minimal steps. Likely just one step: ask Failure Mode and Sensor Relevancy Expert for Industrial Asset: "What failure is most likely when the Liquid Refrigerant Evaporator Temperature of Chiller 6 at MAIN site drops?" That yields answer.
+
+Thus output:
+
+#Task1: Identify the most likely failure when the Liquid Refrigerant Evaporator Temperature of Chiller 6 at MAIN site drops.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: The most probable failure (e.g., low refrigerant charge) with brief justification linking temperature drop to that failure. 
+
+Make sure format exactly. No extra spaces? Should be fine. Ensure each line starts with #Task1 etc. No extra punctuation. Provide exactly.assistantfinal#Task1: Identify the most likely failure when the Liquid Refrigerant Evaporator Temperature of Chiller 6 at MAIN site drops
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: The most probable failure (e.g., low refrigerant charge) with a brief justification linking the temperature drop to that failure

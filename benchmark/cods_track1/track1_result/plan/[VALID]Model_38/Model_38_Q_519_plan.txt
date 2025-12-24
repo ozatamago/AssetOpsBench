@@ -1,0 +1,12 @@
+Question: Is there any anomaly detected in Chiller 9's Power Input in the week of 2020-04-27 at MAIN?
+Plan:
+ 
+#Task1: Retrieve historical sensor data for Chiller 9's Power Input from 2020-04-20 to 2020-04-27
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file containing sensor data for Chiller 9's Power Input during the specified week
+
+#Task2: Analyze the retrieved sensor data for anomalies in Chiller 9's Power Input
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Report identifying any anomalies detected in Chiller 9's Power Input during the week of 2020-04-27

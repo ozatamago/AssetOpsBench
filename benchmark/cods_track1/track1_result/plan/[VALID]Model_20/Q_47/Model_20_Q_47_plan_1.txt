@@ -1,0 +1,14 @@
+Question: list all the chillers at site MAIN
+Plan:
+ 
+We need to produce final plan with correct format. Ensure tags: #Task1, #Agent1, #Dependency1, #ExpectedOutput1. Use exact agent name "IoT Data Download". No extra spaces. Provide concise description. Let's craft.
+
+#Task1: Retrieve the list of assets at site MAIN and return only the chillers.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: List of chiller asset IDs/names located at site MAIN. 
+
+Make sure no extra punctuation after tags. Provide each on separate line. No extra lines? Probably okay to have newline between steps. Provide exactly four lines. Let's output.assistantfinal#Task1: Retrieve the list of assets at site MAIN and return only the chillers
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of chiller asset IDs or names located at site MAIN

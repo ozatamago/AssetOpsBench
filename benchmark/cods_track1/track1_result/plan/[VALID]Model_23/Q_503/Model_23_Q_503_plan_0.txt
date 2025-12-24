@@ -1,0 +1,16 @@
+Question: Have there been any anomalies in Chiller 6's Tonnage in the week of 2020-04-27 at MAIN?
+Plan:
+#Task1: Identify the start and end dates for the week of 2020-04-27
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Start and end dates for the week of 2020-04-27
+
+#Task2: Download the sensor data for Chiller 6's Tonnage for the identified week
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Sensor data for Chiller 6's Tonnage for the week of 2020-04-27
+
+#Task3: Analyze the sensor data for anomalies in Chiller 6's Tonnage
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Anomalies in Chiller 6's Tonnage for the week of 2020-04-27

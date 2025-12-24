@@ -1,0 +1,31 @@
+Question: Just notice an anomaly 'KPI Cooling Load above upper bound' happens for equipment CWC04009, can you recommend top three work orders to address this problem?
+Plan:
+ 
+assistantanalysisWe need to produce plan with fewer than 5 steps. Must have matching counts. The plan above has 4 steps, each with #Task1, #Agent1, #Dependency1, #ExpectedOutput1, then #Task2 etc. However the format requires #Dependency<N> referencing #S1 etc? In description earlier: "#Dependency<N>: <use #S1, #S2, ... or None>" but they used #S1 etc. In our plan we used #S1 etc. That's okay.
+
+But need to ensure the tags are exactly #Task1, #Agent1, #Dependency1, #ExpectedOutput1, then #Task2 etc. Also ensure no extra spaces at end of lines. Also ensure each line is separate line. Also ensure we don't have extra blank lines.
+
+Check allowed agents: names exactly as listed. We used "IoT Data Download", "Time Series Analytics and Forecasting", "Failure Mode and Sensor Relevancy Expert for Industrial Asset", "WorkOrder Agent". Good.
+
+Check #Dependency format: we used "None" for first, "#S1" for second, "#S2" for third, "#S3" for fourth. That's correct.
+
+Check #ExpectedOutput lines are one line each, no line breaks.
+
+Now ensure total steps <5, we have 4.
+
+Now final answer should be only those lines, no extra text. Let's produce final.assistantfinal>#Task1: Download recent sensor data for equipment CWC04009 related to cooling load (e.g., “CHILLED WATER LEAVING TEMP” and “CHILLED WATER RETURN TEMP”) for the past week.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file (cwc04009_cooling_data.json) with timestamped sensor readings.  
+#Task2: Analyze the downloaded data to confirm the “KPI Cooling Load above upper bound” anomaly and identify the time intervals when it occurs.  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: Anomaly report listing timestamps or time windows where cooling load exceeds the upper bound.  
+#Task3: Determine the top three failure modes likely causing the high cooling load for CWC04009 and the key sensors to monitor for each mode.  
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency3: #S2  
+#ExpectedOutput3: Ranked list of three probable failure modes with associated priority sensors.  
+#Task4: Generate three prioritized work orders addressing the identified failure modes for equipment CWC04009.  
+#Agent4: WorkOrder Agent  
+#Dependency4: #S3  
+#ExpectedOutput4: Three work order descriptions (including WO IDs, actions, and priority) ready for execution.

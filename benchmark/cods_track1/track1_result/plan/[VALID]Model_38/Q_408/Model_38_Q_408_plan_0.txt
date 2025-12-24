@@ -1,0 +1,11 @@
+Question: Get the daily count of the events of alert, anomaly for the May 2020 for equipment CWC04009.
+Plan:
+#Task1: Retrieve daily count of alerts for equipment CWC04009 in May 2020
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: Daily count of alerts for equipment CWC04009 in May 2020
+
+#Task2: Retrieve daily count of anomalies for equipment CWC04009 in May 2020
+#Agent2: WorkOrder Agent
+#Dependency2: None
+#ExpectedOutput2: Daily count of anomalies for equipment CWC04009 in May 2020

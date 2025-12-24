@@ -1,0 +1,53 @@
+Question: When an anomaly happens for equipment CWC04009, can you recommend top three work orders to address this problem?
+Plan:
+ 
+We need to produce plan with fewer than 5 steps. Must have matching counts. Use allowed agents exactly as names. No extra spaces. Provide #Task1, #Agent1, #Dependency1, #ExpectedOutput1, etc.
+
+We need to ensure each line exactly as format.
+
+Plan: 4 steps as described.
+
+Check agent names: "IoT Data Download", "Time Series Analytics and Forecasting", "Failure Mode and Sensor Relevancy Expert for Industrial Asset", "WorkOrder Agent". Must match exactly.
+
+Now craft each line.
+
+#Task1: Download recent sensor data for equipment CWC04009.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file CWC04009_data.json containing timestamped sensor readings.
+
+#Task2: Analyze the downloaded sensor data to detect anomalies.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly report listing affected sensor(s), anomaly type, and timestamp.
+
+#Task3: Identify the most relevant failure modes for equipment CWC04009 based on the detected anomaly.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S2
+#ExpectedOutput3: Ranked list of top three failure modes relevant to the anomaly.
+
+#Task4: Generate three recommended work orders to address the identified failure modes.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Three work order descriptions with actions, priority, and justification.
+
+Check counts: 4 steps, each has Task, Agent, Dependency, ExpectedOutput. Good.
+
+Make sure no extra spaces at end of lines. Provide exactly as lines.
+
+Let's output.assistantfinal#Task1: Download recent sensor data for equipment CWC04009.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file CWC04009_data.json containing timestamped sensor readings.
+#Task2: Analyze the downloaded sensor data to detect anomalies.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly report listing affected sensor(s), anomaly type, and timestamp.
+#Task3: Identify the most relevant failure modes for equipment CWC04009 based on the detected anomaly.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S2
+#ExpectedOutput3: Ranked list of top three failure modes relevant to the anomaly.
+#Task4: Generate three recommended work orders to address the identified failure modes.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Three work order descriptions with actions, priority, and justification.

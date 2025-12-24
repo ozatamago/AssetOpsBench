@@ -1,0 +1,56 @@
+Question: I would like to predict the next work order probability for the equipment labeled as CWC04013.
+Plan:
+ 
+#Task1: 
+We need to output plan lines only. The plan must be corrected according to validator issues. The original plan had unknown agents with extra spaces. We need to output corrected plan with proper agent names exactly as allowed. Also need to ensure format: #TaskN: <one-line>, #AgentN: <exact agent name>, #DependencyN: None or #S1 #S2..., #ExpectedOutputN: <one-line>. No extra text.
+
+We need to produce a plan to predict next work order probability for equipment CWC04013. Use up to 5 steps. Provide minimal steps.
+
+We need to ensure agent names exactly match allowed list: "IoT Data Download", "Failure Mode and Sensor Relevancy Expert for Industrial Asset", "Time Series Analytics and Forecasting", "WorkOrder Agent". No extra spaces.
+
+We need to produce plan lines only, no markdown.
+
+Let's craft 3 steps as earlier.
+
+Step1: download sensor data. Need to specify site? Not given. Could just request download sensor data for CWC04013. The IoT Data Download agent tasks include "download sensor data for CU02004 at SiteX". It expects asset and site. We don't have site. Could ask "what sites are there" first. But we can assume site known. Might be okay.
+
+But to be safe, we could first ask "what sites are there" then "what assets are at site X". However that adds steps. But we can still within 5 steps. However the final goal is probability. We need sensor data. If we don't know site, the request may fail. But we can still ask for sensor data generically.
+
+Given limited info, we can produce step1: "download sensor data for CWC04013 (all sensors) for the past 6 months". The agent may interpret.
+
+Step2: get failure modes and relevant sensors.
+
+Step3: analyze and forecast probability.
+
+Now format:
+
+#Task1: Download historical sensor data for equipment CWC04013 (all sensors) covering the past 6 months.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file CWC04013_sensor_data.json with timestamped sensor readings.  
+
+#Task2: List the failure modes of CWC04013 that typically lead to work orders and identify the most relevant sensors for each failure mode.  
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency2: None  
+#ExpectedOutput2: Report mapping failure modes to key sensors for CWC04013.  
+
+#Task3: Analyze the sensor data from #S1 using the sensor‑failure mapping from #S2 to detect recent anomalies, model their historical link to work orders, and forecast the probability of a new work order for CWC04013 in the next 7 days.  
+#Agent3: Time Series Analytics and Forecasting  
+#Dependency3: #S1 #S2  
+#ExpectedOutput3: Probability value (e.g., 0.68) with brief justification.
+
+Make sure each line is one line, no line breaks within. The #ExpectedOutput line must be one line.
+
+Let's produce final answer.assistantfinalassistantfinal
+#Task1: Download historical sensor data for equipment CWC04013 (all sensors) covering the past 6 months.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file CWC04013_sensor_data.json with timestamped sensor readings.  
+#Task2: List the failure modes of CWC04013 that typically lead to work orders and identify the most relevant sensors for each failure mode.  
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency2: None  
+#ExpectedOutput2: Report mapping failure modes to key sensors for CWC04013.  
+#Task3: Analyze the sensor data from #S1 using the sensor‑failure mapping from #S2 to detect recent anomalies, model their historical link to work orders, and forecast the probability of a new work order for CWC04013 in the next 7 days.  
+#Agent3: Time Series Analytics and Forecasting  
+#Dependency3: #S1 #S2  
+#ExpectedOutput3: Probability value (e.g., 0.68) with brief justification.

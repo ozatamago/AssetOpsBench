@@ -1,0 +1,20 @@
+Question:  If Evaporator Water side fouling occurs for Chiller 6 at MAIN site, which sensor is most relevant for monitoring this specific failure?
+Plan:
+ 
+We need to correct issues: Task lines missing? Actually original plan had #Task1 line but missing #S? Wait they used #Task1: ... #Agent1: ... #Dependency1: None #ExpectedOutput1: ... That's fine. But validator says "Agent1 unknown 'Failure Mode and Sensor Relevancy Expert for Industrial Asset  '. Allowed: ['Failure Mode and Sensor Relevancy Expert for Industrial Asset', ...]" Possibly there is trailing space after agent name. In original plan they wrote "Failure Mode and Sensor Relevancy Expert for Industrial Asset  " with two spaces at end. Need to match exactly. Also need to ensure counts match. They have 1 task, 1 agent, 1 dependency, 1 expected output. That's fine.
+
+We need to output corrected plan with proper agent name without extra spaces. Also ensure format exactly as required: each line prefixed with #Task<N>: etc. No extra spaces after colon? They allow a space after colon. Provide one line each.
+
+Let's craft:
+
+#Task1: Identify the sensor most relevant for monitoring Evaporator Water side fouling on Chiller 6 at the MAIN site.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: The name of the most relevant sensor (e.g., “Evaporator Inlet Water Temperature sensor”) with a brief justification.
+
+Make sure no extra spaces at end of lines. Provide exactly four lines.
+
+Return only those lines.assistantfinal#Task1: Identify the sensor most relevant for monitoring Evaporator Water side fouling on Chiller 6 at the MAIN site.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: The name of the most relevant sensor (e.g., “Evaporator Inlet Water Temperature sensor”) with a brief justification.

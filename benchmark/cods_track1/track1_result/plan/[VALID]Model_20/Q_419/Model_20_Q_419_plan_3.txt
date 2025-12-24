@@ -1,0 +1,11 @@
+Question: Using your knowledge of the industrial asset, can you suggest me a work order for alert RUL0014 with the context of 'Chiller - Cooling Substance Delta T Low' for closed-loop water-cool chiller its load is higher than the upper bound?
+Plan:
+ 
+We need to output plan with fewer than 5 steps. Already have 2 steps. Must ensure format exactly. No extra spaces at end of lines. Ensure each line starts with #Task1 etc. No extra blank lines. Let's produce final answer.assistantfinal#Task1: Identify the failure mode(s) and relevant sensors associated with a low cooling‑substance ΔT condition (alert RUL0014) in a closed‑loop water‑cooled chiller.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: Description of likely failure mode(s) (e.g., low refrigerant charge, heat‑exchanger fouling) and list of key sensors to monitor (e.g., evaporator leaving water temperature, condenser inlet temperature, pressure sensors).  
+#Task2: Create a work order to address alert RUL0014, using the failure‑mode and sensor information from #S1, and explicitly note that the chiller’s load is above the upper bound.  
+#Agent2: WorkOrder Agent  
+#Dependency2: #S1  
+#ExpectedOutput2: Formatted work order (title, description, priority, recommended actions, required parts/tools, assigned team, follow‑up checks) for the affected chiller.

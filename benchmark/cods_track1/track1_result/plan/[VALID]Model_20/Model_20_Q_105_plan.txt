@@ -1,0 +1,17 @@
+Question: Provide some sensors of asset Wind Turbine.
+Plan:
+ 
+We need to follow format exactly. Must not have extra spaces at line ends. Also need to ensure tags are #Task1, #Agent1, #Dependency1, #ExpectedOutput1, then #Task2 etc. No extra spaces after colon? The spec says "#TaskN: <one-line>" okay.
+
+We must ensure no extra spaces at line ends. Also ensure we use #S1 reference? The dependency format says "#S1 #S2 ..." but earlier they used #S1. In our plan we used #S1. That's okay.
+
+Make sure each line is separate line, no extra blank lines.
+
+Let's produce final answer.assistantfinal#Task1: Retrieve the list of sensors associated with the asset "Wind Turbine" using IoT Data Download.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file containing sensor identifiers and descriptions for the Wind Turbine asset.  
+#Task2: Parse the JSON from #S1 to produce a plain list of sensor names.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: Text list of sensor names for the Wind Turbine asset.

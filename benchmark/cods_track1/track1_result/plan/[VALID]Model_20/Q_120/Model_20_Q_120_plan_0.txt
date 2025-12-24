@@ -1,0 +1,21 @@
+Question: I want to build an anomaly model for identifying a chiller trip failure for POKMAIN chiller 6. Provide me a list of sensors that I should use, along with the temporal behavior,
+Plan:
+We need to produce a plan with <5 steps. The problem: build an anomaly model for identifying a chiller trip failure for POKMAIN chiller 6. Provide list of sensors to use, along with temporal behavior.
+
+We have agents: Failure Mode and Sensor Relevancy Expert for Industrial Asset can provide relevant sensors for specific failures and temporal behavior. So we need to ask that agent for sensors for chiller trip failure and temporal behavior. Possibly also need to get data for those sensors using IoT Data Download. But the problem only asks to provide list of sensors and temporal behavior, not to actually download data or build model. So we can just use the Failure Mode and Sensor Relevancy Expert.
+
+Thus we can have a single step: ask the expert for sensors relevant to chiller trip failure for POKMAIN chiller 6 and temporal behavior. The expected output: list of sensors and description of temporal behavior.
+
+We need to follow format:
+
+#Task1: ...
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of sensors and temporal behavior for chiller trip failure for POKMAIN chiller 6.
+
+That's it. Provide plan with fewer than 5 steps. So one step.
+
+Let's produce final answer.assistantfinal#Task1: Identify the sensors that should be used to detect a chiller‑trip failure for the POKMAIN Chiller 6 and describe the expected temporal behavior of those sensor signals during such a failure.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A concise list of relevant sensors (e.g., compressor power, suction pressure, discharge pressure, evaporator/condensor temperatures, flow rates, etc.) together with a brief description of how each sensor’s signal typically evolves over time when a chiller‑trip event occurs (e.g., rapid drop in power, pressure spikes, temperature excursions, duration of transient, recovery pattern).

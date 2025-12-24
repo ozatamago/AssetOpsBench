@@ -1,0 +1,16 @@
+Question: In May and June of 2020, numerous anomalies and alerts have been reported for Chiller 9 with equipment ID CWC04009. Could you review them and suggest appropriate work orders or actions?
+Plan:
+#Task1: Retrieve all anomalies and alerts reported for Chiller 9 in May and June 2020
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of anomalies and alerts for Chiller 9 in the specified time period
+
+#Task2: Analyze the anomalies and alerts to identify patterns and root causes
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: Insights into the types of failures and relevant sensors for Chiller 9
+
+#Task3: Generate appropriate work orders or actions based on the analysis
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A set of recommended work orders or actions to address the identified issues with Chiller 9

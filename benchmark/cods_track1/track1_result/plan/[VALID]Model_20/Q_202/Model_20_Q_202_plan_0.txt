@@ -1,0 +1,8 @@
+Question: What are time series pretrained models are available in system?
+Plan:
+We need to answer: "What are time series pretrained models are available in system?" This is a question about system capabilities. Likely the Time Series Analytics and Forecasting agent can answer about pretrained models. It can provide info about time series pretrained models. So we need a step: ask Time Series Analytics and Forecasting agent to list available pretrained models. No dependencies. Expected output: list of model names.
+
+Thus one step. Under 5 steps. Provide format. Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1. Ensure clear.assistantfinal#Task1: Retrieve a list of all time series pretrained models available in the system.  
+#Agent1: Time Series Analytics and Forecasting  
+#Dependency1: None  
+#ExpectedOutput1: A concise list (e.g., JSON array or bullet points) of the names/descriptions of all pretrained time‑series models that can be used for analysis, forecasting, or anomaly detection.

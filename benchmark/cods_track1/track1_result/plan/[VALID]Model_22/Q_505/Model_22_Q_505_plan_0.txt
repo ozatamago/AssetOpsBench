@@ -1,0 +1,21 @@
+Question: What's the forecast for Chiller 6's Tonnage for next week based on the data from the week of 2020-04-27 at MAIN?
+Plan:
+#Task1: Download the historical data for Chiller 6's Tonnage for the week of 2020-04-27 at MAIN
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON file containing the historical data for Chiller 6's Tonnage for the specified week
+
+#Task2: Analyze the historical data for Chiller 6's Tonnage and forecast the next week's Tonnage
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: A forecast of Chiller 6's Tonnage for the next week based on the historical data
+
+#Task3: Generate a work order for any potential issues identified in the forecast
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A work order for any potential issues identified in the forecast
+
+#Task4: Close the work order after confirming the forecast has been reviewed and any necessary actions have been taken
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: A closed work order confirming the forecast has been reviewed and any necessary actions have been taken

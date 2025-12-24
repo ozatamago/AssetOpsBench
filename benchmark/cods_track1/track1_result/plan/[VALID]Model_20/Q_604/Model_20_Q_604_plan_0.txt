@@ -1,0 +1,19 @@
+Question: List all failure modes of Chiller 6 at MAIN site that can be detected by Chiller 6 Chiller Efficiency.
+Plan:
+We need to produce a plan with fewer than 5 steps. The problem: "List all failure modes of Chiller 6 at MAIN site that can be detected by Chiller 6 Chiller Efficiency."
+
+We have agents: IoT Data Download (maybe to get site info?), Failure Mode and Sensor Relevancy Expert for Industrial Asset (can list failure modes of asset Chiller 6, and list those that can be detected by Chiller 6 Chiller Efficiency). So we can directly ask that agent: "List all failure modes of Chiller 6 that can be detected by Chiller 6 Chiller Efficiency." However the problem also mentions "at MAIN site". The asset is Chiller 6 at MAIN site. The agent likely can handle that context. So we can just ask the Failure Mode and Sensor Relevancy Expert.
+
+Thus we need a single step: ask that agent. No dependencies.
+
+We need to follow format:
+
+#Task1: List all failure modes of Chiller 6 at MAIN site that can be detected by the Chiller Efficiency sensor.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure mode names (e.g., "Compressor Overheating", "Refrigerant Leak", etc.) that are detectable by the Chiller Efficiency sensor for Chiller 6 at the MAIN site.
+
+That's it. Ensure fewer than 5 steps. Provide plan.assistantfinal#Task1: List all failure modes of Chiller 6 at the **MAIN** site that can be detected by the **Chiller 6 Chiller Efficiency** sensor.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A concise list (e.g., bullet points or JSON array) of the failure‑mode names for Chiller 6 at the MAIN site that are detectable by the Chiller Efficiency sensor.

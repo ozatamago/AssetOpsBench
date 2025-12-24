@@ -1,0 +1,6 @@
+Question: Is any model with context length 96 supported in TSFM?
+Plan:
+assistantanalysisWe need to output plan with correct tags. Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1. Ensure no extra spaces? Format: "#Task<N>: <Describe your task here>" etc. Provide one line each. Ensure no extra lines. Provide exactly four lines.assistantfinal#Task1: Determine whether any Time Series Foundation Model (TSFM) supports a context length of 96 and list the model(s) if available
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: Answer indicating if a TSFM model with context length 96 exists, and if so, the name(s) of such model(s)

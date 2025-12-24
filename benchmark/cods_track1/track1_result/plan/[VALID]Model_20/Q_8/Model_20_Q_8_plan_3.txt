@@ -1,0 +1,13 @@
+Question: Download sensor data for Chiller 6's Tonnage from the last week of 2020 at the MAIN site
+Plan:
+ 
+We need to output plan with fewer than 5 steps. We have 2 steps. Must ensure format exactly: each line starts with #Task<N>: etc. No extra spaces after tag? Should be fine. Ensure no blank lines. Also ensure #Dependency uses #S1 referencing step numbers? In spec earlier they used #S1, #S2. In our plan we used #S1. That's okay. Must match counts: we have 8 lines, 4 per step. Ensure no extra spaces at end. Also ensure agent name exactly matches allowed list: "IoT Data Download". Good.
+
+Let's output.assistantfinalassistantfinalassistantfinal#Task1: Determine the ISO‑8601 start and end timestamps for the last calendar week of 2020 (Monday 00:00 to Sunday 23:59) to define the download period.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: Start and end datetime strings (e.g., `2020-12-21T00:00:00-05:00` to `2020-12-27T23:59:59-05:00`) that represent the last week of 2020.  
+#Task2: Download the historical sensor data for the Tonnage sensor of Chiller 6 at the MAIN site for the period obtained in Task 1.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: A JSON file (e.g., `chiller6_tonnage_lastweek2020.json`) containing timestamped Tonnage values for Chiller 6 at the MAIN site covering the specified week.

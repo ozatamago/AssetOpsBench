@@ -1,0 +1,13 @@
+Question: Download sensor data for Chiller 6's Tonnage from the last week of 2020 at the MAIN site
+Plan:
+#Task1: Identify the date range for the last week of 2020
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The start and end dates for the last week of 2020
+
+#Task2: Download sensor data for Chiller 6's Tonnage at the MAIN site for the identified date range
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Sensor data for Chiller 6's Tonnage at the MAIN site for the last week of 2020
+
+The plan is complete.

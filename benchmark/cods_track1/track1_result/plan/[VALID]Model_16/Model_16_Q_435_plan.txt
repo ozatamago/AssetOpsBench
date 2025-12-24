@@ -1,0 +1,23 @@
+Question: Assume today is early of July 2020, I would like to review the alerts for chiller 9 with equipment ID CWC04009 for June 2020 and the work order should be generated based on the type of alerts.
+Plan:
+#Task1: Retrieve the historical data for chiller 9 with equipment ID CWC04009 for June 2020.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for CWC04009 in June 2020.
+
+#Task2: Analyze the historical data to identify any alerts or anomalies for chiller 9 in June 2020.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: List of alerts or anomalies detected in the data.
+
+#Task3: Determine the type of alerts or anomalies detected for chiller 9.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S2
+#ExpectedOutput3: Classification of alerts or anomalies into specific failure modes.
+
+#Task4: Generate a work order based on the type of alerts or anomalies detected for chiller 9.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Work order generated for chiller 9 based on the alerts or anomalies.
+
+The plan is a 4-step process that starts with retrieving historical data for chiller 9 (CWC04009) for June 2020 using the IoT Data Download agent. The data is then analyzed for alerts or anomalies using the Time Series Analytics and Forecasting agent. The Failure Mode and Sensor Relevancy Expert for Industrial Asset agent is used to classify these alerts into specific failure modes. Finally, the WorkOrder Agent generates a work order based on the classified alerts or anomalies.

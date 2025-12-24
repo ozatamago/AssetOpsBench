@@ -1,0 +1,41 @@
+Question: List all failure modes of asset Chiller 6 at MAIN site.
+Plan:
+We need to produce a plan with fewer than 5 steps. The problem: "List all failure modes of asset Chiller 6 at MAIN site."
+
+We have agents: IoT Data Download (provides site info, asset details, sensor data, etc.) and Failure Mode and Sensor Relevancy Expert for Industrial Asset (provides failure modes). The task is to list all failure modes of asset Chiller 6 at MAIN site. Likely we need to ask the Failure Mode expert for "List all failure modes of asset Chiller 6." Possibly also need to confirm that Chiller 6 is at MAIN site using IoT Data Download (maybe "what assets are at site MAIN" or "what sites are there").
+
+But the problem only asks to list all failure modes of asset Chiller 6 at MAIN site. If we assume the asset is at MAIN site, we could directly ask the Failure Mode expert. However to be thorough, we could first verify that Chiller 6 is at MAIN site using IoT Data Download: "what assets are at site MAIN". Then we can ask the Failure Mode expert: "List all failure modes of asset Chiller 6."
+
+Thus we need two steps: first get asset list for MAIN site, then get failure modes.
+
+We need to produce plan with steps, each with Task, Agent, Dependency, ExpectedOutput.
+
+Step 1: Query IoT Data Download: "what assets are at site MAIN". Expected output: list of assets at MAIN site, includes Chiller 6.
+
+Step 2: Query Failure Mode and Sensor Relevancy Expert: "List all failure modes of asset Chiller 6." Dependency: #S1 (the previous step). Expected output: list of failure modes.
+
+We need to ensure fewer than 5 steps (we have 2). Provide plan.
+
+Let's format as required:
+
+#Task1: Retrieve the list of assets at the MAIN site to confirm Chiller 6 is present.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON or text list of assets at MAIN site, showing Chiller 6 among them.
+
+#Task2: Obtain all failure modes associated with the asset Chiller 6.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: List of all failure modes for Chiller 6.
+
+Make sure to use #S1 referencing step 1.
+
+Let's produce final answer.assistantfinal#Task1: Retrieve the list of assets at the **MAIN** site to confirm that **Chiller 6** is present.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A list (JSON or plain text) of all assets located at site **MAIN**, showing **Chiller 6** among them.  
+
+#Task2: List every failure mode defined for the asset **Chiller 6**.  
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency2: #S1  
+#ExpectedOutput2: A complete enumeration of all failure modes applicable to **Chiller 6** (e.g., compressor overheating, refrigerant leak, sensor drift, etc.).

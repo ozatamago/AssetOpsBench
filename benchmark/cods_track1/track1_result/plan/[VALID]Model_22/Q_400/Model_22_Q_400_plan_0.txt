@@ -1,0 +1,21 @@
+Question: Get the work order of equipment CWC04013 for year 2017.
+Plan:
+#Task1: Retrieve the asset history for equipment CWC04013 for the year 2017
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON file containing the asset history data for CWC04013 for the year 2017
+
+#Task2: Analyze the asset history data to identify any anomalies, alerts, or performance issues
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: A report highlighting any anomalies, alerts, or performance issues in the asset history data
+
+#Task3: Generate a work order based on the identified issues from the asset history data
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A work order for equipment CWC04013 detailing the necessary preventive or corrective actions
+
+#Task4: Review and finalize the work order
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: A finalized work order for equipment CWC04013 for the year 2017, ready for execution

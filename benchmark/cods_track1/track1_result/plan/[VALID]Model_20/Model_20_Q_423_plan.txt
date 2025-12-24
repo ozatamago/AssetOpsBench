@@ -1,0 +1,23 @@
+Question: I am using historical work order information upto end of June 2020 for prioritizing maintenance. Which work orders should I prioritize first for Chiller 9 with equipment ID CWC04009 in July 2020?
+Plan:
+ 
+We need to ensure the plan meets constraints: fewer than 5 steps (we have 4). Use correct tags: #Task1, #Agent1, #Dependency1, #ExpectedOutput1 etc. Must match counts. Ensure dependencies refer to #S1 etc. The spec uses #S1 for step numbers? In original plan they used #S1 etc. So we used #S1 etc. That's fine.
+
+Check that #Dependency2: #S1 (past step). #Dependency3: #S1 #S2 (both past). #Dependency4: #S3 (past). Good.
+
+Make sure each line is exactly one line, no extra spaces at start. Provide final answer.assistantfinal#Task1: Download asset history for equipment CWC04009 (Chiller 9) up to 2020-06-30 for all relevant sensors
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: asset_history_CWC04009_June2020.json containing timestamped sensor readings
+#Task2: List all failure modes for Chiller 9 and the sensors that detect each mode
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: Table mapping each failure mode of Chiller 9 to its relevant sensors
+#Task3: Analyze the downloaded asset history for anomalies in the identified sensors and rank failure modes by frequency and severity of anomalies up to June 2020
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S1 #S2
+#ExpectedOutput3: Ranked list of failure modes with anomaly scores for Chiller 9
+#Task4: Create work orders for the top‑priority failure modes for Chiller 9 to be scheduled in July 2020
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: List of newly created work order IDs and descriptions for the highest‑ranked failure modes

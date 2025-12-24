@@ -1,0 +1,7 @@
+Question: Get the work order of equipment CWC04013 for year 2017.
+Plan:
+ 
+We need to output plan. Already done. Ensure format correct. No extra spaces at line ends. Should be fine.assistantfinal#Task1: Retrieve all work orders for equipment CWC04013 that were created in the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: A list of work order records for CWC04013 from 2017, each including work order ID, creation date, description, status, and any relevant notes.

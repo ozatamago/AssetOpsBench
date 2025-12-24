@@ -1,0 +1,23 @@
+Question: Could you identify any causal linkages between anomalies across KPIs to better understand the severity and interconnectedness?
+Plan:
+#Task1: Retrieve historical data for relevant KPIs of Chiller 6
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for "CHILLED WATER LEAVING TEMP" and "CHILLED WATER RETURN TEMP" for CU02004 at SiteX
+
+#Task2: Analyze the retrieved data for anomalies in Chiller 6 Return Temperature and Chiller 6 Leaving Temperature
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly detection results for Chiller 6 Return Temperature and Chiller 6 Leaving Temperature
+
+#Task3: Identify potential failure modes related to the detected anomalies
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S2
+#ExpectedOutput3: List of potential failure modes related to the anomalies detected in Chiller 6 Return Temperature and Chiller 6 Leaving Temperature
+
+#Task4: Create a work order based on the identified potential failure modes and anomalies
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: A work order for inspecting or maintaining Chiller 6 based on the identified potential failure modes
+
+The generated plan is a 4-step process that uses the available agents to identify causal linkages between anomalies across KPIs for Chiller 6.

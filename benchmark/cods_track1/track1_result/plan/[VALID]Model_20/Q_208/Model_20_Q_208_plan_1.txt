@@ -1,0 +1,12 @@
+Question: Is Time Series Classification supported in TSFM?
+Plan:
+ 
+#Task1: 
+#Agent1: 
+#Dependency1: 
+#ExpectedOutput1:
+
+#Task1: Ask the Time Series Analytics and Forecasting agent whether Time Series Classification is supported in TSFM.  
+#Agent1: Time Series Analytics and Forecasting  
+#Dependency1: None  
+#ExpectedOutput1: A concise answer stating if TSFM includes time‑series classification capabilities (e.g., “TSFM does not currently support time‑series classification; it focuses on forecasting, anomaly detection, and related regression tasks.”).

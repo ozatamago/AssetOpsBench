@@ -1,0 +1,35 @@
+Question: Download all sensor data for Chiller 6 from the last week of April '20 at the MAIN site.
+Plan:
+We need to produce a plan with fewer than 5 steps. The problem: "Download all sensor data for Chiller 6 from the last week of April '20 at the MAIN site."
+
+We have agents: IoT Data Download can download sensor data for a specific asset at a site. It can also calculate start date for last week or past week. It can also download asset history for a time range. The request: "Download all sensor data for Chiller 6 from the last week of April '20 at the MAIN site."
+
+We need to get sensor data for Chiller 6 (asset ID maybe "CHL-6"? Not sure). The IoT Data Download agent can "download sensor data for CU02004 at SiteX". That's a generic example. So we can ask it to download sensor data for Chiller 6 at MAIN site. Also need to specify time range: last week of April 2020. That is April 24-30, 2020 (assuming week starting Monday). Or we can ask the agent to calculate start date for last week or past week. But we need specific dates. We can use the "how do I calculate the start date for last week or past week?" but that's a question, not a data retrieval. However we can combine: first step: ask IoT Data Download to calculate start date for last week of April 2020. But the agent's task is generic: "how do I calculate the start date for last week or past week?" It might return a method, not actual date. But we can maybe just compute ourselves: last week of April 2020 is 2020-04-24 to 2020-04-30. So we can embed that in the request.
+
+Thus we can have a single step: download sensor data for Chiller 6 at MAIN site for date range 2020-04-24 to 2020-04-30. The IoT Data Download agent can "download asset history for CU02004 at SiteX from start to end for sensors". That seems similar. It can also "download sensor data for CU02004 at SiteX". Not sure if it supports date range. The "download asset history" includes date range. So we can use that.
+
+Thus step: #Task1: Download asset history for Chiller 6 at MAIN site from 2020-04-24T00:00:00 to 2020-04-30T23:59:59 for all sensors. #Agent1: IoT Data Download. #Dependency: None. #ExpectedOutput: JSON file containing sensor data for Chiller 6 for the specified date range.
+
+We need to ensure we ask for all sensors. The agent's task list includes specifying sensors. It can accept "for 'CHILLED WATER LEAVING TEMP' and 'CHILLED WATER RETURN TEMP'". But we need all sensors. Maybe we can ask to download all sensor data (no sensor list). The agent may accept that.
+
+Thus one step plan.
+
+But we need to be careful: The problem says "Download all sensor data for Chiller 6 from the last week of April '20 at the MAIN site." So we need to produce plan steps. Provide step with task, agent, dependency, expected output.
+
+Thus final answer: a plan with one step.
+
+Let's produce.
+
+Make sure format:
+
+#Task1: ...
+#Agent1: ...
+#Dependency1: None
+#ExpectedOutput1: ...
+
+Yes.
+
+Let's produce final answer.assistantfinal#Task1: Download all sensor data (full asset history) for Chiller 6 at the **MAIN** site covering the last week of April 2020 (2020‑04‑24 00:00:00 to 2020‑04‑30 23:59:59).  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A single JSON file (e.g., `chiller6_main_20200424_20200430.json`) containing the complete time‑stamped sensor readings for Chiller 6 across the specified date range.

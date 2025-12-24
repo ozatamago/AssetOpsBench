@@ -1,0 +1,8 @@
+Question: Generate a machine learning recipe for detecting overheating failure for Chiller 6 at MAIN site. Result should include feature sensors and target sensor.
+Plan:
+ 
+assistantanalysisWe need to output only the plan lines. Already done. Ensure no extra spaces? Format: "#Task1: ..." etc. Should be fine.assistantfinal
+#Task1: Identify the feature sensors and target sensor for detecting compressor overheating failure of Chiller 6 at MAIN site.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of relevant feature sensors and the prioritized target sensor for monitoring compressor overheating in Chiller 6.

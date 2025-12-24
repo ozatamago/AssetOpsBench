@@ -1,0 +1,27 @@
+Question: List all failure modes of Chiller 6 at MAIN site that can be detected by temperature sensors and power input sensors.
+Plan:
+We need to produce a plan with fewer than 5 steps. The problem: "List all failure modes of Chiller 6 at MAIN site that can be detected by temperature sensors and power input sensors."
+
+We have agents: IoT Data Download (provides site info, asset details, sensor data), Failure Mode and Sensor Relevancy Expert for Industrial Asset (provides failure modes, mapping between failure modes and sensors), Time Series Analytics and Forecasting (analysis), WorkOrder Agent (work orders). The problem is about failure modes and sensor relevancy. So we need to use Failure Mode and Sensor Relevancy Expert for Industrial Asset to list failure modes of Chiller 6 that can be detected by temperature sensors and power input sensors. Possibly we also need to know which sensors are temperature sensors and power input sensors. The expert can answer "List all failure modes of asset Chiller 6." Also "List all failure modes of Chiller 6 that can be detected by Chiller 6 Chiller Efficiency." Not exactly temperature sensors. But we can ask: "What are the relevant sensors that can be used to monitor the loose wiring failure of Chiller 6? If compressor overheating occurs for Chiller 6, which sensor should be prioritized for monitoring this specific failure?" So the expert can map failure modes to sensors. So we can ask: "List all failure modes of Chiller 6 that can be detected by temperature sensors and power input sensors." That is a direct request. So we can have a single step: ask the Failure Mode and Sensor Relevancy Expert for that list.
+
+But we need to ensure we include site MAIN. The expert may not need site info; but we can include "at MAIN site". So step: ask the expert.
+
+Thus plan with 1 step.
+
+We need to follow format:
+
+#Task1: <describe>
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of failure modes of Chiller 6 at MAIN site that are detectable by temperature sensors and power input sensors.
+
+That's it.
+
+Make sure less than 5 steps. Provide plan.
+
+Let's produce final answer.assistantfinal**Step‑by‑step plan (1 step)**  
+
+#Task1: Retrieve a list of all failure modes for **Chiller 6** located at the **MAIN** site that can be detected using **temperature sensors** and **power‑input sensors**.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A concise list (e.g., bullet points) of the relevant failure modes of Chiller 6 at the MAIN site, each annotated with the sensor type(s) (temperature, power‑input) that can detect it.  

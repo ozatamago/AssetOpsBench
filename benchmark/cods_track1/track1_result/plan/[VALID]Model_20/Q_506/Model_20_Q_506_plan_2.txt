@@ -1,0 +1,17 @@
+Question: Is there any anomaly detected in Chiller 9's Condenser Water Flow in the week of 2020-04-27 at MAIN?
+Plan:
+ 
+We need to output plan lines exactly as described. Ensure each line starts with #TaskN: etc. No extra spaces at start. Ensure #Dependency2: #S1 (space after colon). Ensure #ExpectedOutput lines are one line. Provide final answer.assistantfinalassistantfinal#Task1: Retrieve the list of assets at site MAIN to identify Chiller 9’s asset ID
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON list of assets at MAIN including the identifier for Chiller 9
+
+#Task2: Download Condenser Water Flow sensor data for the identified Chiller 9 asset for 2020‑04‑27 to 2020‑05‑03
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: JSON file (e.g., chiller9_cwf_20200427_20200503.json) with timestamped flow readings for that week
+
+#Task3: Analyze the downloaded time‑series to detect any anomalies in Chiller 9’s Condenser Water Flow during the week
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Report stating whether an anomaly was detected, including any anomaly timestamps or severity details

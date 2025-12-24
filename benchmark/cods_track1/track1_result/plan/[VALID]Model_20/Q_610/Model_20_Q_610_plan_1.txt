@@ -1,0 +1,7 @@
+Question:  If compressor overheating occurs for Chiller 6 at MAIN site, which sensor should be prioritized for monitoring this specific failure?
+Plan:
+ 
+We need to output plan lines exactly. Ensure no extra spaces? Format: "#Task1: ..." etc. Provide as per guidelines. No extra lines. Let's produce.assistantfinalassistantfinal#Task1: Determine the sensor that should be prioritized for monitoring when a compressor overheating failure occurs in Chiller 6 at the MAIN site.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: The name (or identifier) of the sensor most relevant for detecting or monitoring compressor overheating in Chiller 6 (e.g., “Compressor Discharge Temperature Sensor”).

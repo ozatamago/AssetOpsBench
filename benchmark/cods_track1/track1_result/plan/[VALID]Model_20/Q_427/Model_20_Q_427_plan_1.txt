@@ -1,0 +1,43 @@
+Question: Since we know 80% of alerts are likely spurious, can you identify the meaningful 20% for further analysis for any chillers?
+Plan:
+ 
+#Task1: 
+#Agent1: 
+#Dependency1: 
+#ExpectedOutput1: 
+#Task2: 
+#Agent2: 
+#Dependency2: 
+#ExpectedOutput2: 
+#Task3: 
+#Agent3: 
+#Dependency3: 
+#ExpectedOutput3 
+We need to output only lines in exact format, no extra text. Must follow the format: each step includes #TaskN: <one-line>, #AgentN: <exact agent name>, #DependencyN: None | #S1 #S2 ..., #ExpectedOutputN: <one-line>. Must not include extra spaces? Probably fine.
+
+We need to produce plan with fewer than 5 steps. We have 4 steps. Ensure each line ends with newline. No extra explanation. Must not include markdown. Must not include extra spaces after colon? The example shows a space after colon. We'll follow.
+
+Make sure #ExpectedOutput3 line ends with colon? Should be "#ExpectedOutput3:". In the user's last message they omitted colon after ExpectedOutput3. We must follow required format: "#ExpectedOutputN: <one-line>". So include colon.
+
+Let's craft final answer.
+
+Check agent names exactly as listed: "IoT Data Download", "Time Series Analytics and Forecasting", "Failure Mode and Sensor Relevancy Expert for Industrial Asset", "WorkOrder Agent". Use those exact strings.
+
+Now produce final plan.
+
+assistantfinal#Task1: Download recent temperature sensor data for chiller CHL‑A100 covering “CHILLED WATER LEAVING TEMP” and “CHILLED WATER RETURN TEMP”.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file (e.g., chiller_A100_temp_data.json) with timestamped readings for the two sensors over the past 7 days.  
+#Task2: Detect anomalies in the temperature time‑series from chiller_A100_temp_data.json.  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: List of anomaly records (sensor, timestamp, value, anomaly‑score) indicating potential true alerts.  
+#Task3: Map each detected anomaly to possible failure modes and confirm sensor relevance.  
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency3: #S2  
+#ExpectedOutput3: Mapping of anomalies to plausible failure modes with confidence indicators of true faults.  
+#Task4: Generate work orders for anomalies linked to high‑confidence failure modes (the meaningful 20 % of alerts).  
+#Agent4: WorkOrder Agent  
+#Dependency4: #S3  
+#ExpectedOutput4: New work order IDs and details for each validated alert.

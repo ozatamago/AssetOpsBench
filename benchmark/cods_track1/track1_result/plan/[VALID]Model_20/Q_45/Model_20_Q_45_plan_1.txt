@@ -1,0 +1,30 @@
+Question: What is the power consumption of CQPA AHU 1 on mar 13 '20, site MAIN?
+Plan:
+ 
+We need to produce a plan with fewer than 5 steps. Use the allowed agents. The problem: "What is the power consumption of CQPA AHU 1 on mar 13 '20, site MAIN?" So we need to retrieve power consumption data for that asset on that date.
+
+The IoT Data Download agent can download asset history for a given asset, site, time range, and sensor. It can also read JSON file and get list of properties. So we can do two steps: download data, then read and extract.
+
+We must follow the exact format: each step has #TaskN, #AgentN, #DependencyN, #ExpectedOutputN. The dependency uses #S1, #S2 etc. The steps themselves are #S1, #S2? Actually the format says #Dependency<N>: <use #S1, #S2, ... or None>. So we need to refer to previous steps as #S1, #S2. So we need to label steps as #S1, #S2? The tags are #Task1, #Agent1, #Dependency1, #ExpectedOutput1. The dependency can be None or #S1 etc. So for step 2, we set #Dependency2: #S1.
+
+Thus final output:
+
+#Task1: Download asset history for CQPA AHU 1 at site MAIN for 2020-03-13 covering the "POWER CONSUMPTION" sensor
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file (e.g., power_consumption_2020-03-13.json) containing timestamped power consumption values for the asset on that date
+
+#Task2: Read the JSON file from step 1 and calculate the total (or average) power consumption for the day
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: The total (or average) power consumption value (e.g., "Power consumption on 2020-03-13: X kW") for CQPA AHU 1 at site MAIN
+
+We must ensure no extra lines, no markdown. Provide exactly those lines.assistantfinal#Task1: Download asset history for CQPA AHU 1 at site MAIN for 2020-03-13 covering the "POWER CONSUMPTION" sensor
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file containing timestamped power consumption values for CQPA AHU 1 on 2020-03-13
+
+#Task2: Read the JSON file from step 1 and calculate the total power consumption for the day
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Total power consumption value for CQPA AHU 1 on 2020-03-13 at site MAIN (e.g., "Power consumption on 2020-03-13: X kW")

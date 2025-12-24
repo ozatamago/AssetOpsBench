@@ -1,0 +1,21 @@
+Question: What assets can be found at the MAIN site?
+Plan:
+#Task1: Retrieve the list of assets at the MAIN site
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of assets at the MAIN site
+
+#Task2: Analyze the list of assets to identify any potential issues or anomalies
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: A report on potential issues or anomalies for each asset at the MAIN site
+
+#Task3: Generate work orders for any assets with identified issues or anomalies
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A set of work orders for the assets with identified issues or anomalies
+
+#Task4: Forecast the next 24 hours of performance for each asset at the MAIN site
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: #S1
+#ExpectedOutput4: A forecast of the next 24 hours of performance for each asset at the MAIN site

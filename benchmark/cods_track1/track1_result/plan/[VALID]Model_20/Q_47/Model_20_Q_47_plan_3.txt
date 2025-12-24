@@ -1,0 +1,8 @@
+Question: list all the chillers at site MAIN
+Plan:
+ 
+assistantanalysisWe need to list all chillers at site MAIN. Use IoT Data Download: task "what assets are at site SiteX". So we need to ask for assets at site MAIN, then filter chillers. Could be done in one step: ask IoT Data Download to list assets at site MAIN and return only chillers. That's okay. Provide expected output list. So final answer as above. Ensure format: #Task1, #Agent1, #Dependency1, #ExpectedOutput1. No extra spaces? It's okay. Provide exactly.assistantfinal
+#Task1: Retrieve the list of assets at site MAIN and return only the chillers
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of chiller asset IDs or names located at site MAIN

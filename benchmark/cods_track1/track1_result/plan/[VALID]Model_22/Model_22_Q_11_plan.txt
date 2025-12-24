@@ -1,0 +1,21 @@
+Question: Download all sensor data for Chiller 6 from the last week of April '20 at the MAIN site.
+Plan:
+#Task1: Determine the start and end dates for the last week of April 2020
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The start and end dates for the last week of April 2020 in the format YYYY-MM-DDTHH:MM:SS-04:00
+
+#Task2: Download all sensor data for Chiller 6 at the MAIN site for the specified date range
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: A JSON file containing all sensor data for Chiller 6 at the MAIN site for the specified date range
+
+#Task3: Verify the downloaded data for completeness and accuracy
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: Confirmation that the downloaded data is complete and accurate, or identification of any missing or incorrect data
+
+#Task4: Save the verified data to a file for further analysis
+#Agent4: IoT Data Download
+#Dependency4: #S3
+#ExpectedOutput4: A saved JSON file containing the verified sensor data for Chiller 6 at the MAIN site for the specified date range

@@ -1,0 +1,16 @@
+Question: Find and run several methods to analyze data sensor 'Chiller 9 Condenser Water Flow' using data in 'data/tsfm_test_data/chiller9_tsad-small.csv'.
+Plan:
+#Task1: Identify the relevant sensors for the failure mode of Chiller 9
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of relevant sensors for the failure mode of Chiller 9
+
+#Task2: Download the sensor data for Chiller 9
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: The sensor data for Chiller 9
+
+#Task3: Analyze the time-series data for anomalies in Chiller 9 Condenser Water Flow
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Anomalies detected in the Chiller 9 Condenser Water Flow data

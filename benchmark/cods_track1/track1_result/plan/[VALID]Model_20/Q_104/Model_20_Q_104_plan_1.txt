@@ -1,0 +1,12 @@
+Question: List all installed sensors of asset Chiller 6.
+Plan:
+ 
+#Task1: 
+#Agent1: 
+#Dependency1: 
+#ExpectedOutput1:
+
+#Task1: List all installed sensors of asset Chiller 6.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A complete list of sensor identifiers and names installed on Chiller 6.

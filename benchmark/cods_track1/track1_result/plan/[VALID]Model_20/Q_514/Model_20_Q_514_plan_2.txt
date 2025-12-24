@@ -1,0 +1,17 @@
+Question: Can you detect any anomalies in Chiller 9's Condenser Water Flow in the week of 2020-04-27 at MAIN?
+Plan:
+ 
+We need to ensure format: #Task1, #Agent1, #Dependency1, #ExpectedOutput1 etc. Use #S1 referencing step numbers? In spec they used #S1, #S2. Should be #S1 etc. Provide exactly 3 steps. Ensure each line separate. No extra spaces at line start. Provide final answer.assistantfinalassistantfinalassistantfinal#Task1: Retrieve the list of assets at site MAIN and identify the asset ID for Chiller 9
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at MAIN with the asset identifier for Chiller 9 (e.g., CU09001)
+
+#Task2: Download sensor data for the identified Chiller 9 asset, sensor “Condenser Water Flow”, for 2020-04-27 to 2020-05-03
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: JSON file (e.g., chiller9_cwf_2020-04-27_2020-05-03.json) containing timestamped flow readings for the week
+
+#Task3: Detect anomalies in the “Condenser Water Flow” time series from the downloaded JSON file
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Anomaly detection report listing timestamps, values, and brief description of each detected anomaly

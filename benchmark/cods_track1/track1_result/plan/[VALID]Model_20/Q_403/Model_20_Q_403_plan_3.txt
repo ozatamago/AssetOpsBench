@@ -1,0 +1,7 @@
+Question: I would like to retrieve the corrective work order details for the equipment labeled as CWC04013 for the year 2017.
+Plan:
+ 
+We need to output plan. Already done. Ensure no extra spaces. Ensure #ExpectedOutput line is one line. It's okay. Ensure no extra spaces after agent name. Already "WorkOrder Agent". Good. Ensure no extra spaces after colon? It's fine. Ensure no extra spaces at end of lines. Should be fine. Provide final answer.assistantfinal#Task1: Retrieve corrective work order details for equipment CWC04013 for the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: A JSON list of corrective work orders for CWC04013 in 2017, each with ID, description, creation date, status, corrective actions, and notes.

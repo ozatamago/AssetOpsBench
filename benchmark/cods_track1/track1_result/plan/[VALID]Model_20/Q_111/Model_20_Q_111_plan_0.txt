@@ -1,0 +1,32 @@
+Question: List all sensors of Chiller 6 that are potentially relevant to Compressor Overheating.
+Plan:
+We need to produce a plan with fewer than 5 steps. The problem: "List all sensors of Chiller 6 that are potentially relevant to Compressor Overheating."
+
+We have agents: IoT Data Download (can provide sensor data, asset details, etc.), Failure Mode and Sensor Relevancy Expert for Industrial Asset (can provide relevant sensors for specific failures), Time Series Analytics and Forecasting (analysis), WorkOrder Agent (work orders). The task is to list sensors of Chiller 6 relevant to compressor overheating. The relevant agent is "Failure Mode and Sensor Relevancy Expert for Industrial Asset". It can answer: "What are the relevant sensors that can be used to monitor the loose wiring failure of Chiller 6? If compressor overheating occurs for Chiller 6, which sensor should be prioritized for monitoring this specific failure?" So it can provide sensors for compressor overheating. So we can ask that agent directly.
+
+Thus we need a plan with one step: ask the Failure Mode and Sensor Relevancy Expert for Industrial Asset to list all sensors relevant to compressor overheating for Chiller 6.
+
+We need to include Task, Agent, Dependency, ExpectedOutput.
+
+Step #1: Task: "Identify all sensors of Chiller 6 that are potentially relevant to compressor overheating." Agent: Failure Mode and Sensor Relevancy Expert for Industrial Asset. Dependency: None. ExpectedOutput: List of sensor names (or IDs) relevant to compressor overheating for Chiller 6.
+
+We need to produce plan with fewer than 5 steps. So one step is fine.
+
+Thus output:
+
+#Task1: Identify all sensors of Chiller 6 that are potentially relevant to compressor overheating.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of sensor names/IDs for Chiller 6 that are relevant to detecting or monitoring compressor overheating.
+
+Make sure format matches exactly: each step must follow format:
+
+#Task<N>: <Describe your task here>
+#Agent<N>: <agent_name>
+#Dependency<N>: <use #S1, #S2, ... or None>
+#ExpectedOutput<N>: <Expected output>
+
+Thus final answer.assistantfinal#Task1: Identify all sensors of Chiller 6 that are potentially relevant to compressor overheating.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A concise list (sensor names or IDs) of all Chiller 6 sensors that could be used to monitor or detect compressor overheating.

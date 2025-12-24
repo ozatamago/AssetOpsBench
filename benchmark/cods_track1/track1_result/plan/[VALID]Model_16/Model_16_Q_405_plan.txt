@@ -1,0 +1,17 @@
+Question: Get all the events of equipment CWC04009 for the June of 2020 and provide a summary based on the event group for work order, alert, and anomaly.
+Plan:
+ 
+#Task1: Retrieve the list of events for equipment CWC04009 in June 2020.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON file containing the list of events for CWC04009 from 2020-06-01 to 2020-06-30.
+
+#Task2: Analyze the retrieved events and summarize them based on event group for work order, alert, and anomaly.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: A summary report categorizing events into work order, alert, and anomaly.
+
+#Task3: Provide the final summary report.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A detailed summary report based on the event groups, including counts and descriptions.
