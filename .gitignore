@@ -197,3 +197,6 @@ src/agent_hive/workflows/track1_planning.py
 benchmark/cods_track1/.env
 
 benchmark/cods_track1/.env
+
+# Local large dataset (do not commit)
+src/assetopsbench/sample_data/main.json
