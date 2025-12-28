@@ -7,5 +7,5 @@ Plan:
 
 #Task2: Extract the specific supply temperature value from the JSON file obtained in Task 1.
 #Agent2: IoT Data Download
-#Dependency2: #Task1
-#ExpectedOutput2: The supply temperature value from CQPA AHU 2B on September 19, 2020, at 11:45 PM, saved in a file.
+#Dependency2: #S1
+#ExpectedOutput2: A file containing the extracted supply temperature value for CQPA AHU 2B on September 19, 2020, at 11:45 PM.

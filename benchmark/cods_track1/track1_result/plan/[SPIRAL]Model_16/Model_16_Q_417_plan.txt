@@ -1,0 +1,7 @@
+Question: Just notice an anomaly 'KPI Cooling Load above upper bound' happens for equipment CWC04009, can you recommend top three work orders to address this problem?
+Plan:
+ 
+#Task1: Retrieve relevant sensor data for equipment CWC04009 to understand the anomaly 'KPI Cooling Load above upper bound'.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Sensor data for CWC04009 related to "KPI Cooling Load".

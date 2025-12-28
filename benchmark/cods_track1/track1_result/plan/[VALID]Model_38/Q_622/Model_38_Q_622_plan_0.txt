@@ -10,7 +10,7 @@ Plan:
 #Dependency2: #S1
 #ExpectedOutput2: A recommendation on whether a work order should be created based on the severity and impact of the detected anomalies.
 
-#Task3: If a work order is recommended, generate a work order for the necessary maintenance or repair actions.
+#Task3: If a work order is recommended, generate a work order for the relevant asset and failure mode.
 #Agent3: WorkOrder Agent
 #Dependency3: #S2
-#ExpectedOutput3: A work order created with the appropriate details, including the equipment involved, the nature of the issue, and the recommended actions.
+#ExpectedOutput3: A work order created for the specified asset and failure mode, including details such as the asset ID, failure mode, priority, and recommended actions.

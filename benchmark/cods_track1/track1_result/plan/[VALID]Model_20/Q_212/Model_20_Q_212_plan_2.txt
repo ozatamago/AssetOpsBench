@@ -1,28 +1,15 @@
 Question: Find a model for energy forecasting with context length 96 and nothing else.
 Plan:
  
-We need to produce a plan with fewer than 5 steps. The problem: "Find a model for energy forecasting with context length 96 and nothing else."
+We need to produce a plan. The problem: "Find a model for energy forecasting with context length 96 and nothing else."
 
-We need to use allowed agents. The original plan used Time Series Analytics and Forecasting agent, which is allowed. The issue: "Agent1 unknown 'Time Series Analytics and Forecasting  '. Allowed: ['Failure Mode and Sensor Relevancy Expert for Industrial Asset', 'IoT Data Download', 'Time Series Analytics and Forecasting', 'WorkOrder Agent']". The original plan had extra spaces after the agent name maybe. So we need to correct that.
+We need to produce a plan with fewer than 5 steps. The plan should be minimal. Likely one step: ask Time Series Analytics and Forecasting to provide a model recommendation.
 
-We need to output a plan with #Task1, #Agent1: Time Series Analytics and Forecasting (exact name), #Dependency1: None, #ExpectedOutput1: a concise model recommendation.
+We must follow format exactly. No extra text. Provide #Task1, #Agent1, #Dependency1, #ExpectedOutput1.
 
-We must ensure no extra spaces. Provide exactly as required.
+Make sure agent name matches exactly: "Time Series Analytics and Forecasting". No extra spaces.
 
-Thus final answer: the same plan but corrected.
-
-Check constraints: fewer than 5 steps, yes. Provide only lines.
-
-Let's produce:
-
-#Task1: Provide a recommendation for an energy forecasting model that uses a context length of 96 time steps, with no additional specifications.  
+Thus final answer: four lines.assistantfinalassistantfinalassistantfinal#Task1: Request a suitable forecasting model for energy consumption that uses a context length of 96.  
 #Agent1: Time Series Analytics and Forecasting  
 #Dependency1: None  
-#ExpectedOutput1: A concise model recommendation (including model type and any relevant settings) suitable for energy time‑series forecasting with a context length of 96.
-
-Make sure no trailing spaces after agent name. Also ensure each line ends with newline.
-
-Let's output exactly.assistantfinal#Task1: Provide a recommendation for an energy forecasting model that uses a context length of 96 time steps, with no additional specifications.  
-#Agent1: Time Series Analytics and Forecasting  
-#Dependency1: None  
-#ExpectedOutput1: A concise model recommendation (including model type and any relevant settings) suitable for energy time‑series forecasting with a context length of 96.
+#ExpectedOutput1: A concise model recommendation (model name, architecture, and key settings) explicitly designed for energy forecasting with a context length of 96.

@@ -1,18 +1,23 @@
 Question: What are the anomaly detection results for Chiller 9's Tonnage and Power Input in the week of 2020-04-27 at the MAIN site?
 Plan:
-#Task1: Retrieve the historical data for Chiller 9's Tonnage and Power Input at the MAIN site for the week of 2020-04-27.
+#Task1: Identify the site and asset for which we need to perform anomaly detection.
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: Historical data for Chiller 9's Tonnage and Power Input at the MAIN site for the specified week.
+#ExpectedOutput1: Confirmation that the site is "MAIN" and the asset is "Chiller 9".
 
-#Task2: Analyze the retrieved data for anomalies in Chiller 9's Tonnage and Power Input.
-#Agent2: Time Series Analytics and Forecasting
+#Task2: Retrieve historical data for Chiller 9's Tonnage and Power Input at the MAIN site for the week of 2020-04-27.
+#Agent2: IoT Data Download
 #Dependency2: #S1
-#ExpectedOutput2: Anomaly detection results for Chiller 9's Tonnage and Power Input.
+#ExpectedOutput2: Historical data for Chiller 9's Tonnage and Power Input for the specified week.
 
-#Task3: Generate a work order based on the anomaly detection results for Chiller 9.
-#Agent3: WorkOrder Agent
+#Task3: Perform anomaly detection on the retrieved data for Chiller 9's Tonnage and Power Input.
+#Agent3: Time Series Analytics and Forecasting
 #Dependency3: #S2
-#ExpectedOutput3: A work order for Chiller 9 based on the detected anomalies.
+#ExpectedOutput3: Anomaly detection results for Chiller 9's Tonnage and Power Input.
 
-The final answer is the output of #Task2 and #Task3.
+#Task4: Generate a work order based on the anomaly detection results if necessary.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: A work order for further inspection or maintenance if anomalies are detected.
+
+The provided plan follows the required format and constraints. It is clear, actionable, and has fewer than 5 steps.

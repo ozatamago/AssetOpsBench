@@ -1,20 +1,63 @@
 Question: Since we know 80% of alerts are likely spurious, can you identify the meaningful 20% for further analysis for any chillers?
 Plan:
  
-assistantfinal
-#Task1: Download recent temperature sensor data for chiller CHL‑A100 covering “CHILLED WATER LEAVING TEMP” and “CHILLED WATER RETURN TEMP”.
+assistantanalysisWe need to output the plan in the exact format, no extra prose, no markdown. The previous assistant output includes markdown and extra lines, and also truncated. We need to correct.
+
+We need to output lines:
+
+#Task1: ...
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: JSON file (e.g., chiller_A100_temp_data.json) with timestamped readings for the two sensors over the past 7 days.
-#Task2: Detect anomalies in the temperature time‑series from chiller_A100_temp_data.json.
+#ExpectedOutput1: ...
+
+#Task2: ...
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: List of anomaly records (sensor, timestamp, value, anomaly‑score) indicating potential true alerts.
-#Task3: Map each detected anomaly to possible failure modes and confirm sensor relevance.
+#ExpectedOutput2: ...
+
+#Task3: ...
 #Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency3: #S2
-#ExpectedOutput3: Mapping of anomalies to plausible failure modes with confidence indicators of true faults.
-#Task4: Generate work orders for anomalies linked to high‑confidence failure modes (the meaningful 20 % of alerts).
+#ExpectedOutput3: ...
+
+#Task4: ...
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: New work order IDs and details for each validated alert.
+#ExpectedOutput4: ...
+
+Make sure each line is separate, no blank lines? The spec says output ONLY lines in this exact format, but doesn't forbid blank lines. Safer to not include blank lines. Provide exactly 16 lines.
+
+Let's craft concise one-line descriptions.
+
+Task1: Retrieve recent sensor data for all chillers (temperature, pressure, power) for the last 7 days.
+ExpectedOutput1: JSON files per chiller with timestamps and readings for key variables.
+
+Task2: Detect anomalies in each chiller’s sensor time series to isolate the meaningful 20% of alerts.
+ExpectedOutput2: List per chiller of timestamps, sensor names, and anomaly scores flagged as anomalous.
+
+Task3: Map each detected anomaly to its most likely failure mode and confirm the relevant sensor.
+ExpectedOutput3: Table per chiller linking anomalous sensor readings to probable failure modes and sensor relevance.
+
+Task4: Generate work orders for the meaningful alerts to initiate corrective or preventive actions.
+ExpectedOutput4: Work orders (one per meaningful alert) with chiller ID, failure mode, affected sensor, recommended action, priority, and unique work‑order ID.
+
+Now produce lines.
+
+Make sure agent names exactly match allowed list: "IoT Data Download", "Time Series Analytics and Forecasting", "Failure Mode and Sensor Relevancy Expert for Industrial Asset", "WorkOrder Agent". No extra spaces.
+
+Now output.assistantfinal #Task1: Retrieve recent sensor data for all chillers (temperature, pressure, power) for the last 7 days.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON files per chiller with timestamps and readings for key variables.  
+#Task2: Detect anomalies in each chiller’s sensor time series to isolate the meaningful 20% of alerts.  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: List per chiller of timestamps, sensor names, and anomaly scores flagged as anomalous.  
+#Task3: Map each detected anomaly to its most likely failure mode and confirm the relevant sensor.  
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency3: #S2  
+#ExpectedOutput3: Table per chiller linking anomalous sensor readings to probable failure modes and sensor relevance.  
+#Task4: Generate work orders for the meaningful alerts to initiate corrective or preventive actions.  
+#Agent4: WorkOrder Agent  
+#Dependency4: #S3  
+#ExpectedOutput4: Work orders (one per meaningful alert) with chiller ID, failure mode, affected sensor, recommended action, priority, and unique work‑order ID.

@@ -1,12 +1,28 @@
 Question: what was the supply temperature from CQPA AHU 2B on sept 19, 2020 at quarter to midnight, at site MAIN? return in a file
 Plan:
  
-We need to output only lines in exact format. No extra text. Provide #Task1, #Agent1, #Dependency1, #ExpectedOutput1, then #Task2 etc. Ensure no extra spaces? Format: "#Task<N>: <one-line>" etc. Provide exactly. Let's produce.assistantfinal#Task1: Download sensor data for asset "CQPA AHU 2B" at site MAIN for "SUPPLY TEMPERATURE" on 2020-09-19 23:45
+The user gave a plan with #Agent3: Executor (base ReAct agent) – simply deliver the file. However the allowed agents list does not include Executor. The validator flagged that. We need to adjust to only allowed agents. The problem: we need to "return the file". The only agents are IoT Data Download, Failure Mode and Sensor Relevancy Expert for Industrial Asset, Time Series Analytics and Forecasting, WorkOrder Agent. None of these can "deliver a file". However the base ReAct agent (the system) can deliver the file as final output. In the plan, we can omit the third step and just rely on the system to output the file. But the format requires each step to have an Agent. Perhaps we can set #Agent3 to IoT Data Download with a task that "I need to read the JSON file 0001.json" (task 8) to read the file? But we need to deliver the file. The spec says "Executor component are fixed. Do not change them." The plan originally used Executor (base ReAct agent) – simply deliver the file. But the allowed agents list does not include Executor. However the validator flagged unknown agent. The instruction says "Only use the agents listed below. No new agents may be added." So we cannot use Executor. How to deliver file? Possibly we can combine steps: Step2 downloads the data and returns the file as output. That is the final output. So we can have only two steps. Step2's ExpectedOutput is the file delivered to user. That satisfies requirement. So we remove step3.
+
+Thus final plan:
+
+#Task1: Retrieve assets at site MAIN to get asset ID for CQPA AHU 2B.
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: JSON file named CQPA_AHU2B_supply_temp_20200919_2345.json containing the timestamp and temperature value
+#ExpectedOutput1: JSON list containing asset ID.
 
-#Task2: Read the JSON file from Step 1, extract the temperature value for the requested timestamp, and write it to a plain‑text file
+#Task2: Download historical sensor data for that asset ID for "SUPPLY TEMPERATURE" around 2020-09-19T23:45:00 (quarter to midnight) using a narrow window, and return the JSON file with the reading.
 #Agent2: IoT Data Download
 #Dependency2: #S1
-#ExpectedOutput2: Text file named CQPA_AHU2B_supply_temp_20200919.txt containing only the supply temperature reading for 2020‑09‑19 23:45
+#ExpectedOutput2: JSON file (e.g., supply_temp_20200919_2345.json) containing the requested temperature value.
+
+That is 2 steps (<5). Ensure format.
+
+Let's produce final answer.assistantfinalassistantfinal#Task1: Retrieve the list of assets at site **MAIN** and identify the asset ID for **CQPA AHU 2B**.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON list of assets at site MAIN containing an entry for “CQPA AHU 2B” with its asset ID.  
+
+#Task2: Download the historical sensor data for the identified asset ID (from #S1) for the sensor **“SUPPLY TEMPERATURE”** covering the time **2020‑09‑19T23:45:00‑04:00** (quarter to midnight), using a narrow window (e.g., 23:44‑23:46). Return the resulting JSON file.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: JSON file (e.g., `supply_temp_20200919_2345.json`) containing the timestamped supply temperature reading for CQPA AHU 2B.

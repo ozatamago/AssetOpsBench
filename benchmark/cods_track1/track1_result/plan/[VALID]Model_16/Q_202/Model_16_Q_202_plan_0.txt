@@ -5,4 +5,8 @@ Plan:
 #Dependency1: None
 #ExpectedOutput1: List of available time series pretrained models.
 
-The plan is complete with a single step, as the Time Series Analytics and Forecasting agent is directly capable of providing information about available pretrained models.
+The plan is complete. 🚀
+#Task1: List available time series pretrained models in the system.
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: List of available time series pretrained models.

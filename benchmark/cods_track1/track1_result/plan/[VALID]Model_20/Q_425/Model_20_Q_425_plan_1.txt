@@ -1,41 +1,28 @@
 Question: How can I analyze anomalies across multiple KPIs to better diagnose the root cause of these issues?
 Plan:
-"
+ 
+We need to output plan with fewer than 5 steps. The previous answer got truncated. Need to produce final plan with 4 steps as described. Ensure format exactly: each line "#TaskN: ..." "#AgentN: ..." "#DependencyN: ..." "#ExpectedOutputN: ..." No extra spaces at end? Should be fine.
 
-We need to produce final plan with correct numbering and no extra spaces. Ensure agent names exactly match allowed list. Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1, etc. Use #S1 for dependency referencing step numbers? The format says "#Dependency<N>: <use #S1, #S2, ... or None>". So we need to refer to previous steps using #S1 etc. So for step 2, dependency is #S1. For step 3, dependency is #S2. For step 4, dependency is #S3.
+Make sure agent names exactly match allowed list: "IoT Data Download", "Failure Mode and Sensor Relevancy Expert for Industrial Asset", "Time Series Analytics and Forecasting", "WorkOrder Agent". Use those exact strings.
 
-Make sure each line is exactly as required, no extra spaces at end. Provide one line per tag.
+Dependencies: use "#S1" etc. For step 1 dependency None. For step2 "#S1". For step3 "#S2". For step4 "#S3". Ensure no extra spaces.
 
-Let's craft.
+Let's craft final answer.assistantfinalassistantfinalassistantfinal#Task1: Retrieve historical sensor data for asset CU02004 at SiteX for the KPIs “CHILLED WATER LEAVING TEMP” and “CHILLED WATER RETURN TEMP” covering the most recent full week.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file (e.g., cu02004_week_data.json) containing timestamped values for both KPIs.  
 
-Step 1: download asset history. Use IoT Data Download. Task description: "Download asset history for CU02004 at SiteX from last week (e.g., 2023-09-18T00:00:00-04:00 to 2023-09-25T00:00:00-04:00) for the KPIs 'CHILLED WATER LEAVING TEMP' and 'CHILLED WATER RETURN TEMP'." That's fine.
+#Task2: Perform time‑series anomaly detection on each KPI in the retrieved dataset to identify abnormal readings and their timestamps.  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: Anomalies report (e.g., anomalies_report.json) listing timestamps, values, and anomaly scores for each KPI.  
 
-Expected output: "JSON file cu02004_lastweek.json containing timestamps and values for the two KPIs."
+#Task3: Map the detected anomalous sensors/KPIs to probable failure modes and recommend the most relevant sensors for root‑cause diagnosis.  
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency3: #S2  
+#ExpectedOutput3: List of likely failure modes (e.g., compressor overheating, loose wiring) with justification and priority sensors to monitor.  
 
-Step 2: Analyze anomalies. Use Time Series Analytics. Task: "Analyze cu02004_lastweek.json and detect anomalies in both KPIs." Expected output: "Anomalies report anomalies.json listing timestamp, KPI, and anomaly flag."
-
-Step 3: Identify failure modes. Use Failure Mode and Sensor Relevancy Expert. Task: "Based on the anomalies in 'CHILLED WATER LEAVING TEMP' and 'CHILLED WATER RETURN TEMP', list plausible failure modes and the most relevant sensor for each." Expected output: "Diagnostic summary mapping each anomaly to possible failure modes (e.g., loose wiring, compressor overheating)."
-
-Step 4: Create work order. Use WorkOrder Agent. Task: "Create a corrective work order to investigate the most likely failure mode identified." Expected output: "Work order WO-XXXXX with description and recommended actions."
-
-Make sure each line is one line.
-
-Now produce final answer.assistantfinal#Task1: Download asset history for CU02004 at SiteX from the last week for "CHILLED WATER LEAVING TEMP" and "CHILLED WATER RETURN TEMP"
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: JSON file cu02004_lastweek.json containing timestamps and values for the two KPIs
-
-#Task2: Detect anomalies in both KPIs using the downloaded time‑series data
-#Agent2: Time Series Analytics and Forecasting
-#Dependency2: #S1
-#ExpectedOutput2: Anomalies report anomalies.json listing timestamp, KPI name, and anomaly severity
-
-#Task3: Identify plausible failure modes that could explain the detected anomalies and the most relevant sensor for each
-#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency3: #S2
-#ExpectedOutput3: Diagnostic summary mapping each anomaly to one or more likely failure modes (e.g., loose wiring, compressor overheating)
-
-#Task4: Create a corrective work order to investigate the most likely failure mode identified
-#Agent4: WorkOrder Agent
-#Dependency4: #S3
-#ExpectedOutput4: Work order WO-XXXXX with description of the issue and recommended inspection actions
+#Task4: Create a work order that addresses the highest‑risk failure mode, specifying inspection or corrective actions.  
+#Agent4: WorkOrder Agent  
+#Dependency4: #S3  
+#ExpectedOutput4: Work order ID and details (e.g., WO-XXXXX) outlining tasks, priority, and assigned team.

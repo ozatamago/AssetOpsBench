@@ -2,48 +2,49 @@ Question: Just notice an anomaly 'KPI Cooling Load above upper bound' happens fo
 Plan:
 We need to produce a plan with fewer than 5 steps. The problem: anomaly 'KPI Cooling Load above upper bound' for equipment CWC04009. Need to recommend top three work orders to address this problem.
 
-We have agents: IoT Data Download (to get sensor data), Failure Mode and Sensor Relevancy Expert (to map failures to sensors), Time Series Analytics (to analyze anomalies), WorkOrder Agent (to create work orders). The question: "recommend top three work orders to address this problem". Likely we need to identify possible failure modes causing high cooling load, then generate work orders. Steps: 1) Retrieve sensor data for equipment CWC04009 relevant to cooling load (maybe "CHILLED WATER LEAVING TEMP" etc). Use IoT Data Download to download sensor data. 2) Use Time Series Analytics to analyze the data for anomalies (maybe confirm). 3) Use Failure Mode Expert to list relevant failure modes for high cooling load and relevant sensors. 4) Use WorkOrder Agent to generate three work orders based on identified failure modes.
+We need to use agents: IoT Data Download (maybe to get sensor data), Failure Mode and Sensor Relevancy Expert (to map failure modes and sensors), WorkOrder Agent (to generate work orders). Possibly also Time Series Analytics for anomaly detection, but we already have anomaly identified.
 
-We need fewer than 5 steps, so maybe 4 steps. Provide Task, Agent, Dependency, ExpectedOutput.
+Goal: recommend top three work orders. Likely need to identify possible failure modes causing high cooling load, then generate work orders accordingly.
 
-Let's craft:
+Steps:
 
-#Task1: Download recent sensor data for equipment CWC04009 related to cooling load (e.g., "CHILLED WATER LEAVING TEMP" and "CHILLED WATER RETURN TEMP").
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: JSON file (e.g., cwc04009_cooling_data.json) containing timestamped sensor readings for the specified parameters.
+1. Use Failure Mode and Sensor Relevancy Expert to list failure modes for equipment CWC04009 (maybe a chiller). Provide relevant sensors for high cooling load. (Task: List failure modes and relevant sensors for high cooling load). Agent: Failure Mode and Sensor Relevancy Expert. Dependency: None.
 
-#Task2: Analyze the downloaded sensor data to confirm the anomaly and identify the time window of the KPI cooling load exceeding the upper bound.
-#Agent2: Time Series Analytics and Forecasting
-#Dependency2: #S1
-#ExpectedOutput2: Anomaly report indicating timestamps where cooling load KPI exceeds upper bound, with possible root cause hints.
+2. Use IoT Data Download to download recent sensor data for CWC04009 for relevant sensors (e.g., cooling load, temperature, power). Task: download sensor data for CWC04009 at its site for relevant sensors over recent period. Agent: IoT Data Download. Dependency: #S1 (to know which sensors). Expected output: JSON data.
 
-#Task3: Determine the most likely failure modes causing high cooling load for equipment CWC04009 and the key sensors to monitor for each mode.
-#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency3: #S2
-#ExpectedOutput3: List of top three failure modes (e.g., fouled heat exchanger, refrigerant undercharge, compressor inefficiency) with associated priority sensors.
+3. Use Time Series Analytics and Forecasting to analyze the downloaded data for anomalies and root cause patterns. Task: Analyze time-series data to identify likely cause of high cooling load. Agent: Time Series Analytics. Dependency: #S2. Expected output: analysis summary with probable causes.
 
-#Task4: Generate three prioritized work orders addressing the identified failure modes for equipment CWC04009.
-#Agent4: WorkOrder Agent
-#Dependency4: #S3
-#ExpectedOutput4: Three work order descriptions (WO IDs, actions, priority) ready for execution.
+4. Use WorkOrder Agent to generate top three work orders based on identified causes. Task: Create three work orders for CWC04009 addressing the identified issues. Agent: WorkOrder Agent. Dependency: #S3. Expected output: list of three work orders.
 
-That's 4 steps, under 5. Provide plan. Ensure format exactly as required. Use #Task<N>, #Agent<N>, #Dependency<N>, #ExpectedOutput<N>. Use #S1 etc for step references. Provide plan.assistantfinal#Task1: Download recent sensor data for equipment CWC04009 that relates to the “Cooling Load” KPI (e.g., “CHILLED WATER LEAVING TEMP” and “CHILLED WATER RETURN TEMP”) for the last 7 days.  
-#Agent1: IoT Data Download  
+That's 4 steps, within limit (<5). Provide plan.
+
+Make sure format: #Task<N>, #Agent<N>, #Dependency<N>, #ExpectedOutput<N>.
+
+Let's craft.
+
+Step numbers: 1-4.
+
+Make tasks clear.
+
+Ok.assistantfinal#Task1: Identify the most relevant failure modes and associated sensors that can cause a “KPI Cooling Load above upper bound” anomaly for equipment CWC04009.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
 #Dependency1: None  
-#ExpectedOutput1: JSON file (e.g., `cwc04009_cooling_data.json`) containing timestamped readings for the requested sensors.
+#ExpectedOutput1: A concise list of failure modes (e.g., fouled heat exchangers, refrigerant leak, compressor inefficiency) together with the key sensors (e.g., cooling load sensor, evaporator temperature, compressor power, refrigerant pressure) that should be examined.
 
-#Task2: Analyze the downloaded sensor data to confirm the “KPI Cooling Load above upper bound” anomaly and pinpoint the exact time intervals when the KPI exceeded its upper bound.  
-#Agent2: Time Series Analytics and Forecasting  
+#Task2: Retrieve recent historical sensor data for CWC04009 covering the identified key sensors (from #S1) for the past week.  
+#Agent2: IoT Data Download  
 #Dependency2: #S1  
-#ExpectedOutput2: Anomaly report listing timestamps (or time window) where the cooling‑load KPI is above the upper bound, with a brief statistical summary.
+#ExpectedOutput2: A JSON file (e.g., `cwc04009_recent_data.json`) containing timestamped readings for each requested sensor.
 
-#Task3: Identify the most likely failure modes that can cause an elevated cooling load for equipment CWC04009 and list the key sensors that should be inspected for each failure mode.  
-#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Task3: Perform time‑series analysis on the downloaded data to pinpoint abnormal patterns or root‑cause indicators that explain the elevated cooling load.  
+#Agent3: Time Series Analytics and Forecasting  
 #Dependency3: #S2  
-#ExpectedOutput3: Ranked list of three probable failure modes (e.g., fouled heat exchanger, refrigerant under‑charge, compressor inefficiency) together with the primary sensors to monitor for each mode.
+#ExpectedOutput3: An analysis report summarizing detected anomalies, likely causal factors (e.g., sustained high compressor power, temperature drift), and a ranking of the most probable issues.
 
-#Task4: Create three prioritized work orders that address the failure modes identified in #S3 for equipment CWC04009.  
+#Task4: Generate the top three preventive/corrective work orders for CWC04009 based on the probable causes identified in #S3.  
 #Agent4: WorkOrder Agent  
 #Dependency4: #S3  
-#ExpectedOutput4: Three work‑order proposals (including WO IDs, description of the corrective action, priority level, and any required parts or inspections) ready for submission.
+#ExpectedOutput4: A list of three work orders (including brief description, priority, and recommended actions) ready for submission, e.g.,  
+1. Inspect and clean the evaporator heat exchanger (high fouling risk).  
+2. Verify refrigerant charge and check for leaks (possible low charge).  
+3. Service the compressor and calibrate power input sensor (inefficient compressor operation).

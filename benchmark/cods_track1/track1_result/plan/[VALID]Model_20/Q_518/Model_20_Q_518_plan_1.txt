@@ -1,34 +1,17 @@
 Question: Can you forecast energy usage for Chiller 9 for next week using data from the week of 2020-04-27 at the MAIN site?
 Plan:
  
-We need to output plan lines only. Ensure format exactly. Use #Task1 etc. Provide expected output one line. Let's craft.
-
-#Task1: Identify the asset ID for Chiller 9 at the MAIN site.  
+We need to ensure format: #Task1, #Agent1, #Dependency1, #ExpectedOutput1, then #Task2 etc. Must be fewer than 5 steps. Provide exactly. Ensure no extra spaces? It's okay. Provide #Dependency as "None" or "#S1". Use #S1 referencing step 1. Provide #ExpectedOutput concise. Let's output.assistantfinal#Task1: Retrieve the list of assets at the MAIN site to identify the asset ID for Chiller 9.  
 #Agent1: IoT Data Download  
 #Dependency1: None  
-#ExpectedOutput1: Asset list for MAIN site including Chiller 9 with its asset ID (e.g., CU02009).
+#ExpectedOutput1: JSON list of assets at site MAIN, including Chiller 9’s asset identifier.  
 
-#Task2: Download energy usage sensor data for the identified Chiller 9 asset for 2020-04-27 to 2020-05-03.  
+#Task2: Download the energy‑usage sensor data for the identified Chiller 9 asset for the week 2020‑04‑27 to 2020‑05‑03.  
 #Agent2: IoT Data Download  
 #Dependency2: #S1  
-#ExpectedOutput2: JSON file (e.g., chiller9_energy_week.json) containing timestamped energy usage readings for the specified week.
+#ExpectedOutput2: JSON file (e.g., chiller9_20200427_20200503.json) with timestamped energy‑usage readings for that week.  
 
-#Task3: Forecast energy usage for the next week using the downloaded data.  
+#Task3: Forecast Chiller 9’s energy usage for the next week (2020‑05‑04 to 2020‑05‑10) using the downloaded data.  
 #Agent3: Time Series Analytics and Forecasting  
 #Dependency3: #S2  
-#ExpectedOutput3: Forecast results (JSON or table) with predicted energy usage values for each day of the upcoming week and confidence intervals.
-
-Make sure each line starts with tag. No extra spaces? It's okay. Provide exactly.assistantfinalassistantfinal)#Task1: Identify the asset ID for Chiller 9 at the MAIN site.
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: Asset list for MAIN site including Chiller 9 with its asset ID (e.g., CU02009).
-
-#Task2: Download energy usage sensor data for the identified Chiller 9 asset for 2020-04-27 to 2020-05-03.
-#Agent2: IoT Data Download
-#Dependency2: #S1
-#ExpectedOutput2: JSON file (e.g., chiller9_energy_week.json) containing timestamped energy usage readings for the specified week.
-
-#Task3: Forecast energy usage for the next week using the downloaded data.
-#Agent3: Time Series Analytics and Forecasting
-#Dependency3: #S2
-#ExpectedOutput3: Forecast results (JSON or table) with predicted energy usage values for each day of the upcoming week and confidence intervals.
+#ExpectedOutput3: Forecast results (e.g., JSON or table) showing predicted energy‑usage values for each time step of the next week, with confidence intervals.

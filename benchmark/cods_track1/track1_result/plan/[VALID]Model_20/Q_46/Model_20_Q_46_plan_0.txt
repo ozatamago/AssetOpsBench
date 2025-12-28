@@ -1,19 +1,31 @@
 Question: retrieve the supply temperature data recorded last week for Chiller 3 (MAIN site)?
 Plan:
-We need to retrieve supply temperature data recorded last week for Chiller 3 (MAIN site). Which sensor? "supply temperature" likely "CHILLED WATER LEAVING TEMP" maybe. Use IoT Data Download to get sites, assets, then download sensor data for Chiller 3 at MAIN site for supply temperature last week. Need to calculate start date for last week using IoT Data Download task 9. Then download sensor data using task 4 or 5? Task 4: download sensor data for CU02004 at SiteX (generic). We need for Chiller 3 at MAIN site, sensor "CHILLED WATER LEAVING TEMP". Might need to use task 5: download asset history for CU02004 at SiteX from start to end for specific sensors. So steps: 1) get start and end timestamps for last week using IoT Data Download task 9. 2) download asset history for Chiller 3 at MAIN site using task 5 with those timestamps and sensor "CHILLED WATER LEAVING TEMP". That's it. Two steps.
+We need to retrieve supply temperature data recorded last week for Chiller 3 (MAIN site). Steps: get list of sites? maybe we know site MAIN. Need to get asset ID for Chiller 3. Use IoT Data Download: maybe "what assets are at site MAIN". Then download sensor data for that asset for supply temperature last week. Need to calculate start date for last week: use IoT Data Download task 9. Then download sensor data with appropriate parameters. So plan steps: 1 get assets at site MAIN. 2 calculate start and end dates for last week. 3 download sensor data for Chiller 3 supply temperature using dates. Expected output: JSON file with data.
 
-Let's craft plan.
+We have <5 steps. We'll do 3 steps.
 
-Step1: calculate start and end dates for last week. Use IoT Data Download agent task 9. Expected output: start and end ISO timestamps.
+Step1: get assets at site MAIN. Agent IoT Data Download task 3.
 
-Step2: download asset history for Chiller 3 at MAIN site from start to end for "CHILLED WATER LEAVING TEMP". Use IoT Data Download agent task 5. Dependency on step1. Expected output: JSON file with supply temperature data.
+Step2: calculate start and end dates for last week. Use task 9.
 
-Provide plan.assistantfinal#Task1: Calculate the ISO‑8601 start and end timestamps that define “last week” (the most recent full 7‑day period before today).  
+Step3: download sensor data for Chiller 3 at MAIN for "SUPPLY TEMPERATURE" (assuming sensor name) using dates from step2. Use task 4? Actually task 4 is download sensor data for CU02004 at SiteX (generic). Might need to specify asset ID and sensor. We'll assume we can request download sensor data with parameters. Use IoT Data Download task 4.
+
+Provide dependencies.
+
+Let's craft plan.assistantfinal**Step #1**  
+#Task1: Retrieve the list of assets located at the **MAIN** site.  
 #Agent1: IoT Data Download  
 #Dependency1: None  
-#ExpectedOutput1: JSON or plain text containing `start_time` and `end_time` strings (e.g., `"2024-10-14T00:00:00-04:00"` and `"2024-10-20T23:59:59-04:00"`).
+#ExpectedOutput1: JSON list of assets at site MAIN (including the asset identifier for “Chiller 3”).  
 
-#Task2: Download the historical sensor data for Chiller 3 at the MAIN site for the sensor “CHILLED WATER LEAVING TEMP” (supply temperature) using the timestamps obtained in #S1.  
+**Step #2**  
+#Task2: Calculate the start‑date and end‑date that define “last week” (the most recent full 7‑day period).  
 #Agent2: IoT Data Download  
-#Dependency2: #S1  
-#ExpectedOutput2: A single JSON file (e.g., `chiller3_supply_temp_last_week.json`) containing the time‑stamped supply temperature values for the requested period.
+#Dependency2: None (independent of Step 1)  
+#ExpectedOutput2: Two ISO‑8601 timestamps – `start_date` and `end_date` – covering last week.  
+
+**Step #3**  
+#Task3: Download the historical sensor data for the **SUPPLY TEMPERATURE** sensor of **Chiller 3** at the **MAIN** site, using the `start_date` and `end_date` obtained in Step 2.  
+#Agent3: IoT Data Download  
+#Dependency3: #S1 (to obtain the exact asset ID for Chiller 3) and #S2 (to obtain the date range)  
+#ExpectedOutput3: A JSON file (e.g., `chiller3_supply_temp_last_week.json`) containing timestamped supply‑temperature readings for the specified week.

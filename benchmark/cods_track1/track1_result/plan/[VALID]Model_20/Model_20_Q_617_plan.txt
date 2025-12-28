@@ -1,12 +1,6 @@
 Question: When compressor motor of Chiller 6 at MAIN site fails, what is the temporal behavior of the power input?
 Plan:
- 
-#Task1: 
-#Agent1: 
-#Dependency1: 
-#ExpectedOutput1:
-
-We need to output corrected plan. Provide the four lines with content. Ensure no extra spaces at start? The format: "#Task1: <one-line>" etc. Provide content. Let's produce final answer.assistantfinal#Task1: Retrieve the temporal behavior of power input when the compressor motor of Chiller 6 at the MAIN site fails.  
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
-#Dependency1: None  
-#ExpectedOutput1: Description of the expected power input pattern over time (e.g., sudden drop, gradual decline, oscillations, recovery) associated with a compressor‑motor failure for Chiller 6 at the MAIN site.
+assistantanalysisWe need to output plan with correct format. Already done. Ensure no extra spaces? Format: "#Task1: ..." etc. Should be fine.assistantfinal#Task1: Provide the temporal behavior of power input when the compressor motor of Chiller 6 at the MAIN site fails
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A concise description of how the power input changes over time during and after the compressor motor failure (e.g., rapid drop to zero, duration of outage, any recovery pattern)

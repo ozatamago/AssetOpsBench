@@ -18,4 +18,4 @@ Plan:
 #Task4: Generate a work order for any detected anomalies in the supply temperature data
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: A work order for addressing any detected anomalies in the supply temperature data for Chiller 3
+#ExpectedOutput4: A work order for inspecting or maintaining Chiller 3 based on the detected anomalies

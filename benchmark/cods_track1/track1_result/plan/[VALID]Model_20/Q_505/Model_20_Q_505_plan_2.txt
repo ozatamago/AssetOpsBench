@@ -1,12 +1,11 @@
 Question: What's the forecast for Chiller 6's Tonnage for next week based on the data from the week of 2020-04-27 at MAIN?
 Plan:
  
-We need to ensure format: #Task1, #Agent1, #Dependency1, #ExpectedOutput1, then #Task2 etc. No extra spaces after agent names. Ensure agent names exactly as listed. Use "IoT Data Download" and "Time Series Analytics and Forecasting". Dependencies: #S1? Actually they used #S1 placeholder earlier. Should be #S1 referencing step1. Use #S1. Ensure no extra spaces. Provide final answer.assistantfinal#Task1: Retrieve TONNAGE sensor data for Chiller 6 at site MAIN for 2020‑04‑27 to 2020‑05‑03  
+We need to ensure format: #Task1, #Agent1, #Dependency1, #ExpectedOutput1, then #Task2 etc. Use #S1 reference? In spec they used #S1, #S2. In our plan we used #S1. Should be #S1 referencing step 1. That's okay. Ensure no extra spaces after agent names. Use exactly "IoT Data Download" and "Time Series Analytics and Forecasting". Ensure no trailing spaces. Provide exactly two steps. Ensure each line starts with tag. No extra blank lines? Probably okay to have blank line between steps? Might be okay but safer to have no blank lines. Provide continuous lines. Let's output.assistantfinalassistantfinal#Task1: Retrieve historical Tonnage sensor data for Chiller 6 at site MAIN for the week starting 2020‑04‑27 (2020‑04‑27 to 2020‑05‑03).  
 #Agent1: IoT Data Download  
 #Dependency1: None  
-#ExpectedOutput1: JSON file (e.g., chiller6_tonnage_20200427_20200503.json) with timestamped TONNAGE readings  
-
-#Task2: Forecast the next 7 days of TONNAGE for Chiller 6 using the file from #S1  
+#ExpectedOutput1: JSON file (e.g., chiller6_tonnage_20200427_20200503.json) containing timestamped Tonnage readings for the specified period.  
+#Task2: Using the data obtained in #S1, generate a time‑series forecast of Chiller 6's Tonnage for the next calendar week (2020‑05‑04 to 2020‑05‑10).  
 #Agent2: Time Series Analytics and Forecasting  
 #Dependency2: #S1  
-#ExpectedOutput2: Forecast table/JSON with predicted TONNAGE values for 2020‑05‑04 to 2020‑05‑10, including confidence intervals if available
+#ExpectedOutput2: Forecast results (e.g., chiller6_tonnage_forecast_20200504_20200510.json) listing predicted Tonnage for each day of the next week, with confidence intervals if available.

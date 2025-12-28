@@ -1,0 +1,10 @@
+stop_index: 1
+
+truncated_plan:  
+#Task1: Retrieve the events of equipment CWC04009 for the year 2019.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON file containing the events of equipment CWC04009 for the year 2019.
+
+status: Not accomplished
+can_answer_now:False

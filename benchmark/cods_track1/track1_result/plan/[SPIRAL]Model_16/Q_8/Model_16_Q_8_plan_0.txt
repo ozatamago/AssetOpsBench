@@ -1,0 +1,34 @@
+Question: Download sensor data for Chiller 6's Tonnage from the last week of 2020 at the MAIN site
+Plan:
+- Make sure your plan is clear, actionable, and has fewer than 5 steps.
+
+#Task1: Determine the dates for the last week of December 2020.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The start and end dates for the last week of December 2020.
+
+#Task2: Download sensor data for Chiller 6's Tonnage at the MAIN site for the identified date range.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: The sensor data for Chiller 6's Tonnage at the MAIN site from the last week of December 2020.
+
+#Task3: Verify if the downloaded sensor data is in the correct format (JSON).
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: Confirmation that the downloaded data is in JSON format.
+
+The final answer is:
+#Task1: Determine the dates for the last week of December 2020.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The start and end dates for the last week of December 2020.
+
+#Task2: Download sensor data for Chiller 6's Tonnage at the MAIN site for the identified date range.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: The sensor data for Chiller 6's Tonnage at the MAIN site from the last week of December 2020.
+
+#Task3: Verify if the downloaded sensor data is in the correct format (JSON).
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: Confirmation that the downloaded data is in JSON format.

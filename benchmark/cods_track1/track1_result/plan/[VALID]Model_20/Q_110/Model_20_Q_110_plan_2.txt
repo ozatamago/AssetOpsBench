@@ -1,7 +1,12 @@
 Question: Are there any failure modes of Chiller 6 that can be predicted by monitoring the vibration sensor data?
 Plan:
  
-We need to ensure format exactly. Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1. No extra spaces after colon? It's okay. Provide one line each. Ensure agent name matches exactly. Provide ExpectedOutput one line. Let's output.assistantfinalassistantfinal#Task1: Identify all failure modes of Chiller 6 that can be predicted by monitoring the vibration sensor data.  
+We need to output plan with fewer than 5 steps. Already have 2 steps. Ensure tags #Task1, #Agent1, #Dependency1, #ExpectedOutput1, #Task2, #Agent2, #Dependency2, #ExpectedOutput2. Use #S1 for dependency referencing step 1. Ensure no extra spaces after agent names. Agent name must match exactly: "Failure Mode and Sensor Relevancy Expert for Industrial Asset". No trailing spaces. Provide final answer.assistantfinal#Task1: Retrieve the complete list of failure modes for Chiller 6.  
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
 #Dependency1: None  
-#ExpectedOutput1: A concise list of Chiller 6 failure modes that are associated with the vibration sensor, indicating they can be predicted using vibration data.
+#ExpectedOutput1: A concise list of all documented failure modes for Chiller 6.  
+
+#Task2: Identify which of those failure modes can be predicted by monitoring the vibration sensor data of Chiller 6.  
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency2: #S1  
+#ExpectedOutput2: A filtered list of failure modes (from #S1) that have the vibration sensor as a relevant sensor for prediction/monitoring, with brief justification if available.

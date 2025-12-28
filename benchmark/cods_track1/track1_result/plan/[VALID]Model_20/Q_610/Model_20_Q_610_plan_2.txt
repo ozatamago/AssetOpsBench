@@ -1,11 +1,16 @@
 Question:  If compressor overheating occurs for Chiller 6 at MAIN site, which sensor should be prioritized for monitoring this specific failure?
 Plan:
  
-We need to produce plan with fewer than 5 steps. The problem: "If compressor overheating occurs for Chiller 6 at MAIN site, which sensor should be prioritized for monitoring this specific failure?" The appropriate agent is Failure Mode and Sensor Relevancy Expert for Industrial Asset. The task: ask for sensor prioritized for monitoring compressor overheating. The agent's task list includes: "If compressor motor of a chiller fails, what is the temporal behavior of the power input." and "When power input of Chiller 6 drops, what is the potential failure that causes it?" Also "What are the relevant sensors that can be used to monitor the loose wiring failure of Chiller 6?If compressor overheating occurs for Chiller 6, which sensor should be prioritized for monitoring this specific failure?" Actually that is exactly the second part of task 3: "What are the relevant sensors that can be used to monitor the loose wiring failure of Chiller 6?If compressor overheating occurs for Chiller 6, which sensor should be prioritized for monitoring this specific failure?" So we can ask that. So plan: one step.
+We need to produce plan with fewer than 5 steps. The problem: "If compressor overheating occurs for Chiller 6 at MAIN site, which sensor should be prioritized for monitoring this specific failure?" The appropriate agent is Failure Mode and Sensor Relevancy Expert for Industrial Asset. The task: ask for sensor prioritized. So one step.
 
-Make sure format: #Task1: ... #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset #Dependency1: None #ExpectedOutput1: ... Provide sensor name.
+Make sure format exactly: #Task1: ... #Agent1: ... #Dependency1: None #ExpectedOutput1: ...
 
-Let's output.assistantfinalassistantfinalassistantfinal#Task1: Identify the sensor that should be prioritized for monitoring when a compressor overheating failure occurs in Chiller 6 at the MAIN site.  
+Make sure no extra spaces at line ends. Provide exactly as required. No markdown. Let's craft.
+
+#Task1: Identify the sensor that should be prioritized for monitoring compressor overheating failure on Chiller 6 at the MAIN site.  
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
 #Dependency1: None  
-#ExpectedOutput1: The name or identifier of the most relevant sensor for detecting compressor overheating in Chiller 6 (e.g., “Compressor Discharge Temperature Sensor”).
+#ExpectedOutput1: The name or identifier of the most relevant sensor for detecting compressor overheating on Chiller 6 (e.g., “Compressor Discharge Temperature Sensor”). Ensure it's a single sensor recommendation.assistantfinalassistantanalysisWe need to ensure format: each line separate, no extra spaces? The spec: "#Task<N>: <Describe your task here>" etc. Should be each on its own line. Provide exactly four lines. Ensure no extra spaces after colon? It's okay. Provide as final.assistantfinal#Task1: Identify the sensor that should be prioritized for monitoring compressor overheating failure on Chiller 6 at the MAIN site.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: The name or identifier of the most relevant sensor for detecting compressor overheating on Chiller 6 (e.g., “Compressor Discharge Temperature Sensor”).

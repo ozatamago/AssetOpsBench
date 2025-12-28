@@ -4,42 +4,35 @@ We need to detect anomalies in Chiller 9's Condenser Water Flow in week of 2020-
 
 Step1: Identify asset ID for Chiller 9 at MAIN. Use IoT Data Download: ask what assets are at site MAIN. Dependency None.
 
-Step2: Download sensor data for that asset (Chiller 9) for "Condenser Water Flow" during week 2020-04-27 to 2020-05-03 (week). Use IoT Data Download: download sensor data for asset ID (from step1) at site MAIN, specify date range. Dependency #S1.
+Step2: Download sensor data for that asset (Chiller 9) for "Condenser Water Flow" during week 2020-04-27 to 2020-05-03 (week). Use IoT Data Download: download sensor data for asset ID (from step1) at site MAIN, specify time range and sensor. Dependency #S1.
 
 Step3: Analyze the downloaded JSON file for anomalies using Time Series Analytics. Dependency #S2.
 
-Step4 (optional) summarize findings. Could be done by same agent? maybe use Time Series Analytics to output anomalies list. That's step3 output. So step4 not needed.
+Step4 (optional) Summarize findings. Could be done by same agent? maybe use Time Series Analytics to output anomaly report. Or we can just have step3 produce anomalies list. So step3 expected output: list of detected anomalies with timestamps.
 
 Thus 3 steps.
 
-Need to specify expected outputs.
+Let's craft plan. Need to specify #Task, #Agent, #Dependency, #ExpectedOutput.
 
-Let's craft.
+Step1: get assets at MAIN.
 
-Step1 Expected: list of assets at MAIN including asset identifier for Chiller 9 (e.g., CU09??). Provide asset ID.
+Step2: download sensor data.
 
-Step2 Expected: JSON file (e.g., chiller9_cwf_2020-04-27_to_2020-05-03.json) containing timestamps and flow values.
+Step3: analyze anomalies.
 
-Step3 Expected: Report of detected anomalies (timestamps, values, description) for Condenser Water Flow.
+Make sure to reference correct agent names.
 
-Let's produce plan.assistantfinal**Step #1**  
-**#Task1:** Retrieve the list of assets at site **MAIN** and identify the asset ID for **Chiller 9**.  
-**#Agent1:** IoT Data Download  
-**#Dependency1:** None  
-**#ExpectedOutput1:** A list of assets at site MAIN, clearly indicating the asset identifier (e.g., `CU09001`) for Chiller 9.
+Ok.assistantfinal#Task1: Retrieve the list of assets located at the site “MAIN” to identify the asset ID for Chiller 9.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: A JSON list of assets at site MAIN, including the asset identifier (e.g., “CU0XXXX”) for Chiller 9.
 
----
+#Task2: Download historical sensor data for the identified Chiller 9 asset at site MAIN, covering the full week of 2020‑04‑27 (2020‑04‑27 00:00 to 2020‑05‑03 23:59) for the sensor “Condenser Water Flow”.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: A JSON file (e.g., `chiller9_cwf_20200427_20200503.json`) containing timestamped “Condenser Water Flow” readings for the specified week.
 
-**Step #2**  
-**#Task2:** Download the historical sensor data for the identified Chiller 9 asset, specifically the **“Condenser Water Flow”** sensor, covering the week **2020‑04‑27 to 2020‑05‑03**.  
-**#Agent2:** IoT Data Download  
-**#Dependency2:** #S1 (use the asset ID obtained in Step 1)  
-**#ExpectedOutput2:** A JSON file (e.g., `chiller9_cwf_2020-04-27_2020-05-03.json`) containing timestamped “Condenser Water Flow” readings for the requested week.
-
----
-
-**Step #3**  
-**#Task3:** Perform time‑series anomaly detection on the downloaded JSON file to identify any abnormal points in the “Condenser Water Flow” data for the specified week.  
-**#Agent3:** Time Series Analytics and Forecasting  
-**#Dependency3:** #S2 (use the JSON file from Step 2)  
-**#ExpectedOutput3:** A concise anomaly‑detection report listing each detected anomaly (timestamp, observed value, and a brief description of why it is flagged).
+#Task3: Perform time‑series anomaly detection on the downloaded JSON file to identify any abnormal points or patterns in the “Condenser Water Flow” data for Chiller 9 during the target week.  
+#Agent3: Time Series Analytics and Forecasting  
+#Dependency3: #S2  
+#ExpectedOutput3: A concise report listing detected anomalies (timestamps, observed values, and anomaly scores) for Chiller 9’s Condenser Water Flow in the week of 2020‑04‑27 at MAIN.

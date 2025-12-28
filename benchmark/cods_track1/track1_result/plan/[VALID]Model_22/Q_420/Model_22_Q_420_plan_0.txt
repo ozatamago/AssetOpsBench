@@ -3,7 +3,7 @@ Plan:
 #Task1: Download sensor data for CWC04009 at SiteX for June 2020
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: A JSON file containing the sensor data for CWC04009 at SiteX for June 2020
+#ExpectedOutput1: A JSON file containing sensor data for CWC04009 at SiteX for June 2020
 
 #Task2: Analyze the time-series data in the JSON file from Task1 and look for anomalies in Chiller 9 performance
 #Agent2: Time Series Analytics and Forecasting
@@ -15,7 +15,7 @@ Plan:
 #Dependency3: #Task2
 #ExpectedOutput3: A work order for addressing the detected anomalies or operation violations in Chiller 9
 
-#Task4: Close the work order after confirming successful resolution of the detected anomalies or operation violations
+#Task4: Close the work order after confirming successful resolution of the detected anomalies or operation violations in Chiller 9
 #Agent4: WorkOrder Agent
 #Dependency4: #Task3
 #ExpectedOutput4: A confirmation of the closed work order for Chiller 9

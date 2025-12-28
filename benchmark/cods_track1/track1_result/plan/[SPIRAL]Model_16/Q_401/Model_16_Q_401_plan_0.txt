@@ -1,0 +1,22 @@
+Question: I would like to check the work order distribution for the equipment labeled as CWC04013 for the year 2017.
+Plan:
+- Make sure to follow the format for each step.
+
+### Plan:
+
+#Task1: Retrieve the work order for equipment CWC04013 for the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: A JSON file containing the work orders for equipment CWC04013 for the year 2017.
+
+#Task2: Analyze the retrieved work order data to understand the distribution.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: An analysis of the work order distribution for equipment CWC04013 in 2017.
+
+#Task3: Provide the final answer with the work order distribution for CWC04013 in 2017.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A clear and concise summary of the work order distribution for equipment CWC04013 in the year 2017.
+
+The plan is complete.

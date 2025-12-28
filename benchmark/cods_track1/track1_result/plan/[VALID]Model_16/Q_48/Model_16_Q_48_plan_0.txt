@@ -36,20 +36,16 @@ Output ⬇️:
 #ExpectedOutput2: A file containing the return temperature data.
 
 Since the IoT Data Download agent can both retrieve historical data and save it to a file, the plan can be further optimized into 2 steps:
-#Task1: download asset history for CQPA AHU 2B at Site MAIN from 2020-09-19T19:00:00 to 2020-09-19T19:00:00 for "RETURN TEMP"
+
+#Task1: download asset history for CQPA AHU 2B at Site MAIN from 2020-09-19T19:00:00 to 2020-09-19T19:00:00 for "RETURN TEMP" and save to a file
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: Historical data for CQPA AHU 2B at Site MAIN on Sept 19, 2020 at 7pm.
+#ExpectedOutput1: A file containing the return temperature data.
 
-#Task2: Save the retrieved historical data to a file.
-#Agent2: IoT Data Download
-#Dependency2: #S1
-#ExpectedOutput2: A file containing the return temperature data.
+This optimized plan directly achieves the required output in a single step, making it more efficient. 
 
-However, upon closer inspection, it is realized that the IoT Data Download agent can likely accomplish both tasks in a single step. 
-
-Therefore, the final optimized plan is:
-#Task1: download asset history for CQPA AHU 2B at Site MAIN from 2020-09-19T19:00:00 to 2020-09-19T19:00:00 for "RETURN TEMP" and save it to a file
+The final answer is:
+#Task1: download asset history for CQPA AHU 2B at Site MAIN from 2020-09-19T19:00:00 to 2020-09-19T19:00:00 for "RETURN TEMP" and save to a file
 #Agent1: IoT Data Download
 #Dependency1: None
 #ExpectedOutput1: A file containing the return temperature data.

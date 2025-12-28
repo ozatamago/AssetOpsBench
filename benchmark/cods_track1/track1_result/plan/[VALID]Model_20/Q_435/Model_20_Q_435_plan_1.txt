@@ -1,34 +1,48 @@
 Question: Assume today is early of July 2020, I would like to review the alerts for chiller 9 with equipment ID CWC04009 for June 2020 and the work order should be generated based on the type of alerts.
 Plan:
  
-We need to output plan lines only. Ensure correct formatting. Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1 etc. No extra text. Let's produce.
+We need to produce a plan with fewer than 5 steps. Use allowed agents. Provide tasks, agents, dependencies, expected output.
 
-Check: Agents names exactly as listed: "IoT Data Download", "Time Series Analytics and Forecasting", "WorkOrder Agent". Ensure no extra spaces.
+We need to retrieve alerts for chiller 9 equipment ID CWC04009 for June 2020. The agents don't directly provide alerts, but we can download sensor data and then analyze for anomalies (alerts). Then generate work orders based on alerts.
 
-Now produce plan:
+Thus steps:
 
-#Task1: Download asset history for Chiller 9 (equipment ID CWC04009) for June 2020 covering all relevant sensors.
+1. Download asset history for CWC04009 for June 2020 for relevant sensors (maybe all). Use IoT Data Download. Task: "download asset history for CWC04009 at its site from 2020-06-01T00:00:00 to 2020-06-30T23:59:59 for relevant sensors". Expected output: JSON file with sensor data.
+
+2. Analyze the JSON file for anomalies/alerts using Time Series Analytics. Expected output: list of alerts with type and timestamp.
+
+3. Generate work orders based on alerts using WorkOrder Agent. Expected output: work order IDs or summary.
+
+Make sure format:
+
+#Task1: Download asset history for equipment CWC04009 for June 2020 covering relevant sensors.
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: JSON file (e.g., CWC04009_June2020.json) containing the sensor readings for the specified period.
+#ExpectedOutput1: JSON file (e.g., cwc04009_june2020.json) containing sensor readings for the specified period.
 
-#Task2: Analyze the downloaded JSON file to detect alerts (anomalies) in the sensor data for June 2020.
+#Task2: Analyze the downloaded sensor data to detect alerts/anomalies for June 2020.
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: List of alerts with type, affected sensor, and timestamp.
+#ExpectedOutput2: List of detected alerts with sensor name, anomaly type, and timestamp.
 
-#Task3: Generate work order(s) for Chiller 9 based on the identified alerts, including description and priority.
+#Task3: Create work orders based on the identified alerts for equipment CWC04009.
 #Agent3: WorkOrder Agent
 #Dependency3: #S2
-#ExpectedOutput3: Work order(s) (e.g., WO‑XXXXX) with details and recommended actions.assistantfinal#Task1: Download asset history for Chiller 9 (equipment ID CWC04009) for June 2020 covering all relevant sensors.
+#ExpectedOutput3: Generated work order IDs and descriptions corresponding to each alert type.
+
+Check format: Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1 etc. Ensure no extra spaces after agent names. Use exact agent names as listed.
+
+Now produce final answer.assistantfinal#Task1: Download asset history for equipment CWC04009 for June 2020 covering relevant sensors
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: JSON file (e.g., CWC04009_June2020.json) containing the sensor readings for the specified period.
-#Task2: Analyze the downloaded JSON file to detect alerts (anomalies) in the sensor data for June 2020.
+#ExpectedOutput1: JSON file (e.g., cwc04009_june2020.json) containing sensor readings for the specified period
+
+#Task2: Analyze the downloaded sensor data to detect alerts/anomalies for June 2020
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: List of alerts with type, affected sensor, and timestamp.
-#Task3: Generate work order(s) for Chiller 9 based on the identified alerts, including description and priority.
+#ExpectedOutput2: List of detected alerts with sensor name, anomaly type, and timestamp
+
+#Task3: Create work orders based on the identified alerts for equipment CWC04009
 #Agent3: WorkOrder Agent
 #Dependency3: #S2
-#ExpectedOutput3: Work order(s) (e.g., WO‑XXXXX) with details and recommended actions.
+#ExpectedOutput3: Generated work order IDs and descriptions corresponding to each alert type

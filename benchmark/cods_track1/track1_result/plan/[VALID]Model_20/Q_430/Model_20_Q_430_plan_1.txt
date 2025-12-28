@@ -1,68 +1,36 @@
 Question: We are building an early detection and remediation system for potential failures, such as condenser water side fouling, for Chiller 9 with equipment ID CWC04009 at main site site with two month’s period from 2020-05-01T12:30:00 to 2022-06-30T19:30:00.  We like to review the chiller’s performance of the period with any anomalies or operation violations as alerts, and provide the guideline on work order generation?
 Plan:
  
-The user gave a plan with steps. The system says "Repair rules: Avoid redundant or unnecessary tasks. - Make the minimal changes necessary; if there is no problem, you MUST output the Original Plan as-is. - Output ONLY lines in this exact format (no extra prose): #TaskN: <one-line> #AgentN: <exact agent name> #DependencyN: None | #S1 #S2 ... (past steps only) #ExpectedOutputN: <one-line> - Agents allowed: IoT Data Download, Failure Mode and Sensor Relevancy Expert for Industrial Asset, Time Series Analytics and Forecasting, WorkOrder Agent - Use N = 1..K sequentially; counts across all tags must match. - Do NOT output any explanation, comments, or markdown."
+We need to output plan with steps less than 5. Provide lines exactly as format. Must include #TaskN, #AgentN, #DependencyN, #ExpectedOutputN. No extra text. Ensure each line separate. Provide minimal steps. Use agents allowed. Provide #Dependency as None or #S1 etc. Provide one-line descriptions. Let's craft 4 steps.
 
-We need to output the plan in that format. The plan currently has 4 steps. We need to ensure each line is exactly as required: #Task1: <one-line> etc. The #ExpectedOutput line must be one line. Should be concise.
+Step1: download sensor data. Provide expected output: JSON file with sensor data.
 
-We must not include any extra text. So produce:
+Step2: analyze anomalies. Expected output: anomaly report.
 
-#Task1: Download historical sensor data for Chiller 9 (CWC04009) at main site for 2020-05-01 12:30 to 2022-06-30 19:30 for condenser water leaving and return temperature sensors
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: JSON file with timestamps and values for the requested sensors (e.g., CWC04009_condensor_water_2020_2022.json)
+Step3: map anomalies to failure mode and remediation guidelines. Expected output: list of failure modes, sensor relevancy, remediation actions.
 
-#Task2: Detect anomalies in the downloaded time‑series data for the condenser water temperature sensors
-#Agent2: Time Series Analytics and Forecasting
-#Dependency2: #S1
-#ExpectedOutput2: JSON anomaly report listing timestamps, sensor names, and anomaly scores (e.g., CWC04009_anomalies.json)
+Step4: generate work order guideline. Expected output: work order template/guideline.
 
-#Task3: Map detected anomalies to the failure mode “condenser water side fouling” and list the most relevant sensors for this mode
-#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency3: #S2
-#ExpectedOutput3: Diagnostic note linking anomalies to fouling and identifying key sensors (e.g., CWC04009_fouling_diagnosis.txt)
+Make sure each line is one line. No extra spaces at start. Use exact agent names as given. Ensure #Dependency format: None or #S1 etc. Use #S1 referencing step numbers? In spec they used #S1 etc. We'll use #S1 etc.
 
-#Task4: Provide a guideline for creating a work order to address the identified condenser water fouling issue on Chiller 9
-#Agent4: WorkOrder Agent
-#Dependency4: #S3
-#ExpectedOutput4: Work‑order template with recommended actions, priority, and bundling advice (e.g., CWC04009_fouling_workorder_guideline.txt)
+Let's produce.
 
-Make sure each line starts with #TaskN: etc. No blank lines? The format says each step must follow this format, but they didn't specify blank lines between steps. Probably okay to have blank lines, but safer to not include blank lines? The example says each step must follow this format, but they didn't say to separate with blank lines. Could include blank lines for readability, but might be considered extra lines. Safer to output exactly 4*4 = 16 lines, no blank lines. So we need to produce 16 lines, each starting with #TaskN, #AgentN, #DependencyN, #ExpectedOutputN in order.
+assistantfinal#Task1: Download sensor data for Chiller 9 (CWC04009) at the main site from 2020‑05‑01T12:30:00 to 2022‑06‑30T19:30:00 for condenser‑water related sensors  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file (e.g., cwc04009_sensor_data.json) containing the requested time‑series data  
 
-Thus:
+#Task2: Analyze the downloaded data to detect anomalies or operation‑rule violations indicative of condenser‑water side fouling  
+#Agent2: Time Series Analytics and Forecasting  
+#Dependency2: #S1  
+#ExpectedOutput2: Anomaly report listing timestamps, affected sensors, and severity of each detected issue  
 
-Line1: #Task1: Download historical sensor data for Chiller 9 (CWC04009) at main site for 2020-05-01 12:30 to 2022-06-30 19:30 for condenser water leaving and return temperature sensors
-Line2: #Agent1: IoT Data Download
-Line3: #Dependency1: None
-Line4: #ExpectedOutput1: JSON file with timestamps and values for the requested sensors (e.g., CWC04009_condensor_water_2020_2022.json)
-Line5: #Task2: Detect anomalies in the downloaded time‑series data for the condenser water temperature sensors
-Line6: #Agent2: Time Series Analytics and Forecasting
-Line7: #Dependency2: #S1
-Line8: #ExpectedOutput2: JSON anomaly report listing timestamps, sensor names, and anomaly scores (e.g., CWC04009_anomalies.json)
-Line9: #Task3: Map detected anomalies to the failure mode “condenser water side fouling” and list the most relevant sensors for this mode
-Line10: #Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-Line11: #Dependency3: #S2
-Line12: #ExpectedOutput3: Diagnostic note linking anomalies to fouling and identifying key sensors (e.g., CWC04009_fouling_diagnosis.txt)
-Line13: #Task4: Provide a guideline for creating a work order to address the identified condenser water fouling issue on Chiller 9
-Line14: #Agent4: WorkOrder Agent
-Line15: #Dependency4: #S3
-Line16: #ExpectedOutput4: Work‑order template with recommended actions, priority, and bundling advice (e.g., CWC04009_fouling_workorder_guideline.txt)
+#Task3: Map the identified anomalies to relevant failure modes (e.g., condenser water side fouling) and provide sensor relevancy and remediation recommendations  
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency3: #S2  
+#ExpectedOutput3: List of failure modes, key sensors to monitor, and suggested corrective actions  
 
-Make sure no extra spaces at start. Use exact agent names. The agent name for IoT Data Download is "IoT Data Download". For Failure Mode and Sensor Relevancy Expert for Industrial Asset, must match exactly. For Time Series Analytics and Forecasting, exact. For WorkOrder Agent, exact.
-
-Now produce final answer with those lines.assistantfinal#Task1: Download historical sensor data for Chiller 9 (CWC04009) at main site for 2020-05-01 12:30 to 2022-06-30 19:30 for condenser water leaving and return temperature sensors
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: JSON file with timestamps and values for the requested sensors (e.g., CWC04009_condensor_water_2020_2022.json)
-#Task2: Detect anomalies in the downloaded time‑series data for the condenser water temperature sensors
-#Agent2: Time Series Analytics and Forecasting
-#Dependency2: #S1
-#ExpectedOutput2: JSON anomaly report listing timestamps, sensor names, and anomaly scores (e.g., CWC04009_anomalies.json)
-#Task3: Map detected anomalies to the failure mode “condenser water side fouling” and list the most relevant sensors for this mode
-#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency3: #S2
-#ExpectedOutput3: Diagnostic note linking anomalies to fouling and identifying key sensors (e.g., CWC04009_fouling_diagnosis.txt)
-#Task4: Provide a guideline for creating a work order to address the identified condenser water fouling issue on Chiller 9
-#Agent4: WorkOrder Agent
-#Dependency4: #S3
-#ExpectedOutput4: Work‑order template with recommended actions, priority, and bundling advice (e.g., CWC04009_fouling_workorder_guideline.txt)
+#Task4: Generate a guideline/template for creating work orders to address the identified failure mode for Chiller 9, including priority and recommended steps  
+#Agent4: WorkOrder Agent  
+#Dependency4: #S3  
+#ExpectedOutput4: Work order generation guideline/template for condenser‑water side fouling remediation.

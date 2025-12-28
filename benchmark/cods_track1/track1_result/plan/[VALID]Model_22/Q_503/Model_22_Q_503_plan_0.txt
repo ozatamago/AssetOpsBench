@@ -8,14 +8,14 @@ Plan:
 #Task2: Analyze the time-series data in the downloaded JSON file and look for anomalies in Chiller 6's Tonnage
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: A report indicating any anomalies found in Chiller 6's Tonnage during the specified week
+#ExpectedOutput2: A report highlighting any anomalies detected in Chiller 6's Tonnage during the specified week
 
-#Task3: If anomalies are found, generate a maintenance work order to inspect Chiller 6
+#Task3: If anomalies are detected, create a work order for inspecting Chiller 6 due to the detected anomalies
 #Agent3: WorkOrder Agent
 #Dependency3: #S2
-#ExpectedOutput3: A work order for inspecting Chiller 6 due to the detected anomalies in Tonnage
+#ExpectedOutput3: A work order for inspecting Chiller 6, including details of the detected anomalies and recommended actions
 
-#Task4: If no anomalies are found, provide a confirmation that no anomalies were detected in Chiller 6's Tonnage during the specified week
+#Task4: If no anomalies are detected, provide a confirmation that no anomalies were found in Chiller 6's Tonnage during the specified week
 #Agent4: Time Series Analytics and Forecasting
 #Dependency4: #S2
 #ExpectedOutput4: A confirmation message stating that no anomalies were detected in Chiller 6's Tonnage during the specified week

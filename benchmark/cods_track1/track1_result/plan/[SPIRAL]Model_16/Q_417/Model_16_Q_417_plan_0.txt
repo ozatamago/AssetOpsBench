@@ -1,0 +1,28 @@
+Question: Just notice an anomaly 'KPI Cooling Load above upper bound' happens for equipment CWC04009, can you recommend top three work orders to address this problem?
+Plan:
+- Make sure to follow the format for each step.
+
+### Plan
+
+#Task1: Retrieve relevant sensor data for equipment CWC04009 to understand the anomaly 'KPI Cooling Load above upper bound'.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Sensor data for CWC04009 related to "KPI Cooling Load".
+
+#Task2: Analyze the retrieved sensor data to identify the cause of the anomaly 'KPI Cooling Load above upper bound'.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Analysis of the sensor data indicating the cause of the anomaly.
+
+#Task3: Recommend top three work orders to address the anomaly based on the analysis.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Top three recommended work orders to address the anomaly.
+
+### Explanation
+The plan involves three steps:
+1. Retrieve relevant sensor data for equipment CWC04009 using the IoT Data Download agent.
+2. Analyze the retrieved sensor data using the Time Series Analytics and Forecasting agent to identify the cause of the anomaly.
+3. Recommend top three work orders using the WorkOrder Agent based on the analysis from step 2.
+
+This plan aligns with the context provided and follows the required format strictly.

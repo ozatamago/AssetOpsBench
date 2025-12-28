@@ -1,23 +1,40 @@
 Question: Which corrective work orders for equipment CWC04009 in year 2017 can be bundled in the next maintenance window? A bundle means that several work orders are executed in a short period, say in two weeks.
 Plan:
  
-assistantfinal_outputassistantanalysisWe need to ensure the output matches the required format exactly. The instructions say: Output ONLY lines in this exact format (no extra prose). So we must not include any extra blank lines? It says "Output (your generated plan) ⬇️:" but we should just output the plan lines. Probably we should not include any extra blank lines. The plan lines should be exactly as required.
+The user gave a "Repair rules" and wants the plan. The plan we gave earlier matches the format: each line starts with #TaskN: etc. Need to ensure each line is exactly as required: no extra spaces at end? Should be fine.
 
-We need to ensure each line starts with #TaskN: etc. No extra spaces before #. Also ensure the agent name matches exactly "WorkOrder Agent". No trailing spaces.
+Check: #Task1 line: "#Task1: Retrieve all work orders for equipment CWC04009 created in 2017". Good.
 
-We have two steps, which is less than 5 steps.
+#Agent1 line: "#Agent1: WorkOrder Agent". Good.
 
-Check dependencies: #Dependency2: #S1 is correct.
+#Dependency1 line: "#Dependency1: None". Good.
 
-Check expected output lines: one line each.
+#ExpectedOutput1 line: "#ExpectedOutput1: List of work orders with IDs, type, creationDate, and description". Good.
 
-Make sure there is no extra punctuation after the lines. The lines themselves can end with a period. That's fine.
+Similarly for others.
 
-Now produce final answer with just those lines.assistantfinal#Task1: Retrieve all corrective work orders for equipment CWC04009 created in the year 2017.
+Make sure there is a space after colon. Yes.
+
+Make sure no extra blank lines? The format likely allows blank lines between steps. The example earlier had blank lines. It's okay.
+
+We must ensure we didn't exceed 5 steps. We have 4 steps. Good.
+
+Now output exactly as plan. No extra text.assistantfinalassistantfinal#Task1: Retrieve all work orders for equipment CWC04009 created in 2017
 #Agent1: WorkOrder Agent
 #Dependency1: None
-#ExpectedOutput1: List of work orders (ID, CreationDate, Description) for CWC04009 in 2017.
-#Task2: From the list in #S1, determine which work orders can be scheduled together within a two‑week maintenance window and output the bundleable set.
+#ExpectedOutput1: List of work orders with IDs, type, creationDate, and description
+
+#Task2: Filter the list to keep only corrective work orders
 #Agent2: WorkOrder Agent
 #Dependency2: #S1
-#ExpectedOutput2: Subset of work order IDs that can be bundled, with suggested grouping dates.
+#ExpectedOutput2: List of corrective work order IDs with their creation dates
+
+#Task3: Group the corrective work orders whose dates fall within any 14‑day window and suggest maintenance windows
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Clusters of work order IDs with proposed two‑week window dates
+
+#Task4: Create a bundled corrective work order for the next maintenance window covering the identified clusters
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Single bundled work order record referencing the grouped corrective work orders and the scheduled window

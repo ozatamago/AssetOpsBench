@@ -1,0 +1,28 @@
+Question: Which assets are located at the MAIN facility?
+Plan:
+- Make sure the task is solvable with the available agents.
+
+### Available Agents (reminder)
+1. IoT Data Download
+2. Failure Mode and Sensor Relevancy Expert for Industrial Asset
+3. Time Series Analytics and Forecasting
+4. WorkOrder Agent
+
+### Plan
+
+#Task1: Identify the assets located at the MAIN facility.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at the MAIN facility.
+
+#Task2: Verify if the MAIN facility is a valid site.
+#Agent2: IoT Data Download
+#Dependency2: #Task1
+#ExpectedOutput2: Confirmation that MAIN is a valid site.
+
+#Task3: Retrieve detailed information about the assets at the MAIN facility.
+#Agent3: IoT Data Download
+#Dependency3: #Task1, #Task2
+#ExpectedOutput3: Detailed information about the assets located at the MAIN facility.
+
+The plan is limited to 3 steps as it directly addresses the problem using the IoT Data Download agent, which is capable of providing information about IoT sites and asset details. The first task identifies the assets at the MAIN facility, the second task verifies if MAIN is a valid site, and the third task retrieves detailed information about these assets.

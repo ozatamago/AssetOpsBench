@@ -10,7 +10,7 @@ Plan:
 #Dependency2: #Task1
 #ExpectedOutput2: Historical sensor data for the relevant KPIs of Chiller 6.
 
-#Task3: Analyze the downloaded sensor data to identify anomalies across the multiple KPIs.
+#Task3: Analyze the downloaded sensor data to detect anomalies across the identified KPIs.
 #Agent3: Time Series Analytics and Forecasting
 #Dependency3: #Task2
 #ExpectedOutput3: Anomaly detection results for the relevant KPIs of Chiller 6.
@@ -18,6 +18,6 @@ Plan:
 #Task4: Generate a work order based on the anomaly detection results to inspect or maintain Chiller 6.
 #Agent4: WorkOrder Agent
 #Dependency4: #Task3
-#ExpectedOutput4: A generated work order for Chiller 6.
+#ExpectedOutput4: A generated work order for Chiller 6 based on the anomaly detection results.
 
 The plan is complete.

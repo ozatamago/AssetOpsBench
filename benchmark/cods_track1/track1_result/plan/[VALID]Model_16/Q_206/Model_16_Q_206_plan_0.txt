@@ -5,4 +5,4 @@ Plan:
 #Dependency1: None
 #ExpectedOutput1: Confirmation on whether Chronos model is supported in TSFM
 
-Since we have only one task and one agent available to solve this specific problem, the plan is straightforward and requires just a single step. The Time Series Analytics and Forecasting agent is the most relevant for this query as it deals with time series analysis and forecasting, which could involve various models including potentially Chronos. The task is to directly ask this agent if Chronos is supported in TSFM (Time Series Forecasting Model or related context).
+Since there are fewer than 5 steps and the task is straightforward, the plan is directly provided. The Time Series Analytics and Forecasting agent is the most relevant for checking model support in TSFM.

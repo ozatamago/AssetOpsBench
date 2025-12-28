@@ -5,17 +5,17 @@ Plan:
 #Dependency1: None
 #ExpectedOutput1: A list of relevant sensors for detecting overheating failure in Chiller 6
 
-#Task2: Download historical sensor data for the relevant sensors identified in Task 1 for Chiller 6
+#Task2: Download historical sensor data for Chiller 6 using the relevant sensors identified in Task 1
 #Agent2: IoT Data Download
 #Dependency2: #S1
-#ExpectedOutput2: Historical sensor data for the relevant sensors of Chiller 6
+#ExpectedOutput2: Historical sensor data for Chiller 6 in JSON format
 
 #Task3: Analyze the historical sensor data to identify patterns and anomalies related to overheating failure
 #Agent3: Time Series Analytics and Forecasting
 #Dependency3: #S2
-#ExpectedOutput3: Analysis report highlighting patterns and anomalies related to overheating failure in Chiller 6
+#ExpectedOutput3: Analysis report highlighting patterns and anomalies related to overheating failure
 
-#Task4: Generate a machine learning recipe for detecting overheating failure in Chiller 6, including feature sensors and target sensor
+#Task4: Generate a machine learning recipe for detecting overheating failure in Chiller 6 based on the analysis report
 #Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency4: #S1, #S3
-#ExpectedOutput4: A machine learning recipe for detecting overheating failure in Chiller 6, specifying feature sensors and target sensor
+#Dependency4: #S3
+#ExpectedOutput4: A machine learning recipe for detecting overheating failure in Chiller 6, including feature sensors and target sensor

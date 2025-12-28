@@ -1,19 +1,11 @@
 Question: what was the supply temperature from CQPA AHU 2B on sept 19, 2020 at quarter to midnight, at site MAIN? return in a file
 Plan:
- 
-The answer must follow the format exactly. 
-We must ensure the plan has fewer than 5 steps (2 steps okay). Ensure #Dependency2 uses "#S1". The format expects "#Dependency<N>: <use #S1, #S2, ... or None>" So "#Dependency2: #S1" is correct.
+assistantfinal #Task1: Retrieve the list of assets at site MAIN and identify the asset ID for CQPA AHU 2B.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON list of assets at site MAIN including the entry for “CQPA AHU 2B” with its asset ID.  
 
-Check #ExpectedOutput lines: one line each. Should be concise.
-
-Make sure no extra spaces at start. Provide exactly as required.
-
-Let's produce final answer.assistantfinal#Task1: Download sensor data for asset "CQPA AHU 2B" at site MAIN for "SUPPLY TEMPERATURE" on 2020-09-19 23:45
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: JSON file named CQPA_AHU2B_supply_temp_20200919_2345.json containing the timestamp and temperature value
-
-#Task2: Read the JSON file from Step 1, extract the temperature value for the requested timestamp, and write it to a plain‑text file
-#Agent2: IoT Data Download
-#Dependency2: #S1
-#ExpectedOutput2: Text file named CQPA_AHU2B_supply_temp_20200919.txt containing only the supply temperature reading for 2020‑09‑19 23:45
+#Task2: Download historical sensor data for the identified asset ID (from #S1) for the sensor “SUPPLY TEMPERATURE” covering 2020‑09‑19T23:45:00‑04:00 (quarter to midnight) and return it as a JSON file.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: JSON file (e.g., supply_temp_20200919_2345.json) containing the timestamped supply temperature reading for CQPA AHU 2B.

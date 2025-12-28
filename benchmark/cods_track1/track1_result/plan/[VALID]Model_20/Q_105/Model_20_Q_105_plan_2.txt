@@ -1,30 +1,24 @@
 Question: Provide some sensors of asset Wind Turbine.
 Plan:
  
-#Task1: Retrieve sensor metadata 
-#Agent1: IoT Data Download 
-#Dependency1: None 
-#ExpectedOutput1: 
-We need to produce corrected plan with proper format. The original plan is incomplete. We need to provide sensors of asset Wind Turbine. Use IoT Data Download to get sensor list. Possibly need to ask for "what assets are at site" but we don't know site. Maybe just ask for sensors of asset Wind Turbine. The IoT Data Download tasks list includes "what assets are at site SiteX" etc. Not directly sensors of asset. But we can use "download sensor data for CU02004 at SiteX" etc. Not generic. However we can still ask for sensor list via "download asset history" maybe not. But we can assume IoT Data Download can provide sensor list for any asset. We'll craft plan with two steps: request sensor list, then extract names.
+We need to ensure format: each line starts with #Task1: etc. No extra spaces before #. Also ensure #Dependency1: None (exact). #ExpectedOutput1: one line.
 
-Make sure format correct, no extra spaces after agent name. Use exact agent name "IoT Data Download". Provide ExpectedOutput lines concise.
+Make sure no extra blank lines? Probably okay to have blank line between steps? Might be okay but safer to have a blank line? The spec says output ONLY lines in this exact format, no extra prose. Probably blank line is okay? Might be considered extra line. Safer to not include blank lines. Just consecutive lines.
 
-Let's output:
+Thus:
 
-#Task1: Retrieve the list of sensors associated with the asset "Wind Turbine" using IoT Data Download.  
-#Agent1: IoT Data Download  
-#Dependency1: None  
-#ExpectedOutput1: JSON file containing sensor identifiers and descriptions for the Wind Turbine asset.  
-#Task2: Parse the JSON from #S1 to produce a plain list of sensor names.  
-#Agent2: IoT Data Download  
-#Dependency2: #S1  
-#ExpectedOutput2: Text list of sensor names for the Wind Turbine asset.
-
-Make sure each line starts with tag and colon, no extra spaces at end. Provide exactly.assistantfinalassistantfinal#Task1: Retrieve the list of sensors associated with the asset "Wind Turbine" using IoT Data Download.  
-#Agent1: IoT Data Download  
-#Dependency1: None  
-#ExpectedOutput1: JSON file containing sensor identifiers and descriptions for the Wind Turbine asset.  
-#Task2: Parse the JSON from #S1 to produce a plain list of sensor names.  
-#Agent2: IoT Data Download  
-#Dependency2: #S1  
-#ExpectedOutput2: Text list of sensor names for the Wind Turbine asset.
+#Task1: Download sensor data JSON for the asset named "Wind Turbine".
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: wind_turbine_data.json containing all sensor readings for the wind turbine.
+#Task2: List the sensor names (properties) present in wind_turbine_data.json.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: A concise list of sensor names such as "Blade Pitch Angle, Generator Speed, Wind Speed, Power Output".assistantfinal_outputassistantfinal_output#Task1: Download sensor data JSON for the asset named "Wind Turbine".
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: wind_turbine_data.json containing all sensor readings for the wind turbine.
+#Task2: List the sensor names (properties) present in wind_turbine_data.json.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: A concise list of sensor names such as "Blade Pitch Angle, Generator Speed, Wind Speed, Power Output".

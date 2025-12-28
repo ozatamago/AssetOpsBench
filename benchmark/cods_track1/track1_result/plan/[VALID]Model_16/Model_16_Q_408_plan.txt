@@ -1,17 +1,35 @@
 Question: Get the daily count of the events of alert, anomaly for the May 2020 for equipment CWC04009.
 Plan:
- 
-#Task1: Retrieve historical data for equipment CWC04009 for May 2020.
+#Task1: Get the list of events for equipment CWC04009 for May 2020
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: Historical data for CWC04009 for May 2020.
+#ExpectedOutput1: A list of events for equipment CWC04009 for May 2020
 
-#Task2: Analyze the retrieved data to identify alerts and anomalies, and count the daily occurrences.
+#Task2: Analyze the list of events to identify alerts and anomalies
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: Daily count of alerts and anomalies for May 2020.
+#ExpectedOutput2: Identified alerts and anomalies in the events list
 
-#Task3: Generate a work order based on the count of alerts and anomalies.
-#Agent3: WorkOrder Agent
+#Task3: Count the daily occurrences of alerts and anomalies
+#Agent3: Time Series Analytics and Forecasting
 #Dependency3: #S2
-#ExpectedOutput3: Work order for CWC04009 based on the count of alerts and anomalies.
+#ExpectedOutput3: Daily count of alerts and anomalies for May 2020
+
+#Task4: Generate the final output with daily counts
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Daily count of alerts and anomalies for equipment CWC04009 for May 2020
+
+Here's a succinct representation of the problem and the steps to solve it:
+
+To get the daily count of events (alerts and anomalies) for equipment CWC04009 in May 2020, we need to follow a series of steps that involve retrieving the relevant data, analyzing it for alerts and anomalies, counting these events daily, and then generating the final output.
+
+1. **Retrieve the list of events for CWC04009 in May 2020**: The first step is to get the historical data or events related to equipment CWC04009 for the month of May 2020. The IoT Data Download agent is capable of downloading asset history or sensor data for specific assets and time ranges.
+
+2. **Analyze the events for alerts and anomalies**: Once we have the list of events, we need to analyze this data to identify which events are alerts or anomalies. The Time Series Analytics and Forecasting agent can analyze time-series data to look for anomalies.
+
+3. **Count the daily occurrences of alerts and anomalies**: After identifying the alerts and anomalies, we need to count how many of these occurred each day in May 2020. The Time Series Analytics and Forecasting agent can further assist in this step by processing the identified alerts and anomalies.
+
+4. **Generate the final output**: Finally, we need to generate the output that provides the daily count of alerts and anomalies for CWC04009 in May 2020. While the WorkOrder Agent is mentioned for the final step, it's more about work order management. However, it can be utilized to format or finalize the output based on its capabilities.
+
+Let's proceed with the plan:

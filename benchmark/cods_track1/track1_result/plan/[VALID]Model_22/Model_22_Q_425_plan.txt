@@ -1,21 +1,21 @@
 Question: How can I analyze anomalies across multiple KPIs to better diagnose the root cause of these issues?
 Plan:
-#Task1: Retrieve historical sensor data for relevant assets and KPIs
+#Task1: Retrieve sensor data for relevant assets and KPIs
 #Agent1: IoT Data Download
 #Dependency1: None
 #ExpectedOutput1: JSON files containing historical sensor data for specified assets and KPIs
 
-#Task2: Identify relevant failure modes and associated sensors for the assets being analyzed
+#Task2: Identify relevant failure modes and sensors for the assets being analyzed
 #Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency2: None
 #ExpectedOutput2: List of failure modes and their associated sensors for the specified assets
 
-#Task3: Analyze the time-series data for anomalies in the identified KPIs
+#Task3: Analyze the time-series data for anomalies in the specified KPIs
 #Agent3: Time Series Analytics and Forecasting
 #Dependency3: #S1, #S2
-#ExpectedOutput3: Report highlighting anomalies in the KPIs and potential correlations between them
+#ExpectedOutput3: Report highlighting anomalies in the KPIs and potential correlations with failure modes
 
 #Task4: Generate work orders for any identified issues requiring maintenance or inspection
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: Work orders for addressing the identified anomalies and potential root causes
+#ExpectedOutput4: Work orders for preventive or corrective actions based on the anomaly analysis

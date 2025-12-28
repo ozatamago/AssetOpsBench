@@ -3,14 +3,14 @@ Plan:
 #Task1: Retrieve sensor data for CWC04009 to understand the anomalies 'KPI Cooling Load above upper bound' and 'KPI Delta Setpoint above upper bound'
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: JSON file containing sensor data for CWC04009, including relevant metrics for the anomalies
+#ExpectedOutput1: JSON file containing sensor data for CWC04009, including 'KPI Cooling Load' and 'KPI Delta Setpoint'
 
 #Task2: Analyze the sensor data to identify the root cause of the anomalies
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: Analysis report highlighting the root cause of the anomalies, such as specific sensor readings or patterns indicating the issue
+#ExpectedOutput2: Analysis report highlighting the root cause of the anomalies, such as potential issues with cooling load or setpoint deviations
 
 #Task3: Generate top three work orders to address the identified root cause
 #Agent3: WorkOrder Agent
 #Dependency3: #S2
-#ExpectedOutput3: Three prioritized work orders with detailed actions to resolve the anomalies, including inspection, maintenance, or corrective tasks
+#ExpectedOutput3: Three prioritized work orders with specific actions to resolve the anomalies, such as inspecting cooling load components or recalibrating setpoints

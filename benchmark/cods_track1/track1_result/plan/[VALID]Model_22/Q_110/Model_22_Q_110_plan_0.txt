@@ -1,21 +1,21 @@
 Question: Are there any failure modes of Chiller 6 that can be predicted by monitoring the vibration sensor data?
 Plan:
-#Task1: Identify all failure modes of Chiller 6 that can be detected by monitoring vibration sensor data
+#Task1: Identify all failure modes of Chiller 6
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency1: None
-#ExpectedOutput1: A list of failure modes of Chiller 6 that can be detected by monitoring vibration sensor data
+#ExpectedOutput1: A list of all failure modes of Chiller 6
 
-#Task2: Download historical vibration sensor data for Chiller 6
-#Agent2: IoT Data Download
-#Dependency2: None
-#ExpectedOutput2: Historical vibration sensor data for Chiller 6 in JSON format
+#Task2: Determine which failure modes of Chiller 6 can be detected by the vibration sensor
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: A list of failure modes of Chiller 6 that can be detected by the vibration sensor
 
-#Task3: Analyze the historical vibration sensor data for anomalies that may indicate potential failures
+#Task3: Analyze the vibration sensor data for Chiller 6 to identify any anomalies or patterns that could indicate the failure modes identified in Task 2
 #Agent3: Time Series Analytics and Forecasting
 #Dependency3: #S2
-#ExpectedOutput3: Analysis report highlighting any anomalies in the vibration sensor data that may indicate potential failures
+#ExpectedOutput3: An analysis report highlighting any anomalies or patterns in the vibration sensor data that could indicate the failure modes identified in Task 2
 
-#Task4: Generate a work order for preventive maintenance if anomalies are detected in the vibration sensor data
+#Task4: Generate a work order for inspecting Chiller 6 based on the analysis report from Task 3
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: A work order for preventive maintenance of Chiller 6 based on the detected anomalies in the vibration sensor data
+#ExpectedOutput4: A work order for inspecting Chiller 6 based on the analysis report from Task 3

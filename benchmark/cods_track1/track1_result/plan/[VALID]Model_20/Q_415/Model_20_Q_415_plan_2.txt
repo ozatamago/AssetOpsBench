@@ -1,38 +1,29 @@
 Question: When an anomaly happens for equipment CWC04009, can you recommend a list of candidate work orders and give me a summary of work order as percentage?
 Plan:
  
-The previous answer included line breaks and spaces. Need to output exactly lines with no extra spaces? Must be each line separate, no blank lines. Also need to ensure #Task1 line is one line, not wrapped. The previous answer had double spaces and line breaks after each line but also blank lines? It had blank lines between steps. Need to output exactly 4*4=16 lines, each line separate, no blank lines. Also ensure no extra spaces at end. Use exact agent names. Provide #Dependency as "#S1" etc. Let's produce.
 
-Lines:
+We need to ensure format exactly: each line starts with #TaskN: etc. No extra spaces after colon? The spec says "#Task<N>: <Describe your task here>" So a space after colon. We'll follow.
 
-#Task1: Retrieve recent sensor data for equipment CWC04009 for the past week.
+Dependency line: "#Dependency<N>: None | #S1 #S2 ..." So we need "None" or list separated by space. Use "#S1" etc.
+
+Make sure each line is separate line, no blank lines? The example includes blank lines between steps. Probably okay. But ensure no extra spaces at end.
+
+Let's produce final answer exactly.assistantfinalassistantfinalassistantfinal#Task1: Download recent sensor data for equipment CWC04009
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: JSON file cwc04009_data.json with timestamped sensor readings.
-#Task2: Detect anomalies in the time‑series data from cwc04009_data.json for each sensor.
+#ExpectedOutput1: JSON file containing sensor readings for CWC04009
+
+#Task2: Detect anomalies in the sensor data file from step 1 for CWC04009
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: List of anomaly records (timestamp, sensor) identified.
-#Task3: Map each detected anomaly to likely failure modes and recommend inspection actions.
+#ExpectedOutput2: List of detected anomalies with timestamps and affected sensor names
+
+#Task3: Determine failure modes related to the anomalies identified for CWC04009
 #Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency3: #S2
-#ExpectedOutput3: Mapping of anomalies to candidate failure modes and key sensors.
-#Task4: Generate candidate work orders based on the failure‑mode mapping and provide a percentage breakdown of work‑order types.
+#ExpectedOutput3: List of candidate failure modes and associated recommended sensors for each anomaly
+
+#Task4: Create candidate work orders for the failure modes and provide a percentage breakdown of work order types
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: List of work order titles with brief descriptions and a summary table showing each work‑order category percentage.assistantanalysisWe need to ensure format exactly. No extra spaces at start. Use hyphen? Should be fine. Ensure no blank lines. Provide exactly 16 lines. Ensure each line ends with period? Not required but okay. Ensure no extra spaces after period. Provide as final.assistantfinal#Task1: Retrieve recent sensor data for equipment CWC04009 for the past week.  
-#Agent1: IoT Data Download  
-#Dependency1: None  
-#ExpectedOutput1: JSON file cwc04009_data.json with timestamped sensor readings.  
-#Task2: Detect anomalies in the time‑series data from cwc04009_data.json for each sensor.  
-#Agent2: Time Series Analytics and Forecasting  
-#Dependency2: #S1  
-#ExpectedOutput2: List of anomaly records (timestamp, sensor) identified.  
-#Task3: Map each detected anomaly to likely failure modes and recommend inspection actions.  
-#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
-#Dependency3: #S2  
-#ExpectedOutput3: Mapping of anomalies to candidate failure modes and key sensors.  
-#Task4: Generate candidate work orders based on the failure‑mode mapping and provide a percentage breakdown of work‑order types.  
-#Agent4: WorkOrder Agent  
-#Dependency4: #S3  
-#ExpectedOutput4: List of work order titles with brief descriptions and a summary table showing each work‑order category percentage.
+#ExpectedOutput4: List of work order descriptions for CWC04009 with a summary showing each work order type as a percentage of the total

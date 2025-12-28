@@ -1,21 +1,21 @@
 Question: Find a model for energy forecasting.
 Plan:
-#Task1: Download historical sensor data for a specific asset (e.g., Chiller 6) at a given site (e.g., SiteX) for relevant parameters (e.g., "CHILLED WATER LEAVING TEMP" and "CHILLED WATER RETURN TEMP").
+#Task1: Download historical sensor data for a specific asset at a given site
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: A JSON file containing the historical sensor data for the specified asset and parameters.
+#ExpectedOutput1: JSON file containing historical sensor data for the specified asset
 
-#Task2: Identify relevant failure modes and sensors for the asset (e.g., Chiller 6) to understand potential issues that could affect energy consumption.
+#Task2: Identify relevant sensors and failure modes for energy forecasting
 #Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency2: None
-#ExpectedOutput2: A list of failure modes and relevant sensors for the specified asset.
+#ExpectedOutput2: List of relevant sensors and failure modes that impact energy consumption
 
-#Task3: Analyze the historical sensor data to identify any anomalies or patterns that could impact energy forecasting.
+#Task3: Analyze time-series data and forecast energy consumption
 #Agent3: Time Series Analytics and Forecasting
-#Dependency3: #S1
-#ExpectedOutput3: An analysis report highlighting anomalies, patterns, and potential impacts on energy forecasting.
+#Dependency3: #S1, #S2
+#ExpectedOutput3: Forecasted energy consumption model based on historical data and relevant sensors
 
-#Task4: Generate a work order for any necessary maintenance or inspections based on the analysis and identified failure modes.
+#Task4: Generate a work order for maintenance based on the forecasting model
 #Agent4: WorkOrder Agent
-#Dependency4: #S2, #S3
-#ExpectedOutput4: A work order detailing the required maintenance or inspections to ensure accurate energy forecasting.
+#Dependency4: #S3
+#ExpectedOutput4: Work order for preventive maintenance based on the energy forecasting model

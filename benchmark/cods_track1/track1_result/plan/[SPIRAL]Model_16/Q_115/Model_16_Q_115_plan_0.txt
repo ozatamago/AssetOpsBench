@@ -1,0 +1,27 @@
+Question: Purge unit of chiller 6 have possibility to excess purge, what is the plan by the maintenance experts to early detect the failure?
+Plan:
+- Ensure that your plan is actionable and follows the given constraints.
+
+### Plan
+
+#Task1: List all failure modes of Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of failure modes of Chiller 6.
+
+#Task2: Identify the relevant sensors for the failure mode "excess purge" of the purge unit of Chiller 6.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: List of relevant sensors for detecting "excess purge" failure.
+
+#Task3: Download historical sensor data for the relevant sensors identified in Task 2 for Chiller 6.
+#Agent3: IoT Data Download
+#Dependency3: #Task2
+#ExpectedOutput3: Historical sensor data for the relevant sensors.
+
+#Task4: Analyze the downloaded sensor data to detect anomalies or patterns indicating "excess purge".
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: #Task3
+#ExpectedOutput4: Analysis results indicating potential "excess purge" or recommendations for further actions.
+
+The plan involves identifying the failure modes of Chiller 6, determining the relevant sensors for the "excess purge" failure, downloading historical data for those sensors, and analyzing the data for anomalies or patterns. This approach aligns with the context provided and utilizes the available agents effectively.

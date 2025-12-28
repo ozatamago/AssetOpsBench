@@ -1,0 +1,12 @@
+Question: Can you list the IoT sites?
+Plan:
+- Make sure to follow the format and constraints.
+
+### Plan
+
+#Task1: List the available IoT sites.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of available IoT sites.
+
+The IoT Data Download agent is capable of providing information about IoT sites. The task is to list the available IoT sites, which aligns with the agent's capability to "what sites are there." The expected output is a list of available IoT sites.

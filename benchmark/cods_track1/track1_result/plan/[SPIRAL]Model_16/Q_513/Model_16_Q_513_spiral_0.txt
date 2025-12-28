@@ -1,0 +1,13 @@
+stop_index: 1
+
+truncated_plan: - Make sure to include all required fields: Task, Agent, Dependency, ExpectedOutput.
+
+### Plan
+
+#Task1: Download the Setpoint Temperature data for Chiller 6 at the MAIN site for the week of 2020-04-27.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON file containing the Setpoint Temperature data for Chiller 6 at the MAIN site for the week of 2020-04-27.
+
+status: Accomplished
+can_answer_now:True

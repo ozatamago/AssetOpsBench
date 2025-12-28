@@ -3,16 +3,16 @@ Plan:
 #Task1: List all failure modes of Chiller 6.
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency1: None
-#ExpectedOutput1: A list of failure modes for Chiller 6.
+#ExpectedOutput1: A list of failure modes associated with Chiller 6.
 
 #Task2: Identify the relevant sensors for Evaporator Water side fouling failure mode of Chiller 6.
 #Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency2: #S1
-#ExpectedOutput2: The most relevant sensor for monitoring Evaporator Water side fouling.
+#ExpectedOutput2: The most relevant sensor for monitoring Evaporator Water side fouling in Chiller 6.
 
-#Task3: Verify if the identified sensor is available at the MAIN site for Chiller 6.
+#Task3: Verify the asset details and sensor data for Chiller 6 at MAIN site.
 #Agent3: IoT Data Download
-#Dependency3: #S2
-#ExpectedOutput3: Confirmation of the sensor's availability at the MAIN site for Chiller 6.
+#Dependency3: None
+#ExpectedOutput3: Confirmation of the presence of Chiller 6 at MAIN site and its sensor data.
 
-The plan has been generated with 3 steps to solve the problem.
+The plan is complete.

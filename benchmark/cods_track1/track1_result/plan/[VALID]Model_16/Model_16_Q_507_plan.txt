@@ -1,18 +1,18 @@
 Question: What is the predicted energy consumption for Chiller 9 in the week of 2020-04-27 based on data from the MAIN site?
 Plan:
-#Task1: Retrieve historical energy consumption data for Chiller 9 at the MAIN site for the specified date range.
+#Task1: Retrieve historical energy consumption data for Chiller 9 at the MAIN site for the specified week.
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: Historical energy consumption data for Chiller 9 at the MAIN site.
+#ExpectedOutput1: Historical energy consumption data for Chiller 9 at the MAIN site for the week of 2020-04-27.
 
-#Task2: Analyze the retrieved data to forecast the energy consumption for Chiller 9 in the week of 2020-04-27.
+#Task2: Analyze the retrieved data to forecast the energy consumption for Chiller 9 in the specified week.
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: Predicted energy consumption for Chiller 9 in the week of 2020-04-27.
+#ExpectedOutput2: Predicted energy consumption for Chiller 9 for the week of 2020-04-27.
 
-#Task3: Create a work order for inspecting Chiller 9 based on the predicted energy consumption.
+#Task3: Create a work order for Chiller 9 based on the predicted energy consumption to schedule maintenance if necessary.
 #Agent3: WorkOrder Agent
 #Dependency3: #S2
-#ExpectedOutput3: Work order for inspecting Chiller 9.
+#ExpectedOutput3: A work order for Chiller 9 with recommended maintenance actions based on the predicted energy consumption.
 
 The plan is complete.

@@ -137,7 +137,7 @@ def run_planning_workflow(
     question_subdir = os.path.join(plan_subdir, f"Q_{qid}")
     os.makedirs(question_subdir, exist_ok=True)
 
-    saved_plan_prefix = os.path.join(question_subdir, f"Model_{llm_model}_Q_{qid}_plan")
+    saved_plan_prefix = os.path.join(question_subdir, f"Model_{llm_model}_Q_{qid}")
 
     if generate_steps_only:
         os.makedirs(PLAN_DIR, exist_ok=True)

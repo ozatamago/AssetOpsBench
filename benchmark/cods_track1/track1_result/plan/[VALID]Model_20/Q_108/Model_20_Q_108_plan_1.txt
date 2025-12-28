@@ -1,20 +1,7 @@
 Question: List all failure modes of Chiller 6 that can be detected by temperature sensors and power input sensors.
 Plan:
  
-We need to output plan with steps. The problem: "List all failure modes of Chiller 6 that can be detected by temperature sensors and power input sensors."
-
-We can do a single step using Failure Mode and Sensor Relevancy Expert for Industrial Asset. The agent can answer mapping. So we ask it to list all failure modes of Chiller 6 that can be detected by temperature sensors and power input sensors.
-
-Thus plan:
-
-#Task1: List all failure modes of Chiller 6 that can be detected by temperature sensors and power input sensors.
+assistantfinal #Task1: List all failure modes of Chiller 6 that can be detected by temperature sensors and power‑input sensors.
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency1: None
-#ExpectedOutput1: A list of failure modes of Chiller 6, each indicating detection by temperature sensors, power input sensors, or both.
-
-Make sure format exactly as required. No extra lines. No markdown. Just the four lines.
-
-Let's output.assistantfinal_outputassistantfinal_output#Task1: List all failure modes of Chiller 6 that can be detected by temperature sensors and power input sensors.
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency1: None
-#ExpectedOutput1: List of Chiller 6 failure modes annotated with detection capability of temperature sensors, power input sensors, or both.
+#ExpectedOutput1: A concise list (e.g., bullet points) of the failure modes of Chiller 6 that are detectable using temperature‑type sensors (e.g., leaving/return water temperature, evaporator temperature) and power‑input sensors (e.g., electrical power consumption, voltage).

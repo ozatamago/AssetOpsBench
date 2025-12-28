@@ -15,9 +15,9 @@ Plan:
 #Dependency3: #S2
 #ExpectedOutput3: Forecasted energy consumption for Chiller 6 for the next week.
 
-#Task4: Create a work order for monitoring Chiller 6's energy consumption based on the forecast.
+#Task4: Create a work order for monitoring Chiller 6 based on the forecast.
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: Work order created for monitoring Chiller 6's energy consumption.
+#ExpectedOutput4: Work order created for monitoring Chiller 6.
 
 The plan is complete.

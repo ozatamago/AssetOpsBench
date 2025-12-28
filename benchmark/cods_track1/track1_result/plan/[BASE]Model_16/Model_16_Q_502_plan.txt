@@ -1,18 +1,18 @@
 Question: What is the forecast for 'Chiller 9 Condenser Water Flow' in the week of 2020-04-27 based on data from the MAIN site?
 Plan:
-#Task1: Retrieve the historical data for 'Chiller 9 Condenser Water Flow' at the MAIN site for the past week (2020-04-20 to 2020-04-26).
+#Task1: Retrieve historical data for 'Chiller 9 Condenser Water Flow' at the MAIN site for the past week (2020-04-20 to 2020-04-26).
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: Historical data for 'Chiller 9 Condenser Water Flow' at the MAIN site for the past week.
+#ExpectedOutput1: Historical data for 'Chiller 9 Condenser Water Flow' at the MAIN site from 2020-04-20 to 2020-04-26.
 
-#Task2: Analyze the retrieved historical data to check for any anomalies or missing values.
+#Task2: Analyze the retrieved historical data to forecast 'Chiller 9 Condenser Water Flow' for the next week (2020-04-27 to 2020-05-03).
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: Analysis report indicating any anomalies or missing values in the historical data.
+#ExpectedOutput2: Forecasted values for 'Chiller 9 Condenser Water Flow' from 2020-04-27 to 2020-05-03.
 
-#Task3: Forecast 'Chiller 9 Condenser Water Flow' for the next week (2020-04-27 to 2020-05-03) based on the historical data.
-#Agent3: Time Series Analytics and Forecasting
-#Dependency3: #S1, #S2
-#ExpectedOutput3: Forecasted values for 'Chiller 9 Condenser Water Flow' for the week of 2020-04-27.
+#Task3: Create a work order for inspecting 'Chiller 9' based on the forecasted values to check for any potential issues.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A generated work order for inspecting 'Chiller 9' based on the forecasted 'Chiller 9 Condenser Water Flow' values.
 
-The plan has 3 steps, which is fewer than 5. Let's execute it!
+The plan is complete.

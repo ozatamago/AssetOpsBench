@@ -1,0 +1,17 @@
+Question: Assuming that the current date is 2018-01-02, can you predict next work order probability for me for equipment CWC04009?
+Plan:
+ 
+#Task1: Retrieve historical work order data for equipment CWC04009 for the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: Historical work order data for equipment CWC04009 for the year 2017.
+
+#Task2: Analyze the retrieved historical work order data to identify patterns or anomalies that could indicate the likelihood of a future work order.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Analysis of the historical work order data, highlighting any patterns or anomalies that could be used to predict the next work order probability.
+
+#Task3: Use the analyzed data to predict the next work order probability for equipment CWC04009 as of 2018-01-02.
+#Agent3: WorkOrder Agent
+#Dependency3: #S1 #S2
+#ExpectedOutput3: Predicted probability of the next work order for equipment CWC04009.

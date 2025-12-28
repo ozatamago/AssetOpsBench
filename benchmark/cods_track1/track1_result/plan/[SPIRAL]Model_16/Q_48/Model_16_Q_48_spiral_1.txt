@@ -1,0 +1,15 @@
+stop_index: 2
+
+truncated_plan:  
+#Task1: Determine the exact date and time for "sept 19, 2020 at 7pm".
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The exact date and time for "sept 19, 2020 at 7pm" in a standard format (e.g., 2020-09-19T19:00:00).
+
+#Task2: Download the return temperature data for CQPA AHU 2B at the MAIN site for the determined date and time.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: The return temperature data for CQPA AHU 2B at MAIN site for 2020-09-19T19:00:00 in a file.
+
+status: Accomplished
+can_answer_now:True

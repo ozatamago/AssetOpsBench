@@ -10,14 +10,14 @@ Plan:
 #Dependency2: #S1
 #ExpectedOutput2: Sensor data for Chiller 6 Tonnage at MAIN for the specified week.
 
-#Task3: Analyze the downloaded sensor data for Chiller 6 Tonnage at MAIN for anomalies.
+#Task3: Analyze the downloaded data for anomalies in Chiller 6 Tonnage.
 #Agent3: Time Series Analytics and Forecasting
 #Dependency3: #S2
 #ExpectedOutput3: Anomaly detection results for Chiller 6 Tonnage.
 
-#Task4: Generate a work order if anomalies are detected in Chiller 6 Tonnage.
+#Task4: If anomalies are detected, generate a work order for inspecting Chiller 6.
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: A work order for inspecting or maintaining Chiller 6 if anomalies are found.
+#ExpectedOutput4: A work order for inspecting Chiller 6 if anomalies are detected.
 
 The plan is complete.

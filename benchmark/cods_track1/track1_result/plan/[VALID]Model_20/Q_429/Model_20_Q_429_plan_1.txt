@@ -1,69 +1,44 @@
 Question: How can reasoning on operation alerts help in generating significant warning message to improve maintenance recommendations for Chiller 9 with equipment ID CWC04009?
 Plan:
  
-We need to produce a plan with fewer than 5 steps (so up to 4 steps). Must follow format exactly: each step includes #TaskN, #AgentN, #DependencyN, #ExpectedOutputN. Use N sequentially starting at 1. Must match counts. Must not have extra spaces or punctuation beyond required. Must not include markdown. Must not include extra lines.
+We need to output plan lines only, no extra text. The plan must be less than 5 steps. Provide #Task1, #Agent1, #Dependency1, #ExpectedOutput1, then #Task2 etc.
 
-We need to ensure each line is exactly as required. The format: "#Task<N>: <Describe your task here>" etc. Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1, then #Task2, etc.
+We need to ensure each line is exactly as format. No extra spaces? Should be fine.
 
-We need to ensure the agent names exactly match allowed list: "IoT Data Download", "Failure Mode and Sensor Relevancy Expert for Industrial Asset", "Time Series Analytics and Forecasting", "WorkOrder Agent". No extra spaces.
+Let's produce 3 steps as described.
 
-We need to ensure dependencies: "None" or "#S1" etc. The spec says "#Dependency<N>: <use #S1, #S2, ... or None>". So we need to refer to steps as #S1, #S2, etc. So for step 2, dependency is "#S1". For step 3, "#S2". For step 4, "#S3". Use exactly "#S1" etc.
+Make sure #Task2 line is one line (no line breaks). So we need to condense description into one line.
 
-We need to ensure expected output is one line.
+Similarly #Task3.
 
-Now craft tasks:
+Let's craft concise one-line tasks.
 
-Step 1: Retrieve recent sensor data and any operation alerts for Chiller 9 (CWC04009) for the past week for key parameters.
-
-Agent: IoT Data Download
-
-Dependency: None
-
-ExpectedOutput: JSON file containing time‑stamped sensor readings and embedded alerts for the requested sensors.
-
-Step 2: Analyze the data for anomalies and extract operation alerts.
-
-Agent: Time Series Analytics and Forecasting
-
-Dependency: #S1
-
-ExpectedOutput: List of detected anomalies with timestamps and a summary of operation alerts.
-
-Step 3: Map anomalies/alerts to likely failure modes and identify priority sensors.
-
-Agent: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-
-Dependency: #S2
-
-ExpectedOutput: Mapping of each anomaly/alert to a failure mode and a list of the most relevant sensors for Chiller 9.
-
-Step 4: Generate a warning message and a preventive maintenance recommendation (work order) for Chiller 9 based on the failure‑mode analysis.
-
-Agent: WorkOrder Agent
-
-Dependency: #S3
-
-ExpectedOutput: Concise warning message and a work‑order description recommending specific inspection/repair actions for Chiller 9.
-
-Now ensure each line is exactly as required.
-
-Check for extra spaces: after colon there is a space. Good.
-
-Make sure each line ends with newline.
-
-Now produce final answer.assistantfinal#Task1: Download recent sensor data and operation alerts for Chiller 9 (CWC04009) for the past week covering key parameters
+#Task1: Download last week sensor data for Chiller 9 (CWC04009) including “CHILLED WATER LEAVING TEMP”, “CHILLED WATER RETURN TEMP”, and “POWER INPUT”.
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: JSON file with time‑stamped sensor readings and embedded alerts for the requested sensors
-#Task2: Analyze the downloaded data to detect anomalies and summarize operation alerts
-#Agent2: Time Series Analytics and Forecasting
+#ExpectedOutput1: JSON file CWC04009_last_week.json with timestamped readings and alert flags
+
+#Task2: Analyze the JSON to detect operation alerts, map each to failure modes, and generate priority warning messages for Chiller 9.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency2: #S1
-#ExpectedOutput2: List of detected anomalies with timestamps and a summary of operation alerts
-#Task3: Map the identified anomalies/alerts to likely failure modes and list priority sensors for Chiller 9
-#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#ExpectedOutput2: Report CWC04009_alert_analysis.json listing alerts, associated failure modes, priority, and concise warning messages
+
+#Task3: Create a maintenance work order that incorporates the warning messages and recommends actions for Chiller 9.
+#Agent3: WorkOrder Agent
 #Dependency3: #S2
-#ExpectedOutput3: Mapping of each anomaly/alert to a failure mode and a list of the most relevant sensors
-#Task4: Create a warning message and a preventive maintenance work order for Chiller 9 based on the failure‑mode analysis
-#Agent4: WorkOrder Agent
-#Dependency4: #S3
-#ExpectedOutput4: Concise warning message and a work‑order recommending specific inspection or repair actions for Chiller 9
+#ExpectedOutput3: Work order WO_CWC04009.json with description, priority, recommended actions, and assigned resources
+
+Make sure each line starts with #TaskN: etc. No extra blank lines? Probably okay to have blank lines between steps? The instruction says output ONLY lines in this exact format, but blank lines may be considered extra lines. Safer to not include blank lines. So output 12 lines consecutively.
+
+Let's produce final answer.assistantfinal #Task1: Download last week sensor data for Chiller 9 (CWC04009) including “CHILLED WATER LEAVING TEMP”, “CHILLED WATER RETURN TEMP”, and “POWER INPUT”.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file CWC04009_last_week.json with timestamped readings and alert flags  
+#Task2: Analyze the JSON to detect operation alerts, map each to failure modes, and generate priority warning messages for Chiller 9.  
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency2: #S1  
+#ExpectedOutput2: Report CWC04009_alert_analysis.json listing alerts, associated failure modes, priority, and concise warning messages  
+#Task3: Create a maintenance work order that incorporates the warning messages and recommends actions for Chiller 9.  
+#Agent3: WorkOrder Agent  
+#Dependency3: #S2  
+#ExpectedOutput3: Work order WO_CWC04009.json with description, priority, recommended actions, and assigned resources

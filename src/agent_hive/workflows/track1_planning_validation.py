@@ -296,7 +296,7 @@ class NewPlanningWorkflow(Workflow):
 
         final_plan = llm_response
         print(f"DAG round_0: {final_plan}")
-        saved_plan_filename_0 = saved_plan_filename + "_0.txt"
+        saved_plan_filename_0 = saved_plan_filename + "_plan_0.txt"
         saved_plan_text = f"Question: {task.description}\nPlan:\n{final_plan}"
         with open(saved_plan_filename_0, "w") as f:
             f.write(saved_plan_text)
@@ -308,6 +308,10 @@ class NewPlanningWorkflow(Workflow):
         T = 3
         for t in range(T):
             ok, errs = self._validate_plan_text(final_plan, agents_allowed)
+            saved_valid_filename_t = saved_plan_filename + f"_valid_{t}.txt"
+            saved_valid_text = f"ok: {ok}\nerrs:\n{errs}"
+            with open(saved_valid_filename_t, "w") as f:
+                f.write(saved_valid_text)
             
             if ok:
                 break
@@ -327,7 +331,7 @@ class NewPlanningWorkflow(Workflow):
             input_tokens_count+=in_tok
             generated_tokens_count+=out_tok
             print(f"DAG round_{t+1}: {final_plan}")
-            saved_plan_filename_t = saved_plan_filename + f"_{t+1}.txt"
+            saved_plan_filename_t = saved_plan_filename + f"_plan_{t+1}.txt"
             saved_plan_text = f"Question: {task.description}\nPlan:\n{final_plan}"
             with open(saved_plan_filename_t, "w") as f:
                 f.write(saved_plan_text)

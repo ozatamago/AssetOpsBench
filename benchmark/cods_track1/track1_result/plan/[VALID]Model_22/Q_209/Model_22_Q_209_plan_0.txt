@@ -3,4 +3,4 @@ Plan:
 #Task1: Check if any model with context length 96 is supported in TSFM
 #Agent1: Time Series Analytics and Forecasting
 #Dependency1: None
-#ExpectedOutput1: Information on whether a model with context length 96 is supported in TSFM, including any relevant details or limitations.
+#ExpectedOutput1: A list of models with context length 96 supported in TSFM or a message indicating that no such models are supported.

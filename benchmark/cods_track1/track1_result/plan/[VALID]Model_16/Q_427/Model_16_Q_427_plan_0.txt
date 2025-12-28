@@ -8,7 +8,7 @@ Plan:
 #Task2: Download historical data for Chiller 6 to analyze the alerts.
 #Agent2: IoT Data Download
 #Dependency2: #S1
-#ExpectedOutput2: Historical data for Chiller 6, including sensor readings.
+#ExpectedOutput2: Historical data for Chiller 6, including sensor readings for relevant failure modes.
 
 #Task3: Analyze the downloaded data to identify anomalies and potential meaningful alerts.
 #Agent3: Time Series Analytics and Forecasting
@@ -20,4 +20,4 @@ Plan:
 #Dependency4: #S3
 #ExpectedOutput4: Work orders for the meaningful alerts, prioritizing further analysis and potential maintenance actions.
 
-This plan is designed to identify the meaningful 20% of alerts for Chiller 6 by understanding the relevant failure modes and sensors, analyzing historical data for anomalies, and generating work orders for the identified meaningful alerts.
+This plan is designed to identify the meaningful 20% of alerts for Chiller 6 by understanding the relevant failure modes and sensors, analyzing historical data for anomalies, and generating work orders for prioritized further analysis.

@@ -1,7 +1,7 @@
 Question:  If Evaporator Water side fouling occurs for Chiller 6, which sensor is most relevant for monitoring this specific failure?
 Plan:
  
-assistantfinal #Task1: Determine which sensor should be prioritized for monitoring evaporator water‑side fouling on Chiller 6.  
+assistantfinal #Task1: Identify the most relevant sensor for monitoring Evaporator Water side fouling in Chiller 6.  
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
 #Dependency1: None  
-#ExpectedOutput1: The name/ID of the most relevant sensor (e.g., “Evaporator Water Outlet Temperature sensor”) for detecting evaporator water‑side fouling on Chiller 6, with a brief justification.
+#ExpectedOutput1: The name of the sensor (e.g., “Evaporator Water Outlet Temperature sensor”) that is most relevant for detecting Evaporator Water side fouling in Chiller 6.

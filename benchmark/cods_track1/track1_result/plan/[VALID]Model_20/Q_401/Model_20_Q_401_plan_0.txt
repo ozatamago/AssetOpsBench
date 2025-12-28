@@ -1,12 +1,26 @@
 Question: I would like to check the work order distribution for the equipment labeled as CWC04013 for the year 2017.
 Plan:
-We need to check work order distribution for equipment CWC04013 for year 2017. Which agents can help? WorkOrder Agent can retrieve, analyze, generate work orders, but does it provide distribution? It can retrieve work orders? Not explicitly. IoT Data Download can get asset history, sensor data, but not work orders. Failure Mode expert not relevant. Time Series Analytics not relevant.
+We need to check work order distribution for equipment CWC04013 for year 2017. Which agents can help? WorkOrder Agent can retrieve, analyze, generate work orders, but does it provide distribution? It can retrieve work orders? Not explicitly. IoT Data Download can get asset history, sensor data. Not work orders. Failure Mode expert not relevant. Time Series Analytics not relevant.
 
-We might need to get work order data for equipment CWC04013 for 2017. The WorkOrder Agent can maybe retrieve work orders? The description: "retrieve, analyze, and generate work orders for equipment based on historical data, anomalies, alerts, and performance metrics". So it can retrieve historical work orders. So we can ask it to retrieve work order distribution for equipment CWC04013 for 2017. The tasks list for WorkOrder Agent includes specific creation tasks, not retrieval. But description suggests retrieval possible. However tasks list only includes creation and closing. Might be limited. But we must use available agents only. Perhaps we can use IoT Data Download to get asset history? Not work orders. Maybe we can combine: first get asset details? Not needed.
+We may need to get work order data via WorkOrder Agent? It can retrieve, analyze, generate work orders based on historical data, anomalies, alerts, performance metrics. So maybe we can ask it to retrieve work order distribution for equipment CWC04013 for 2017. The task list for WorkOrder Agent includes creating, generating, scheduling, raising, closing work orders. Not retrieving distribution. However description says can retrieve, analyze, and generate work orders based on historical data, anomalies, alerts, and performance metrics, offering recommendations. So we can ask it to retrieve work order distribution.
 
-We need to produce plan with fewer than 5 steps. Likely one step: ask WorkOrder Agent to retrieve distribution. But need to phrase as a task that matches its capabilities. The tasks list doesn't include "retrieve work order distribution". But we can still ask? The instruction: "Agent description: can retrieve, analyze, and generate work orders". So we can ask to retrieve distribution. So step: #Task1: Retrieve work order distribution for equipment CWC04013 for year 2017. #Agent1: WorkOrder Agent. #Dependency: None. #ExpectedOutput: Summary or list of work orders with counts per type for 2017.
+Thus single step: ask WorkOrder Agent to retrieve work order distribution for equipment CWC04013 for year 2017.
 
-Thus plan with one step. Ensure format.assistantfinal#Task1: Retrieve the work order distribution (e.g., count of work orders by type/status) for equipment **CWC04013** for the calendar year **2017**.  
+Plan with one step.
+
+Check constraints: fewer than 5 steps, include Task, Agent, Dependency, ExpectedOutput.
+
+Let's craft.
+
+#Task1: Retrieve the work order distribution (count per type/status) for equipment CWC04013 for the calendar year 2017.
+
+#Agent1: WorkOrder Agent
+
+#Dependency1: None
+
+#ExpectedOutput1: A summary table or JSON listing work order types/statuses and their counts for CWC04013 in 2017.
+
+Return plan.assistantfinal#Task1: Retrieve the work‑order distribution (e.g., counts per work‑order type or status) for equipment **CWC04013** for the calendar year **2017**.  
 #Agent1: WorkOrder Agent  
 #Dependency1: None  
-#ExpectedOutput1: A concise report (e.g., table or JSON) showing the number of work orders associated with CWC04013 in 2017, broken down by work‑order type or status (e.g., preventive, corrective, emergency, etc.).
+#ExpectedOutput1: A concise summary (table or JSON) showing each work‑order category (e.g., inspection, corrective, preventive, emergency) and the number of work orders issued for CWC04013 during 2017.

@@ -1,0 +1,22 @@
+Question: When the Liquid Refrigerant Evaporator Temperature of Chiller 6 drops, what failure is most likely to occur?
+Plan:
+- Ensure that your plan is executable with the given agents.
+
+### Plan
+
+#Task1: List all failure modes of Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes of Chiller 6.
+
+#Task2: Identify the relevant sensors for the failure modes of Chiller 6 that are related to a drop in Liquid Refrigerant Evaporator Temperature.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: Relevant sensors that can be used to monitor the failure modes related to a drop in Liquid Refrigerant Evaporator Temperature of Chiller 6.
+
+#Task3: Analyze the potential failures that could cause a drop in Liquid Refrigerant Evaporator Temperature of Chiller 6.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #Task1, #Task2
+#ExpectedOutput3: The most likely failure mode that could occur when the Liquid Refrigerant Evaporator Temperature of Chiller 6 drops.
+
+The plan is designed to be executed in 3 steps, utilizing the Failure Mode and Sensor Relevancy Expert for Industrial Asset to identify the failure modes of Chiller 6, determine the relevant sensors for these failure modes, and analyze the potential failures related to a drop in Liquid Refrigerant Evaporator Temperature.

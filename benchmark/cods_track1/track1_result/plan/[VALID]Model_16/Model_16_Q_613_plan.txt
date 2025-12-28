@@ -15,7 +15,7 @@ Plan:
 #Dependency3: #S2
 #ExpectedOutput3: Anomaly detection results for compressor motor failure.
 
-#Task4: Create a work order for inspecting Chiller 6 due to detected compressor motor failure.
+#Task4: Create a work order for inspecting Chiller 6 due to detected anomalies in compressor motor.
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
 #ExpectedOutput4: Work order for inspecting Chiller 6.

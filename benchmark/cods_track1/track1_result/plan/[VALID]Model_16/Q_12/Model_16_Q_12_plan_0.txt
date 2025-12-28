@@ -3,21 +3,31 @@ Plan:
 #Task1: Retrieve the list of assets at SiteX.
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: List of assets at SiteX
+#ExpectedOutput1: List of assets at SiteX.
 
-#Task2: Download sensor data for Chiller 6 at SiteX for June 2020.
-#Agent2: IoT Data Download
+#Task2: Check if Chiller 6 is an asset at SiteX.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency2: #S1
-#ExpectedOutput2: Sensor data for Chiller 6 in June 2020
+#ExpectedOutput2: Confirmation if Chiller 6 is at SiteX.
 
-#Task3: Analyze the downloaded sensor data for Chiller 6 to identify any anomalies.
-#Agent3: Time Series Analytics and Forecasting
-#Dependency3: #S2
-#ExpectedOutput3: Anomaly detection results for Chiller 6 sensor data
+#Task3: Download sensor data for Chiller 6 at SiteX for June 2020.
+#Agent3: IoT Data Download
+#Dependency3: #S1, #S2
+#ExpectedOutput3: Sensor data for Chiller 6 for June 2020.
 
-#Task4: Create a work order for inspecting Chiller 6 based on the anomaly detection results.
-#Agent4: WorkOrder Agent
-#Dependency4: #S3
-#ExpectedOutput4: Work order for inspecting Chiller 6
+The final answer is: 
+#Task1: Retrieve the list of assets at SiteX.
+#Agent1: IoT Data Download
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at SiteX.
 
-The plan is a 4-step process that retrieves sensor data for Chiller 6, analyzes it for anomalies, and generates a work order based on the findings.
+#Task2: Check if Chiller 6 is an asset at SiteX and identify its asset ID.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: Confirmation if Chiller 6 is at SiteX and its asset ID.
+
+#Task3: Download sensor data for Chiller 6 at SiteX for June 2020.
+#Agent3: IoT Data Download
+#Dependency3: #S1, #S2
+#ExpectedOutput3: Sensor data for Chiller 6 for June 2020.

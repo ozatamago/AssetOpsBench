@@ -1,8 +1,7 @@
 Question: How many models with context length exactly 96 are supported?
 Plan:
  
-#Task1: 
-We need to produce final answer: the plan lines. Already given. Ensure format exactly. No extra spaces? Should be fine. Provide final.assistantfinal#Task1: Determine the number of supported models that have a context length exactly 96.
+We need to output plan lines exactly as required. Ensure no extra spaces? Format: "#Task1: ..." etc. Provide exactly four lines. No extra lines. Let's output.assistantfinalassistantfinal#Task1: Determine the number of supported models that have a context length of exactly 96.
 #Agent1: Time Series Analytics and Forecasting
 #Dependency1: None
-#ExpectedOutput1: An integer indicating how many models with context length exactly 96 are supported (e.g., "0").
+#ExpectedOutput1: An integer count of models with context length exactly 96 (e.g., "There are 3 models with a context length of 96.")

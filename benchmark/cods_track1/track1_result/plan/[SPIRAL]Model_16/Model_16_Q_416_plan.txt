@@ -1,0 +1,17 @@
+Question: When an anomaly happens for equipment CWC04009, can you recommend top three work orders to address this problem?
+Plan:
+ 
+#Task1: Retrieve the relevant sensor data for equipment CWC04009 to understand the anomaly.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical sensor data for CWC04009, including relevant metrics such as temperature, pressure, or other key performance indicators.
+
+#Task2: Analyze the retrieved sensor data to identify the cause of the anomaly.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Insights into the anomaly, including potential causes and affected metrics.
+
+#Task3: Based on the analysis, recommend top three work orders to address the anomaly.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Three recommended work orders to mitigate the anomaly, including descriptions and priorities.

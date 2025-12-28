@@ -15,7 +15,7 @@ Plan:
 #Dependency3: #S1, #S2
 #ExpectedOutput3: A description of the temporal behavior of each sensor for the identified failure modes
 
-#Task4: Build an anomaly model using the sensor data and temporal behavior information
-#Agent4: Time Series Analytics and Forecasting
-#Dependency4: #S2, #S3
-#ExpectedOutput4: An anomaly model for identifying chiller trip failure for MAIN chiller 6, including the list of sensors and their temporal behavior
+#Task4: Compile the list of sensors and their temporal behaviors for building the anomaly model
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency4: #S1, #S2, #S3
+#ExpectedOutput4: A comprehensive list of sensors and their temporal behaviors for identifying a chiller trip failure for MAIN chiller 6

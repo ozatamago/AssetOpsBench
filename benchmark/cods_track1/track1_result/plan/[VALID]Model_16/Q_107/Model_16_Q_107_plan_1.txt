@@ -10,3 +10,8 @@ Plan:
 #Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency2: #S1
 #ExpectedOutput2: A list of failure modes of Chiller 6 that can be detected by temperature sensors.
+
+#Task3: Verify if the temperature sensors relevant to the failure modes identified are available in the IoT data.
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: Confirmation of the availability of temperature sensors for the identified failure modes.

@@ -1,27 +1,15 @@
 Question: Forecast 'Chiller 9 Condenser Water Flow' using data in 'chiller9_annotated_small_test.csv'. Use the following parameters as inputs 'Chiller 9 Liquid Refrigerant Evaporator Temperature,Chiller 9 Return Temperature,Chiller 9 Tonnage,Chiller 9 Setpoint Temperature,Chiller 9 Supply Temperature,Chiller 9 Chiller % Loaded,Chiller 9 Condenser Water Supply To Chiller Temperature,Chiller 9 Power Input,Chiller 9 Chiller Efficiency'
 Plan:
  
-We need to produce plan with fewer than 5 steps. Use only allowed agents. Provide step format.
+The user gave a plan with one step. Need to ensure format matches exactly: #Task1: <one-line>. The task line must be one line, no line breaks. Should be concise. Provide #Agent1: Time Series Analytics and Forecasting (exact name). #Dependency1: None. #ExpectedOutput1: <one-line>. Must be one line.
 
-We need to forecast 'Chiller 9 Condenser Water Flow' using CSV file and given inputs. The Time Series Analytics and Forecasting agent can forecast given a file. So we can ask it to forecast.
+We need to ensure no extra spaces or line breaks. Provide exactly those four lines.
 
-Thus single step.
+Let's craft a one-line task: "Forecast the next 24 hours of Chiller 9 Condenser Water Flow using chiller9_annotated_small_test.csv with input features: Chiller 9 Liquid Refrigerant Evaporator Temperature, Chiller 9 Return Temperature, Chiller 9 Tonnage, Chiller 9 Setpoint Temperature, Chiller 9 Supply Temperature, Chiller 9 Chiller % Loaded, Chiller 9 Condenser Water Supply To Chiller Temperature, Chiller 9 Power Input, Chiller 9 Chiller Efficiency."
 
-Make sure to include full description of task. Provide expected output: forecasted values and maybe model details.
+Make sure it's one line (no newline). Then expected output one line: "A JSON file (forecast_chiller9_cwf.json) containing timestamps for the next 24 hours, predicted Condenser Water Flow values, and confidence intervals."
 
-Let's craft.
-
-#Task1: Forecast the future values of 'Chiller 9 Condenser Water Flow' using the dataset 'chiller9_annotated_small_test.csv' with the input features: Chiller 9 Liquid Refrigerant Evaporator Temperature, Chiller 9 Return Temperature, Chiller 9 Tonnage, Chiller 9 Setpoint Temperature, Chiller 9 Supply Temperature, Chiller 9 Chiller % Loaded, Chiller 9 Condenser Water Supply To Chiller Temperature, Chiller 9 Power Input, and Chiller 9 Chiller Efficiency.
-
+Let's output.assistantfinal_outputassistantfinal_output#Task1: Forecast the next 24 hours of Chiller 9 Condenser Water Flow using chiller9_annotated_small_test.csv with input features: Chiller 9 Liquid Refrigerant Evaporator Temperature, Chiller 9 Return Temperature, Chiller 9 Tonnage, Chiller 9 Setpoint Temperature, Chiller 9 Supply Temperature, Chiller 9 Chiller % Loaded, Chiller 9 Condenser Water Supply To Chiller Temperature, Chiller 9 Power Input, Chiller 9 Chiller Efficiency
 #Agent1: Time Series Analytics and Forecasting
-
 #Dependency1: None
-
-#ExpectedOutput1: Forecasted series (e.g., next 24 hours) of 'Chiller 9 Condenser Water Flow' with associated confidence intervals and model performance metrics.
-
-Make sure format exactly.
-
-Let's output.assistantfinal#Task1: Forecast the future values of 'Chiller 9 Condenser Water Flow' using the dataset 'chiller9_annotated_small_test.csv' with the input features: Chiller 9 Liquid Refrigerant Evaporator Temperature, Chiller 9 Return Temperature, Chiller 9 Tonnage, Chiller 9 Setpoint Temperature, Chiller 9 Supply Temperature, Chiller 9 Chiller % Loaded, Chiller 9 Condenser Water Supply To Chiller Temperature, Chiller 9 Power Input, and Chiller 9 Chiller Efficiency.  
-#Agent1: Time Series Analytics and Forecasting  
-#Dependency1: None  
-#ExpectedOutput1: Forecasted series (e.g., next 24 hours) of 'Chiller 9 Condenser Water Flow' with confidence intervals and model performance metrics.
+#ExpectedOutput1: A JSON file (forecast_chiller9_cwf.json) containing timestamps for the next 24 hours, predicted Condenser Water Flow values, and confidence intervals.

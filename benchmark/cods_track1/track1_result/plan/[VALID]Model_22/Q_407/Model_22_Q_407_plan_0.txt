@@ -11,6 +11,6 @@ Plan:
 #ExpectedOutput2: A report detailing the anomalies and alerts found in the sensor data for CWC04009 for the year 2021
 
 #Task3: Generate a daily count of the events of alert and anomaly for 2021 for equipment CWC04009 based on the report from Task2
-#Agent3: WorkOrder Agent
+#Agent3: Time Series Analytics and Forecasting
 #Dependency3: #S2
 #ExpectedOutput3: A daily count of the events of alert and anomaly for 2021 for equipment CWC04009

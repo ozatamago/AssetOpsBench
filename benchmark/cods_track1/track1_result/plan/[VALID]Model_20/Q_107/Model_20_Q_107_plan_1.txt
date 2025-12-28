@@ -1,7 +1,7 @@
 Question: List all failure modes of Chiller 6 that can be detected by temperature sensors.
 Plan:
  
-assistantfinal #Task1: Query the Failure Mode and Sensor Relevancy Expert for Industrial Asset to list all failure modes of Chiller 6 that can be detected by temperature sensors.  
+assistantfinal #Task1: List all failure modes of Chiller 6 that can be detected by temperature sensors.  
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
 #Dependency1: None  
-#ExpectedOutput1: A concise list (e.g., bullet points) of Chiller 6 failure modes that are detectable using temperature sensors.
+#ExpectedOutput1: A concise list (e.g., bullet points) of all Chiller 6 failure modes that are detectable using temperature‑type sensors (such as leaving/return water temperature, evaporator temperature, condenser temperature, etc.), with each failure mode clearly named.

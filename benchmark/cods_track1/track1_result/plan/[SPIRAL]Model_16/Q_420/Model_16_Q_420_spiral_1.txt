@@ -1,0 +1,10 @@
+stop_index: 1
+
+truncated_plan:  
+#Task1: Retrieve sensor data for Chiller 9 (CWC04009) for June 2020.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Sensor data for Chiller 9 (CWC04009) for June 2020 in a JSON file.
+
+status: Not accomplished
+can_answer_now:False

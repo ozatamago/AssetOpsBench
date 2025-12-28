@@ -1,7 +1,7 @@
 Question: List all failure modes of Chiller 6 at MAIN site that can be detected by temperature sensors and power input sensors.
 Plan:
  
-We need to output plan lines exactly. Ensure no extra spaces at end. Provide #Task1 line, #Agent1 line, #Dependency1 line, #ExpectedOutput1 line. No extra lines. Let's produce.assistantfinal#Task1: List all failure modes of Chiller 6 at the MAIN site that can be detected by temperature sensors and power input sensors.
+We need to ensure the plan meets constraints: fewer than 5 steps, each step includes Task, Agent, Dependency, ExpectedOutput. The plan we gave has 4 lines, but we need to include #Task1, #Agent1, #Dependency1, #ExpectedOutput1. That's correct. Ensure no extra spaces or line breaks beyond those lines. The output must be exactly those four lines. The plan we gave includes bullet point list description. That's okay. Ensure no extra blank lines. Provide exactly those four lines.assistantfinal#Task1: List all failure modes of Chiller 6 at MAIN site that can be detected by temperature sensors and power input sensors.
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency1: None
-#ExpectedOutput1: A concise list of relevant failure modes for Chiller 6 at the MAIN site, each annotated with the detecting sensor type(s) (temperature, power‑input).
+#ExpectedOutput1: Bullet‑point list of failure‑mode names for Chiller 6 at MAIN, each annotated with the sensor type(s) (temperature, power input) that can detect it.

@@ -1,0 +1,17 @@
+Question: Generate a machine learning recipe for detecting overheating failure for Chiller 6. Result should include feature sensors and target sensor.
+Plan:
+ 
+#Task1: List all failure modes of Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes for Chiller 6, including compressor overheating.
+
+#Task2: Identify the relevant sensors for the failure mode "Compressor Overheating" of Chiller 6.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: A list of relevant sensors that can be used to monitor the "Compressor Overheating" failure mode of Chiller 6.
+
+#Task3: Generate a machine learning recipe for detecting "Compressor Overheating" failure for Chiller 6, including feature sensors and target sensor.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S2
+#ExpectedOutput3: A machine learning recipe that includes the feature sensors and target sensor for detecting "Compressor Overheating" failure in Chiller 6.

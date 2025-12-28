@@ -1,3 +1,16 @@
 Question: What assets can be found at the MAIN site?
 Plan:
  
+We need to correct issue: Agent1 unknown 'IoT Data Download  ' (extra spaces). Should be exact name "IoT Data Download". Also need to ensure task description matches allowed tasks: "what assets are at site SiteX". The question: "What assets can be found at the MAIN site?" So we can use task 3: "what assets are at site SiteX". So we need to set task accordingly.
+
+Thus plan:
+
+#Task1: Retrieve the list of assets located at the MAIN site.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON list of asset identifiers and brief descriptions for all assets at the MAIN site.
+
+Make sure format correct. No extra spaces. Output only those lines.assistantfinal#Task1: Retrieve the list of assets located at the MAIN site.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON list of asset identifiers and brief descriptions for all assets at the MAIN site.

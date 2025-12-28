@@ -1,0 +1,3 @@
+ok: False
+errs:
+['Task numbers must be 1..N in order; got [2, 3, 4, 5]', 'Counts of Task/Agent/Dependency/ExpectedOutput must match']

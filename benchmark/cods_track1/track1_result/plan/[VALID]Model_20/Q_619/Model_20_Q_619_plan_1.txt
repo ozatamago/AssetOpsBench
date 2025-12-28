@@ -1,16 +1,24 @@
 Question: When the Liquid Refrigerant Evaporator Temperature of Chiller 6 at MAIN site drops, what failure is most likely to occur?
 Plan:
  
-The problem: "When the Liquid Refrigerant Evaporator Temperature of Chiller 6 at MAIN site drops, what failure is most likely to occur?" We need to answer using agents. The plan should be minimal steps. Likely just one step: ask Failure Mode and Sensor Relevancy Expert for Industrial Asset: "What failure is most likely when the Liquid Refrigerant Evaporator Temperature of Chiller 6 at MAIN site drops?" That yields answer.
+We need to output plan lines exactly as format. Ensure each line starts with #TaskN: etc. No extra text. Provide two steps. Ensure #Agent names exactly as given. Use "Failure Mode and Sensor Relevancy Expert for Industrial Asset". Provide ExpectedOutput concise. Let's craft.
 
-Thus output:
+Step1: #Task1: Query the Failure Mode and Sensor Relevancy Expert for Industrial Asset to obtain a list of all failure modes of Chiller 6 and indicate whether each can be detected by the Liquid Refrigerant Evaporator Temperature sensor. #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset #Dependency1: None #ExpectedOutput1: Table or JSON listing each Chiller 6 failure mode with a flag showing if the Liquid Refrigerant Evaporator Temperature sensor is relevant.
 
-#Task1: Identify the most likely failure when the Liquid Refrigerant Evaporator Temperature of Chiller 6 at MAIN site drops.  
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
-#Dependency1: None  
-#ExpectedOutput1: The most probable failure (e.g., low refrigerant charge) with brief justification linking temperature drop to that failure. 
+Step2: #Task2: Analyze the output from #S1 to determine which failure mode is most likely when the Liquid Refrigerant Evaporator Temperature drops and provide the answer. #Agent2: (no external) but we must specify an agent name from allowed list. Since internal reasoning, we could still assign "Failure Mode and Sensor Relevancy Expert for Industrial Asset" or maybe "WorkOrder Agent"? But internal reasoning step not using external agent. The format expects an agent name. Could we use same expert? Might be okay to use same agent for reasoning, but it's not needed. However constraints: each step must have an agent from list. So we can assign "Failure Mode and Sensor Relevancy Expert for Industrial Asset" again for step2, even though it's internal. Or we could use "WorkOrder Agent". But better to use same expert.
 
-Make sure format exactly. No extra spaces? Should be fine. Ensure each line starts with #Task1 etc. No extra punctuation. Provide exactly.assistantfinal#Task1: Identify the most likely failure when the Liquid Refrigerant Evaporator Temperature of Chiller 6 at MAIN site drops
+Thus #Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+
+#Dependency2: #S1
+
+#ExpectedOutput2: Statement identifying the most likely failure (e.g., low refrigerant charge) when evaporator temperature drops.
+
+Let's output.assistantfinal_output#Task1: Query the Failure Mode and Sensor Relevancy Expert for Industrial Asset to obtain a list of all failure modes of Chiller 6 and indicate whether each can be detected by the Liquid Refrigerant Evaporator Temperature sensor.
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency1: None
-#ExpectedOutput1: The most probable failure (e.g., low refrigerant charge) with a brief justification linking the temperature drop to that failure
+#ExpectedOutput1: Table or JSON listing each Chiller 6 failure mode with a flag showing if the Liquid Refrigerant Evaporator Temperature sensor is relevant.
+
+#Task2: Analyze the output from #S1 to determine which failure mode is most likely when the Liquid Refrigerant Evaporator Temperature drops and provide the answer.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: A concise statement identifying the most likely failure (e.g., low refrigerant charge) that occurs when the evaporator temperature drops.

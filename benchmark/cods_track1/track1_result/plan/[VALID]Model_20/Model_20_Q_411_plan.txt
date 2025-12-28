@@ -1,11 +1,32 @@
 Question: Which corrective work orders for equipment CWC04009 in year 2017 can be bundled in the next maintenance window? A bundle means that several work orders are executed in a short period, say in two weeks.
 Plan:
  
-We need to output only the plan lines, no extra text. The plan we have is correct. Ensure no extra blank lines before or after. Provide exactly the lines. Let's output them.assistantanalysisWe need to output only the plan lines, no extra text. Ensure no extra blank lines.assistantfinal#Task1: Retrieve all corrective work orders for equipment CWC04009 created in the year 2017.
+We need to output only the plan lines, no extra text. The user gave a "Repair rules" and then "Output (your generated plan) ⬇️:" So we must output only the plan lines, no extra. The plan we have includes the plan plus the repair rules and the "Output (your generated plan) ⬇️:" line. We must remove everything except the plan lines. So final answer should be just the four steps lines. No extra. Ensure no extra blank lines? Probably okay to have blank lines between steps. But no extra text. So output exactly:
+
+#Task1: ...
+#Agent1: ...
+#Dependency1: None
+#ExpectedOutput1: ...
+
+#Task2: ...
+...
+
+and so on. No extra.assistantfinalassistantfinalassistantfinal#Task1: Retrieve all work orders for equipment CWC04009 created in 2017
 #Agent1: WorkOrder Agent
 #Dependency1: None
-#ExpectedOutput1: List of work orders (ID, CreationDate, Description) for CWC04009 in 2017.
-#Task2: From the list in #S1, determine which work orders can be scheduled together within a two‑week maintenance window and output the bundleable set.
+#ExpectedOutput1: List of work orders with IDs, type, creationDate, and description
+
+#Task2: Filter the list to keep only corrective work orders
 #Agent2: WorkOrder Agent
 #Dependency2: #S1
-#ExpectedOutput2: Subset of work order IDs that can be bundled, with suggested grouping dates.
+#ExpectedOutput2: List of corrective work order IDs with their creation dates
+
+#Task3: Group the corrective work orders whose dates fall within any 14‑day window and suggest maintenance windows
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Clusters of work order IDs with proposed two‑week window dates
+
+#Task4: Create a bundled corrective work order for the next maintenance window covering the identified clusters
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Single bundled work order record referencing the grouped corrective work orders and the scheduled window

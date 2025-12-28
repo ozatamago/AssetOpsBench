@@ -1,18 +1,23 @@
 Question: I would like to retrieve the corrective work order details for the equipment labeled as CWC04013 for the year 2017.
 Plan:
-#Task1: Identify the relevant agent to retrieve work order details for equipment CWC04013.
-#Agent1: WorkOrder Agent
+#Task1: Identify the equipment details for CWC04013.
+#Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: Confirmation that WorkOrder Agent is capable of retrieving work order details.
+#ExpectedOutput1: Equipment details for CWC04013.
 
-#Task2: Formulate the specific query to retrieve corrective work order details for CWC04013 in 2017.
-#Agent2: WorkOrder Agent
+#Task2: Retrieve historical data for CWC04013 for the year 2017.
+#Agent2: IoT Data Download
 #Dependency2: #S1
-#ExpectedOutput2: Corrective work order details for CWC04013 in 2017.
+#ExpectedOutput2: Historical data for CWC04013 for the year 2017.
 
-#Task3: Execute the query to retrieve the corrective work order details.
-#Agent3: WorkOrder Agent
+#Task3: Analyze the historical data to identify any anomalies or issues.
+#Agent3: Time Series Analytics and Forecasting
 #Dependency3: #S2
-#ExpectedOutput3: The actual corrective work order details for CWC04013 in 2017.
+#ExpectedOutput3: Anomaly detection results for CWC04013.
 
-The plan is complete. The WorkOrder Agent is used to retrieve the corrective work order details for the equipment labeled as CWC04013 for the year 2017.
+#Task4: Generate a corrective work order based on the anomalies detected.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Corrective work order details for CWC04013.
+
+The plan is complete.

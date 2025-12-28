@@ -1,0 +1,27 @@
+Question: When power input of Chiller 6 drops, what is the potential failure that causes it?
+Plan:
+- Make sure your plan is executable with the given agents.
+
+### Plan
+
+#Task1: Identify the potential failure modes of Chiller 6 that could cause a drop in power input.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of potential failure modes of Chiller 6 that could cause a drop in power input.
+
+#Task2: Analyze the relevant sensors that can be used to monitor the identified potential failure modes.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: List of relevant sensors for monitoring the potential failure modes.
+
+#Task3: Retrieve historical data for the relevant sensors identified in Task 2 for Chiller 6.
+#Agent3: IoT Data Download
+#Dependency3: #Task2
+#ExpectedOutput3: Historical sensor data for the relevant sensors.
+
+#Task4: Analyze the retrieved historical data to identify any anomalies or trends that could indicate the cause of the power input drop.
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: #Task3
+#ExpectedOutput4: Analysis of the historical data indicating potential causes for the power input drop.
+
+The plan is designed to be executed in 4 steps, utilizing the available agents to identify the potential failure modes, relevant sensors, retrieve historical data, and analyze it to determine the cause of the power input drop in Chiller 6.

@@ -1,17 +1,51 @@
 Question: Is there any anomaly detected in Chiller 6's Tonnage in the week of 2020-04-27 at the MAIN site?
 Plan:
- 
-We need to output plan lines exactly as format. Ensure no extra spaces after agent names. Use correct agent names exactly as listed. Ensure #Dependency uses #S1 etc. Use #ExpectedOutput one line. Provide final answer.assistantfinal#Task1: Retrieve the list of assets at the MAIN site to identify the asset ID for Chiller 6.  
-#Agent1: IoT Data Download  
-#Dependency1: None  
-#ExpectedOutput1: JSON array of assets at the MAIN site, including the entry for “Chiller 6” with its asset identifier.  
+assistantfinal_output
+#Task1: Retrieve the list of assets at the MAIN site to identify the asset ID for “Chiller 6”.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON list of assets at the MAIN site, including the asset ID/name for Chiller 6 (e.g., {"assetId":"CHL-006","name":"Chiller 6",...})
 
-#Task2: Download historical sensor data for the TONNAGE sensor of Chiller 6 at the MAIN site for the week 2020‑04‑27 to 2020‑05‑03.  
-#Agent2: IoT Data Download  
-#Dependency2: #S1  
-#ExpectedOutput2: JSON file containing timestamped Tonnage readings for Chiller 6 during the specified week.  
+#Task2: Download the historical sensor data for the “Tonnage” metric of Chiller 6 at the MAIN site for the week of 2020‑04‑27 (2020‑04‑27 00:00 to 2020‑05‑03 23:59).
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: JSON file (e.g., tonnage_week_2020-04-27.json) containing 
+```json
+{
+  "assetId": "CHL-006",
+  "sensor": "TONNAGE",
+  "data": [
+    {"timestamp":"2020-04-27T00:00:00Z","value":...},
+    ...
+  ]
+}
+```
 
-#Task3: Perform anomaly detection on the downloaded Tonnage time‑series to determine if any anomalies occurred during that week.  
-#Agent3: Time Series Analytics and Forecasting  
-#Dependency3: #S2  
-#ExpectedOutput3: Report indicating whether an anomaly was detected, with details of any anomalous timestamps and severity, or a statement that no anomalies were found.
+#Task3: Analyze 
+
+We need to ensure format exactly: each line "#TaskN: ..." "#AgentN: ..." "#DependencyN: ..." "#ExpectedOutputN: ..." No extra blank lines? The spec says output ONLY lines in this exact format, no extra prose, no markdown. The plan currently includes blank lines and a code block. That's not allowed. Must be plain text lines. Also ExpectedOutput2 includes JSON block with line breaks; that's okay but must be a single line? It says one-line. So we need to keep ExpectedOutput as one line, no line breaks. So we need to condense.
+
+Also we need to ensure no markdown formatting like triple backticks. So we must rewrite.
+
+Let's produce final plan with 3 steps, each line as required, no extra blank lines between steps? Probably blank line allowed but each line must be as format. But to be safe, we can separate steps with a blank line. That's okay.
+
+Make ExpectedOutput1: JSON list of assets at MAIN site including Chiller 6 asset ID.
+
+ExpectedOutput2: JSON file with tonnage data (one-line description). Could be "JSON file tonnage_week_2020-04-27.json containing timestamped Tonnage readings for Chiller 6 at MAIN site."
+
+ExpectedOutput3: Concise answer indicating anomaly presence.
+
+Let's produce final answer.assistantfinal_output#Task1: Retrieve the list of assets at the MAIN site to identify the asset ID for “Chiller 6”.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON list of assets at the MAIN site, including the asset ID/name for Chiller 6 (e.g., {"assetId":"CHL-006","name":"Chiller 6",...})
+
+#Task2: Download the historical sensor data for the “Tonnage” metric of Chiller 6 at the MAIN site for the week of 2020‑04‑27 to 2020‑05‑03.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: JSON file (e.g., tonnage_week_2020-04-27.json) containing timestamped Tonnage readings for Chiller 6 at the MAIN site.
+
+#Task3: Analyze the downloaded Tonnage time‑series to detect any anomalies during that week and provide a concise answer.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Concise answer indicating whether an anomaly was detected (e.g., “Yes, an anomaly was detected on 2020‑04‑29 14:00 UTC.” or “No, no anomalies were detected during that week.”)

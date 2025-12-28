@@ -5,10 +5,11 @@ services:
     volumes:
       - ./track1_result:/home/track1_result
 
-      - ./run_track_1_validation.py:/home/run_track_1.py
-      - ./entrypoint_validation.sh:/home/entrypoint.sh
-      - ../../src/agent_hive/workflows/track1_planning_validation.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/track1_planning.py
-
+      - ./run_track_1_spiral.py:/home/run_track_1.py
+      - ./entrypoint_spiral.sh:/home/entrypoint.sh
+      - ../../src/agent_hive/workflows/track1_planning_spiral.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/track1_planning.py
+      
+      - ../../src/assetopsbench/sample_data:/sample_data:ro
       - ../../scenarios:/home/scenarios:ro  
       - ../../summarize.py:/home/summarize.py  
       - ../../auto_scoring.py:/home/auto_scoring.py  
@@ -22,17 +23,44 @@ services:
       DB_URL:       postgresql://aob:aobpass@postgres:5432/aobdb    
     command: ["/home/entrypoint.sh"]
   couchdb:
-    image: couchdb:3.5
+    build:
+      context: .
+      dockerfile: Dockerfile.couchdb
+    image: cods-track1-couchdb:3.5     # couchdb:3.5 を上書きしない方が安全
     restart: always
     ports:
       - "5984:5984"
     env_file:
       - .env.local
+    environment:
+      # CouchDB公式イメージが要求するキーは “確実に” 渡す
+      COUCHDB_USER: admin
+      COUCHDB_PASSWORD: password
     volumes:
-      - couchdb-data:/opt/couchdb/data # location to couchdb data
-      - ./couchdb_setup.sh:/opt/couchdb/etc/couchdb_setup.sh # your bash script to create couchdb out of raw data
-      - ../../src/assetopsbench/sample_data:/sample_data # location to raw (JSON/CSV) data for couchdb
-    command: ["sh", "/opt/couchdb/etc/couchdb_setup.sh"]
+      - couchdb-data:/opt/couchdb/data
+    # ★ ここを削除：サーバが起動しなくなる
+    # command: ["sh", "/opt/couchdb/etc/couchdb_setup.sh"]
+
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:5984/_up >/dev/null || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 60
+  couchdb_init:
+    image: cods-track1-couchdb:3.5
+    depends_on:
+      couchdb:
+        condition: service_healthy
+    env_file:
+      - .env.local
+    volumes:
+      - ./couchdb_setup.sh:/opt/couchdb/etc/couchdb_setup.sh:ro
+      - ../../src/assetopsbench/sample_data:/sample_data:ro
+    restart: "no"
+    entrypoint: ["bash", "-lc"]
+    command: >
+      export JSON_PATH="/sample_data/main.json" &&
+      /opt/couchdb/etc/couchdb_setup.sh
 
   postgres:
     build: ../../infra/postgres

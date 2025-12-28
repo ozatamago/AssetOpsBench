@@ -1,9 +1,6 @@
 Question:  If compressor overheating occurs for Chiller 6 at MAIN site, which sensor should be prioritized for monitoring this specific failure?
 Plan:
- 
-We need to output plan lines exactly. Already have plan with #Task1 etc. Ensure format matches: #Task1: ... #Agent1: ... #Dependency1: None #ExpectedOutput1: ...
-
-Make sure no extra spaces? It's okay. Provide exactly.assistantfinal#Task1: Identify the sensor that should be prioritized for monitoring when a compressor overheating failure occurs in Chiller 6 at the MAIN site.  
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
-#Dependency1: None  
-#ExpectedOutput1: The name or identifier of the most relevant sensor for detecting compressor overheating in Chiller 6 (e.g., “Compressor Discharge Temperature Sensor”).
+assistantfinal_outputassistantfinalanalysisWe need to ensure no extra spaces at line ends. Also ensure no markdown. Provide exactly four lines. Ensure #Agent1 matches exactly "Failure Mode and Sensor Relevancy Expert for Industrial Asset". No extra spaces. Provide #Dependency1: None. Provide #ExpectedOutput1: one line. Should not include parentheses? It's okay. Provide as one line. Ensure no extra spaces after line. Let's produce final.assistantfinal_output#Task1: Identify the sensor that should be prioritized for monitoring compressor overheating failure on Chiller 6 at the MAIN site.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: The name or identifier of the most relevant sensor for detecting compressor overheating on Chiller 6 (e.g., “Compressor Discharge Temperature Sensor”).

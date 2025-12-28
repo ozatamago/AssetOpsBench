@@ -1,16 +1,16 @@
 Question: I would like to retrieve the corrective work order details for the equipment labeled as CWC04013 for the year 2017.
 Plan:
-#Task1: Retrieve the list of corrective work orders for the equipment labeled as CWC04013 for the year 2017.
+#Task1: Retrieve the list of corrective work orders for equipment CWC04013 for the year 2017
 #Agent1: WorkOrder Agent
 #Dependency1: None
-#ExpectedOutput1: A list of corrective work orders for the equipment labeled as CWC04013 for the year 2017, including details such as work order numbers, dates, descriptions, and statuses.
+#ExpectedOutput1: A list of corrective work orders for equipment CWC04013 for the year 2017, including work order IDs, dates, and brief descriptions
 
-#Task2: Analyze the retrieved work orders to identify any patterns or recurring issues.
-#Agent2: Time Series Analytics and Forecasting
+#Task2: Download the detailed information for each corrective work order identified in Task 1
+#Agent2: WorkOrder Agent
 #Dependency2: #S1
-#ExpectedOutput2: An analysis report highlighting any patterns, recurring issues, or anomalies in the work orders for the equipment labeled as CWC04013 for the year 2017.
+#ExpectedOutput2: Detailed information for each corrective work order, including the full description, assigned personnel, status, and any associated notes or actions taken
 
-#Task3: Generate a summary report of the corrective work orders and the analysis findings.
+#Task3: Compile and summarize the detailed information from Task 2 into a comprehensive report
 #Agent3: WorkOrder Agent
-#Dependency3: #S1, #S2
-#ExpectedOutput3: A comprehensive summary report detailing the corrective work orders for the equipment labeled as CWC04013 for the year 2017, including the analysis findings and any recommendations for preventive measures.
+#Dependency3: #S2
+#ExpectedOutput3: A comprehensive report summarizing the corrective work orders for equipment CWC04013 for the year 2017, including key details and any patterns or recurring issues identified

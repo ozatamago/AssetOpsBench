@@ -1,23 +1,17 @@
 Question: Have there been any anomalies in Chiller 6's Tonnage in the week of 2020-04-27 at MAIN?
 Plan:
- 
-#Task1: 
-#Agent1: 
-#Dependency1: 
-#ExpectedOutput1: 
-#Task2: 
-#Agent2: 
-#Dependency2: 
-#ExpectedOutput2: 
-#Task3: 
-#Agent3: 
-... (etc.) 
-We must ensure format exactly: each line with #TaskN: <...> etc. No extra spaces? It's okay. Must have matching counts. Provide plan with 2 steps as above. Ensure no extra blank lines. Provide exactly lines. Let's output.assistantfinalassistantfinal
-#Task1: Download historical sensor data for Chiller 6’s Tonnage at site MAIN covering the week of 2020‑04‑27 (2020‑04‑27T00:00:00 to 2020‑05‑03T23:59:59)
+assistantfinal
+#Task1: Retrieve the list of assets at site MAIN and identify the asset ID for Chiller 6.
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: JSON file (e.g., chiller6_tonnage_2020-04-27_to_2020-05-03.json) containing timestamped Tonnage readings for the requested period
-#Task2: Run anomaly detection on the downloaded Tonnage time‑series to determine if any abnormal values occurred during that week
-#Agent2: Time Series Analytics and Forecasting
+#ExpectedOutput1: Asset ID for Chiller 6 at MAIN
+
+#Task2: Download historical sensor data for the identified Chiller 6 asset's "TONNAGE" sensor for the week of 2020-04-27 to 2020-05-03.
+#Agent2: IoT Data Download
 #Dependency2: #S1
-#ExpectedOutput2: Anomaly‑detection report stating whether anomalies exist; if present, list timestamps, values, and a brief severity description for each anomalous point
+#ExpectedOutput2: JSON file containing timestamped Tonnage values for the specified week
+
+#Task3: Perform anomaly detection on the downloaded Tonnage time series.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Anomaly detection report indicating any anomalies in Tonnage during the week

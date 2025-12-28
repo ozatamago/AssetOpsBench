@@ -16,6 +16,6 @@ Plan:
 #ExpectedOutput3: A filtered list of failure modes for Chiller 6 that can be monitored using available sensors
 
 #Task4: Compile final response with filtered failure modes
-#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Agent4: Executor
 #Dependency4: #S3
-#ExpectedOutput4: A final response containing only the failure modes for Chiller 6 that can be monitored using available sensors
+#ExpectedOutput4: Final response containing only the failure modes that can be monitored using available sensors for Chiller 6

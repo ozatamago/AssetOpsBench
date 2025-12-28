@@ -1,0 +1,12 @@
+Question: Are any time series forecasting models supported?
+Plan:
+ 
+#Task1: Check if Time Series Analytics and Forecasting agent supports time series forecasting models.
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: Confirmation on whether time series forecasting models are supported.
+
+#Task2: If supported, provide an example of using a time series forecasting model.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Example or details on using a time series forecasting model.

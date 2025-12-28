@@ -10,14 +10,14 @@ Plan:
 #Dependency2: #S1
 #ExpectedOutput2: Sensor data for Chiller 6 in June 2020.
 
-#Task3: Analyze the downloaded sensor data to detect anomalies in Chiller 6.
+#Task3: Analyze the downloaded sensor data for Chiller 6 to identify any anomalies.
 #Agent3: Time Series Analytics and Forecasting
 #Dependency3: #S2
 #ExpectedOutput3: Anomaly detection results for Chiller 6.
 
-#Task4: Create a work order for inspecting Chiller 6 based on the anomaly detection results.
+#Task4: Create a work order for Chiller 6 based on the anomaly detection results.
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: Work order for Chiller 6 inspection.
+#ExpectedOutput4: Work order for Chiller 6.
 
 The plan is complete.

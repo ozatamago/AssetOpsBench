@@ -1,39 +1,11 @@
 Question: List all sensors of Chiller 6 at MAIN site that are potentially relevant to Compressor Overheating.
 Plan:
  
-We need to output plan with correct format. The previous assistant output was truncated and had errors. Need to produce full plan with steps 1-3, each with one line for each tag. Ensure no extra spaces, no markdown. Provide #Task1, #Agent1, #Dependency1, #ExpectedOutput1, then #Task2 etc.
-
-Make sure #ExpectedOutput lines are one line (no line breaks). Provide concise description.
-
-Let's craft:
-
-#Task1: Retrieve the list of assets at the MAIN site to identify the asset ID for Chiller 6
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: List of assets at the MAIN site including Chiller 6 with its asset identifier
-
-#Task2: Download recent sensor data for the identified Chiller 6 asset at the MAIN site
-#Agent2: IoT Data Download
-#Dependency2: #S1
-#ExpectedOutput2: JSON file containing sensor readings for Chiller 6 (sensor names present in the JSON)
-
-#Task3: List sensors that are relevant to detecting compressor overheating for Chiller 6
-#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency3: #S1
-#ExpectedOutput3: List of sensor names relevant to compressor overheating for Chiller 6
-
-Check counts: 3 tasks, each with Agent, Dependency, ExpectedOutput. All good.
-
-Now output exactly as required, no extra blank lines? The format likely allows blank lines between steps but not required. Provide each line separate. No markdown. Let's output.
-#Task1: Retrieve the list of assets at the MAIN site to identify the asset ID for Chiller 6
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: List of assets at the MAIN site including Chiller 6 with its asset identifier
-#Task2: Download recent sensor data for the identified Chiller 6 asset at the MAIN site
-#Agent2: IoT Data Download
-#Dependency2: #S1
-#ExpectedOutput2: JSON file containing sensor readings for Chiller 6 (sensor names present in the JSON)
-#Task3: List sensors that are relevant to detecting compressor overheating for Chiller 6
-#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency3: #S1
-#ExpectedOutput3: List of sensor names relevant to compressor overheating for Chiller 6
+We need to output plan lines exactly as required. Ensure no extra spaces at start? Should start with #Task1: etc. Ensure each line separate. No extra blank lines? Probably okay. Provide exactly 8 lines (4 per step). Let's output.assistantfinalassistantfinal#Task1: Retrieve the list of assets located at the MAIN site to verify that Chiller 6 is present and obtain its asset identifier.  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON or plain‑text list of assets at the MAIN site, including an entry for Chiller 6 with its asset ID.  
+#Task2: Using the asset identifier for Chiller 6, request the set of sensors that are potentially relevant for detecting Compressor Overheating on that chiller.  
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency2: #S1  
+#ExpectedOutput2: List of sensor names or IDs associated with Chiller 6 that could be used to monitor Compressor Overheating.

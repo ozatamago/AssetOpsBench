@@ -7,9 +7,9 @@ Let's format:
 #Task1: Identify the sensor that should be prioritized for monitoring compressor overheating failure in Chiller 6.
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency1: None
-#ExpectedOutput1: Name of the most relevant sensor (e.g., "Compressor Discharge Temperature sensor" or "Compressor Power Input sensor") with brief justification.
+#ExpectedOutput1: Name of the most relevant sensor (e.g., compressor temperature sensor, power input sensor, etc.) with brief justification.
 
-Make sure to follow format. Provide plan.assistantfinal#Task1: Identify the sensor that should be prioritized for monitoring compressor overheating failure in Chiller 6.  
+Make sure format matches required. Provide plan.assistantfinal#Task1: Identify the sensor that should be prioritized for monitoring compressor overheating failure in Chiller 6.  
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
 #Dependency1: None  
-#ExpectedOutput1: The name of the most relevant sensor (e.g., “Compressor Discharge Temperature sensor” or “Compressor Power Input sensor”) with a brief justification that it directly reflects compressor temperature or power trends associated with overheating.
+#ExpectedOutput1: The name of the most relevant sensor (e.g., “Compressor Discharge Temperature Sensor” or “Compressor Power Input Sensor”) that should be prioritized for monitoring compressor overheating in Chiller 6, along with a brief justification linking the sensor to the failure mode.

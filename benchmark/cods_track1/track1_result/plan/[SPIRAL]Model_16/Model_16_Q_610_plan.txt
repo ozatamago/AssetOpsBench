@@ -1,0 +1,33 @@
+Question:  If compressor overheating occurs for Chiller 6 at MAIN site, which sensor should be prioritized for monitoring this specific failure?
+Plan:
+ 
+#Task1: Identify the relevant sensors for monitoring compressor overheating failure of Chiller 6 and prioritize them.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: The sensor that should be prioritized for monitoring compressor overheating of Chiller 6.
+
+#Task2: Verify if Chiller 6 is located at the MAIN site.
+#Agent2: IoT Data Download
+#Dependency2: None
+#ExpectedOutput2: Confirmation that Chiller 6 is at the MAIN site.
+
+#Task3: Create a work order for inspecting Chiller 6 due to suspected compressor overheating.
+#Agent3: WorkOrder Agent
+#Dependency3: #S1 #S2
+#ExpectedOutput3: Work order created for inspecting Chiller 6.
+
+The final answer is: 
+#Task1: Identify the relevant sensors for monitoring compressor overheating failure of Chiller 6 and prioritize them.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: The sensor that should be prioritized for monitoring compressor overheating of Chiller 6.
+
+#Task2: Verify if Chiller 6 is located at the MAIN site.
+#Agent2: IoT Data Download
+#Dependency2: None
+#ExpectedOutput2: Confirmation that Chiller 6 is at the MAIN site.
+
+#Task3: Create a work order for inspecting Chiller 6 due to suspected compressor overheating.
+#Agent3: WorkOrder Agent
+#Dependency3: #S1 #S2
+#ExpectedOutput3: Work order created for inspecting Chiller 6.

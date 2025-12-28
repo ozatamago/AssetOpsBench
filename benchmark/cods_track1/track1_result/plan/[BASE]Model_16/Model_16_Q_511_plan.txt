@@ -5,15 +5,15 @@ Plan:
 #Dependency1: None
 #ExpectedOutput1: Historical data for Chiller 9 at MAIN for the specified week.
 
-#Task2: Analyze the retrieved data to identify any anomalies or patterns in Chiller 9's energy usage.
+#Task2: Analyze the retrieved data to identify any patterns or anomalies that could impact energy usage forecasting.
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: Insights into Chiller 9's energy usage patterns.
+#ExpectedOutput2: Insights into patterns or anomalies in Chiller 9's historical data.
 
-#Task3: Forecast Chiller 9's energy usage for the next week based on the analyzed data.
+#Task3: Forecast Chiller 9's energy usage for the next week based on the analyzed historical data.
 #Agent3: Time Series Analytics and Forecasting
-#Dependency3: #S2
-#ExpectedOutput3: Predicted energy usage for Chiller 9 for the next week.
+#Dependency3: #S1, #S2
+#ExpectedOutput3: Forecasted energy usage for Chiller 9 for the next week.
 
 #Task4: Create a work order for monitoring Chiller 9's energy usage based on the forecast.
 #Agent4: WorkOrder Agent

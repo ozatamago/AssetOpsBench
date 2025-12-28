@@ -1,7 +1,7 @@
 Question: When power input of Chiller 6 drops, what is the potential failure that causes it?
 Plan:
  
-We need to output plan lines exactly. Ensure no extra spaces at line ends. Use #Task1: ... etc. Provide expected output one line. Let's craft.assistantfinal_output#Task1: Identify the potential failure that causes a drop in power input of Chiller 6.  
+We need to output plan lines exactly. Ensure no extra spaces at start. Use #Task1: ... #Agent1: ... #Dependency1: None #ExpectedOutput1: ... each on separate lines. No extra blank lines. Let's produce.assistantfinal#Task1: Identify the potential failure(s) that cause a drop in power input of Chiller 6.  
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
 #Dependency1: None  
-#ExpectedOutput1: A concise description of the most likely failure(s) responsible for a power input drop in Chiller 6, with brief reasoning.
+#ExpectedOutput1: A concise description of likely failure(s) (e.g., compressor motor failure, power supply fault, sensor malfunction) that would result in reduced power input for Chiller 6, with brief reasoning.

@@ -5,4 +5,4 @@ Plan:
 #Dependency1: None
 #ExpectedOutput1: Metadata for Chiller 3 at the MAIN facility.
 
-Since there is only one task, the plan is already complete with just one step. The IoT Data Download agent is capable of retrieving the required metadata.
+The plan is complete.

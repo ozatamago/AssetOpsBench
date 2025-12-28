@@ -1,0 +1,3 @@
+ok: False
+errs:
+["Agent1 unknown 'IoT Data Download  '. Allowed: ['Failure Mode and Sensor Relevancy Expert for Industrial Asset', 'IoT Data Download', 'Time Series Analytics and Forecasting', 'WorkOrder Agent']", "Agent2 unknown 'Time Series Analytics and Forecasting  '. Allowed: ['Failure Mode and Sensor Relevancy Expert for Industrial Asset', 'IoT Data Download', 'Time Series Analytics and Forecasting', 'WorkOrder Agent']", "Agent3 unknown 'WorkOrder Agent  '. Allowed: ['Failure Mode and Sensor Relevancy Expert for Industrial Asset', 'IoT Data Download', 'Time Series Analytics and Forecasting', 'WorkOrder Agent']"]

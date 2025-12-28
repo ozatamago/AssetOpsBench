@@ -1,39 +1,22 @@
 Question: Just notice two anomalies 'KPI Cooling Load above upper bound' and 'KPI Delta Setpoint above upper bound' happened for equipment CWC04009, can you recommend top three work orders to address this problem?
 Plan:
-We need to correct plan: tasks must be #Task1, #Task2, #Task3 etc. Agents must match exactly names. Also need fewer than 5 steps, okay 3 steps fine. Ensure #Dependency uses #S1 etc? Actually format says #Dependency<N>: <use #S1, #S2, ... or None>. In original they used #S1 but should be #S1? The placeholder maybe #S1 refers to step1. Should be #S1. We'll keep.
-
-Agents: "Failure Mode and Sensor Relevancy Expert for Industrial Asset" exact. "WorkOrder Agent" exact.
-
-Let's produce corrected plan.
-
-#Task1: Retrieve all failure modes for equipment CWC04009.  
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+ 
+We need to produce plan with fewer than 5 steps. Already 4 steps. Must ensure format exactly: each line starts with #Task<N>: etc. No extra spaces at line ends. Also ensure #Agent names exactly match allowed list. Must not have extra spaces after name. Also #Dependency lines: use #S1 etc. Must match step numbers. Ensure #ExpectedOutput lines are one line each, no line breaks. Also ensure no double spaces. Let's craft final answer.assistantfinalassistantfinalassistantfinal#Task1: Download sensor data for equipment CWC04009 for the KPIs “Cooling Load” and “Delta Setpoint” covering the anomaly period.  
+#Agent1: IoT Data Download  
 #Dependency1: None  
-#ExpectedOutput1: List of failure modes applicable to CWC04009.
+#ExpectedOutput1: JSON file (cwc04009_kpis.json) with timestamped values for “Cooling Load” and “Delta Setpoint”.  
 
-#Task2: Determine which failure modes are most likely associated with the anomalies “KPI Cooling Load above upper bound” and “KPI Delta Setpoint above upper bound” and identify key sensors to inspect.  
-#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Task2: Analyze the downloaded KPI time‑series to confirm anomalies, quantify severity, and note any patterns.  
+#Agent2: Time Series Analytics and Forecasting  
 #Dependency2: #S1  
-#ExpectedOutput2: Ranked failure modes with corresponding primary sensors for each anomaly.
+#ExpectedOutput2: Analysis report listing anomaly timestamps, severity scores, and brief root‑cause hypotheses for each KPI.  
 
-#Task3: Create three prioritized work orders to address the top failure modes, including recommended actions and sensor checks.  
-#Agent3: WorkOrder Agent  
+#Task3: Map the identified issues to the most likely failure modes for equipment CWC04009 and recommend sensors/components to inspect.  
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
 #Dependency3: #S2  
-#ExpectedOutput3: Three detailed work order descriptions ready for execution.
+#ExpectedOutput3: Ranked list of top 3 failure modes (e.g., cooling coil fouling, set‑point controller fault, sensor calibration error) with suggested inspection actions and relevant sensors.  
 
-Check formatting: each line starts with #TaskN: etc. No extra spaces at start? fine.
-
-Return only those lines.assistantfinal#Task1: Retrieve all failure modes for equipment CWC04009.  
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
-#Dependency1: None  
-#ExpectedOutput1: List of failure modes applicable to CWC04009.  
-
-#Task2: Determine which failure modes are most likely associated with the anomalies “KPI Cooling Load above upper bound” and “KPI Delta Setpoint above upper bound” and identify key sensors to inspect.  
-#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
-#Dependency2: #S1  
-#ExpectedOutput2: Ranked failure modes with corresponding primary sensors for each anomaly.  
-
-#Task3: Create three prioritized work orders to address the top failure modes, including recommended actions and sensor checks.  
-#Agent3: WorkOrder Agent  
-#Dependency3: #S2  
-#ExpectedOutput3: Three detailed work order descriptions ready for execution.
+#Task4: Create three prioritized work orders addressing the top failure modes for equipment CWC04009.  
+#Agent4: WorkOrder Agent  
+#Dependency4: #S3  
+#ExpectedOutput4: Three work order descriptions (including WO IDs, tasks, and priority levels) ready for execution.

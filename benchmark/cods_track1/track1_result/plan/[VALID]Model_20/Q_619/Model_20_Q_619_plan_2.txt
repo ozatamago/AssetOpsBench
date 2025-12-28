@@ -1,7 +1,16 @@
 Question: When the Liquid Refrigerant Evaporator Temperature of Chiller 6 at MAIN site drops, what failure is most likely to occur?
 Plan:
  
-We need to ensure format exactly. Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1. No extra spaces after colon? Should be fine. Provide one line each. Ensure no extra punctuation. Provide brief justification. Should be one line. Let's craft ExpectedOutput: "Low refrigerant charge is most likely, because a drop in evaporator temperature typically indicates insufficient refrigerant." That's one line. Let's output.assistantfinalassistantfinal#Task1: Identify the most likely failure when the Liquid Refrigerant Evaporator Temperature of Chiller 6 at MAIN site drops
+We need to ensure format: each line starts with #TaskN: etc. No blank lines? Probably blank lines allowed but better to keep each step separated by a blank line maybe okay. Must ensure no extra punctuation after ExpectedOutput line. Also ensure #Dependency2: #S1 (space after colon). Should be "#Dependency2: #S1". Good.
+
+Check counts: 2 tasks, 2 agents, 2 dependencies, 2 expected outputs. All good.
+
+Make sure each line is one line, no line breaks within. Provide exactly as required. Let's output.assistantfinal_output>#Task1: Query the Failure Mode and Sensor Relevancy Expert for Industrial Asset to obtain a list of all failure modes of Chiller 6 and indicate whether each can be detected by the Liquid Refrigerant Evaporator Temperature sensor.
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency1: None
-#ExpectedOutput1: Low refrigerant charge is most likely, because a drop in evaporator temperature typically indicates insufficient refrigerant.
+#ExpectedOutput1: Table or JSON listing each Chiller 6 failure mode with a flag showing if the Liquid Refrigerant Evaporator Temperature sensor is relevant.
+
+#Task2: Analyze the output from #S1 to determine which failure mode is most likely when the Liquid Refrigerant Evaporator Temperature drops and provide the answer.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: Concise statement identifying the most likely failure (e.g., low refrigerant charge) that occurs when the evaporator temperature drops.

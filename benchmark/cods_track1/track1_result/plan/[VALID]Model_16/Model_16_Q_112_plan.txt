@@ -10,4 +10,4 @@ Plan:
 #Dependency2: #S1
 #ExpectedOutput2: The most relevant sensor to prioritize for monitoring compressor overheating in Chiller 6.
 
-The generated plan is complete.
+The plan is complete.

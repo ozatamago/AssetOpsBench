@@ -1,21 +1,54 @@
 Question: After checking existing work orders, anomalies and alerts in May and June 2020 for Chiller 9 with equipment ID CWC04009, should I recommend a new work order or is it too early to decide for July 2020?
 Plan:
  
-assistantfinal_outputassistantanalysisWe need to output only lines in exact format, no extra prose. The plan must be less than 5 steps. Provide #Task1, #Agent1, #Dependency1, #ExpectedOutput1, then #Task2 etc. Ensure formatting exactly as required: each line starts with #TaskN: space then description. #AgentN: space then exact agent name. #DependencyN: space then None or #S1 #S2 etc. #ExpectedOutputN: space then description.
+We need to produce a plan with fewer than 5 steps. Must include Task, Agent, Dependency, ExpectedOutput for each step. Must be clear, actionable. Use allowed agents.
 
-Make sure no extra spaces at end. Use "WorkOrder Agent" exactly.
+Goal: After checking existing work orders, anomalies and alerts in May and June 2020 for Chiller 9 with equipment ID CWC04009, should I recommend a new work order or is it too early to decide for July 2020?
 
-Let's craft final answer.assistantfinal#Task1: Retrieve all work orders for Chiller 9 (equipment ID CWC04009) created or closed in May 2020 and June 2020.  
-#Agent1: WorkOrder Agent  
-#Dependency1: None  
-#ExpectedOutput1: JSON list of work orders with ID, creation/closure dates, type, status, and brief description.  
+We need to get data: sensor data for May-June 2020. Use IoT Data Download. Then analyze anomalies using Time Series Analytics. Then decide recommendation. Possibly create a work order using WorkOrder Agent if needed. But the question is recommendation, not actual creation. Could still use WorkOrder Agent to "Create a work order" if needed, else just output recommendation. But we need to produce a plan, not final answer. So steps:
 
-#Task2: Retrieve all anomalies and alerts recorded for Chiller 9 (CWC04009) during May 2020 and June 2020.  
-#Agent2: WorkOrder Agent  
-#Dependency2: None  
-#ExpectedOutput2: JSON list of anomalies/alerts with timestamps, sensor/system name, severity, and description.  
+1. Download sensor data for CWC04009 for May-June 2020 for relevant sensors (e.g., temperature, pressure, power). Use IoT Data Download.
 
-#Task3: Analyze the retrieved work orders together with the May‑June 2020 anomalies and alerts to decide whether to recommend a new work order for July 2020 or defer the decision.  
-#Agent3: WorkOrder Agent  
-#Dependency3: #S1 #S2  
-#ExpectedOutput3: Concise recommendation (e.g., “Recommend opening a preventive work order for July 2020 because …” or “Insufficient evidence; defer decision”) with brief justification referencing key findings.
+2. Analyze the downloaded data for anomalies using Time Series Analytics.
+
+3. Based on anomaly report and assuming existing work orders have been reviewed (manual), decide whether to recommend a new work order. Use WorkOrder Agent to create a work order if recommendation is to create; else output a statement that it's too early.
+
+But step 3 may need to produce recommendation output, not necessarily create work order. Could use WorkOrder Agent to "Create a work order for inspecting CHL-9 due to detected anomalies" if anomalies present. If no anomalies, maybe just output "No new work order needed at this time". The expected output can be recommendation text.
+
+Thus plan with 3 steps.
+
+Make sure each line is one line.
+
+Let's craft:
+
+#Task1: Download sensor data for asset CWC04009 for May 1 2020 to June 30 2020 for key sensors (e.g., temperature, pressure, power)
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file sensor_data_CWC04009_MayJun2020.json containing timestamps and values
+
+#Task2: Analyze the downloaded sensor data to detect any anomalies or alerts in the period
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly report listing dates, sensor types, and severity of detected issues
+
+#Task3: Based on the anomaly report and reviewed existing work orders, decide whether to recommend a new work order for July 2020; if recommended, generate a work order request
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Recommendation text stating either "Create a work order for Chiller 9 in July 2020 due to identified anomalies" or "No new work order needed yet; monitor further"
+
+Check format: each line starts with #TaskN: etc. Must be exactly as required. No extra spaces? The spec says "Output ONLY lines in this exact format (no extra prose): #TaskN: <one-line> #AgentN: <exact agent name> #DependencyN: None | #S1 #S2 ... #ExpectedOutputN: <one-line>"
+
+Thus each step should be four lines. Provide them sequentially.
+
+Let's produce final answer.assistantfinal#Task1: Download sensor data for asset CWC04009 for May 1 2020 to June 30 2020 for key sensors (e.g., temperature, pressure, power)
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file sensor_data_CWC04009_MayJun2020.json containing timestamps and values
+#Task2: Analyze the downloaded sensor data to detect any anomalies or alerts in the period
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly report listing dates, sensor types, and severity of detected issues
+#Task3: Based on the anomaly report and reviewed existing work orders, decide whether to recommend a new work order for July 2020; if recommended, generate a work order request
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Recommendation text stating either "Create a work order for Chiller 9 in July 2020 due to identified anomalies" or "No new work order needed yet; monitor further"

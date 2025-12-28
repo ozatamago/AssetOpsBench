@@ -5,7 +5,7 @@ Plan:
 #Dependency1: None
 #ExpectedOutput1: Historical energy consumption data for Chiller 6 at the MAIN site for the specified week.
 
-#Task2: Analyze the retrieved historical data to ensure it is suitable for forecasting.
+#Task2: Analyze the retrieved data to ensure it is suitable for forecasting.
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
 #ExpectedOutput2: Analysis report indicating whether the data is suitable for forecasting.
@@ -18,6 +18,6 @@ Plan:
 #Task4: Create a work order for monitoring Chiller 6's energy consumption based on the forecast.
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: Work order for monitoring Chiller 6's energy consumption.
+#ExpectedOutput4: Work order created for monitoring Chiller 6's energy consumption.
 
 The plan is complete.

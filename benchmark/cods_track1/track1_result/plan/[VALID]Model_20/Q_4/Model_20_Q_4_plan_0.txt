@@ -9,4 +9,4 @@ Make sure format: #Task1, #Agent1, #Dependency1, #ExpectedOutput1.
 Let's produce.assistantfinal#Task1: Retrieve the list of assets located at the MAIN facility.  
 #Agent1: IoT Data Download  
 #Dependency1: None  
-#ExpectedOutput1: A JSON or plain‑text list of all asset identifiers (e.g., CU02004, CHL‑A100, etc.) that are registered at the site named “MAIN”.
+#ExpectedOutput1: A JSON or plain‑text list of all asset identifiers (e.g., asset IDs, names) that are registered at the site named “MAIN”.

@@ -5,17 +5,17 @@ Plan:
 #Dependency1: None
 #ExpectedOutput1: JSON file containing sensor data for CWC04009 for June 2020
 
-#Task2: Analyze the time-series data for anomalies and operation violations
+#Task2: Analyze the time-series data for anomalies in chiller 9 performance
 #Agent2: Time Series Analytics and Forecasting
-#Dependency2: #S1
-#ExpectedOutput2: Report highlighting any anomalies or operation violations in the chiller's performance
+#Dependency2: #Task1
+#ExpectedOutput2: Report identifying any anomalies or operation violations in the chiller's performance during June 2020
 
 #Task3: Check existing work orders for chiller 9 (CWC04009) related to the identified anomalies
 #Agent3: WorkOrder Agent
-#Dependency3: #S2
-#ExpectedOutput3: List of existing work orders for CWC04009 and their statuses
+#Dependency3: #Task2
+#ExpectedOutput3: List of existing work orders for CWC04009 that address the identified anomalies
 
-#Task4: Generate new work orders if necessary based on the analysis and existing work orders
+#Task4: Generate new work orders if needed based on the analysis and existing work orders
 #Agent4: WorkOrder Agent
-#Dependency4: #S2, #S3
-#ExpectedOutput4: New work orders created for any unresolved anomalies or operation violations
+#Dependency4: #Task3
+#ExpectedOutput4: New work orders created for any unresolved anomalies, or confirmation that no new work orders are needed

@@ -5,17 +5,17 @@ Plan:
 #Dependency1: None
 #ExpectedOutput1: A list of all failure modes of Chiller 6
 
-#Task2: Determine which failure modes of Chiller 6 can be detected by analyzing sensor data
+#Task2: Determine which failure modes of Chiller 6 can be detected by the available sensors
 #Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency2: #S1
-#ExpectedOutput2: A list of failure modes of Chiller 6 that can be detected by analyzing sensor data
+#ExpectedOutput2: A list of failure modes of Chiller 6 that can be detected by the available sensors
 
-#Task3: Identify the relevant sensors for monitoring the failure modes detected by sensor data
-#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Task3: Analyze the time-series data for Chiller 6 to identify anomalies related to the failure modes detected by sensors
+#Agent3: Time Series Analytics and Forecasting
 #Dependency3: #S2
-#ExpectedOutput3: A list of relevant sensors for monitoring the failure modes detected by sensor data
+#ExpectedOutput3: A report on anomalies in the time-series data related to the failure modes detected by sensors
 
-#Task4: Analyze the time-series data for anomalies related to the identified failure modes
-#Agent4: Time Series Analytics and Forecasting
+#Task4: Generate a work order for any identified anomalies that require maintenance or inspection
+#Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: A report on anomalies detected in the time-series data related to the identified failure modes
+#ExpectedOutput4: A work order for the identified anomalies that require maintenance or inspection

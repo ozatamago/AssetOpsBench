@@ -1,16 +1,15 @@
 Question: list all the chillers at site MAIN
 Plan:
-We need to list all chillers at site MAIN. Which agent can provide site assets? IoT Data Download can answer "what assets are at site SiteX". So we can ask for assets at site MAIN. Then we need to filter for chillers. Possibly the asset list includes types. We can ask IoT Data Download to list assets at site MAIN. Then we need to extract only chillers. Could use IoT Data Download's ability to read JSON and get properties. It can "How do I get a list of properties from a JSON file" and "I need to read the JSON file 0001.json". But we can just ask IoT Data Download to list assets and maybe it returns JSON with asset types. Then we can ask the same agent to filter for chillers? Not directly. Could use IoT Data Download to merge JSON files etc. But we might need to use another agent to process JSON? Not listed. Only IoT Data Download can read JSON and get properties. So we can do two steps: Step1: download asset list for site MAIN. Step2: extract chillers from that list using IoT Data Download's "How do I get a list of properties from a JSON file". But that might just give property names, not filter. Could also use "merge these JSON files" but not needed.
+We need to list all chillers at site MAIN. Use IoT Data Download agent: task "what assets are at site SiteX". So we need to query assets at site MAIN. That's one step. Expected output: list of assets (chillers). Provide list. No dependencies. Plan with <5 steps. Just one step.
 
-Maybe we can ask IoT Data Download directly: "what assets are at site MAIN". That may return list of assets, possibly including chillers. That might be sufficient. The problem: "list all the chillers at site MAIN". If the asset list includes many types, we need to filter. Could ask Failure Mode and Sensor Relevancy Expert? No. Not relevant.
+Let's format.
 
-We could ask IoT Data Download to "what assets are at site MAIN" and then manually filter? The plan expects output of step to be list of chillers. We can assume the agent can filter? Not in tasks. But we could ask IoT Data Download to "what assets are at site MAIN" and then we as assistant can filter the result. The plan's expected output could be the filtered list. That's okay.
+#Task1: Retrieve the list of all assets located at site MAIN and identify which of them are chillers.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON or plain list containing the names/IDs of all assets at site MAIN, with chillers clearly indicated (e.g., asset type = "Chiller").
 
-Thus single step plan: Task: retrieve assets at site MAIN and list chillers. Agent: IoT Data Download. Dependency: None. Expected output: list of chiller asset IDs/names at site MAIN.
-
-But need fewer than 5 steps, okay.
-
-Let's produce plan.assistantfinal#Task1: Retrieve the list of all assets at site MAIN and extract only those that are chillers.  
+That's it.assistantfinal#Task1: Retrieve the list of all assets located at site **MAIN** and identify which of them are chillers.  
 #Agent1: IoT Data Download  
 #Dependency1: None  
-#ExpectedOutput1: A concise list (e.g., asset IDs or names) of all chiller assets located at site MAIN.
+#ExpectedOutput1: A JSON (or plain‑text) list of all assets at site MAIN, with each chiller clearly marked (e.g., asset type = “Chiller”).

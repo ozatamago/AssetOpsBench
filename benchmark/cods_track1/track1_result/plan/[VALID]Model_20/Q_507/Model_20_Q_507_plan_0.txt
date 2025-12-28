@@ -1,21 +1,45 @@
 Question: What is the predicted energy consumption for Chiller 9 in the week of 2020-04-27 based on data from the MAIN site?
 Plan:
-We need to predict energy consumption for Chiller 9 in week of 2020-04-27 using data from MAIN site. Steps: get site list, get asset details, download sensor data for energy consumption (maybe power). Then use Time Series Analytics to forecast weekly consumption. Then maybe generate work order? Not needed. So plan: Step1: IoT Data Download: list sites to confirm MAIN. Step2: IoT Data Download: get assets at MAIN site to find Chiller 9 identifier. Step3: IoT Data Download: download sensor data for Chiller 9 energy consumption (maybe power) for recent period covering before week. Step4: Time Series Analytics and Forecasting: forecast weekly energy consumption for week of 2020-04-27. That's 4 steps. Provide expected outputs. Ensure dependencies. Let's craft.assistantfinal#Task1: Retrieve the list of all IoT sites to confirm the exact name of the site that contains the data for “MAIN”.
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: A JSON list of site names including the site named “MAIN”.
+We need to predict energy consumption for Chiller 9 in week of 2020-04-27 using data from MAIN site. Steps: get site list, get assets at MAIN, get sensor data for Chiller 9 energy consumption (maybe power). Then forecast weekly consumption using Time Series Analytics. Then output prediction.
 
-#Task2: Obtain the list of assets located at the “MAIN” site and identify the asset identifier for “Chiller 9”.
-#Agent2: IoT Data Download
-#Dependency2: #S1
-#ExpectedOutput2: A JSON list of assets at the MAIN site with the entry for “Chiller 9”, including its asset ID (e.g., CU0XXXX).
+We have agents: IoT Data Download can download sensor data for asset. Need to know sensor name for energy consumption maybe "POWER INPUT". Use download sensor data for Chiller 9 at MAIN site. Then Time Series Analytics to forecast next week (7 days) based on that data. Provide predicted energy consumption.
 
-#Task3: Download historical sensor data for the identified Chiller 9 asset that captures its energy consumption (e.g., “POWER INPUT” or “ENERGY CONSUMPTION”) covering a period that includes at least the weeks before and after 2020‑04‑27 (e.g., 2020‑04‑01 to 2020‑05‑15).
-#Agent3: IoT Data Download
-#Dependency3: #S2
-#ExpectedOutput3: A JSON file (e.g., chiller9_power_20200401_20200515.json) containing timestamped energy‑consumption readings for Chiller 9.
+Plan steps <=5.
 
-#Task4: Using the downloaded time‑series data, forecast the total energy consumption for Chiller 9 for the week of 2020‑04‑27 (2020‑04‑27 to 2020‑05‑03). Summarize the forecasted daily values and provide the aggregated weekly total.
-#Agent4: Time Series Analytics and Forecasting
-#Dependency4: #S3
-#ExpectedOutput4: A report (JSON or plain text) that lists the predicted daily energy consumption for each day of the target week and the summed weekly energy consumption value.
+Step1: Identify assets at MAIN site to confirm Chiller 9 exists. Use IoT Data Download asset list.
+
+Step2: Download historical sensor data for Chiller 9 energy consumption (e.g., "POWER INPUT") covering recent period sufficient for forecasting (maybe last month). Use IoT Data Download.
+
+Step3: Use Time Series Analytics to forecast energy consumption for week of 2020-04-27 (7 days) based on downloaded data. Provide total predicted consumption.
+
+Step4: Summarize result.
+
+We may need to compute weekly total from daily forecasts. Time Series can forecast next 24h; we need 7 days. Could ask to forecast next 7 days. Use Time Series Analytics with appropriate horizon.
+
+Thus plan.
+
+Let's craft output.assistantfinal**#Task1:** Verify that *Chiller 9* is an asset at the **MAIN** site.  
+**#Agent1:** IoT Data Download  
+**#Dependency1:** None  
+**#ExpectedOutput1:** JSON list of assets for site *MAIN* confirming the presence of asset ID/name “Chiller 9”.
+
+---
+
+**#Task2:** Retrieve historical power‑consumption sensor data for *Chiller 9* at the **MAIN** site (e.g., sensor “POWER INPUT”) covering a recent period sufficient for forecasting (e.g., the last 30 days).  
+**#Agent2:** IoT Data Download  
+**#Dependency2:** #S1 (asset list confirming Chiller 9)  
+**#ExpectedOutput2:** JSON file (e.g., `chiller9_power_30d.json`) containing timestamps and power‑input values.
+
+---
+
+**#Task3:** Using the downloaded power‑input time series, forecast the total energy consumption for the week **2020‑04‑27 to 2020‑05‑03** (7 days). Request a 7‑day horizon and ask the model to return daily forecasts and the summed weekly total.  
+**#Agent3:** Time Series Analytics and Forecasting  
+**#Dependency3:** #S2 (historical power data)  
+**#ExpectedOutput3:** JSON (or plain text) with daily predicted power values for each of the 7 days and the aggregated weekly energy‑consumption figure (e.g., kWh).
+
+---
+
+**#Task4:** Present the final answer: the predicted energy consumption for *Chiller 9* during the week of **2020‑04‑27**, citing the weekly total from the forecast.  
+**#Agent4:** (No external agent needed – this is a synthesis step performed by the orchestrator.)  
+**#Dependency4:** #S3 (forecast results)  
+**#ExpectedOutput4:** Clear statement such as: “The forecasted energy consumption for Chiller 9 at the MAIN site for the week of 2020‑04‑27 is **X kWh** (daily breakdown: …).”

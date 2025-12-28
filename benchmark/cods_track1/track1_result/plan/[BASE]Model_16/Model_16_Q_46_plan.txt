@@ -10,7 +10,7 @@ Plan:
 #Dependency2: #S1
 #ExpectedOutput2: The supply temperature data for Chiller 3 at the MAIN site for last week.
 
-#Task3: Analyze the retrieved data for any anomalies.
+#Task3: Analyze the retrieved supply temperature data for any anomalies.
 #Agent3: Time Series Analytics and Forecasting
 #Dependency3: #S2
 #ExpectedOutput3: Anomaly detection results for the supply temperature data.

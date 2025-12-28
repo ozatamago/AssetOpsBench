@@ -1,0 +1,38 @@
+Question: List all installed sensors of asset Chiller 6.
+Plan:
+- Make sure to follow the format and constraints.
+
+### Plan
+
+#Task1: List all assets at SiteX
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at SiteX
+
+#Task2: Identify the specific asset Chiller 6 and its details
+#Agent2: IoT Data Download
+#Dependency2: #Task1
+#ExpectedOutput2: Details of Chiller 6, including its sensors
+
+#Task3: Extract the list of installed sensors for Chiller 6
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #Task2
+#ExpectedOutput3: List of installed sensors for Chiller 6
+
+Since the task is to list all installed sensors of asset Chiller 6, we need to first identify the site where Chiller 6 is located and then retrieve its details. The IoT Data Download agent can help us list assets at a site and retrieve details about a specific asset. The Failure Mode and Sensor Relevancy Expert for Industrial Asset can then provide information about the sensors related to Chiller 6.
+
+The final answer is:
+#Task1: List all assets at SiteX
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at SiteX
+
+#Task2: Identify the specific asset Chiller 6 and its details
+#Agent2: IoT Data Download
+#Dependency2: #Task1
+#ExpectedOutput2: Details of Chiller 6, including its sensors
+
+#Task3: Extract the list of installed sensors for Chiller 6
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #Task2
+#ExpectedOutput3: List of installed sensors for Chiller 6

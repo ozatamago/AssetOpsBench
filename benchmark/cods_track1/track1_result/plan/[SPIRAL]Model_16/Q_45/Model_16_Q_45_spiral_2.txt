@@ -1,0 +1,10 @@
+stop_index: 1
+
+truncated_plan:  
+#Task1: Download the power consumption data for CQPA AHU 1 at the MAIN site for March 13, 2020.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The power consumption data for CQPA AHU 1 at the MAIN site for March 13, 2020.
+
+status: Not accomplished
+can_answer_now:False

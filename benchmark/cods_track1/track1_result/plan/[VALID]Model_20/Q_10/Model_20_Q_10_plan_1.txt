@@ -1,39 +1,19 @@
 Question: Get sensor data for both Chiller 6 and Chiller 9's Tonnage from first week of June 2020 at MAIN in a single file.
 Plan:
  
-We need to output plan lines only. Ensure format: #Task1: ... #Agent1: ... #Dependency1: ... #ExpectedOutput1: ... each on separate lines? The instruction says "Output ONLY lines in this exact format (no extra prose): #TaskN: <one-line> #AgentN: <exact agent name> #DependencyN: None | #S1 #S2 ... (past steps only) #ExpectedOutputN: <one-line>" So each line separate. Provide 3 steps.
+We need to output plan lines exactly as format. Ensure #Task1 etc. Use #S1 for step numbers? In dependencies they used #S1, #S2. In example they used #S1, #S2. So we should use #S1, #S2. Provide #Dependency3: #S1 #S2 (space separated). Ensure no extra spaces. Also ensure #Agent names exactly as listed: "IoT Data Download". Provide #ExpectedOutput lines.
 
-Make sure agent name exactly "IoT Data Download". No extra spaces. Dependency format: "None" or "#S1 #S2". Use "#S1 #S2". Provide #ExpectedOutput lines.
-
-Let's craft.
-
-#Task1: Download Chiller 6 TONNAGE sensor data for 2020-06-01 to 2020-06-07 at site MAIN.  
+Let's produce final answer.assistantfinal#Task1: Download historical sensor data for Chiller 6 at site MAIN for the “TONNAGE” sensor covering 2020‑06‑01 00:00:00 to 2020‑06‑07 23:59:59.  
 #Agent1: IoT Data Download  
 #Dependency1: None  
-#ExpectedOutput1: JSON file chiller6_tonnage.json with the requested data.  
+#ExpectedOutput1: JSON file chiller6_tonnage_2020W1.json containing the requested time‑series data.
 
-#Task2: Download Chiller 9 TONNAGE sensor data for 2020-06-01 to 2020-06-07 at site MAIN.  
+#Task2: Download historical sensor data for Chiller 9 at site MAIN for the “TONNAGE” sensor covering 2020‑06‑01 00:00:00 to 2020‑06‑07 23:59:59.  
 #Agent2: IoT Data Download  
 #Dependency2: None  
-#ExpectedOutput2: JSON file chiller9_tonnage.json with the requested data.  
+#ExpectedOutput2: JSON file chiller9_tonnage_2020W1.json containing the requested time‑series data.
 
-#Task3: Merge chiller6_tonnage.json and chiller9_tonnage.json into a single file.  
+#Task3: Merge the two JSON files (chiller6_tonnage_2020W1.json and chiller9_tonnage_2020W1.json) into a single JSON file.  
 #Agent3: IoT Data Download  
 #Dependency3: #S1 #S2  
-#ExpectedOutput3: Merged JSON file combined_tonnage.json containing both chillers' data.
-
-Make sure each line separate, no extra spaces at end. Provide exactly.
-
-Let's output.
-#Task1: Download Chiller 6 TONNAGE sensor data for 2020-06-01 to 2020-06-07 at site MAIN.  
-#Agent1: IoT Data Download  
-#Dependency1: None  
-#ExpectedOutput1: JSON file chiller6_tonnage.json with the requested data.  
-#Task2: Download Chiller 9 TONNAGE sensor data for 2020-06-01 to 2020-06-07 at site MAIN.  
-#Agent2: IoT Data Download  
-#Dependency2: None  
-#ExpectedOutput2: JSON file chiller9_tonnage.json with the requested data.  
-#Task3: Merge chiller6_tonnage.json and chiller9_tonnage.json into a single file.  
-#Agent3: IoT Data Download  
-#Dependency3: #S1 #S2  
-#ExpectedOutput3: Merged JSON file combined_tonnage.json containing both chillers' data.
+#ExpectedOutput3: Single merged JSON file chiller6_9_tonnage_2020W1.json that includes both Chiller 6 and Chiller 9 tonnage data for the first week of June 2020.

@@ -10,12 +10,12 @@ Plan:
 #Dependency2: #S1
 #ExpectedOutput2: A report indicating any anomalies detected in Chiller 9's Condenser Water Flow during the specified week
 
-#Task3: If anomalies are detected, create a work order for inspecting Chiller 9 due to the detected anomalies
+#Task3: If anomalies are detected, generate a maintenance work order to inspect Chiller 9's Condenser Water Flow
 #Agent3: WorkOrder Agent
 #Dependency3: #S2
-#ExpectedOutput3: A work order for inspecting Chiller 9, including details of the detected anomalies and recommended actions
+#ExpectedOutput3: A work order for inspecting Chiller 9's Condenser Water Flow, including details of the detected anomalies and recommended actions
 
-#Task4: If no anomalies are detected, provide a confirmation that no anomalies were found in Chiller 9's Condenser Water Flow during the specified week
-#Agent4: Time Series Analytics and Forecasting
+#Task4: If no anomalies are detected, provide a confirmation message
+#Agent4: WorkOrder Agent
 #Dependency4: #S2
 #ExpectedOutput4: A confirmation message stating that no anomalies were detected in Chiller 9's Condenser Water Flow during the specified week

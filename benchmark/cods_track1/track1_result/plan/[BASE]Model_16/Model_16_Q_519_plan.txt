@@ -10,10 +10,10 @@ Plan:
 #Dependency2: #S1
 #ExpectedOutput2: Sensor data for Chiller 9's Power Input at MAIN for the specified week.
 
-#Task3: Analyze the downloaded sensor data for anomalies in Chiller 9's Power Input.
+#Task3: Analyze the downloaded sensor data for Chiller 9's Power Input at MAIN for anomalies.
 #Agent3: Time Series Analytics and Forecasting
 #Dependency3: #S2
-#ExpectedOutput3: Anomaly detection results for Chiller 9's Power Input.
+#ExpectedOutput3: Anomaly detection results for Chiller 9's Power Input at MAIN.
 
 #Task4: If an anomaly is detected, create a work order for inspecting Chiller 9 due to the anomaly in Power Input.
 #Agent4: WorkOrder Agent

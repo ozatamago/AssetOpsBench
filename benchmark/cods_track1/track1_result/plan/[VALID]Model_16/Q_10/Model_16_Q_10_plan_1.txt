@@ -1,0 +1,17 @@
+Question: Get sensor data for both Chiller 6 and Chiller 9's Tonnage from first week of June 2020 at MAIN in a single file.
+Plan:
+ 
+#Task1: Identify the sites and assets involved for Chiller 6 and Chiller 9.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of sites and assets for Chiller 6 and Chiller 9.
+
+#Task2: Download sensor data for Chiller 6 and Chiller 9's Tonnage at MAIN for the first week of June 2020 and merge it into a single JSON file.
+#Agent2: IoT Data Download
+#Dependency2: #Task1
+#ExpectedOutput2: A single JSON file containing sensor data for both Chiller 6 and Chiller 9.
+
+#Task3: Verify the merged JSON file to ensure it contains the required data for Chiller 6 and Chiller 9's Tonnage.
+#Agent3: IoT Data Download
+#Dependency3: #Task2
+#ExpectedOutput3: Confirmation that the merged JSON file contains the required data.

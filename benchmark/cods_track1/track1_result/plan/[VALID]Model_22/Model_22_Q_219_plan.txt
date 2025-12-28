@@ -15,7 +15,7 @@ Plan:
 #Dependency3: #S2
 #ExpectedOutput3: A maintenance work order for Chiller 9 with recommended actions based on the forecasted data and anomalies
 
-#Task4: Close the work order after confirming the maintenance actions have been successfully completed
-#Agent4: WorkOrder Agent
-#Dependency4: #S3
-#ExpectedOutput4: A closed work order for Chiller 9 with confirmation of successful maintenance actions
+#Task4: Provide information about the relevant sensors and failure modes for Chiller 9 to ensure comprehensive monitoring and maintenance
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency4: None
+#ExpectedOutput4: A list of relevant sensors and failure modes for Chiller 9 to aid in monitoring and maintenance

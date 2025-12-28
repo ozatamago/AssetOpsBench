@@ -1,6 +1,6 @@
 Question: List all failure modes of asset Chiller 6 at MAIN site.
 Plan:
-#Task1: List all failure modes of Chiller 6.
+#Task1: List all failure modes of asset Chiller 6.
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency1: None
 #ExpectedOutput1: A list of failure modes for Chiller 6.
@@ -9,19 +9,16 @@ Plan:
 #Agent2: IoT Data Download
 #Agent2: What assets are at site MAIN?
 #Dependency2: None
-#ExpectedOutput2: Confirmation that Chiller 6 is among the assets at MAIN site.
+#ExpectedOutput2: Confirmation that Chiller 6 is at MAIN site.
 
-#Task3: If Chiller 6 is at MAIN site, provide the list of failure modes obtained in Task 1 as the final output.
-#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Task3: If Chiller 6 is at MAIN site, provide the list from Task 1 as the final output.
+#Agent3: None (Executor will handle this based on previous steps)
 #Dependency3: #Task1, #Task2
-#ExpectedOutput3: The list of failure modes for Chiller 6 if it is located at MAIN site.
+#ExpectedOutput3: The list of failure modes for Chiller 6 if it's at MAIN site.
 
-The final answer is: 
-The plan has 3 steps. 
+The provided plan is not following the format for Agent and Dependency for Task 2. Here is the corrected plan:
 
-However, to follow the format to the letter as requested, I will reformat it as follows:
-
-#Task1: List all failure modes of Chiller 6.
+#Task1: List all failure modes of asset Chiller 6.
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency1: None
 #ExpectedOutput1: A list of failure modes for Chiller 6.
@@ -29,9 +26,42 @@ However, to follow the format to the letter as requested, I will reformat it as 
 #Task2: Verify if Chiller 6 is located at MAIN site by checking the assets at MAIN site.
 #Agent2: IoT Data Download
 #Dependency2: None
-#ExpectedOutput2: Confirmation that Chiller 6 is among the assets at MAIN site.
+#ExpectedOutput2: Confirmation that Chiller 6 is at MAIN site.
 
-#Task3: Provide the list of failure modes for Chiller 6 if it is at MAIN site.
-#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Task3: If Chiller 6 is at MAIN site, provide the list from Task 1 as the final output.
+#Agent3: None (Executor will handle this based on previous steps)
 #Dependency3: #Task1, #Task2
-#ExpectedOutput3: The list of failure modes for Chiller 6 if it is located at MAIN site.
+#ExpectedOutput3: The list of failure modes for Chiller 6 if it's at MAIN site.
+
+However, to improve the response and follow the format to the letter, the task description for Task 2 should be more specific. Here is the revised plan:
+
+#Task1: List all failure modes of asset Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes for Chiller 6.
+
+#Task2: Check the assets available at MAIN site.
+#Agent2: IoT Data Download
+#Dependency2: None
+#ExpectedOutput2: A list of assets at MAIN site, confirming if Chiller 6 is present.
+
+#Task3: If Chiller 6 is at MAIN site, provide the list from Task 1 as the final output.
+#Agent3: None (Executor will handle this based on previous steps)
+#Dependency3: #Task1, #Task2
+#ExpectedOutput3: The list of failure modes for Chiller 6 if it's at MAIN site.
+
+The final answer is:
+#Task1: List all failure modes of asset Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes for Chiller 6.
+
+#Task2: Check the assets available at MAIN site.
+#Agent2: IoT Data Download
+#Dependency2: None
+#ExpectedOutput2: A list of assets at MAIN site, confirming if Chiller 6 is present.
+
+#Task3: If Chiller 6 is at MAIN site, provide the list from Task 1 as the final output.
+#Agent3: None (Executor will handle this based on previous steps)
+#Dependency3: #Task1, #Task2
+#ExpectedOutput3: The list of failure modes for Chiller 6 if it's at MAIN site.

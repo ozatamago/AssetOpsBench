@@ -1,22 +1,20 @@
 Question: Purge unit of chiller 6 at MAIN site have possibility to excess purge, what is the plan by the maintenance experts to early detect the failure?
 Plan:
  
-We need to output plan lines exactly as format. Ensure no extra spaces at start? Should be fine. Ensure each line starts with #TaskN: etc. No extra blank lines? Probably okay to have blank lines between steps. Provide exactly as final.assistantfinalassistantfinal_outputassistantfinal_output#Task1: Identify sensors that can detect excess purge in the purge unit of Chiller 6 at MAIN site.  
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
-#Dependency1: None  
-#ExpectedOutput1: List of relevant sensor names/tags and brief descriptions for monitoring purge‑unit excess purge.  
-
-#Task2: Download recent historical data for the sensors identified in #S1.  
-#Agent2: IoT Data Download  
-#Dependency2: #S1  
-#ExpectedOutput2: JSON file(s) containing timestamped readings of the identified sensors for the past week.  
-
-#Task3: Analyze the downloaded sensor time‑series to detect early‑stage anomalies indicating excess purge.  
-#Agent3: Time Series Analytics and Forecasting  
-#Dependency3: #S2  
-#ExpectedOutput3: Anomaly‑detection report with timestamps, severity scores, and interpretation of potential excess‑purge events.  
-
-#Task4: Generate a preventive‑maintenance work order recommending continuous monitoring and threshold‑based alerts for the purge unit.  
-#Agent4: WorkOrder Agent  
-#Dependency4: #S3  
-#ExpectedOutput4: Work order details including description, priority, recommended sensor thresholds, and inspection schedule.
+We need to output plan as per format. Already done. Ensure no extra blank lines. The answer currently has a blank line before "Repair rules". That's fine because it's part of instruction, not output. The output should be only the plan lines. The assistant's final output includes the plan lines and then blank line? It ends with a blank line after #ExpectedOutput4 line. That's okay. Ensure no extra lines after. Should be fine. However the plan includes "JSON file(s)" etc. That's okay. Ensure no extra spaces at start. Good.assistantfinal_outputassistantfinal_output
+#Task1: Identify the failure mode of excess purge in the purge unit of Chiller 6 and list the most relevant sensors for early detection.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of sensors (e.g., purge flow, suction pressure, discharge pressure, temperature) and recommended monitoring parameters.
+#Task2: Download historical time-stamped data for the identified sensors from the MAIN site for the last 30 days.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: JSON file(s) containing the sensor readings for the selected sensors.
+#Task3: Perform time-series anomaly detection on the downloaded data to define early-warning thresholds for excess purge.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Anomaly detection report with abnormal patterns, suggested threshold values, and a monitoring guideline.
+#Task4: Create a preventive maintenance work order that implements the monitoring and early-warning thresholds for the purge unit.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Work order ID and description outlining the monitoring plan and required actions.

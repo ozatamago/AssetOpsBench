@@ -1,7 +1,7 @@
 Question: What IoT sites are available?
 Plan:
  
-We need to output plan with fewer than 5 steps. Already have one step. Ensure format exactly. No extra spaces at line ends. Provide as plain text. Let's output.assistantfinal#Task1: Retrieve the list of all IoT sites that are available.  
+We need to output plan lines exactly as required. Already have plan lines. Ensure no extra spaces? The format: "#Task1: ..." line, "#Agent1: IoT Data Download", "#Dependency1: None", "#ExpectedOutput1: ...". Should be each on separate line. No extra spaces at end. Ensure no double spaces. Provide final answer.assistantfinal#Task1: Retrieve the list of all IoT sites available in the system.  
 #Agent1: IoT Data Download  
 #Dependency1: None  
-#ExpectedOutput1: A JSON array (or plain‑text list) containing the names/identifiers of every IoT site, e.g., ["SiteA","SiteB","SiteX",...]
+#ExpectedOutput1: A JSON or plain‑text list containing the names/identifiers of all IoT sites (e.g., ["SiteA","SiteB","SiteX", …]).
