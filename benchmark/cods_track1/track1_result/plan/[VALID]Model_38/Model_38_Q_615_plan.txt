@@ -18,4 +18,4 @@ Plan:
 #Task4: Generate a machine learning recipe using the identified sensors
 #Agent4: Time Series Analytics and Forecasting
 #Dependency4: #S3
-#ExpectedOutput4: Machine learning recipe for detecting overheating failure in Chiller 6, including feature sensors and target sensor
+#ExpectedOutput4: Machine learning recipe for detecting overheating failure in Chiller 6 with feature and target sensors

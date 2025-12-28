@@ -1,6 +1,6 @@
 Question: List all installed sensors of asset Chiller 6.
 Plan:
-#Task1: Retrieve the list of all assets at the site where Chiller 6 is located
+#Task1: Retrieve the list of assets at the site where Chiller 6 is located
 #Agent1: IoT Data Download
 #Dependency1: None
 #ExpectedOutput1: A list of assets at the site where Chiller 6 is located, including Chiller 6
@@ -10,12 +10,7 @@ Plan:
 #Dependency2: #S1
 #ExpectedOutput2: A list of sensors relevant to monitoring the failure modes of Chiller 6
 
-#Task3: Cross-reference the list of sensors from Task 2 with the asset details from Task 1 to determine which sensors are installed on Chiller 6
+#Task3: Cross-reference the list of sensors from Task 2 with the actual installed sensors for Chiller 6
 #Agent3: IoT Data Download
 #Dependency3: #S1, #S2
-#ExpectedOutput3: A list of sensors that are installed on Chiller 6
-
-#Task4: Compile the final list of installed sensors for Chiller 6
-#Agent4: IoT Data Download
-#Dependency4: #S3
-#ExpectedOutput4: A comprehensive list of all installed sensors for Chiller 6
+#ExpectedOutput3: A list of all installed sensors for Chiller 6, verified against the relevant sensors for its failure modes

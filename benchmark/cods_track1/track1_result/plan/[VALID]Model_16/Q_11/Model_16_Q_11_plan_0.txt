@@ -12,7 +12,7 @@ Plan:
 
 #Task3: Download sensor data for Chiller 6 at the MAIN site for the identified date range
 #Agent3: IoT Data Download
-#Dependency3: #S1, #S2
+#Dependency3: #Task1, #Task2
 #ExpectedOutput3: Sensor data for Chiller 6 at the MAIN site for the last week of April '20
 
 The plan is complete.

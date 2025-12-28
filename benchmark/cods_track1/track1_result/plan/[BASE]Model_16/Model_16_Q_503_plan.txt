@@ -5,19 +5,19 @@ Plan:
 #Dependency1: None
 #ExpectedOutput1: The start date for the week of 2020-04-27.
 
-#Task2: Download the historical data for Chiller 6 Tonnage at MAIN for the week of 2020-04-27.
+#Task2: Download the sensor data for Chiller 6 Tonnage at MAIN for the week of 2020-04-27.
 #Agent2: IoT Data Download
 #Dependency2: #S1
-#ExpectedOutput2: Historical data for Chiller 6 Tonnage at MAIN for the specified week.
+#ExpectedOutput2: Sensor data for Chiller 6 Tonnage at MAIN for the specified week.
 
-#Task3: Analyze the downloaded data for anomalies in Chiller 6 Tonnage.
+#Task3: Analyze the downloaded sensor data for Chiller 6 Tonnage at MAIN for anomalies.
 #Agent3: Time Series Analytics and Forecasting
 #Dependency3: #S2
-#ExpectedOutput3: Anomaly detection results for Chiller 6 Tonnage.
+#ExpectedOutput3: Anomaly detection results for Chiller 6 Tonnage at MAIN.
 
-#Task4: Create a work order if anomalies are detected in Chiller 6 Tonnage.
+#Task4: Based on the anomaly detection results, generate a work order if necessary.
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: A work order for inspecting or maintaining Chiller 6 if anomalies are found.
+#ExpectedOutput4: A work order for inspecting or maintaining Chiller 6 if anomalies were detected.
 
 The plan is complete.

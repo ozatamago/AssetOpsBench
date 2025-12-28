@@ -1,14 +1,8 @@
 Question: List all failure modes of asset Chiller.
 Plan:
- 
-We need to produce final plan lines exactly as required. Must be #Task1, #Agent1, #Dependency1, #ExpectedOutput1. Ensure agent name exactly matches allowed list: "Failure Mode and Sensor Relevancy Expert for Industrial Asset". No extra spaces. Provide one-line descriptions. Let's craft.
 
-#Task1: List all failure modes of the Chiller asset.  
+
+#Task1: Retrieve a comprehensive list of all known failure modes for a chiller asset (e.g., Chiller 6) using the Failure Mode and Sensor Relevancy Expert for Industrial Asset.  
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
 #Dependency1: None  
-#ExpectedOutput1: An itemized list of all failure modes for the Chiller (e.g., compressor failure, refrigerant leak, sensor fault, loose wiring, etc.) 
-
-Make sure each line no extra spaces at end? It's okay. Provide exactly.assistantfinal#Task1: List all failure modes of the Chiller asset.  
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
-#Dependency1: None  
-#ExpectedOutput1: An itemized list of all failure modes for the Chiller (e.g., compressor failure, refrigerant leak, sensor fault, loose wiring, etc.)
+#ExpectedOutput1: A structured list (e.g., bullet points or JSON array) enumerating every failure mode applicable to the chiller asset, such as compressor failure, refrigerant leak, sensor drift, loose wiring, etc.

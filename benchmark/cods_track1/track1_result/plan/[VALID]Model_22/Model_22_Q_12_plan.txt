@@ -10,12 +10,12 @@ Plan:
 #Dependency2: #S1
 #ExpectedOutput2: Sensor data for Chiller 6 for June 2020 in JSON format
 
-#Task3: Analyze the downloaded sensor data for any anomalies or patterns
+#Task3: Analyze the time-series data for any anomalies in Chiller 6's performance
 #Agent3: Time Series Analytics and Forecasting
 #Dependency3: #S2
-#ExpectedOutput3: Analysis report highlighting any anomalies or patterns in the sensor data
+#ExpectedOutput3: A report highlighting any anomalies in Chiller 6's performance during June 2020
 
-#Task4: Generate a work order if any critical anomalies are detected in the sensor data
+#Task4: Generate a work order for any identified issues or anomalies
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: A work order for addressing the detected anomalies in Chiller 6
+#ExpectedOutput4: A work order detailing the necessary actions to address the identified issues or anomalies

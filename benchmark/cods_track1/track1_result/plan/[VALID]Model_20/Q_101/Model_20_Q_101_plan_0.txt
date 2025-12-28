@@ -1,20 +1,26 @@
 Question: List all failure modes of asset Chiller.
 Plan:
-We need to list all failure modes of asset Chiller. The asset name is generic "Chiller". Possibly need to ask Failure Mode and Sensor Relevancy Expert for Industrial Asset. The agent can list all failure modes of asset Chiller 6, but not generic "Chiller". However we can ask for "Chiller" maybe ambiguous. The problem: "List all failure modes of asset Chiller." Could be they want all failure modes for a chiller asset. The Failure Mode agent can list for Chiller 6. Maybe we can ask for generic "Chiller" but the agent may respond with generic list. We'll assume we can ask the Failure Mode and Sensor Relevancy Expert: "List all failure modes of asset Chiller." That matches task 1: List all failure modes of asset Chiller 6. Slight difference. But we can still ask.
+We need to produce a plan with fewer than 5 steps. The problem: "List all failure modes of asset Chiller." The asset is generic "Chiller". The Failure Mode and Sensor Relevancy Expert for Industrial Asset can list failure modes of asset Chiller 6, but not generic "Chiller". However we can ask for "Chiller 6" maybe. The problem statement: "List all failure modes of asset Chiller." Could be ambiguous; maybe they want all failure modes for a chiller asset (any chiller). The expert can list all failure modes of asset Chiller 6. That might be acceptable. So we can use that agent.
 
-Thus plan: single step.
+We need to produce a plan with steps. Since only one step needed: ask the Failure Mode and Sensor Relevancy Expert for Industrial Asset to list all failure modes of asset Chiller 6 (or generic). Provide expected output: list of failure modes.
 
-#Task1: Query Failure Mode and Sensor Relevancy Expert for Industrial Asset to list all failure modes of asset Chiller.
+We need to include Task, Agent, Dependency, ExpectedOutput.
+
+We need to ensure fewer than 5 steps. So one step.
+
+Let's craft:
+
+#Task1: Retrieve a comprehensive list of all known failure modes for a chiller asset (e.g., Chiller 6) using the Failure Mode and Sensor Relevancy Expert for Industrial Asset.
 
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 
 #Dependency1: None
 
-#ExpectedOutput1: A list of failure modes for the Chiller asset (e.g., compressor failure, refrigerant leak, sensor fault, etc.)
+#ExpectedOutput1: A structured list (e.g., bullet points or JSON array) enumerating each failure mode applicable to the chiller asset, such as compressor failure, refrigerant leak, sensor drift, etc.
 
-We need fewer than 5 steps, okay.
+Make sure format matches required.
 
-Return plan.assistantfinal#Task1: Retrieve a comprehensive list of all failure modes associated with the Chiller asset.  
+Let's output.assistantfinal#Task1: Retrieve a comprehensive list of all known failure modes for a chiller asset (e.g., Chiller 6) using the Failure Mode and Sensor Relevancy Expert for Industrial Asset.  
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
 #Dependency1: None  
-#ExpectedOutput1: A clear, itemized list of failure modes for the Chiller (e.g., compressor failure, refrigerant leak, sensor fault, loose wiring, etc.).
+#ExpectedOutput1: A structured list (e.g., bullet points or JSON array) enumerating every failure mode applicable to the chiller asset, such as compressor failure, refrigerant leak, sensor drift, loose wiring, etc.

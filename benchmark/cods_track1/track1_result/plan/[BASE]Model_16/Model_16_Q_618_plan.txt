@@ -1,80 +1,23 @@
 Question: When power input of Chiller 6 at MAIN site drops, what is the potential failure that causes it?
 Plan:
-#Task1: Identify the relevant sensors that can be used to monitor the failure modes of Chiller 6 when its power input drops.
+#Task1: Identify the relevant sensors that can be used to monitor the power input of Chiller 6 at MAIN site.
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency1: None
-#ExpectedOutput1: List of relevant sensors that can be used to monitor the failure modes of Chiller 6 when its power input drops.
+#ExpectedOutput1: List of relevant sensors for monitoring power input of Chiller 6.
 
 #Task2: Retrieve historical data for the relevant sensors identified in Task 1 for Chiller 6 at MAIN site.
 #Agent2: IoT Data Download
 #Dependency2: #S1
 #ExpectedOutput2: Historical data for the relevant sensors.
 
-#Task3: Analyze the historical data retrieved in Task 2 to identify any anomalies or patterns that may indicate the potential failure.
+#Task3: Analyze the retrieved historical data to identify any anomalies or patterns that could be related to the drop in power input.
 #Agent3: Time Series Analytics and Forecasting
 #Dependency3: #S2
-#ExpectedOutput3: Analysis results indicating potential failure or anomalies.
+#ExpectedOutput3: Analysis results indicating potential causes or anomalies.
 
-#Task4: Based on the analysis results from Task 3, generate a work order for Chiller 6 at MAIN site to address the potential failure.
-#Agent4: WorkOrder Agent
+#Task4: Determine the potential failure that causes the drop in power input based on the analysis results from Task 3.
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency4: #S3
-#ExpectedOutput4: Generated work order for Chiller 6.
+#ExpectedOutput4: Potential failure mode causing the drop in power input.
 
-Let's break down the problem and create a step-by-step plan to solve it.
-
-The problem is to identify the potential failure that causes a drop in power input of Chiller 6 at the MAIN site. To solve this, we need to follow a logical sequence of tasks.
-
-## Step 1: Identify the relevant sensors that can be used to monitor the failure modes of Chiller 6 when its power input drops.
-We will use the Failure Mode and Sensor Relevancy Expert for Industrial Asset to identify the relevant sensors.
-
-## Step 2: Retrieve historical data for the relevant sensors identified in Step 1 for Chiller 6 at MAIN site.
-We will use the IoT Data Download agent to retrieve the historical data.
-
-## Step 3: Analyze the historical data retrieved in Step 2 to identify any anomalies or patterns that may indicate the potential failure.
-We will use the Time Series Analytics and Forecasting agent to analyze the historical data.
-
-## Step 4: Based on the analysis results from Step 3, generate a work order for Chiller 6 at MAIN site to address the potential failure.
-We will use the WorkOrder Agent to generate the work order.
-
-Here is the plan in the required format:
-
-#Task1: When power input of Chiller 6 drops, what are the relevant sensors that can be used to monitor the loose wiring failure or compressor overheating or other potential failures of Chiller 6?
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency1: None
-#ExpectedOutput1: List of relevant sensors that can be used to monitor the failure modes of Chiller 6.
-
-#Task2: Retrieve historical data for the relevant sensors identified in Task 1 for Chiller 6 at MAIN site.
-#Agent2: IoT Data Download
-#Dependency2: #S1
-#ExpectedOutput2: Historical data for the relevant sensors for Chiller 6 at MAIN site.
-
-#Task3: Analyze the historical data retrieved in Task 2 to identify any anomalies or patterns that may indicate the potential failure.
-#Agent3: Time Series Analytics and Forecasting
-#Dependency3: #S2
-#ExpectedOutput3: Analysis results indicating potential failure or anomalies.
-
-#Task4: Based on the analysis results from Task 3, generate a work order for Chiller 6 at MAIN site to address the potential failure.
-#Agent4: WorkOrder Agent
-#Dependency4: #S3
-#ExpectedOutput4: Generated work order for Chiller 6 at MAIN site.
-
-The final answer is: 
-#Task1: When power input of Chiller 6 drops, what are the relevant sensors that can be used to monitor the loose wiring failure or compressor overheating or other potential failures of Chiller 6?
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency1: None
-#ExpectedOutput1: List of relevant sensors that can be used to monitor the failure modes of Chiller 6.
-
-#Task2: Retrieve historical data for the relevant sensors identified in Task 1 for Chiller 6 at MAIN site.
-#Agent2: IoT Data Download
-#Dependency2: #S1
-#ExpectedOutput2: Historical data for the relevant sensors for Chiller 6 at MAIN site.
-
-#Task3: Analyze the historical data retrieved in Task 2 to identify any anomalies or patterns that may indicate the potential failure.
-#Agent3: Time Series Analytics and Forecasting
-#Dependency3: #S2
-#ExpectedOutput3: Analysis results indicating potential failure or anomalies.
-
-#Task4: Based on the analysis results from Task 3, generate a work order for Chiller 6 at MAIN site to address the potential failure.
-#Agent4: WorkOrder Agent
-#Dependency4: #S3
-#ExpectedOutput4: Generated work order for Chiller 6 at MAIN site.
+The provided plan has 4 steps, adhering to the constraints. Let's proceed with the solution.

@@ -1,0 +1,27 @@
+Question: Can you predict Chiller 9's performance for next week based on data from the week of 2020-04-27 at MAIN?
+Plan:
+- Make sure to follow the format and constraints.
+
+### Plan
+
+#Task1: Determine the start and end dates for the week of 2020-04-27 and for next week.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The start and end dates for the week of 2020-04-27 and for next week.
+
+#Task2: Download the historical data for Chiller 9 at MAIN site for the week of 2020-04-27.
+#Agent2: IoT Data Download
+#Dependency2: #Task1
+#ExpectedOutput2: The historical data for Chiller 9 at MAIN site for the week of 2020-04-27.
+
+#Task3: Analyze the downloaded historical data to identify any trends or patterns in Chiller 9's performance.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #Task2
+#ExpectedOutput3: Analysis of Chiller 9's performance data from the week of 2020-04-27.
+
+#Task4: Forecast Chiller 9's performance for next week based on the historical data.
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: #Task3, #Task1
+#ExpectedOutput4: Forecast of Chiller 9's performance for next week.
+
+The plan is structured to first determine the relevant dates, then download the necessary historical data, analyze it, and finally forecast Chiller 9's performance for the next week.

@@ -2,36 +2,48 @@ Question: What is the forecast for Chiller 6's energy consumption for next week 
 Plan:
 We need forecast for Chiller 6's energy consumption next week based on data from week of 2020-04-27 at MAIN site.
 
-We have agents: IoT Data Download can download sensor data for asset CU02004 at SiteX etc. Need to get energy consumption data for Chiller 6 at MAIN site for week of 2020-04-27. Probably asset ID unknown; but we can request "download sensor data for Chiller 6 at MAIN site". The agent tasks list includes generic "download sensor data for CU02004 at SiteX". Might need to adapt: we can ask to download sensor data for Chiller 6 at MAIN site. Assume agent can handle.
+We have agents: IoT Data Download can download sensor data for asset CU02004 at SiteX etc. Need to get energy consumption data for Chiller 6 at MAIN site for week of 2020-04-27. We need to know asset ID for Chiller 6 at MAIN site. Possibly asset name is "CHL-6"? Not sure. Use IoT Data Download to get assets at site MAIN, then find Chiller 6 asset ID. Then download sensor data for energy consumption (maybe "POWER INPUT" or "ENERGY CONSUMPTION") for that week. Then use Time Series Analytics and Forecasting to forecast next week (7 days) energy consumption. Then maybe generate work order? Not needed. So plan steps:
 
-Then Time Series Analytics and Forecasting can forecast next 24 hours, but we need next week (7 days). Might still use forecasting with appropriate horizon. The agent can forecast next 24 hours; but we can ask to forecast next week (maybe multiple steps). Could still use same agent, maybe specify horizon.
+Step1: Use IoT Data Download to list assets at site MAIN. (Task: what assets are at site MAIN). Output list includes Chiller 6 asset ID.
 
-Plan steps:
+Step2: Use IoT Data Download to download sensor data for Chiller 6 asset (identified) for week 2020-04-27 to 2020-05-03 (one week) for energy consumption sensor (maybe "POWER INPUT" or "ENERGY CONSUMPTION"). Need to specify sensor name. We'll assume "POWER INPUT". Provide start and end timestamps.
 
-1. Use IoT Data Download to retrieve energy consumption sensor data for Chiller 6 at MAIN site for the week of 2020-04-27 (i.e., from 2020-04-27 to 2020-05-03). Expected output: JSON file with timestamps and energy consumption values.
+Step3: Use Time Series Analytics and Forecasting to forecast next 7 days (next week) energy consumption based on downloaded data. Provide forecast output.
 
-2. Use Time Series Analytics and Forecasting to forecast energy consumption for next week (7 days) using the retrieved data. Expected output: forecast values (daily or hourly) for next week.
+We have only 3 steps (<5). Dependencies: step2 depends on step1 to get asset ID. step3 depends on step2 data file.
 
-3. Use WorkOrder Agent? Not needed. Maybe just present forecast. No further steps.
+Now format.
 
-We need fewer than 5 steps, okay.
+Need to include #Task<N>, #Agent<N>, #Dependency<N>, #ExpectedOutput<N>.
 
-Include dependencies.
+Let's craft.
 
-Let's craft plan.
+#Task1: Retrieve list of assets at the MAIN site to identify the asset ID for Chiller 6.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON list of assets at MAIN site, including an entry for Chiller 6 with its asset identifier (e.g., assetId).
 
-Step #S1: download data.
+#Task2: Download historical sensor data for the identified Chiller 6 asset covering 2020-04-27 to 2020-05-03 for the energy consumption metric (e.g., "POWER INPUT").
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: JSON file (e.g., chiller6_power_2020-04-27_to_2020-05-03.json) containing timestamped energy consumption values for the specified week.
 
-Step #S2: forecast.
+#Task3: Perform time‑series forecasting on the downloaded data to predict Chiller 6’s energy consumption for the next 7 days (the week following 2020-05-03).
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Forecast results (e.g., a JSON or table) showing predicted energy consumption for each day of the next week, with confidence intervals.
 
-Make sure tasks are clear.
-
-Let's produce final answer.assistantfinal#Task1: Retrieve Chiller 6 energy‑consumption sensor data for the week of 2020‑04‑27 (2020‑04‑27 00:00 to 2020‑05‑03 23:59) at the MAIN site.  
+That should satisfy. Ensure naming of steps #S1 etc. Use #S1 referencing step numbers. Provide plan.assistantfinal#Task1: Retrieve the list of assets at the **MAIN** site to identify the asset ID for **Chiller 6**.  
 #Agent1: IoT Data Download  
 #Dependency1: None  
-#ExpectedOutput1: A JSON file (e.g., `chiller6_energy_20200427_20200503.json`) containing timestamped energy‑consumption readings for Chiller 6 at the MAIN site covering the specified week.  
+#ExpectedOutput1: JSON array of assets at site MAIN, containing an entry for Chiller 6 with its unique asset identifier (e.g., `"assetId": "CHL-6"`).
 
-#Task2: Using the JSON file from #S1, perform a time‑series forecast of Chiller 6’s energy consumption for the next 7 days (the week following the latest timestamp in the data).  
-#Agent2: Time Series Analytics and Forecasting  
+#Task2: Download historical sensor data for the identified **Chiller 6** asset covering **2020‑04‑27 00:00** to **2020‑05‑03 23:59** for the energy‑consumption metric (e.g., `"POWER INPUT"`).  
+#Agent2: IoT Data Download  
 #Dependency2: #S1  
-#ExpectedOutput2: A forecast result (e.g., `chiller6_energy_forecast_next_week.json`) providing predicted energy‑consumption values (hourly or daily) for each time step of the upcoming week, together with confidence intervals or error metrics.
+#ExpectedOutput2: JSON file (e.g., `chiller6_power_2020-04-27_to_2020-05-03.json`) with timestamped energy‑consumption values for the specified week.
+
+#Task3: Perform time‑series forecasting on the downloaded data to predict **Chiller 6**’s energy consumption for the **next 7 days** (the week following 2020‑05‑03).  
+#Agent3: Time Series Analytics and Forecasting  
+#Dependency3: #S2  
+#ExpectedOutput3: Forecast results (JSON or tabular) showing predicted daily energy consumption for the next week, including point forecasts and confidence intervals.

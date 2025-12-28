@@ -1,0 +1,17 @@
+Question: how much power was CQPA AHU 1 (MAIN site) using on 6/14/20?
+Plan:
+- Ensure that the plan is executable with the available agents.
+
+### Plan
+
+#Task1: Download the power usage data for CQPA AHU 1 at the MAIN site for the date 6/14/20.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The power usage data for CQPA AHU 1 at the MAIN site for 6/14/20.
+
+#Task2: Analyze the downloaded data to determine the power usage of CQPA AHU 1 on 6/14/20.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #Task1
+#ExpectedOutput2: The power usage value of CQPA AHU 1 on 6/14/20.
+
+The plan is designed to first retrieve the necessary data using the IoT Data Download agent and then analyze it using the Time Series Analytics and Forecasting agent to determine the power usage on the specified date.

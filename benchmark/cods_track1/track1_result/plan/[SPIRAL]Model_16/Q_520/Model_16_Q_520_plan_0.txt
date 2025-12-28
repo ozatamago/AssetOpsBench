@@ -1,0 +1,22 @@
+Question: What is the forecast for Chiller 6's energy consumption for next week based on data from the week of 2020-04-27 at the MAIN site?
+Plan:
+- Ensure that the task is broken down into fewer than 5 steps.
+
+### Plan
+
+#Task1: Retrieve the historical energy consumption data for Chiller 6 at the MAIN site for the week of 2020-04-27.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical energy consumption data for Chiller 6 at the MAIN site for the week of 2020-04-27 in a JSON file.
+
+#Task2: Forecast the energy consumption for Chiller 6 for next week based on the retrieved historical data.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Forecasted energy consumption for Chiller 6 for next week.
+
+#Task3: Generate a work order for Chiller 6 based on the forecasted energy consumption for next week.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A work order for Chiller 6 based on the forecasted energy consumption for next week.
+
+The plan is designed to be concise and actionable, following the required format strictly. It leverages the available agents to retrieve historical data, forecast future energy consumption, and generate a relevant work order.

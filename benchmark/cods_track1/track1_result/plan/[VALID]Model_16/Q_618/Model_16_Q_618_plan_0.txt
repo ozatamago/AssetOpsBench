@@ -1,23 +1,23 @@
 Question: When power input of Chiller 6 at MAIN site drops, what is the potential failure that causes it?
 Plan:
-#Task1: Identify the potential failure that causes the power input of Chiller 6 to drop.
+#Task1: Identify the potential failure modes of Chiller 6 that could cause a drop in power input.
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency1: None
-#ExpectedOutput1: List of potential failures that cause the power input of Chiller 6 to drop.
+#ExpectedOutput1: List of potential failure modes of Chiller 6 that could cause a drop in power input.
 
-#Task2: Verify if the identified potential failures are related to any sensor data or historical data of Chiller 6 at MAIN site.
-#Agent2: IoT Data Download
-#Dependency2: #S1
-#ExpectedOutput2: Historical data or sensor data related to the potential failures identified.
+#Task2: Determine the relevant sensors that can be used to monitor the identified potential failure modes.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: List of relevant sensors for monitoring the potential failure modes.
 
-#Task3: Analyze the historical data or sensor data to confirm the potential failure.
-#Agent3: Time Series Analytics and Forecasting
-#Dependency3: #S2
-#ExpectedOutput3: Analysis results indicating the most likely failure cause.
+#Task3: Download historical sensor data for Chiller 6 at MAIN site to analyze the behavior of the relevant sensors.
+#Agent3: IoT Data Download
+#Dependency3: #Task2
+#ExpectedOutput3: Historical sensor data for the relevant sensors of Chiller 6 at MAIN site.
 
-#Task4: Create a work order based on the analysis results to address the identified failure.
-#Agent4: WorkOrder Agent
-#Dependency4: #S3
-#ExpectedOutput4: A generated work order to inspect or repair Chiller 6.
+#Task4: Analyze the downloaded sensor data to identify any anomalies or patterns that could indicate the potential failure.
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: #Task3
+#ExpectedOutput4: Analysis of the sensor data indicating any anomalies or patterns.
 
-The provided plan has fewer than 5 steps and follows the required format. It uses the available agents to solve the problem in a step-by-step manner.
+The plan is complete.

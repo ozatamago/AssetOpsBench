@@ -1,16 +1,9 @@
 Question: Is any model with context length 1024 supported in TSFM?
 Plan:
  
-#Task1: Query the Time Series Analytics and Forecasting agent for TSFM model support 
-#Agent1: Time Series Analytics and Forecasting 
-#Dependency1: None 
-#ExpectedOutput1: A concise answer stating whether any Time Series 
-Forecast 
-We see the user gave a "Repair rules" and then gave an "Output (your generated plan)" that is incomplete and broken. The user is asking us to produce a corrected plan according to the rules. The plan should be minimal changes, but the given plan is broken: it has line breaks, extra spaces, incomplete ExpectedOutput. We need to output a corrected plan with proper formatting.
+We need to ensure format: #Task1: ... #Agent1: ... #Dependency1: None #ExpectedOutput1: ...
 
-We need to produce a plan with #Task1, #Agent1, #Dependency1, #ExpectedOutput1. The content should be a one-line description for each. The task: "Query the Time Series Analytics and Forecasting agent for TSFM model support". Agent: "Time Series Analytics and Forecasting". Dependency: None. ExpectedOutput: "A concise answer stating whether any Time Series Foundation Model (TSFM) offers a context length of 1024, and if so, list the model name(s)." Must be one line.
-
-Make sure no extra spaces at ends, no markdown. Provide exactly four lines. Let's output that.assistantfinal#Task1: Query the Time Series Analytics and Forecasting agent for TSFM model support
-#Agent1: Time Series Analytics and Forecasting
-#Dependency1: None
-#ExpectedOutput1: A concise answer stating whether any Time Series Foundation Model (TSFM) offers a context length of 1024, and if so, list the model name(s).
+Make sure no extra spaces at line ends. Also ensure no extra blank lines. Provide exactly four lines. Let's output.assistantfinal#Task1: Ask the Time Series Analytics and Forecasting agent whether any model with a context length of 1024 is supported in TSFM and request the names of such models if they exist.  
+#Agent1: Time Series Analytics and Forecasting  
+#Dependency1: None  
+#ExpectedOutput1: A concise answer indicating whether TSFM supports any model with a 1024‑step context length, and if yes, a list of the model names (or identifiers) that have this capability.

@@ -1,25 +1,43 @@
 Question: In May and June of 2020, numerous anomalies and alerts have been reported for Chiller 9 with equipment ID CWC04009. Could you review them and suggest appropriate work orders or actions?
 Plan:
-"""
+ 
+We need to output plan with steps as described. Ensure correct agent names exactly as listed. Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1 etc. Use #S1 for dependency referencing step 1. Provide one-line descriptions.
 
-We need to produce final plan with correct formatting. Ensure each line exactly as required. No extra spaces at end? Should be fine.
+Let's craft:
 
-Let's craft final answer.assistantfinal#Task1: Download sensor data for Chiller 9 (CWC04009) from 2020-05-01 to 2020-06-30 for all key operational sensors
+#Task1: Download all sensor data for Chiller 9 (equipment ID CWC04009) for May and June 2020
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: JSON file containing timestamped sensor readings for the specified period
+#ExpectedOutput1: JSON file (e.g., chiller9_may_june_2020.json) containing time‑stamped readings of all relevant sensors for the specified period
 
-#Task2: Analyze the downloaded time‑series data to detect anomalies and alerts across the sensors
+#Task2: Analyze the downloaded data to detect anomalies and alerts in any sensor during May‑June 2020
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: Report listing detected anomalies with timestamps, sensor names, and brief descriptions
+#ExpectedOutput2: Report listing each anomaly with timestamp, sensor name, type (spike, drop, out‑of‑range) and brief description
 
-#Task3: Map each detected anomaly to likely failure modes and recommend diagnostic or corrective actions
+#Task3: Map the identified anomalies to likely failure modes of Chiller 9 and recommend priority sensors for each failure
 #Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency3: #S2
-#ExpectedOutput3: Mapping of anomalies to probable failure modes and suggested actions for each
+#ExpectedOutput3: Mapping of anomalies to probable failure modes and a list of the most relevant sensors to monitor each failure
 
-#Task4: Generate appropriate work orders for the recommended actions on Chiller 9
+#Task4: Generate work orders for the recommended actions addressing the identified failure modes of Chiller 9
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: Set of work orders with descriptions, priorities, and assigned tasks for Chiller 9
+#ExpectedOutput4: Set of work orders (including description, priority and target equipment) ready for execution
+
+Check counts: 4 steps, each has Task, Agent, Dependency, ExpectedOutput. Agent names exactly match allowed list. Good. Ensure no extra spaces at end of agent names. Use exact names. Provide as plain lines. No extra markdown. Let's output.assistantfinal#Task1: Download all sensor data for Chiller 9 (equipment ID CWC04009) for May and June 2020
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file (e.g., chiller9_may_june_2020.json) containing time‑stamped readings of all relevant sensors for the specified period
+#Task2: Analyze the downloaded data to detect anomalies and alerts in any sensor during May‑June 2020
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Report listing each anomaly with timestamp, sensor name, type (spike, drop, out‑of‑range) and brief description
+#Task3: Map the identified anomalies to likely failure modes of Chiller 9 and recommend priority sensors for each failure
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S2
+#ExpectedOutput3: Mapping of anomalies to probable failure modes and a list of the most relevant sensors to monitor each failure
+#Task4: Generate work orders for the recommended actions addressing the identified failure modes of Chiller 9
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Set of work orders (including description, priority and target equipment) ready for execution

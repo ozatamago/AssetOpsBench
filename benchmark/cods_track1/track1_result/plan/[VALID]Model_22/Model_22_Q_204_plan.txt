@@ -1,21 +1,6 @@
 Question: Is TTM (Tiny Time Mixture), a time series model supported?
 Plan:
-#Task1: Check if TTM (Tiny Time Mixture) is supported by the Time Series Analytics and Forecasting agent
+#Task1: Check if TTM (Tiny Time Mixture) is a supported time series model
 #Agent1: Time Series Analytics and Forecasting
 #Dependency1: None
-#ExpectedOutput1: Confirmation whether TTM is supported or not, along with any relevant details about its usage or alternatives if not supported
-
-#Task2: If TTM is supported, request an example of how to use TTM for forecasting
-#Agent2: Time Series Analytics and Forecasting
-#Dependency2: #S1
-#ExpectedOutput2: Example or guidelines on how to use TTM for forecasting, including any required parameters or data formats
-
-#Task3: If TTM is not supported, ask for a list of supported time series models
-#Agent3: Time Series Analytics and Forecasting
-#Dependency3: #S1
-#ExpectedOutput3: List of supported time series models along with brief descriptions of their use cases
-
-#Task4: Based on the output from Task 3, select an appropriate alternative model and request an example of how to use it for forecasting
-#Agent4: Time Series Analytics and Forecasting
-#Dependency4: #S3
-#ExpectedOutput4: Example or guidelines on how to use the selected alternative model for forecasting, including any required parameters or data formats
+#ExpectedOutput1: Confirmation whether TTM is supported or not, along with any relevant details about its usage or alternatives if not supported.

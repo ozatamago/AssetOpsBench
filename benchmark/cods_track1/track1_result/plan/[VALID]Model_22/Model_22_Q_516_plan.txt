@@ -13,9 +13,9 @@ Plan:
 #Task3: Forecast Chiller 6's energy consumption for the next week based on the historical data and identified patterns
 #Agent3: Time Series Analytics and Forecasting
 #Dependency3: #S1, #S2
-#ExpectedOutput3: A forecast of Chiller 6's energy consumption for the next week, including any potential anomalies or issues
+#ExpectedOutput3: A forecast report for Chiller 6's energy consumption for the next week
 
-#Task4: Generate a work order for any potential issues or anomalies identified in the forecast
+#Task4: Generate a work order for any necessary maintenance or inspections based on the forecast and identified anomalies
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: A work order for any potential issues or anomalies identified in the forecast, including recommended actions and prioritization
+#ExpectedOutput4: A work order for any necessary maintenance or inspections for Chiller 6

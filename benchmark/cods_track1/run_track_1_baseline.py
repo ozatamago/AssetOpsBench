@@ -144,7 +144,7 @@ def run_planning_workflow(
             saved_plan_filename=saved_plan_prefix,
             qid=qid
         )
-    history, input_tokens_count, generated_tokens_count = wf.run(qid=qid)
+    history, input_tokens_count, generated_tokens_count = wf.run(save_plan=True,saved_plan_prefix=saved_plan_prefix,qid=qid)
 
     return history, input_tokens_count, generated_tokens_count
 
@@ -161,7 +161,9 @@ def run(utterances, generate_steps_only=False, llm_model=16):
         
         logger.info("=" * 10)
         logger.info(f"ID: {utterance['id']}, Task: {utterance['text']}")
-        trajectory_file = f"{TRAJECTORY_DIR}Q_{utterance['id']}_trajectory.json"
+        trajectory_subdir = os.path.join(TRAJECTORY_DIR, f"[BASE]Model_{llm_model}")
+        os.makedirs(trajectory_subdir, exist_ok=True)
+        trajectory_file = os.path.join(trajectory_subdir, f"Q_{utterance['id']}_trajectory.json")
 
         ans, input_tokens, generated_tokens= run_planning_workflow(
             utterance["text"],
@@ -209,7 +211,7 @@ def run(utterances, generate_steps_only=False, llm_model=16):
             "total_input_tokens": input_tokens_count,
             "total_generated_tokens": generated_tokens_count,
         }
-
+        
         time_token_path = os.path.join(exp_subdir, f"Model_{llm_model}_Q_{utterance['id']}_time_token.txt")
         _write_time_token_file(time_token_path, payload)
 

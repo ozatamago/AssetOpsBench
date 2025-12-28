@@ -1,7 +1,25 @@
 Question: Download all sensor data for Chiller 6 from the last week of April '20 at the MAIN site.
 Plan:
  
-assistantfinal #Task1: Download all sensor data (full asset history) for Chiller 6 at the MAIN site covering the last week of April 2020 (2020‑04‑24 00:00:00 to 2020‑04‑30 23:59:59).  
-#Agent1: IoT Data Download  
-#Dependency1: None  
-#ExpectedOutput1: A single JSON file (e.g., `chiller6_main_20200424_20200430.json`) containing the complete time‑stamped sensor readings for Chiller 6 across the specified date range.
+We need to produce a corrected plan with proper numbering and formatting. The plan should have fewer than 5 steps. Provide tasks, agents, dependencies, expected outputs.
+
+We need to solve: "Download all sensor data for Chiller 6 from the last week of April '20 at the MAIN site."
+
+We have IoT Data Download agent that can download sensor data for an asset at a site, and can calculate start date for last week or past week. It also can download asset history for a time range for specific sensors. But we need all sensor data. Possibly we can use "download sensor data for CU02004 at SiteX" which may retrieve all sensor data (maybe default all). We'll assume that.
+
+Thus we can do two steps:
+
+Step 1: Calculate start and end dates for the last week of April 2020. Use IoT Data Download agent with task "how do I calculate the start date for last week or past week?" But that returns method, not actual dates. However we can ask for specific dates: maybe we can ask "what is the start date for the last week of April 2020?" Not in list. But we can still ask "how do I calculate the start date for last week or past week?" and then compute manually. But the plan expects expected output from the agent. Could be "Method to calculate start date for last week". That may not be useful.
+
+Alternative: combine into one step: ask IoT Data Download to download sensor data for Chiller 6 at MAIN site for the date range 2020-04-24 to 2020-04-30. The agent may accept date range even though not listed. But we can assume.
+
+Thus we can have a single step: #Task1: Download all sensor data for Chiller 6 at the MAIN site for the period 2020-04-24 to 2020-04-30. #Agent1: IoT Data Download. #Dependency1: None. #ExpectedOutput1: JSON file containing all sensor data for Chiller 6 for the specified week.
+
+That is within 5 steps. Let's produce that.
+
+Check formatting: Must be #Task1: <one-line>. #Agent1: IoT Data Download. #Dependency1: None. #ExpectedOutput1: <one-line>.
+
+Let's output that.assistantfinal#Task1: Download all sensor data for Chiller 6 at the MAIN site for the period 2020-04-24 to 2020-04-30
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file containing all sensor readings from Chiller 6 for the specified week.

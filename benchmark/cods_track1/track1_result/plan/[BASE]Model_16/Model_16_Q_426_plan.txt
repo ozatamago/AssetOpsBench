@@ -15,9 +15,9 @@ Plan:
 #Dependency3: #S2
 #ExpectedOutput3: List of relevant sensors and potential failure modes associated with detected anomalies.
 
-#Task4: Generate a work order based on the identified anomalies and potential failure modes.
+#Task4: Create a work order based on the identified anomalies and potential failure modes.
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: A work order for preventive or corrective actions based on the analysis.
+#ExpectedOutput4: A generated work order for preventive or corrective actions.
 
-The plan involves retrieving historical data for Chiller 6's KPIs, analyzing it for anomalies, identifying relevant sensors and potential failure modes for the detected anomalies, and generating a work order based on the findings. This plan is designed to be executed in 4 steps, utilizing the available agents to address the problem.
+The plan involves retrieving historical data for Chiller 6's KPIs, analyzing it for anomalies, identifying relevant sensors and potential failure modes for the detected anomalies, and creating a work order based on the findings. This plan is designed to be executed in 4 steps, utilizing the available agents to address the problem.

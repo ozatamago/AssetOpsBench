@@ -1,17 +1,32 @@
 Question: Generate a machine learning recipe for detecting overheating failure for Chiller 6 at MAIN site. Result should include feature sensors and target sensor.
 Plan:
-We need to produce a plan with <5 steps. Use agents: Failure Mode and Sensor Relevancy Expert for Industrial Asset (to get relevant sensors for overheating failure). Possibly also IoT Data Download to get sensor data for those sensors. Then Time Series Analytics and Forecasting to generate ML recipe? Actually the recipe generation is a task of Failure Mode and Sensor Relevancy Expert: "can generate machine learning recipes for specific failures". The description says can generate machine learning recipes for specific failures. So we can directly ask that agent to generate recipe for overheating failure for Chiller 6 at MAIN site. That would give feature sensors and target sensor. So only one step needed.
+We need to produce a plan with fewer than 5 steps, each step includes Task, Agent, Dependency, ExpectedOutput. The problem: generate a machine learning recipe for detecting overheating failure for Chiller 6 at MAIN site. Need feature sensors and target sensor. Which agent can do that? The "Failure Mode and Sensor Relevancy Expert for Industrial Asset" can generate machine learning recipes for specific failures? It says "can generate machine learning recipes for specific failures". So we can ask that agent to generate the recipe. Possibly need to specify the failure mode: overheating failure for Chiller 6 at MAIN site. So step: ask the expert agent to list relevant sensors for overheating failure and produce ML recipe. That may be enough in one step. But maybe need to retrieve sensor data for those sensors using IoT Data Download. However the problem only asks to generate a recipe, not to download data. So one step may be enough. But we need to include feature sensors and target sensor. The expert can provide that. So we can have a single step.
 
-But we need to include feature sensors and target sensor. The agent can produce that. So plan:
+But the plan must have fewer than 5 steps, okay.
 
-#Task1: Generate ML recipe for detecting overheating failure for Chiller 6 at MAIN site, including feature sensors and target sensor.
+Let's craft:
+
+#Task1: Generate a machine learning recipe for detecting the overheating failure of Chiller 6 at the MAIN site, specifying the target sensor (the sensor that indicates overheating) and the set of feature sensors that should be used as inputs.
+
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency1: None
-#ExpectedOutput1: A machine learning recipe detailing the target sensor (e.g., compressor temperature or power input) and a list of relevant feature sensors (e.g., chilled water leaving temp, return temp, power input, vibration, etc.) for detecting overheating failure.
 
-That's within constraints (<5 steps). Provide plan. Ensure format.assistantfinal#Task1: Generate a machine learning recipe for detecting the overheating failure of **Chiller 6** at the **MAIN** site. The recipe must list the **target sensor** (the sensor whose readings will be used as the label) and all **feature sensors** (the inputs) that are relevant for this failure mode.  
+#Dependency1: None
+
+#ExpectedOutput1: A concise ML recipe that includes (a) description of the overheating failure mode, (b) the target sensor (e.g., "Chiller 6 Compressor Temperature" or "Power Input" etc.), (c) a list of relevant feature sensors (e.g., "Chiller Efficiency", "Return Temperature", "Leaving Temperature", "Power Input", "Vibration", etc.), (d) suggested preprocessing steps, model type (e.g., classification, regression), and any recommended evaluation metrics.
+
+That should satisfy.
+
+But maybe we need to also ask for sensor list from IoT Data Download? Not required.
+
+Thus final answer: plan with one step.
+
+Let's produce output accordingly.assistantfinal#Task1: Generate a machine‑learning recipe for detecting the **overheating failure** of **Chiller 6** at the **MAIN** site. The recipe must specify the **target sensor** that directly reflects the overheating condition and enumerate the **feature sensors** that should be used as inputs, together with brief preprocessing and model‑type recommendations.  
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
 #Dependency1: None  
-#ExpectedOutput1: A concise ML recipe that includes:  
-- **Target sensor** (e.g., “Compressor Power Input” or “Compressor Temperature”).  
-- **Feature sensor list** (e.g., “Chilled Water Leaving Temp”, “Chilled Water Return Temp”, “Vibration Sensor”, “Ambient Temperature”, etc.) with brief justification for each sensor’s relevance to overheating detection.
+#ExpectedOutput1: A concise ML recipe containing:  
+- A short description of the “overheating” failure mode for Chiller 6.  
+- **Target sensor** (e.g., “Compressor Temperature” or “Power Input” that signals overheating).  
+- **Feature sensor list** (e.g., “Chiller Efficiency”, “Leaving Water Temp”, “Return Water Temp”, “Vibration”, “Power Input”, etc.) with brief justification for each.  
+- Suggested preprocessing steps (e.g., resampling, outlier removal, scaling).  
+- Recommended model type (classification/regression) and a sample algorithm (e.g., Random Forest, Gradient Boosting).  
+- Suggested evaluation metrics (e.g., F1‑score, ROC‑AUC).

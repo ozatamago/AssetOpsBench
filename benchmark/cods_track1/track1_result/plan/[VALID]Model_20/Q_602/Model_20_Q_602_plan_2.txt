@@ -1,16 +1,14 @@
 Question: List all failure modes of asset Chiller 6 at MAIN site.
 Plan:
  
-assistantanalysisWe need to produce plan with fewer than 5 steps. Problem: "List all failure modes of asset Chiller 6 at MAIN site." We can directly ask Failure Mode expert for list of failure modes of asset Chiller 6. No need to verify asset presence. So single step.
+We need to produce plan with fewer than 5 steps. Provide #Task1, #Agent1, #Dependency1, #ExpectedOutput1, #Task2, #Agent2, #Dependency2, #ExpectedOutput2. Ensure tags are #Task1, #Agent1, #Dependency1, #ExpectedOutput1, #Task2, #Agent2, #Dependency2, #ExpectedOutput2. Use #S1? The spec says Dependency uses #S1, #S2 etc. In original plan they used #S1. Should we use #S1? The format says #Dependency<N>: <use #S1, #S2, ... or None>. So we need to refer to step numbers as #S1? Actually step numbers are N, but they want #S1 referencing step 1. So we can use #S1. Provide #Dependency2: #S1. Good.
 
-Task: List all failure modes of asset Chiller 6 at MAIN site. Agent: Failure Mode and Sensor Relevancy Expert for Industrial Asset. Dependency: None. Expected output: list of failure modes.
-
-Thus produce #Task1 etc.
-
-Make sure format: #Task1: ... #Agent1: ... #Dependency1: None #ExpectedOutput1: ...
-
-Let's output.assistantfinal
-#Task1: List all failure modes of asset Chiller 6 at the MAIN site.  
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+Make sure no extra spaces at end. Provide each line separate. No markdown. Let's craft final answer.assistantfinal#Task1: Retrieve the list of assets at the MAIN site to confirm that Chiller 6 is present.  
+#Agent1: IoT Data Download  
 #Dependency1: None  
-#ExpectedOutput1: Complete list of failure modes for Chiller 6.
+#ExpectedOutput1: JSON array of assets for site “MAIN”, showing asset identifiers and names (including “Chiller 6”).  
+
+#Task2: List all failure modes for the asset Chiller 6.  
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency2: #S1  
+#ExpectedOutput2: A list enumerating every failure mode associated with Chiller 6.

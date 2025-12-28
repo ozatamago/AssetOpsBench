@@ -1,20 +1,7 @@
 Question: I would like to retrieve the corrective work order details for the equipment labeled as CWC04013 for the year 2017.
 Plan:
  
-We need to correct issue: Agent1 unknown 'WorkOrder Agent  '. There's extra spaces? In original plan, #Agent1: WorkOrder Agent (maybe trailing spaces). Should be exactly "WorkOrder Agent". Already correct? The validator says unknown 'WorkOrder Agent  ' with two spaces after. So we need to ensure no trailing spaces. Also ensure format correct.
-
-We need plan with fewer than 5 steps. One step is fine.
-
-Thus output:
-
-#Task1: Retrieve corrective work order details for equipment CWC04013 for the year 2017.
-#Agent1: WorkOrder Agent
-#Dependency1: None
-#ExpectedOutput1: A JSON list of corrective work orders for CWC04013 in 2017, each with ID, description, creation date, status, corrective actions, and notes.
-
-Make sure no extra spaces after agent name. Also ensure no extra spaces after colon? Format: "#Task1: ..." fine.
-
-Return only those lines.assistantfinal#Task1: Retrieve corrective work order details for equipment CWC04013 for the year 2017.
-#Agent1: WorkOrder Agent
-#Dependency1: None
-#ExpectedOutput1: A JSON list of corrective work orders for CWC04013 in 2017, each with ID, description, creation date, status, corrective actions, and notes.
+We need to produce final answer. The plan must have matching counts. Provide #Task1, #Agent1, #Dependency1, #ExpectedOutput1. Ensure no extra spaces? The format: "#Task1: ..." line. "#Agent1: WorkOrder Agent". "#Dependency1: None". "#ExpectedOutput1: ..." line. Ensure no extra spaces at line ends. Provide exactly. Let's output.assistantfinal#Task1: Retrieve corrective work order details for equipment CWC04013 for the year 2017.  
+#Agent1: WorkOrder Agent  
+#Dependency1: None  
+#ExpectedOutput1: A structured list (e.g., JSON) of all corrective work orders for equipment CWC04013 from 2017, including work order IDs, dates, descriptions, status, and relevant notes.

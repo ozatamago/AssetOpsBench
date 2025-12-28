@@ -5,6 +5,4 @@ Plan:
 #Dependency1: None
 #ExpectedOutput1: Confirmation on whether TTM is supported or not.
 
-Since there are only 4 agents and the task is straightforward, the plan involves a single step to directly query the relevant agent about the support for TTM. 
-
-The final answer will be provided by the Time Series Analytics and Forecasting agent.
+Since there is only one task required to solve the problem, the plan is already complete with just one step. The Time Series Analytics and Forecasting agent is the most relevant for checking if TTM is supported.

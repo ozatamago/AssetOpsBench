@@ -1,21 +1,21 @@
 Question: I would like to review the performance of chiller 9 with equipment ID CWC04009 at main site site for June 2020 and track any anomalies or operation alerts. Tell me what corrective work orders have been scheduled, and whether new work order should generate.
 Plan:
-#Task1: Retrieve historical sensor data for chiller 9 with equipment ID CWC04009 at main site for June 2020
+#Task1: Retrieve sensor data for chiller 9 with equipment ID CWC04009 at main site for June 2020
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: JSON file containing historical sensor data for chiller 9 with equipment ID CWC04009 at main site for June 2020
+#ExpectedOutput1: JSON file containing sensor data for chiller 9 with equipment ID CWC04009 at main site for June 2020
 
-#Task2: Analyze the time-series data for anomalies or operation alerts
+#Task2: Analyze the time-series data for anomalies in chiller 9 performance
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: Report highlighting any anomalies or operation alerts in the chiller 9 performance data
+#ExpectedOutput2: Report highlighting any anomalies or operation alerts in chiller 9 performance for June 2020
 
-#Task3: Retrieve existing work orders for chiller 9 with equipment ID CWC04009
+#Task3: Retrieve and analyze work orders for chiller 9 with equipment ID CWC04009
 #Agent3: WorkOrder Agent
-#Dependency3: None
-#ExpectedOutput3: List of existing work orders for chiller 9 with equipment ID CWC04009
+#Dependency3: #S1, #S2
+#ExpectedOutput3: List of corrective work orders scheduled for chiller 9 and recommendations for new work orders based on anomalies detected
 
-#Task4: Based on the anomalies detected and existing work orders, determine if new work orders should be generated
+#Task4: Generate new work orders if necessary based on the analysis
 #Agent4: WorkOrder Agent
-#Dependency4: #S2, #S3
-#ExpectedOutput4: Recommendation on whether new work orders should be generated, including details of any suggested corrective actions
+#Dependency4: #S3
+#ExpectedOutput4: New work orders generated for any unresolved issues or anomalies detected in chiller 9 performance

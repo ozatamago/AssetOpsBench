@@ -3,7 +3,7 @@ Plan:
 #Task1: Identify all failure modes of Chiller 6 at MAIN site
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency1: None
-#ExpectedOutput1: A list of all failure modes of Chiller 6
+#ExpectedOutput1: A list of all failure modes of Chiller 6 at MAIN site
 
 #Task2: Determine which failure modes of Chiller 6 can be detected by the vibration sensor
 #Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
@@ -18,4 +18,4 @@ Plan:
 #Task4: Generate a work order for preventive maintenance or inspection based on the analysis from Task 3
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: A work order for preventive maintenance or inspection of Chiller 6 based on the identified potential failure modes
+#ExpectedOutput4: A work order for preventive maintenance or inspection of Chiller 6 based on the vibration sensor data analysis

@@ -1,0 +1,8 @@
+Question: Are there any failure modes of Chiller 6 that can be predicted by monitoring the vibration sensor data?
+Plan:
+ 
+
+#Task1: Identify failure modes of Chiller 6 that can be detected by monitoring sensor data.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of failure modes of Chiller 6 that can be detected by monitoring sensor data.

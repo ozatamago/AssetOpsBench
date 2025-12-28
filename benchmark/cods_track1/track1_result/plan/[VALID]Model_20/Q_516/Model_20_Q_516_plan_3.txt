@@ -1,3 +1,12 @@
 Question: What's the forecast for Chiller 6's future energy consumption for next week based on data from the week of 2020-04-27 at MAIN?
 Plan:
  
+We need to ensure format: each line starts with #TaskN: etc. No extra spaces after colon? It's okay. Ensure #Dependency2 uses "#S1". Should be "#S1". Good. Ensure no extra spaces. Provide exactly two steps. Let's output.assistantfinalassistantfinal_output#Task1: Download power input sensor data for Chiller 6 at site MAIN for the week 2020‑04‑27 to 2020‑05‑03
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file (e.g., chiller6_power_20200427_20200503.json) containing timestamped power‑input readings
+
+#Task2: Forecast Chiller 6’s energy consumption for the next 7 days using the downloaded data
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Forecast JSON (e.g., chiller6_power_forecast_next_week.json) with predicted power‑input values and confidence intervals for each day of the upcoming week

@@ -2,8 +2,8 @@
 set -euo pipefail
 
 # ---- GLOBAL CONFIG (defaults; can be overridden by env) ----
-GENERATE_STEPS_ONLY="${GENERATE_STEPS_ONLY:-True}"   # keep "True" because your CLI currently uses "--generate_steps_only True"
-LLM_MODEL="${LLM_MODEL:-12}"                         # your --llm_model value
+GENERATE_STEPS_ONLY="${GENERATE_STEPS_ONLY:-False}"   # keep "True" because your CLI currently uses "--generate_steps_only True"
+LLM_MODEL="${LLM_MODEL:-16}"                         # your --llm_model value
 RUN_TRACK="/home/run_track_1.py"
 
 # ==== PATHS ====
@@ -17,31 +17,49 @@ conda activate assetopsbench
 : "${GHE_TOKEN:?GHE_TOKEN is not set. Check compose env_file (.env.local).}"
 
 python -m pip show agent_hive || true
-# ===== Patch reactxen/utils/model_inference.py from IBM/ReActXen (public GitHub) =====
-PATCH_URL="https://raw.githubusercontent.com/IBM/ReActXen/main/src/reactxen/utils/model_inference.py"
+# ===== Patch reactxen files from IBM/ReActXen commit 97606e8 =====
+PATCH_COMMIT="97606e87e0ee94e6c23af72fbf55e26246aae200"
+PATCH_BASE="https://raw.githubusercontent.com/IBM/ReActXen/${PATCH_COMMIT}/src/reactxen"
 
-TARGET_PATH="$(python - <<'PY'
+# (module_spec | raw_url) のペアを列挙（commit 97606e8 の変更対象2ファイル） :contentReference[oaicite:1]{index=1}
+PATCH_TARGETS=(
+  "reactxen.utils.model_inference|${PATCH_BASE}/utils/model_inference.py"
+  "reactxen.agents.react.agents|${PATCH_BASE}/agents/react/agents.py"
+)
+
+for item in "${PATCH_TARGETS[@]}"; do
+  MODULE="${item%%|*}"
+  PATCH_URL="${item#*|}"
+
+  TARGET_PATH="$(python - <<PY
 import importlib.util
-spec = importlib.util.find_spec("reactxen.utils.model_inference")
+spec = importlib.util.find_spec("${MODULE}")
 print(spec.origin if spec and spec.origin else "")
 PY
 )"
 
-if [ -z "$TARGET_PATH" ]; then
-  echo "[patch] ERROR: Could not locate reactxen.utils.model_inference in this env." >&2
-  python -c "import reactxen; import inspect; print('reactxen:', reactxen, 'file:', getattr(reactxen,'__file__',None))"
-  exit 1
-fi
+  if [ -z "$TARGET_PATH" ]; then
+    echo "[patch] ERROR: Could not locate ${MODULE} in this env." >&2
+    python - <<PY
+import ${MODULE%.*} as pkg
+print("module base:", pkg, "file:", getattr(pkg, "__file__", None))
+PY
+    exit 1
+  fi
 
-echo "[patch] TARGET_PATH=$TARGET_PATH"
-cp -v "$TARGET_PATH" "${TARGET_PATH}.bak.$(date +%Y%m%d%H%M%S)" || true
+  echo "[patch] MODULE=${MODULE}"
+  echo "[patch] PATCH_URL=${PATCH_URL}"
+  echo "[patch] TARGET_PATH=$TARGET_PATH"
 
-python - <<PY "$PATCH_URL" "$TARGET_PATH"
+  cp -v "$TARGET_PATH" "${TARGET_PATH}.bak.$(date +%Y%m%d%H%M%S)" || true
+
+  python - <<PY "$PATCH_URL" "$TARGET_PATH"
 import sys, urllib.request
 url, dst = sys.argv[1], sys.argv[2]
 urllib.request.urlretrieve(url, dst)
 print("[patch] updated:", dst)
 PY
+done
 python -m pip show reactxen || true
 python -m pip show fmsr_agent || true
 python -m pip show iotagent || true
@@ -78,7 +96,6 @@ while IFS= read -r ID; do
   echo ">>> Running utterance_id=$ID (LLM_MODEL=$LLM_MODEL, GENERATE_STEPS_ONLY=$GENERATE_STEPS_ONLY)"
   if ! python "$RUN_TRACK" \
       --utterance_ids "$ID" \
-      --generate_steps_only "$GENERATE_STEPS_ONLY" \
       --llm_model "$LLM_MODEL"
   then
     echo "!!!! run_track_1_spiral.py failed for id=$ID" >&2

@@ -1,16 +1,21 @@
 Question: what was the return temperature from CQPA AHU 2B on sept 19, 2020 at 7pm, at site MAIN? return data in a file
 Plan:
-#Task1: Retrieve the return temperature data for CQPA AHU 2B on September 19, 2020, at 7 PM, at site MAIN
+#Task1: Retrieve the return temperature data for CQPA AHU 2B on September 19, 2020, at 7 PM from site MAIN
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: A JSON file containing the return temperature data for CQPA AHU 2B on September 19, 2020, at 7 PM, at site MAIN
+#ExpectedOutput1: A JSON file containing the return temperature data for CQPA AHU 2B on September 19, 2020, at 7 PM from site MAIN
 
 #Task2: Analyze the retrieved data to identify the specific return temperature value
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: The specific return temperature value from CQPA AHU 2B on September 19, 2020, at 7 PM, at site MAIN
+#ExpectedOutput2: The specific return temperature value from CQPA AHU 2B on September 19, 2020, at 7 PM
 
-#Task3: Save the identified return temperature value into a file
-#Agent3: IoT Data Download
+#Task3: Generate a work order based on the identified return temperature value if it indicates a potential issue
+#Agent3: WorkOrder Agent
 #Dependency3: #S2
-#ExpectedOutput3: A file containing the return temperature value from CQPA AHU 2B on September 19, 2020, at 7 PM, at site MAIN
+#ExpectedOutput3: A work order detailing the necessary actions to address any potential issues indicated by the return temperature value
+
+#Task4: Save the return temperature data and any generated work orders into a single file
+#Agent4: IoT Data Download
+#Dependency4: #S1, #S3
+#ExpectedOutput4: A file containing the return temperature data and any generated work orders for CQPA AHU 2B on September 19, 2020, at 7 PM from site MAIN

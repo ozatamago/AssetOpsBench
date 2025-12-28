@@ -7,18 +7,17 @@ Plan:
 
 #Task2: Determine the temporal behavior of the relevant sensors when chiller trip failure occurs
 #Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Agent2 (alternative usage):  IoT Data Download 
-#Dependency2: #S1
+#Dependency2: #Task1
 #ExpectedOutput2: Temporal behavior of relevant sensors
 
-#Task3: Download historical data for the relevant sensors from IoT
+#Task3: Download historical data for the relevant sensors from IoT data
 #Agent3: IoT Data Download
-#Dependency3: #S1, #S2
+#Dependency3: #Task1
 #ExpectedOutput3: Historical data for relevant sensors
 
 #Task4: Analyze the downloaded data for anomalies using time series analytics
 #Agent4: Time Series Analytics and Forecasting
-#Dependency4: #S3
-#ExpectedOutput4: Anomaly analysis report
+#Dependency4: #Task3
+#ExpectedOutput4: Anomaly detection results
 
-The generated plan has 4 steps, which is within the limit of 5 steps. It identifies relevant sensors, determines their temporal behavior, downloads historical data, and analyzes it for anomalies.
+The plan is designed to solve the problem in 4 steps, using the available agents. It first identifies the relevant sensors for the chiller trip failure, then determines their temporal behavior. After that, it downloads the historical data for these sensors and finally analyzes the data for anomalies.

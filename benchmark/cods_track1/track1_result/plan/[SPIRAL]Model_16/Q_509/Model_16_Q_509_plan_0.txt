@@ -1,0 +1,22 @@
+Question: Can you detect any anomalies in Chiller 6's Condenser Water Flow in the week of 2020-04-27 at MAIN?
+Plan:
+- Make sure to follow the format and constraints.
+
+### Plan
+
+#Task1: Download the Condenser Water Flow data for Chiller 6 at the MAIN site for the week of 2020-04-27.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON file containing the Condenser Water Flow data for Chiller 6 at the MAIN site for the specified date range.
+
+#Task2: Analyze the downloaded data to detect any anomalies in Chiller 6's Condenser Water Flow.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #Task1
+#ExpectedOutput2: An analysis report indicating any anomalies detected in the Condenser Water Flow data.
+
+#Task3: If anomalies are detected, generate a work order for inspecting Chiller 6 due to the anomalies in Condenser Water Flow.
+#Agent3: WorkOrder Agent
+#Dependency3: #Task2
+#ExpectedOutput3: A work order for inspecting Chiller 6, if anomalies were detected in the analysis.
+
+The plan is complete.

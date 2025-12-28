@@ -10,12 +10,7 @@ Plan:
 #Dependency2: #S1
 #ExpectedOutput2: A report highlighting any anomalies, alerts, or performance issues in the asset history data
 
-#Task3: Generate a work order based on the identified issues from the asset history data
+#Task3: Generate a work order based on the identified issues from the asset history analysis
 #Agent3: WorkOrder Agent
 #Dependency3: #S2
-#ExpectedOutput3: A work order for equipment CWC04013 detailing the necessary preventive or corrective actions
-
-#Task4: Review and finalize the work order
-#Agent4: WorkOrder Agent
-#Dependency4: #S3
-#ExpectedOutput4: A finalized work order for equipment CWC04013 for the year 2017, ready for execution
+#ExpectedOutput3: A work order detailing the necessary actions to address the identified issues for equipment CWC04013

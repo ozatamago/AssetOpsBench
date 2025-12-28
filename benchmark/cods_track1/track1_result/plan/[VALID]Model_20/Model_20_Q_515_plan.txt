@@ -1,46 +1,11 @@
 Question: Can you predict Chiller 9's performance for next week based on data from the week of 2020-04-27 at MAIN?
 Plan:
-We need to correct the plan to match allowed agents names exactly. The original plan uses "IoT Data Download" and "Time Series Analytics and Forecasting" which are allowed. However the validator flagged unknown 'IoT Data Download ' (note trailing space) and 'Time Series Analytics and Forecasting ' (trailing space). So we need to ensure no trailing spaces. Also ensure the tasks are within 5 steps. The original plan has 2 steps, fine.
-
-We need to output plan with correct formatting: #Task1, #Agent1: IoT Data Download (no trailing space). #Task2, #Agent2: Time Series Analytics and Forecasting (no trailing space). Also ensure dependencies: #Dependency1: None, #Dependency2: #S1 (but the format expects #S1? In original they used #S1. The spec says use #S1, #S2 ... So we should use #S1.
-
-Thus final output:
-
-#Task1: Download the historical sensor data for Chiller 9 at site MAIN covering the week of 2020‑04‑27 to 2020‑05‑03 for the sensor “CHILLED WATER LEAVING TEMP”.
+ 
+We need to output plan. Already prepared. Ensure format exactly. No extra spaces? Should be fine. Use #Task1: ... etc. Ensure each line separate. No extra blank lines? Probably okay. Provide exactly as required.assistantfinal #Task1: Download sensor data for Chiller 9 at site MAIN for the week 2020‑04‑27 to 2020‑05‑03, including “CHILLED WATER LEAVING TEMP” and “CHILLED WATER RETURN TEMP”.
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: JSON file (e.g., chiller9_main_20200427_20200503.json) with timestamped readings of the requested sensor.
-
-#Task2: Using the JSON file from #S1, forecast the sensor’s values for the next week (2020‑05‑04 to 2020‑05‑10) and provide confidence intervals.
+#ExpectedOutput1: JSON file (e.g., chiller9_20200427_week.json) with timestamped temperature readings for the specified week.
+#Task2: Forecast the next 7 days of “CHILLED WATER LEAVING TEMP” and “CHILLED WATER RETURN TEMP” for Chiller 9 using the data from #S1, providing daily point forecasts, 95 % confidence intervals, and any anomaly‑risk notes.
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: Forecast report (e.g., chiller9_main_forecast_next_week.json) listing predicted “CHILLED WATER LEAVING TEMP” for each hour with prediction intervals. Need to ensure each line starts with #TaskN etc. No extra blank lines? The spec says each step must follow format, but can have blank line between steps? Probably okay but safer to not include extra blank lines. Provide exactly lines.
-
-Let's produce without blank lines between steps? Could include a blank line but might be considered extra. Safer to not include blank lines.
-
-Thus output lines:
-
-#Task1: ...
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: ...
-
-#Task2: ...
-#Agent2: Time Series Analytics and Forecasting
-#Dependency2: #S1
-#ExpectedOutput2: ...
-
-But blank line may be considered extra line not matching format. The spec says each step must follow this format, but doesn't forbid blank lines between steps. However to be safe, we can omit blank line.
-
-Let's produce continuous lines.
-
-Check length: each line must be one line.
-
-Now craft final answer.assistantfinal#Task1: Download the historical sensor data for Chiller 9 at site MAIN covering the week of 2020‑04‑27 to 2020‑05‑03 for the sensor “CHILLED WATER LEAVING TEMP”.  
-#Agent1: IoT Data Download  
-#Dependency1: None  
-#ExpectedOutput1: JSON file (e.g., chiller9_main_20200427_20200503.json) with timestamped readings of the requested sensor.  
-#Task2: Using the JSON file from #S1, forecast the sensor’s values for the next week (2020‑05‑04 to 2020‑05‑10) and provide confidence intervals.  
-#Agent2: Time Series Analytics and Forecasting  
-#Dependency2: #S1  
-#ExpectedOutput2: Forecast report (e.g., chiller9_main_forecast_next_week.json) listing predicted “CHILLED WATER LEAVING TEMP” for each hour with prediction intervals.
+#ExpectedOutput2: Forecast report (JSON or table) with daily predicted temperatures for the upcoming week, confidence bounds, and highlighted risk/anomaly indicators.

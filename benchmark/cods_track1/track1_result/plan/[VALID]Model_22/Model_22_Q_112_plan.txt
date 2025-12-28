@@ -8,7 +8,7 @@ Plan:
 #Task2: Analyze the time-series data for the prioritized sensor to detect any anomalies or patterns related to compressor overheating
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: Analysis results highlighting any anomalies or patterns in the sensor data that could indicate compressor overheating
+#ExpectedOutput2: Analysis results showing any anomalies or patterns in the sensor data that could indicate compressor overheating
 
 #Task3: Generate a work order for inspecting Chiller 6 due to suspected compressor overheating based on the analysis
 #Agent3: WorkOrder Agent

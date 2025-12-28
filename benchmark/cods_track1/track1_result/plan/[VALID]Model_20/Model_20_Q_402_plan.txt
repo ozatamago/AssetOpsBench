@@ -1,7 +1,17 @@
 Question: I would like to retrieve the preventive work order details for the equipment labeled as CWC04013 for the year 2017.
 Plan:
  
-We need to output plan with #Task1 etc. Already done. Ensure no extra spaces after colon? It's okay. Ensure #Dependency1: None exactly. Ensure #ExpectedOutput1: one line. Good. No extra lines.assistantfinalassistantfinalassistantfinal#Task1: Retrieve the preventive work order details for equipment CWC04013 for the year 2017.
-#Agent1: WorkOrder Agent
-#Dependency1: None
-#ExpectedOutput1: A JSON list of all preventive work orders for CWC04013 in 2017, each with work order ID, creation date, scheduled date, description, status, and notes.
+We need to ensure format: each line separate, no extra spaces. Use #Task1: ... #Agent1: IoT Data Download #Dependency1: None #ExpectedOutput1: ... etc. Ensure each line separate. No extra spaces at line ends. Provide exactly three steps. Ensure #Dependency2: #S1 not "#S1". Use "#S1". Same for #S2. Provide #ExpectedOutput lines concise. Let's output.assistantfinal_outputassistantfinal_output#Task1: Download the asset history for equipment CWC04013 for the year 2017 (from 2017-01-01T00:00:00-04:00 to 2017-12-31T23:59:59-04:00).  
+#Agent1: IoT Data Download  
+#Dependency1: None  
+#ExpectedOutput1: JSON file (e.g., CWC04013_2017_history.json) containing the 2017 asset history.  
+
+#Task2: Read the JSON file generated in Step 1 to load its contents.  
+#Agent2: IoT Data Download  
+#Dependency2: #S1  
+#ExpectedOutput2: Structured display of the full JSON data from CWC04013_2017_history.json.  
+
+#Task3: Extract and list the preventive work order details (ID, description, scheduled date, status, etc.) for CWC04013 from the 2017 data.  
+#Agent3: IoT Data Download  
+#Dependency3: #S2  
+#ExpectedOutput3: Concise list of preventive work order details for CWC04013 in 2017.

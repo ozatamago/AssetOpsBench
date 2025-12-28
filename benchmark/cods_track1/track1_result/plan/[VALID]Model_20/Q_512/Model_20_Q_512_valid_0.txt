@@ -1,0 +1,3 @@
+ok: False
+errs:
+['Task numbers must be 1..N in order; got [1, 2, 3, 2, 3]', 'Counts of Task/Agent/Dependency/ExpectedOutput must match', "Agent1 unknown 'IoT Data Download  '. Allowed: ['Failure Mode and Sensor Relevancy Expert for Industrial Asset', 'IoT Data Download', 'Time Series Analytics and Forecasting', 'WorkOrder Agent']", "Agent2 unknown 'IoT Data Download  '. Allowed: ['Failure Mode and Sensor Relevancy Expert for Industrial Asset', 'IoT Data Download', 'Time Series Analytics and Forecasting', 'WorkOrder Agent']", "Agent3 unknown 'Time Series Analytics and Forecasting  '. Allowed: ['Failure Mode and Sensor Relevancy Expert for Industrial Asset', 'IoT Data Download', 'Time Series Analytics and Forecasting', 'WorkOrder Agent']"]

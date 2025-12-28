@@ -48,8 +48,12 @@ class NewPlanningWorkflow(Workflow):
         if task.agents is None or len(task.agents) < 1:
             raise ValueError("Task must have at least one agent")
 
-    def run(self, enable_summarization=False):
-        generated_steps, input_tokens_count, generated_tokens_count = self.generate_steps()
+    def run(self, save_plan=False, saved_plan_prefix="", qid=None):
+        generated_steps, input_tokens_count, generated_tokens_count = self.generate_steps(
+            save_plan=save_plan,
+            saved_plan_filename=saved_plan_prefix,
+            qid=qid
+        )
 
         sequential_workflow = SequentialWorkflow(
             tasks=generated_steps, context_type=ContextType.SELECTED

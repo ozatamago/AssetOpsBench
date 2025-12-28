@@ -1,7 +1,7 @@
 Question:  If Evaporator Water side fouling occurs for Chiller 6 at MAIN site, which sensor is most relevant for monitoring this specific failure?
 Plan:
  
-We need to ensure format exactly. No extra spaces at end of lines. Also ensure each line ends with newline. Provide exactly four lines. No extra blank lines. Let's produce.assistantfinalassistantfinalassistantfinal#Task1: Identify the sensor most relevant for monitoring Evaporator Water side fouling on Chiller 6 at the MAIN site.  
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
-#Dependency1: None  
-#ExpectedOutput1: The name of the most relevant sensor (e.g., “Evaporator Inlet Water Temperature sensor”) with a brief justification.
+We need to ensure format exactly. Provide lines as described. No extra spaces? Should be fine. Ensure each line starts with #Task1: etc. No extra blank lines. Provide exactly four lines. Let's output.assistantfinal#Task1: Identify the most relevant sensor for monitoring Evaporator Water side fouling failure of Chiller 6 at MAIN site
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: Name of the sensor that is most relevant for detecting Evaporator Water side fouling in Chiller 6 at the MAIN site.

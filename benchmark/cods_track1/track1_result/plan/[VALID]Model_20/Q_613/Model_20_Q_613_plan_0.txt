@@ -2,47 +2,68 @@ Question: Generate an anomaly detection recipe for detecting compressor motor fa
 Plan:
 We need to produce a plan with fewer than 5 steps, each step includes Task, Agent, Dependency, ExpectedOutput. The problem: "Generate an anomaly detection recipe for detecting compressor motor failure for Chiller 6 at MAIN site."
 
-We need to use the agents: IoT Data Download, Failure Mode and Sensor Relevancy Expert for Industrial Asset, Time Series Analytics and Forecasting, WorkOrder Agent.
+We have agents: IoT Data Download, Failure Mode and Sensor Relevancy Expert for Industrial Asset, Time Series Analytics and Forecasting, WorkOrder Agent.
 
-We need to generate an anomaly detection recipe. Likely we need to get relevant sensors for compressor motor failure (from Failure Mode and Sensor Relevancy Expert), then download sensor data (IoT Data Download), then use Time Series Analytics and Forecasting to analyze data and produce anomaly detection recipe. Possibly also generate a work order? But the problem only asks for anomaly detection recipe, not a work order.
+We need to generate an anomaly detection recipe. Likely we need to get relevant sensors for compressor motor failure (from Failure Mode and Sensor Relevancy Expert), then download sensor data (IoT Data Download), then use Time Series Analytics and Forecasting to analyze for anomalies and produce a recipe (maybe the recipe is a set of steps: data, model, thresholds). The plan should be less than 5 steps.
 
-Thus steps:
+We can do:
 
-1. Identify relevant sensors for compressor motor failure for Chiller 6. Use Failure Mode and Sensor Relevancy Expert. Task: "What are the relevant sensors that can be used to monitor the compressor motor failure of Chiller 6?" Expected output: list of sensor names.
+Step1: Query Failure Mode and Sensor Relevancy Expert for relevant sensors for compressor motor failure of Chiller 6. (Task: list relevant sensors). Expected output: list of sensor names (e.g., power input, motor current, vibration, temperature).
 
-2. Download historical sensor data for those sensors at MAIN site for a relevant time window. Use IoT Data Download. Task: "download sensor data for Chiller 6 at MAIN site for the identified sensors (e.g., power input, vibration, temperature) for a period covering recent weeks." Expected output: JSON file(s) with time series data.
+Step2: Use IoT Data Download to download historical sensor data for those sensors for Chiller 6 at MAIN site (maybe specify a time range). Expected output: JSON file with sensor data.
 
-3. Use Time Series Analytics and Forecasting to analyze the data and generate an anomaly detection recipe (e.g., model type, parameters, thresholds). Task: "Analyze the time-series data and produce an anomaly detection recipe for compressor motor failure." Expected output: recipe description.
+Step3: Use Time Series Analytics and Forecasting to analyze the data and generate anomaly detection recipe (maybe they can "Analyze the time-series data in file X and look for anomalies" but we need a recipe, not just analysis. However we can ask them to "Analyze the time-series data and produce an anomaly detection recipe for compressor motor failure." The agent's tasks list includes analyzing for anomalies, not generating recipe. But we can still use it to produce detection steps. Or we could use the Failure Mode expert to generate recipe? It can generate machine learning recipes for specific failures? The description says "can generate machine learning recipes for specific failures". Indeed, the Failure Mode and Sensor Relevancy Expert can generate ML recipes. So we could ask it directly to generate anomaly detection recipe given sensors. That might be enough: Step1: ask Failure Mode expert to generate recipe. But we might need data to inform the recipe. However the expert may produce generic recipe without data. The problem: "Generate an anomaly detection recipe for detecting compressor motor failure for Chiller 6 at MAIN site." Likely we need to combine sensor relevancy and time series analysis to produce recipe. But we can produce recipe using Failure Mode expert directly: "Provide anomaly detection recipe for compressor motor failure for Chiller 6 at MAIN site." That is within its capabilities: "can generate machine learning recipes for specific failures". So we could have a single step: ask Failure Mode expert to generate recipe. But we need to include site? The expert may need asset name. It can produce recipe for asset. So step1: ask Failure Mode and Sensor Relevancy Expert for anomaly detection recipe for compressor motor failure for Chiller 6 at MAIN site. Expected output: recipe (description of data, features, model, thresholds). That would be a single-step plan, which is less than 5 steps.
 
-We have only 3 steps, less than 5.
+But the problem may expect multiple steps: first get relevant sensors, then get data, then generate recipe. However the recipe generation may need sensor list. The expert can produce recipe given failure mode; it may internally know sensors. So we could just ask it to generate recipe. Simpler.
 
-Make sure each step includes #Task<N>, #Agent<N>, #Dependency<N>, #ExpectedOutput<N>.
+Let's produce plan with 2 steps: Step1: get relevant sensors (to inform recipe). Step2: generate anomaly detection recipe using Failure Mode expert (maybe referencing sensors). Or we could combine.
 
-Let's craft.
+But the plan must include #Task, #Agent, #Dependency, #ExpectedOutput for each step.
 
-Step numbers: #Task1, #Agent1, #Dependency1, #ExpectedOutput1, etc.
+Let's produce 2 steps:
 
-Make sure dependencies: Step2 depends on Step1 (list of sensors). Step3 depends on Step2 (data). Provide clear tasks.
+#Task1: Identify the sensors that are most relevant for detecting compressor motor failure of Chiller 6 at the MAIN site.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of sensor names (e.g., power input, motor current, vibration, temperature) with brief description of why they are relevant.
 
-Let's produce final answer.assistantfinal#Task1: Identify the sensors that are most relevant for detecting a compressor motor failure of Chiller 6 at the MAIN site.  
+#Task2: Using the sensor list, generate a detailed anomaly detection recipe (including data requirements, feature engineering, model type, training strategy, and alert thresholds) for detecting compressor motor failure of Chiller 6 at the MAIN site.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: A structured recipe document (e.g., JSON or markdown) describing steps to build and deploy an anomaly detection model for the specified failure.
+
+That is 2 steps, under 5.
+
+Let's output accordingly. Ensure format exactly as required.
+
+We need to use #Task<N>, #Agent<N>, #Dependency<N>, #ExpectedOutput<N>. Use #S1 for step 1? The spec says #Dependency<N>: use #S1, #S2, ... or None. So we need to label steps as #S1, #S2? Actually they said #Dependency<N>: use #S1, #S2, ... or None. So we need to refer to step numbers as #S1, #S2. But the step naming is #Task<N>. So we can have #Task1, #Agent1, #Dependency1, #ExpectedOutput1. For dependency we refer to #S1? Wait they said "use #S1, #S2, ...". So maybe each step is #S1, #S2. But they also ask to include Task, Agent, Dependency, ExpectedOutput for each step. So we can label steps as #S1, #S2. Then inside each step we have #Task1 etc. But they said "Each step must follow this format:
+#Task<N>: <Describe your task here>
+#Agent<N>: <agent_name>
+#Dependency<N>: <use #S1, #S2, ... or None>
+#ExpectedOutput<N>: <Expected output>"
+
+Thus each step has its own N (1,2...). The Dependency field should reference previous steps using #S1 etc. So we need to define #S1 as step 1? Actually we can just use #S1 to refer to step 1. So for step 2, Dependency is #S1. For step 1, Dependency is None.
+
+Thus we need to output:
+
+#Task1: ...
+#Agent1: ...
+#Dependency1: None
+#ExpectedOutput1: ...
+
+#Task2: ...
+#Agent2: ...
+#Dependency2: #S1
+#ExpectedOutput2: ...
+
+But we also need to define #S1? Not necessary; they just refer to #S1 as step identifier. So we can just use #S1 in Dependency.
+
+Let's produce final answer.assistantfinal#Task1: Identify the sensors that are most relevant for detecting compressor motor failure of **Chiller 6** at the **MAIN** site.  
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
 #Dependency1: None  
-#ExpectedOutput1: A concise list of sensor names (e.g., “Power Input”, “Motor Vibration”, “Motor Current”, “Compressor Discharge Temperature”) that are directly linked to compressor‑motor‑failure detection for Chiller 6.
+#ExpectedOutput1: A concise list of sensor names (e.g., power input, motor current, vibration, temperature) with a brief note on why each sensor is indicative of compressor‑motor failure.  
 
----
-
-#Task2: Download historical time‑series data for the sensors returned in #S1 for Chiller 6 at the MAIN site covering the last 30 days (or a suitable recent window).  
-#Agent2: IoT Data Download  
+#Task2: Using the sensor list from #S1, generate a complete **anomaly‑detection recipe** for compressor‑motor failure of Chiller 6 at the MAIN site. The recipe should specify: data collection window, required preprocessing, feature engineering, model type (e.g., unsupervised LSTM, isolation forest), training/validation strategy, and alert‑threshold logic.  
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
 #Dependency2: #S1  
-#ExpectedOutput2: One or more JSON files (e.g., `chiller6_main_sensors.json`) containing timestamped readings for each identified sensor over the requested period.
-
----
-
-#Task3: Analyze the downloaded sensor data and generate a complete anomaly‑detection recipe for compressor‑motor‑failure. The recipe should specify:  
-  • Pre‑processing steps (e.g., resampling, missing‑value handling)  
-  • Chosen model type (e.g., LSTM‑based auto‑encoder, Prophet residuals, statistical control‑chart)  
-  • Key hyper‑parameters (window size, forecast horizon, threshold calculation method)  
-  • How to map detected anomalies to a compressor‑motor‑failure alert.  
-#Agent3: Time Series Analytics and Forecasting  
-#Dependency3: #S2  
-#ExpectedOutput3: A detailed, ready‑to‑implement anomaly‑detection recipe (textual description plus any configuration snippets) that can be applied to the sensor streams of Chiller 6 at the MAIN site to flag potential compressor‑motor failures.
+#ExpectedOutput2: A structured recipe document (e.g., markdown or JSON) detailing all steps needed to build, train, and deploy an anomaly‑detection model for the specified failure mode.

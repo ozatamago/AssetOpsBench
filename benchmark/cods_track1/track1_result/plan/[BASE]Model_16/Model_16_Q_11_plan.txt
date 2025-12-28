@@ -3,16 +3,21 @@ Plan:
 #Task1: Identify the relevant site and asset for Chiller 6.
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: Site name and asset details for Chiller 6.
+#ExpectedOutput1: Confirmation that the site is "MAIN" and the asset is "Chiller 6" or "CU02004".
 
-#Task2: Determine the start and end dates for the last week of April '20.
+#Task2: Calculate the start and end dates for the last week of April '20.
 #Agent2: IoT Data Download
 #Dependency2: None
-#ExpectedOutput2: Start and end dates for the last week of April '20.
+#ExpectedOutput2: Start and end dates in the required format (e.g., 2020-04-24T00:00:00-04:00 to 2020-04-30T23:59:59-04:00).
 
-#Task3: Download sensor data for Chiller 6 at the MAIN site for the identified date range.
+#Task3: Download sensor data for Chiller 6 at the MAIN site for the calculated date range.
 #Agent3: IoT Data Download
 #Dependency3: #S1, #S2
 #ExpectedOutput3: Sensor data for Chiller 6 at the MAIN site for the last week of April '20.
 
-The plan is complete.
+#Task4: Verify the downloaded data.
+#Agent4: IoT Data Download
+#Dependency4: #S3
+#ExpectedOutput4: Confirmation that the data is correctly downloaded and contains the expected sensor readings.
+
+The provided plan follows the required format and constraints. It is clear, actionable, and uses the available agents to solve the problem in 4 steps.

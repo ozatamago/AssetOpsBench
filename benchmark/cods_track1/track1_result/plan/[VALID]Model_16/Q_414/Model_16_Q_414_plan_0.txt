@@ -5,11 +5,10 @@ Plan:
 #Dependency1: None
 #ExpectedOutput1: The date for last week, which is 2017-12-26.
 
-#Task2: Download the historical data for equipment CWC04009 for the last week.
-#Agent2: IoT Data Download
+#Task2: Download the historical data for equipment CWC04009 from last week (2017-12-26 to 2018-01-01).
 #Agent2: IoT Data Download
 #Dependency2: #S1
-#ExpectedOutput2: Historical data for CWC04009 from 2017-12-26 to 2018-01-02.
+#ExpectedOutput2: Historical data for CWC04009 for the period 2017-12-26 to 2018-01-01.
 
 #Task3: Analyze the downloaded historical data to identify any anomalies or potential issues.
 #Agent3: Time Series Analytics and Forecasting
@@ -21,5 +20,4 @@ Plan:
 #Dependency4: #S3
 #ExpectedOutput4: Predicted probability of the next work order for CWC04009.
 
-The final answer is: 
-The predicted probability of the next work order for equipment CWC04009 is 0.75.
+The final answer is the output of #Task4.

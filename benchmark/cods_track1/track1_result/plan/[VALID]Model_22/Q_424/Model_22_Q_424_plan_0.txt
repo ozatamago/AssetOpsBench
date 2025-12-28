@@ -15,7 +15,7 @@ Plan:
 #Dependency3: #S2
 #ExpectedOutput3: List of corrective work orders for Chiller 9 with equipment ID CWC04009
 
-#Task4: Bundle the corrective work orders together to optimize the maintenance schedule within two weeks
+#Task4: Bundle the corrective work orders to optimize the maintenance schedule within two weeks
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: Optimized maintenance schedule for Chiller 9 with equipment ID CWC04009, including details of each bundle
+#ExpectedOutput4: Bundled corrective work orders for Chiller 9 with equipment ID CWC04009, including details of each bundle

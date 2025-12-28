@@ -13,7 +13,7 @@ Plan:
 #Task3: Verify the list of failure modes with the available sensor data at MAIN site
 #Agent3: IoT Data Download
 #Dependency3: #S2
-#ExpectedOutput3: Confirmation that the identified failure modes can indeed be monitored by the available sensors at MAIN site
+#ExpectedOutput3: Confirmation that the identified failure modes can indeed be monitored with the available sensors at MAIN site
 
 #Task4: Compile the final list of failure modes of Chiller 6 at MAIN site that can be detected by temperature sensors and power input sensors
 #Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset

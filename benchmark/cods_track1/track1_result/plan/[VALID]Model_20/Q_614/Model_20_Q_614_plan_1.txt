@@ -1,46 +1,73 @@
 Question: Purge unit of chiller 6 at MAIN site have possibility to excess purge, what is the plan by the maintenance experts to early detect the failure?
 Plan:
  
-We need to output plan with fewer than 5 steps. Must follow exact format. No extra prose. Provide #Task1, #Agent1, #Dependency1, #ExpectedOutput1, etc.
+We need to produce a plan with fewer than 5 steps. The plan must be in the exact format: #TaskN: <one-line>, #AgentN: <exact agent name>, #DependencyN: None or #S1 #S2 ... (past steps only), #ExpectedOutputN: <one-line>. No extra text.
 
-We need to answer: "Purge unit of chiller 6 at MAIN site have possibility to excess purge, what is the plan by the maintenance experts to early detect the failure?" So we need to produce plan steps.
+We need to ensure the agent names exactly match the allowed list: "IoT Data Download", "Failure Mode and Sensor Relevancy Expert for Industrial Asset", "Time Series Analytics and Forecasting", "WorkOrder Agent". No extra spaces.
 
-We must not include any extra text. Provide exactly lines.
+We need to ensure the step numbers are sequential starting from 1. The dependencies must refer to previous steps using #S1, #S2, etc. Actually the format says "#Dependency<N>: <use #S1, #S2, ... or None>". So we need to use #S1 etc. Not #S1 #S2 but maybe "#S1" or "#S1 #S2". The example uses "#S1, #S2, ...". The instruction says "use #S1, #S2, ...". So we can separate with space or comma? The original plan used "#S1, #S2". Let's follow that: "#Dependency2: #S1". Use comma? The spec says "use #S1, #S2, ...". So we can separate with space or comma. Safer to use "#S1". For multiple dependencies, "#S1, #S2". We'll use "#S1" for single.
 
-Let's produce 4 steps as earlier.
+Now produce plan:
 
-Make sure each line is one line. Use #Task1: ... #Agent1: ... #Dependency1: ... #ExpectedOutput1: ...
+Step 1: Identify relevant sensors for excess purge detection.
 
-Let's craft concise tasks.
+Step 2: Download historical data for those sensors.
 
-Step1: Identify relevant sensors for excess purge detection.
+Step 3: Analyze data for anomalies and define early warning thresholds.
 
-Step2: Download recent sensor data for those sensors.
+Optionally step 4: Generate preventive maintenance work order.
 
-Step3: Analyze data for anomalies indicating excess purge.
+But we need fewer than 5 steps, we can include 4 steps. The question: "what is the plan by the maintenance experts to early detect the failure?" The plan includes sensor identification, data collection, analysis, and work order. So 4 steps is okay.
 
-Step4: Create a preventive maintenance work order based on detection plan.
+Let's produce 4 steps.
 
-Make sure agent names exactly match allowed list.
+Step 1: Use Failure Mode and Sensor Relevancy Expert to list sensors for purge unit excess purge detection.
 
-Agent names: "Failure Mode and Sensor Relevancy Expert for Industrial Asset", "IoT Data Download", "Time Series Analytics and Forecasting", "WorkOrder Agent".
+Step 2: Use IoT Data Download to retrieve sensor data for past 30 days.
 
-Now produce output.assistantfinalassistantfinal#Task1: Identify sensors that can detect excess purge in the purge unit of Chiller 6 at MAIN site.  
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
-#Dependency1: None  
-#ExpectedOutput1: List of relevant sensor names/tags and brief descriptions for monitoring purge‑unit excess purge.  
+Step 3: Use Time Series Analytics and Forecasting to detect anomalies and set thresholds.
 
-#Task2: Download recent historical data for the sensors identified in #S1.  
-#Agent2: IoT Data Download  
-#Dependency2: #S1  
-#ExpectedOutput2: JSON file(s) containing timestamped readings of the identified sensors for the past week.  
+Step 4: Use WorkOrder Agent to create a preventive maintenance work order implementing the monitoring plan.
 
-#Task3: Analyze the downloaded sensor time‑series to detect early‑stage anomalies indicating excess purge.  
-#Agent3: Time Series Analytics and Forecasting  
-#Dependency3: #S2  
-#ExpectedOutput3: Anomaly‑detection report with timestamps, severity scores, and interpretation of potential excess‑purge events.  
+Now format:
 
-#Task4: Generate a preventive‑maintenance work order recommending continuous monitoring and threshold‑based alerts for the purge unit.  
-#Agent4: WorkOrder Agent  
-#Dependency4: #S3  
-#ExpectedOutput4: Work order details including description, priority, recommended sensor thresholds, and inspection schedule.
+#Task1: Identify the failure mode of excess purge in the purge unit of Chiller 6 and list the most relevant sensors for early detection.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of sensors (e.g., purge flow, suction pressure, discharge pressure, temperature) and recommended monitoring parameters.
+
+#Task2: Download historical time‑stamped data for the identified sensors from the MAIN site for the last 30 days.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: JSON file(s) containing the sensor readings for the selected sensors.
+
+#Task3: Perform time‑series anomaly detection on the downloaded data to define early‑warning thresholds for excess purge.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Anomaly detection report with abnormal patterns, suggested threshold values, and a monitoring guideline.
+
+#Task4: Create a preventive maintenance work order that implements the monitoring and early‑warning thresholds for the purge unit.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Work order ID and description outlining the monitoring plan and required actions.
+
+Check counts: 4 tasks, 4 agents, 4 dependencies, 4 expected outputs. All good.
+
+Now output exactly as required, no extra lines. Ensure no extra spaces at end. Use exactly the agent names.
+
+Let's produce final answer.assistantfinal#Task1: Identify the failure mode of excess purge in the purge unit of Chiller 6 and list the most relevant sensors for early detection.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of sensors (e.g., purge flow, suction pressure, discharge pressure, temperature) and recommended monitoring parameters.
+#Task2: Download historical time‑stamped data for the identified sensors from the MAIN site for the last 30 days.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: JSON file(s) containing the sensor readings for the selected sensors.
+#Task3: Perform time‑series anomaly detection on the downloaded data to define early‑warning thresholds for excess purge.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Anomaly detection report with abnormal patterns, suggested threshold values, and a monitoring guideline.
+#Task4: Create a preventive maintenance work order that implements the monitoring and early‑warning thresholds for the purge unit.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Work order ID and description outlining the monitoring plan and required actions.

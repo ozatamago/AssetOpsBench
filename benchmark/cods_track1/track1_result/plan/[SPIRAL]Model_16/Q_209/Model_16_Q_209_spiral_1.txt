@@ -1,0 +1,10 @@
+stop_index: 1
+
+truncated_plan:  
+#Task1: Check if Time Series Analytics and Forecasting agent supports any model with context length 96.
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: List of models supported by Time Series Analytics and Forecasting agent with their context lengths.
+
+status: Accomplished
+can_answer_now:True

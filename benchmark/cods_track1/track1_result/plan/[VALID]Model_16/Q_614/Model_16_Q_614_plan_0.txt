@@ -1,23 +1,23 @@
 Question: Purge unit of chiller 6 at MAIN site have possibility to excess purge, what is the plan by the maintenance experts to early detect the failure?
 Plan:
-#Task1: List all failure modes of Chiller 6.
+#Task1: List all failure modes of Chiller 6
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency1: None
-#ExpectedOutput1: List of failure modes of Chiller 6.
+#ExpectedOutput1: List of failure modes of Chiller 6
 
-#Task2: Identify the relevant sensors that can be used to monitor the excess purge failure of Chiller 6.
+#Task2: Identify relevant sensors for excess purge failure mode of Chiller 6
 #Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency2: #S1
-#ExpectedOutput2: List of relevant sensors for excess purge failure.
+#Dependency2: #Task1
+#ExpectedOutput2: Relevant sensors for excess purge failure mode
 
-#Task3: Analyze the time-series data of the relevant sensors to detect anomalies.
-#Agent3: Time Series Analytics and Forecasting
-#Dependency3: #S2
-#ExpectedOutput3: Anomaly detection results for excess purge failure.
+#Task3: Download historical sensor data for relevant sensors of Chiller 6 at MAIN site
+#Agent3: IoT Data Download
+#Dependency3: #Task2
+#ExpectedOutput3: Historical sensor data for relevant sensors
 
-#Task4: Create a work order for inspecting Chiller 6 due to suspected excess purge.
-#Agent4: WorkOrder Agent
-#Dependency4: #S3
-#ExpectedOutput4: Work order for inspecting Chiller 6.
+#Task4: Analyze the downloaded sensor data to detect anomalies or patterns indicating excess purge
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: #Task3
+#ExpectedOutput4: Anomaly detection or pattern analysis results
 
-The plan involves 4 steps: listing failure modes, identifying relevant sensors, analyzing time-series data for anomalies, and creating a work order for inspection.
+The plan has been generated to address the problem of early detection of excess purge failure in Chiller 6 at the MAIN site. The steps involve identifying failure modes, relevant sensors, downloading historical data, and analyzing it for anomalies.

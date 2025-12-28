@@ -1,29 +1,41 @@
 Question: What was the latest supply humidity from CQPA AHU 1 at site MAIN on sept 3 2015? return in a file
 Plan:
-#Task1: Retrieve the historical data for CQPA AHU 1 at site MAIN on Sept 3, 2015, specifically for the supply humidity.
+#Task1: Download the historical data for CQPA AHU 1 at site MAIN on sept 3 2015 for supply humidity
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: Historical data for supply humidity of CQPA AHU 1 at site MAIN on Sept 3, 2015.
+#ExpectedOutput1: A JSON file containing the historical data for supply humidity
 
-#Task2: Extract the latest supply humidity value from the retrieved historical data.
+#Task2: Extract the latest supply humidity value from the downloaded data
 #Agent2: IoT Data Download
 #Dependency2: #S1
-#ExpectedOutput2: The latest supply humidity value.
+#ExpectedOutput2: The latest supply humidity value
 
-#Task3: Save the latest supply humidity value to a file.
+#Task3: Save the latest supply humidity value to a file
 #Agent3: IoT Data Download
 #Dependency3: #S2
-#ExpectedOutput3: A file containing the latest supply humidity value.
+#ExpectedOutput3: A file containing the latest supply humidity value
 
-The generated plan has 3 steps, which is fewer than 5. 
+The plan has 3 steps, which is fewer than 5. 
 
-Let's analyze the problem:
-1. The task requires retrieving historical data for a specific asset (CQPA AHU 1) at a specific site (MAIN) on a specific date (Sept 3, 2015) for a specific parameter (supply humidity).
-2. The IoT Data Download agent is capable of downloading asset history, which aligns with the task requirements.
+Let's review the plan:
+1. The first task is to download the historical data for CQPA AHU 1 at site MAIN on sept 3 2015 for supply humidity using the IoT Data Download agent.
+2. The second task is to extract the latest supply humidity value from the downloaded data. Although the IoT Data Download agent is used again, it is assumed that it can handle the extraction task as it can read and manipulate JSON files.
+3. The third task is to save the extracted latest supply humidity value to a file, which is also handled by the IoT Data Download agent.
 
-The plan:
-- Task 1 uses the IoT Data Download agent to retrieve the historical data for the specified asset, site, date, and parameter.
-- Task 2 extracts the latest value from the retrieved data. Although the IoT Data Download agent is used again, it is assumed that it can process the data it retrieved.
-- Task 3 saves the extracted latest value to a file, again utilizing the IoT Data Download agent for consistency and because it can handle file operations.
+The plan is clear, actionable, and follows the required format. 
 
-This plan is clear, actionable, and uses the available agents effectively.
+Output ⬇️:
+#Task1: Download the historical data for CQPA AHU 1 at site MAIN on sept 3 2015 for supply humidity
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON file containing the historical data for supply humidity
+
+#Task2: Extract the latest supply humidity value from the downloaded data
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: The latest supply humidity value
+
+#Task3: Save the latest supply humidity value to a file
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: A file containing the latest supply humidity value

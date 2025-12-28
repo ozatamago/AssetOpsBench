@@ -1,0 +1,20 @@
+stop_index: 3
+
+truncated_plan:  
+#Task1: Retrieve the events of equipment CWC04009 for the first week of June 2020.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON file containing the events of equipment CWC04009 for the first week of June 2020.
+
+#Task2: Analyze the retrieved events to categorize them into different event groups such as work order event, alert, and anomaly.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: A summary of the events categorized by event group.
+
+#Task3: Provide a summary based on the event group for work order event, alert, and anomaly.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A JSON output summarizing the events by event group.
+
+status: Accomplished
+can_answer_now:True

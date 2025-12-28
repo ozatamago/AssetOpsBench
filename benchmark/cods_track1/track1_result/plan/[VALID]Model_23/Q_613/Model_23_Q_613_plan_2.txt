@@ -8,14 +8,14 @@ Plan:
 #Task2: Download the sensor data for the relevant sensors identified in Task 1 for Chiller 6 at MAIN site.
 #Agent2: IoT Data Download
 #Dependency2: #S1
-#ExpectedOutput2: Sensor data for the relevant sensors identified in Task 1 for Chiller 6 at MAIN site.
+#ExpectedOutput2: A JSON file containing the sensor data for the relevant sensors identified in Task 1 for Chiller 6 at MAIN site.
 
 #Task3: Analyze the sensor data to detect anomalies that indicate compressor motor failure.
 #Agent3: Time Series Analytics and Forecasting
 #Dependency3: #S2
-#ExpectedOutput3: Anomalies detected in the sensor data that indicate compressor motor failure.
+#ExpectedOutput3: A report detailing the anomalies detected in the sensor data that indicate compressor motor failure.
 
-#Task4: Generate an anomaly detection recipe based on the detected anomalies.
-#Agent4: Time Series Analytics and Forecasting
+#Task4: Generate a work order for maintenance based on the detected anomalies.
+#Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: An anomaly detection recipe for detecting compressor motor failure for Chiller 6 at MAIN site.
+#ExpectedOutput4: A work order for maintenance to address the detected anomalies indicating compressor motor failure.

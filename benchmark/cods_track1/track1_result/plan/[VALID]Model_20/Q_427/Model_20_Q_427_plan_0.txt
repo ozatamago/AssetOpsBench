@@ -1,37 +1,31 @@
 Question: Since we know 80% of alerts are likely spurious, can you identify the meaningful 20% for further analysis for any chillers?
 Plan:
-We need to identify meaningful 20% alerts for any chillers. Use IoT Data Download to get alerts? Not listed. Use Failure Mode and Sensor Relevancy Expert to map failure modes to sensors. Use Time Series Analytics to detect anomalies. Use WorkOrder to create work orders for meaningful alerts. Plan: 1) Download sensor data for chillers (maybe generic). 2) Analyze time series for anomalies to filter meaningful alerts. 3) Identify failure modes associated with anomalies using expert. 4) Generate work orders for those. Need <5 steps. Provide plan.assistantanalysisWe need to produce plan with steps, each with Task, Agent, Dependency, ExpectedOutput. Use available agents only. The problem: "Since we know 80% of alerts are likely spurious, can you identify the meaningful 20% for further analysis for any chillers?" So we need to identify meaningful alerts. Approach: Use IoT Data Download to get sensor data for chillers (maybe all). Then use Time Series Analytics to detect anomalies (meaningful alerts). Then use Failure Mode and Sensor Relevancy Expert to map anomalies to failure modes (to confirm relevance). Then optionally generate work orders for those meaningful alerts using WorkOrder Agent. That's 4 steps, within limit.
+We need to identify meaningful 20% alerts for any chillers. Use agents: IoT Data Download to get sensor data, Failure Mode and Sensor Relevancy Expert to map failures to sensors, Time Series Analytics to detect anomalies, then WorkOrder to create work orders for meaningful alerts. Need <5 steps. Probably 4 steps: 1) download sensor data for chillers (maybe generic). 2) Use Time Series Analytics to detect anomalies (meaningful alerts). 3) Use Failure Mode expert to map anomalies to failure modes. 4) Generate work orders for those meaningful alerts. Provide dependencies. Let's craft plan.assistantfinal**Step #1**  
+**#Task1:** Retrieve recent sensor data for all chillers (e.g., temperature, pressure, power) needed for anomaly detection.  
+**#Agent1:** IoT Data Download  
+**#Dependency1:** None  
+**#ExpectedOutput1:** A set of JSON files (one per chiller) containing time‑stamped sensor readings for the last 7 days for key variables such as “CHILLED WATER LEAVING TEMP”, “CHILLED WATER RETURN TEMP”, “Power Input”, and “Suction Pressure”.
 
-Step1: download sensor data for a chiller (e.g., CHL-A100) for relevant sensors (e.g., "CHILLED WATER LEAVING TEMP" and "CHILLED WATER RETURN TEMP") using IoT Data Download. Expected output: JSON file with time series.
-
-Step2: Analyze time-series data for anomalies using Time Series Analytics and Forecasting. Expected output: list of timestamps and sensor readings flagged as anomalies (meaningful alerts).
-
-Step3: For each identified anomaly, consult Failure Mode and Sensor Relevancy Expert to determine relevant failure modes and confirm significance. Expected output: mapping of anomalies to failure modes and recommended sensors.
-
-Step4: Generate work orders for the confirmed meaningful alerts using WorkOrder Agent. Expected output: work order IDs and details.
-
-Make dependencies accordingly.
-
-Let's craft plan.assistantfinal**Step #1**  
-#Task1: Download recent sensor data for a representative chiller (e.g., CHL‑A100) covering the key temperature sensors “CHILLED WATER LEAVING TEMP” and “CHILLED WATER RETURN TEMP”.  
-#Agent1: IoT Data Download  
-#Dependency1: None  
-#ExpectedOutput1: A JSON file (e.g., `chiller_A100_temp_data.json`) containing timestamped readings for the two temperature sensors over the last 7 days.  
+---
 
 **Step #2**  
-#Task2: Run an anomaly‑detection analysis on the temperature time‑series in `chiller_A100_temp_data.json` to flag data points that deviate sharply from normal behavior (these are the candidate “meaningful” alerts).  
-#Agent2: Time Series Analytics and Forecasting  
-#Dependency2: #S1  
-#ExpectedOutput2: A list (or JSON) of anomaly records – each entry includes the sensor name, timestamp, observed value, and an anomaly‑score flagging it as a potential true alert.  
+**#Task2:** Run anomaly detection on each chiller’s sensor time‑series to isolate the ~20 % of alerts that are statistically significant (i.e., not spurious).  
+**#Agent2:** Time Series Analytics and Forecasting  
+**#Dependency2:** #S1  
+**#ExpectedOutput2:** For each chiller, a list of timestamps and sensor names flagged as anomalous (e.g., sudden spikes, out‑of‑range values) together with anomaly scores.
+
+---
 
 **Step #3**  
-#Task3: For each flagged anomaly, query the Failure Mode and Sensor Relevancy Expert to identify which failure modes could be indicated by the anomalous sensor reading and to confirm whether the sensor is relevant for that failure mode.  
-#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
-#Dependency3: #S2  
-#ExpectedOutput3: A mapping that pairs each anomaly (sensor + timestamp) with one or more plausible failure modes (e.g., “compressor overheating”, “loose wiring”) and a confidence indicator that the anomaly is likely a true fault rather than a spurious alert.  
+**#Task3:** Map each detected anomaly to its most likely failure mode and identify the most relevant sensor(s) for that failure.  
+**#Agent3:** Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+**#Dependency3:** #S2  
+**#ExpectedOutput3:** A table per chiller linking each anomalous sensor reading to a probable failure mode (e.g., compressor overheating, loose wiring) and confirming the sensor’s relevance.
+
+---
 
 **Step #4**  
-#Task4: Create work orders for the anomalies that are linked to high‑confidence failure modes (i.e., the meaningful 20 % of alerts) so that they can be investigated further.  
-#Agent4: WorkOrder Agent  
-#Dependency4: #S3  
-#ExpectedOutput4: A set of newly generated work orders (e.g., WO‑2023‑00123, WO‑2023‑00124) with descriptions, assigned assets, and recommended corrective actions for each validated alert.  
+**#Task4:** Generate work orders for the meaningful alerts (the 20 % identified) to initiate corrective or preventive actions.  
+**#Agent4:** WorkOrder Agent  
+**#Dependency4:** #S3  
+**#ExpectedOutput4:** A set of work orders (one per meaningful alert) containing: chiller ID, failure mode, affected sensor, recommended action, priority level, and a unique work‑order ID.

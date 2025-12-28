@@ -13,9 +13,9 @@ Plan:
 #Task3: If anomalies are detected, create a work order for inspecting Chiller 6 due to the detected anomalies
 #Agent3: WorkOrder Agent
 #Dependency3: #S2
-#ExpectedOutput3: A work order for inspecting Chiller 6, if anomalies were detected in the previous step
+#ExpectedOutput3: A work order for inspecting Chiller 6, including details of the detected anomalies and recommended actions
 
 #Task4: If no anomalies are detected, provide a confirmation that no anomalies were found in Chiller 6's Return Temperature during the specified week
 #Agent4: Time Series Analytics and Forecasting
 #Dependency4: #S2
-#ExpectedOutput4: A confirmation message stating that no anomalies were detected in Chiller 6's Return Temperature during the specified week
+#ExpectedOutput4: A confirmation message stating that no anomalies were detected in Chiller 6's Return Temperature during the week of 2020-04-27 at the MAIN site

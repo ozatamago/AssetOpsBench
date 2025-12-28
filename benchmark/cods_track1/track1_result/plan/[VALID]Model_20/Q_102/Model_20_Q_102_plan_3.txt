@@ -1,7 +1,12 @@
 Question: List all failure modes of asset Chiller 6.
 Plan:
  
-We need to output plan with fewer than 5 steps. Only one step needed. Ensure format exactly. No extra spaces? Should be fine. Provide #Task1 line, #Agent1 line, #Dependency1 line, #ExpectedOutput1 line. No extra blank lines. Ensure agent name matches exactly: "Failure Mode and Sensor Relevancy Expert for Industrial Asset". No trailing spaces. Provide expected output concise. Let's output.assistantfinal#Task1: List all failure modes of asset Chiller 6.
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency1: None
-#ExpectedOutput1: A comprehensive list of failure modes applicable to Chiller 6.
+#Task1: 
+We need to output plan. The problem: "List all failure modes of asset Chiller 6." So we need a single step using Failure... Provide expected output. Ensure format exactly. No extra blank lines. Provide exactly four lines. Let's craft.
+
+#Task1: List ... etc.assistantanalysisWe need to output plan with correct format. Ensure no extra spaces after agent name. The agent name must match exactly: "Failure Mode and Sensor Relevancy Expert for Industrial Asset". No trailing spaces. Provide #Dependency1: None. Provide #ExpectedOutput1: description. Ensure each line starts with #Task1:, #Agent1:, #Dependency1:, #ExpectedOutput1:.
+
+Also ensure no extra blank lines. Provide final answer.assistantfinal#Task1: List all failure modes of asset Chiller 6.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: A complete list of Chiller 6 failure modes (e.g., compressor failure, refrigerant leak, sensor drift, loose wiring, etc.)

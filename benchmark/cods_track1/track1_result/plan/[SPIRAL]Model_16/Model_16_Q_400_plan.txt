@@ -1,0 +1,7 @@
+Question: Get the work order of equipment CWC04013 for year 2017.
+Plan:
+ 
+#Task1: Retrieve the work order for equipment CWC04013 for the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: Work order details for equipment CWC04013 for the year 2017.

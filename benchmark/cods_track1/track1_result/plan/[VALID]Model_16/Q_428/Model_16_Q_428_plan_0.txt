@@ -1,23 +1,23 @@
 Question: Could you generate rules that help distinguish meaningful alerts from spurious ones?
 Plan:
-#Task1: Identify the relevant assets and their associated sensors for which alerts are generated.
+#Task1: Identify the relevant assets and their corresponding sensors for which alerts are generated.
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: List of assets and their associated sensors.
+#ExpectedOutput1: List of assets and their corresponding sensors.
 
 #Task2: Analyze the historical data for the identified assets and sensors to understand the patterns and anomalies.
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
 #ExpectedOutput2: Insights into patterns and anomalies in the historical data.
 
-#Task3: Determine the failure modes associated with the identified assets and their mapping to sensors.
+#Task3: Determine the failure modes associated with the identified assets and sensors, and their mapping to relevant sensors.
 #Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency3: #S1
-#ExpectedOutput3: List of failure modes and their associated sensors for the identified assets.
+#Dependency3: #S1, #S2
+#ExpectedOutput3: Failure modes and their mapping to relevant sensors.
 
 #Task4: Generate rules based on the insights from historical data analysis and failure mode mapping to distinguish meaningful alerts from spurious ones.
 #Agent4: WorkOrder Agent
 #Dependency4: #S2, #S3
-#ExpectedOutput4: Rules for distinguishing meaningful alerts from spurious ones.
+#ExpectedOutput4: Rules to distinguish meaningful alerts from spurious ones.
 
 The plan is complete.

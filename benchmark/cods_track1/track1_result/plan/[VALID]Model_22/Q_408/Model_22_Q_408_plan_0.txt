@@ -5,10 +5,10 @@ Plan:
 #Dependency1: None
 #ExpectedOutput1: JSON file containing sensor data for CWC04009 for May 2020
 
-#Task2: Analyze the time-series data in the JSON file from Task1 and identify anomalies and alerts
+#Task2: Analyze the time-series data in the JSON file from Task1 and identify any anomalies and alerts
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: List of anomalies and alerts with timestamps for CWC04009 for May 2020
+#ExpectedOutput2: List of anomalies and alerts detected in the time-series data for CWC04009 for May 2020
 
 #Task3: Count the daily occurrences of anomalies and alerts from the list obtained in Task2
 #Agent3: Time Series Analytics and Forecasting

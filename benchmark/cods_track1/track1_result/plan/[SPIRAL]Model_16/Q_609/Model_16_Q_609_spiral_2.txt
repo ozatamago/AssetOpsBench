@@ -1,0 +1,15 @@
+stop_index: 2
+
+truncated_plan:  
+#Task1: List all failure modes of Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of failure modes of Chiller 6, including Compressor Overheating.
+
+#Task2: Identify the relevant sensors for the failure mode "Compressor Overheating" of Chiller 6.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: List of sensors relevant to Compressor Overheating of Chiller 6.
+
+status: Accomplished
+can_answer_now:True

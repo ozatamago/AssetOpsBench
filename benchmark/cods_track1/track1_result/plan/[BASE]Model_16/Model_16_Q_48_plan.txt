@@ -8,13 +8,11 @@ Plan:
 #Task2: Extract the return temperature from the retrieved historical data.
 #Agent2: IoT Data Download
 #Dependency2: #S1
-#ExpectedOutput2: Return temperature value for CQPA AHU 2B at Site MAIN on Sept 19, 2020 at 7pm.
+#ExpectedOutput2: Return temperature value.
 
-#Task3: Save the return temperature data to a file.
+#Task3: Save the return temperature data in a file.
 #Agent3: IoT Data Download
 #Dependency3: #S2
 #ExpectedOutput3: A file containing the return temperature data.
 
-The generated plan has 3 steps, which is fewer than 5. The plan uses the IoT Data Download agent to retrieve the historical data, extract the return temperature, and save it to a file. The dependencies are clearly specified, and the expected outputs are well-defined. 
-
-Let's execute this plan!
+The generated plan is a 3-step process that uses the IoT Data Download agent to retrieve historical data, extract the return temperature, and save it to a file.

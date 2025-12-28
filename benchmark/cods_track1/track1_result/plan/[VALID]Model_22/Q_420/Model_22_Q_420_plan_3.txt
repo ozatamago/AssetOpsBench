@@ -3,7 +3,7 @@ Plan:
  #Task1: Download sensor data for CWC04009 at SiteX for June 2020
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: A JSON file containing the sensor data for CWC04009 at SiteX for June 2020
+#ExpectedOutput1: A JSON file containing sensor data for CWC04009 at SiteX for June 2020
 
 #Task2: Analyze the time-series data in the JSON file from #S1 and look for anomalies in Chiller 9 performance
 #Agent2: Time Series Analytics and Forecasting

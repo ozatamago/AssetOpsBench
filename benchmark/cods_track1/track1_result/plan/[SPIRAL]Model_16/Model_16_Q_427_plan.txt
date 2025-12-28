@@ -1,0 +1,18 @@
+Question: Since we know 80% of alerts are likely spurious, can you identify the meaningful 20% for further analysis for any chillers?
+Plan:
+ 
+
+#Task1: Identify the list of chillers and their associated sensors
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of chillers and their associated sensors
+
+#Task2: Download sensor data for the identified chillers
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Sensor data for the chillers
+
+#Task3: Analyze the downloaded sensor data to identify anomalies or alerts
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Identified anomalies or alerts in the sensor data

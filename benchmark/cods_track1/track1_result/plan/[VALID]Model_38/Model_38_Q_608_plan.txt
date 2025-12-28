@@ -10,7 +10,7 @@ Plan:
 #Dependency2: #S1
 #ExpectedOutput2: Confirmation if MAIN site has Chiller 6 with vibration sensor data
 
-#Task3: If Chiller 6 with vibration sensor data exists at MAIN site, analyze the data for predictive failure modes
+#Task3: If Chiller 6 with vibration sensor data exists at MAIN site, analyze the data for anomalies or patterns indicating failure modes
 #Agent3: Time Series Analytics and Forecasting
 #Dependency3: #S2
-#ExpectedOutput3: Analysis of vibration sensor data for predictive failure modes of Chiller 6 at MAIN site
+#ExpectedOutput3: Analysis of vibration sensor data for Chiller 6 at MAIN site, identifying any anomalies or patterns indicating failure modes

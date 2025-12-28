@@ -63,7 +63,17 @@ RESULT_DIR = "/home/track1_result/"
 PLAN_DIR = RESULT_DIR + "plan/"
 TRAJECTORY_DIR = RESULT_DIR + "trajectory/"
 SUMMARY_DIR = RESULT_DIR + "summary/"
-EXPDIR = RESULT_DIR + "exp/"
+EXP_DIR = RESULT_DIR + "exp/"
+
+
+def _write_time_token_file(path: str, payload: dict) -> None:
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    if not path.endswith(".txt"):
+        path += ".txt"
+    with open(path, "w") as f:
+        # Human-readable + machine-readable
+        f.write(json.dumps(payload, indent=2, sort_keys=True))
+        f.write("\n")
 
 human_scored_triplets= """
 Q6
@@ -653,20 +663,31 @@ def run_planning_workflow(
         llm=llm_model,
     )
 
+    plan_subdir = os.path.join(PLAN_DIR, f"[SPIRAL]Model_{llm_model}")
+    question_subdir = os.path.join(plan_subdir, f"Q_{qid}")
+    os.makedirs(question_subdir, exist_ok=True)
+
+    saved_plan_prefix = os.path.join(question_subdir, f"Model_{llm_model}_Q_{qid}")
+
     if generate_steps_only:
         os.makedirs(PLAN_DIR, exist_ok=True)
 
         return wf.generate_steps(
             save_plan=True,
-            saved_plan_filename=RESULT_DIR + f"Model_{llm_model}_Q_{qid}_plan",
+            saved_plan_filename=saved_plan_prefix,
+            qid=qid
         )
     
-    history, run_id, plan_id, input_tokens_count, generated_tokens_count = wf.run(qid=qid)
+    history, run_id, plan_id, input_tokens_count, generated_tokens_count = wf.run(save_plan=True, saved_plan_prefix=saved_plan_prefix, qid=qid)
 
     return history, run_id, plan_id, input_tokens_count, generated_tokens_count
 
-def run(utterances, generate_steps_only=False):
+def run(utterances, generate_steps_only=False, llm_model=16):
     os.makedirs(TRAJECTORY_DIR, exist_ok=True)
+    os.makedirs(EXP_DIR, exist_ok=True)
+    exp_subdir = os.path.join(EXP_DIR, f"[SPIRAL]Model_{llm_model}")
+    os.makedirs(exp_subdir, exist_ok=True)    
+
 
     start_time = time.perf_counter()
     input_tokens_count=0
@@ -674,19 +695,19 @@ def run(utterances, generate_steps_only=False):
 
     for utterance in utterances:
         print(f"\n\n\n\n\nSenario ID: {utterance['id']}")
+        start_time = time.perf_counter()
+        input_tokens_count=0
+        generated_tokens_count=0
+
         logger.info("=" * 10)
         logger.info(f"ID: {utterance['id']}, Task: {utterance['text']}")
-        dag_file = f"{PLAN_DIR}Q_{utterance['id']}_finalplan.json"
         trajectory_file = f"{TRAJECTORY_DIR}Q_{utterance['id']}_trajectory.json"
 
-        # ans, run_id, plan_id = run_planning_workflow(
-        #     utterance["text"],
-        #     utterance["id"],
-        #     generate_steps_only=generate_steps_only,
-        # )
+
         ans, run_id, plan_id, input_tokens, generated_tokens= run_planning_workflow(
             utterance["text"],
             utterance["id"],
+            llm_model=llm_model,
             generate_steps_only=generate_steps_only,
         )
         input_tokens_count+=input_tokens
@@ -718,35 +739,22 @@ def run(utterances, generate_steps_only=False):
         input_tokens_count+=input_tokens
         generated_tokens_count+=generated_tokens
 
-        # score_result = auto_score_dag_trajectory(
-        #     dag_path=dag_file,
-        #     traj_path=trajectory_file,
-        #     human_scored_triplets=human_scored_triplets,
-        #     model_id=16,
-        # )
-        # print(json.dumps(score_result, ensure_ascii=False, indent=2))
+        end_time = time.perf_counter()
+        elapsed = end_time - start_time
+        print(f"[run] total elapsed time: {elapsed:.2f} seconds")
+        print(f"[run] total input_tokens: {input_tokens_count}")
+        print(f"[run] total generated_tokens: {generated_tokens_count}")
 
-        # saved_row = save_dag_traj_score(
-        #     db_url=os.environ["DATABASE_URL"],
-        #     plan_id=plan_id,
-        #     doc_id=doc_id,
-        #     score=score_result["Q"],   # ← num_edit / correct / num_partially / num_not / error_analysis
-        # )
-        # print("saved score_id:", saved_row["score_id"])
+        payload = {
+            "llm_model": llm_model,
+            "qid": utterance["id"],  # if this is per-question; otherwise remove
+            "elapsed_seconds": elapsed,
+            "total_input_tokens": input_tokens_count,
+            "total_generated_tokens": generated_tokens_count,
+        }
 
-    # ★ stop timer after the for-loop
-    end_time = time.perf_counter()
-    elapsed = end_time - start_time
-
-    # log / print total time
-    logger.info(
-        f"Processed {len(utterances)} utterances in {elapsed:.2f} seconds "
-        f"(average {elapsed/len(utterances):.2f} s per utterance)" if utterances else
-        "No utterances to process."
-    )
-    print(f"[run] total elapsed time: {elapsed:.2f} seconds")
-    print(f"[run] total input_tokens: {input_tokens_count}")
-    print(f"[run] total generated_tokens: {generated_tokens_count}")
+        time_token_path = os.path.join(exp_subdir, f"Model_{llm_model}_Q_{utterance['id']}_time_token.txt")
+        _write_time_token_file(time_token_path, payload)
 
 
 
@@ -755,12 +763,14 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--utterance_ids", type=str, default="1,106")
     parser.add_argument("--generate_steps_only", type=bool, default=False)
+    parser.add_argument("--llm_model", type=int, default=16)
 
     args = parser.parse_args()
     utterance_ids = [int(uid.strip()) for uid in args.utterance_ids.split(",")]
-    utterances = load_scenarios(utterance_ids)
+    utterances = load_scenarios(utterance_ids)    
 
     run(
         utterances,
         generate_steps_only=args.generate_steps_only,
+        llm_model=args.llm_model
     )

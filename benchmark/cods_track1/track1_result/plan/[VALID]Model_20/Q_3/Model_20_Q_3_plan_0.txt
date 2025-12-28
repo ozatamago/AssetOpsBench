@@ -1,13 +1,15 @@
 Question: What assets can be found at the MAIN site?
 Plan:
-We need to answer: "What assets can be found at the MAIN site?" Use IoT Data Download agent. Task: ask "what assets are at site MAIN". Provide expected output list of assets. Only one step needed. Provide plan with fewer than 5 steps. So step #1. Provide format. Let's craft.
+We need to answer: "What assets can be found at the MAIN site?" Use IoT Data Download agent. Task: ask "what assets are at site MAIN". Provide expected output list of assets. Only one step needed. Provide plan with fewer than 5 steps. So one step.
 
-#Task1: Retrieve list of assets located at the MAIN site.
+Let's format:
+
+#Task1: Retrieve the list of assets located at the MAIN site.
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: JSON array or plain list containing the names/IDs of all assets at the MAIN site.
+#ExpectedOutput1: A JSON or plain text list of asset identifiers and descriptions present at the MAIN site.
 
-That's it. Ensure format exactly. Provide plan.assistantfinal#Task1: Retrieve the list of assets located at the MAIN site.  
+Return plan.assistantfinal#Task1: Retrieve the list of assets located at the MAIN site.  
 #Agent1: IoT Data Download  
 #Dependency1: None  
-#ExpectedOutput1: A JSON array (or plain list) enumerating all asset names/IDs present at the MAIN site.
+#ExpectedOutput1: A JSON (or plain‑text) list containing the identifiers and brief descriptions of all assets present at the MAIN site.

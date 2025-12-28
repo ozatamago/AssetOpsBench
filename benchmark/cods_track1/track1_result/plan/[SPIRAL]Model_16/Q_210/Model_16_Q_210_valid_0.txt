@@ -1,0 +1,3 @@
+ok: False
+errs:
+["Agent2 unknown 'base ReAct agent'. Allowed: ['Failure Mode and Sensor Relevancy Expert for Industrial Asset', 'IoT Data Download', 'Time Series Analytics and Forecasting', 'WorkOrder Agent']"]

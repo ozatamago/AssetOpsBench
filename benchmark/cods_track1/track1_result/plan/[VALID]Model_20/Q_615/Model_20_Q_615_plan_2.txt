@@ -1,24 +1,22 @@
 Question: Generate a machine learning recipe for detecting overheating failure for Chiller 6 at MAIN site. Result should include feature sensors and target sensor.
 Plan:
  
-We need to produce a plan with fewer than 5 steps to generate a machine learning recipe for detecting overheating failure for Chiller 6 at MAIN site. The recipe should include feature sensors and target sensor.
+We need to correct the plan: The original plan uses Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset. That's allowed. The issue: validator said "Agent1 unknown 'Failure Mode and Sensor Relevancy Expert for Industrial Asset  '. Allowed: ['Failure Mode and Sensor Relevancy Expert for Industrial Asset', ...]" maybe there is extra space at end. In original plan, they wrote "Failure Mode and Sensor Relevancy Expert for Industrial Asset  " with two spaces? Actually they wrote "Failure Mode and Sensor Relevancy Expert for Industrial Asset  ". The plan includes trailing spaces maybe causing unknown. We need to output corrected plan with exact agent name: "Failure Mode and Sensor Relevancy Expert for Industrial Asset". Also need to ensure format: #Task1: ... #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset #Dependency1: None #ExpectedOutput1: ... all in one line each.
 
-We have agents: IoT Data Download (to get sensor data), Failure Mode and Sensor Relevancy Expert for Industrial Asset (to provide relevant sensors for failure mode), Time Series Analytics and Forecasting (to analyze data, but not needed for recipe generation), WorkOrder Agent (not needed). The recipe generation likely requires the Failure Mode and Sensor Relevancy Expert to list relevant sensors for overheating failure, and maybe also to provide target sensor (maybe the sensor that indicates overheating, like compressor temperature). The problem: "Generate a machine learning recipe for detecting overheating failure for Chiller 6 at MAIN site. Result should include feature sensors and target sensor."
+The ExpectedOutput should be one line (concise). Must be one line, not multi-line. Provide a concise description.
 
-Thus we need to ask the Failure Mode and Sensor Relevancy Expert for the relevant sensors for overheating failure of Chiller 6, and also which sensor should be target (maybe "Compressor Temperature" or "Power Input" etc). The agent can answer: "What are the relevant sensors that can be used to monitor the loose wiring failure of Chiller 6? If compressor overheating occurs for Chiller 6, which sensor should be prioritized for monitoring this specific failure?" That's task 3. So we can ask that. The answer will include relevant sensors and prioritized sensor. That can be used as feature sensors and target sensor.
+Let's craft:
 
-Thus we need a single step: ask the Failure Mode and Sensor Relevancy Expert for sensors for overheating failure. The expected output: list of feature sensors and target sensor.
-
-Thus plan:
-
-#Task1: Identify the feature sensors and target sensor for detecting compressor overheating failure of Chiller 6 at MAIN site.
+#Task1: Generate ML recipe for detecting overheating failure of Chiller 6 at MAIN site, specifying target sensor and feature sensors.
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency1: None
-#ExpectedOutput1: List of relevant feature sensors and the prioritized target sensor for monitoring compressor overheating in Chiller 6.
+#ExpectedOutput1: Recipe including failure description, target sensor (e.g., compressor temperature), list of relevant feature sensors with brief justification, preprocessing steps, recommended model type/algorithm, and evaluation metrics.
 
-That's it. Ensure format. Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1.
+All one line each.
 
-Let's output.assistantfinal#Task1: Identify the feature sensors and target sensor for detecting compressor overheating failure of Chiller 6 at MAIN site.
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency1: None
-#ExpectedOutput1: List of relevant feature sensors and the prioritized target sensor for monitoring compressor overheating in Chiller 6.
+Check length: okay.
+
+Return only those lines. No extra.assistantfinal#Task1: Generate ML recipe for detecting overheating failure of Chiller 6 at MAIN site, specifying target sensor and feature sensors.  
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency1: None  
+#ExpectedOutput1: Recipe including failure description, target sensor (e.g., compressor temperature), list of relevant feature sensors with brief justification, preprocessing steps, recommended model type/algorithm, and evaluation metrics.

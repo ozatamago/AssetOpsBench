@@ -1,43 +1,64 @@
 Question: When an anomaly happens for equipment CWC04009, can you recommend a list of candidate work orders and give me a summary of work order as percentage?
 Plan:
  
-We need to output plan lines exactly as format. Must include #TaskN, #AgentN, #DependencyN, #ExpectedOutputN. No extra text. Ensure each line separate. Provide 4 steps as described. Ensure no line breaks within a line. Use exact agent names. Provide dependencies as "#S1" etc. Use "None" for first. Provide concise one-line expected output. Let's craft.
+We need to produce a plan with fewer than 5 steps (so max 4). Must include Task, Agent, Dependency, ExpectedOutput. Must be sequential numbers 1..N. Must use allowed agents exactly as names. No extra spaces. Must be clear.
 
-Lines:
+Goal: When an anomaly happens for equipment CWC04009, recommend a list of candidate work orders and give summary of work order as percentage.
 
-#Task1: Retrieve recent sensor data for equipment CWC04009 for the past week.
+We need to use agents to achieve this. Steps:
+
+1. Get sensor data for CWC04009. Use IoT Data Download. Task: download sensor data for CWC04009 (maybe specify site unknown). We'll assume generic.
+
+2. Analyze data for anomalies. Use Time Series Analytics and Forecasting. Input file from step1.
+
+3. Identify relevant failure modes for the detected anomaly. Use Failure Mode and Sensor Relevancy Expert for Industrial Asset. Provide anomaly info.
+
+4. Generate candidate work orders based on failure modes and provide percentage summary. Use WorkOrder Agent. Since WorkOrder Agent can create specific work orders, we can ask it to generate a list and summary. We'll assume it can.
+
+Thus 4 steps.
+
+Now format:
+
+#Task1: Download recent sensor data for equipment CWC04009
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: JSON file cwc04009_data.json with timestamped sensor readings.
+#ExpectedOutput1: JSON file containing sensor readings for CWC04009
 
-#Task2: Detect anomalies in the time‑series data from cwc04009_data.json for each sensor.
+#Task2: Detect anomalies in the sensor data file from step 1 for CWC04009
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: List of anomaly records (timestamp, sensor) identified.
+#ExpectedOutput2: List of detected anomalies with timestamps and affected sensor names
 
-#Task3: Map each detected anomaly to likely failure modes and recommend inspection actions.
+#Task3: Determine failure modes related to the anomalies identified for CWC04009
 #Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency3: #S2
-#ExpectedOutput3: Mapping of anomalies to candidate failure modes and key sensors.
+#ExpectedOutput3: List of candidate failure modes and associated recommended sensors for each anomaly
 
-#Task4: Generate candidate work orders based on the failure‑mode mapping and provide a percentage breakdown of work‑order types.
+#Task4: Create candidate work orders for the failure modes and provide a percentage breakdown of work order types
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: List of work order titles with brief descriptions and a summary table showing each work‑order category percentage.
+#ExpectedOutput4: List of work order descriptions for CWC04009 with a summary showing each work order type as a percentage of the total
 
-Make sure each line is separate, no extra blank lines? Probably okay to have blank lines? The instruction: Output ONLY lines in this exact format, no extra prose. Might allow blank lines between steps? Safer to not include blank lines. Provide continuous lines. Let's output without blank lines.assistantfinal>#Task1: Retrieve recent sensor data for equipment CWC04009 for the past week.  
-#Agent1: IoT Data Download  
-#Dependency1: None  
-#ExpectedOutput1: JSON file cwc04009_data.json with timestamped sensor readings.  
-#Task2: Detect anomalies in the time‑series data from cwc04009_data.json for each sensor.  
-#Agent2: Time Series Analytics and Forecasting  
-#Dependency2: #S1  
-#ExpectedOutput2: List of anomaly records (timestamp, sensor) identified.  
-#Task3: Map each detected anomaly to likely failure modes and recommend inspection actions.  
-#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
-#Dependency3: #S2  
-#ExpectedOutput3: Mapping of anomalies to candidate failure modes and key sensors.  
-#Task4: Generate candidate work orders based on the failure‑mode mapping and provide a percentage breakdown of work‑order types.  
-#Agent4: WorkOrder Agent  
-#Dependency4: #S3  
-#ExpectedOutput4: List of work order titles with brief descriptions and a summary table showing each work‑order category percentage.
+Check formatting: Must be exactly "#TaskN:" etc. No extra spaces after agent names. Ensure agent names match exactly: "IoT Data Download", "Time Series Analytics and Forecasting", "Failure Mode and Sensor Relevancy Expert for Industrial Asset", "WorkOrder Agent". No trailing spaces.
+
+Dependencies: Use "#S1" etc. The spec says "#Dependency<N>: <use #S1, #S2, ... or None>". So we need "#Dependency2: #S1". Not "#S1". Good.
+
+Now produce final answer.assistantfinal#Task1: Download recent sensor data for equipment CWC04009
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file containing sensor readings for CWC04009
+
+#Task2: Detect anomalies in the sensor data file from step 1 for CWC04009
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: List of detected anomalies with timestamps and affected sensor names
+
+#Task3: Determine failure modes related to the anomalies identified for CWC04009
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S2
+#ExpectedOutput3: List of candidate failure modes and associated recommended sensors for each anomaly
+
+#Task4: Create candidate work orders for the failure modes and provide a percentage breakdown of work order types
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: List of work order descriptions for CWC04009 with a summary showing each work order type as a percentage of the total

@@ -1,27 +1,14 @@
 Question: Can you provide guidance on bundling corrective work orders together to optimize the maintenance schedule for Chiller 9 with equipment ID CWC04009 covering years of 2017, 2018 and 2019, bundle has to be happen within two weeks and have at least two work orders, also tell the details of each bundle?
 Plan:
  
-We need to output plan lines exactly as required. The previous answer was truncated. Need to produce full plan with two steps. Ensure each line is one line, no extra spaces. Use exact agent name "WorkOrder Agent". Ensure #Dependency2: #S1 (since step1 is S1). Ensure #ExpectedOutput lines are one line (no line breaks). Provide concise one-line description.
+The user gave a plan with #Task1 etc. We need to output only lines in exact format, no extra prose, no markdown. Must follow tags exactly: #TaskN: <one-line>, #AgentN: <exact agent name>, #DependencyN: None | #S1 #S2 ..., #ExpectedOutputN: <one-line>. Use N sequentially. Only allowed agents. The plan we gave earlier is okay but we need to ensure each line is one line, no extra line breaks. The #ExpectedOutput line must be one line, but we can include semicolons or commas. Must be concise one line. Let's craft.
 
-Let's craft:
+#Task1: Request bundling guidance for corrective work orders for Chiller 9 (CWC04009) covering 2017‑2019, each bundle within two weeks and at least two work orders, with details of each bundle.  
+#Agent1: WorkOrder Agent  
+#Dependency1: None  
+#ExpectedOutput1: Recommendation listing number of bundles, work‑order IDs/descriptions, failure types, two‑week windows, required resources, and justification for each bundle. 
 
-#Task1: Retrieve historical corrective work orders for Chiller 9 (equipment ID CWC04009) for years 2017, 2018, and 2019
-#Agent1: WorkOrder Agent
-#Dependency1: None
-#ExpectedOutput1: List of corrective work orders with IDs, dates, failure descriptions, and related sensor/failure mode info
-
-#Task2: Generate a bundling plan that groups the retrieved work orders into bundles of at least two orders, each scheduled within a two‑week window, and provide details for each bundle (order IDs, scheduled dates, resources, rationale)
-#Agent2: WorkOrder Agent
-#Dependency2: #S1
-#ExpectedOutput2: Bundling recommendation listing each bundle with work order IDs, planned execution dates, required resources, and justification
-
-Make sure each line is one line, no extra spaces at ends. Use #ExpectedOutput lines as one line.
-
-Let's output.assistantfinal_outputassistantfinal_output#Task1: Retrieve historical corrective work orders for Chiller 9 (equipment ID CWC04009) for years 2017, 2018, and 2019
-#Agent1: WorkOrder Agent
-#Dependency1: None
-#ExpectedOutput1: List of corrective work orders with IDs, dates, failure descriptions, and related sensor/failure mode info
-#Task2: Generate a bundling plan that groups the retrieved work orders into bundles of at least two orders, each scheduled within a two‑week window, and provide details for each bundle (order IDs, scheduled dates, resources, rationale)
-#Agent2: WorkOrder Agent
-#Dependency2: #S1
-#ExpectedOutput2: Bundling recommendation listing each bundle with work order IDs, planned execution dates, required resources, and justification
+Make sure each line is one line. No extra spaces at start? It's fine. Ensure no markdown. Provide exactly four lines. Let's output.assistantfinal#Task1: Request bundling guidance for corrective work orders for Chiller 9 (CWC04009) covering 2017‑2019, each bundle within two weeks and at least two work orders, with details of each bundle.  
+#Agent1: WorkOrder Agent  
+#Dependency1: None  
+#ExpectedOutput1: Recommendation listing number of bundles, work‑order IDs/descriptions, failure types, two‑week windows, required resources, and justification for each bundle.

@@ -1,0 +1,20 @@
+stop_index: 3
+
+truncated_plan:  
+#Task1: Retrieve historical data for Chiller 9 (CWC04009) for a specific period to check for anomalies or operation alerts.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for Chiller 9 (CWC04009) for the specified period.
+
+#Task2: Analyze the retrieved data for Chiller 9 to identify any anomalies or operation alerts.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Analysis report highlighting any anomalies or operation alerts in the data.
+
+#Task3: Reason on the identified operation alerts to generate significant warning messages.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S2
+#ExpectedOutput3: Warning messages based on the analysis of operation alerts.
+
+status: Not accomplished
+can_answer_now:False

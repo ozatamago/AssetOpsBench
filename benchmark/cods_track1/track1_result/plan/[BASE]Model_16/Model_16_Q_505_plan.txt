@@ -5,19 +5,19 @@ Plan:
 #Dependency1: None
 #ExpectedOutput1: Historical data for Chiller 6 Tonnage at MAIN for the specified week.
 
-#Task2: Analyze the retrieved historical data to ensure it's suitable for forecasting.
+#Task2: Analyze the retrieved data to ensure it's suitable for forecasting.
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: Analysis report indicating whether the data is suitable for forecasting.
+#ExpectedOutput2: Analysis report indicating the data is ready for forecasting.
 
 #Task3: Forecast Chiller 6's Tonnage for the next week based on the historical data.
 #Agent3: Time Series Analytics and Forecasting
 #Dependency3: #S1, #S2
 #ExpectedOutput3: Forecasted Tonnage values for Chiller 6 for the next week.
 
-#Task4: Generate a work order for reviewing the forecasted Tonnage values for Chiller 6.
+#Task4: Create a work order for monitoring Chiller 6 based on the forecast.
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: A generated work order for reviewing the forecasted Tonnage values.
+#ExpectedOutput4: Work order created for monitoring Chiller 6.
 
 The plan is complete.

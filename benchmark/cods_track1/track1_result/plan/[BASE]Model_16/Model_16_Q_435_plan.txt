@@ -1,18 +1,46 @@
 Question: Assume today is early of July 2020, I would like to review the alerts for chiller 9 with equipment ID CWC04009 for June 2020 and the work order should be generated based on the type of alerts.
 Plan:
-#Task1: Retrieve historical data for chiller 9 (CWC04009) for June 2020 to identify alerts.
+#Task1: Retrieve historical data for chiller 9 with equipment ID CWC04009 for June 2020.
 #Agent1: IoT Data Download
 #Dependency1: None
 #ExpectedOutput1: Historical data for CWC04009 in June 2020.
 
-#Task2: Analyze the retrieved data to identify alerts and determine the type of alerts for chiller 9.
+#Task2: Analyze the historical data to identify alerts for chiller 9 in June 2020.
+#Agent2: Time Series Analytics and Forecasting
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: List of alerts and their types for CWC04009.
+#ExpectedOutput2: Alerts identified from the historical data for CWC04009.
 
-#Task3: Generate a work order based on the type of alerts identified for chiller 9.
+#Task3: Determine the type of alerts and generate a work order based on the alert type.
 #Agent3: WorkOrder Agent
 #Dependency3: #S2
-#ExpectedOutput3: Work order for CWC04009 based on the alerts.
+#ExpectedOutput3: Work order generated for CWC04009 based on the alert type.
 
-The plan is complete.
+#Task4: Review the generated work order for correctness and completeness.
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency4: #S3
+#ExpectedOutput4: Validation of the work order for CWC04009.
+
+The provided plan follows the required format and constraints. It outlines a 4-step process to review alerts for chiller 9 and generate a work order based on the type of alerts. 
+
+However, there is a minor formatting issue in Step 2 where the agent is listed twice. Here is the corrected version:
+
+#Task1: Retrieve historical data for chiller 9 with equipment ID CWC04009 for June 2020.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for CWC04009 in June 2020.
+
+#Task2: Analyze the historical data to identify alerts for chiller 9 in June 2020.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Alerts identified from the historical data for CWC04009.
+
+#Task3: Determine the type of alerts and generate a work order based on the alert type.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Work order generated for CWC04009 based on the alert type.
+
+#Task4: Review the generated work order for correctness and completeness.
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency4: #S3
+#ExpectedOutput4: Validation of the work order for CWC04009.

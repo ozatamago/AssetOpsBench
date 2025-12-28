@@ -143,8 +143,12 @@ class NewPlanningWorkflow(Workflow):
             ) from e
 
 
-    def run(self, enable_summarization=False, qid=None):
-        generated_steps, run_id, plan_id, input_tokens_count, generated_tokens_count = self.generate_steps(qid=qid)
+    def run(self, save_plan=False, saved_plan_prefix="", qid=None):
+        generated_steps, run_id, plan_id, input_tokens_count, generated_tokens_count = self.generate_steps(
+            save_plan=save_plan,
+            saved_plan_filename=saved_plan_prefix,
+            qid=qid
+        )
 
         sequential_workflow = SequentialWorkflow(
             tasks=generated_steps, context_type=ContextType.SELECTED
@@ -1997,7 +2001,11 @@ class NewPlanningWorkflow(Workflow):
         logger.info(f"Plan (raw): \n{llm_response}")
 
         final_plan = llm_response
-        print(f"initial_plan: {final_plan}")
+        print(f"DAG round_0: {final_plan}")
+        saved_plan_filename_0 = saved_plan_filename + "_plan_0.txt"
+        saved_plan_text = f"Question: {task.description}\nPlan:\n{final_plan}"
+        with open(saved_plan_filename_0, "w") as f:
+            f.write(saved_plan_text)
         self.memory = []
 
         planned_tasks, dag_json = self._extract_planned_tasks_and_dag(final_plan, task)
@@ -2016,12 +2024,16 @@ class NewPlanningWorkflow(Workflow):
         agents_allowed = [a.name for a in task.agents]
         print(f"agents_allowed: {agents_allowed}")
 
-        T = 5
+        T = 3
         spiral_res: Optional[dict] = None
 
         for t in range(T):
             ok, errs = self._validate_plan_text(final_plan, agents_allowed)
             print(f"ok: {ok}, errs: {errs}")
+            saved_valid_filename_t = saved_plan_filename + f"_valid_{t}.txt"
+            saved_valid_text = f"ok: {ok}\nerrs:\n{errs}"
+            with open(saved_valid_filename_t, "w") as f:
+                f.write(saved_valid_text)
 
             spiral_res = None
 
@@ -2043,8 +2055,12 @@ class NewPlanningWorkflow(Workflow):
 
                 status = spiral_res.get("status", "Not accomplished")
                 can_answer_now = bool(spiral_res.get("can_answer_now", False))
-                
 
+                saved_spiral_filename_t = saved_plan_filename + f"_spiral_{t}.txt"
+                saved_spiral_text = f"stop_index: {stop_index}\n\ntruncated_plan: {truncated_plan}\nstatus: {status}\ncan_answer_now:{can_answer_now}"
+                with open(saved_spiral_filename_t, "w") as f:
+                    f.write(saved_spiral_text)
+                
                 # 2) Acceptance rule:
                 #    - format OK
                 #    - Critic says Accomplished
@@ -2092,41 +2108,17 @@ class NewPlanningWorkflow(Workflow):
                 dag=dag_json,
             )
 
+        if save_plan:
+            RESULT_DIR = "/home/track1_result/"
+            PLAN_DIR = RESULT_DIR + "plan/"
+            plan_subdir = os.path.join(PLAN_DIR, f"[SPIRAL]Model_{self.llm}")
+            saved_plan_prefix = os.path.join(plan_subdir, f"Model_{self.llm}_Q_{qid}_plan")
+            saved_plan_filename_final = saved_plan_prefix + ".txt"
 
-        ok, errs = self._validate_plan_text(final_plan, agents_allowed)
-        print(f"ok: {ok}, errs: {errs}")
-        if ok:
-            print(f"UserQ: {task.description}")
-            print(f"final_plan: {final_plan}")
-            out_dir = Path(PLAN_DIR)
-            out_dir.mkdir(parents=True, exist_ok=True)  
 
-            out_path = out_dir / f"Q_{qid}_finalplan.json"
-
-            payload = {
-                "ok": True,
-                "final_plan": final_plan,
-                "scenario_id": qid,
-                "generated_at": datetime.utcnow().isoformat() + "Z",
-            }
-
-            fd, tmp = tempfile.mkstemp(
-                dir=str(out_dir),
-                prefix=out_path.name + ".",
-                suffix=".tmp"
-            )
-            try:
-                with os.fdopen(fd, "w", encoding="utf-8") as f:
-                    json.dump(payload, f, ensure_ascii=False, indent=2)
-                    f.write("\n")
-                os.replace(tmp, str(out_path))  
-                print(f"[plan] wrote: {out_path}")
-            except Exception:
-                try:
-                    os.unlink(tmp)
-                except OSError:
-                    pass
-                raise
+            saved_plan_text = f"Question: {task.description}\nPlan:\n{final_plan}"
+            with open(saved_plan_filename_final, "w") as f:
+                f.write(saved_plan_text)
 
         # 1) Parse validated text into fields
         task_pattern = r"#Task\d+: (.+)"
@@ -2139,16 +2131,9 @@ class NewPlanningWorkflow(Workflow):
         dependencies = re.findall(dependency_pattern, final_plan)
         outputs = re.findall(output_pattern, final_plan)
 
-        # 2) Optionally save plan text
-        if save_plan:
-            if not saved_plan_filename.endswith(".txt"):
-                saved_plan_filename += ".txt"
-            saved_plan_text = f"Question: {task.description}\nPlan:\n{final_plan}"
-            with open(saved_plan_filename, "w") as f:
-                f.write(saved_plan_text)
-
         # 3) Build planned_tasks
         planned_tasks = []
+        task_description = ""
         for i in range(len(tasks)):
             task_description = tasks[i]
             if i == len(agents):
@@ -2171,10 +2156,26 @@ class NewPlanningWorkflow(Workflow):
             if selected_agent is None:
                 selected_agent = task.agents[0]
 
+            dependency = "None"
+            context = []
             if dependency != "None":
-                numbers = re.findall(r"#S(\d+)", dependency)
-                numbers = list(map(int, numbers))
-                context = [planned_tasks[i - 1] for i in numbers]
+                try:
+                    # Extract step numbers like "#S12" -> ["12", ...]
+                    numbers = re.findall(r"#S(\d+)", dependency)
+                    numbers = list(map(int, numbers))
+
+                    # If any index would be invalid, treat as "no context"
+                    n = len(planned_tasks)
+                    if (n == 0) or any(i < 1 or i > n for i in numbers):
+                        context = []
+                    else:
+                        context = [planned_tasks[i - 1] for i in numbers]
+
+                except (ValueError, IndexError, TypeError):
+                    # ValueError: int conversion failed (unexpected)
+                    # IndexError: out-of-range index
+                    # TypeError: planned_tasks or dependency unexpected type
+                    context = []
             else:
                 context = []
 

@@ -14,8 +14,3 @@ Plan:
 #Agent3: WorkOrder Agent
 #Dependency3: #S2
 #ExpectedOutput3: A work order for inspecting Chiller 9 due to detected anomalies in Tonnage
-
-#Task4: If no anomalies are detected, provide a confirmation message
-#Agent4: Base ReAct Agent
-#Dependency4: #S2
-#ExpectedOutput4: A message confirming that no anomalies were detected in Chiller 9's Tonnage during the specified week

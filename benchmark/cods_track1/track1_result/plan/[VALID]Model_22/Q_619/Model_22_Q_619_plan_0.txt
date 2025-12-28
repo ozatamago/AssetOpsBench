@@ -1,21 +1,21 @@
 Question: When the Liquid Refrigerant Evaporator Temperature of Chiller 6 at MAIN site drops, what failure is most likely to occur?
 Plan:
-#Task1: Retrieve the relevant sensors for monitoring the Liquid Refrigerant Evaporator Temperature of Chiller 6 at MAIN site
-#Agent1: IoT Data Download
+#Task1: Identify the failure modes of Chiller 6 that are related to the Liquid Refrigerant Evaporator Temperature.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency1: None
-#ExpectedOutput1: A list of sensors relevant to the Liquid Refrigerant Evaporator Temperature of Chiller 6 at MAIN site
+#ExpectedOutput1: A list of failure modes of Chiller 6 that are related to the Liquid Refrigerant Evaporator Temperature.
 
-#Task2: Identify the potential failure modes associated with the Liquid Refrigerant Evaporator Temperature of Chiller 6
+#Task2: Determine the relevant sensors that can be used to monitor the identified failure modes.
 #Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency2: #S1
-#ExpectedOutput2: A list of potential failure modes related to the Liquid Refrigerant Evaporator Temperature of Chiller 6
+#ExpectedOutput2: A list of relevant sensors for monitoring the identified failure modes.
 
-#Task3: Analyze the time-series data for anomalies in the Liquid Refrigerant Evaporator Temperature of Chiller 6
+#Task3: Analyze the time-series data for Chiller 6 at MAIN site to identify any anomalies or patterns related to the Liquid Refrigerant Evaporator Temperature.
 #Agent3: Time Series Analytics and Forecasting
-#Dependency3: #S1
-#ExpectedOutput3: Identification of any anomalies in the Liquid Refrigerant Evaporator Temperature data
+#Dependency3: #S2
+#ExpectedOutput3: An analysis report highlighting any anomalies or patterns in the Liquid Refrigerant Evaporator Temperature data.
 
-#Task4: Determine the most likely failure based on the identified failure modes and anomalies
-#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency4: #S2, #S3
-#ExpectedOutput4: The most likely failure that occurs when the Liquid Refrigerant Evaporator Temperature of Chiller 6 drops
+#Task4: Generate a work order for preventive maintenance or corrective action based on the identified failure modes and sensor data analysis.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: A work order detailing the recommended preventive maintenance or corrective actions.

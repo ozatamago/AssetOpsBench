@@ -5,12 +5,12 @@ Plan:
 #Dependency1: None
 #ExpectedOutput1: JSON file containing sensor data for CWC04009
 
-#Task2: Analyze the sensor data to identify the specific anomaly and its characteristics
+#Task2: Analyze the sensor data to identify the specific anomaly in CWC04009
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: Report detailing the anomaly in CWC04009, including type, severity, and affected sensors
+#ExpectedOutput2: Report detailing the specific anomaly detected in CWC04009
 
-#Task3: Based on the anomaly analysis, generate the top three recommended work orders to address the issue
+#Task3: Based on the identified anomaly, generate the top three recommended work orders to address the issue
 #Agent3: WorkOrder Agent
 #Dependency3: #S2
-#ExpectedOutput3: List of top three work orders with details on actions to be taken, prioritization, and any preventive measures
+#ExpectedOutput3: List of top three recommended work orders with details on actions to be taken

@@ -5,12 +5,17 @@ Plan:
 #Dependency1: None
 #ExpectedOutput1: A JSON file containing the sensor data for chiller 9 with equipment ID CWC04009 for June 2020
 
-#Task2: Analyze the time-series data in the JSON file from Task 1 and identify any anomalies or alerts
+#Task2: Analyze the sensor data for anomalies and identify the type of alerts
 #Agent2: Time Series Analytics and Forecasting
-#Dependency2: #Task1
-#ExpectedOutput2: A report highlighting any anomalies or alerts in the sensor data for chiller 9 with equipment ID CWC04009 for June 2020
+#Dependency2: #S1
+#ExpectedOutput2: A report detailing the anomalies found in the sensor data and the type of alerts
 
-#Task3: Generate a work order based on the type of alerts identified in Task 2
+#Task3: Generate work orders based on the type of alerts identified
 #Agent3: WorkOrder Agent
-#Dependency3: #Task2
-#ExpectedOutput3: A work order detailing the necessary actions to address the alerts identified for chiller 9 with equipment ID CWC04009
+#Dependency3: #S2
+#ExpectedOutput3: A list of work orders generated based on the type of alerts identified in the sensor data
+
+#Task4: Review the generated work orders and ensure they are appropriate for the identified alerts
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: A finalized list of work orders that are appropriate for the identified alerts

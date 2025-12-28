@@ -1,0 +1,10 @@
+Question: What IoT sites are available?
+Plan:
+- Make sure your plan is executable with the given agents.
+
+#Task1: Identify the available IoT sites.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of available IoT sites.
+
+The plan is executable with the given agents and follows the required output format.

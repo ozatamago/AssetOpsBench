@@ -1,0 +1,8 @@
+Question: How many models with context length exactly 96 are supported?
+Plan:
+ 
+
+#Task1: Check if Time Series Analytics and Forecasting agent supports models with context length 96 and list them.
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: List of models supported by the Time Series Analytics and Forecasting agent with context length 96.

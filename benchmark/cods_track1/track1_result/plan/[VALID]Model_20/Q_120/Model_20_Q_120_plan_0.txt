@@ -2,20 +2,55 @@ Question: I want to build an anomaly model for identifying a chiller trip failur
 Plan:
 We need to produce a plan with <5 steps. The problem: build an anomaly model for identifying a chiller trip failure for POKMAIN chiller 6. Provide list of sensors to use, along with temporal behavior.
 
-We have agents: Failure Mode and Sensor Relevancy Expert for Industrial Asset can provide relevant sensors for specific failures and temporal behavior. So we need to ask that agent for sensors for chiller trip failure and temporal behavior. Possibly also need to get data for those sensors using IoT Data Download. But the problem only asks to provide list of sensors and temporal behavior, not to actually download data or build model. So we can just use the Failure Mode and Sensor Relevancy Expert.
+We need to get sensors relevant to chiller trip failure. Use Failure Mode and Sensor Relevancy Expert for Industrial Asset. Also need temporal behavior: maybe from same expert (temporal behavior of power input when compressor motor fails). Also maybe need to get data for those sensors: use IoT Data Download to download sensor data for those sensors. Then maybe use Time Series Analytics to analyze anomalies? But the ask is just list sensors and temporal behavior. So we can answer using expert. Possibly need to retrieve failure mode info: "chiller trip failure" maybe corresponds to compressor motor failure? Or "trip" could be power input drop. Use expert to ask: "When power input of Chiller 6 drops, what is the potential failure that causes it?" That's reverse. But we need sensors for chiller trip failure. Could ask: "What are the relevant sensors that can be used to monitor the chiller trip failure of Chiller 6?" Not directly in tasks list. However we can combine tasks: maybe ask for sensors for "loose wiring failure" and "compressor overheating". But not exactly. Could ask for "list all failure modes of asset Chiller 6." Then identify which corresponds to chiller trip. Then ask for sensors for that failure. But we have limited tasks.
 
-Thus we can have a single step: ask the expert for sensors relevant to chiller trip failure for POKMAIN chiller 6 and temporal behavior. The expected output: list of sensors and description of temporal behavior.
+We can do step 1: Use Failure Mode and Sensor Relevancy Expert to list all failure modes of Chiller 6. Step 2: Use same expert to list sensors relevant to the failure mode that corresponds to chiller trip (maybe "compressor motor failure" or "power input drop"). But we need to ask specifically: "What are the relevant sensors that can be used to monitor the chiller trip failure of Chiller 6?" Not in tasks list. However we can ask: "When compressor motor of a chiller fails, what is the temporal behavior of the power input." That's step 2 for temporal behavior. For sensors, we could ask: "What are the relevant sensors that can be used to monitor the loose wiring failure of Chiller 6?" Not exactly. But maybe we can ask: "What are the relevant sensors that can be used to monitor the compressor overheating failure of Chiller 6?" That's task 3: "If compressor overheating occurs for Chiller 6, which sensor should be prioritized for monitoring this specific failure?" That gives sensor prioritized. That may be relevant to chiller trip.
 
-We need to follow format:
+Thus plan: Step1: Get list of failure modes of Chiller 6. Step2: Identify which failure mode corresponds to chiller trip (maybe from list). Step3: Get relevant sensors for that failure (maybe using task 3). Step4: Get temporal behavior of power input when compressor motor fails (task 4). That's 4 steps.
 
-#Task1: ...
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency1: None
-#ExpectedOutput1: List of sensors and temporal behavior for chiller trip failure for POKMAIN chiller 6.
+But we need to ensure each step uses available tasks. Step1: Use Failure Mode and Sensor Relevancy Expert: task 1. Step2: Use same expert: maybe we need to ask "List all failure modes of Chiller 6 that can be detected by Chiller 6 Chiller Efficiency." That's task 2. Not needed. Step3: Use task 3 to get sensor prioritized for compressor overheating. Step4: Use task 4 to get temporal behavior of power input when compressor motor fails.
 
-That's it. Provide plan with fewer than 5 steps. So one step.
+Thus we have sensors and temporal behavior.
 
-Let's produce final answer.assistantfinal#Task1: Identify the sensors that should be used to detect a chiller‑trip failure for the POKMAIN Chiller 6 and describe the expected temporal behavior of those sensor signals during such a failure.  
+Let's craft plan.
+
+Step1: #Task1: List all failure modes of asset Chiller 6. #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset #Dependency1: None #ExpectedOutput1: JSON list of failure modes.
+
+Step2: #Task2: Identify which failure mode corresponds to a chiller trip (based on output of step1). This is more of analysis, could be done by us (the orchestrator) not an agent. But we need to keep steps to agents. Maybe we can skip step2 and directly ask for sensors for chiller trip. Not available. Could combine: Use step1 output to manually identify. That's okay; dependency can be None for step2? Actually step2 could be internal reasoning, not an agent. But each step must have Agent. Could use same expert with a custom query: "What sensors are relevant for detecting a chiller trip failure in Chiller 6?" Not in tasks list. So can't.
+
+Alternative: Use step1 to get failure modes, then step2 to get sensors for compressor overheating (as proxy). That's okay.
+
+Thus final answer: Provide list of sensors (from step3) and temporal behavior (from step4). The plan will produce those.
+
+Let's write plan with 4 steps.
+
+Make sure format.
+
+Proceed.
+#Task1: List all failure modes of asset **Chiller 6**.  
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
 #Dependency1: None  
-#ExpectedOutput1: A concise list of relevant sensors (e.g., compressor power, suction pressure, discharge pressure, evaporator/condensor temperatures, flow rates, etc.) together with a brief description of how each sensor’s signal typically evolves over time when a chiller‑trip event occurs (e.g., rapid drop in power, pressure spikes, temperature excursions, duration of transient, recovery pattern).
+#ExpectedOutput1: JSON array (or plain list) enumerating every failure mode reported for Chiller 6 (e.g., compressor motor failure, refrigerant leak, loose wiring, etc.).
+
+---
+
+#Task2: From the failure‑mode list, determine which mode corresponds to a **chiller‑trip** event (typically a sudden loss of power or compressor shutdown).  
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency2: #S1  
+#ExpectedOutput2: Text identifying the specific failure mode that best matches a chiller‑trip scenario (e.g., “compressor motor failure” or “power‑input drop”).
+
+---
+
+#Task3: Provide the **sensor(s) that should be prioritized** for monitoring the failure mode identified in #S2 (e.g., compressor overheating, power input, etc.).  
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency3: #S2  
+#ExpectedOutput3: List of sensor names/IDs (e.g., “Power Input Sensor”, “Compressor Current Sensor”, “Chiller Efficiency Sensor”) that are most relevant for detecting the chiller‑trip failure.
+
+---
+
+#Task4: Describe the **temporal behavior** of the key signal(s) (e.g., power input) when the identified failure occurs (how the signal changes over time leading up to and during the trip).  
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#Dependency4: #S2  
+#ExpectedOutput4: Narrative or time‑profile description (e.g., “Power input drops sharply within 1–2 seconds, followed by a sustained zero‑value for the remainder of the trip; compressor current spikes then falls to zero”) that can be used to shape an anomaly‑detection model.
+
+---

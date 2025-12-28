@@ -1,15 +1,24 @@
 Question: Just notice two anomalies 'KPI Cooling Load above upper bound' and 'KPI Delta Setpoint above upper bound' happened for equipment CWC04009, can you recommend top three work orders to address this problem?
 Plan:
  
-assistantfinal #Task1: Retrieve the list of failure modes for equipment CWC04009.  
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+We need to output plan with fewer than 5 steps. The plan above has 4 steps. Must ensure each line exactly as format. No extra spaces at end. Ensure #ExpectedOutput lines are one line each. The #ExpectedOutput1 line includes description of JSON file; keep one line. #ExpectedOutput2 line includes analysis report description; one line. #ExpectedOutput3 line includes ranked list; one line. #ExpectedOutput4 line includes three work order descriptions; one line.
+
+Make sure no extra spaces at line ends. Also ensure no double spaces. Provide exactly as required. Let's craft final answer.assistantfinal#Task1: Download sensor data for equipment CWC04009 for the KPIs “Cooling Load” and “Delta Setpoint” covering the anomaly period.  
+#Agent1: IoT Data Download  
 #Dependency1: None  
-#ExpectedOutput1: List of all failure modes applicable to CWC04009.  
-#Task2: Identify which failure modes are most likely linked to the anomalies “KPI Cooling Load above upper bound” and “KPI Delta Setpoint above upper bound”, and specify the key sensors to inspect for each.  
-#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+#ExpectedOutput1: JSON file (cwc04009_kpis.json) with timestamped values for “Cooling Load” and “Delta Setpoint”.  
+
+#Task2: Analyze the downloaded KPI time‑series to confirm anomalies, quantify severity, and note any patterns.  
+#Agent2: Time Series Analytics and Forecasting  
 #Dependency2: #S1  
-#ExpectedOutput2: Ranked list of relevant failure modes with associated primary sensors.  
-#Task3: Generate three prioritized work orders to address the top failure modes identified, including recommended actions and sensor checks.  
-#Agent3: WorkOrder Agent  
+#ExpectedOutput2: Analysis report listing anomaly timestamps, severity scores, and brief root‑cause hypotheses for each KPI.  
+
+#Task3: Map the identified issues to the most likely failure modes for equipment CWC04009 and recommend sensors/components to inspect.  
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
 #Dependency3: #S2  
-#ExpectedOutput3: Three work order descriptions ready for execution.
+#ExpectedOutput3: Ranked list of top 3 failure modes (e.g., cooling coil fouling, set‑point controller fault, sensor calibration error) with suggested inspection actions and relevant sensors.  
+
+#Task4: Create three prioritized work orders addressing the top failure modes for equipment CWC04009.  
+#Agent4: WorkOrder Agent  
+#Dependency4: #S3  
+#ExpectedOutput4: Three work order descriptions (including WO IDs, tasks, and priority levels) ready for execution.

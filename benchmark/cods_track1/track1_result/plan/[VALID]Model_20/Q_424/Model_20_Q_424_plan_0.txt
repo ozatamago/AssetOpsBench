@@ -6,42 +6,43 @@ We have agents: IoT Data Download, Failure Mode and Sensor Relevancy Expert, Tim
 
 We need to produce guidance on bundling corrective work orders. The WorkOrder Agent can "retrieve, analyze, and generate work orders for equipment based on historical data, anomalies, alerts, and performance metrics, offering recommendations for preventive and corrective actions, including bundling, prioritization, and predictive maintenance."
 
-Thus we can ask WorkOrder Agent to generate bundling guidance for Chiller 9 (equipment ID CWC04009) for years 2017-2019, within two weeks, at least two work orders, and details of each bundle.
+Thus we can ask WorkOrder Agent to "Generate a maintenance work order to replace the vibration sensor on WT-22" etc. But we need bundling guidance. The WorkOrder Agent can "retrieve, analyze, and generate work orders ... offering recommendations for bundling." So we can ask it to "Provide bundling recommendations for corrective work orders for Chiller 9 (CWC04009) for years 2017-2019 within two weeks, at least two work orders per bundle, and details of each bundle."
 
-We may need to retrieve historical work orders for that equipment for those years. That could be done via IoT Data Download? It can provide sensor data, asset history, but not work orders. The WorkOrder Agent may have internal access to historical work orders.
+Thus we need a single step: ask WorkOrder Agent to produce bundling guidance. No dependencies. Expected output: a description of bundling plan, including number of bundles, work orders per bundle, schedule within two weeks, details of each bundle (work order IDs, tasks, dates, etc.)
 
-Thus we can have a single step: ask WorkOrder Agent to provide bundling guidance.
+We need fewer than 5 steps, so 1 step is fine.
 
-But we need to include Task, Agent, Dependency, ExpectedOutput.
+Thus produce plan:
 
-We can have step #1: Retrieve historical corrective work orders for Chiller 9 (CWC04009) for years 2017-2019. Agent: WorkOrder Agent. Dependency: None. Expected output: list of corrective work orders with dates, descriptions.
+#Task1: Request bundling guidance for corrective work orders for Chiller 9 (equipment ID CWC04009) covering years 2017, 2018, 2019, ensuring each bundle occurs within a two‑week window and contains at least two work orders. Ask for the details of each proposed bundle (work‑order IDs, failure types, recommended dates, resources, etc.).
 
-Step #2: Generate bundling recommendation based on retrieved work orders, ensuring bundles within two weeks, at least two work orders per bundle, and provide details of each bundle. Agent: WorkOrder Agent. Dependency: #S1. Expected output: bundling plan with details.
-
-Thus we have 2 steps, within limit.
-
-Let's craft plan.
-
-Make sure format:
-
-#Task1: Retrieve historical corrective work orders for Chiller 9 (equipment ID CWC04009) covering years 2017, 2018, and 2019.
 #Agent1: WorkOrder Agent
+
 #Dependency1: None
-#ExpectedOutput1: A list of corrective work orders for the specified equipment and years, including work order IDs, dates, failure descriptions, and any associated sensor or failure mode information.
 
-#Task2: Using the retrieved work orders, create a bundling strategy that groups corrective work orders into bundles that can be executed within a two‑week window, with each bundle containing at least two work orders, and provide detailed information for each proposed bundle (e.g., work order IDs, scheduled dates, required resources, and justification).
-#Agent2: WorkOrder Agent
-#Dependency2: #S1
-#ExpectedOutput2: A bundling recommendation for Chiller 9, listing each bundle with its work order IDs, planned execution dates (within two weeks), required resources, and rationale for grouping.
+#ExpectedOutput1: A concise recommendation that includes (i) the number of bundles, (ii) which work orders (by ID or description) belong to each bundle, (iii) the scheduled two‑week window for each bundle, (iv) justification for grouping (e.g., similar failure modes, proximity of assets, resource optimization), and (v) any additional notes for execution.
 
-That should satisfy.
+That satisfies constraints. Provide plan.assistantfinal**Step‑by‑step plan (1 step – < 5 steps total)**  
 
-Now produce final answer.assistantfinal#Task1: Retrieve historical corrective work orders for Chiller 9 (equipment ID **CWC04009**) covering the years **2017, 2018, and 2019**.  
-#Agent1: WorkOrder Agent  
-#Dependency1: None  
-#ExpectedOutput1: A list of corrective work orders for the specified equipment and years, including work‑order IDs, dates, failure descriptions, and any associated sensor or failure‑mode information.  
+---  
 
-#Task2: Using the retrieved work orders, create a **bundling strategy** that groups corrective work orders into bundles that can be executed **within a two‑week window**, with **each bundle containing at least two work orders**. Provide detailed information for each proposed bundle (work‑order IDs, scheduled dates, required resources, and justification for the grouping).  
-#Agent2: WorkOrder Agent  
-#Dependency2: #S1  
-#ExpectedOutput2: A bundling recommendation for Chiller 9, listing each bundle with its work‑order IDs, planned execution dates (all within a two‑week period), required resources, and rationale for the grouping.
+#Task1: Request bundling guidance for corrective work orders for **Chiller 9** (equipment ID **CWC04009**) covering the years **2017, 2018, 2019**. The guidance must (a) propose bundles that can be executed within a **two‑week window**, (b) contain **at least two work orders per bundle**, and (c) list the **details of each bundle** (work‑order IDs or descriptions, failure types, recommended dates, required resources, and justification for grouping).  
+
+#Agent1: **WorkOrder Agent**  
+
+#Dependency1: **None**  
+
+#ExpectedOutput1: A concise, structured recommendation that includes:  
+
+1. **Number of bundles** to be created.  
+2. For each bundle:  
+   - **Work‑order IDs or clear descriptions** (e.g., “WO‑2017‑001: Compressor overheating – replace motor”).  
+   - **Failure type** (e.g., compressor overheating, refrigerant leak).  
+   - **Proposed two‑week execution window** (start‑date – end‑date).  
+   - **Required resources** (technicians, spare parts, tools).  
+   - **Justification** for grouping (e.g., same failure mode, same subsystem, geographic proximity, shared spare‑part inventory).  
+3. Any **additional notes** for scheduling, priority ordering, or follow‑up actions.  
+
+---  
+
+*Executing this single step with the WorkOrder Agent will provide the complete bundling guidance required.*

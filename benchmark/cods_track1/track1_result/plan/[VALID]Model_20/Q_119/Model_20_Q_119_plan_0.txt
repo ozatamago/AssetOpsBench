@@ -1,20 +1,29 @@
 Question: When the Liquid Refrigerant Evaporator Temperature of Chiller 6 drops, what failure is most likely to occur?
 Plan:
-We need to answer: When the Liquid Refrigerant Evaporator Temperature of Chiller 6 drops, what failure is most likely to occur? We need to use agents. Likely need to map sensor (Liquid Refrigerant Evaporator Temperature) to failure modes. Use Failure Mode and Sensor Relevancy Expert for Industrial Asset. It can answer: "When power input of Chiller 6 drops, what is the potential failure that causes it?" That's similar but not exactly. It can list failure modes, mapping sensors to failures. So we can ask: "When the Liquid Refrigerant Evaporator Temperature of Chiller 6 drops, what failure is most likely to occur?" That's a mapping question. Use Failure Mode and Sensor Relevancy Expert.
+We need to answer: When the Liquid Refrigerant Evaporator Temperature of Chiller 6 drops, what failure is most likely to occur? We need to use agents. Likely need to map sensor (Liquid Refrigerant Evaporator Temperature) to failure modes. Use Failure Mode and Sensor Relevancy Expert. It can answer: "When power input of Chiller 6 drops, what is the potential failure that causes it?" but not exactly. However we can ask: "When liquid refrigerant evaporator temperature drops, what failure is most likely?" That is a sensor to failure mapping. The expert can provide relevant sensors for failures, but also can list failure modes. Might need to ask: "What failure is associated with drop in evaporator temperature?" Could be "low refrigerant charge" or "evaporator fouling". The expert can answer mapping. So single step: query Failure Mode and Sensor Relevancy Expert.
 
-Thus single step: ask that agent. No dependencies. Expected output: description of likely failure (e.g., low refrigerant charge, evaporator fouling, sensor fault). Provide answer.
+Thus plan with one step.
 
-Plan with <5 steps, just one.
+But need to include Task, Agent, Dependency, ExpectedOutput.
 
-Let's format.
+Let's craft.
 
-#Task1: Query the Failure Mode and Sensor Relevancy Expert for Industrial Asset to identify the most likely failure mode associated with a drop in the Liquid Refrigerant Evaporator Temperature of Chiller 6.
+#Task1: Query the Failure Mode and Sensor Relevancy Expert for Industrial Asset to identify the most likely failure mode associated with a drop in the Liquid Refrigerant Evaporator Temperature sensor for Chiller 6.
 
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 
 #Dependency1: None
 
-#ExpectedOutput1: A concise answer naming the most probable failure (e.g., low refrigerant charge, evaporator fouling, sensor malfunction) and a brief rationale linking the temperature drop to that failure.assistantanalysisWe need to ensure the plan meets constraints: fewer than 5 steps, includes Task, Agent, Dependency, ExpectedOutput. Yes. Provide final answer.assistantfinal#Task1: Query the Failure Mode and Sensor Relevancy Expert for Industrial Asset to identify the most likely failure mode associated with a drop in the Liquid Refrigerant Evaporator Temperature of Chiller 6.  
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
-#Dependency1: None  
-#ExpectedOutput1: A concise answer naming the most probable failure (e.g., low refrigerant charge, evaporator fouling, sensor malfunction) and a brief rationale linking the temperature drop to that failure.
+#ExpectedOutput1: A concise answer stating the most likely failure (e.g., low refrigerant charge, evaporator fouling, sensor fault) that occurs when the Liquid Refrigerant Evaporator Temperature of Chiller 6 drops, possibly with brief justification.
+
+That satisfies constraints (<5 steps). Provide plan.assistantfinal**Step‑by‑step plan (1 step)**  
+
+---  
+
+**#Task1:** Ask the **Failure Mode and Sensor Relevancy Expert for Industrial Asset** to identify the failure mode that is most likely to occur when the **Liquid Refrigerant Evaporator Temperature** sensor of **Chiller 6** shows a drop.  
+
+**#Agent1:** Failure Mode and Sensor Relevancy Expert for Industrial Asset  
+
+**#Dependency1:** None  
+
+**#ExpectedOutput1:** A concise answer naming the most probable failure (e.g., *low refrigerant charge*, *evaporator fouling*, *sensor fault*, etc.) that is triggered by a drop in the Liquid Refrigerant Evaporator Temperature of Chiller 6, with a brief rationale if available.  

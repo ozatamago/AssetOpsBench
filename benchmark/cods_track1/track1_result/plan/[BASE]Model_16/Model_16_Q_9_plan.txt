@@ -5,14 +5,14 @@ Plan:
 #Dependency1: None
 #ExpectedOutput1: List of sites including MAIN if it exists.
 
-#Task2: Retrieve the list of assets at site MAIN.
+#Task2: Retrieve the list of assets at the MAIN site and identify if Chiller 6 is among them.
 #Agent2: IoT Data Download
-#Dependency2: #S1
-#ExpectedOutput2: List of assets at MAIN, confirming if Chiller 6 is present.
+#Dependency2: #Task1
+#ExpectedOutput2: List of assets at MAIN, including Chiller 6 if it exists.
 
-#Task3: Download sensor data for Chiller 6's % Loaded at MAIN for June 2020.
+#Task3: Download sensor data for Chiller 6's % Loaded at MAIN from June 2020.
 #Agent3: IoT Data Download
-#Dependency3: #S1, #S2
+#Dependency3: #Task2
 #ExpectedOutput3: Sensor data for Chiller 6's % Loaded at MAIN for June 2020.
 
 The plan is complete.

@@ -1,7 +1,9 @@
 Question: Get the work order of equipment CWC04013 for year 2017.
 Plan:
  
-We need to output plan lines. Already wrote. Ensure format exactly. No extra spaces? Should be fine. Provide exactly lines.assistantfinal#Task1: Retrieve all work orders associated with equipment CWC04013 that were created in the year 2017.
+The user gave a "Repair rules" and wants the plan. The assistant's previous answer gave a plan with #Task1, #Agent1, #Dependency1, #ExpectedOutput1. That matches format. Need to ensure no extra lines. The plan is correct. Should we include #Task1 line exactly as "Retrieve all work orders associated with equipment CWC04013 for the calendar year 2017." That's fine. #Agent1: WorkOrder Agent. #Dependency1: None. #ExpectedOutput1: A list of work orders for equipment CWC04013 in 2017, including each work order’s ID, creation date, description of the issue/maintenance, status, and any relevant notes.
+
+Make sure no extra spaces or lines. Provide exactly those four lines. No extra.assistantfinal_outputassistantfinal_output#Task1: Retrieve all work orders associated with equipment CWC04013 for the calendar year 2017.
 #Agent1: WorkOrder Agent
 #Dependency1: None
-#ExpectedOutput1: A list (or JSON array) of work order records for CWC04013 from 2017, each including at least the work order ID, creation date, description, status, and any relevant notes.
+#ExpectedOutput1: A list of work orders for equipment CWC04013 in 2017, including each work order’s ID, creation date, description of the issue/maintenance, status, and any relevant notes.

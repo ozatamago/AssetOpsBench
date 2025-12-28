@@ -1,0 +1,27 @@
+Question: Are there any failure modes of Chiller 6 at MAIN site that can be predicted by monitoring the vibration sensor data?
+Plan:
+- Make sure your plan is clear, actionable, and concise.
+
+### Plan
+
+#Task1: List all failure modes of Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes of Chiller 6.
+
+#Task2: Identify the relevant sensors that can be used to monitor the failure modes of Chiller 6.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: A list of relevant sensors for monitoring the failure modes of Chiller 6.
+
+#Task3: Check if vibration sensor is among the relevant sensors identified for Chiller 6.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #Task2
+#ExpectedOutput3: Confirmation if vibration sensor is relevant for monitoring Chiller 6 failure modes.
+
+#Task4: Determine if any failure modes of Chiller 6 can be predicted by monitoring the vibration sensor data.
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency4: #Task3
+#ExpectedOutput4: Identification of failure modes of Chiller 6 that can be predicted by monitoring vibration sensor data.
+
+The plan is designed to be concise and actionable, using the available agents to solve the problem in four steps. It starts by listing the failure modes of Chiller 6, then identifies the relevant sensors for these failure modes, checks if the vibration sensor is among them, and finally determines if any failure modes can be predicted by monitoring the vibration sensor data.

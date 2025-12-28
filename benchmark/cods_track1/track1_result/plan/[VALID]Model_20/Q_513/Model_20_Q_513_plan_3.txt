@@ -1,19 +1,12 @@
 Question: What is the forecast for Chiller 6's Setpoint Temperature for next week based on the week of 2020-04-27 data?
 Plan:
  
-We need to ensure format: each line starts with #Task1: etc. No extra spaces at start. Also ensure no double spaces after colon? It's okay. Must match allowed agents exactly. Use "IoT Data Download" and "Time Series Analytics and Forecasting". Ensure dependencies refer to #S1? In spec they used #S1, #S2. Should we use #S1? The example uses #S1. So dependency should be "#S1". Good.
-
-Also ensure ExpectedOutput one line. Provide concise. No extra line breaks. Provide exactly 8 lines. Let's craft.
-
-Check: #Task1 line length okay. #Agent1 line exactly "IoT Data Download". #Dependency1 "None". #ExpectedOutput1: "JSON file setpoint_temp_week.json with timestamped Setpoint Temperature readings for Chiller 6 from 2020‑04‑27 to 2020‑05‑03". Keep one line.
-
-#Task2: "Forecast Chiller 6 Setpoint Temperature for the next week (2020‑05‑04 to 2020‑05‑10) using data from #S1." #Agent2: "Time Series Analytics and Forecasting". #Dependency2: "#S1". #ExpectedOutput2: "JSON file forecast_setpoint_temp_next_week.json containing daily predicted Setpoint Temperature values and confidence intervals."
-
-Make sure no extra spaces at start. Provide final answer.assistantfinal#Task1: Retrieve historical Setpoint Temperature data for Chiller 6 for the week of 2020‑04‑27 (2020‑04‑27 00:00 to 2020‑05‑03 23:59)  
+We need to output plan. Ensure format exactly as required. No extra spaces at line ends. Use #Task1 etc. Ensure #Agent names exactly match allowed list. Use "IoT Data Download" and "Time Series Analytics and Forecasting". Ensure #Dependency1: None. #Dependency2: #S1. Ensure #ExpectedOutput lines are one line. Provide final answer.assistantfinalassistantfinalassistantfinal#Task1: Retrieve Chiller 6 Setpoint Temperature data for the week of 2020‑04‑27 (2020‑04‑27 00:00 to 2020‑05‑03 23:59) and save as JSON file `chiller6_setpoint_20200427.json`.  
 #Agent1: IoT Data Download  
 #Dependency1: None  
-#ExpectedOutput1: JSON file setpoint_temp_week.json with timestamped Setpoint Temperature readings for Chiller 6 covering the specified date range  
-#Task2: Forecast Chiller 6 Setpoint Temperature for the next week (2020‑05‑04 to 2020‑05‑10) using the data from #S1  
+#ExpectedOutput1: JSON file `chiller6_setpoint_20200427.json` containing timestamps and Setpoint Temperature values for Chiller 6 for the specified week.  
+
+#Task2: Forecast Chiller 6 Setpoint Temperature for the next week (2020‑05‑04 to 2020‑05‑10) using the data from #S1.  
 #Agent2: Time Series Analytics and Forecasting  
 #Dependency2: #S1  
-#ExpectedOutput2: JSON file forecast_setpoint_temp_next_week.json containing daily predicted Setpoint Temperature values and confidence intervals for the target week
+#ExpectedOutput2: JSON or table with forecasted Setpoint Temperature values (including timestamps and confidence intervals) for each day of the next week.

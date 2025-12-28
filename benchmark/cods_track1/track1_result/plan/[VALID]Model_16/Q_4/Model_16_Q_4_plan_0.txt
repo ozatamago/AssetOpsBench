@@ -1,13 +1,29 @@
 Question: Which assets are located at the MAIN facility?
 Plan:
-#Task1: Identify the sites available and check if MAIN facility is among them.
+#Task1: Identify the assets located at the MAIN facility
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: List of available sites
+#ExpectedOutput1: List of assets at the MAIN facility
 
-#Task2: If MAIN facility is available, list the assets at the MAIN facility.
+#Task2: Provide details about the assets at the MAIN facility
 #Agent2: IoT Data Download
 #Dependency2: #S1
-#ExpectedOutput2: List of assets at the MAIN facility
+#ExpectedOutput2: Detailed information about the assets
 
-The plan is complete.
+#Task3: Analyze the time-series data for the assets at the MAIN facility to detect any anomalies
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Anomaly detection results for the assets
+
+#Task4: Generate a work order for any assets with detected anomalies
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Work order for assets with anomalies
+
+The plan is as follows:
+1. Use the IoT Data Download agent to identify the assets at the MAIN facility.
+2. Use the IoT Data Download agent again to provide detailed information about these assets.
+3. Use the Time Series Analytics and Forecasting agent to analyze the time-series data for these assets and detect any anomalies.
+4. Use the WorkOrder Agent to generate a work order for any assets with detected anomalies.
+
+This plan is within the 5-step limit and utilizes the available agents effectively to solve the problem.

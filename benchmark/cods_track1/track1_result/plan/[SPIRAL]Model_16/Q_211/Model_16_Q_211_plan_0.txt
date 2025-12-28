@@ -1,0 +1,27 @@
+Question: Find a model for energy forecasting.
+Plan:
+- Make sure your plan is clear, actionable, and has fewer than 5 steps.
+
+### Plan
+
+#Task1: Check if Time Series Analytics and Forecasting agent supports time series forecasting models.
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: Confirmation that Time Series Analytics and Forecasting agent supports time series forecasting models.
+
+#Task2: Provide an example of using a time series forecasting model for energy forecasting.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: An example of using a time series forecasting model for energy forecasting.
+
+#Task3: Download historical energy consumption data for a specific asset.
+#Agent3: IoT Data Download
+#Dependency3: None
+#ExpectedOutput3: Historical energy consumption data for a specific asset.
+
+#Task4: Use the downloaded data to forecast energy consumption for the next 24 hours.
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: #S3
+#ExpectedOutput4: Forecasted energy consumption for the next 24 hours.
+
+The plan is designed to be clear, actionable, and concise, with fewer than 5 steps as required. It leverages the capabilities of the Time Series Analytics and Forecasting agent and IoT Data Download agent to achieve the goal of finding a model for energy forecasting.

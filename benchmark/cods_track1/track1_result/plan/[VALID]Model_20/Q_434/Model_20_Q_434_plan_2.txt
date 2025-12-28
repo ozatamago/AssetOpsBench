@@ -1,21 +1,21 @@
 Question: We are building an early detection system for a potential failure condenser Water side fouling for Chiller 9. Monitor Chiller 9 at main site site from 2020-04-20T12:30:00 to 2020-05-12T19:30:00, identify anomalous behaviors and provide a work order recommendation if there is no such corrective work order created already.
 Plan:
  
-We need to output plan lines exactly as described. Ensure no extra spaces at end of lines. Use #Task1 etc. Ensure #Agent names exactly match allowed list. Use "IoT Data Download", "Time Series Analytics and Forecasting", "WorkOrder Agent". Ensure #Dependency format: None or #S1 etc. Use #S1 referencing step numbers? In example they used #S1. Should be #S1 referencing step 1. Use #S2 referencing step2. Provide #ExpectedOutput one line.
+assistantanalysisWe need to produce final answer exactly as plan lines, no extra text. Ensure no extra spaces at start. Also ensure #Dependency2: #S1 (not #S1?). The format says "#Dependency<N>: <use #S1, #S2, ... or None>" So we should use "#S1". Good.
 
-Make sure each line starts with #TaskN: etc. No extra blank lines. Provide exactly three steps. Ensure no extra spaces after colon? It's okay. Provide one line each. Let's craft.
+Check #Dependency3: #S2.
 
-Check #ExpectedOutput lines: one line each, no line breaks.
+Make sure each line is separate, no blank lines. Provide exactly.
 
-Let's output.assistantfinalassistantfinalassistantfinal#Task1: Download historical sensor data for Chiller 9 (asset CU02004) at the main site from 2020‑04‑20T12:30:00 to 2020‑05‑12T19:30:00 for “CONDENSER WATER LEAVING TEMP” and “CONDENSER WATER RETURN TEMP”.  
-#Agent1: IoT Data Download  
-#Dependency1: None  
-#ExpectedOutput1: JSON file containing timestamped values for the two sensors over the specified interval.  
-#Task2: Perform anomaly detection on the two temperature series in the JSON file from #S1 and list any abnormal events.  
-#Agent2: Time Series Analytics and Forecasting  
-#Dependency2: #S1  
-#ExpectedOutput2: Anomaly‑detection report indicating timestamps, sensor names, and nature of each detected anomaly (if any).  
-#Task3: If anomalies are found and no corrective work order exists, create a work order to inspect Chiller 9 for condenser‑water side fouling.  
-#Agent3: WorkOrder Agent  
-#Dependency3: #S2  
-#ExpectedOutput3: Confirmation of work‑order creation for Chiller 9 – condenser‑water side fouling inspection.
+Let's output.assistantfinal#Task1: Download sensor data for Chiller 9 at the main site for “CONDENSER WATER INLET TEMP” and “CONDENSER WATER OUTLET TEMP” covering the period 2020‑04‑20T12:30:00 to 2020‑05‑12T19:30:00.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file (e.g., `chiller9_condenser_water_data.json`) containing timestamped readings for the two temperature sensors over the requested interval.
+#Task2: Analyze the time‑series data in `chiller9_condenser_water_data.json` to detect any anomalies or abnormal patterns that could indicate condenser‑water side fouling.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly detection report listing any detected out‑of‑range events, their timestamps, and a brief severity assessment.
+#Task3: If the anomaly report indicates potential fouling (or if no existing corrective work order is known), generate a corrective work order to inspect Chiller 9 for condenser‑water side fouling, citing the anomaly findings.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Confirmation of a new work order (e.g., WO‑XXXXX) with description, priority, and recommended actions for inspecting Chiller 9.

@@ -1,0 +1,18 @@
+Question: List all failure modes of asset Chiller 6 at MAIN site.
+Plan:
+ 
+We need to ensure format: #Task1, #Agent1, #Dependency1, #ExpectedOutput1, then #Task2 etc. Also #Dependency2 should reference #S1? Actually spec says use #S1, #S2 referencing steps? In earlier examples they used #S1. The dependency should be "#S1". Not "#S1"? The placeholder is #S1. So we need "#Dependency2: #S1". Ensure no extra spaces. Also #ExpectedOutput lines one line.
+
+Check counts: 2 tasks, each has 4 lines => 8 lines. Good.
+
+Make sure agent names exactly as listed: "IoT Data Download" and "Failure Mode and Sensor Relevancy Expert for Industrial Asset". No extra spaces.
+
+Let's produce final answer.assistantfinal#Task1: Retrieve the list of assets at the MAIN site to confirm Chiller 6 is present.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets for site MAIN including Chiller 6.
+
+#Task2: List all failure modes of the asset Chiller 6.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: Complete enumeration of failure modes for Chiller 6.

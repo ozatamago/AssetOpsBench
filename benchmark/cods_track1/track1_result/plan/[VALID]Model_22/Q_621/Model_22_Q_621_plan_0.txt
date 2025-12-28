@@ -13,4 +13,4 @@ Plan:
 #Task3: Review the anomalies and determine if a work order is needed
 #Agent3: WorkOrder Agent
 #Dependency3: #S2
-#ExpectedOutput3: Decision on whether to create a work order and, if yes, the work order details
+#ExpectedOutput3: Decision on whether to create a work order and, if needed, the generated work order

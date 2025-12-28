@@ -1,0 +1,22 @@
+Question: Retrieve sensor data for Chiller 6's % Loaded from June 2020 at MAIN.
+Plan:
+- Make sure your plan is clear, actionable, and has fewer than 5 steps.
+
+### Plan
+
+#Task1: Retrieve sensor data for Chiller 6's % Loaded from June 2020 at MAIN.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Sensor data for Chiller 6's % Loaded from June 2020 at MAIN.
+
+#Task2: Analyze the retrieved sensor data for Chiller 6 to identify any anomalies or trends.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #Task1
+#ExpectedOutput2: Analysis report on anomalies or trends in Chiller 6's % Loaded data.
+
+#Task3: Create a work order for inspecting Chiller 6 if any anomalies are detected.
+#Agent3: WorkOrder Agent
+#Dependency3: #Task2
+#ExpectedOutput3: Work order for inspecting Chiller 6 if necessary.
+
+The plan is designed to be clear, actionable, and concise, with fewer than 5 steps as required. It leverages the available agents to retrieve the necessary sensor data, analyze it for anomalies or trends, and generate a work order if needed.

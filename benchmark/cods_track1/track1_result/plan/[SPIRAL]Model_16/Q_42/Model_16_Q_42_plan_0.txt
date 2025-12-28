@@ -1,0 +1,22 @@
+Question: what was the supply temperature from CQPA AHU 2B on sept 19, 2020 at quarter to midnight, at site MAIN? return in a file
+Plan:
+- Ensure that your plan is executable with the available agents.
+
+### Plan:
+
+#Task1: Determine the exact date and time for "sept 19, 2020 at quarter to midnight".
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The exact date and time in ISO format.
+
+#Task2: Download the supply temperature data for CQPA AHU 2B at the MAIN site for the determined date and time.
+#Agent2: IoT Data Download
+#Dependency2: #Task1
+#ExpectedOutput2: A file containing the supply temperature data.
+
+#Task3: Verify that the downloaded data is in the correct format and contains the required information.
+#Agent3: IoT Data Download
+#Dependency3: #Task2
+#ExpectedOutput3: Confirmation that the data is correct and in the required format.
+
+The plan is executable with the available agents and follows the required output format.

@@ -15,9 +15,4 @@ Plan:
 #Dependency3: #S2
 #ExpectedOutput3: Forecasted Setpoint Temperature for Chiller 6 for the next week.
 
-#Task4: Generate a work order for reviewing the forecasted Setpoint Temperature for Chiller 6.
-#Agent4: WorkOrder Agent
-#Dependency4: #S3
-#ExpectedOutput4: Work order generated for reviewing the forecasted data.
-
 The plan is complete.

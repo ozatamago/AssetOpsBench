@@ -1,0 +1,17 @@
+Question: Download the metadata for Chiller 3 at the MAIN facility.
+Plan:
+- Make sure to follow the format and constraints.
+
+### Plan
+
+#Task1: Identify the asset details for Chiller 3 at the MAIN facility.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The asset details for Chiller 3 at the MAIN facility, including the list of sensors and their metadata.
+
+#Task2: Download the metadata for Chiller 3 using the identified asset details.
+#Agent2: IoT Data Download
+#Dependency2: #Task1
+#ExpectedOutput2: The metadata for Chiller 3 at the MAIN facility downloaded and stored in a file.
+
+The plan is designed to first identify the asset details for Chiller 3 at the MAIN facility using the IoT Data Download agent. Once the asset details are obtained, the same agent will be used to download the metadata for Chiller 3. This approach aligns with the retrieved context and ensures that the task is completed efficiently within the given constraints.

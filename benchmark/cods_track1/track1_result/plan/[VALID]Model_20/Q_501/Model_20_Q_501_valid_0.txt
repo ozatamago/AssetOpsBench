@@ -1,0 +1,3 @@
+ok: False
+errs:
+['Task numbers must be 1..N in order; got [2, 3, 4]', 'Counts of Task/Agent/Dependency/ExpectedOutput must match', "Agent4 unknown 'ReAct (base reasoning agent)'. Allowed: ['Failure Mode and Sensor Relevancy Expert for Industrial Asset', 'IoT Data Download', 'Time Series Analytics and Forecasting', 'WorkOrder Agent']"]

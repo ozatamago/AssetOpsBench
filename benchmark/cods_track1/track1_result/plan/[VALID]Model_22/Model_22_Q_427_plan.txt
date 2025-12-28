@@ -1,21 +1,21 @@
 Question: Since we know 80% of alerts are likely spurious, can you identify the meaningful 20% for further analysis for any chillers?
 Plan:
-#Task1: Retrieve a list of all chiller assets across all sites
+#Task1: Retrieve the list of all sites and assets at each site
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: A comprehensive list of all chiller assets with their respective site locations
+#ExpectedOutput1: A list of all sites and the assets at each site, including chillers
 
-#Task2: For each chiller, identify relevant failure modes and their associated sensors
+#Task2: For each chiller, identify the relevant sensors and failure modes
 #Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency2: #S1
-#ExpectedOutput2: A mapping of each chiller to its potential failure modes and the sensors that can detect them
+#ExpectedOutput2: A list of relevant sensors and failure modes for each chiller
 
-#Task3: Analyze time-series data for each chiller to detect anomalies that match known failure mode patterns
+#Task3: Analyze the time-series data for each chiller to identify anomalies
 #Agent3: Time Series Analytics and Forecasting
 #Dependency3: #S1, #S2
-#ExpectedOutput3: A report highlighting anomalies in chiller data that correspond to potential failure modes, with severity assessments
+#ExpectedOutput3: A report highlighting anomalies in the time-series data for each chiller
 
-#Task4: Generate work orders for chillers with detected anomalies that represent the meaningful 20% of alerts
+#Task4: Generate work orders for chillers with identified anomalies
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: Prioritized work orders for chillers with significant anomalies, representing the meaningful 20% of alerts for further analysis
+#ExpectedOutput4: Work orders for chillers with identified anomalies, prioritized based on the severity of the anomalies

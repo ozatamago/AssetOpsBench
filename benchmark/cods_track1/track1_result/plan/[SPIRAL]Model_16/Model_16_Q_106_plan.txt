@@ -1,0 +1,12 @@
+Question: List all failure modes of Chiller 6 that can be detected by Chiller 6 Supply Temperature.
+Plan:
+ 
+#Task1: List all failure modes of Chiller 6 that can be detected by Chiller 6 Supply Temperature.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes of Chiller 6 that can be detected by Chiller 6 Supply Temperature.
+
+#Task2: Verify if the output from Task 1 is accurate and complete.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: Confirmation that the list of failure modes detected by Chiller 6 Supply Temperature is accurate and complete.

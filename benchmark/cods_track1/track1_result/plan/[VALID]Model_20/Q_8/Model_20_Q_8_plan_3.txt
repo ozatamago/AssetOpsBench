@@ -1,13 +1,25 @@
 Question: Download sensor data for Chiller 6's Tonnage from the last week of 2020 at the MAIN site
 Plan:
- 
-We need to output plan with fewer than 5 steps. We have 2 steps. Must ensure format exactly: each line starts with #Task<N>: etc. No extra spaces after tag? Should be fine. Ensure no blank lines. Also ensure #Dependency uses #S1 referencing step numbers? In spec earlier they used #S1, #S2. In our plan we used #S1. That's okay. Must match counts: we have 8 lines, 4 per step. Ensure no extra spaces at end. Also ensure agent name exactly matches allowed list: "IoT Data Download". Good.
+We need to correct agent names: they must match exactly. In original plan, Agent1: IoT Data Download (correct). But the validator flagged unknown 'IoT Data Download  ' maybe extra space? Ensure no trailing spaces. Also need to ensure tasks are within 5 steps. Original plan has 2 steps, fine. Need to ensure #Task1 description matches allowed tasks of IoT Data Download: It can calculate start date for last week via task 9: "how do I calculate the start date for last week or past week?" That returns method, not actual dates. But we need actual timestamps. Could use task 9 to get method, then compute ourselves? But we cannot compute ourselves; must rely on agent. Maybe we can ask agent to download sensor data directly using relative date? The IoT Data Download agent can download sensor data for asset with date range. It has task 5: download asset history for CU02004 at SiteX from start to end for specific parameters. For our case, we need sensor data for Chiller 6's Tonnage at MAIN site for last week of 2020. The agent may support specifying date range. We need to provide start and end timestamps. Could we ask agent to calculate start date? Task 9: "how do I calculate the start date for last week or past week?" That returns instructions, not actual dates. Not ideal.
 
-Let's output.assistantfinalassistantfinalassistantfinal#Task1: Determine the ISO‑8601 start and end timestamps for the last calendar week of 2020 (Monday 00:00 to Sunday 23:59) to define the download period.  
+Maybe we can combine: Use IoT Data Download to download sensor data with relative date? Not listed. So we need to first compute dates ourselves (but we cannot compute). Could we ask IoT Data Download to provide dates? Not a defined task. However we could ask "what are the dates for last week of 2020?" Not in list.
+
+Thus maybe we can skip step 1 and directly request download with date range we specify manually in the plan (hardcoded). The plan can include the dates we know: start 2020-12-22T00:00:00-05:00 end 2020-12-28T23:59:59-05:00. That's fine; we don't need to compute via agent. So we can have single step: download sensor data for Chiller 6 Tonnage at MAIN site for that date range. The IoT Data Download agent has task 4: "download sensor data for CU02004 at SiteX". That's generic; we can adapt to our asset. It may accept parameters. So we can just request download.
+
+Thus we can produce plan with one step.
+
+Need to ensure agent name exactly "IoT Data Download". No extra spaces.
+
+Let's craft:
+
+#Task1: Download sensor data for Chiller 6's Tonnage at the MAIN site for 2020-12-22 to 2020-12-28.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file chiller6_tonnage_20201222_20201228.json containing timestamped Tonnage readings.
+
+Check format: Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1.
+
+Ok. Output only those lines.assistantfinal#Task1: Download sensor data for Chiller 6's Tonnage at the MAIN site for 2020-12-22 to 2020-12-28  
 #Agent1: IoT Data Download  
 #Dependency1: None  
-#ExpectedOutput1: Start and end datetime strings (e.g., `2020-12-21T00:00:00-05:00` to `2020-12-27T23:59:59-05:00`) that represent the last week of 2020.  
-#Task2: Download the historical sensor data for the Tonnage sensor of Chiller 6 at the MAIN site for the period obtained in Task 1.  
-#Agent2: IoT Data Download  
-#Dependency2: #S1  
-#ExpectedOutput2: A JSON file (e.g., `chiller6_tonnage_lastweek2020.json`) containing timestamped Tonnage values for Chiller 6 at the MAIN site covering the specified week.
+#ExpectedOutput1: JSON file chiller6_tonnage_20201222_20201228.json containing timestamped Tonnage readings for the specified period.

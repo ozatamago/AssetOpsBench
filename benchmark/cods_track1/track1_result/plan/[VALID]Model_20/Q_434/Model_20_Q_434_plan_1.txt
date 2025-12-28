@@ -1,15 +1,29 @@
 Question: We are building an early detection system for a potential failure condenser Water side fouling for Chiller 9. Monitor Chiller 9 at main site site from 2020-04-20T12:30:00 to 2020-05-12T19:30:00, identify anomalous behaviors and provide a work order recommendation if there is no such corrective work order created already.
 Plan:
  
-The user gave a plan with 3 steps. Need to ensure format: #Task1: ... #Agent1: IoT Data Download #Dependency1: None #ExpectedOutput1: ... etc. Must be exactly as required. Ensure no extra spaces. Use exact agent names. Ensure no extra lines. Provide only those lines. No markdown. Let's produce.assistantfinal#Task1: Download historical sensor data for Chiller 9 (asset CU02004) at the main site from 2020‑04‑20T12:30:00 to 2020‑05‑12T19:30:00 for “CONDENSER WATER LEAVING TEMP” and “CONDENSER WATER RETURN TEMP”.  
-#Agent1: IoT Data Download  
-#Dependency1: None  
-#ExpectedOutput1: JSON file with timestamped values for the two sensors over the specified interval.  
-#Task2: Perform anomaly detection on the two temperature series in the JSON file from #S1 and list any abnormal events.  
-#Agent2: Time Series Analytics and Forecasting  
-#Dependency2: #S1  
-#ExpectedOutput2: Anomaly‑detection report indicating timestamps, sensor names, and nature of each detected anomaly (if any).  
-#Task3: If anomalies are found and no corrective work order exists, create a work order to inspect Chiller 9 for condenser‑water side fouling.  
-#Agent3: WorkOrder Agent  
-#Dependency3: #S2  
-#ExpectedOutput3: Confirmation of work‑order creation for Chiller 9 – condenser‑water side fouling inspection.
+The user gave a plan with #Task1, #Agent1, #Dependency1, #ExpectedOutput1, #Task2, #Agent2, #Dependency2, #ExpectedOutput2, #Task3, #Agent3, #Dependency3, #ExpectedOutput3. Need to ensure format matches exactly: "#TaskN: <one-line>", "#AgentN: <exact agent name>", "#DependencyN: None | #S1 #S2 ... (past steps only)", "#ExpectedOutputN: <one-line>".
+
+Check the plan: #Task1 line is okay. #Agent1: "IoT Data Download" matches allowed. #Dependency1: "None". #ExpectedOutput1: "JSON file (e.g., `chiller9_condenser_water_data.json`) containing timestamped readings for the two temperature sensors over the requested interval." That's one line? It includes backticks and parentheses but okay.
+
+#Task2 line okay. #Agent2: "Time Series Analytics and Forecasting". #Dependency2: "#S1". #ExpectedOutput2: "Anomaly detection report listing any detected out‑of‑range events, their timestamps, and a brief severity assessment." okay.
+
+#Task3 line okay. #Agent3: "WorkOrder Agent". #Dependency3: "#S2". #ExpectedOutput3: "Confirmation of a new work order (e.g., WO‑XXXXX) with description, priority, and recommended actions for inspecting Chiller 9." okay.
+
+Check counts: 3 tasks, 3 agents, 3 dependencies, 3 expected outputs. All good.
+
+Need to ensure no extra spaces after agent names. The plan uses exact names. Good.
+
+Make sure no extra lines or markdown. Provide exactly those lines. Ensure each line starts with #TaskN: etc. No blank lines? The format likely expects each line separate. Provide as given.
+
+Let's output.assistantfinal_outputassistantfinal_outputassistantfinal_output#Task1: Download sensor data for Chiller 9 at the main site for “CONDENSER WATER INLET TEMP” and “CONDENSER WATER OUTLET TEMP” covering the period 2020‑04‑20T12:30:00 to 2020‑05‑12T19:30:00.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file (e.g., `chiller9_condenser_water_data.json`) containing timestamped readings for the two temperature sensors over the requested interval.
+#Task2: Analyze the time‑series data in `chiller9_condenser_water_data.json` to detect any anomalies or abnormal patterns that could indicate condenser‑water side fouling.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly detection report listing any detected out‑of‑range events, their timestamps, and a brief severity assessment.
+#Task3: If the anomaly report indicates potential fouling (or if no existing corrective work order is known), generate a corrective work order to inspect Chiller 9 for condenser‑water side fouling, citing the anomaly findings.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Confirmation of a new work order (e.g., WO‑XXXXX) with description, priority, and recommended actions for inspecting Chiller 9.

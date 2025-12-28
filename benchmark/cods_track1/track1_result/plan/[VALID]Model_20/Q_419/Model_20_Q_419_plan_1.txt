@@ -1,12 +1,25 @@
 Question: Using your knowledge of the industrial asset, can you suggest me a work order for alert RUL0014 with the context of 'Chiller - Cooling Substance Delta T Low' for closed-loop water-cool chiller its load is higher than the upper bound?
 Plan:
  
-The user gave a "Repair rules" and wants the plan. The plan we gave matches format. Need to ensure each line exactly as required: "#TaskN: <one-line>", "#AgentN: <exact agent name>", "#DependencyN: None | #S1 #S2 ...", "#ExpectedOutputN: <one-line>". No extra spaces? Should be fine. Ensure no extra punctuation. Provide exactly two steps. Ensure agent names exactly match allowed list. "Failure Mode and Sensor Relevancy Expert for Industrial Asset" matches. "WorkOrder Agent" matches. Provide #Dependency1: None. #Dependency2: #S1. Use #S1 referencing step 1. Good. Provide one-line expected outputs. Ensure no line breaks within. Provide final answer.assistantfinal#Task1: Identify the failure mode(s) and relevant sensors associated with a low cooling‑substance ΔT condition (alert RUL0014) in a closed‑loop water‑cooled chiller.  
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
-#Dependency1: None  
-#ExpectedOutput1: Description of likely failure mode(s) (e.g., low refrigerant charge, heat‑exchanger fouling) and list of key sensors to monitor (e.g., evaporator leaving water temperature, condenser inlet temperature, pressure sensors).  
+We need to produce plan with fewer than 5 steps, each step includes #TaskN, #AgentN, #DependencyN, #ExpectedOutputN. Must be exactly matching counts. Use allowed agents.
 
-#Task2: Create a work order to address alert RUL0014, using the failure‑mode and sensor information from #S1, and explicitly note that the chiller’s load is above the upper bound.  
-#Agent2: WorkOrder Agent  
-#Dependency2: #S1  
-#ExpectedOutput2: Formatted work order (title, description, priority, recommended actions, required parts/tools, assigned team, follow‑up checks) for the affected chiller.
+We need to suggest a work order for alert RUL0014 with context 'Chiller - Cooling Substance Delta T Low' for closed-loop water-cool chiller its load is higher than the upper bound.
+
+We can produce plan with 2 steps maybe: directly generate work order using WorkOrder Agent, but we might need to confirm failure mode. However the problem asks "suggest me a work order". Could be just one step: use WorkOrder Agent to create work order for inspecting chiller due to low delta T and high load. But we might need to reference alert ID. The WorkOrder Agent tasks include creating work order for inspecting CHL-A100 due to suspected compressor overheating, etc. It can create generic work order. So we can ask to create work order for alert RUL0014.
+
+Thus we can have single step:
+
+#Task1: Create a work order to address alert RUL0014 for a closed-loop water‑cooled chiller experiencing low cooling‑substance ΔT while operating above its load upper bound.
+
+#Agent1: WorkOrder Agent
+
+#Dependency1: None
+
+#ExpectedOutput1: Work order details (WO ID, description, recommended actions, priority) for inspecting/repairing the chiller related to low ΔT and high load.
+
+That's within constraints (<5 steps). Ensure format exactly.
+
+Let's output.assistantfinal#Task1: Create a work order to address alert RUL0014 for a closed‑loop water‑cooled chiller experiencing low cooling‑substance ΔT while operating above its load upper bound
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: Work order details (WO ID, description, priority, recommended inspection/repair actions) for the chiller related to low ΔT and high load.

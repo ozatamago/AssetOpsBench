@@ -1,0 +1,10 @@
+stop_index: 1
+
+truncated_plan:  
+#Task1: Retrieve historical work order data for equipment CWC04009 for the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: Historical work order data for equipment CWC04009 for the year 2017.
+
+status: Not accomplished
+can_answer_now:False

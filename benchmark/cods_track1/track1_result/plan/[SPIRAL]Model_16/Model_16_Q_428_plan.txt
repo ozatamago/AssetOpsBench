@@ -1,0 +1,17 @@
+Question: Could you generate rules that help distinguish meaningful alerts from spurious ones?
+Plan:
+ 
+#Task1: Determine the relevant failure modes and sensors for Chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of failure modes for Chiller 6 and relevant sensors
+
+#Task2: Analyze the time-series data for CU02004 at SiteX to look for anomalies or patterns in "CHILLED WATER LEAVING TEMP" and "CHILLED WATER RETURN TEMP"
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Analysis of time-series data highlighting anomalies or patterns
+
+#Task3: Generate rules based on the analysis to distinguish between meaningful and spurious alerts
+#Agent3: WorkOrder Agent
+#Dependency3: #S1 #S2
+#ExpectedOutput3: Rules or guidelines for filtering alerts based on the analysis

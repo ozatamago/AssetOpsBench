@@ -1,15 +1,15 @@
 Question: Get all the events of equipment CWC04009 for the June of 2020 and provide a summary based on the event group for work order, alert, and anomaly.
 Plan:
  
-We already output plan. Need to ensure format: each line separate, no extra spaces. Ensure #Dependency2: #S1 (space after colon). Should be "#Dependency2: #S1". Good.
+We need to output plan with steps. Must be less than 5 steps. Already have 2 steps. Ensure format exactly: each line starts with #TaskN: etc. No extra spaces at end? Probably fine. Ensure no double spaces. Use exact agent name "IoT Data Download". Dependency for step2 should be "#S1". Use #S1 not #S1? In earlier spec they used #S1. Yes.
 
-Check #ExpectedOutput lines: one line each.
+Make sure each line separate, no blank lines? Might be okay but they said output only lines in this exact format, no extra prose. Probably blank line counts as extra line not matching pattern. So avoid blank lines. Provide 8 lines consecutively.
 
-All good.assistantfinalassistantfinal#Task1: Download the full asset history for equipment CWC04009 covering June 2020 (2020-06-01 to 2020-06-30) including all event types
+Let's output.assistantfinal #Task1: Download the full event history for equipment CWC04009 for June 2020
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: JSON file (e.g., CWC04009_June2020_history.json) containing timestamps, event groups (work order, alert, anomaly) and details
-#Task2: Analyze the downloaded JSON to detect any sensor anomalies during June 2020
-#Agent2: Time Series Analytics and Forecasting
+#ExpectedOutput1: JSON file CWC04009_June2020.json containing all events with timestamps and event‑group fields
+#Task2: Summarize the events by event group (work order, alert, anomaly) from the JSON file
+#Agent2: IoT Data Download
 #Dependency2: #S1
-#ExpectedOutput2: Report listing detected anomalies with timestamps and affected sensors
+#ExpectedOutput2: Summary table or JSON showing count of events for each group (work order, alert, anomaly)

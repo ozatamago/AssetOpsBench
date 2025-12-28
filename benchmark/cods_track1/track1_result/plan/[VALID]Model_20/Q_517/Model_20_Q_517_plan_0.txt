@@ -1,45 +1,37 @@
 Question: Are there any anomalies detected in Chiller 9's Tonnage in the week of 2020-04-27 at the MAIN site?
 Plan:
-We need to detect anomalies in Chiller 9's Tonnage for week of 2020-04-27 at MAIN site.
+We need to produce a plan with fewer than 5 steps, each step includes Task, Agent, Dependency, ExpectedOutput.
 
-We have agents: IoT Data Download can download sensor data for asset. Need to get data for Chiller 9 Tonnage sensor. Probably asset ID? Not given. Could be asset name "CHL-9"? Use IoT Data Download to download sensor data for Chiller 9 at MAIN site for that week. Then Time Series Analytics to analyze for anomalies.
+Goal: detect anomalies in Chiller 9's Tonnage in the week of 2020-04-27 at the MAIN site.
 
-Steps: 1) Use IoT Data Download to download sensor data for Chiller 9 at MAIN site for "TONNAGE" from start to end of week (2020-04-27 to 2020-05-03). Need to specify date range. Use task 5: download asset history for asset at site with start and end times for specific sensors. Provide asset ID maybe "CHL-9". We'll assume asset identifier "CHL-9". Provide sensor name "TONNAGE". So step1.
+We have agents: IoT Data Download (can download sensor data for asset at site, can download asset history for specific time range and sensors). We need Tonnage sensor data for Chiller 9 at MAIN site for week of 2020-04-27. Then we need to analyze for anomalies using Time Series Analytics and Forecasting agent.
 
-2) Use Time Series Analytics and Forecasting to analyze the downloaded JSON file for anomalies in Tonnage. Use task 1: Analyze time-series data in file and look for anomalies.
+Thus steps:
 
-Thus two steps.
+Step 1: Use IoT Data Download to download asset history for Chiller 9 at MAIN site for the week of 2020-04-27 for sensor "TONNAGE". Need to specify start and end dates: week of 2020-04-27 (Monday 2020-04-27 to Sunday 2020-05-03). Provide date range.
 
-Make plan with <5 steps.
+Step 2: Use Time Series Analytics and Forecasting to analyze the downloaded JSON file for anomalies in Tonnage.
 
-Provide dependencies.
+Potentially we might need to merge JSON files? Not needed if single file.
+
+Thus 2 steps.
+
+Make sure format: #Task1, #Agent1, #Dependency1, #ExpectedOutput1, etc.
 
 Let's craft.
 
-#Task1: Download historical sensor data for Chiller 9's Tonnage at MAIN site for week 2020-04-27 to 2020-05-03.
+Step 1: Task: download asset history for Chiller 9 at MAIN site from 2020-04-27T00:00:00 to 2020-05-03T23:59:59 for sensor "TONNAGE". Agent: IoT Data Download. Dependency: None. ExpectedOutput: JSON file (e.g., chiller9_tonnage_week.json) containing timestamped tonnage values.
 
-Agent: IoT Data Download
+Step 2: Task: analyze the time-series data in the JSON file to detect anomalies in Tonnage for the week. Agent: Time Series Analytics and Forecasting. Dependency: #S1. ExpectedOutput: Report indicating any anomalies detected, with timestamps and severity.
 
-Dependency: None
+Make sure to follow format exactly.
 
-ExpectedOutput: JSON file (e.g., chiller9_tonnage_2020-04-27_to_2020-05-03.json) containing timestamped Tonnage values.
-
-#Task2: Analyze the downloaded JSON file for anomalies in Tonnage.
-
-Agent: Time Series Analytics and Forecasting
-
-Dependency: #S1
-
-ExpectedOutput: Anomaly detection report indicating any anomalous points (or stating none) for the specified week.
-
-Make sure format matches required.
-
-Let's output.assistantfinal#Task1: Download historical sensor data for Chiller 9’s “TONNAGE” at the MAIN site for the week 2020‑04‑27 to 2020‑05‑03.  
+Let's produce final answer.assistantfinal#Task1: Download the historical sensor data for Chiller 9 at the MAIN site covering the week of 2020‑04‑27 (2020‑04‑27 00:00:00 to 2020‑05‑03 23:59:59) for the sensor “TONNAGE”.  
 #Agent1: IoT Data Download  
 #Dependency1: None  
-#ExpectedOutput1: JSON file (e.g., `chiller9_tonnage_2020-04-27_to_2020-05-03.json`) containing timestamped TONNAGE values for the specified period.  
+#ExpectedOutput1: A JSON file (e.g., `chiller9_tonnage_20200427_20200503.json`) containing timestamped tonnage values for the specified period.  
 
-#Task2: Analyze the JSON file from #S1 to detect any anomalies in the TONNAGE time‑series for that week.  
+#Task2: Analyze the time‑series data in the JSON file from #S1 to identify any anomalies in Chiller 9’s tonnage during that week.  
 #Agent2: Time Series Analytics and Forecasting  
 #Dependency2: #S1  
-#ExpectedOutput2: Anomaly‑detection report that lists any anomalous TONNAGE points (or confirms that no anomalies were found) for Chiller 9 during the week of 2020‑04‑27 at the MAIN site.
+#ExpectedOutput2: An anomaly‑detection report listing any detected anomalies (timestamps, deviation magnitude, and confidence level) or confirming that no anomalies were found.

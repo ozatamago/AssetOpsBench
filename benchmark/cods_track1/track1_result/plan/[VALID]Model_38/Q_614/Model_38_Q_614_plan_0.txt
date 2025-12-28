@@ -18,4 +18,4 @@ Plan:
 #Task4: Develop a maintenance plan based on the identified failure modes, relevant sensors, and detected anomalies to proactively detect and prevent excess purge in the chiller 6 purge unit.
 #Agent4: WorkOrder Agent
 #Dependency4: #S3
-#ExpectedOutput4: A maintenance plan outlining steps to early detect and prevent excess purge in chiller 6 purge unit
+#ExpectedOutput4: A maintenance plan outlining steps to early detect and prevent excess purge in the chiller 6 purge unit

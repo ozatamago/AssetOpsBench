@@ -8,9 +8,9 @@ Plan:
 #Task2: Analyze the work orders to identify those that can be bundled based on their type, priority, and proximity in time
 #Agent2: WorkOrder Agent
 #Dependency2: #S1
-#ExpectedOutput2: A filtered list of work orders that can be bundled together for execution in the next maintenance window, considering factors like type, priority, and temporal proximity.
+#ExpectedOutput2: A filtered list of work orders that can be bundled together for execution in the next maintenance window, along with a recommended schedule.
 
-#Task3: Generate a bundled work order plan for the identified work orders, scheduling them within a two-week maintenance window
+#Task3: Generate a bundled work order plan for the next maintenance window
 #Agent3: WorkOrder Agent
 #Dependency3: #S2
-#ExpectedOutput3: A detailed plan for executing the bundled work orders within the next maintenance window, including a timeline, resource allocation, and any necessary preparatory steps.
+#ExpectedOutput3: A detailed plan for executing the bundled work orders, including a timeline, required resources, and any necessary preparations.

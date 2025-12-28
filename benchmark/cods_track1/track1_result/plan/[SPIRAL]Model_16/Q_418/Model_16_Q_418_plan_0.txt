@@ -1,0 +1,28 @@
+Question: Just notice two anomalies 'KPI Cooling Load above upper bound' and 'KPI Delta Setpoint above upper bound' happened for equipment CWC04009, can you recommend top three work orders to address this problem?
+Plan:
+- Make sure your plan is executable with the given agents.
+
+### Plan
+
+#Task1: Retrieve relevant sensor data for equipment CWC04009 to understand the anomaly.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Sensor data for CWC04009, including "KPI Cooling Load" and "KPI Delta Setpoint".
+
+#Task2: Analyze the retrieved sensor data to identify the cause of the anomalies 'KPI Cooling Load above upper bound' and 'KPI Delta Setpoint above upper bound'.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Analysis report indicating the cause of the anomalies.
+
+#Task3: Recommend top three work orders to address the identified cause of the anomalies.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: List of top three recommended work orders.
+
+### Explanation
+The plan involves three steps:
+1. Retrieving relevant sensor data for equipment CWC04009 using the IoT Data Download agent.
+2. Analyzing the retrieved sensor data using the Time Series Analytics and Forecasting agent to identify the cause of the anomalies.
+3. Recommending top three work orders using the WorkOrder Agent based on the analysis report.
+
+This plan is executable with the given agents and follows the required output format strictly.

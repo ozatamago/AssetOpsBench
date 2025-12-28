@@ -1,18 +1,28 @@
 Question: Can I list all the metrics monitored by CQPA AHU 2B? use site MAIN
 Plan:
-We need to list all metrics monitored by CQPA AHU 2B at site MAIN. Which agent can provide? IoT Data Download can provide info about IoT sites, assets, sensor data, etc. It can answer "what sites are there", "what assets are at site SiteX". It can also "download sensor data for CU02004 at SiteX". But we need list of metrics (sensors) for asset CQPA AHU 2B. Likely we can ask IoT Data Download: "what assets are at site MAIN" then find asset CQPA AHU 2B, then maybe "download sensor data for CQPA AHU 2B at MAIN" which would give metrics. Or maybe "download asset history" but need list of metrics. Could also "download sensor data" which returns data for all sensors? Might need to request specific metrics? The agent can retrieve historical data and metadata for various assets and equipment. So we can ask to retrieve metadata for asset, which includes list of metrics. So step: use IoT Data Download to get list of assets at site MAIN, then retrieve sensor list for CQPA AHU 2B. Could be done in one step: "download sensor data for CQPA AHU 2B at MAIN" which returns data for all sensors, from which we can infer metrics. But we need just list of metrics, not data. Maybe we can ask "what metrics are monitored for asset CQPA AHU 2B at site MAIN". The agent description includes "Can provide information about IoT sites, asset details, sensor data, and retrieve historical data and metadata for various assets and equipment". So we can ask for metadata. So step: Use IoT Data Download to retrieve metadata for asset CQPA AHU 2B at site MAIN, which includes list of metrics.
+We need to list all metrics monitored by CQPA AHU 2B at site MAIN. Which agent can provide? IoT Data Download can provide info about IoT sites, asset details, sensor data, retrieve historical data and metadata for assets. It can answer "what assets are at site SiteX" and "download sensor data". It might also provide list of metrics (sensor types) for an asset. So we can ask IoT Data Download: "what assets are at site MAIN" then find CQPA AHU 2B, then maybe "download sensor data for CQPA AHU 2B at site MAIN" which may include metrics. Or ask "what metrics are monitored for asset CQPA AHU 2B at site MAIN". Not directly listed but can request sensor data which includes metrics. So plan: Step1: Use IoT Data Download to get list of assets at site MAIN. Step2: Use IoT Data Download to download sensor data for asset CQPA AHU 2B at site MAIN (maybe all sensors). Expected output: list of metrics (sensor names). No other agents needed. Steps <5.
 
-Thus plan with one step.
+Let's craft plan.
 
-But need to include Task, Agent, Dependency, ExpectedOutput.
+Step1: Task: Retrieve list of assets at site MAIN. Agent: IoT Data Download. Dependency: None. Expected output: JSON list of assets including CQPA AHU 2B.
 
-We can have #Task1: Retrieve list of monitored metrics for asset CQPA AHU 2B at site MAIN. #Agent1: IoT Data Download. #Dependency1: None. #ExpectedOutput1: JSON list of metric names (e.g., "Supply Air Temp", "Return Air Temp", etc.) for that asset.
+Step2: Task: Download sensor data (metadata) for asset CQPA AHU 2B at site MAIN to obtain all monitored metrics. Agent: IoT Data Download. Dependency: #S1 (to confirm asset exists). Expected output: JSON file or list of sensor names/metrics for that asset.
 
-That's it.
+Potentially need to parse JSON to extract metric names, but we could ask IoT Data Download "How do I get a list of properties from a JSON file" (task 7) to extract metric names. Could be separate step. But we can assume the download includes metric names. To be safe, add Step3: Use IoT Data Download to list properties from the JSON file obtained. Agent: IoT Data Download. Dependency: #S2. Expected output: list of metric names.
 
-But ensure less than 5 steps. Yes.
+Thus 3 steps.
 
-Let's produce final answer.assistantfinal#Task1: Retrieve the list of all metrics (sensor names) monitored for the asset **CQPA AHU 2B** at site **MAIN**.  
+Let's produce plan.assistantfinal#Task1: Retrieve the list of assets located at site **MAIN**.  
 #Agent1: IoT Data Download  
 #Dependency1: None  
-#ExpectedOutput1: A JSON response (or plain list) containing the names of all monitored metrics for CQPA AHU 2B, e.g., `["Supply Air Temp", "Return Air Temp", "Fan Speed", "CO₂ Level", ...]`.
+#ExpectedOutput1: JSON array of asset identifiers at site MAIN (e.g., ["CQPA AHU 2B", "…"]).
+
+#Task2: Download the full sensor/metric metadata for the asset **CQPA AHU 2B** at site **MAIN** (i.e., obtain the JSON file that enumerates all monitored metrics for this asset).  
+#Agent2: IoT Data Download  
+#Dependency2: #S1 (to confirm the asset exists)  
+#ExpectedOutput2: JSON file (e.g., `cqpa_ahu_2b_metrics.json`) containing entries for each monitored metric/sensor (e.g., temperature, humidity, fan speed, etc.).
+
+#Task3: Extract and list only the metric/property names from the JSON file obtained in Step 2.  
+#Agent3: IoT Data Download  
+#Dependency3: #S2  
+#ExpectedOutput3: Plain‑text list (or JSON array) of all metric names monitored by CQPA AHU 2B at site MAIN (e.g., ["Supply Air Temp", "Return Air Temp", "Fan Speed", …]).

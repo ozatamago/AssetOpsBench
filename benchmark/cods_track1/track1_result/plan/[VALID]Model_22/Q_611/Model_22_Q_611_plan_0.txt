@@ -1,16 +1,21 @@
 Question:  If Evaporator Water side fouling occurs for Chiller 6 at MAIN site, which sensor is most relevant for monitoring this specific failure?
 Plan:
-#Task1: Identify the relevant sensors for monitoring Evaporator Water side fouling in Chiller 6 at MAIN site.
+#Task1: Identify the relevant sensors for monitoring Evaporator Water side fouling in Chiller 6
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency1: None
-#ExpectedOutput1: A list of relevant sensors for monitoring Evaporator Water side fouling in Chiller 6 at MAIN site.
+#ExpectedOutput1: A list of sensors relevant for monitoring Evaporator Water side fouling in Chiller 6
 
-#Task2: Analyze the time-series data for the identified sensors to detect any anomalies or patterns indicative of Evaporator Water side fouling.
-#Agent2: Time Series Analytics and Forecasting
+#Task2: Prioritize the sensors based on their relevance to Evaporator Water side fouling
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency2: #S1
-#ExpectedOutput2: Analysis results highlighting any anomalies or patterns in the sensor data related to Evaporator Water side fouling.
+#ExpectedOutput2: A prioritized list of sensors for monitoring Evaporator Water side fouling in Chiller 6, with the most relevant sensor identified
 
-#Task3: Generate a work order for inspecting Chiller 6 at MAIN site due to suspected Evaporator Water side fouling based on the analysis results.
+#Task3: Create a work order for inspecting Chiller 6 due to suspected Evaporator Water side fouling
 #Agent3: WorkOrder Agent
 #Dependency3: #S2
-#ExpectedOutput3: A work order for inspecting Chiller 6 at MAIN site due to suspected Evaporator Water side fouling.
+#ExpectedOutput3: A work order for inspecting Chiller 6, focusing on the most relevant sensor for Evaporator Water side fouling
+
+#Task4: Download sensor data for the most relevant sensor for Chiller 6 at MAIN site
+#Agent4: IoT Data Download
+#Dependency4: #S2
+#ExpectedOutput4: Sensor data for the most relevant sensor for monitoring Evaporator Water side fouling in Chiller 6 at MAIN site
