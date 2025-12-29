@@ -2100,6 +2100,10 @@ class NewPlanningWorkflow(Workflow):
             input_tokens_count+=in_tok
             generated_tokens_count+=out_tok
             print(f"DAG round_{t}: {final_plan}")
+            saved_plan_filename_t = saved_plan_filename + f"_plan_{t+1}.txt"
+            saved_plan_text = f"Question: {task.description}\nPlan:\n{final_plan}"
+            with open(saved_plan_filename_t, "w") as f:
+                f.write(saved_plan_text)
             print(f"[Prompt {t}] in_tok: {in_tok}, out_tok: {out_tok}")
             logger.info("Plan was repaired based on issues:\n- " + "\n- ".join(errs or ["(no structural issues)"]))
 

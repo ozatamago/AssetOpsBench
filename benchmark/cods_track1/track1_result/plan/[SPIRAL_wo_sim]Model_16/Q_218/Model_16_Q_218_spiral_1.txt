@@ -1,0 +1,20 @@
+stop_index: 3
+
+truncated_plan:  
+#Task1: Convert 'chiller9_annotated_small_test.csv' to a suitable format (e.g., JSON) that can be processed by the available agents.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON file containing the data from 'chiller9_annotated_small_test.csv'.
+
+#Task2: Use the Time Series Analytics and Forecasting agent to forecast 'Chiller 9 Condenser Water Flow' based on the converted JSON data.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Forecasted values for 'Chiller 9 Condenser Water Flow' for the next time period.
+
+#Task3: Create a work order for inspecting Chiller 9 based on the forecasted values to check for any potential issues.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A generated work order for inspecting Chiller 9.
+
+status: Partially accomplished
+can_answer_now:True

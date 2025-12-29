@@ -5,9 +5,9 @@ services:
     volumes:
       - ./track1_result:/home/track1_result
 
-      - ./run_track_1_spiral.py:/home/run_track_1.py
       - ./entrypoint_spiral.sh:/home/entrypoint.sh
-      - ../../src/agent_hive/workflows/track1_planning_spiral.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/track1_planning.py
+      - ./run_track_1_spiral_without_critic.py:/home/run_track_1.py
+      - ../../src/agent_hive/workflows/track1_planning_spiral_without_critic.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/track1_planning.py
       
       - ../../src/assetopsbench/sample_data:/sample_data:ro
       - ../../scenarios:/home/scenarios:ro  
@@ -15,7 +15,7 @@ services:
       - ../../auto_scoring.py:/home/auto_scoring.py  
       - ../../src/agent_hive/workflows/simulator_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/simulator_agent.py
       - ../../src/agent_hive/workflows/critic_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/critic_agent.py
-
+      - ../../src/agent_hive/workflows/critic_agent_without_simulator.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/critic_agent_without_simulator.py
     env_file:
       - .env.local # changed from .env
     environment:

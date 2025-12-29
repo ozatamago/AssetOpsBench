@@ -1,0 +1,32 @@
+Question: List all sensors of Chiller 6 at MAIN site that are potentially relevant to Compressor Overheating.
+Plan:
+#Task1: List all assets at MAIN site
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at MAIN site
+
+#Task2: Identify relevant sensors for Compressor Overheating failure mode of Chiller 6
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: List of relevant sensors for Compressor Overheating of Chiller 6
+
+#Task3: Filter the sensors identified in #S2 that are actually available for Chiller 6 at MAIN site
+#Agent3: IoT Data Download
+#Dependency3: #S1, #S2
+#ExpectedOutput3: List of available sensors for Chiller 6 at MAIN site that are relevant to Compressor Overheating
+
+#Task4: Provide the final list of sensors
+#Agent4: IoT Data Download
+#Dependency4: #S3
+#ExpectedOutput4: Final list of sensors for Chiller 6 at MAIN site relevant to Compressor Overheating
+
+The explanation for the steps is as follows:
+1. **List all assets at MAIN site**: The first step is to identify all assets available at the MAIN site. This will help in confirming if Chiller 6 is present and what other assets are available.
+
+2. **Identify relevant sensors for Compressor Overheating failure mode of Chiller 6**: Using the Failure Mode and Sensor Relevancy Expert, we will identify sensors that are relevant to the Compressor Overheating failure mode of Chiller 6.
+
+3. **Filter the sensors identified in #S2 that are actually available for Chiller 6 at MAIN site**: We will cross-reference the sensors identified in step 2 with the actual sensors available for Chiller 6 at the MAIN site to ensure they are present and relevant.
+
+4. **Provide the final list of sensors**: The final step is to output the list of sensors that are both relevant to Compressor Overheating of Chiller 6 and available at the MAIN site.
+
+The plan is feasible with the given agents and adheres to the constraints.

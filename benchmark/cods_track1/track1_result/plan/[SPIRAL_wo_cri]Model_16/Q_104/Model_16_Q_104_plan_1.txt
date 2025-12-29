@@ -1,0 +1,17 @@
+Question: List all installed sensors of asset Chiller 6.
+Plan:
+ 
+#Task1: List all assets at SiteX
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at SiteX
+
+#Task2: Download asset details for Chiller 6
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Asset details for Chiller 6
+
+#Task3: Extract sensor information from the asset details of Chiller 6
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: List of installed sensors for Chiller 6

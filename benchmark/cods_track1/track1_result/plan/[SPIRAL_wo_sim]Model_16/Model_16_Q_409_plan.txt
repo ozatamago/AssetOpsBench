@@ -1,0 +1,22 @@
+Question: Get the daily count of alert, anomaly and work order event for the May 2020 for equipment CWC04009.
+Plan:
+ 
+#Task1: Identify the site where equipment CWC04009 is located.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Site where CWC04009 is located.
+
+#Task2: Download the sensor data for CWC04009 at the identified site for May 2020.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Sensor data for CWC04009 for May 2020.
+
+#Task3: Analyze the downloaded sensor data to identify anomalies and count daily anomalies.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Daily count of anomalies for CWC04009 in May 2020.
+
+#Task4: Retrieve and count daily work orders and alerts for CWC04009 for May 2020.
+#Agent4: WorkOrder Agent
+#Dependency4: #S1
+#ExpectedOutput4: Daily count of work order and alert events for CWC04009 in May 2020.
