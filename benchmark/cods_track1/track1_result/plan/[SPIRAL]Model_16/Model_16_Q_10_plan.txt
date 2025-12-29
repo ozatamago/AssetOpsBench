@@ -1,25 +1,12 @@
 Question: Get sensor data for both Chiller 6 and Chiller 9's Tonnage from first week of June 2020 at MAIN in a single file.
 Plan:
-- Ensure that your plan is executable with the given agents and does not require additional capabilities.
-
-### Plan
-
-#Task1: Calculate the start and end dates for the first week of June 2020.
+ 
+#Task1: Identify the site where Chiller 6 and Chiller 9 are located.
 #Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: Start and end dates for the first week of June 2020.
+#ExpectedOutput1: List of sites where Chiller 6 and Chiller 9 are located.
 
-#Task2: Retrieve sensor data for Chiller 6's Tonnage from the first week of June 2020 at MAIN.
+#Task2: Download sensor data for Chiller 6 and Chiller 9's Tonnage from the first week of June 2020 at the identified site MAIN and merge into a single JSON file.
 #Agent2: IoT Data Download
 #Dependency2: #S1
-#ExpectedOutput2: Sensor data for Chiller 6's Tonnage in a JSON file.
-
-#Task3: Retrieve sensor data for Chiller 9's Tonnage from the first week of June 2020 at MAIN.
-#Agent3: IoT Data Download
-#Dependency3: #S1
-#ExpectedOutput3: Sensor data for Chiller 9's Tonnage in a JSON file.
-
-#Task4: Merge the JSON files containing sensor data for Chiller 6 and Chiller 9 into a single JSON file.
-#Agent4: IoT Data Download
-#Dependency4: #S2 #S3
-#ExpectedOutput4: A single JSON file containing sensor data for both Chiller 6 and Chiller 9's Tonnage.
+#ExpectedOutput2: A single JSON file containing the sensor data for both Chiller 6 and Chiller 9's Tonnage.

@@ -1,33 +1,17 @@
 Question:  If compressor overheating occurs for Chiller 6 at MAIN site, which sensor should be prioritized for monitoring this specific failure?
 Plan:
  
-#Task1: Identify the relevant sensors for monitoring compressor overheating failure of Chiller 6 and prioritize them.
+#Task1: Identify the relevant sensors for monitoring compressor overheating failure of Chiller 6.
 #Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
 #Dependency1: None
-#ExpectedOutput1: The sensor that should be prioritized for monitoring compressor overheating of Chiller 6.
+#ExpectedOutput1: List of relevant sensors that can be used to monitor the compressor overheating failure of Chiller 6.
 
-#Task2: Verify if Chiller 6 is located at the MAIN site.
-#Agent2: IoT Data Download
-#Dependency2: None
-#ExpectedOutput2: Confirmation that Chiller 6 is at the MAIN site.
+#Task2: Prioritize the sensors identified in Task 1 for monitoring compressor overheating of Chiller 6.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: The sensor that should be prioritized for monitoring compressor overheating of Chiller 6.
 
-#Task3: Create a work order for inspecting Chiller 6 due to suspected compressor overheating.
-#Agent3: WorkOrder Agent
-#Dependency3: #S1 #S2
-#ExpectedOutput3: Work order created for inspecting Chiller 6.
-
-The final answer is: 
-#Task1: Identify the relevant sensors for monitoring compressor overheating failure of Chiller 6 and prioritize them.
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency1: None
-#ExpectedOutput1: The sensor that should be prioritized for monitoring compressor overheating of Chiller 6.
-
-#Task2: Verify if Chiller 6 is located at the MAIN site.
-#Agent2: IoT Data Download
-#Dependency2: None
-#ExpectedOutput2: Confirmation that Chiller 6 is at the MAIN site.
-
-#Task3: Create a work order for inspecting Chiller 6 due to suspected compressor overheating.
-#Agent3: WorkOrder Agent
-#Dependency3: #S1 #S2
-#ExpectedOutput3: Work order created for inspecting Chiller 6.
+#Task3: Verify if Chiller 6 is located at the MAIN site.
+#Agent3: IoT Data Download
+#Dependency3: None
+#ExpectedOutput3: Confirmation that Chiller 6 is an asset at the MAIN site.

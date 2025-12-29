@@ -1,0 +1,23 @@
+{
+  "text": " If compressor overheating occurs for Chiller 6 at MAIN site, which sensor should be prioritized for monitoring this specific failure?",
+  "tasks": [
+    {
+      "task_description": "List sensors monitoring Chiller 6 compressor overheating failure",
+      "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
+      "final_answer": "temperature sensors, power input sensors</response>",
+      "review": "Task Status: Partially Accomplished | identified relevant sensors | handle file reading errors and provide context."
+    },
+    {
+      "task_description": "Prioritize sensors to monitor Chiller 6 compressor overheating",
+      "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
+      "final_answer": "Chiller 6 Temperature</response>",
+      "review": "Task Status: Accomplished | prioritized sensors reasonably | improve error handling and logging</response>\n<response>prioritized sensors reasonably | improve error handling and logging</response>"
+    },
+    {
+      "task_description": "Check if Chiller 6 is at MAIN site.",
+      "agent_name": "IoT Data Download",
+      "final_answer": "MAIN</response>",
+      "review": "Task Status: Accomplished | verified Chiller 6 location | avoid redundant asset retrieval – Illegible.  Replace with: verified Chiller 6 | redundant asset retrieval avoided."
+    }
+  ]
+}

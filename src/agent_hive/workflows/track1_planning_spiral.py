@@ -1583,13 +1583,13 @@ class NewPlanningWorkflow(Workflow):
             "- Construct the DAG using the bare minimum number of tasks required to satisfy the user question and constraints. "
             "Avoid redundant or unnecessary tasks.\n"
             "- Make the minimal changes necessary; if there is no problem, you MUST output the Original Plan as-is.\n"
-            "- Output ONLY lines in this exact format (no extra prose):\n"
-            "  #TaskN: <one-line>\n"
-            "  #AgentN: <exact agent name>\n"
-            "  #DependencyN: None | #S1 #S2 ... (past steps only)\n"
-            "  #ExpectedOutputN: <one-line>\n"
-            f"- Agents allowed: {', '.join(agents_allowed)}\n"
-            "- Use N = 1..K sequentially; counts across all tags must match.\n"
+            # "- Output ONLY lines in this exact format (no extra prose):\n"
+            # "  #TaskN: <one-line>\n"
+            # "  #AgentN: <exact agent name>\n"
+            # "  #DependencyN: None | #S1 #S2 ... (past steps only)\n"
+            # "  #ExpectedOutputN: <one-line>\n"
+            # f"- Agents allowed: {', '.join(agents_allowed)}\n"
+            # "- Use N = 1..K sequentially; counts across all tags must match.\n"
             "- Do NOT output any explanation, comments, or markdown.\n"
         )
 
@@ -1857,6 +1857,8 @@ class NewPlanningWorkflow(Workflow):
             )
             input_tokens_count+=input_tokens
             generated_tokens_count+=generated_tokens
+            print(f"[Simulator] in_tok: {input_tokens}, out_tok: {generated_tokens}")
+
 
             # 4) Critic: evaluate whether this prefix + answer is enough
             critic_res, input_tokens, generated_tokens  = critic.evaluate(
@@ -1866,6 +1868,7 @@ class NewPlanningWorkflow(Workflow):
             )
             input_tokens_count+=input_tokens
             generated_tokens_count+=generated_tokens
+            print(f"[Critic] in_tok: {input_tokens}, out_tok: {generated_tokens}")
 
             last_result = {
                 "stop_index": idx,
@@ -1969,27 +1972,28 @@ class NewPlanningWorkflow(Workflow):
         # 0) Ask LLM for a plan  (augment prompt with retrieved context)
         base_prompt = self.get_prompt(task.description, agent_descriptions)
 
-        retrieved_context = self._format_search_hits_for_prompt(
-            search_hits,
-            max_chars=1800,
-            db_url=DB_URL,               # これを渡すと trajectory のプレビューも引いてくる
-            per_doc_tasks=2,
-            per_task_steps=2,
-        )
+        # retrieved_context = self._format_search_hits_for_prompt(
+        #     search_hits,
+        #     max_chars=1800,
+        #     db_url=DB_URL,               # これを渡すと trajectory のプレビューも引いてくる
+        #     per_doc_tasks=2,
+        #     per_task_steps=2,
+        # )
 
-        print(f"retrieved_context: {retrieved_context}")
-        if retrieved_context:
-            prompt = (
-                f"{base_prompt}\n\n"
-                "### Retrieved Context (from prior runs and trajectory DB)\n"
-                f"{retrieved_context}\n\n"
-                "### Instruction\n"
-                "- Use the context above to align your task breakdown and agent selection.\n"
-                "- If similar tasks appear, re-use their structure/expected outputs when sensible.\n"
-                "- Do NOT copy irrelevant content; keep the required output format strictly.\n"
-            )
-        else:
-            prompt = base_prompt
+        # print(f"retrieved_context: {retrieved_context}")
+        # if retrieved_context:
+        #     prompt = (
+        #         f"{base_prompt}\n\n"
+        #         "### Retrieved Context (from prior runs and trajectory DB)\n"
+        #         f"{retrieved_context}\n\n"
+        #         "### Instruction\n"
+        #         "- Use the context above to align your task breakdown and agent selection.\n"
+        #         "- If similar tasks appear, re-use their structure/expected outputs when sensible.\n"
+        #         "- Do NOT copy irrelevant content; keep the required output format strictly.\n"
+        #     )
+        # else:
+        #     prompt = base_prompt
+        prompt = base_prompt
 
         logger.info(f"Plan Generation Prompt (augmented): \n{prompt}")
         resp = watsonx_llm(prompt, model_id=self.llm)
@@ -1998,7 +2002,9 @@ class NewPlanningWorkflow(Workflow):
         out_tok = resp.get("generated_token_count", 0)
         input_tokens_count+=in_tok
         generated_tokens_count+=out_tok
-        logger.info(f"Plan (raw): \n{llm_response}")
+        logger.info(f"=============End of Prompt===============\n\n\nPlan (raw): \n{llm_response}")
+        print(f"[Prompt 0] in_tok: {in_tok}, out_tok: {out_tok}")
+
 
         final_plan = llm_response
         print(f"DAG round_0: {final_plan}")
@@ -2049,6 +2055,7 @@ class NewPlanningWorkflow(Workflow):
                 print(f"[SPIRAL] result: {spiral_res}")
                 input_tokens_count+=in_tok
                 generated_tokens_count+=out_tok
+                print(f"[SPIRAL {t}] in_tok: {in_tok}, out_tok: {out_tok}")
 
                 stop_index = spiral_res.get("stop_index", None)
                 truncated_plan = self._truncate_plan_text(final_plan, stop_index)
@@ -2065,7 +2072,7 @@ class NewPlanningWorkflow(Workflow):
                 #    - format OK
                 #    - Critic says Accomplished
                 #    - can_answer_now == True
-                if status == "Accomplished" and can_answer_now:
+                if (status == "Accomplished" or status=="Partially accomplished") and can_answer_now:
                     final_plan=truncated_plan
                     print("[SPIRAL] Plan accepted.")
                     break
@@ -2084,7 +2091,7 @@ class NewPlanningWorkflow(Workflow):
                 spiral_feedback=spiral_hint,
                 truncated_plan_text=truncated_plan_text
             )
-            print(f"repair_prompt: {repair_prompt}")
+            print(f"\n\n\n!!!!!!!!!!!repair_prompt!!!!!!!!!!!!!!!!!: {repair_prompt}\n!!!!!!!!!!!End of Prompt!!!!!!!!!!!!!!\n\n\n")
 
             resp = watsonx_llm(repair_prompt, model_id=self.llm)
             final_plan=resp.get("generated_text", "")
@@ -2093,6 +2100,7 @@ class NewPlanningWorkflow(Workflow):
             input_tokens_count+=in_tok
             generated_tokens_count+=out_tok
             print(f"DAG round_{t}: {final_plan}")
+            print(f"[Prompt {t}] in_tok: {in_tok}, out_tok: {out_tok}")
             logger.info("Plan was repaired based on issues:\n- " + "\n- ".join(errs or ["(no structural issues)"]))
 
             # Re-parse and log this repaired plan round

@@ -1,10 +1,10 @@
 stop_index: 1
 
 truncated_plan:  
-#Task1: Check if Time Series Analytics and Forecasting agent supports time series forecasting models.
-#Agent1: Time Series Analytics and Forecasting
+#Task1: Identify relevant data for energy forecasting
+#Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: Confirmation that Time Series Analytics and Forecasting agent supports time series forecasting models.
+#ExpectedOutput1: List of relevant IoT data (e.g., power consumption, temperature) for energy forecasting
 
 status: Not accomplished
 can_answer_now:False

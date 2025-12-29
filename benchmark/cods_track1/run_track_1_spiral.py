@@ -739,6 +739,9 @@ def run(utterances, generate_steps_only=False, llm_model=16):
         input_tokens_count+=input_tokens
         generated_tokens_count+=generated_tokens
 
+        print(f"[Summary] in_tok: {input_tokens}, out_tok: {generated_tokens}")
+
+
         end_time = time.perf_counter()
         elapsed = end_time - start_time
         print(f"[run] total elapsed time: {elapsed:.2f} seconds")

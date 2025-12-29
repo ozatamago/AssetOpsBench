@@ -1,22 +1,17 @@
 Question: Find a model for energy forecasting.
 Plan:
  
-#Task1: Check if Time Series Analytics and Forecasting agent supports time series forecasting models.
-#Agent1: Time Series Analytics and Forecasting
+#Task1: Identify relevant data for energy forecasting
+#Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: Confirmation that Time Series Analytics and Forecasting agent supports time series forecasting models.
+#ExpectedOutput1: List of relevant IoT data (e.g., power consumption, temperature) for energy forecasting
 
-#Task2: Provide an example of using a time series forecasting model for energy forecasting.
+#Task2: Analyze the identified data for energy forecasting and select a suitable model
 #Agent2: Time Series Analytics and Forecasting
 #Dependency2: #S1
-#ExpectedOutput2: An example of using a time series forecasting model for energy forecasting.
+#ExpectedOutput2: Recommended model for energy forecasting
 
-#Task3: Download historical energy consumption data for a specific asset.
-#Agent3: IoT Data Download
-#Dependency3: None
-#ExpectedOutput3: Historical energy consumption data for a specific asset.
-
-#Task4: Use the downloaded data to forecast energy consumption for the next 24 hours.
-#Agent4: Time Series Analytics and Forecasting
-#Dependency4: #S3
-#ExpectedOutput4: Forecasted energy consumption for the next 24 hours.
+#Task3: Generate a work order for implementing the selected energy forecasting model
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Work order for implementing the energy forecasting model
