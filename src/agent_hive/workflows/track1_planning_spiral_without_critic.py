@@ -1521,18 +1521,17 @@ class NewPlanningWorkflow(Workflow):
                 "Rely on the validator issues and the planning constraints to repair the plan.\n"
             )
 
-        # ---- Repair rules ----
         rules = (
             "Repair rules:\n"
-            "- You MUST follow the same output format (#TaskN/#AgentN/#DependencyN/#ExpectedOutputN).\n"
-            "- Agents allowed: " + ", ".join(agents_allowed) + "\n"
-            "- Use the validator issues to fix formatting/constraint violations.\n"
-            "- Use the simulated execution results to fix SEMANTIC issues:\n"
-            "  * If steps are redundant or do not help answer the user question, remove them.\n"
-            "  * If a necessary step is missing (based on the predicted outputs), add ONLY that step.\n"
-            "  * If the wrong agent/tool is implied, replace with the correct allowed agent.\n"
-            "- Construct the DAG with the bare minimum number of steps required by the constraints.\n"
+            "Avoid redundant or unnecessary tasks.\n"
             "- Make the minimal changes necessary; if there is no problem, you MUST output the Original Plan as-is.\n"
+            "- Output ONLY lines in this exact format (no extra prose):\n"
+            "  #TaskN: <one-line>\n"
+            "  #AgentN: <exact agent name>\n"
+            "  #DependencyN: None | #S1 #S2 ... (past steps only)\n"
+            "  #ExpectedOutputN: <one-line>\n"
+            f"- Agents allowed: {', '.join(agents_allowed)}\n"
+            "- Use N = 1..K sequentially; counts across all tags must match.\n"
             "- Do NOT output any explanation, comments, or markdown.\n"
         )
 

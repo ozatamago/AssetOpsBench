@@ -2,22 +2,22 @@
   "text": "Can you detect any anomalies in Chiller 6's Condenser Water Flow in the week of 2020-04-27 at MAIN?",
   "tasks": [
     {
-      "task_description": "Fetch Chiller 6 Condenser Water Flow data for 2020-04-27 week",
+      "task_description": "Fetch Condenser Water Flow data for Chiller 6 at MAIN site. \nRevised to 12 words or less: \nFetch Condenser Water Flow for Chiller 6 at MAIN.",
       "agent_name": "IoT Data Download",
-      "final_answer": "MAIN</response>",
+      "final_answer": "Question</response>",
       "review": "Task Status: Accomplished | identified available sensors | provide data content or summary</response>\n```<response>identified available sensors | provide data content or summary</response>```"
     },
     {
-      "task_description": "Detect anomalies in Chiller 6's Condenser Water Flow data",
+      "task_description": "Detect anomalies in Chiller 6's Condenser Water Flow",
       "agent_name": "Time Series Analytics and Forecasting",
       "final_answer": "Anomaly detection failed due to file issues.",
-      "review": "Task Status: Not Accomplished | ensure correct file format and provide detailed error handling"
+      "review": "Task Status: Not Accomplished | Ensure file is correctly formatted and accessible."
     },
     {
-      "task_description": "Generate work order for inspecting Chiller 6 due to anomalies",
+      "task_description": "Generate work order for Chiller 6 inspection due to anomalies",
       "agent_name": "WorkOrder Agent",
       "final_answer": "CU02006</response>",
-      "review": "Task Status: Partially Accomplished | <response>analyzed sample recommendations | access valid anomaly data, handle exceptions robustly</response>"
+      "review": "Task Status: Partially Accomplished | analyzed sample recommendations | ensure access to valid anomaly data, handle exceptions robustly"
     }
   ]
 }

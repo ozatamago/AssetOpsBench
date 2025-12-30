@@ -341,8 +341,8 @@ def compare_task_lengths(baseline_runs: Dict[int, Dict[str, Any]],
         else:
             tie += 1
 
-    print(f"baseline longer: {baseline_longer}")
-    print(f"SPIRAL  longer: {spiral_longer}")
+    print(f"SPIRAL longer: {baseline_longer}")
+    print(f"SPIRAL without critic longer: {spiral_longer}")
     print(f"ties           : {tie}\n")
     return baseline_longer, spiral_longer, tie
 
@@ -495,8 +495,8 @@ def main(argv: List[str]) -> None:
     compare_task_lengths(baseline_runs, spiral_runs)
 
     print("\n=== Overall success + effort statistics ===")
-    print_overall_stats("Baseline", baseline_runs, exp_metrics=baseline_exp)
-    print_overall_stats("SPIRAL", spiral_runs, exp_metrics=spiral_exp)
+    print_overall_stats("SPIRAL", baseline_runs, exp_metrics=baseline_exp)
+    print_overall_stats("SPIRAL without critic", spiral_runs, exp_metrics=spiral_exp)
 
     per_id_success_table(baseline_runs, spiral_runs, baseline_exp=baseline_exp, spiral_exp=spiral_exp)
 
