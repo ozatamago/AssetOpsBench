@@ -5,5 +5,5 @@ truncated_plan: #Task1: List all available IoT sites
 #Dependency1: None
 #ExpectedOutput1: List of available IoT sites
 
-status: Accomplished
-can_answer_now:True
+status: Partially accomplished
+can_answer_now:False

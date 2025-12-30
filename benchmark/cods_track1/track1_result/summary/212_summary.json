@@ -1,0 +1,17 @@
+{
+  "text": "Find a model for energy forecasting with context length 96 and nothing else.",
+  "tasks": [
+    {
+      "task_description": "Verify Time Series Forecasting models with context length 96 support",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "ttm_96_28 ttm_energy_96_28",
+      "review": "Task Status: Accomplished | provided clear answer | avoid redundant actions</response>\n```<response>provided clear answer | avoid redundant actions</response>```"
+    },
+    {
+      "task_description": "Apply time series model for energy with 96 context.",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "ttm_energy_96_28</response>",
+      "review": "Task Status: Accomplished | identified suitable model | provide example usage</response>\n```<response>identified suitable model | provide example usage</response>```"
+    }
+  ]
+}

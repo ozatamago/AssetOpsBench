@@ -1,0 +1,14 @@
+stop_index: 2
+
+truncated_plan: #Task1: Download sensor data for Chiller 9 at main site from 2020-04-20T12:30:00 to 2020-05-12T19:30:00
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Sensor data for Chiller 9 at main site from 2020-04-20T12:30:00 to 2020-05-12T19:30:00
+
+#Task2: Analyze the downloaded sensor data to identify anomalies related to condenser Water side fouling for Chiller 9
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly detection results for Chiller 9 related to condenser Water side fouling
+
+status: Accomplished
+can_answer_now:True

@@ -1,0 +1,14 @@
+Question: Provide some sensors of asset Wind Turbine.
+Plan:
+ 
+#Task1: Provide details of asset Wind Turbine
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Details of asset Wind Turbine, including its sensors
+
+#Task2: Identify relevant sensors for Wind Turbine
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: Relevant sensors for Wind Turbine
+
+The final answer is: $\boxed{[Rotor Speed, Generator Temperature, Bearing Temperature, Power Output, Generator Speed, Vibration]}$

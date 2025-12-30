@@ -686,7 +686,9 @@ def run(utterances, generate_steps_only=False, llm_model=16):
     os.makedirs(TRAJECTORY_DIR, exist_ok=True)
     os.makedirs(EXP_DIR, exist_ok=True)
     exp_subdir = os.path.join(EXP_DIR, f"[SPIRAL_wo_sim]Model_{llm_model}")
-    os.makedirs(exp_subdir, exist_ok=True)    
+    os.makedirs(exp_subdir, exist_ok=True)   
+    trajectory_subdir = os.path.join(TRAJECTORY_DIR, f"[SPIRAL_wo_sim]Model_{llm_model}")
+    os.makedirs(trajectory_subdir, exist_ok=True)   
 
 
     start_time = time.perf_counter()
@@ -701,7 +703,7 @@ def run(utterances, generate_steps_only=False, llm_model=16):
 
         logger.info("=" * 10)
         logger.info(f"ID: {utterance['id']}, Task: {utterance['text']}")
-        trajectory_file = f"{TRAJECTORY_DIR}Q_{utterance['id']}_trajectory.json"
+        trajectory_file = os.path.join(trajectory_subdir, f"Q_{utterance['id']}_trajectory.json")
 
 
         ans, run_id, plan_id, input_tokens, generated_tokens= run_planning_workflow(

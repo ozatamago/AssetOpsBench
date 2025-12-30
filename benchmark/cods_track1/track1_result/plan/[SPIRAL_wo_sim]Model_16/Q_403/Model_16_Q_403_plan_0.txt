@@ -1,0 +1,20 @@
+Question: I would like to retrieve the corrective work order details for the equipment labeled as CWC04013 for the year 2017.
+Plan:
+#Task1: Identify the relevant agent to retrieve work order details for equipment CWC04013.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: Confirmation that WorkOrder Agent is capable of retrieving work order details.
+
+#Task2: Formulate the specific query to retrieve corrective work order details for CWC04013 in 2017.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: Corrective work order details for CWC04013 in 2017.
+
+#Task3: Execute the query to retrieve the corrective work order details.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Actual corrective work order details for CWC04013 in 2017.
+
+Since the task is to retrieve corrective work order details, which is a specific capability of the WorkOrder Agent, the plan involves using this agent to formulate and execute the query. The steps are designed to ensure that the agent is identified, the query is correctly formulated, and the details are retrieved. 
+
+The final output will be the actual corrective work order details for the specified equipment and year.

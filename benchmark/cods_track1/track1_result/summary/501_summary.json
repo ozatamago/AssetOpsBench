@@ -1,0 +1,29 @@
+{
+  "text": "Is there any anomaly detected in Chiller 6's Tonnage in the week of 2020-04-27 at the MAIN site?",
+  "tasks": [
+    {
+      "task_description": "Determine start and end dates for week of 2020-04-27. \nRevised to 12 words or less: \nFind start and end dates for the week of 2020-04-27.",
+      "agent_name": "IoT Data Download",
+      "final_answer": "2020-04-27</response>",
+      "review": "Task Status: Accomplished | <response>identified correct dates | provide more context or explanation</response> is not needed. The response is: identified correct dates | provide more context or explanation."
+    },
+    {
+      "task_description": "Fetch Chiller 6 Tonnage from MAIN for 2020-04-27.",
+      "agent_name": "IoT Data Download",
+      "final_answer": "",
+      "review": "Task Status: Error | refined LLM response strategy | review prompt</response>"
+    },
+    {
+      "task_description": "Detect anomalies in Chiller 6 Tonnage sensor data\nDetect anomalies in Chiller 6 Tonnage data.",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "tsfm_integrated_tsad</response>",
+      "review": "Task Status: Not Accomplished | Ensure dataset availability or provide a fallback mechanism."
+    },
+    {
+      "task_description": "Generate work order for Chiller 6 Tonnage anomaly.",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "CU02006</response> or \nNo specific work order can be generated",
+      "review": "Task Status: Partially Accomplished | attempted work order generation | improve API robustness & error handling"
+    }
+  ]
+}

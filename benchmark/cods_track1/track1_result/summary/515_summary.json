@@ -1,0 +1,29 @@
+{
+  "text": "Can you predict Chiller 9's performance for next week based on data from the week of 2020-04-27 at MAIN?",
+  "tasks": [
+    {
+      "task_description": "Find start and end dates for this and next week",
+      "agent_name": "IoT Data Download",
+      "final_answer": "2024-09-16, 2024-09-22, 2024-09-23, 2024-09-29</response> \nbecomes \n2024-09-16, 2024-09-22, 2024-09-23, 2024-09-29",
+      "review": "Task Status: Accomplished | determined start and end dates correctly | none</response>\n<response>determined start and end dates correctly | none</response> is the solution."
+    },
+    {
+      "task_description": "Fetch historical data for Chiller 9 at MAIN site.",
+      "agent_name": "IoT Data Download",
+      "final_answer": "2640efe6-ca4a-4e41-9546-ec61ef614a6b.",
+      "review": "Task Status: Accomplished | identified date range | none - rewritten to 20 words or less. \nThe final rewritten line is: \ndate range identified | none."
+    },
+    {
+      "task_description": "Identify trends and patterns in Chiller 9 historical performance data",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "Multiple models available</response> \nMultiple models available",
+      "review": "Task Status: Not Accomplished | failed to analyze data | verify file existence/path</response>\n```<response>failed to analyze data | verify file existence/path</response>```"
+    },
+    {
+      "task_description": "Predict Chiller 9 performance for next week using historical data.",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "",
+      "review": "Task Status: Not Accomplished | encountered errors in tsfm_forecasting | verify dataset file, correct input format, check supported tasks\n</response>\n```"
+    }
+  ]
+}

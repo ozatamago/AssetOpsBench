@@ -2,16 +2,10 @@
   "text": "how much power was CQPA AHU 1 (MAIN site) using on 6/14/20?",
   "tasks": [
     {
-      "task_description": "<response>Download CQPA AHU 1 power usage data for 6/14/20 at MAIN site</response>",
+      "task_description": "Fetch power usage for CQPA AHU 1 on 6/14/20 at MAIN",
       "agent_name": "IoT Data Download",
-      "final_answer": "$\\boxed{MAIN}$",
-      "review": "Task Status: Not Accomplished | explained steps and error | consider alternative methods, check indexing, contact data storage</response>"
-    },
-    {
-      "task_description": "Extract power usage reading from downloaded sensor data",
-      "agent_name": "IoT Data Download",
-      "final_answer": "MAIN</response>",
-      "review": "Task Status: Accomplished | identified task limitation | none</response>\n```<response>identified task limitation | none</response>```"
+      "final_answer": "0 observations</response> or a single value. \n\n0 observations",
+      "review": "Task Status: Accomplished | retrieved data using history tool to provide context."
     }
   ]
 }

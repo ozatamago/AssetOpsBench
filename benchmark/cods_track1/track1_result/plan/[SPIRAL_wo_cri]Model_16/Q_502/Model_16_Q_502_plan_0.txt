@@ -1,0 +1,23 @@
+Question: What is the forecast for 'Chiller 9 Condenser Water Flow' in the week of 2020-04-27 based on data from the MAIN site?
+Plan:
+#Task1: Retrieve the historical data for 'Chiller 9 Condenser Water Flow' at the MAIN site for the past week.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for 'Chiller 9 Condenser Water Flow' at the MAIN site for the past week in JSON format.
+
+#Task2: Calculate the start date for the week of 2020-04-27.
+#Agent2: IoT Data Download
+#Dependency2: None
+#ExpectedOutput2: The start date for the week of 2020-04-27.
+
+#Task3: Forecast 'Chiller 9 Condenser Water Flow' for the week of 2020-04-27 using the historical data retrieved.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S1, #S2
+#ExpectedOutput3: Forecasted values for 'Chiller 9 Condenser Water Flow' for the week of 2020-04-27.
+
+#Task4: Create a work order for inspecting Chiller 9 based on the forecasted values.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: A generated work order for inspecting Chiller 9.
+
+The plan is complete.

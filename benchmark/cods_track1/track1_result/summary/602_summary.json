@@ -2,10 +2,10 @@
   "text": "List all failure modes of asset Chiller 6 at MAIN site.",
   "tasks": [
     {
-      "task_description": "List Chiller 6 failure modes.",
+      "task_description": "List all failure modes of Chiller 6 -> List failure modes of Chiller 6\nList failure modes of Chiller 6\n```",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
       "final_answer": "7 failure modes</response>",
-      "review": "Task Status: Accomplished | used tool to retrieve failure modes."
+      "review": "Task Status: Accomplished | <response>used tool to retrieve failure modes | none</response>"
     }
   ]
 }

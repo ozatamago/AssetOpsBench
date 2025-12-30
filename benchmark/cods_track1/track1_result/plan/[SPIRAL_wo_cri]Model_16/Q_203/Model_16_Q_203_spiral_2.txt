@@ -1,0 +1,2 @@
+Predicted result: 
+[{'step': 1, 'agent': 'Time Series Analytics and Forecasting', 'task': 'Check if Time Series Analytics and Forecasting agent supports time series forecasting models.', 'expected_output': 'Confirmation on whether time series forecasting models are supported.', 'predicted_output': 'Yes </response>'}]

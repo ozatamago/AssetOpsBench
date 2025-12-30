@@ -1,0 +1,23 @@
+Question: Can you predict Chiller 9's performance for next week based on data from the week of 2020-04-27 at MAIN?
+Plan:
+#Task1: Retrieve the historical data for Chiller 9 at MAIN for the week of 2020-04-27.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for Chiller 9 at MAIN for the specified week.
+
+#Task2: Analyze the retrieved historical data to identify any patterns or anomalies.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Analysis report highlighting patterns or anomalies in the data.
+
+#Task3: Use the analyzed data to forecast Chiller 9's performance for the next week.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S1, #S2
+#ExpectedOutput3: Forecasted performance data for Chiller 9 for the next week.
+
+#Task4: Generate a work order based on the forecasted performance to schedule necessary maintenance.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Work order for maintenance based on the forecasted performance.
+
+The plan is a 4-step process that involves retrieving historical data, analyzing it, forecasting future performance, and generating a work order based on the forecast.

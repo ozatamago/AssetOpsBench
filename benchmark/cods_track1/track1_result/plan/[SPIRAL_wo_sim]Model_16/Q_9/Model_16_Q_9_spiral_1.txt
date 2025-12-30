@@ -1,0 +1,15 @@
+stop_index: 2
+
+truncated_plan:  
+#Task1: Retrieve the list of assets at the MAIN site and identify if Chiller 6 is among them.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at MAIN, including Chiller 6 if it exists.
+
+#Task2: Download sensor data for Chiller 6's % Loaded at MAIN for June 2020.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Sensor data for Chiller 6's % Loaded at MAIN for June 2020.
+
+status: Accomplished
+can_answer_now:True

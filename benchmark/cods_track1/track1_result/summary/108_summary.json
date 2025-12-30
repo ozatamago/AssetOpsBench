@@ -2,16 +2,22 @@
   "text": "List all failure modes of Chiller 6 that can be detected by temperature sensors and power input sensors.",
   "tasks": [
     {
-      "task_description": "List all Chiller 6 failure modes -> List Chiller 6 failure modes. \nList Chiller 6 failure modes.",
+      "task_description": "List all failure modes of Chiller 6 -> List failure modes of Chiller 6. \nList failure modes of Chiller 6.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
       "final_answer": "7 failure modes</response>",
-      "review": "Task Status: Accomplished | used 'Get Failure Modes' tool correctly | none</response>\n```<response>used 'Get Failure Modes' tool correctly | none</response>```"
+      "review": "Task Status: Accomplished | used tool correctly | none</response>"
     },
     {
       "task_description": "Detect Chiller 6 failure using temperature and power sensors.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "7</response>",
-      "review": "Task Status: Accomplished | identified failure modes | improve tool usage and error handling"
+      "final_answer": "Compressor Overheating, Heat Exchangers: Fans.",
+      "review": "Task Status: Accomplished | identified failure modes to improve tool handling and provide explanations."
+    },
+    {
+      "task_description": "Check Chiller 6 sensor data.",
+      "agent_name": "IoT Data Download",
+      "final_answer": "The required sensor data for Chiller 6 is available.",
+      "review": "Task Status: Accomplished | identified site & verified asset | none</response>\n<response>identified site & verified asset | none</response>"
     }
   ]
 }

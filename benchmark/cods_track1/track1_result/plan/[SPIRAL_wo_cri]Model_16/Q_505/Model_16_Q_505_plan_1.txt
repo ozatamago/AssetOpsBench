@@ -1,0 +1,17 @@
+Question: What's the forecast for Chiller 6's Tonnage for next week based on the data from the week of 2020-04-27 at MAIN?
+Plan:
+ 
+#Task1: Retrieve historical data for Chiller 6 Tonnage at MAIN for the week of 2020-04-27.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for Chiller 6 Tonnage at MAIN for the specified week.
+
+#Task2: Forecast Chiller 6's Tonnage for the next week based on the historical data.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Forecasted Tonnage values for Chiller 6 for the next week.
+
+The original 4-step plan is not minimal. The task of analyzing the retrieved historical data (#Task2) is not necessary as the Time Series Analytics and Forecasting agent can directly forecast based on the data. Therefore, the plan can be optimized to 2 steps: retrieving historical data and forecasting the Tonnage for the next week. The WorkOrder Agent task is also removed as it's not directly related to the question asked. 
+
+Here is the optimized plan: 
+The final answer is the same as the original plan but with fewer steps.

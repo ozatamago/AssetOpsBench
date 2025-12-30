@@ -1,0 +1,10 @@
+stop_index: 1
+
+truncated_plan:  
+#Task1: what assets are at site MAIN
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of assets at MAIN.
+
+status: Partially accomplished
+can_answer_now:False

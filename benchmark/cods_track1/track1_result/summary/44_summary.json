@@ -2,22 +2,10 @@
   "text": "Can I list all the metrics monitored by CQPA AHU 2B? use site MAIN",
   "tasks": [
     {
-      "task_description": "List assets at MAIN site",
+      "task_description": "List all assets at MAIN site",
       "agent_name": "IoT Data Download",
-      "final_answer": "832827ce-f7c1-43e2-bbbd-35af3bb2fdf7</response>\nor \n<response>10 words or less</response>\n\n<response>832827ce-f7c1-43e2-bbbd-35af3bb2fdf7</response>",
-      "review": "Task Status: Accomplished | provided JSON file path | provide summary or contents</response>"
-    },
-    {
-      "task_description": "Download sensor data for CQPA AHU 2B at site MAIN.",
-      "agent_name": "IoT Data Download",
-      "final_answer": "MAIN</response>",
-      "review": "Task Status: Accomplished | checked CQPA AHU 2B asset | none</response>\n```<response>checked CQPA AHU 2B asset | none</response>```"
-    },
-    {
-      "task_description": "Extract metrics monitored by CQPA AHU 2B from sensor data",
-      "agent_name": "IoT Data Download",
-      "final_answer": "17</response>",
-      "review": "Task Status: Accomplished | read JSON file correctly | none</response>\n```<response>read JSON file correctly | none</response>```"
+      "final_answer": "/tmp/cbmdir/14765906-a0ad-424f-817c-ae7299ee4110.json",
+      "review": "Task Status: Accomplished | used assets tool to retrieve assets and provide summary of JSON file."
     }
   ]
 }

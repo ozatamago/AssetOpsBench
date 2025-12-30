@@ -2,28 +2,10 @@
   "text": "Are there any failure modes of Chiller 6 that can be predicted by monitoring the vibration sensor data?",
   "tasks": [
     {
-      "task_description": "List Chiller 6 failure modes.",
+      "task_description": "Detect Chiller 6 failure using sensor data.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Compressor Overheating, Heat Exchangers, Evaporator fouling, Condenser issues.",
-      "review": "Task Status: Accomplished | used 'Get Failure Modes' tool correctly | none</response>\nor a similar response based on the task description."
-    },
-    {
-      "task_description": "List relevant sensors for Chiller 6 failure modes",
-      "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Chiller 6 Power Input</response> \nor \n<response>Multiple values</response>\n\n<response>Multiple values</response>",
-      "review": "Task Status: Partially Accomplished | identified failure modes | debug 'Get Failure Mode and Sensor Relevancy Mapping' & 'Read Sensors From File' tools."
-    },
-    {
-      "task_description": "Check Chiller 6 vibration sensor data for failure modes.",
-      "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Heat Exchangers: Fans: Degraded motor or worn bearing</response>",
-      "review": "Task Status: Accomplished | determined vibration sensor data is relevant | improve 'Get Failure Mode and Sensor Relevancy Mapping' tool"
-    },
-    {
-      "task_description": "Analyze Chiller 6 vibration data for anomalies.",
-      "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "tsfm_integrated_tsad. \nNo. \nThe final answer is: \nUse tsfm_integrated_tsad.\n\nThe final answer is: \nUse 5 models.\n\nThe final answer is: \n5 models.\n\nThe final answer is: \ntsfm_integrated_tsad and 4 other models.\n\nThe final answer is: \ntsfm_integrated_tsad and others.\n\nThe final answer is: \ntsfm_integrated_tsad.\n\nThe final answer is \ntsfm_integrated_tsad. \nThe final answer is \nUse tsfm_integrated_tsad and other models.\n\nThe final answer is \n5 models available.\n\nThe final answer is \ntsfm_integrated_tsad and 4 ttm models.\n\nThe final answer is \ntsfm_integrated_tsad, 4 ttm models.\n\nThe final answer is \n5 models: tsfm_integrated_tsad.\n\nThe final answer is \ntsfm_integrated_tsad and 4 models.\n\nThe final answer is \n5 AI models.\n\nThe final answer is \ntsfm_integrated_tsad,ttm models.\n\nThe final answer is \ntsfm_integrated_tsad and ttm models.\n\nThe final answer is \nUse 5 models.\n\nThe final answer is \n5 models.\n\nThe final answer is \ntsfm_integrated_tsad.\n\nThe final answer is \ntsfm_integrated_tsad and others.\n\nThe final answer is \n5 models: tsfm_integrated_tsad, ttm models.\n\nThe final answer is \ntsfm_integrated_tsad, 4 ttm.\n\nThe final answer is \n5 models.\n\nThe final answer is \ntsfm_integrated_tsad and 4 ttm.\n\nThe final answer is \nUse tsfm_integrated_tsad.\n\nThe final answer is \ntsfm_integrated_tsad, ttm.\n\nThe final answer is \n5 models.\n\nThe final answer is \ntsfm_integrated_tsad.\n\nThe final answer is \nUse 5 AI models.\n\nThe final answer is \n5 AI models available.\n\nThe final answer is \ntsfm_integrated_tsad,ttm_96_28,ttm_512_96,ttm_energy_96_28,ttm_energy_512_96.\n\nThe final answer is \ntsfm_integrated_tsad and ttm.\n\nThe final answer is \ntsfm_in",
-      "review": "Task Status: Not Accomplished | failed to analyze vibration sensor data | provide required dataset files or alternative data access</response>\n</response>"
+      "final_answer": "Compressor Overheating, Heat Exchangers: Fans, Evaporator Water side fouling, Condenser Water side fouling, Condenser Improper water side flow rate",
+      "review": "Task Status: Partially Accomplished | identified failure modes | ensure access to sensor data, state limitations, explain assumptions"
     }
   ]
 }

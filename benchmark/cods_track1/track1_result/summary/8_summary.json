@@ -2,22 +2,16 @@
   "text": "Download sensor data for Chiller 6's Tonnage from the last week of 2020 at the MAIN site",
   "tasks": [
     {
-      "task_description": "List assets at MAIN and check for Chiller 6.",
+      "task_description": "Find dates for last week of December 2020</response>",
       "agent_name": "IoT Data Download",
-      "final_answer": "Chiller 6</response>",
-      "review": "Task Status: Accomplished | listed assets at MAIN | more concise final response</response>\n```<response>listed assets at MAIN | more concise final response</response>```"
+      "final_answer": "January 3, 2021</response>",
+      "review": "Task Status: Accomplished | determined dates correctly | none"
     },
     {
-      "task_description": "Find last week's dates for 2020.",
+      "task_description": "Download Chiller 6 Tonnage data from MAIN site.",
       "agent_name": "IoT Data Download",
-      "final_answer": "2020-12-31 23:59:59",
-      "review": "Task Status: Accomplished | determined start and end dates for last week of 2020 correctly."
-    },
-    {
-      "task_description": "Download Chiller 6 Tonnage data from MAIN for last week 2020",
-      "agent_name": "IoT Data Download",
-      "final_answer": "MAIN",
-      "review": "Task Status: Not Accomplished | omitted sensor data | identify sensor & download data."
+      "final_answer": "",
+      "review": "Task Status: Accomplished | identified necessary asset and sensor | clarify absence of data</response>\n```<response>identified necessary asset and sensor | clarify absence of data</response>```"
     }
   ]
 }

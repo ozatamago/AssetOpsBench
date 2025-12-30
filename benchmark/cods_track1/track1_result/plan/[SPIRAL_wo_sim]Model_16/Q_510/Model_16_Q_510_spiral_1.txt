@@ -1,0 +1,25 @@
+stop_index: 4
+
+truncated_plan:  
+#Task1: Calculate the start and end dates for the week of 2020-04-27.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Start and end dates for the specified week.
+
+#Task2: Download the historical data for Chiller 9's Tonnage and Power Input at the MAIN site for the week of 2020-04-27.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: JSON files containing the historical data for Chiller 9's Tonnage and Power Input.
+
+#Task3: Analyze the downloaded data for anomalies in Chiller 9's Tonnage and Power Input.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Anomaly detection results for Chiller 9's Tonnage and Power Input.
+
+#Task4: Generate a work order based on the anomaly detection results.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: A work order for inspecting or maintaining Chiller 9 based on detected anomalies.
+
+status: Partially accomplished
+can_answer_now:True

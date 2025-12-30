@@ -2,22 +2,16 @@
   "text": "what was the return temperature from CQPA AHU 2B on sept 19, 2020 at 7pm, at site MAIN? return data in a file",
   "tasks": [
     {
-      "task_description": "Download sensor data for CQPA AHU 2B at MAIN on Sept 19",
+      "task_description": "Specify exact date and time for September 19 2020 7pm. \nRewritten to 12 words or less: \nSeptember 19, 2020, 7:00 PM exact date and time specified. \n\nis not valid. Here is the valid response:\nSeptember 19, 2020 7:00 PM",
       "agent_name": "IoT Data Download",
-      "final_answer": "no_usable_index</response>",
-      "review": "Task Status: Not Accomplished | identified available sensors | provide detailed error handling, consider alternative methods, inform user about data indexing."
+      "final_answer": "2020-09-19T19:00:00",
+      "review": "Task Status: Accomplished | converted date correctly | remove unnecessary additional statement</response>"
     },
     {
-      "task_description": "Extract return temperature reading from downloaded sensor data. \nRevised to \nExtract return temperature. \n\nExtract return temperature.",
+      "task_description": "Download return temperature data for CQPA AHU 2B.",
       "agent_name": "IoT Data Download",
-      "final_answer": "no_usable_index</response>",
-      "review": "Task Status: Not Accomplished | acknowledged error correctly | investigate indexing, provide detailed error handling</response>"
-    },
-    {
-      "task_description": "Export return temperature reading to file</response>\n</response>Export return temperature reading to file</response>",
-      "agent_name": "IoT Data Download",
-      "final_answer": "",
-      "review": "Task Status: Not Accomplished | ```handle 'no_usable_index' error by suggesting alternative approach```"
+      "final_answer": "/tmp/cbmdir/0a9756e0-e781-4205-bfce-d29a0cf83f17.json",
+      "review": "Task Status: Accomplished | identified sensor | check data before claiming success"
     }
   ]
 }

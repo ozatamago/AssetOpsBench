@@ -2,10 +2,16 @@
   "text": "Download the metadata for Chiller 3 at the MAIN facility.",
   "tasks": [
     {
-      "task_description": "Retrieve metadata for Chiller 3 at MAIN facility\n```xml\n<response>\n``` \nbecomes \nRetrieve metadata for Chiller 3 at MAIN facility",
+      "task_description": "List asset details for Chiller 3 at MAIN facility. \nbecomes \nList Chiller 3 asset details at MAIN.",
       "agent_name": "IoT Data Download",
-      "final_answer": "Chiller 3 Power Input, Chiller 3 Return Temperature. I will rephrase to: Chiller 3 Power, Chiller 3 Return Temp. \n\nRewritten response:\nChiller 3 Power, Chiller 3 Return Temp.",
-      "review": "Task Status: Accomplished | retrieved Chiller 3 metadata | more detailed explanation, directly answer question</response>"
+      "final_answer": "Multiple values exist",
+      "review": "Task Status: Accomplished | identified asset details logically | clarify 'asset details' meaning</response>\n```<response>identified asset details logically | clarify 'asset details' meaning</response>```"
+    },
+    {
+      "task_description": "Download Chiller 3 metadata using asset details.",
+      "agent_name": "IoT Data Download",
+      "final_answer": "",
+      "review": "Task Status: Accomplished | identified site & downloaded metadata | remove redundant final actions</response>\n```<response>identified site & downloaded metadata | remove redundant final actions</response>```"
     }
   ]
 }

@@ -1,0 +1,29 @@
+{
+  "text": "I would like to predict the next work order probability for the equipment labeled as CWC04013.",
+  "tasks": [
+    {
+      "task_description": "Retrieve historical work order data for equipment CWC04013",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "work_orders_CWC04013.json</response> \nor \na single line ≤ 10 words.\n\nwork_orders_CWC04013.json",
+      "review": "Task Status: Accomplished | completed task as required | none"
+    },
+    {
+      "task_description": "Identify patterns and anomalies in work order data.",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "tsfm_integrated_tsad</response> or a single line ≤ 10 words.\n\ntsfm_integrated_tsad",
+      "review": "Task Status: Not Accomplished | failed to access data | ensure correct file path and handle exceptions```<response>Ensure correct file path and handle exceptions to access data.</response>```\nEnsure correct file path and handle exceptions to access data."
+    },
+    {
+      "task_description": "Predict next work order probability for CWC04013.",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "ttm_energy_512_96",
+      "review": "Task Status: Not Accomplished | failed to accomplish task | access actual dataset for CWC04013</response>"
+    },
+    {
+      "task_description": "Generate work order prediction report based on probability.",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "MT001</response> is not valid, so \nMT001,MT004",
+      "review": "Task Status: Not Accomplished | validate equipment IDs, handle no data cases"
+    }
+  ]
+}

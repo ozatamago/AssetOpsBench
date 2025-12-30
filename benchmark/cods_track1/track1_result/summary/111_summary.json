@@ -2,22 +2,10 @@
   "text": "List all sensors of Chiller 6 that are potentially relevant to Compressor Overheating.",
   "tasks": [
     {
-      "task_description": "List Chiller 6 failure modes.",
+      "task_description": "List all failure modes of Chiller 6",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
       "final_answer": "7 failure modes</response>",
-      "review": "Task Status: Accomplished | used 'Get Failure Modes' tool correctly | none</response>\n<response>used 'Get Failure Modes' tool correctly | none</response>"
-    },
-    {
-      "task_description": "List sensors for Chiller 6 Compressor Overheating",
-      "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Multiple values.",
-      "review": "Task Status: Not Accomplished | failed to identify sensors | ensure 'sensors/Chiller_6.txt' is available and correctly formatted"
-    },
-    {
-      "task_description": "Check if identified sensors are available for Chiller 6.",
-      "agent_name": "IoT Data Download",
-      "final_answer": "12</response>",
-      "review": "Task Status: Partially Accomplished | deviated from original objective | should have compared identified sensors with available sensors</response>\n</response>"
+      "review": "Task Status: Accomplished | used tool to retrieve failure modes | none</response>"
     }
   ]
 }

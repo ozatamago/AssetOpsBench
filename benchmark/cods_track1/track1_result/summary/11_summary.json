@@ -2,28 +2,16 @@
   "text": "Download all sensor data for Chiller 6 from the last week of April '20 at the MAIN site.",
   "tasks": [
     {
-      "task_description": "Find the last week of April 2020 start and end dates.",
+      "task_description": "Set date range to April 20-24, 2020.",
       "agent_name": "IoT Data Download",
-      "final_answer": "2020-04-26, 2020-04-30",
-      "review": "Task Status: Accomplished | determined start and end dates | clearer definition of 'last week'</response>"
+      "final_answer": "2020-04-20",
+      "review": "Task Status: Accomplished | determined date range correctly | none</response>\n```<response>determined date range correctly | none</response>```"
     },
     {
-      "task_description": "Show asset details for Chiller 6 at MAIN site</response>",
+      "task_description": "Download Chiller 6 sensor data for MAIN site.",
       "agent_name": "IoT Data Download",
-      "final_answer": "12 sensors</response> \nThe final answer is: $\\boxed{12 sensors}$",
-      "review": "Task Status: Accomplished | identified asset details | none</response>\n```<response>identified asset details | none</response>```"
-    },
-    {
-      "task_description": "Download sensor data for Chiller 6 from MAIN site for last week of April 2020",
-      "agent_name": "IoT Data Download",
-      "final_answer": "no_usable_index</response>",
-      "review": "Task Status: Not Accomplished | encountered 'no_usable_index' error | investigate query/indexing strategy</response>"
-    },
-    {
-      "task_description": "Check downloaded sensor data for completeness and correctness</response>",
-      "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "File does not exist</response>",
-      "review": "Task Status: Not Accomplished | should download required Chiller 6 data."
+      "final_answer": "Multiple</response>",
+      "review": "Task Status: Accomplished | determined date range | provide more context about data</response>\n```<response>determined date range | provide more context about data</response>```"
     }
   ]
 }

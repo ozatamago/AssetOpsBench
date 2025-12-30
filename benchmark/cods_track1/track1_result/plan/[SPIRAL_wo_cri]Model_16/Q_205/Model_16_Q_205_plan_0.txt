@@ -1,0 +1,8 @@
+Question: Is LSTM model supported in TSFM?
+Plan:
+#Task1: Check if LSTM model is supported in TSFM
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: Confirmation on whether LSTM model is supported in TSFM
+
+The plan is complete. Let's execute it.

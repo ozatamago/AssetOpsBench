@@ -2,28 +2,22 @@
   "text": "When the Liquid Refrigerant Evaporator Temperature of Chiller 6 drops, what failure is most likely to occur?",
   "tasks": [
     {
-      "task_description": "List failure modes of Chiller 6 related to temperature.",
+      "task_description": "List Chiller 6 failure modes.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Evaporator Water side fouling</response>",
-      "review": "Task Status: Accomplished | identified 'Evaporator Water side fouling' | investigate 'Failure Mode and Sensor Relevancy Mapping' tool issue"
+      "final_answer": "7 failure modes</response>",
+      "review": "Task Status: Accomplished | used 'Get Failure Modes' tool correctly | none</response>\n<response>used 'Get Failure Modes' tool correctly | none</response>"
     },
     {
-      "task_description": "Determine most likely failure mode among identified failure modes",
+      "task_description": "Identify failures causing Chiller 6 Evaporator Temperature drop.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Refrigerant Operated Control Valve Failed spring.",
-      "review": "Task Status: Accomplished | identified potential failure modes to enhance error handling."
+      "final_answer": "Evaporator Water side fouling, Condenser Water side fouling, Condenser Improper water side flow rate, Purge Unit Excessive purge, Refrigerant Operated Control Valve Failed spring",
+      "review": "Task Status: Accomplished | identified potential failures | more robust error handling and detailed explanations"
     },
     {
-      "task_description": "Fetch historical Liquid Refrigerant Evaporator Temperature data for Chiller 6. \nRevised to 12 words or less: \nFetch historical Liquid Refrigerant Evaporator Temperature for Chiller 6.",
-      "agent_name": "IoT Data Download",
-      "final_answer": "",
-      "review": "Task Status: Not Accomplished | identified site and sensor correctly | handle 'no_usable_index' error and provide alternative</response>\n</done>"
-    },
-    {
-      "task_description": "Analyze historical data to confirm likelihood of identified failure mode.",
-      "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "tsfm_integrated_tsad</response> or a single line ≤ 10 words.\n\ntsfm_integrated_tsad",
-      "review": "Task Status: Not Accomplished | ensure data is available and in the correct format"
+      "task_description": "Generate work order for Chiller 6 inspection.",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "CU02006</response>",
+      "review": "Task Status: Accomplished | created work order for Chiller 6 | ensure necessary APIs are defined"
     }
   ]
 }

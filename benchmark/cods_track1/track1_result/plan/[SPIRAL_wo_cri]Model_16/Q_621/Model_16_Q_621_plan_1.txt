@@ -1,0 +1,19 @@
+Question: Can you check if there are any anomalies for chiller tonnage, and do you think I should create a work order after reviewing the anomalies?
+Plan:
+ 
+#Task1: Download sensor data for CU02004 at SiteX for chiller tonnage.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Sensor data for CU02004 at SiteX for chiller tonnage in a JSON file.
+
+#Task2: Analyze the downloaded time-series data for anomalies in chiller tonnage.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly detection results for chiller tonnage.
+
+#Task3: Review the anomaly detection results to determine if a work order is necessary and create one if needed.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Recommendation on whether to create a work order and a generated work order if necessary.
+
+The plan is complete.

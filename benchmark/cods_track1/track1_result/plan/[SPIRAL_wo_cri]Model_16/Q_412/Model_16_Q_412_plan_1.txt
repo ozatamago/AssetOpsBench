@@ -1,0 +1,22 @@
+Question: I would like to predict the next work order probability for the equipment labeled as CWC04013.
+Plan:
+ 
+#Task1: Retrieve historical data for equipment CWC04013 to analyze its past performance and identify potential patterns or anomalies.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for CWC04013, including relevant sensor readings and metadata.
+
+#Task2: Analyze the retrieved historical data to identify any anomalies or trends that could indicate potential failures or maintenance needs.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Analysis report highlighting anomalies, trends, and potential failure indicators in the historical data of CWC04013.
+
+#Task3: Use the analysis results to predict the probability of the next work order for CWC04013 based on identified patterns and anomalies.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Predicted probability of the next work order for CWC04013, along with recommended actions for preventive or corrective maintenance.
+
+#Task4: Provide the final output with the predicted work order probability and recommended maintenance actions for CWC04013.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Final report with the predicted work order probability and recommended maintenance actions for CWC04013.

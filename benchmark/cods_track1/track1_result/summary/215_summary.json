@@ -1,0 +1,11 @@
+{
+  "text": "Does TSFM support time series regression tasks or any model for forecasting with context length 1024?",
+  "tasks": [
+    {
+      "task_description": "Time Series Analytics supports regression tasks.",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "512 is the solution to the problem. \nRewritten to ≤ 10 words: \nThe solution is 512.",
+      "review": "Task Status: Accomplished | checked AI tasks and models | none</response>\n```<response>checked AI tasks and models | none</response>```"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+stop_index: 1
+
+truncated_plan: #Task1: Identify the relevant sensors for monitoring compressor overheating failure of Chiller 6 at MAIN site.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of relevant sensors for monitoring compressor overheating failure of Chiller 6.
+
+status: Accomplished
+can_answer_now:True

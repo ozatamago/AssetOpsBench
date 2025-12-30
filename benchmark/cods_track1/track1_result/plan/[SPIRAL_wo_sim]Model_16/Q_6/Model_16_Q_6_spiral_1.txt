@@ -1,0 +1,20 @@
+stop_index: 3
+
+truncated_plan:  
+#Task1: Get the list of assets at the MAIN site.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at the MAIN site.
+
+#Task2: Verify if Chiller 9 is a valid asset at the MAIN site.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Confirmation if Chiller 9 is a valid asset.
+
+#Task3: Get the asset details for Chiller 9 at the MAIN site.
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: Asset details for Chiller 9.
+
+status: Accomplished
+can_answer_now:True

@@ -1,0 +1,19 @@
+stop_index: 3
+
+truncated_plan: #Task1: Retrieve historical data for Chiller 9 with equipment ID CWC04009 to analyze operation alerts.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for Chiller 9 (CWC04009) including sensor data and metadata.
+
+#Task2: Analyze the retrieved historical data to identify potential failure modes and relevant sensors for Chiller 9.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: List of potential failure modes and relevant sensors for Chiller 9.
+
+#Task3: Use the identified failure modes and relevant sensors to generate a work order for maintenance recommendations.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A work order with maintenance recommendations for Chiller 9.
+
+status: Accomplished
+can_answer_now:True

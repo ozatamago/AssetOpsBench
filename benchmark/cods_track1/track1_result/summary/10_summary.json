@@ -2,13 +2,13 @@
   "text": "Get sensor data for both Chiller 6 and Chiller 9's Tonnage from first week of June 2020 at MAIN in a single file.",
   "tasks": [
     {
-      "task_description": "Locate Chiller 6 and Chiller 9 sites.",
+      "task_description": "Locate Chiller 6 and Chiller 9 site",
       "agent_name": "IoT Data Download",
-      "final_answer": "MAIN</response>",
-      "review": "Task Status: Accomplished | identified site logically | none</response>\n<response>identified site logically | none</response> is the solution."
+      "final_answer": "MAIN.",
+      "review": "Task Status: Accomplished | identified site logically | none</response>\n<response>identified site logically | none</response>"
     },
     {
-      "task_description": "Download Chiller 6 and 9 Tonnage data for June 2020.",
+      "task_description": "Fetch Chiller 6 and 9 Tonnage for June 2020.",
       "agent_name": "IoT Data Download",
       "final_answer": "",
       "review": "Task Status: Accomplished | retrieved sensor data | show final merged JSON file content</response>\n```<response>retrieved sensor data | show final merged JSON file content</response>```"

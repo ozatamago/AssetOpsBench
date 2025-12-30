@@ -1,0 +1,23 @@
+{
+  "text": "What is the forecast for 'Chiller 9 Condenser Water Flow' in the week of 2020-04-27 based on data from the MAIN site?",
+  "tasks": [
+    {
+      "task_description": "Get exact dates for 2020-04-27 week.",
+      "agent_name": "IoT Data Download",
+      "final_answer": "2020-05-03</response> \nor \n<response>Multiple dates</response>.\n\n<response>2020-05-03</response>",
+      "review": "Task Status: Accomplished | determined exact dates | none."
+    },
+    {
+      "task_description": "Download historical data for Chiller 9 Condenser Water Flow.",
+      "agent_name": "IoT Data Download",
+      "final_answer": "",
+      "review": "Task Status: Not Accomplished | identified asset and sensor | download historical data</response>\nNO EXPLANATION NEEDED."
+    },
+    {
+      "task_description": "Forecast Chiller 9 Condenser Water Flow for the next week.",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "Multiple models available</response> or the single value. \n\nMultiple models available",
+      "review": "Task Status: Not Accomplished | Ensure data files are available and provide correct paths."
+    }
+  ]
+}

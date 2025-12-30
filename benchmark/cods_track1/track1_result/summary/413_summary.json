@@ -1,0 +1,17 @@
+{
+  "text": "Assuming that the current date is 2018-01-02, can you predict next work order probability for me for equipment CWC04009 using predict_next_work_order_probability function?",
+  "tasks": [
+    {
+      "task_description": "Retrieve historical work order data for CWC04009",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "work_orders_CWC04009.json</response>",
+      "review": "Task Status: Accomplished | retrieved historical work order data | none. \nretrieved historical work order data | none"
+    },
+    {
+      "task_description": "Calculate next work order probability for CWC04009.",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "next_work_order_probabilities_CWC04009.json</response> \n<response>next_work_order_probabilities_CWC04009.json</response> is the solution.",
+      "review": "Task Status: Accomplished | successfully retrieved historical data and predicted next work order probability | none</response>"
+    }
+  ]
+}

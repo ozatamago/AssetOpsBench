@@ -1,0 +1,17 @@
+Question:  If Evaporator Water side fouling occurs for Chiller 6, which sensor is most relevant for monitoring this specific failure?
+Plan:
+ 
+#Task1: List all failure modes of Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes associated with Chiller 6.
+
+#Task2: Identify the relevant sensors for monitoring Evaporator Water side fouling failure of Chiller 6.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: The most relevant sensor for monitoring Evaporator Water side fouling failure.
+
+#Task3: Verify if historical data for the identified sensor is available for Chiller 6.
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: Confirmation of the availability of historical data for the relevant sensor.

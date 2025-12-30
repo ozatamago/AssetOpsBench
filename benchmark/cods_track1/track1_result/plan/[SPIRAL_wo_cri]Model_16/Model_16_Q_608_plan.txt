@@ -1,0 +1,18 @@
+Question: Are there any failure modes of Chiller 6 at MAIN site that can be predicted by monitoring the vibration sensor data?
+Plan:
+ 
+
+#Task1: Identify the failure modes of Chiller 6 at MAIN site.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of failure modes of Chiller 6.
+
+#Task2: Determine the relevant sensors for the identified failure modes of Chiller 6 and check if vibration sensor data is relevant for predicting any of the failure modes.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: Relevant sensors for the failure modes of Chiller 6 and confirmation if vibration sensor data is relevant.
+
+#Task3: Download the vibration sensor data for Chiller 6 at MAIN site.
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: Vibration sensor data for Chiller 6.

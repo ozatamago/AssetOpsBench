@@ -1,0 +1,11 @@
+{
+  "text": "Is Time Series Classification supported in TSFM?",
+  "tasks": [
+    {
+      "task_description": "Check if Time Series Classification is supported.",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "Time Series Classification is not supported",
+      "review": "Task Status: Accomplished | queried AI Tasks | none."
+    }
+  ]
+}

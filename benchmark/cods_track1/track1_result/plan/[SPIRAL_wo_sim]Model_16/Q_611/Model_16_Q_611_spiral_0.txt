@@ -1,0 +1,9 @@
+stop_index: 1
+
+truncated_plan: #Task1: Identify the relevant sensors for monitoring Evaporator Water side fouling failure of Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of relevant sensors for Evaporator Water side fouling failure of Chiller 6.
+
+status: Accomplished
+can_answer_now:True

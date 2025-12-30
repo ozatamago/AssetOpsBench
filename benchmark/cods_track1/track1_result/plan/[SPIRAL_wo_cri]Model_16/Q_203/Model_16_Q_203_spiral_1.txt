@@ -1,0 +1,2 @@
+Predicted result: 
+[{'step': 1, 'agent': 'Time Series Analytics and Forecasting', 'task': 'Check if Time Series Analytics and Forecasting agent supports time series forecasting models.', 'expected_output': 'Confirmation on whether time series forecasting models are supported.', 'predicted_output': 'Yes. The Time Series Analytics and Forecasting agent supports multiple time series forecasting models, including ttm_96_28, ttm_512_96, ttm_energy_96_28, and ttm_energy_512_96.'}]

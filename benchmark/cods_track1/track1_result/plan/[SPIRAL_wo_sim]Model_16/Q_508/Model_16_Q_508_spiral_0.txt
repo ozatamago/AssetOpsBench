@@ -1,0 +1,9 @@
+stop_index: 1
+
+truncated_plan: #Task1: Determine the start and end dates for the week of 2020-04-27.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The start date (2020-04-27T00:00:00) and end date (2020-05-03T23:59:59) for the specified week.
+
+status: Not accomplished
+can_answer_now:False

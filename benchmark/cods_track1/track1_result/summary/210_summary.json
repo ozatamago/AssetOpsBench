@@ -1,0 +1,17 @@
+{
+  "text": "Is any model with context length 1024 supported in TSFM?",
+  "tasks": [
+    {
+      "task_description": "Check if Time Series Analytics agent supports 1024 context length.",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "96, 512</response> is not valid; \n96, 512 is the solution.",
+      "review": "Task Status: Accomplished | queried pretrained models correctly | none</response>\n```<response>queried pretrained models correctly | none</response>```"
+    },
+    {
+      "task_description": "Check if any supported model has 1024 context length</response>",
+      "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
+      "final_answer": "no</response> or a single value if it exists.\n\nno",
+      "review": "Task Status: Not Accomplished | failed to analyze response | should have access to relevant tools or clearly state task limitations"
+    }
+  ]
+}

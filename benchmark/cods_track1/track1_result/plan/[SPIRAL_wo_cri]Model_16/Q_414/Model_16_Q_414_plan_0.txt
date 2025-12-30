@@ -1,0 +1,53 @@
+Question: Assuming that the current date is 2018-01-02, can you predict next work order probability for me for equipment CWC04009?
+Plan:
+#Task1: Determine the relevant sensor data for equipment CWC04009
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of relevant sensors for equipment CWC04009
+
+#Task2: Download historical sensor data for the relevant sensors of CWC04009 for the last week
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Historical sensor data for CWC04009 for the last week
+
+#Task3: Analyze the downloaded sensor data for anomalies
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Anomaly detection results for CWC04009
+
+#Task4: Predict the next work order probability based on the anomaly detection results
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Predicted probability of next work order for CWC04009
+
+Let's think step-by-step to solve the given problem. We need to predict the next work order probability for equipment CWC04009, given that the current date is 2018-01-02. 
+
+To achieve this, we first need to identify the relevant sensors for CWC04009. The Failure Mode and Sensor Relevancy Expert for Industrial Asset is the appropriate agent for this task.
+
+Next, we need to download the historical sensor data for these relevant sensors for the last week. The IoT Data Download agent can be used for this purpose. We will need to calculate the start date for the last week.
+
+After obtaining the historical data, we will analyze it for anomalies using the Time Series Analytics and Forecasting agent.
+
+Finally, based on the anomaly detection results, we will predict the next work order probability using the WorkOrder Agent.
+
+The plan is as follows:
+
+#Task1: Determine the relevant sensor data for equipment CWC04009
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of relevant sensors for equipment CWC04009
+
+#Task2: Download historical sensor data for the relevant sensors of CWC04009 for the last week
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Historical sensor data for CWC04009 for the last week
+
+#Task3: Analyze the downloaded sensor data for anomalies
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Anomaly detection results for CWC04009
+
+#Task4: Predict the next work order probability based on the anomaly detection results
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Predicted probability of next work order for CWC04009

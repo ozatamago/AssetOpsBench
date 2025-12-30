@@ -1,0 +1,17 @@
+Question: Find and run several methods to analyze data sensor 'Chiller 9 Condenser Water Flow' using data in 'data/tsfm_test_data/chiller9_tsad-small.csv'.
+Plan:
+ 
+#Task1: Read the CSV file 'data/tsfm_test_data/chiller9_tsad-small.csv' to understand its structure and content.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The content and structure of the CSV file.
+
+#Task2: Analyze the time-series data in the CSV file for anomalies in 'Chiller 9 Condenser Water Flow'.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly detection results for 'Chiller 9 Condenser Water Flow'.
+
+#Task3: Create a work order for inspecting Chiller 9 due to any detected anomalies or issues in 'Chiller 9 Condenser Water Flow'.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A generated work order for Chiller 9 inspection.

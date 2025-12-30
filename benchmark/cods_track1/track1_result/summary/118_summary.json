@@ -2,28 +2,10 @@
   "text": "When power input of Chiller 6 drops, what is the potential failure that causes it?",
   "tasks": [
     {
-      "task_description": "Identify potential failure causing Chiller 6 power drop</response>",
+      "task_description": "Identify potential Chiller 6 power drop failure causes.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Degraded motor or worn bearing due to normal use.",
-      "review": "Task Status: Accomplished | identified plausible failure mode | handle tool errors and provide context."
-    },
-    {
-      "task_description": "Retrieve historical data for Chiller 6 power.",
-      "agent_name": "IoT Data Download",
-      "final_answer": "Indexing issues</response>\n \n<rewritten_response>Indexing issues</response>",
-      "review": "Task Status: Not Accomplished | encountered indexing issues | handle indexing issues</response>\n```<response>encountered indexing issues | handle indexing issues</response>```"
-    },
-    {
-      "task_description": "Analyze Chiller 6 power data for anomalies and patterns.",
-      "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "<response>Failed to retrieve historical data</response>",
-      "review": "Task Status: Accomplished | identified missing file | provide context or alternatives</response>\n```<response>identified missing file | provide context or alternatives</response>```"
-    },
-    {
-      "task_description": "Generate work order based on potential failure analysis",
-      "agent_name": "WorkOrder Agent",
-      "final_answer": "CU02006</response>",
-      "review": "Task Status: Accomplished | generated work order successfully | define necessary classes or modules before use</response>"
+      "final_answer": "Multiple.",
+      "review": "Task Status: Accomplished | investigate 'Get Failure Mode and Sensor Relevancy Mapping' tool issue."
     }
   ]
 }

@@ -1,0 +1,11 @@
+{
+  "text": "Just notice an anomaly 'KPI Cooling Load above upper bound' happens for equipment CWC04009, can you recommend top three work orders to address this problem?",
+  "tasks": [
+    {
+      "task_description": "Retrieve sensor data for CWC04009 to investigate KPI anomaly</response>",
+      "agent_name": "IoT Data Download",
+      "final_answer": "MAIN.",
+      "review": "Task Status: Accomplished | verified asset existence | none</response>\n```<response>verified asset existence | none</response>```"
+    }
+  ]
+}

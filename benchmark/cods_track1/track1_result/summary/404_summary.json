@@ -1,0 +1,17 @@
+{
+  "text": "Get the events of equipment CWC04009 for year 2019 and provide a summary based on the event group, such as work order event, alerts and anomaly events.",
+  "tasks": [
+    {
+      "task_description": "Fetch events of CWC04009 for 2019.",
+      "agent_name": "IoT Data Download",
+      "final_answer": "MAIN</response>",
+      "review": "Task Status: Not Accomplished | verified asset existence | checked other sources/databases</response>\n```<response>verified asset existence | checked other sources/databases</response>```"
+    },
+    {
+      "task_description": "Analyze events into work order events, alerts, and anomalies.",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "0</response>",
+      "review": "Task Status: Accomplished | successfully retrieved events and work orders | none</response>\n<response>retrieved events and work orders correctly | none</response>\nBoth are acceptable."
+    }
+  ]
+}

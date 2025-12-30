@@ -2,22 +2,16 @@
   "text": "List all failure modes of Chiller 6 that can be detected by temperature sensors.",
   "tasks": [
     {
-      "task_description": "Enumerate Chiller 6 failure modes.",
+      "task_description": "List Chiller 6 failure modes",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
       "final_answer": "7 failure modes</response>",
-      "review": "Task Status: Accomplished | successfully used tool | none</response>\nor an equivalent response that follows the format and captures the essence of the task."
+      "review": "Task Status: Accomplished | used tool to retrieve failure modes | none</response>"
     },
     {
-      "task_description": "List failure modes of Chiller 6 detectable by temperature sensors",
+      "task_description": "List failure modes of Chiller 6 by temperature sensors.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Compressor Overheating, Evaporator, Condenser Water side fouling.",
-      "review": "Task Status: Accomplished | identified failure modes correctly | improve tool failure handling</response>\n```<response>identified failure modes correctly | improve tool failure handling</response>```"
-    },
-    {
-      "task_description": "Check temperature sensor data for Chiller 6</response>",
-      "agent_name": "IoT Data Download",
-      "final_answer": "MAIN</response>",
-      "review": "Task Status: Accomplished | identified site correctly | none</response>\nOR \nProvide a rewritten response if necessary.\n\n\n<response>identified site correctly | none</response>"
+      "final_answer": "Multiple values",
+      "review": "Task Status: Accomplished | identified failure modes logically | resolve Failure Mode and Sensor Relevancy Mapping errors"
     }
   ]
 }

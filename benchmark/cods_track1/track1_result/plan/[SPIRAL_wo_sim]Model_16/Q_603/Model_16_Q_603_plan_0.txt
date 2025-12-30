@@ -1,0 +1,25 @@
+Question: List all installed sensors of asset Chiller 6 at MAIN site.
+Plan:
+#Task1: List all assets at MAIN site
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at MAIN site
+
+#Task2: Identify the asset details for Chiller 6 at MAIN site
+#Agent2: IoT Data Download
+#Agent2: IoT Data Download 
+#Dependency2: #S1
+#ExpectedOutput2: Asset details for Chiller 6
+
+#Task3: List all installed sensors for Chiller 6
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S2
+#ExpectedOutput3: List of installed sensors for Chiller 6
+
+The plan has 3 steps as follows:
+
+1. List all assets at the MAIN site using the IoT Data Download agent.
+2. Identify the asset details for Chiller 6 at the MAIN site using the IoT Data Download agent, relying on the output from step 1.
+3. List all installed sensors for Chiller 6 using the Failure Mode and Sensor Relevancy Expert for Industrial Asset agent, relying on the output from step 2.
+
+Let's now execute this plan.

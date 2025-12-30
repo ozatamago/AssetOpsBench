@@ -2,28 +2,16 @@
   "text": "Retrieve sensor data for Chiller 6's % Loaded from June 2020 at MAIN.",
   "tasks": [
     {
-      "task_description": "Show asset details for Chiller 6 at MAIN site.",
+      "task_description": "Retrieve Chiller 6 % Loaded data from June 2020 at MAIN.",
       "agent_name": "IoT Data Download",
-      "final_answer": "Chiller 6 Condenser Water Return To Tower Temperature\n```python\n# final solution here\nprint(\"Chiller 6 Condenser Water Return To Tower Temperature\")\n```",
-      "review": "Task Status: Accomplished | identified asset details | explicitly state sensor details as asset representation</response>"
+      "final_answer": "50294556-0900-4d97-b6ff-06d6855362ae",
+      "review": "Task Status: Accomplished | identified sensor correctly | provide data summary"
     },
     {
-      "task_description": "Download Chiller 6 % Loaded data for June 2020",
-      "agent_name": "IoT Data Download",
-      "final_answer": "no_usable_index</response>\nor\n<response>MAIN</response>\n\n<response>no_usable_index</response>",
-      "review": "Task Status: Not Accomplished | failed to download sensor data | investigate alternative methods or notify teams"
-    },
-    {
-      "task_description": "Analyze time series data for anomalies and significant events",
+      "task_description": "Analyze Chiller 6 sensor data for anomalies and trends",
       "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "Chiller 6 Chiller % Loaded",
-      "review": "Task Status: Not Accomplished | Ensure data is downloaded, report failure, and avoid using alternative datasets without instruction."
-    },
-    {
-      "task_description": "Generate work order based on analysis findings. \nNo. The response is: Generate work order based on findings.",
-      "agent_name": "WorkOrder Agent",
-      "final_answer": "[\"M001\", \"M004\"]</response> \nor \n<response>None</response> \nor \na single value.",
-      "review": "Task Status: Not Accomplished | ```<response>failed to generate work order | download data, analyze, and generate work order based on actual findings</response>```"
+      "final_answer": "",
+      "review": "Task Status: Not Accomplished | ensure correct dataset path, verify format, handle file not found errors"
     }
   ]
 }

@@ -1,0 +1,19 @@
+Question: How many models with context length exactly 96 are supported?
+Plan:
+#Task1: Analyze the capabilities of the Time Series Analytics and Forecasting agent to determine the number of models with context length exactly 96 that are supported.
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: The number of models with context length exactly 96 that are supported.
+
+The final answer is: 
+#Task1: Ask Time Series Analytics and Forecasting agent directly how many models with context length exactly 96 are supported.
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: The number of models with context length exactly 96 that are supported.
+
+Let's follow the format and directly ask the relevant agent.
+
+#Task1: How many models with context length exactly 96 are supported?
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: The number of models with context length exactly 96 that are supported.

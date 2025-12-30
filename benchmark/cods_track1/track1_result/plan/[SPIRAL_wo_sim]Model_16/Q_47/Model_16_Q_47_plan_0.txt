@@ -1,0 +1,32 @@
+Question: list all the chillers at site MAIN
+Plan:
+#Task1: List all the assets at site MAIN
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at site MAIN
+
+#Task2: Identify the chillers from the list of assets at site MAIN
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: List of chillers at site MAIN
+
+## Thought Process and Reasoning
+
+To solve the problem "list all the chillers at site MAIN," we need to break it down into manageable steps. The first step is to identify all the assets at the site MAIN. The IoT Data Download agent is capable of providing information about assets at a specific site, making it suitable for this task.
+
+1. **List all the assets at site MAIN**: We will use the IoT Data Download agent to retrieve the list of assets at site MAIN. This is a straightforward task that the agent can accomplish.
+
+2. **Identify the chillers from the list of assets**: Once we have the list of assets, we need to identify which of these assets are chillers. The IoT Data Download agent can also be used for this purpose, as it can provide details about specific assets.
+
+The plan involves two steps: first, retrieving the list of assets at site MAIN, and second, identifying the chillers from this list. Both tasks can be accomplished using the IoT Data Download agent.
+
+## Output (Generated Plan)
+#Task1: List all the assets at site MAIN
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at site MAIN
+
+#Task2: Identify the chillers from the list of assets at site MAIN
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: List of chillers at site MAIN

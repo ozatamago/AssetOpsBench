@@ -1,0 +1,11 @@
+{
+  "text": "What are time series pretrained models are available in system?",
+  "tasks": [
+    {
+      "task_description": "List pretrained time series models.",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "Multiple models available</response> or a single value. \n\nttm_96_28",
+      "review": "Task Status: Accomplished | identified pretrained models | none</response>\n<response>identified pretrained models | none</response> is the solution."
+    }
+  ]
+}

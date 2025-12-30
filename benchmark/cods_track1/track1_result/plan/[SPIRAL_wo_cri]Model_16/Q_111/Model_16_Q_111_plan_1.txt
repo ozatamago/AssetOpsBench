@@ -1,0 +1,17 @@
+Question: List all sensors of Chiller 6 that are potentially relevant to Compressor Overheating.
+Plan:
+ 
+#Task1: List all failure modes of Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes of Chiller 6.
+
+#Task2: Identify the relevant sensors for Compressor Overheating failure mode of Chiller 6.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: A list of sensors relevant to Compressor Overheating of Chiller 6.
+
+#Task3: Verify if there are any specific sensor data available for the identified relevant sensors.
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: Confirmation of availability of sensor data for the relevant sensors.

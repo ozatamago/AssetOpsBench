@@ -1,0 +1,7 @@
+Question: Which assets are located at the MAIN facility?
+Plan:
+ 
+#Task1: Identify the assets located at the MAIN facility
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at the MAIN facility

@@ -1,0 +1,29 @@
+{
+  "text": "I would like to review the performance of chiller 9 with equipment ID CWC04009 at main site site for June 2020 and track any anomalies or operation alerts. Tell me what corrective work orders have been scheduled, and whether new work order should generate.",
+  "tasks": [
+    {
+      "task_description": "Download Chiller 9 data for June 2020.",
+      "agent_name": "IoT Data Download",
+      "final_answer": "4b7444a6-307e-4780-8c13-03967e3832ef",
+      "review": "Task Status: Accomplished | used history action correctly | provide summary of downloaded data</response>\n```<response>used history action correctly | provide summary of downloaded data</response>```"
+    },
+    {
+      "task_description": "Analyze Chiller 9 data for anomalies and alerts.",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "",
+      "review": "Task Status: Not Accomplished | failed to execute tsfm_integrated_tsad tool, review format and documentation."
+    },
+    {
+      "task_description": "Fetch work orders for Chiller 9 with ID CWC04009. \nRevised to 12 words or less: \nFetch work orders for Chiller 9 ID CWC04009.",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "corrective_work_orders_CWC04009.json",
+      "review": "Task Status: Accomplished | used get_work_orders and filter_corrective_work_orders APIs | none</response>"
+    },
+    {
+      "task_description": "Check analysis report for new work order against existing orders.",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "",
+      "review": "Task Status: Not Accomplished | retrieved work orders | analyze report and existing work orders to determine new work order"
+    }
+  ]
+}

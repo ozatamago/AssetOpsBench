@@ -1,0 +1,17 @@
+{
+  "text": "Find all models with context length 96.",
+  "tasks": [
+    {
+      "task_description": "<response>Check if Time Series Analytics supports model with context length 96</response>",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "Yes</response>",
+      "review": "Task Status: Accomplished | queried pretrained models correctly | none"
+    },
+    {
+      "task_description": "Time series forecasting model examples with context 96.",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "ttm_96_28, ttm_energy_96_28",
+      "review": "Task Status: Accomplished | identified pretrained models correctly | none</response>\n```<response>identified pretrained models correctly | none</response>```"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "text": "Just notice two anomalies 'KPI Cooling Load above upper bound' and 'KPI Delta Setpoint above upper bound' happened for equipment CWC04009, can you recommend top three work orders to address this problem?",
+  "tasks": [
+    {
+      "task_description": "Fetch sensor data for equipment CWC04009 to analyze the anomaly</response>",
+      "agent_name": "IoT Data Download",
+      "final_answer": "",
+      "review": "Task Status: Accomplished | identified missing equipment | check alternative sites or additional info."
+    },
+    {
+      "task_description": "Analyze sensor data to identify cause of KPI anomalies.",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "tsfm_integrated_tsad</response> or a single line ≤ 10 words.\n\ntsfm_integrated_tsad",
+      "review": "Task Status: Not Accomplished | identified correct AI task | provide correct dataset path or file existence check."
+    },
+    {
+      "task_description": "Prioritize top three work orders to address anomaly causes.",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "Multiple</response>",
+      "review": "Task Status: Not Accomplished | ```<response>failed to access anomaly file | handle unavailable files, indicate simulated data</response>```"
+    }
+  ]
+}

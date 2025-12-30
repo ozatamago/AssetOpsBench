@@ -1,0 +1,29 @@
+Question: Can you provide guidance on bundling corrective work orders together to optimize the maintenance schedule for Chiller 9 with equipment ID CWC04009 covering years of 2017, 2018 and 2019, bundle has to be happen within two weeks and have at least two work orders, also tell the details of each bundle?
+Plan:
+#Task1: Retrieve historical work orders for Chiller 9 with equipment ID CWC04009 for the years 2017, 2018, and 2019.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: A list of historical work orders for Chiller 9 (CWC04009) covering the years 2017, 2018, and 2019.
+
+#Task2: Analyze the retrieved work orders to identify corrective work orders that can be bundled together within a two-week window.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: A list of bundled corrective work orders, with each bundle containing at least two work orders and occurring within a two-week period.
+
+#Task3: Provide details of each bundle, including the work order IDs, dates, and descriptions.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Detailed information about each bundle, including work order IDs, dates, and descriptions.
+
+#Task4: Summarize the guidance on bundling corrective work orders for Chiller 9 (CWC04009) based on the analysis.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: A summary providing guidance on bundling corrective work orders to optimize the maintenance schedule for Chiller 9.
+
+The plan is as follows:
+The first task retrieves historical work orders for Chiller 9. 
+The second task analyzes these work orders to identify bundles of corrective work orders within a two-week window. 
+The third task provides detailed information about each identified bundle. 
+The fourth task summarizes the guidance on bundling corrective work orders based on the analysis.
+
+Since the WorkOrder Agent can handle all the required tasks, it is used for all steps. The dependencies are sequential, with each step relying on the output of the previous one.

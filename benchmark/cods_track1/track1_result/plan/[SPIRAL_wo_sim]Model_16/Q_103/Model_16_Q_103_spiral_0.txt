@@ -1,0 +1,9 @@
+stop_index: 1
+
+truncated_plan: #Task1: List all failure modes of asset Wind Turbine.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes associated with Wind Turbine.
+
+status: Accomplished
+can_answer_now:True

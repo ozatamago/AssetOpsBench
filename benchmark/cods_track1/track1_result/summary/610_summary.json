@@ -2,22 +2,22 @@
   "text": " If compressor overheating occurs for Chiller 6 at MAIN site, which sensor should be prioritized for monitoring this specific failure?",
   "tasks": [
     {
-      "task_description": "List sensors monitoring Chiller 6 compressor overheating failure",
+      "task_description": "List relevant sensors for Chiller 6 compressor overheating failure -> List sensors for Chiller 6 compressor failure\n\nFinal Answer: List sensors for Chiller 6 compressor failure. \n\nRewritten to 12 words or less: List sensors for Chiller 6 compressor.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
       "final_answer": "temperature sensors, power input sensors</response>",
-      "review": "Task Status: Partially Accomplished | identified relevant sensors | handle file reading errors and provide context."
+      "review": "Task Status: Partially Accomplished | identified relevant sensors | handle file reading errors, provide more sensor context</response>\n</task>"
     },
     {
-      "task_description": "Prioritize sensors to monitor Chiller 6 compressor overheating",
+      "task_description": "Prioritize sensors for Chiller 6 compressor overheating monitoring.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Chiller 6 Temperature</response>",
-      "review": "Task Status: Accomplished | prioritized sensors reasonably | improve error handling and logging</response>\n<response>prioritized sensors reasonably | improve error handling and logging</response>"
+      "final_answer": "Chiller 6 Temperature.",
+      "review": "Task Status: Accomplished | prioritized sensors correctly | improve error handling and robustness</response>\n```<response>prioritized sensors correctly | improve error handling and robustness</response>```"
     },
     {
       "task_description": "Check if Chiller 6 is at MAIN site.",
       "agent_name": "IoT Data Download",
       "final_answer": "MAIN</response>",
-      "review": "Task Status: Accomplished | verified Chiller 6 location | avoid redundant asset retrieval – Illegible.  Replace with: verified Chiller 6 | redundant asset retrieval avoided."
+      "review": "Task Status: Accomplished | verified Chiller 6 location | avoid redundant asset retrieval</response>\n```<response>verified Chiller 6 location | avoid redundant asset retrieval</response>```"
     }
   ]
 }

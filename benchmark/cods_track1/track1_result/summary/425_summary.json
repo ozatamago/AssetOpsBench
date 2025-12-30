@@ -1,0 +1,23 @@
+{
+  "text": "How can I analyze anomalies across multiple KPIs to better diagnose the root cause of these issues?",
+  "tasks": [
+    {
+      "task_description": "Retrieve Chiller 6 KPI data.",
+      "agent_name": "IoT Data Download",
+      "final_answer": "",
+      "review": "Task Status: Not Accomplished | identified site & KPIs | use 'history' to retrieve data."
+    },
+    {
+      "task_description": "Analyze data for KPI anomalies",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "tsfm_integrated_tsad</response>",
+      "review": "Task Status: Not Accomplished | failed to analyze data | handle file existence and format issues, perform actual anomaly detection</response>\n</response>"
+    },
+    {
+      "task_description": "Identify relevant failure modes associated with detected anomalies",
+      "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
+      "final_answer": "Chiller ABM Power Input",
+      "review": "Task Status: Accomplished | <response>identified relevant failure modes | handle exceptions robustly, define required variables</response>"
+    }
+  ]
+}

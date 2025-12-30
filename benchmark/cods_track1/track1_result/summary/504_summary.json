@@ -1,0 +1,29 @@
+{
+  "text": "Can you forecast Chiller 6's performance for next week based on the data from 2020-04-27 at the MAIN site?",
+  "tasks": [
+    {
+      "task_description": "Fetch historical data for Chiller 6 on 2020-04-27.",
+      "agent_name": "IoT Data Download",
+      "final_answer": "MAIN",
+      "review": "Task Status: Accomplished | used history tool successfully | provide summary of retrieved data</response>\nNo other text or explanation is required."
+    },
+    {
+      "task_description": "Analyze data to identify Chiller 6 performance trends and patterns",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "anomaly detection cannot be performed",
+      "review": "Task Status: Not Accomplished | ensure valid file path & handle exceptions"
+    },
+    {
+      "task_description": "Predict Chiller 6 performance for next week.",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "ttm_energy_96_28",
+      "review": "Task Status: Not Accomplished | failed to forecast | ensure correct dataset path</response>\n```<response>failed to forecast | ensure correct dataset path</response>```"
+    },
+    {
+      "task_description": "Generate work orders for maintenance and corrective actions.",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "[\"MT001\", \"MT010\"]</response>",
+      "review": "Task Status: Not Accomplished | improve error handling and logging."
+    }
+  ]
+}

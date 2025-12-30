@@ -1,10 +1,10 @@
 stop_index: 1
 
 truncated_plan:  
-#Task1: List all failure modes of Chiller 6
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Task1: List all assets at SiteX
+#Agent1: IoT Data Download
 #Dependency1: None
-#ExpectedOutput1: List of failure modes and relevant sensors for Chiller 6
+#ExpectedOutput1: List of assets at SiteX
 
-status: Partially accomplished
+status: Not accomplished
 can_answer_now:False

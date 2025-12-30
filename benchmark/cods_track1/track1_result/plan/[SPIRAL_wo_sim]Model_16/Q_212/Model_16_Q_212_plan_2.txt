@@ -1,0 +1,6 @@
+Question: Find a model for energy forecasting with context length 96 and nothing else.
+Plan:
+ #Task1: Find a model for energy forecasting with context length 96
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: {"model": "energy_forecasting_model", "context_length": 96}

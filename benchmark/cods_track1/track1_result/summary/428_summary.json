@@ -1,0 +1,23 @@
+{
+  "text": "Could you generate rules that help distinguish meaningful alerts from spurious ones?",
+  "tasks": [
+    {
+      "task_description": "Identify relevant failure modes and sensors for Chiller 6</response>",
+      "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
+      "final_answer": "None</response>",
+      "review": "Task Status: Partially Accomplished | identified failure modes | validate paths, handle exceptions, have backup."
+    },
+    {
+      "task_description": "Analyze CU02004 temperature anomalies at SiteX.",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "tsfm_integrated_tsad</response> or a single line ≤ 10 words.\n\ntsfm_integrated_tsad",
+      "review": "Task Status: Partially Accomplished | analyzed time-series data | clarify data requirements, provide example data</response>\n```<response>analyzed time-series data | clarify data requirements, provide example data</response>```"
+    },
+    {
+      "task_description": "Generate meaningful alert rules to filter spurious ones.",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "Use techniques such as correlation analysis. \n\nRevised final line to be ≤ 10 words: \nUse correlation analysis and machine learning techniques.",
+      "review": "Task Status: Partially Accomplished | retrieved no data | improve data retrieval and processing</response>\n</task>\n</examples>\n<response>retrieved no data | improve data retrieval and processing</response>"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "text": "Assuming that the current date is 2018-01-02, can you predict next work order probability for me for equipment CWC04009?",
+  "tasks": [
+    {
+      "task_description": "Fetch historical work order data for equipment CWC04009 2017. \nRevised to 12 words or less: \nFetch work order data for equipment CWC04009 in 2017. \nFinal: Fetch work order data for CWC04009 in 2017.",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "work_orders_CWC04009_2017.json</response>",
+      "review": "Task Status: Accomplished | retrieved historical work order data | none</response>\n```<response>retrieved historical work order data | none</response>```"
+    },
+    {
+      "task_description": "Analyze historical work order data for patterns and anomalies",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "time series anomaly detection techniques",
+      "review": "Task Status: Not Accomplished | Ensure file exists and is in the correct format."
+    },
+    {
+      "task_description": "Predict next work order probability for equipment CWC04009 on 2018-01-02.",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "next_work_order_probabilities_CWC04009_20180102.json</response>",
+      "review": "Task Status: Accomplished | retrieved next work order probabilities | none</response>"
+    }
+  ]
+}

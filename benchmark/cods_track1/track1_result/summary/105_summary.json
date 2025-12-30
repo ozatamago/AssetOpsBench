@@ -2,16 +2,16 @@
   "text": "Provide some sensors of asset Wind Turbine.",
   "tasks": [
     {
-      "task_description": "Enumerate failure modes of Wind Turbine asset. \nHere is the final line: Enumerate failure modes of Wind Turbine. \nEnumerate Wind Turbine failure modes.",
-      "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Multiple values exist.",
-      "review": "Task Status: Accomplished | used 'Get Failure Modes' tool correctly | none</response>\n```<response>used 'Get Failure Modes' tool correctly | none</response>```"
+      "task_description": "Locate the Wind Turbine site",
+      "agent_name": "IoT Data Download",
+      "final_answer": "None</response>",
+      "review": "Task Status: Accomplished | determined Wind Turbine not at available sites | none."
     },
     {
-      "task_description": "Vibration, temperature, and oil sensors monitor Wind Turbine failures.",
-      "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "15</response> \nor \n<response>Multiple values</response>\n\n<response>15</response>",
-      "review": "Task Status: Accomplished | identified relevant sensors | improve error handling & provide context"
+      "task_description": "List sensors associated with Wind Turbine.",
+      "agent_name": "IoT Data Download",
+      "final_answer": "MAIN</response>",
+      "review": "Task Status: Not Accomplished | identified available site | check other sources or databases</response>\n```<response>identified available site | check other sources or databases</response>```"
     }
   ]
 }

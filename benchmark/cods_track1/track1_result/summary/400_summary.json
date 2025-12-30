@@ -1,0 +1,11 @@
+{
+  "text": "Get the work order of equipment CWC04013 for year 2017.",
+  "tasks": [
+    {
+      "task_description": "Retrieve work order for equipment CWC04013 for 2017.",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "work_orders_CWC04013_2017.json</response>\n```json\n{\n    \"file_path\": \"work_orders_CWC04013_2017.json\"\n}\n```",
+      "review": "Task Status: Accomplished | retrieved work orders | none"
+    }
+  ]
+}

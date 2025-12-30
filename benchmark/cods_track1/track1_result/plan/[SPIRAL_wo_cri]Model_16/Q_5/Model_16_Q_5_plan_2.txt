@@ -1,0 +1,33 @@
+Question: Retrieve metadata for Chiller 6 located at the MAIN site.
+Plan:
+ 
+#Task1: Identify the site where Chiller 6 is located.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of sites where Chiller 6 is located.
+
+#Task2: Retrieve metadata for Chiller 6 at the identified site.
+#Agent2: IoT Data Download
+#Dependency2: #Task1
+#ExpectedOutput2: Metadata for Chiller 6.
+
+#Task3: Verify if the retrieved metadata is for the MAIN site.
+#Agent3: IoT Data Download
+#Dependency3: #Task2
+#ExpectedOutput3: Confirmation if the metadata is for Chiller 6 at the MAIN site.
+
+The final answer is: 
+#Task1: Identify the site where Chiller 6 is located.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of sites where Chiller 6 is located.
+
+#Task2: Retrieve metadata for Chiller 6 at the identified site.
+#Agent2: IoT Data Download
+#Dependency2: #Task1
+#ExpectedOutput2: Metadata for Chiller 6.
+
+#Task3: Verify if the retrieved metadata is for the MAIN site.
+#Agent3: IoT Data Download
+#Dependency3: #Task2
+#ExpectedOutput3: Confirmation if the metadata is for Chiller 6 at the MAIN site.

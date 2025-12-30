@@ -1,0 +1,19 @@
+stop_index: 3
+
+truncated_plan: #Task1: List all failure modes of Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes associated with Chiller 6.
+
+#Task2: Identify the relevant sensors for monitoring Evaporator Water side fouling failure of Chiller 6.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: The most relevant sensor for monitoring Evaporator Water side fouling failure.
+
+#Task3: Verify if the identified sensor is available at SiteX for Chiller 6.
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: Confirmation of the sensor's availability and its data.
+
+status: Not accomplished
+can_answer_now:False

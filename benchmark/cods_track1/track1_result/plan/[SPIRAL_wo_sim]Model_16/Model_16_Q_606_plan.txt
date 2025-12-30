@@ -1,0 +1,11 @@
+Question: List all failure modes of Chiller 6 at MAIN site that can be detected by temperature sensors and power input sensors.
+Plan:
+#Task1: List all failure modes of Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes of Chiller 6.
+
+#Task2: Identify the failure modes of Chiller 6 that can be detected by temperature sensors and power input sensors.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: A list of failure modes of Chiller 6 that can be detected by temperature sensors and power input sensors.

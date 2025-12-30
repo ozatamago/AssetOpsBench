@@ -1,0 +1,22 @@
+Question: Assuming that the current date is 2018-01-02, can you predict next work order probability for me for equipment CWC04009 using predict_next_work_order_probability function?
+Plan:
+ 
+#Task1: Calculate the start date for last week.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Start date for last week.
+
+#Task2: Retrieve historical data for CWC04009 from the start date of last week to 2018-01-02.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Historical data for CWC04009.
+
+#Task3: Analyze the historical data for anomalies or potential failures.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Analysis results.
+
+#Task4: Predict the next work order probability for CWC04009.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Predicted work order probability.

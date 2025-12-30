@@ -1,0 +1,18 @@
+Question: Are there any anomalies detected in Chiller 9's Tonnage in the week of 2020-04-27 at the MAIN site?
+Plan:
+ 
+
+#Task1: Download the sensor data for Chiller 9 Tonnage at the MAIN site for the week of 2020-04-27.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON file containing the sensor data for Chiller 9 Tonnage at the MAIN site for the specified week.
+
+#Task2: Analyze the downloaded data for anomalies in Chiller 9 Tonnage.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: An analysis report indicating whether any anomalies were detected in Chiller 9 Tonnage.
+
+#Task3: If anomalies are detected, create a work order for inspecting Chiller 9.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A work order for inspecting Chiller 9 if anomalies were detected.

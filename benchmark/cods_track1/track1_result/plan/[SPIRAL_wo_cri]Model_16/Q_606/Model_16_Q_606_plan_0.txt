@@ -1,0 +1,39 @@
+Question: List all failure modes of Chiller 6 at MAIN site that can be detected by temperature sensors and power input sensors.
+Plan:
+#Task1: List all failure modes of Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes of Chiller 6.
+
+#Task2: Identify the relevant sensors for each failure mode of Chiller 6.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Agent2 is used again because it can provide information about mapping between failure modes and sensors.
+#Dependency2: #Task1
+#ExpectedOutput2: Information on which failure modes can be detected by temperature sensors and power input sensors.
+
+#Task3: Filter the failure modes that can be detected by temperature sensors and power input sensors.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #Task2
+#ExpectedOutput3: A list of failure modes of Chiller 6 that can be detected by temperature sensors and power input sensors.
+
+The final answer is: 
+The plan has 3 steps. 
+
+To improve the response, let's reformat it according to the given instructions and directly provide the step-by-step plan as requested.
+
+#Task1: List all failure modes of Chiller 6 at MAIN site.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes of Chiller 6.
+
+#Task2: Identify the relevant sensors for the failure modes of Chiller 6.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #Task1
+#ExpectedOutput2: Information on which sensors are relevant for detecting each failure mode of Chiller 6.
+
+#Task3: Filter the failure modes that can be detected by temperature sensors and power input sensors.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #Task2
+#ExpectedOutput3: A list of failure modes of Chiller 6 that can be detected by temperature sensors and power input sensors.
+
+This plan directly addresses the problem by leveraging the capabilities of the "Failure Mode and Sensor Relevancy Expert for Industrial Asset" agent to list failure modes, identify relevant sensors, and filter the failure modes based on the specified sensor types.

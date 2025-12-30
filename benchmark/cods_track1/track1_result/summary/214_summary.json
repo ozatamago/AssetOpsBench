@@ -1,0 +1,11 @@
+{
+  "text": "How many models with context length exactly 96 are supported?",
+  "tasks": [
+    {
+      "task_description": "List models with context 96 supported by Time Series Analytics and Forecasting agent.",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "ttm_96_28, ttm_energy_96_28",
+      "review": "Task Status: Accomplished | queried pretrained models correctly | none</response>"
+    }
+  ]
+}

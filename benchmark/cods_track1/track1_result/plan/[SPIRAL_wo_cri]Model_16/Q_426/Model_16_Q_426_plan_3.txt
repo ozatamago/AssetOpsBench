@@ -1,0 +1,18 @@
+Question: Could you identify any causal linkages between anomalies across KPIs to better understand the severity and interconnectedness?
+Plan:
+ 
+
+#Task1: Retrieve historical data for Chiller 6's relevant KPIs to analyze for anomalies.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for Chiller 6's KPIs such as "CHILLED WATER LEAVING TEMP" and "CHILLED WATER RETURN TEMP".
+
+#Task2: Analyze the retrieved data for anomalies in Chiller 6's KPIs and identify causal linkages between them.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly detection results and causal linkages between Chiller 6's KPIs.
+
+#Task3: Generate a work order based on the identified causal linkages and anomalies.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A work order for preventive or corrective actions based on the causal linkages and anomalies detected.

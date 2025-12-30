@@ -1,0 +1,12 @@
+Question: I need to perform Time Series anomaly detection of 'Chiller 9 Condenser Water Flow' using data in chiller9_tsad.csv
+Plan:
+ 
+#Task1: Perform Time Series anomaly detection on 'Chiller 9 Condenser Water Flow' using the data from chiller9_tsad.csv
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: Anomaly detection results for 'Chiller 9 Condenser Water Flow'
+
+#Task2: Generate a work order for Chiller 9 based on the anomaly detection results
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: A work order for Chiller 9

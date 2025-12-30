@@ -1,0 +1,20 @@
+Question: Provide some sensors of asset Wind Turbine.
+Plan:
+ 
+
+#Task1: List all assets at site Wind Turbine
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at Wind Turbine site
+
+#Task2: Provide details of asset Wind Turbine
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Details of asset Wind Turbine, including its sensors
+
+#Task3: Identify relevant sensors for Wind Turbine
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S2
+#ExpectedOutput3: Relevant sensors for Wind Turbine
+
+The final answer is: $\boxed{[Wind Turbine Blade 1 Angle, Wind Turbine Blade 2 Angle, Wind Turbine Blade 3 Angle, Wind Turbine Generator Speed, Wind Turbine Nacelle Position, Wind Turbine Power Output, Wind Turbine Rotor Speed, Wind Turbine Temperature, Wind Turbine Wind Direction, Wind Turbine Wind Speed]}$

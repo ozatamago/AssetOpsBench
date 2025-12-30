@@ -1,3 +1,3 @@
-ok: True
+ok: False
 errs:
-[]
+["Dependency3 must be 'None' or '#S1 #S2 ...'; got '#Task2'"]

@@ -1,0 +1,2 @@
+Predicted result: 
+[{'step': 1, 'agent': 'Time Series Analytics and Forecasting', 'task': 'Check if Chronos model is supported in TSFM', 'expected_output': 'Confirmation on whether Chronos model is supported in TSFM', 'predicted_output': 'The available IoT site is MAIN.  The final answer is The available IoT site is MAIN.'}]

@@ -1,0 +1,11 @@
+{
+  "text": "When compressor motor of Chiller 6 at MAIN site fails, what is the temporal behavior of the power input?",
+  "tasks": [
+    {
+      "task_description": "Analyze power when Chiller 6 compressor motor fails",
+      "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
+      "final_answer": "Power consumption may fluctuate or spike before failing.",
+      "review": "Task Status: Accomplished | identified temporal behavior to improve tool usage."
+    }
+  ]
+}

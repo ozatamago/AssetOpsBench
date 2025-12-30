@@ -1,0 +1,10 @@
+stop_index: 1
+
+truncated_plan:  
+#Task1: Retrieve the preventive work order details for the equipment labeled as CWC04013 for the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: Details of the preventive work order generated for CWC04013.
+
+status: Accomplished
+can_answer_now:True

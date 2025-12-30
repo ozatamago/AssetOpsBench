@@ -1,0 +1,21 @@
+Question:  If compressor overheating occurs for Chiller 6 at MAIN site, which sensor should be prioritized for monitoring this specific failure?
+Plan:
+ 
+
+#Task1: Identify the relevant sensors for monitoring compressor overheating failure of Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of relevant sensors for monitoring compressor overheating failure of Chiller 6.
+
+#Task2: Verify if Chiller 6 is present at the MAIN site.
+#Agent2: IoT Data Download
+#Dependency2: None
+#ExpectedOutput2: Confirmation of Chiller 6 presence at MAIN site.
+
+#Task3: Analyze the historical data to determine the most critical sensor for monitoring compressor overheating.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S1
+#ExpectedOutput3: Identification of the most critical sensor for monitoring compressor overheating.
+
+The final answer is:
+The most critical sensor for monitoring compressor overheating for Chiller 6 is the Compressor Discharge Temperature sensor.

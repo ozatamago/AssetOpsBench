@@ -2,22 +2,22 @@
   "text": "Generate a machine learning recipe for detecting overheating failure for Chiller 6. Result should include feature sensors and target sensor.",
   "tasks": [
     {
-      "task_description": "Enumerate Chiller 6 failure modes to check for overheating",
+      "task_description": "List Chiller 6 failure modes.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Yes.",
-      "review": "Task Status: Accomplished | identified failure modes | none</response>"
+      "final_answer": "7 failure modes</response>",
+      "review": "Task Status: Accomplished | used tool to retrieve failure modes | none"
     },
     {
-      "task_description": "Identify sensors for Chiller 6 overheating.",
+      "task_description": "Identify relevant sensors for Chiller 6 Compressor Overheating.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "temperature, pressure, current or power sensors",
-      "review": "Task Status: Accomplished | reasoned about relevant sensors for Chiller 6."
+      "final_answer": "Chiller 6 Compressor Discharge Temperature Chiller 6 Compressor Discharge Temperature. \nChiller 6 Compressor Discharge Temperature.",
+      "review": "Task Status: Accomplished | identified relevant sensor | improve tool error handling and file path validation"
     },
     {
-      "task_description": "Generate Chiller 6 overheating detection machine learning recipe.",
+      "task_description": "Generate recipe for Compressor Overheating failure using machine learning.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "compressor discharge temperature</response>\nor \n<response>Multiple values exist</response>\n\n<response>Multiple values exist</response>",
-      "review": "Task Status: Partially Accomplished | identified failure mode | correct file path, validate assumptions</response>\n```<response>identified failure mode | correct file path, validate assumptions</response>```"
+      "final_answer": "7 steps</response> or a single value if applicable. \n\n7 steps",
+      "review": "Task Status: Partially Accomplished | provided general machine learning recipe | retrieve sensors and relevancy mapping for Chiller 6."
     }
   ]
 }

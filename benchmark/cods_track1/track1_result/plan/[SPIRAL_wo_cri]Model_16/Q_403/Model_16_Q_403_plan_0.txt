@@ -1,0 +1,18 @@
+Question: I would like to retrieve the corrective work order details for the equipment labeled as CWC04013 for the year 2017.
+Plan:
+#Task1: Identify the relevant agent to retrieve work order details for equipment CWC04013 in 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: The WorkOrder Agent is capable of retrieving work order details.
+
+#Task2: Use the WorkOrder Agent to retrieve the corrective work order details for CWC04013 in 2017.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: Corrective work order details for CWC04013 in 2017.
+
+#Task3: Verify if the retrieved work order details are for corrective actions.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Confirmation that the retrieved work order details are for corrective actions.
+
+The plan is complete. There are 3 steps.

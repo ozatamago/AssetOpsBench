@@ -2,28 +2,28 @@
   "text": "Get the daily count of alert, anomaly and work order event for the May 2020 for equipment CWC04009.",
   "tasks": [
     {
-      "task_description": "Fetch historical data for CWC04009 for May 2020",
+      "task_description": "Fetch historical data for equipment CWC04009 for May 2020",
       "agent_name": "IoT Data Download",
       "final_answer": "",
       "review": "Task Status: Not Accomplished | identified incorrect site for CWC04009, check other resources."
     },
     {
-      "task_description": "Analyze retrieved data to identify anomalies",
+      "task_description": "Analyze retrieved data to identify anomalies.",
       "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "File does not exist",
-      "review": "Task Status: Not Accomplished | attempted anomaly detection | ensure correct file path & verify file creation/retrieval"
+      "final_answer": "File does not exist</response>",
+      "review": "Task Status: Not Accomplished | failed anomaly detection | ensure correct file path and verify file creation/retrieval process."
     },
     {
       "task_description": "Fetch work orders for CWC04009 in May 2020 and count daily.",
       "agent_name": "WorkOrder Agent",
       "final_answer": "daily_counts_CWC04009_May2020.json</response>",
-      "review": "Task Status: Not Accomplished | failed due to attribute error | verify API documentation & test code</response>"
+      "review": "Task Status: Not Accomplished | failed due to attribute errors | verify API documentation & test code"
     },
     {
-      "task_description": "Compile daily counts into final result",
+      "task_description": "Sum daily counts for final result.",
       "agent_name": "IoT Data Download",
-      "final_answer": "NO DAILY COUNTS.",
-      "review": "Task Status: Accomplished | determined no observations | none"
+      "final_answer": "None</response>",
+      "review": "Task Status: Accomplished | determined no observations | none."
     }
   ]
 }

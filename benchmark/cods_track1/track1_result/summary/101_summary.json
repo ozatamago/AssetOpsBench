@@ -4,8 +4,8 @@
     {
       "task_description": "List Chiller failure modes.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Compressor Overheating and other chiller system issues listed. -> \nRefrigerant Operated Control Valve Failed spring.",
-      "review": "Task Status: Accomplished | used 'Get Failure Modes' tool successfully | none</response>\n```<response>used 'Get Failure Modes' tool successfully | none</response>```"
+      "final_answer": "Seven.",
+      "review": "Task Status: Accomplished | retrieved failure modes | none"
     }
   ]
 }

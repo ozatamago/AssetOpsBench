@@ -2,16 +2,10 @@
   "text": " If compressor overheating occurs for Chiller 6, which sensor should be prioritized for monitoring this specific failure?",
   "tasks": [
     {
-      "task_description": "List relevant sensors for Chiller 6 compressor.",
+      "task_description": "Identify relevant sensors for monitoring Chiller 6 compressor overheating",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Chiller 6 Temperature.",
-      "review": "Task Status: Partially Accomplished | identified failure mode | resolve tool execution failures</response>"
-    },
-    {
-      "task_description": "Prioritize sensors for monitoring compressor overheating",
-      "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Chiller ABM Power Input",
-      "review": "Task Status: Partially Accomplished | identified relevant sensor, rectified error in sensor list via relevancy mapping."
+      "final_answer": "Compressor Discharge Temperature</response>",
+      "review": "Task Status: Accomplished | identified relevant sensors | improve file paths, tool executions and explanations."
     }
   ]
 }

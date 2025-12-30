@@ -2,16 +2,22 @@
   "text": "what was the supply temperature from CQPA AHU 2B on sept 19, 2020 at quarter to midnight, at site MAIN? return in a file",
   "tasks": [
     {
-      "task_description": "Download sensor data for CQPA AHU 2B at MAIN site on Sept 19 2020",
+      "task_description": "Specify date and time for September 19 2020 at quarter to midnight.",
       "agent_name": "IoT Data Download",
-      "final_answer": "",
-      "review": "Task Status: Not Accomplished | ```xml\nresolve indexing issue or provide alternative method\n``` \nshould be \nresolve indexing issue or use alternative method. \nOne line. \nresolve indexing issue or use alternative method."
+      "final_answer": "2020-09-19T23:45:00</response>\n \n<rewritten_response>2020-09-19T23:45:00</rewritten_response>\n2020-09-19T23:45:00",
+      "review": "Task Status: Accomplished | <response>mostly accurate response | double-check initial interpretations</response> is not needed, just \nmostly accurate response | double-check initial interpretations"
     },
     {
-      "task_description": "Extract supply temperature reading from sensor data to a file.",
+      "task_description": "Download CQPA AHU 2B supply temperature data from MAIN site.",
       "agent_name": "IoT Data Download",
-      "final_answer": "NO_EXPORT",
-      "review": "Task Status: Not Accomplished | identified supply temperature sensor | failed to retrieve value and export"
+      "final_answer": "",
+      "review": "Task Status: Not Accomplished | check actual data before claiming success."
+    },
+    {
+      "task_description": "Verify downloaded data format and required information",
+      "agent_name": "IoT Data Download",
+      "final_answer": "File does not exist or is inaccessible.",
+      "review": "Task Status: Not Accomplished | encountered file error | check file download and permissions</response>"
     }
   ]
 }

@@ -2,22 +2,10 @@
   "text": "Retrieve sensor data for Chiller 6 from June 2020.",
   "tasks": [
     {
-      "task_description": "Download Chiller 6 sensor data for June 2020",
+      "task_description": "Get Chiller 6 data for June 2020.",
       "agent_name": "IoT Data Download",
-      "final_answer": "",
-      "review": "Task Status: Partially Accomplished | identified site & asset | resolve indexing issue or provide alternative method."
-    },
-    {
-      "task_description": "Analyze downloaded sensor data for anomalies</response>\n</task>Analyze downloaded sensor data for anomalies",
-      "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "/data/sensor_data.csv </response>",
-      "review": "Task Status: Not Accomplished | failed due to missing file path | provide actual path to downloaded sensor data```. \nRewritten in 20 words or less: \nProvide the actual file path to the downloaded sensor data."
-    },
-    {
-      "task_description": "Generate work order if analysis is necessary",
-      "agent_name": "WorkOrder Agent",
-      "final_answer": "CU02009</response>",
-      "review": "Task Status: Accomplished | analyzed events & work orders | handle unimplemented API. \nThe final answer is: analyzed events & work orders | handle unimplemented API."
+      "final_answer": "MAIN</response> or a single line ≤ 10 words.\n\n/tmp/cbmdir/d8ec8eb5-e8f2-4583-b586-fa527e849c7f.json",
+      "review": "Task Status: Accomplished | followed logical sequence | provide data summary</response>\n```<response>followed logical sequence | provide data summary</response>```"
     }
   ]
 }

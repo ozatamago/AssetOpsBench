@@ -1,0 +1,13 @@
+Question: I would like to check the work order distribution for the equipment labeled as CWC04013 for the year 2017.
+Plan:
+#Task1: Retrieve the list of work orders for equipment CWC04013 in the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: A list of work orders for CWC04013 in 2017.
+
+#Task2: Analyze the retrieved work orders to determine their distribution.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: An analysis of the work order distribution for CWC04013 in 2017.
+
+Since the task is to check the work order distribution and the WorkOrder Agent can both retrieve and analyze work orders, the plan is concise and within the 5-step limit. The WorkOrder Agent is used for both tasks as it can handle the retrieval and analysis of work orders.

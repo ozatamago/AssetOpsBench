@@ -1,0 +1,30 @@
+stop_index: 5
+
+truncated_plan:  
+#Task1: Identify the relevant sensors for chiller failure modes
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of relevant sensors for chiller failure modes
+
+#Task2: Download historical data for the identified relevant sensors for chillers
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Historical data for the relevant sensors
+
+#Task3: Analyze the downloaded data to identify anomalies
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Anomaly detection results
+
+#Task4: Filter the detected anomalies to identify the meaningful 20%
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency4: #S3
+#ExpectedOutput4: Meaningful anomalies
+
+#Task5: Generate work orders for chillers with the meaningful anomalies
+#Agent5: WorkOrder Agent
+#Dependency5: #S4
+#ExpectedOutput5: Work orders for chillers with meaningful anomalies
+
+status: Partially accomplished
+can_answer_now:False

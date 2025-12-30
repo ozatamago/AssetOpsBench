@@ -5,4 +5,4 @@ Plan:
 #Dependency1: None
 #ExpectedOutput1: List of available IoT sites
 
-Your plan has only 1 step, which is to directly query the IoT Data Download agent for the list of available IoT sites. This is a straightforward task that aligns with the agent's capabilities. The output will be a list of available IoT sites.
+Your plan has only 1 step, which directly uses the IoT Data Download agent to list all available IoT sites. This is a straightforward and efficient solution.

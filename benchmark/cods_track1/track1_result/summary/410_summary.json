@@ -1,0 +1,23 @@
+{
+  "text": "Get all the events of equipment CWC04009 for the first week of June of 2020 and provide a summary based on the event group for work order event, alert, and anomaly.",
+  "tasks": [
+    {
+      "task_description": "Fetch events of CWC04009 for June 1-7 2020.",
+      "agent_name": "IoT Data Download",
+      "final_answer": "MAIN",
+      "review": "Task Status: Accomplished | followed logical sequence | none</response>\n```<response>followed logical sequence | none</response>```"
+    },
+    {
+      "task_description": "Group retrieved events into work order events, alerts, and anomalies. \nRewritten to 12 words or less: Group events into work orders, alerts, and anomalies.",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "No events or work orders found.",
+      "review": "Task Status: Accomplished | retrieved events and work orders | none"
+    },
+    {
+      "task_description": "View summary for work order events alerts and anomalies.",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "No work orders or events found",
+      "review": "Task Status: Accomplished | executed actions with detailed steps and API results."
+    }
+  ]
+}

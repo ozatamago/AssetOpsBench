@@ -2,28 +2,10 @@
   "text": "When compressor motor of Chiller 6 fails, what is the temporal behavior of the power input?",
   "tasks": [
     {
-      "task_description": "Analyze Chiller 6 compressor motor failure and power.",
+      "task_description": "Analyze Chiller 6 compressor motor failure power behavior -> Analyze power behavior when Chiller 6 compressor fails\nAnalyze power behavior when Chiller 6 compressor fails",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "power input",
-      "review": "Task Status: Accomplished | identified failure mode|address tool error"
-    },
-    {
-      "task_description": "Analyze power when Chiller 6 compressor motor fails",
-      "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Chiller compressor motor failure related to power input.",
-      "review": "Task Status: Not Accomplished | handle error and analyze temporal behavior"
-    },
-    {
-      "task_description": "Check Chiller 6 power historical data availability.",
-      "agent_name": "IoT Data Download",
-      "final_answer": "Indexing error",
-      "review": "Task Status: Partially Accomplished | identified sensor and handled data unavailability and technical issues correctly"
-    },
-    {
-      "task_description": "Analyze Chiller 6 compressor motor historical power data.",
-      "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "tsfm_integrated_tsad</response> or a single line ≤ 10 words.\n\ntsfm_integrated_tsad",
-      "review": "Task Status: Not Accomplished | constrained by data unavailability | confirm dataset availability & clearly state task limitations</response>"
+      "final_answer": "Too long",
+      "review": "Task Status: Accomplished | identified temporal behavior | resolve tool-related issues</response>\n<response>identified temporal behavior | resolve tool-related issues</response>"
     }
   ]
 }

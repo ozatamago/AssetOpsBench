@@ -2,10 +2,10 @@
   "text": "Which assets are located at the MAIN facility?",
   "tasks": [
     {
-      "task_description": "List all assets at MAIN site. \nRevised to 12 words or less: List assets at MAIN site.",
+      "task_description": "List assets at MAIN facility.  Becomes: List MAIN facility assets.",
       "agent_name": "IoT Data Download",
-      "final_answer": "Multiple values exist</response>",
-      "review": "Task Status: Accomplished | used assets tool correctly | provide summary or content of JSON file</response>\nDO NOT include any other text or explanation."
+      "final_answer": "Multiple assets.",
+      "review": "Task Status: Accomplished | executed necessary actions | none</response>\n```<response>executed necessary actions | none</response>```"
     }
   ]
 }

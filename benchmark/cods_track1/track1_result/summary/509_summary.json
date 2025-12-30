@@ -1,0 +1,23 @@
+{
+  "text": "Can you detect any anomalies in Chiller 6's Condenser Water Flow in the week of 2020-04-27 at MAIN?",
+  "tasks": [
+    {
+      "task_description": "Fetch Chiller 6 Condenser Water Flow data for 2020-04-27 week",
+      "agent_name": "IoT Data Download",
+      "final_answer": "MAIN</response>",
+      "review": "Task Status: Accomplished | identified available sensors | provide data content or summary</response>\n```<response>identified available sensors | provide data content or summary</response>```"
+    },
+    {
+      "task_description": "Detect anomalies in Chiller 6's Condenser Water Flow data",
+      "agent_name": "Time Series Analytics and Forecasting",
+      "final_answer": "Anomaly detection failed due to file issues.",
+      "review": "Task Status: Not Accomplished | ensure correct file format and provide detailed error handling"
+    },
+    {
+      "task_description": "Generate work order for inspecting Chiller 6 due to anomalies",
+      "agent_name": "WorkOrder Agent",
+      "final_answer": "CU02006</response>",
+      "review": "Task Status: Partially Accomplished | <response>analyzed sample recommendations | access valid anomaly data, handle exceptions robustly</response>"
+    }
+  ]
+}

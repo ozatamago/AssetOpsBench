@@ -1,0 +1,25 @@
+stop_index: 4
+
+truncated_plan:  
+#Task1: Identify relevant sensors for monitoring the 'KPI Cooling Load above upper bound' anomaly for equipment CWC04009.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of relevant sensors for the anomaly.
+
+#Task2: Retrieve historical sensor data for the identified relevant sensors for equipment CWC04009.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Historical sensor data for the relevant sensors.
+
+#Task3: Analyze the retrieved historical sensor data to understand the anomaly.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Insights into the anomaly.
+
+#Task4: Generate top three work order recommendations based on the analysis.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Top three work order recommendations.
+
+status: Accomplished
+can_answer_now:True
