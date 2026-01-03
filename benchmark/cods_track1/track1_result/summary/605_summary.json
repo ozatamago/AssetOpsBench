@@ -2,22 +2,22 @@
   "text": "List all failure modes of Chiller 6 at MAIN site that can be detected by temperature sensors.",
   "tasks": [
     {
-      "task_description": "List all failure modes of Chiller 6 -> List failure modes of Chiller 6\nList failure modes of Chiller 6\n```",
+      "task_description": "Enumerate Chiller 6 failure modes</response> \nEnumerate Chiller 6 failure modes",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "There are 7 failure modes listed for Chiller 6.",
-      "review": "Task Status: Accomplished | used Get Failure Modes tool correctly | none</response>"
+      "final_answer": "Multiple failure modes</response>\n<response>Multiple failure modes</response> is the solution.",
+      "review": "Task Status: Accomplished | used 'Get Failure Modes' tool correctly | none"
     },
     {
-      "task_description": "List failure modes of Chiller 6 detectable by temperature sensors. \nRevised to 12 words or less: \nChiller 6 failure modes detectable by temperature sensors.",
+      "task_description": "List failure modes of Chiller 6 detectable by temperature sensors",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
       "final_answer": "temperature sensors",
-      "review": "Task Status: Accomplished | identified failure modes correctly | improve handling of mapping tool."
+      "review": "Task Status: Accomplished | identified failure modes correctly | improve handling of failure mode to sensor relevancy mapping tool"
     },
     {
-      "task_description": "Check if Chiller 6 is at MAIN site",
+      "task_description": "Check if Chiller 6 is at MAIN site.",
       "agent_name": "IoT Data Download",
       "final_answer": "MAIN</response>",
-      "review": "Task Status: Accomplished | verified Chiller 6 location | removed repeated action</response>"
+      "review": "Task Status: Accomplished | verified Chiller 6 location | removed repeated action."
     }
   ]
 }

@@ -5,13 +5,13 @@
       "task_description": "Fetch work order details for CWC04013 in 2017.",
       "agent_name": "WorkOrder Agent",
       "final_answer": "work_orders_CWC04013_2017.json</response>",
-      "review": "Task Status: Accomplished | retrieved work order details | none"
+      "review": "Task Status: Accomplished | retrieved work order details | used get_work_orders API | success | none."
     },
     {
-      "task_description": "Analyze work order details to identify preventive work orders. \nHere is the final line: \nAnalyze work order details to identify preventive work orders.",
+      "task_description": "Analyze retrieved work order details to identify preventive work orders",
       "agent_name": "WorkOrder Agent",
       "final_answer": "0</response>",
-      "review": "Task Status: Accomplished | retrieved work orders successfully | none"
+      "review": "Task Status: Accomplished | retrieved work orders successfully | none</response>"
     }
   ]
 }

@@ -1,0 +1,22 @@
+Question: Have there been any anomalies in Chiller 6's performance metrics from the week of 2020-04-27 at MAIN?
+Plan:
+ 
+#Task1: Determine the start and end dates for the week of 2020-04-27.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The start date (2020-04-27) and end date (2020-05-03) for the specified week.
+
+#Task2: Download the relevant sensor data for Chiller 6 at MAIN for the specified week.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Sensor data for Chiller 6 at MAIN for the week of 2020-04-27.
+
+#Task3: Analyze the downloaded sensor data to identify any anomalies in Chiller 6's performance metrics.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Anomaly detection results for Chiller 6's performance metrics.
+
+#Task4: Based on the anomaly detection results, generate a work order if necessary.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: A work order for inspecting or maintaining Chiller 6 if anomalies were detected.

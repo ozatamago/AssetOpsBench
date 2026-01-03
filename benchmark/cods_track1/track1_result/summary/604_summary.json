@@ -2,22 +2,22 @@
   "text": "List all failure modes of Chiller 6 at MAIN site that can be detected by Chiller 6 Chiller Efficiency.",
   "tasks": [
     {
-      "task_description": "List all Chiller 6 failure modes",
+      "task_description": "List all failure modes of Chiller 6",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
       "final_answer": "7 failure modes</response>",
-      "review": "Task Status: Accomplished | used Get Failure Modes tool correctly | none</response>\n<response>used Get Failure Modes tool correctly | none</response>"
+      "review": "Task Status: Accomplished | used 'Get Failure Modes' tool correctly | none</response>\nor a similar response based on the task description."
     },
     {
-      "task_description": "```python\nprint(generate_headline(task))\n```",
+      "task_description": "Detect Chiller 6 failure modes using Chiller Efficiency.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
       "final_answer": "",
-      "review": "Task Status: Not Accomplished | encountered repeated errors with Get Failure Mode tool | investigate tool's implementation and input formatting</response>\n</to_reason>"
+      "review": "Task Status: Not Accomplished | investigate Get Failure Mode tool's implementation."
     },
     {
-      "task_description": "Check if Chiller 6 is at MAIN site.",
+      "task_description": "Check if Chiller 6 is at MAIN site. \nRevised to 12 words or less: \nChiller 6 at MAIN site.",
       "agent_name": "IoT Data Download",
       "final_answer": "MAIN</response>\nor a single line ≤ 10 words.\n\nMAIN",
-      "review": "Task Status: Accomplished | verified Chiller 6 at MAIN site | none"
+      "review": "Task Status: Accomplished | verified Chiller 6 at MAIN site | none</response>\n<response>verified Chiller 6 at MAIN site | none</response>"
     }
   ]
 }

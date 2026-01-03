@@ -2,10 +2,10 @@
   "text": "Is Chronos model supported in TSFM?",
   "tasks": [
     {
-      "task_description": "Check if Chronos is supported in TSFM",
+      "task_description": "Verify Chronos model support in TSFM</response> \nVerify Chronos model support in TSFM",
       "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "Chronos is not supported.",
-      "review": "Task Status: Accomplished | queried tsfmmodels and aitasks tools | none"
+      "final_answer": "Chronos model is not supported in TSFM.",
+      "review": "Task Status: Accomplished | queried tsfmmodels and aitasks tools | none</response>"
     }
   ]
 }

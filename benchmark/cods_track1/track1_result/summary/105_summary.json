@@ -2,15 +2,15 @@
   "text": "Provide some sensors of asset Wind Turbine.",
   "tasks": [
     {
-      "task_description": "Locate the Wind Turbine site",
+      "task_description": "Locate the site of the Wind Turbine. \nRevised to ≤ 12 words: Locate Wind Turbine site.",
       "agent_name": "IoT Data Download",
       "final_answer": "None</response>",
-      "review": "Task Status: Accomplished | determined Wind Turbine not at available sites | none."
+      "review": "Task Status: Accomplished | identified Wind Turbine site | none"
     },
     {
-      "task_description": "List sensors associated with Wind Turbine.",
+      "task_description": "List Wind Turbine sensors at site.",
       "agent_name": "IoT Data Download",
-      "final_answer": "MAIN</response>",
+      "final_answer": "MAIN</response> is not needed; instead, just output the value.\nMAIN",
       "review": "Task Status: Not Accomplished | identified available site | check other sources or databases</response>\n```<response>identified available site | check other sources or databases</response>```"
     }
   ]

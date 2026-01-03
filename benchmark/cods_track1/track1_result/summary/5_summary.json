@@ -2,10 +2,10 @@
   "text": "Retrieve metadata for Chiller 6 located at the MAIN site.",
   "tasks": [
     {
-      "task_description": "Retrieve metadata for Chiller 6 at MAIN site.",
+      "task_description": "Retrieve Chiller 6 metadata at MAIN site. \nbecomes \nRetrieve metadata for Chiller 6 at MAIN site. \n\nThe final line is \nRetrieve metadata for Chiller 6 at MAIN site.",
       "agent_name": "IoT Data Download",
-      "final_answer": "744.",
-      "review": "Task Status: Not Accomplished | retrieved metadata correctly | retrieve historical sensor data</response>\n```<response>retrieved metadata correctly | retrieve historical sensor data</response>```"
+      "final_answer": "12 </response> \nbecomes \n12\n\n12 is the solution.",
+      "review": "Task Status: Not Accomplished | retrieved metadata correctly | retrieve historical sensor data</response>"
     }
   ]
 }

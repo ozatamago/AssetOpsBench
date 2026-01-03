@@ -2,28 +2,28 @@
   "text": "List all failure modes of Chiller 6 at MAIN site that can be detected by temperature sensors and power input sensors.",
   "tasks": [
     {
-      "task_description": "List Chiller 6 failure modes",
+      "task_description": "Enumerate failure modes of Chiller 6. \nThe rewritten response is: Enumerate Chiller 6 failure modes.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "7 failure modes",
-      "review": "Task Status: Accomplished | used 'Get Failure Modes' tool correctly | none</response>\n```<response>used 'Get Failure Modes' tool correctly | none</response>```"
+      "final_answer": "7 failure modes</response>",
+      "review": "Task Status: Accomplished | used 'Get Failure Modes' tool correctly | none</response>\n<response>used 'Get Failure Modes' tool correctly | none</response> is the solution."
     },
     {
-      "task_description": "Detect Chiller 6 failure using temperature and power sensors.",
+      "task_description": "List failure modes of Chiller 6 detectable by temperature and power sensors</response>",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
       "final_answer": "Multiple values",
-      "review": "Task Status: Accomplished | identified failure modes logically and fixed error in failure mode mapping tool."
+      "review": "Task Status: Accomplished | fix error in failure mode mapping tool."
     },
     {
-      "task_description": "Check if Chiller 6 is at MAIN site</response>",
+      "task_description": "Is Chiller 6 at the main site?\n\n\nHere is the rewritten response:\nIs Chiller 6 at main site?",
       "agent_name": "IoT Data Download",
-      "final_answer": "MAIN",
-      "review": "Task Status: Accomplished | confirmed Chiller 6 at MAIN | none."
+      "final_answer": "MAIN.",
+      "review": "Task Status: Accomplished | verified Chiller 6 at MAIN site | none</response>\n<response>verified Chiller 6 at MAIN site | none</response>"
     },
     {
-      "task_description": "Combine results to provide final list of failure modes. \nRevised to 12 words or less: \nCombine results to provide a final failure modes list.",
+      "task_description": "Combine Task 2 and Task 3 results for final failure modes.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
       "final_answer": "",
-      "review": "Task Status: Accomplished | combined unique failure modes | state Task 2 & 3 results"
+      "review": "Task Status: Accomplished | combined unique failure modes | explicitly state task results</response>"
     }
   ]
 }

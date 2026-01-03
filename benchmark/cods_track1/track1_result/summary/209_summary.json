@@ -2,9 +2,9 @@
   "text": "Is any model with context length 96 supported in TSFM?",
   "tasks": [
     {
-      "task_description": "Check if Time Series Analytics supports model with context length 96.",
+      "task_description": "Check if Time Series Analytics agent supports model with context length 96.",
       "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "Yes</response>",
+      "final_answer": "ttm_96_28, ttm_energy_96_28</response> \nor \n<response>Multiple values</response>\n\n<response>ttm_96_28, ttm_energy_96_28</response>",
       "review": "Task Status: Accomplished | identified relevant models | avoid unnecessary actions</response>\n```<response>identified relevant models | avoid unnecessary actions</response>```"
     }
   ]

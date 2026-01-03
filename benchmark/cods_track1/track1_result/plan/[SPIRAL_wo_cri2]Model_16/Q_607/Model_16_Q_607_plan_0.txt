@@ -1,0 +1,40 @@
+Question: Get failure modes for Chiller 6 at MAIN site and only include in final response those that can be monitored using the available sensors.
+Plan:
+#Task1: Identify the available sensors for Chiller 6 at MAIN site.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of available sensors for Chiller 6 at MAIN site.
+
+#Task2: Get the failure modes for Chiller 6.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: List of failure modes for Chiller 6 and their relevant sensors.
+
+#Task3: Filter the failure modes based on the available sensors.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S1, #S2
+#ExpectedOutput3: List of failure modes for Chiller 6 that can be monitored using the available sensors.
+
+The plan is as follows:
+1. Identify the available sensors for Chiller 6 at MAIN site using the IoT Data Download agent.
+2. Get the failure modes for Chiller 6 and their relevant sensors using the Failure Mode and Sensor Relevancy Expert for Industrial Asset agent.
+3. Filter the failure modes based on the available sensors using the Failure Mode and Sensor Relevancy Expert for Industrial Asset agent.
+
+Let's now fill in the details for each step.
+
+#Task1: Identify the available sensors for Chiller 6 at MAIN site.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of available sensors for Chiller 6 at MAIN site.
+
+#Task2: Get the failure modes for Chiller 6 and their relevant sensors.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: List of failure modes for Chiller 6 and their relevant sensors.
+
+#Task3: Filter the failure modes based on the available sensors identified in #S1.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S1, #S2
+#ExpectedOutput3: List of failure modes for Chiller 6 that can be monitored using the available sensors.
+
+The final output will be the list of failure modes for Chiller 6 that can be monitored using the available sensors.

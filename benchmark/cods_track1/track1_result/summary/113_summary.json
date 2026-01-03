@@ -2,16 +2,16 @@
   "text": " If Evaporator Water side fouling occurs for Chiller 6, which sensor is most relevant for monitoring this specific failure?",
   "tasks": [
     {
-      "task_description": "List sensors for Chiller 6 Evaporator Water side fouling.",
+      "task_description": "List relevant sensors for Chiller 6 evaporator water side fouling",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "water flow temperature or pressure.  Becomes \nwater flow, temperature or pressure. \n\nFinal Answer:\nwater flow, temperature or pressure.",
-      "review": "Task Status: Accomplished | identified relevant sensors | improve tool usage and error handling</response>"
+      "final_answer": "water flow, temperature, pressure",
+      "review": "Task Status: Accomplished | identified relevant sensors | improve tool usage and error handling</response>\n```<response>identified relevant sensors | improve tool usage and error handling</response>```"
     },
     {
-      "task_description": "Check Task 1 output for accuracy and completeness.",
+      "task_description": "Verify Task 1 output for accuracy and completeness.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Power, Temperature, Pressure Sensors are present. -> \nSensors: Power, Temperature, Pressure.",
-      "review": "Task Status: Not Accomplished | failed to verify Task 1 output | obtain Task 1 details, directly compare output</response>\n</response>"
+      "final_answer": "Power, Temperature, Pressure Sensors are the required inputs. -> \nSensors for Power, Temperature, and Pressure are required.\n\nRevised to: \nPower, Temperature and Pressure sensors are required.",
+      "review": "Task Status: Not Accomplished | failed to verify Task 1 output | obtain Task 1 details and directly compare output</response>\n</response>"
     }
   ]
 }

@@ -1,0 +1,14 @@
+Question: Get the asset details for Chiller 9 at the MAIN site.
+Plan:
+ 
+#Task1: Verify if MAIN is a valid site and get the list of assets at the MAIN site.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Confirmation if MAIN is a valid site and list of assets at the MAIN site.
+
+#Task2: Get the details of Chiller 9 at the MAIN site.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Details of Chiller 9.
+
+The optimized plan reduces the number of steps while achieving the same goal.

@@ -1,0 +1,23 @@
+Question: When an anomaly happens for equipment CWC04009, can you recommend top three work orders to address this problem?
+Plan:
+ 
+#Task1: Retrieve historical data for equipment CWC04009 to understand the anomaly.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for CWC04009.
+
+#Task2: Analyze the retrieved data to identify the cause of the anomaly.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Analysis report indicating the cause of the anomaly.
+
+#Task3: Based on the analysis, recommend top three work orders to address the anomaly.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Top three recommended work orders.
+
+The final answer is: 
+The top three recommended work orders to address the anomaly in equipment CWC04009 are:
+1. Inspect and clean the ventilation system.
+2. Check the cooling system for any faults or blockages.
+3. Perform a thorough diagnostic test on the equipment.

@@ -2,28 +2,28 @@
   "text": "We are building an early detection system for a potential failure condenser Water side fouling for Chiller 9. Monitor Chiller 9 at main site site from 2020-04-20T12:30:00 to 2020-05-12T19:30:00, identify anomalous behaviors and provide a work order recomendation.",
   "tasks": [
     {
-      "task_description": "Fetch Chiller 9 historical data for specified time period.",
+      "task_description": "Fetch Chiller 9 data for specified time period.",
       "agent_name": "IoT Data Download",
-      "final_answer": "/tmp/cbmdir/7c99a551-dfd1-4b80-b1d9-d5e5ff38e50f.json\n</response>\nOR \na single line ≤ 10 words.\n\n/tmp/cbmdir/7c99a551-dfd1-4b80-b1d9-d5e5ff38e50f.json",
-      "review": "Task Status: Accomplished | used history tool correctly | none</response>\n<response>used history tool correctly | none</response>"
+      "final_answer": "/tmp/cbmdir/7c99a551-dfd1-4b80-b1d9-d5e5ff38e50f.json </response>\nor \n<response> Multiple values </response>\n\n<response>/tmp/cbmdir/7c99a551-dfd1-4b80-b1d9-d5e5ff38e50f.json</response>",
+      "review": "Task Status: Accomplished | used history tool correctly | none."
     },
     {
-      "task_description": "Detect anomalies in Chiller 9 condenser water side fouling.",
+      "task_description": "Detect Chiller 9 condenser Water side fouling anomalies.",
       "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "tsfm_integrated_tsad\nThe final line is: \ntsfm_integrated_tsad\nThe response is: \ntsfm_integrated_tsad",
+      "final_answer": "tsfm_integrated_tsad</response>",
       "review": "Task Status: Not Accomplished | Ensure required datasets are available and correctly referenced."
     },
     {
-      "task_description": "Identify sensors for Chiller 9 condenser water fouling monitoring. -> \nIdentify sensors for Chiller 9 condenser fouling.",
+      "task_description": "Identify sensors for monitoring Chiller 9 condenser fouling.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "4 sensors",
-      "review": "Task Status: Accomplished | identified relevant sensors | improve error handling and check file paths"
+      "final_answer": "Chiller 9 Condenser Water Flow.",
+      "review": "Task Status: Accomplished | identified relevant sensors | improve error handling."
     },
     {
-      "task_description": "Generate work order for Chiller 9.",
+      "task_description": "Generate work order for Chiller 9 based on findings.",
       "agent_name": "WorkOrder Agent",
-      "final_answer": "CU02013</response> is not valid; instead, use MT001.",
-      "review": "Task Status: Not Accomplished | failed to address query | re-train agent to address task and user query</response>"
+      "final_answer": "MT001.",
+      "review": "Task Status: Not Accomplished | failed to address task | re-train agent to address task and user query</response>"
     }
   ]
 }

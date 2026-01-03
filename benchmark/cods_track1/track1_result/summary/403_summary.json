@@ -5,13 +5,13 @@
       "task_description": "Fetch work order details for CWC04013 in 2017.",
       "agent_name": "WorkOrder Agent",
       "final_answer": "work_orders_CWC04013_2017.json</response>",
-      "review": "Task Status: Accomplished | used get_work_orders API for equipment CWC04013 for 2017."
+      "review": "Task Status: Accomplished | successfully retrieved work order details | none</response>\n```<response>successfully retrieved work order details | none</response>```"
     },
     {
-      "task_description": "Analyze work order details to identify corrective work orders",
+      "task_description": "Analyze work order details to identify corrective work orders.",
       "agent_name": "WorkOrder Agent",
       "final_answer": "",
-      "review": "Task Status: Not Accomplished | missing actual results | provide actual results of actions taken"
+      "review": "Task Status: Not Accomplished | missing actual results | provide actual results of actions taken</response>\n```<response>missing actual results | provide actual results of actions taken</response>```"
     }
   ]
 }

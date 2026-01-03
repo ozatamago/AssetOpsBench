@@ -2,16 +2,16 @@
   "text": "Get failure modes for Chiller 6 and only include in final response those that can be monitored using the available sensors.",
   "tasks": [
     {
-      "task_description": "List all failure modes of Chiller 6 -> List failure modes of Chiller 6\nList failure modes of Chiller 6\n```",
+      "task_description": "List all Chiller 6 failure modes",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "7 failure modes</response>",
-      "review": "Task Status: Accomplished | retrieved failure modes correctly | none"
+      "final_answer": "7 failure modes",
+      "review": "Task Status: Accomplished | used tool correctly | none"
     },
     {
-      "task_description": "List relevant sensors for Chiller 6 failure.",
+      "task_description": "Identify relevant sensors for Chiller 6 failures.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
       "final_answer": "Chiller 6 Power and Temperature.",
-      "review": "Task Status: Accomplished | identified relevant sensors | improve error handling and validate assumptions</response>\n```<response>identified relevant sensors | improve error handling and validate assumptions</response>```"
+      "review": "Task Status: Accomplished | identified relevant sensors | improve error handling and validate assumptions."
     }
   ]
 }

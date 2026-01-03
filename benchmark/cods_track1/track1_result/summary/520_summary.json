@@ -2,16 +2,16 @@
   "text": "What is the forecast for Chiller 6's energy consumption for next week based on data from the week of 2020-04-27 at the MAIN site?",
   "tasks": [
     {
-      "task_description": "Fetch historical energy data for Chiller 6 at MAIN site\nbecomes \nFetch energy data for Chiller 6 at MAIN site. \nFinal Answer: \nFetch energy data for Chiller 6.",
+      "task_description": "Fetch historical energy data for Chiller 6 at MAIN site",
       "agent_name": "IoT Data Download",
       "final_answer": "/tmp/cbmdir/894e156c-880c-4f43-bbde-a70d3984a46a.json </response>\n/tmp/cbmdir/894e156c-880c-4f43-bbde-a70d3984a46a.json",
-      "review": "Task Status: Accomplished | retrieved historical energy data | none"
+      "review": "Task Status: Accomplished | retrieved historical energy data correctly | none"
     },
     {
-      "task_description": "Predict Chiller 6 energy consumption for next week.",
+      "task_description": "Predict Chiller 6 energy for next week.",
       "agent_name": "Time Series Analytics and Forecasting",
       "final_answer": "ttm_energy_96_28",
-      "review": "Task Status: Not Accomplished | Provide correct dataset path and handle exceptions to forecast successfully."
+      "review": "Task Status: Not Accomplished | failed to forecast energy consumption | provide correct dataset path and handle exceptions"
     }
   ]
 }

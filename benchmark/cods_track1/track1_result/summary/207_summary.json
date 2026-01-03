@@ -2,10 +2,10 @@
   "text": "Is Anomaly Detection supported in TSFM?",
   "tasks": [
     {
-      "task_description": "Check if TSFM supports anomaly detection</response> \nCheck if TSFM supports anomaly detection",
+      "task_description": "Check if TSFM supports anomaly detection.",
       "agent_name": "Time Series Analytics and Forecasting",
       "final_answer": "Yes</response>",
-      "review": "Task Status: Accomplished | determined TSFM supports anomaly detection | none</response>\n<response>determined TSFM supports anomaly detection | none</response> is the solution."
+      "review": "Task Status: Accomplished | determined TSFM supports anomaly detection | none</response>\n<response>determined TSFM supports anomaly detection | none</response>"
     }
   ]
 }

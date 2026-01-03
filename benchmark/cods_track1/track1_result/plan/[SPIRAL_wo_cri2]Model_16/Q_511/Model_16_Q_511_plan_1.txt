@@ -1,0 +1,22 @@
+Question: Can you predict Chiller 9's energy usage for next week based on data from the week of 2020-04-27 at MAIN?
+Plan:
+ 
+#Task1: Retrieve historical data for Chiller 9 at MAIN for the week of 2020-04-27.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for Chiller 9 at MAIN for the specified week.
+
+#Task2: Analyze the retrieved data to identify any anomalies or patterns in Chiller 9's energy usage.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Insights into Chiller 9's energy usage patterns.
+
+#Task3: Forecast Chiller 9's energy usage for the next week based on the analyzed data.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Predicted energy usage for Chiller 9 for the next week.
+
+#Task4: Create a work order for monitoring Chiller 9's energy usage based on the forecast.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: A work order for monitoring Chiller 9's energy usage.

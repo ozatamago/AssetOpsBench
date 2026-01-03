@@ -1,0 +1,17 @@
+Question: What is the forecast for 'Chiller 9 Condenser Water Flow' in the week of 2020-04-27 based on data from the MAIN site?
+Plan:
+ 
+#Task1: Retrieve historical data for 'Chiller 9 Condenser Water Flow' at the MAIN site for the past week (2020-04-20 to 2020-04-26).
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for 'Chiller 9 Condenser Water Flow' at the MAIN site for the past week.
+
+#Task2: Analyze the retrieved historical data to check for any anomalies or issues that might affect the forecast.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Analysis report indicating any anomalies or issues in the historical data.
+
+#Task3: Forecast 'Chiller 9 Condenser Water Flow' for the week of 2020-04-27 based on the historical data.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S1 #S2
+#ExpectedOutput3: Forecast for 'Chiller 9 Condenser Water Flow' for the week of 2020-04-27.

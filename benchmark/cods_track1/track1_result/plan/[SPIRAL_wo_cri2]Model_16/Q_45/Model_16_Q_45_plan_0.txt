@@ -1,0 +1,18 @@
+Question: What is the power consumption of CQPA AHU 1 on mar 13 '20, site MAIN?
+Plan:
+#Task1: Retrieve the historical data for CQPA AHU 1 power consumption on Mar 13 '20 at Site MAIN.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for CQPA AHU 1 power consumption on Mar 13 '20 at Site MAIN.
+
+#Task2: Analyze the retrieved data to determine the power consumption of CQPA AHU 1.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Power consumption value of CQPA AHU 1 on Mar 13 '20.
+
+#Task3: Generate a work order for inspecting CQPA AHU 1 based on the power consumption data.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Work order for inspecting CQPA AHU 1.
+
+The plan is complete.

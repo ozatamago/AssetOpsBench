@@ -5,25 +5,25 @@
       "task_description": "Find dates for the week containing 2020-04-27.",
       "agent_name": "IoT Data Download",
       "final_answer": "Ready</response>",
-      "review": "Task Status: Accomplished | determined start and end dates | none</response>\n<response>determined start and end dates | none</response>"
+      "review": "Task Status: Accomplished | determined start and end dates correctly | none</response>"
     },
     {
-      "task_description": "Download power data for Chiller 9 for the calculated date.",
+      "task_description": "Download power data for Chiller 9.",
       "agent_name": "IoT Data Download",
       "final_answer": "",
-      "review": "Task Status: Not Accomplished | identified date range and sensor | download power data```identified date range and sensor | download power data```"
+      "review": "Task Status: Not Accomplished | identified date range and sensor | download power input data</response>\n```<response>identified date range and sensor | download power input data</response>```"
     },
     {
-      "task_description": "Analyze downloaded Chiller 9 power data to detect anomalies.",
+      "task_description": "Detect anomalies in Chiller 9 power data.",
       "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "Available tasks are tsfm_integrated_tsad, tsfm_forecasting, tsfm_forecasting_finetune, tsfm_forecasting_evaluation.",
+      "final_answer": "Multiple values</response> or the single value.",
       "review": "Task Status: Not Accomplished | failed to detect anomalies | ensure necessary dataset is available</response>\n```<response>failed to detect anomalies | ensure necessary dataset is available</response>```"
     },
     {
-      "task_description": "Report anomaly detection results. \nReport anomaly detection results.",
+      "task_description": "Report anomaly detection results.",
       "agent_name": "WorkOrder Agent",
-      "final_answer": "No new anomalies detected.",
-      "review": "Task Status: Accomplished | identified no new anomalies | provide detailed error handling and more context"
+      "final_answer": "No new anomalies detected",
+      "review": "Task Status: Accomplished | identified no new anomalies | provide detailed error handling/logging```<response>identified no new anomalies | provide detailed error handling/logging</response>```"
     }
   ]
 }

@@ -663,7 +663,7 @@ def run_planning_workflow(
         llm=llm_model,
     )
 
-    plan_subdir = os.path.join(PLAN_DIR, f"[SPIRAL_wo_cri]Model_{llm_model}")
+    plan_subdir = os.path.join(PLAN_DIR, f"[SPIRAL_wo_cri2]Model_{llm_model}")
     question_subdir = os.path.join(plan_subdir, f"Q_{qid}")
     os.makedirs(question_subdir, exist_ok=True)
 
@@ -685,9 +685,9 @@ def run_planning_workflow(
 def run(utterances, generate_steps_only=False, llm_model=16):
     os.makedirs(TRAJECTORY_DIR, exist_ok=True)
     os.makedirs(EXP_DIR, exist_ok=True)
-    exp_subdir = os.path.join(EXP_DIR, f"[SPIRAL_wo_cri]Model_{llm_model}")
+    exp_subdir = os.path.join(EXP_DIR, f"[SPIRAL_wo_cri2]Model_{llm_model}")
     os.makedirs(exp_subdir, exist_ok=True)  
-    trajectory_subdir = os.path.join(TRAJECTORY_DIR, f"[SPIRAL_wo_cri]Model_{llm_model}")
+    trajectory_subdir = os.path.join(TRAJECTORY_DIR, f"[SPIRAL_wo_cri2]Model_{llm_model}")
     os.makedirs(trajectory_subdir, exist_ok=True)    
 
 

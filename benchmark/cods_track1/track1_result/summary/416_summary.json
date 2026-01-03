@@ -2,22 +2,22 @@
   "text": "When an anomaly happens for equipment CWC04009, can you recommend top three work orders to address this problem?",
   "tasks": [
     {
-      "task_description": "Retrieve sensor data for CWC04009 to understand anomaly.",
+      "task_description": "Retrieve sensor data for equipment CWC04009 to understand anomaly.",
       "agent_name": "IoT Data Download",
-      "final_answer": "CWC.",
-      "review": "Task Status: Accomplished | followed logical sequence | provide detailed explanations, suggest next steps</response>\n```<response>followed logical sequence | provide detailed explanations, suggest next steps</response>```"
+      "final_answer": "MAIN.",
+      "review": "Task Status: Accomplished | followed logical sequence | provide detailed explanations, suggest next steps</response>"
     },
     {
       "task_description": "Analyze sensor data to identify anomaly cause.",
       "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "NO DATA FILE",
-      "review": "Task Status: Not Accomplished | identified issue correctly | check file existence before reading</response>"
+      "final_answer": "NO DATA FILE.",
+      "review": "Task Status: Not Accomplished | identified issue correctly | check for file before reading."
     },
     {
       "task_description": "Recommend top three work orders to address the anomaly",
       "agent_name": "WorkOrder Agent",
-      "final_answer": "CU02013</response> or a single line ≤ 10 words.",
-      "review": "Task Status: Accomplished | recovered from errors | improve error handling and explanations</response>"
+      "final_answer": "M005, M006.",
+      "review": "Task Status: Accomplished | recovered from errors | improve error handling and explanations</response>\n```<response>recovered from errors | improve error handling and explanations</response>```"
     }
   ]
 }

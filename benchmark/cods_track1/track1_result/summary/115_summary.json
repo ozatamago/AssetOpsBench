@@ -2,25 +2,25 @@
   "text": "Purge unit of chiller 6 have possibility to excess purge, what is the plan by the maintenance experts to early detect the failure?",
   "tasks": [
     {
-      "task_description": "List all Chiller 6 failure modes",
+      "task_description": "List failure modes of Chiller 6.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
       "final_answer": "7 failure modes</response>",
-      "review": "Task Status: Accomplished | successfully used tool | none"
+      "review": "Task Status: Accomplished | retrieved failure modes using tool | none"
     },
     {
       "task_description": "List relevant sensors for Chiller 6 purge unit failure mode excess purge",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Relevant sensors: purge flow, unit status, temperature, pressure.",
+      "final_answer": "purge flow rate, purge unit operation status, temperature, pressure sensors",
       "review": "Task Status: Accomplished | identified relevant sensors | validate failure mode, handle tool exceptions</response>\n```<response>identified relevant sensors | validate failure mode, handle tool exceptions</response>```"
     },
     {
       "task_description": "Download historical sensor data for Chiller 6.",
       "agent_name": "IoT Data Download",
       "final_answer": "2023-07-14T20:30:00-04:00 to 2023-07-14T23:30:00-04:00</response>\n\n2023-07-14T20:30:00-04:00 to 2023-07-14T23:30:00-04:00",
-      "review": "Task Status: Accomplished | identified relevant sensors | use correct time range</response>\n```<response>identified relevant sensors | use correct time range</response>```"
+      "review": "Task Status: Accomplished | identified relevant sensors | incorrect time range</response>"
     },
     {
-      "task_description": "Detect excess purge from sensor data anomalies and patterns",
+      "task_description": "Analyze sensor data for purge anomalies.",
       "agent_name": "Time Series Analytics and Forecasting",
       "final_answer": "tsfm_integrated_tsad</response>",
       "review": "Task Status: Not Accomplished | Ensure file is downloaded, accessible, and read with correct tool parameters."

@@ -2,22 +2,22 @@
   "text": "Can you detect any anomalies in Chiller 6's Condenser Water Flow in the week of 2020-04-27 at MAIN?",
   "tasks": [
     {
-      "task_description": "Fetch Condenser Water Flow data for Chiller 6 at MAIN site. \nRevised to 12 words or less: \nFetch Condenser Water Flow for Chiller 6 at MAIN.",
+      "task_description": "Download Condenser Water Flow for Chiller 6.",
       "agent_name": "IoT Data Download",
-      "final_answer": "Question</response>",
-      "review": "Task Status: Accomplished | identified available sensors | provide data content or summary</response>\n```<response>identified available sensors | provide data content or summary</response>```"
+      "final_answer": "MAIN",
+      "review": "Task Status: Accomplished | The agent correctly identified available sensors and downloaded data. Improvement: provide data content or summary."
     },
     {
-      "task_description": "Detect anomalies in Chiller 6's Condenser Water Flow",
+      "task_description": "Detect anomalies in Chiller 6's Condenser Water Flow data\n```python\ndef detect_anomalies(chiller_data):\n    # Your code here\n    return \"Detect anomalies in Chiller 6's Condenser Water Flow data\"\n```",
       "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "Anomaly detection failed due to file issues.",
-      "review": "Task Status: Not Accomplished | Ensure file is correctly formatted and accessible."
+      "final_answer": "Anomaly detection failed due to file issues",
+      "review": "Task Status: Not Accomplished | Ensure input file is correctly formatted and accessible."
     },
     {
-      "task_description": "Generate work order for Chiller 6 inspection due to anomalies",
+      "task_description": "Generate work order for Chiller 6 inspection.",
       "agent_name": "WorkOrder Agent",
       "final_answer": "CU02006</response>",
-      "review": "Task Status: Partially Accomplished | analyzed sample recommendations | ensure access to valid anomaly data, handle exceptions robustly"
+      "review": "Task Status: Partially Accomplished | analyzed sample recommendations | ensure valid anomaly data, handle exceptions robustly"
     }
   ]
 }

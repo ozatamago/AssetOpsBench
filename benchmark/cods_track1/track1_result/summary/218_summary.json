@@ -2,22 +2,22 @@
   "text": "Use data in 'chiller9_annotated_small_test.csv' to forecast 'Chiller 9 Condenser Water Flow' with 'Timestamp' as a timestamp.",
   "tasks": [
     {
-      "task_description": "Read chiller9 file to understand structure and content.",
+      "task_description": "Read chiller9 annotated small test CSV file",
       "agent_name": "IoT Data Download",
-      "final_answer": "File not found.",
-      "review": "Task Status: Not Accomplished | failed to read CSV | needs CSV reading tool."
+      "final_answer": "unreadable</response>",
+      "review": "Task Status: Not Accomplished | failed to read CSV file | needs CSV reading tool."
     },
     {
-      "task_description": "Use Time Series Analytics for Chiller 9 Condenser Water Flow forecast.",
+      "task_description": "Forecast Chiller 9 Condenser Water Flow.",
       "agent_name": "Time Series Analytics and Forecasting",
       "final_answer": "",
-      "review": "Task Status: Not Accomplished | encountered persistent errors | review tool documentation & test with simpler dataset."
+      "review": "Task Status: Not Accomplished | encountered persistent errors with tsfm tools | review tool documentation & test with simpler dataset</response>\n</response>"
     },
     {
-      "task_description": "Verify forecasting task is successful and results are as expected.",
+      "task_description": "Verify forecasting task success and expected results. \nRevised to 12 words or less: \nVerify forecasting task success and results.",
       "agent_name": "Time Series Analytics and Forecasting",
       "final_answer": "",
-      "review": "Task Status: Not Accomplished | Review tsfm_forecasting and modify arguments."
+      "review": "Task Status: Not Accomplished | review 'tsfm_forecasting' tool documentation & modify arguments."
     }
   ]
 }

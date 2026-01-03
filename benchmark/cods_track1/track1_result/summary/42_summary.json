@@ -2,22 +2,22 @@
   "text": "what was the supply temperature from CQPA AHU 2B on sept 19, 2020 at quarter to midnight, at site MAIN? return in a file",
   "tasks": [
     {
-      "task_description": "Specify date and time for September 19 2020 at quarter to midnight.",
+      "task_description": "2020-09-19 23:45:00.",
       "agent_name": "IoT Data Download",
-      "final_answer": "2020-09-19T23:45:00</response>\n \n<rewritten_response>2020-09-19T23:45:00</rewritten_response>\n2020-09-19T23:45:00",
-      "review": "Task Status: Accomplished | <response>mostly accurate response | double-check initial interpretations</response> is not needed, just \nmostly accurate response | double-check initial interpretations"
+      "final_answer": "2020-09-19T23:45:00</response>\n2020-09-19T23:45:00",
+      "review": "Task Status: Accomplished | determined date and time correctly | provide more detail"
     },
     {
-      "task_description": "Download CQPA AHU 2B supply temperature data from MAIN site.",
+      "task_description": "Download supply temperature for CQPA AHU 2B at MAIN.",
       "agent_name": "IoT Data Download",
       "final_answer": "",
       "review": "Task Status: Not Accomplished | check actual data before claiming success."
     },
     {
-      "task_description": "Verify downloaded data format and required information",
+      "task_description": "Check downloaded data for format and required information.",
       "agent_name": "IoT Data Download",
       "final_answer": "File does not exist or is inaccessible.",
-      "review": "Task Status: Not Accomplished | encountered file error | check file download and permissions</response>"
+      "review": "Task Status: Not Accomplished | encountered file access error | check file download and permissions</response>\n```<response>encountered file access error | check file download and permissions</response>```"
     }
   ]
 }

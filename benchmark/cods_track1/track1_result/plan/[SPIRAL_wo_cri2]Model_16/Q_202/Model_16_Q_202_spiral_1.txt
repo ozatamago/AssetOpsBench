@@ -1,0 +1,2 @@
+Predicted result: 
+[{'step': 1, 'agent': 'Time Series Analytics and Forecasting', 'task': 'List available time series pretrained models in the system.', 'expected_output': 'List of available time series pretrained models.', 'predicted_output': 'List of available time series pretrained models.'}]

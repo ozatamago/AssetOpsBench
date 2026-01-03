@@ -2,7 +2,7 @@
   "text": "List all failure modes of asset Wind Turbine.",
   "tasks": [
     {
-      "task_description": "List all failure modes of Wind Turbine.",
+      "task_description": "List all failure modes of Wind Turbine",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
       "final_answer": "Blade Failure, Gearbox Failure, Generator Failure, Bearing Failure, Electrical System Failure, Control System Failure, Foundation Failure, Tower Failure, Hub Failure, Pitch System Failure, Yaw System Failure, Brake System Failure",
       "review": "Task Status: Accomplished | used tool to retrieve failure modes | none</response>\n<response>used tool to retrieve failure modes | none</response>"

@@ -5,25 +5,25 @@
       "task_description": "Identify relevant sensors for POKMAIN chiller 6 trip.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
       "final_answer": "Compressor Discharge Pressure.",
-      "review": "Task Status: Accomplished | reasoned based on failure modes | improve handling of tool calls and file operations</response>"
+      "review": "Task Status: Accomplished | reasoned based on failure modes | improve handling of tool calls and file operations."
     },
     {
-      "task_description": "Analyze chiller trip failure sensor behavior temporally.",
+      "task_description": "Analyze temporal sensor behavior during chiller trip failure",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "anomalies",
-      "review": "Task Status: Partially Accomplished | identified relevant sensors | retrieve sensor list for Chiller asset"
+      "final_answer": "spikes or drops</response> \nspikes or drops",
+      "review": "Task Status: Partially Accomplished | Retrieve sensor list and provide specific examples."
     },
     {
-      "task_description": "Retrieve historical sensor data for POKMAIN chiller 6. \n\nRetrieve historical sensor data for POKMAIN chiller 6.",
+      "task_description": "Get historical data for POKMAIN chiller 6.",
       "agent_name": "IoT Data Download",
       "final_answer": "",
       "review": "Task Status: Partially Accomplished | identified sensors for Chiller 6 | retrieve historical sensor data</response>\n```<response>identified sensors for Chiller 6 | retrieve historical sensor data</response>```"
     },
     {
-      "task_description": "Analyze chiller trip failure anomalies from sensor data trends.",
+      "task_description": "Analyze chiller trip failure anomalies from sensor data.",
       "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "tsfm_integrated_tsad</response>",
-      "review": "Task Status: Not Accomplished | failed to analyze sensor data | ensure dataset files are accessible and properly formatted"
+      "final_answer": "Use tsfm_integrated_tsad and tsfm_forecasting tools.",
+      "review": "Task Status: Not Accomplished | Ensure dataset files are accessible and properly formatted."
     }
   ]
 }

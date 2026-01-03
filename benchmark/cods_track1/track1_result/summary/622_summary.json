@@ -2,16 +2,16 @@
   "text": "Here is an output of anomaly model in file with absolute path '/tmp/tsad_conformal.csv', can you check if there are any anomalies, and do you think I should create a work order after reviewing the anomalies?",
   "tasks": [
     {
-      "task_description": "Review '/tmp/tsad_conformal.csv' for detected anomalies",
+      "task_description": "Check '/tmp/tsad_conformal.csv' for anomaly detection results</response>\n</response>Check '/tmp/tsad_conformal.csv' for anomaly detection results</response>",
       "agent_name": "Time Series Analytics and Forecasting",
       "final_answer": "File does not exist.",
-      "review": "Task Status: Not Accomplished | used jsonreader for csv | provide csv reader tool</response>\n</response> \n```<response>used jsonreader for csv | provide csv reader tool</response>```"
+      "review": "Task Status: Not Accomplished | Use csv reader tool instead of jsonreader for csv files."
     },
     {
-      "task_description": "Generate work order for affected asset based on anomalies.",
+      "task_description": "Create work order for asset based on identified anomalies.",
       "agent_name": "WorkOrder Agent",
       "final_answer": "CU02009</response>",
-      "review": "Task Status: Not Accomplished | Ensure file is available before processing."
+      "review": "Task Status: Not Accomplished | Ensure file availability and actual data processing."
     }
   ]
 }

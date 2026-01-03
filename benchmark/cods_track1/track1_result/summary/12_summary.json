@@ -2,9 +2,9 @@
   "text": "Retrieve sensor data for Chiller 6 from June 2020.",
   "tasks": [
     {
-      "task_description": "Get Chiller 6 data for June 2020.",
+      "task_description": "Fetch Chiller 6 sensor data for June 2020",
       "agent_name": "IoT Data Download",
-      "final_answer": "MAIN</response> or a single line ≤ 10 words.\n\n/tmp/cbmdir/d8ec8eb5-e8f2-4583-b586-fa527e849c7f.json",
+      "final_answer": "/tmp/cbmdir/d8ec8eb5-e8f2-4583-b586-fa527e849c7f.json",
       "review": "Task Status: Accomplished | followed logical sequence | provide data summary</response>\n```<response>followed logical sequence | provide data summary</response>```"
     }
   ]

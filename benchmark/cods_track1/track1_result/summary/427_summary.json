@@ -2,22 +2,22 @@
   "text": "Since we know 80% of alerts are likely spurious, can you identify the meaningful 20% for further analysis for any chillers?",
   "tasks": [
     {
-      "task_description": "List chillers and associated sensors. \nRevised to 12 or fewer words: List chillers with associated sensors.",
+      "task_description": "List chillers and associated sensors",
       "agent_name": "IoT Data Download",
       "final_answer": "",
       "review": "Task Status: Partially Accomplished | identified chillers | retrieve sensor data for Chiller 9</response>\n```<response>identified chillers | retrieve sensor data for Chiller 9</response>```"
     },
     {
-      "task_description": "Download sensor data for identified chillers</response>\n</response>Download sensor data for identified chillers</response>",
+      "task_description": "Download sensor data for identified chillers.  → Download chiller sensor data.",
       "agent_name": "IoT Data Download",
       "final_answer": "",
-      "review": "Task Status: Accomplished | identified site & chillers, Chiller 3 task completed."
+      "review": "Task Status: Accomplished | identified site and chillers, explicitly state Chiller 3 completion."
     },
     {
-      "task_description": "Analyze sensor data for anomalies and alerts",
+      "task_description": "Analyze downloaded sensor data for anomalies and alerts",
       "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "Anomaly detection cannot be performed.",
-      "review": "Task Status: Not Accomplished | attempted anomaly detection | ensure sensor data file is downloaded and available at specified path"
+      "final_answer": "Anomaly detection requires actual sensor data file.",
+      "review": "Task Status: Not Accomplished | attempted anomaly detection | ensure sensor data file is downloaded and path is correct"
     }
   ]
 }

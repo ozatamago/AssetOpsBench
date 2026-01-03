@@ -2,10 +2,10 @@
   "text": "Is LSTM model supported in TSFM?",
   "tasks": [
     {
-      "task_description": "List supported models for Time Series Analytics and Forecasting agent.",
+      "task_description": "List supported Time Series Analytics models.",
       "agent_name": "Time Series Analytics and Forecasting",
       "final_answer": "ttm_96_28, ttm_512_96, ttm_energy_96_28, ttm_energy_512_96",
-      "review": "Task Status: Accomplished | checked Time Series Analytics | none"
+      "review": "Task Status: Accomplished | checked Time Series Analytics | none</response>"
     }
   ]
 }

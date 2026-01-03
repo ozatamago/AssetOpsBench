@@ -2,10 +2,10 @@
   "text": "Are there any failure modes of Chiller 6 at MAIN site that can be predicted by monitoring the vibration sensor data?",
   "tasks": [
     {
-      "task_description": "List all Chiller 6 failure modes",
+      "task_description": "List all Chiller 6 failure modes -> List Chiller 6 failure modes. \nList Chiller 6 failure modes.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "6</response> \nbecomes \n6 \n\n6 \nis the solution.",
-      "review": "Task Status: Accomplished | used 'Get Failure Modes' tool correctly | none"
+      "final_answer": "Count the number of failure modes for Chiller 6.",
+      "review": "Task Status: Accomplished | used Get Failure Modes tool correctly | none</response>"
     }
   ]
 }

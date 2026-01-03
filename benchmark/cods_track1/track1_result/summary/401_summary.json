@@ -2,13 +2,13 @@
   "text": "I would like to check the work order distribution for the equipment labeled as CWC04013 for the year 2017.",
   "tasks": [
     {
-      "task_description": "Retrieve 2017 work order for equipment CWC04013",
+      "task_description": "Retrieve work order for CWC04013 in 2017",
       "agent_name": "WorkOrder Agent",
       "final_answer": "work_orders_CWC04013_2017.json</response>",
-      "review": "Task Status: Accomplished | <response>retrieved work orders for CWC04013|none</response>"
+      "review": "Task Status: Accomplished | retrieved work orders for CWC04013 | none</response>\n<response>retrieved work orders for CWC04013 | none</response>"
     },
     {
-      "task_description": "Analyze work order data to understand distribution",
+      "task_description": "Analyze retrieved work order data to understand distribution.",
       "agent_name": "WorkOrder Agent",
       "final_answer": "",
       "review": "Task Status: Not Accomplished | omitted final response | execute planned actions & provide results</response>"

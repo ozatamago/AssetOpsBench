@@ -1,0 +1,22 @@
+Question: List all failure modes of Chiller 6 at MAIN site that can be detected by temperature sensors.
+Plan:
+ 
+#Task1: List all failure modes of Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes of Chiller 6.
+
+#Task2: Identify the failure modes of Chiller 6 that can be detected by temperature sensors.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: A list of failure modes of Chiller 6 that can be detected by temperature sensors.
+
+#Task3: Verify if Chiller 6 is located at MAIN site.
+#Agent3: IoT Data Download
+#Dependency3: None
+#ExpectedOutput3: Confirmation if Chiller 6 is at MAIN site.
+
+#Task4: If Chiller 6 is at MAIN site, provide the final list of failure modes that can be detected by temperature sensors.
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency4: #S2 #S3
+#ExpectedOutput4: Final list of failure modes of Chiller 6 at MAIN site detectable by temperature sensors.

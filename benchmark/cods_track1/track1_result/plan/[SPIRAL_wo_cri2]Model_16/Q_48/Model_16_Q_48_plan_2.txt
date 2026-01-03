@@ -1,0 +1,19 @@
+Question: what was the return temperature from CQPA AHU 2B on sept 19, 2020 at 7pm, at site MAIN? return data in a file
+Plan:
+ 
+#Task1: download asset history for CQPA AHU 2B at Site MAIN from 2020-09-19T19:00:00 to 2020-09-19T19:00:00 for "return temperature"
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A file containing the return temperature data for CQPA AHU 2B at Site MAIN on Sept 19, 2020 at 7pm.
+
+#Task2: read the JSON file generated in the previous step to confirm it contains the return temperature data
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Confirmation that the file contains the return temperature data for CQPA AHU 2B at Site MAIN on Sept 19, 2020 at 7pm.
+
+#Task3: Verify that the retrieved data is correct and return it as the final output
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: The return temperature data for CQPA AHU 2B at Site MAIN on Sept 19, 2020 at 7pm.
+
+The count of steps is 3. The total count of all tags is 12.

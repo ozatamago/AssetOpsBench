@@ -1,0 +1,33 @@
+Question: list all the chillers at site MAIN
+Plan:
+#Task1: List all the assets at site MAIN
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at site MAIN
+
+#Task2: Identify which assets are chillers
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: List of chillers at site MAIN
+
+Since we need to list all the chillers at site MAIN, we first need to get a list of all assets at site MAIN. Then, we need to identify which of these assets are chillers.
+
+Let's break it down into steps.
+
+#Task1: List all the assets at site MAIN
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at site MAIN
+
+The IoT Data Download agent can provide information about assets at a specific site. We will use this agent to list all assets at site MAIN.
+
+#Task2: Identify which assets are chillers
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: List of chillers at site MAIN
+
+The Failure Mode and Sensor Relevancy Expert for Industrial Asset can provide information about failure modes of specific assets like chillers. We will use the list of assets from #S1 to identify which ones are chillers.
+
+The final output will be the list of chillers at site MAIN.
+
+Let's execute the plan.

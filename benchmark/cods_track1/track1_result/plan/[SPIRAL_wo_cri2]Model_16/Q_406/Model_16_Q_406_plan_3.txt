@@ -1,0 +1,17 @@
+Question: Get the summary of the events of equipment CWC04009 for the June of 2020 and provide a summary based on the event group.
+Plan:
+ 
+#Task1: Download the historical data for equipment CWC04009 for June 2020.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: JSON file containing historical data for CWC04009 in June 2020.
+
+#Task2: Analyze the downloaded data to identify events and anomalies.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Analysis report highlighting events and anomalies in the data.
+
+#Task3: Generate a summary report based on the event groups identified in the analysis.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Summary report categorizing events for CWC04009 in June 2020.

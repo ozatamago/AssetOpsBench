@@ -2,16 +2,16 @@
   "text": "Download all sensor data for Chiller 6 from the last week of April '20 at the MAIN site.",
   "tasks": [
     {
-      "task_description": "Set date range to April 20-24, 2020.",
+      "task_description": "Set date range to last week of April 2020.",
       "agent_name": "IoT Data Download",
-      "final_answer": "2020-04-20",
-      "review": "Task Status: Accomplished | determined date range correctly | none</response>\n```<response>determined date range correctly | none</response>```"
+      "final_answer": "2020-04-23.",
+      "review": "Task Status: Accomplished | determined date range correctly | none</response>"
     },
     {
-      "task_description": "Download Chiller 6 sensor data for MAIN site.",
+      "task_description": "Fetch Chiller 6 sensor data from MAIN site.",
       "agent_name": "IoT Data Download",
       "final_answer": "Multiple</response>",
-      "review": "Task Status: Accomplished | determined date range | provide more context about data</response>\n```<response>determined date range | provide more context about data</response>```"
+      "review": "Task Status: Accomplished | Provide more context about downloaded data."
     }
   ]
 }

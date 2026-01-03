@@ -3,7 +3,7 @@ set -euo pipefail
 
 # ---- GLOBAL CONFIG (defaults; can be overridden by env) ----
 GENERATE_STEPS_ONLY="${GENERATE_STEPS_ONLY:-False}"   # keep "True" because your CLI currently uses "--generate_steps_only True"
-LLM_MODELS="${LLM_MODELS:-20, 22, 23, 38}"   # e.g. "38" or "38,39,40" or "38 39 40"
+LLM_MODELS="${LLM_MODELS:-16, 20, 22, 23, 38}"   # e.g. "38" or "38,39,40" or "38 39 40"
 RUN_TRACK="/home/run_track_1.py"
 
 # ==== PATHS ====

@@ -1,0 +1,18 @@
+Question: Get the work order of equipment CWC04013 for year 2017.
+Plan:
+#Task1: Identify the relevant agent to retrieve work orders for equipment CWC04013 for the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: The WorkOrder Agent is capable of retrieving work orders.
+
+#Task2: Use the WorkOrder Agent to retrieve work orders for equipment CWC04013 for the year 2017.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: Work orders for equipment CWC04013 for the year 2017.
+
+#Task3: Verify if the retrieved work orders are for the correct equipment and year.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Confirmation that the work orders are for CWC04013 and the year 2017.
+
+The plan has 3 steps, which is fewer than 5. The steps are clear and actionable. The WorkOrder Agent is used to retrieve and verify the work orders for the specified equipment and year.

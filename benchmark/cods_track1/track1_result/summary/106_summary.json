@@ -2,16 +2,16 @@
   "text": "List all failure modes of Chiller 6 that can be detected by Chiller 6 Supply Temperature.",
   "tasks": [
     {
-      "task_description": "List Chiller 6 failure modes by supply temperature.",
+      "task_description": "Detect Chiller 6 failure modes via supply temperature.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Evaporator and Condenser water side fouling.",
-      "review": "Task Status: Accomplished | logically deduced failure modes | handle errors with 'Get Failure Mode and Sensor Relevancy Mapping' tool"
+      "final_answer": "Evaporator and Condenser water side fouling and low flow.",
+      "review": "Task Status: Accomplished | logically deduced failure modes | 'Get Failure Mode and Sensor Relevancy Mapping' tool```"
     },
     {
-      "task_description": "Check Task 1 output for accuracy.",
+      "task_description": "Check Task 1 output for accuracy and completeness</response>",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Too many values",
-      "review": "Task Status: Partially Accomplished | assumed task details | request task details, address tool execution errors"
+      "final_answer": "10 failure modes listed for HVAC system components. -> 10 failure modes.",
+      "review": "Task Status: Partially Accomplished | assumed task details | request task details, address tool execution errors."
     }
   ]
 }

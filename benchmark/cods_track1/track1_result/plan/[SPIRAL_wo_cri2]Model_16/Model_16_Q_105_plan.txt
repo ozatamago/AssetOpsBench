@@ -1,0 +1,7 @@
+Question: Provide some sensors of asset Wind Turbine.
+Plan:
+ 
+#Task1: Provide some sensors of asset Wind Turbine
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Sensors for Wind Turbine asset

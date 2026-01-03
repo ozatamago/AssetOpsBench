@@ -2,10 +2,10 @@
   "text": "list all the chillers at site MAIN",
   "tasks": [
     {
-      "task_description": "List assets at site MAIN",
+      "task_description": "List assets at MAIN site.",
       "agent_name": "IoT Data Download",
-      "final_answer": "/tmp/cbmdir/f921ebd6-f060-4223-b0d8-74e64e05235f.json </response> is the solution.",
-      "review": "Task Status: Accomplished | Used assets tool successfully | avoid redundant actions."
+      "final_answer": "/tmp/cbmdir/f921ebd6-f060-4223-b0d8-74e64e05235f.json </response>\nbecomes \n/tmp/cbmdir/f921ebd6-f060-4223-b0d8-74e64e05235f.json\n\nThe final answer is: /tmp/cbmdir/f921ebd6-f060-4223-b0d8-74e64e05235f.json",
+      "review": "Task Status: Accomplished | used assets tool | avoid redundant actions</response> or an equivalent response that follows the format."
     }
   ]
 }

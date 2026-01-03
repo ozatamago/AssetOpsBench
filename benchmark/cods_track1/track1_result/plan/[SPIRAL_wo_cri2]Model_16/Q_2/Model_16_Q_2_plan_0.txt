@@ -1,0 +1,8 @@
+Question: Can you list the IoT sites?
+Plan:
+#Task1: List all available IoT sites.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of IoT sites.
+
+The plan is complete with a single step as it directly corresponds to one of the tasks the IoT Data Download agent can solve.

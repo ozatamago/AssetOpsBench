@@ -2,22 +2,22 @@
   "text": "Can you check if there are any anomalies for chiller tonnage, and do you think I should create a work order after reviewing the anomalies?",
   "tasks": [
     {
-      "task_description": "Download chiller tonnage data.",
+      "task_description": "Download historical chiller tonnage data</response>\n</response>Download historical chiller tonnage data</response>",
       "agent_name": "IoT Data Download",
       "final_answer": "",
-      "review": "Task Status: Accomplished | identified relevant site, asset, and sensor | provide JSON file content or summary."
+      "review": "Task Status: Accomplished | identified site, asset, and sensor | provide JSON content."
     },
     {
-      "task_description": "Analyze downloaded chiller data for tonnage anomalies",
+      "task_description": "Analyze chiller data for tonnage anomalies.",
       "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "File not found or inaccessible</response>",
+      "final_answer": "File not found or inaccessible.",
       "review": "Task Status: Not Accomplished | identified non-existent file | ensure file is downloaded and saved to specified path"
     },
     {
-      "task_description": "Analyze chiller tonnage anomalies to identify potential failures.",
+      "task_description": "Analyze chiller tonnage for potential failure modes",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Evaporator Water side fouling, Condenser Water side fouling</response>",
-      "review": "Task Status: Accomplished | identified failure modes | handle error gracefully | acknowledge limitation"
+      "final_answer": "Condenser Water side fouling.",
+      "review": "Task Status: Accomplished | identified failure modes | handle error gracefully, acknowledge limitation</response>\n```<response>identified failure modes | handle error gracefully, acknowledge limitation</response>```"
     }
   ]
 }

@@ -2,10 +2,10 @@
   "text": "Retrieve sensor data for Chiller 6's % Loaded from June 2020 at MAIN.",
   "tasks": [
     {
-      "task_description": "Retrieve Chiller 6 % Loaded data from June 2020 at MAIN.",
+      "task_description": "Retrieve Chiller 6 % Loaded data June 2020 at MAIN.",
       "agent_name": "IoT Data Download",
-      "final_answer": "50294556-0900-4d97-b6ff-06d6855362ae",
-      "review": "Task Status: Accomplished | identified sensor correctly | provide data summary"
+      "final_answer": "50294556-0900-4d97-b6ff-06d6855362ae.",
+      "review": "Task Status: Accomplished | identified sensor correctly | provide data summary</response>\n```<response>identified sensor correctly | provide data summary</response>```"
     },
     {
       "task_description": "Analyze Chiller 6 sensor data for anomalies and trends",

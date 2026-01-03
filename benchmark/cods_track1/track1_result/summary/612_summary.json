@@ -2,22 +2,22 @@
   "text": "What are the failure modes of Chiller 6 at MAIN site that can be identified by analyzing the data from the available sensors?",
   "tasks": [
     {
-      "task_description": "List Chiller 6 failure modes.",
+      "task_description": "Enumerate all failure modes of Chiller 6",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
       "final_answer": "7 failure modes</response>",
-      "review": "Task Status: Accomplished | used tool to retrieve failure modes | none</response>\n<response>used tool to retrieve failure modes | none</response> is the solution."
+      "review": "Task Status: Accomplished | used tool to retrieve failure modes | none."
     },
     {
       "task_description": "Identify relevant sensors for Chiller 6 failures.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Chiller Power, Water Flow Rate, Temperature Difference.",
-      "review": "Task Status: Accomplished | identified relevant sensors | improve tool usage and error handling</response>\n```<response>identified relevant sensors | improve tool usage and error handling</response>```"
+      "final_answer": "Chiller Power, Water Flow Rate, Temperature.",
+      "review": "Task Status: Accomplished | identified relevant sensors | improve tool usage and error handling</response>\n</response>"
     },
     {
-      "task_description": "Analyze Chiller 6 data for failure modes.",
+      "task_description": "Analyze Chiller 6 data to detect failure modes",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Four failure modes.",
-      "review": "Task Status: Partially Accomplished | identified available sensors and revisit file paths with enhanced error handling."
+      "final_answer": "Multiple failure modes for Chiller 6 exist.",
+      "review": "Task Status: Partially Accomplished | identified available sensors | revisit file paths, enhance error handling</response>"
     }
   ]
 }

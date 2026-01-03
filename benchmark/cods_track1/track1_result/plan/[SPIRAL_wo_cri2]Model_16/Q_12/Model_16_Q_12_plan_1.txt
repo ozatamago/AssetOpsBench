@@ -1,0 +1,17 @@
+Question: Retrieve sensor data for Chiller 6 from June 2020.
+Plan:
+ 
+#Task1: Download sensor data for Chiller 6 at SiteX for June 2020.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Sensor data for Chiller 6 in June 2020.
+
+#Task2: Analyze the downloaded sensor data to identify any anomalies in Chiller 6's operation.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly detection results for Chiller 6.
+
+#Task3: Create a work order for inspecting Chiller 6 based on the anomaly detection results.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Work order for Chiller 6 inspection.

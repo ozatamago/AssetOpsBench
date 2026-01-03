@@ -1,0 +1,2 @@
+Predicted result: 
+[{'step': 1, 'agent': 'Time Series Analytics and Forecasting', 'task': 'Check if LSTM model is supported in TSFM', 'expected_output': 'Confirmation on whether LSTM model is supported in TSFM', 'predicted_output': "The available action is 'List supported models for Time Series Analytics and Forecasting agent.'.\n\nLSTM model is supported in TSFM."}]

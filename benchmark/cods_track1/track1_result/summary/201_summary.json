@@ -2,7 +2,7 @@
   "text": "What types of time series analysis are supported?",
   "tasks": [
     {
-      "task_description": "List time series analysis types supported by agents.",
+      "task_description": "Time series analysis types supported by available agents.",
       "agent_name": "Time Series Analytics and Forecasting",
       "final_answer": "Time series Multivariate Forecasting",
       "review": "Task Status: Not Accomplished | deviated from task | focus on original task</response>"

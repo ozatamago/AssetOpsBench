@@ -1,0 +1,17 @@
+Question: I would like to retrieve the preventive work order details for the equipment labeled as CWC04013 for the year 2017.
+Plan:
+ 
+#Task1: Identify the relevant agent to retrieve work order details for equipment CWC04013.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: Confirmation that WorkOrder Agent is capable of retrieving work order details.
+
+#Task2: Use the WorkOrder Agent to generate a query to retrieve preventive work order details for CWC04013 in 2017.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: Preventive work order details for CWC04013 in 2017.
+
+#Task3: Analyze the retrieved work order details to ensure they are for preventive maintenance and for the correct equipment and year.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Verified preventive work order details for CWC04013 in 2017.

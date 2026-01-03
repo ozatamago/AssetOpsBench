@@ -1,0 +1,22 @@
+Question: When compressor motor of Chiller 6 at MAIN site fails, what is the temporal behavior of the power input?
+Plan:
+ 
+#Task1: Identify the site and asset in question
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Confirmation that the site is "MAIN" and the asset is "Chiller 6"
+
+#Task2: Understand the failure mode and its relation to power input
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: Temporal behavior of the power input when the compressor motor of Chiller 6 fails
+
+#Task3: Retrieve historical data for Chiller 6 power input at MAIN site
+#Agent3: IoT Data Download
+#Dependency3: #S1
+#ExpectedOutput3: Historical data for Chiller 6 power input
+
+#Task4: Analyze the historical data to identify the temporal behavior of power input during compressor motor failure
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: #S3
+#ExpectedOutput4: Analysis of the temporal behavior of power input during compressor motor failure

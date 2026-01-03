@@ -2,27 +2,27 @@
   "text": "Is there any anomaly detected in Chiller 6's Tonnage in the week of 2020-04-27 at the MAIN site?",
   "tasks": [
     {
-      "task_description": "Determine start and end dates for week of 2020-04-27. \nRevised to 12 words or less: \nFind start and end dates for the week of 2020-04-27.",
+      "task_description": "Find dates for the week containing 2020-04-27.",
       "agent_name": "IoT Data Download",
       "final_answer": "2020-04-27</response>",
-      "review": "Task Status: Accomplished | <response>identified correct dates | provide more context or explanation</response> is not needed. The response is: identified correct dates | provide more context or explanation."
+      "review": "Task Status: Accomplished | determined start and end dates | none"
     },
     {
-      "task_description": "Fetch Chiller 6 Tonnage from MAIN for 2020-04-27.",
+      "task_description": "Fetch Chiller 6 Tonnage data from MAIN for 2020-04-27 week.",
       "agent_name": "IoT Data Download",
       "final_answer": "",
-      "review": "Task Status: Error | refined LLM response strategy | review prompt</response>"
+      "review": "Task Status: Error | reviewed prompt | refined LLM response strategy</response>"
     },
     {
-      "task_description": "Detect anomalies in Chiller 6 Tonnage sensor data\nDetect anomalies in Chiller 6 Tonnage data.",
+      "task_description": "Detect anomalies in Chiller 6 Tonnage sensor data. \nDetect anomalies in Chiller 6 Tonnage sensor data. \nDetect anomalies in Chiller 6 Tonnage sensor data\nDetect anomalies in Chiller 6 Tonnage. \nDetect Chiller 6 Tonnage anomalies. \nDetect Chiller 6 Tonnage sensor anomalies. \nDetect anomalies in Chiller 6 Tonnage. \nDetect Chiller 6 anomalies. \nDetect anomalies in Chiller 6. \nAnomaly detection in Chiller 6. \nDetect Chiller 6 Tonnage anomalies \nDetect anomalies in Chiller 6 Tonnage data \nDetect Chiller 6 Tonnage sensor data anomalies \n\nThe best rewritten response is: Detect Chiller 6 Tonnage anomalies.",
       "agent_name": "Time Series Analytics and Forecasting",
       "final_answer": "tsfm_integrated_tsad</response>",
-      "review": "Task Status: Not Accomplished | Ensure dataset availability or provide a fallback mechanism."
+      "review": "Task Status: Not Accomplished | failed to detect anomalies | ensure dataset availability or provide fallback mechanism"
     },
     {
-      "task_description": "Generate work order for Chiller 6 Tonnage anomaly.",
+      "task_description": "Generate work order for Chiller 6 Tonnage anomaly",
       "agent_name": "WorkOrder Agent",
-      "final_answer": "CU02006</response> or \nNo specific work order can be generated",
+      "final_answer": "CU02006</response> or \nNo specific work order can be generated.",
       "review": "Task Status: Partially Accomplished | attempted work order generation | improve API robustness & error handling"
     }
   ]

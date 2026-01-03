@@ -1,0 +1,2 @@
+Predicted result: 
+[{'step': 1, 'agent': 'Time Series Analytics and Forecasting', 'task': 'Check if Time Series Classification is supported in TSFM', 'expected_output': 'Confirmation on whether Time Series Classification is supported in TSFM', 'predicted_output': 'Time Series Classification is not supported in TSFM.'}]

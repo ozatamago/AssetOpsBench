@@ -2,10 +2,10 @@
   "text": "Can you list the IoT sites?",
   "tasks": [
     {
-      "task_description": "List available IoT sites</response>\n</response>List available IoT sites</response>",
+      "task_description": "List available IoT sites. \n\nHere is the final line: List available IoT sites. \n\nList available IoT sites.",
       "agent_name": "IoT Data Download",
       "final_answer": "MAIN</response>",
-      "review": "Task Status: Accomplished | used sites tool correctly | none</response>"
+      "review": "Task Status: Accomplished | used sites tool correctly | none"
     }
   ]
 }

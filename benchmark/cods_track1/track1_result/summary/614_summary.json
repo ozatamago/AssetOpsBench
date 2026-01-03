@@ -4,7 +4,7 @@
     {
       "task_description": "List Chiller 6 failure modes and excess purge sensors.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Chiller 6 Purge Unit Flow and Pressure. -> Multiple values exist \n\nRewritten to ≤ 10 words: \nChiller 6 Purge Unit Flow and Pressure have multiple values. \n\nRewritten to ≤ 10 words \nMultiple values.",
+      "final_answer": "Chiller 6 Purge Unit Flow Rate.",
       "review": "Task Status: Partially Accomplished | improve file path and error handling for tool executions."
     }
   ]

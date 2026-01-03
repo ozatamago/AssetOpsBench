@@ -2,28 +2,28 @@
   "text": "Has any anomaly been detected in Chiller 6's Return Temperature in the week of 2020-04-27 at the MAIN site?",
   "tasks": [
     {
-      "task_description": "Find start and end dates for 2020-04-27 week.",
+      "task_description": "Set week start and end dates for 2020-04-27",
       "agent_name": "IoT Data Download",
-      "final_answer": "2020-04-27</response>",
+      "final_answer": "2020-04-27</response> or <response>2020-05-03</response> or <response>Multiple dates</response>. \n\n<response>Multiple dates</response>",
       "review": "Task Status: Accomplished | determined start and end dates correctly | none</response>\n```<response>determined start and end dates correctly | none</response>```"
     },
     {
       "task_description": "Fetch historical data for Chiller 6 Return Temperature at MAIN",
       "agent_name": "IoT Data Download",
-      "final_answer": "368452a0-781e-478d-bd2f-9253f85e2b86</response>\n \n<rewritten_response>368452a0-781e-478d-bd2f-9253f85e2b86</rewritten_response>",
+      "final_answer": "368452a0-781e-478d-bd2f-9253f85e2b86</response>\n \n<rewritten_response>368452a0-781e-478d-bd2f-9253f85e2b86</rewritten_response>\nThe final answer is 368452a0-781e-478d-bd2f-9253f85e2b86.",
       "review": "Task Status: Accomplished | identified asset and sensor | provide data summary."
     },
     {
-      "task_description": "Detect anomalies in Chiller 6 Return Temperature data</response>",
+      "task_description": "Detect anomalies in Chiller 6 Return Temperature data",
       "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "Dataset not available",
-      "review": "Task Status: Not Accomplished | failed to detect anomalies due to missing dataset | ensure dataset is downloaded and path is accurate."
+      "final_answer": "Dataset path incorrect",
+      "review": "Task Status: Not Accomplished | Ensure dataset is downloaded and check the path."
     },
     {
       "task_description": "Generate work order for Chiller 6 Return Temperature anomalies",
       "agent_name": "WorkOrder Agent",
       "final_answer": "No work order recommended.",
-      "review": "Task Status: Accomplished | handled exception correctly | ensure functions are implemented and tested</response>"
+      "review": "Task Status: Accomplished | handled exception properly | ensure functions are implemented and tested</response>"
     }
   ]
 }

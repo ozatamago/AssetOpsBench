@@ -2,15 +2,15 @@
   "text": "Find all models with context length 96.",
   "tasks": [
     {
-      "task_description": "<response>Check if Time Series Analytics supports model with context length 96</response>",
+      "task_description": "Check if Time Series Analytics agent supports model with context length 96",
       "agent_name": "Time Series Analytics and Forecasting",
       "final_answer": "Yes</response>",
       "review": "Task Status: Accomplished | queried pretrained models correctly | none"
     },
     {
-      "task_description": "Time series forecasting model examples with context 96.",
+      "task_description": "Time series forecasting model examples with context 96. is not valid \nProvide time series forecasting examples with context length 96. \n\nThe final answer is: \nTime series forecasting model with context length 96 examples. \n\nThe best final answer is \nProvide time series forecasting model examples with context 96.",
       "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "ttm_96_28, ttm_energy_96_28",
+      "final_answer": "ttm_96_28, ttm_energy_96_28</response> \nor \n<response>Multiple models available</response>\n\nttm_96_28, ttm_energy_96_28",
       "review": "Task Status: Accomplished | identified pretrained models correctly | none</response>\n```<response>identified pretrained models correctly | none</response>```"
     }
   ]

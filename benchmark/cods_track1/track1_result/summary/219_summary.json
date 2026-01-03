@@ -2,22 +2,22 @@
   "text": "Forecast 'Chiller 9 Condenser Water Flow' using data in 'chiller9_annotated_small_test.csv'. Use the following parameters as inputs 'Chiller 9 Liquid Refrigerant Evaporator Temperature,Chiller 9 Return Temperature,Chiller 9 Tonnage,Chiller 9 Setpoint Temperature,Chiller 9 Supply Temperature,Chiller 9 Chiller % Loaded,Chiller 9 Condenser Water Supply To Chiller Temperature,Chiller 9 Power Input,Chiller 9 Chiller Efficiency'",
   "tasks": [
     {
-      "task_description": "Load chiller9_annotated_small_test.csv for forecasting.",
+      "task_description": "Load chiller9_annotated_small_test.csv for Chiller 9 Condenser Water Flow forecasting.",
       "agent_name": "IoT Data Download",
-      "final_answer": "File not found",
+      "final_answer": "File not found</response>",
       "review": "Task Status: Not Accomplished | Equip with CSV reader and handle exceptions."
     },
     {
-      "task_description": "Use Time Series Analytics to forecast Chiller 9 Condenser Water Flow</response>",
+      "task_description": "Forecast Chiller 9 Condenser Water Flow using Time Series Analytics",
       "agent_name": "Time Series Analytics and Forecasting",
       "final_answer": "",
-      "review": "Task Status: Not Accomplished | validate file paths and verify input types and arguments."
+      "review": "Task Status: Not Accomplished | failed to accomplish task | validate paths, format inputs, verify types"
     },
     {
-      "task_description": "Verify forecasting task and check results are as expected",
+      "task_description": "Verify forecasting task is complete with expected results",
       "agent_name": "IoT Data Download",
       "final_answer": "",
-      "review": "Task Status: Error | reviewed prompt | refined LLM response strategy</response>"
+      "review": "Task Status: Error | refined LLM response strategy | review prompt</response>"
     }
   ]
 }

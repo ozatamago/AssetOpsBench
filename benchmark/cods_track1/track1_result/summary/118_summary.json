@@ -2,9 +2,9 @@
   "text": "When power input of Chiller 6 drops, what is the potential failure that causes it?",
   "tasks": [
     {
-      "task_description": "Identify potential Chiller 6 power drop failure causes.",
+      "task_description": "Diagnose Chiller 6 power drop cause.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Multiple.",
+      "final_answer": "Compressor Overheating, Heat Exchangers: Fans",
       "review": "Task Status: Accomplished | investigate 'Get Failure Mode and Sensor Relevancy Mapping' tool issue."
     }
   ]

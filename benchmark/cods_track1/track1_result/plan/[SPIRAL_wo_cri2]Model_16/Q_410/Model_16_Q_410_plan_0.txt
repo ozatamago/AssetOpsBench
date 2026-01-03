@@ -1,0 +1,40 @@
+Question: Get all the events of equipment CWC04009 for the first week of June of 2020 and provide a summary based on the event group for work order event, alert, and anomaly.
+Plan:
+#Task1: Get the historical data for equipment CWC04009 for the first week of June 2020.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for CWC04009 from 2020-06-01 to 2020-06-07.
+
+#Task2: Analyze the historical data to identify events such as work order events, alerts, and anomalies.
+#Agent2: WorkOrder Agent
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Identified events (work orders, alerts, anomalies) for CWC04009.
+
+#Task3: Summarize the identified events by event group.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Summary of events by group (work order event, alert, anomaly).
+
+The final answer is: 
+The plan has 3 steps.
+
+Let's reformat it according to the given constraints and available agents.
+
+#Task1: Download asset history for CWC04009 from 2020-06-01 to 2020-06-07.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for CWC04009 from 2020-06-01 to 2020-06-07.
+
+#Task2: Analyze the historical data to identify anomalies, alerts, and potential work order events.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Identified anomalies and alerts in the historical data.
+
+#Task3: Generate a summary of work order events, alerts, and anomalies.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Summary of events by group (work order event, alert, anomaly).
+
+The final answer is: 
+The plan has 3 steps.

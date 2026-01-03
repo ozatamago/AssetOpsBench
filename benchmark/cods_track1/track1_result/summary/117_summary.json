@@ -2,10 +2,10 @@
   "text": "When compressor motor of Chiller 6 fails, what is the temporal behavior of the power input?",
   "tasks": [
     {
-      "task_description": "Analyze Chiller 6 compressor motor failure power behavior -> Analyze power behavior when Chiller 6 compressor fails\nAnalyze power behavior when Chiller 6 compressor fails",
+      "task_description": "Analyze Chiller 6 compressor motor failure power behavior over time",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Too long",
-      "review": "Task Status: Accomplished | identified temporal behavior | resolve tool-related issues</response>\n<response>identified temporal behavior | resolve tool-related issues</response>"
+      "final_answer": "Chiller 6 compressor motor failure causes power to drop.",
+      "review": "Task Status: Accomplished | identified temporal behavior | resolve tool-related issues."
     }
   ]
 }

@@ -1,0 +1,7 @@
+Question: List all installed sensors of asset Chiller 6 at MAIN site.
+Plan:
+ 
+#Task1: List all sensors for Chiller 6 at MAIN site.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of sensors for Chiller 6 at MAIN site

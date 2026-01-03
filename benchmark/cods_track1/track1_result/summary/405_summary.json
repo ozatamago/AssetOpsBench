@@ -4,13 +4,13 @@
     {
       "task_description": "Fetch events of CWC04009 for June 2020.",
       "agent_name": "IoT Data Download",
-      "final_answer": "MAIN. \nThe final answer is MAIN.",
-      "review": "Task Status: Accomplished | identified equipment unavailability | none</response>\n```<response>identified equipment unavailability | none</response>```"
+      "final_answer": "None</response> \nor \n<response>value</response>.\n\n\n<response>MAIN</response>",
+      "review": "Task Status: Accomplished | identified equipment unavailability | none. \nHere is the rewritten response: \nidentified equipment unavailability."
     },
     {
-      "task_description": "Group retrieved events into categories.",
+      "task_description": "Group retrieved events into work order, alert, and anomaly categories.",
       "agent_name": "WorkOrder Agent",
-      "final_answer": "CU02013",
+      "final_answer": "CU02013.",
       "review": "Task Status: Partially Accomplished | categorized sample events | verify data retrieval process</response>"
     }
   ]

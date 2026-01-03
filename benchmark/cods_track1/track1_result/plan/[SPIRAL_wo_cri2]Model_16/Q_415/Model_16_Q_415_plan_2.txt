@@ -1,0 +1,23 @@
+Question: When an anomaly happens for equipment CWC04009, can you recommend a list of candidate work orders and give me a summary of work order as percentage?
+Plan:
+ 
+
+#Task1: Identify the relevant sensors for monitoring CWC04009 and potential failures.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of relevant sensors and potential failures for CWC04009.
+
+#Task2: Download historical sensor data for CWC04009.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Historical sensor data for CWC04009.
+
+#Task3: Analyze the downloaded sensor data to detect anomalies.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Anomaly detection results for CWC04009.
+
+#Task4: Generate candidate work orders based on the anomaly detection results and provide a summary.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: List of candidate work orders and a summary as percentage.

@@ -2,10 +2,10 @@
   "text": "Using your knowledge of the industrial asset, can you suggest me a work order for alert RUL0014 with the context of 'Chiller - Cooling Substance Delta T Low' for closed-loop water-cool chiller its load is higher than the upper bound?",
   "tasks": [
     {
-      "task_description": "Determine Chiller Cooling Substance Delta T Low alert failure modes.",
+      "task_description": "Analyze Chiller Cooling Substance Delta T Low alert failure modes.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
       "final_answer": "Evaporator Water side fouling, Condenser Improper flow rate.",
-      "review": "Task Status: Accomplished | identified relevant failure modes | handle exceptions more gracefully."
+      "review": "Task Status: Accomplished | identified relevant failure modes to handle exceptions and errors more gracefully."
     },
     {
       "task_description": "Generate work order for chiller overload condition",
@@ -14,16 +14,16 @@
       "review": "Task Status: Not Accomplished | failed to execute actions | implement and test APIs</response>"
     },
     {
-      "task_description": "Analyze chiller sensor data to validate work.",
+      "task_description": "Analyze chiller sensor data to validate work order",
       "agent_name": "IoT Data Download",
       "final_answer": "",
-      "review": "Task Status: Partially Accomplished | retrieved sensor data correctly | consider alternative validation methods</response>\n```<response>retrieved sensor data correctly | consider alternative validation methods</response>```"
+      "review": "Task Status: Partially Accomplished | identified sensors correctly | consider alternative validation methods</response>\n```<response>identified sensors correctly | consider alternative validation methods</response>```"
     },
     {
-      "task_description": "Provide final work order based on analysis.",
+      "task_description": "Provide final work order based on analysis and validation",
       "agent_name": "WorkOrder Agent",
-      "final_answer": "CU02013</response> \nor \n<response>Insufficient data</response>\n\nCU02013",
-      "review": "Task Status: Accomplished | addressed task | none</response>\n```<response>addressed task | none</response>```"
+      "final_answer": "CU02013",
+      "review": "Task Status: Accomplished | provided final work order | none</response>\n```<response>provided final work order | none</response>```"
     }
   ]
 }

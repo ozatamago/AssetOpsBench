@@ -2,22 +2,22 @@
   "text": "Can you provide guidance on bundling corrective work orders together to optimize the maintenance schedule for Chiller 9 with equipment ID CWC04009 covering years of 2017, 2018 and 2019, bundle has to be happen within two weeks and have at least two work orders, also tell the details of each bundle?",
   "tasks": [
     {
-      "task_description": "Fetch corrective work orders for CWC04009 from 2017 to 2019. \nRewritten to 12 words or less: \nFetch corrective work orders for CWC04009 from 2017 to 2019. \nbecomes \nFetch work orders for CWC04009 from 2017 to 2019. \n\nFetch work orders for CWC04009 from 2017 to 2019.",
+      "task_description": "Fetch corrective work orders for CWC04009 from 2017 to 2019. \nRewritten to 12 words or less: \nFetch corrective work orders for CWC04009 from 2017 to 2019. \nbecomes \nFetch work orders for CWC04009 from 2017 to 2019. \n\nFetch work orders for CWC04009 from 2017 to 2019. \nbecomes \nFetch CWC04009 work orders from 2017 to 2019.\nThe final answer is: \nFetch CWC04009 work orders from 2017 to 2019.",
       "agent_name": "WorkOrder Agent",
-      "final_answer": "work_orders_CWC04009_2017_2019.json</response> \nor a single line ≤ 10 words. \n\nwork_orders_CWC04009_2017_2019.json",
-      "review": "Task Status: Accomplished | retrieved work orders for CWC04009 | provide more context on absence of corrective work orders"
+      "final_answer": "work_orders_CWC04009_2017_2019.json</response>",
+      "review": "Task Status: Accomplished | retrieved work orders successfully | provide context on absence of corrective work orders"
     },
     {
       "task_description": "Bundle work orders with at least two orders in two weeks.",
       "agent_name": "WorkOrder Agent",
-      "final_answer": "Multiple dates",
-      "review": "Task Status: Partially Accomplished | analyzed retrieved work orders | investigate discrepancy in work order data</response>\n</action>"
+      "final_answer": "2023-01-01",
+      "review": "Task Status: Partially Accomplished | analyzed retrieved work orders | investigate discrepancy between retrieved and sample work orders</response>"
     },
     {
-      "task_description": "Review Chiller 9 work orders for maintenance optimization.",
+      "task_description": "Review Chiller 9 maintenance bundled corrective work orders.",
       "agent_name": "WorkOrder Agent",
-      "final_answer": "bundled_corrective_work_orders_CWC04009.json</response> -> bundled_corrective_work_orders_CWC04009.json",
-      "review": "Task Status: Accomplished | handled serialization correctly | provide summary on bundled work orders</response>\n```<response>handled serialization correctly | provide summary on bundled work orders</response>```"
+      "final_answer": "bundled_corrective_work_orders_CWC04009.json</response>\n```json\n{\n    \"file_path\": \"bundled_corrective_work_orders_CWC04009.json\"\n}\n``` becomes \nbundled_corrective_work_orders_CWC04009.json",
+      "review": "Task Status: Accomplished | handled serialization correctly | provide summary on bundled work orders</response>"
     }
   ]
 }

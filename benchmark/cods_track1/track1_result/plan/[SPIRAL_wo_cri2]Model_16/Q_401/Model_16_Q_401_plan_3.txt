@@ -1,0 +1,17 @@
+Question: I would like to check the work order distribution for the equipment labeled as CWC04013 for the year 2017.
+Plan:
+ 
+#Task1: Retrieve historical work orders for equipment CWC04013 for the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: A list of work orders for CWC04013 in 2017.
+
+#Task2: Analyze the retrieved work orders to determine the distribution.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: An analysis of the work order distribution for CWC04013 in 2017.
+
+#Task3: Check if there are any anomalies or unusual patterns in the work order distribution.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Identification of any anomalies or patterns in the work order distribution.

@@ -1,0 +1,55 @@
+Question: List all failure modes of asset Chiller 6 at MAIN site.
+Plan:
+#Task1: List all failure modes of asset Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes for Chiller 6.
+
+#Task2: Verify if Chiller 6 is located at MAIN site.
+#Agent2: IoT Data Download
+#Agent2: What assets are at site MAIN?
+#Dependency2: None
+#ExpectedOutput2: Confirmation that Chiller 6 is at MAIN site.
+
+#Task3: If Chiller 6 is at MAIN site, provide the list from Task 1 as the final output.
+#Agent3: None (Executor will handle this based on previous steps)
+#Dependency3: #Task1, #Task2
+#ExpectedOutput3: List of failure modes for Chiller 6 if it's at MAIN site.
+
+However, the above response doesn't follow the format. Here is the corrected response:
+
+#Task1: List all failure modes of asset Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes for Chiller 6.
+
+#Task2: Verify if Chiller 6 is located at MAIN site by checking the assets at MAIN site.
+#Agent2: IoT Data Download
+#Dependency2: None
+#ExpectedOutput2: A list of assets at MAIN site, confirming if Chiller 6 is present.
+
+#Task3: Validate if Chiller 6 is at MAIN site based on the output from Task 2.
+#Agent3: IoT Data Download
+#Dependency3: #Task2
+#ExpectedOutput3: Confirmation that Chiller 6 is at MAIN site.
+
+#Task4: Provide the list from Task 1 as the final output if Chiller 6 is at MAIN site.
+#Agent4: None (Executor will handle this based on previous steps)
+#Dependency4: #Task1, #Task3
+#ExpectedOutput4: List of failure modes for Chiller 6 if it's at MAIN site.
+
+The final answer is:
+#Task1: List all failure modes of asset Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes for Chiller 6.
+
+#Task2: Verify if Chiller 6 is located at MAIN site by checking the assets at MAIN site.
+#Agent2: IoT Data Download
+#Dependency2: None
+#ExpectedOutput2: A list of assets at MAIN site.
+
+#Task3: Provide the list from Task 1 as the final output if Chiller 6 is at MAIN site.
+#Agent3: None 
+#Dependency3: #Task1, #Task2
+#ExpectedOutput3: List of failure modes for Chiller 6 if it's at MAIN site.

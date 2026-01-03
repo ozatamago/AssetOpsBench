@@ -4,14 +4,14 @@
     {
       "task_description": "Fetch anomaly and alert data for Chiller 9 May June 2020",
       "agent_name": "IoT Data Download",
-      "final_answer": "/tmp/cbmdir/d21442bc-688f-4716-973b-754b3c786fa9.json </response>\n\n/tmp/cbmdir/d21442bc-688f-4716-973b-754b3c786fa9.json",
+      "final_answer": "/tmp/cbmdir/d21442bc-688f-4716-973b-754b3c786fa9.json </response> \nor \na line ≤ 10 words.\n\n/tmp/cbmdir/d21442bc-688f-4716-973b-754b3c786fa9.json",
       "review": "Task Status: Accomplished | retrieved anomaly data | provide summary or key insights</response>\n```<response>retrieved anomaly data | provide summary or key insights</response>```"
     },
     {
-      "task_description": "Analyze Chiller 9 data for anomalies and alerts.",
+      "task_description": "Analyze data from Chiller 9 for anomalies and alerts",
       "agent_name": "Time Series Analytics and Forecasting",
       "final_answer": "tsfm_integrated_tsad</response>",
-      "review": "Task Status: Not Accomplished | Ensure necessary data files are available."
+      "review": "Task Status: Not Accomplished | failed to identify anomalies | ensure necessary data files are available"
     }
   ]
 }

@@ -2,16 +2,16 @@
   "text": "Assume today is early of July 2020, I would like to review the performance of chiller 9 with equipment ID CWC04009 for June 2020 and track any anomalies or operation violations as alerts. Tell me what corrective work orders have been scheduled, and whether new work order should generate.",
   "tasks": [
     {
-      "task_description": "Download historical data for Chiller 9 with ID CWC04009 June 2020. \n\nRewritten in 12 words or less: \nDownload historical data for Chiller 9, ID CWC04009, June 2020.",
+      "task_description": "Fetch historical data for Chiller 9 CWC04009 June 2020. \nRevised to 12 words or less: Fetch Chiller 9 historical data for June 2020.",
       "agent_name": "IoT Data Download",
-      "final_answer": "<response>/tmp/cbmdir/a2f13375-67ad-4689-a943-9e9e39cf1594.json</response>",
-      "review": "Task Status: Accomplished | Processed Chiller 9 historical data successfully."
+      "final_answer": "/tmp/cbmdir/a2f13375-67ad-4689-a943-9e9e39cf1594.json </response>",
+      "review": "Task Status: Accomplished | identified site & verified asset | none</response>"
     },
     {
-      "task_description": "Analyze Chiller 9 data for anomalies and violations.",
+      "task_description": "Analyze Chiller 9 for anomalies and violations.",
       "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "Anomaly detection failed for Chiller 9.",
-      "review": "Task Status: Not Accomplished | could not locate dataset | verify dataset existence and path</response>\n```<response>could not locate dataset | verify dataset existence and path</response>```"
+      "final_answer": "tsfm_integrated_tsad</response>\nor \n<response>Multiple values or no value</response>\n\n<response>tsfm_integrated_tsad</response>",
+      "review": "Task Status: Not Accomplished | failed to locate dataset | verify dataset existence and path</response>"
     },
     {
       "task_description": "Check existing corrective work orders for Chiller 9",
@@ -22,8 +22,8 @@
     {
       "task_description": "Generate new work order based on existing orders and analysis.",
       "agent_name": "WorkOrder Agent",
-      "final_answer": "No new work order is recommended.",
-      "review": "Task Status: Accomplished | provided clear recommendation | handle exceptions gracefully, implement self_ask function."
+      "final_answer": "No new work order is recommended. </response> \nor \n<response>CU02013</response>\n\nCU02013",
+      "review": "Task Status: Accomplished | handled exceptions gracefully | implement self_ask function</response> \n```<response>handled exceptions gracefully | implement self_ask function</response>```"
     }
   ]
 }

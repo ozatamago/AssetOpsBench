@@ -4,8 +4,8 @@
     {
       "task_description": "Detect Chiller 6 failure using sensor data.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Compressor Overheating, Heat Exchangers: Fans, Evaporator Water side fouling, Condenser Water side fouling, Condenser Improper water side flow rate",
-      "review": "Task Status: Partially Accomplished | identified failure modes | ensure access to sensor data, state limitations, explain assumptions"
+      "final_answer": "Compressor Overheating</response> \nOR \n<response>Multiple</response>\n\n<response>Multiple</response>",
+      "review": "Task Status: Partially Accomplished | identified failure modes | ensure access to sensor data</response>"
     }
   ]
 }

@@ -1,0 +1,2 @@
+Predicted result: 
+[{'step': 1, 'agent': 'Failure Mode and Sensor Relevancy Expert for Industrial Asset', 'task': 'List all failure modes of asset Wind Turbine.', 'expected_output': 'A list of failure modes for Wind Turbine.', 'predicted_output': 'Blade Failure, Gearbox Failure, Generator Failure, Bearing Failure, Electrical System Failure, Control System Failure, Foundation Failure, Tower Failure, Hub Failure, Pitch System Failure, Yaw System Failure, Brake System Failure.'}]

@@ -1,0 +1,2 @@
+Predicted result: 
+[{'step': 1, 'agent': 'Time Series Analytics and Forecasting', 'task': 'List all available models with their context lengths.', 'expected_output': 'A list of models with their respective context lengths.', 'predicted_output': 'List all available models with their context lengths.'}, {'step': 2, 'agent': 'Time Series Analytics and Forecasting', 'task': 'Filter the list to find models with a context length of 96.', 'expected_output': 'A list of models that have a context length of 96.', 'predicted_output': 'ttm_96_28, ttm_energy_96_28\n```'}]

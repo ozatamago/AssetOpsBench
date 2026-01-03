@@ -2,16 +2,16 @@
   "text": "What's the forecast for Chiller 6's Tonnage for next week based on the data from the week of 2020-04-27 at MAIN?",
   "tasks": [
     {
-      "task_description": "Fetch Chiller 6 Tonnage data for MAIN site. \nFetch Chiller 6 Tonnage data for MAIN site. \nFetch historical Chiller 6 Tonnage for MAIN. \nFetch Chiller 6 Tonnage data for MAIN.",
+      "task_description": "Fetch Chiller 6 Tonnage data from MAIN site for 2020-04-27 week.",
       "agent_name": "IoT Data Download",
-      "final_answer": "9d97bd3e-f81c-49d5-acd2-327b8cddbdb8.json</response>\nshould be \n9d97bd3e-f81c-49d5-acd2-327b8cddbdb8.json\n\nHere is the response:\n9d97bd3e-f81c-49d5-acd2-327b8cddbdb8.json",
+      "final_answer": "Multiple Steps</response>",
       "review": "Task Status: Accomplished | retrieved historical data | provide actual data or summary</response>\n```<response>retrieved historical data | provide actual data or summary</response>```"
     },
     {
       "task_description": "Predict Chiller 6 Tonnage for next week using historical data.",
       "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "ttm_energy_96_28 — the response is not correct. \nThe task is to provide a short answer, ≤ 10 words.\nOne line. No preamble or quotes. \nThe final answer is ttm_energy_96_28. \n\nttm_energy_96_28.",
-      "review": "Task Status: Not Accomplished | failed to forecast Chiller 6's Tonnage | provide correct dataset path and execute tsfm_forecasting tool"
+      "final_answer": "ttm_energy_96_28</response>",
+      "review": "Task Status: Not Accomplished | incorrect dataset path | provide correct dataset path and execute tsfm_forecasting tool</response>"
     }
   ]
 }

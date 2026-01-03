@@ -2,19 +2,19 @@
   "text": "We are building an early detection system for a potential failure condenser Water side fouling for Chiller 9. Monitor Chiller 9 at main site site from 2020-04-20T12:30:00 to 2020-05-12T19:30:00, identify anomalous behaviors and provide a work order recommendation if there is no such corrective work order created already.",
   "tasks": [
     {
-      "task_description": "Fetch Chiller 9 historical data for 2020-04-20T12:30 to 2020-05-12T19:30.",
+      "task_description": "Fetch Chiller 9 historical data for specified time range.",
       "agent_name": "IoT Data Download",
-      "final_answer": "934f8572-dd96-422a-b14a-e29d45082f93.json</response>\n934f8572-dd96-422a-b14a-e29d45082f93.json",
-      "review": "Task Status: Accomplished | downloaded Chiller 9 data | none"
+      "final_answer": "934f8572-dd96-422a-b14a-e29d45082f93.json</response>",
+      "review": "Task Status: Accomplished | used history tool correctly | none</response>\nNo other text or explanation is required."
     },
     {
-      "task_description": "Analyze Chiller 9 data for anomalies and operation alerts",
+      "task_description": "Analyze Chiller 9 data for anomalies and alerts.",
       "agent_name": "Time Series Analytics and Forecasting",
       "final_answer": "",
-      "review": "Task Status: Not Accomplished | ensure data files exist and file paths are correct"
+      "review": "Task Status: Not Accomplished | ensure correct file paths and verify file existence"
     },
     {
-      "task_description": "Generate work order for Chiller 9 with anomalous behavior",
+      "task_description": "Generate work order for Chiller 9 with anomaly.",
       "agent_name": "WorkOrder Agent",
       "final_answer": "CU02009</response> is not valid, \nM005, M006",
       "review": "Task Status: Accomplished | executed steps successfully | handle initial error, provide more context</response>\n```<response>executed steps successfully | handle initial error, provide more context</response>```"
