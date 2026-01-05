@@ -1,0 +1,15 @@
+stop_index: 2
+
+truncated_plan:  
+#Task1: Use the Time Series Analytics and Forecasting agent to forecast 'Chiller 9 Condenser Water Flow' based on the historical data in 'chiller9_annotated_small_test.csv'.
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: Forecasted values for 'Chiller 9 Condenser Water Flow'.
+
+#Task2: Create a work order for inspecting Chiller 9 based on the forecasted 'Chiller 9 Condenser Water Flow' values to identify potential issues.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: A generated work order for Chiller 9 inspection.
+
+status: Partially accomplished
+can_answer_now:False

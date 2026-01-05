@@ -1,0 +1,24 @@
+stop_index: 4
+
+truncated_plan: #Task1: Read the 'chiller9_annotated_small_test.csv' file to understand its structure and content.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The structure and content of 'chiller9_annotated_small_test.csv'.
+
+#Task2: Use the Time Series Analytics and Forecasting agent to forecast 'Chiller 9 Condenser Water Flow' based on the given input parameters.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Forecasted values for 'Chiller 9 Condenser Water Flow'.
+
+#Task3: Analyze the forecasted values to identify any anomalies or trends.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Analysis of the forecasted values.
+
+#Task4: Create a work order for maintenance based on the forecasted values and analysis.
+#Agent4: WorkOrder Agent
+#Dependency4: #S2 #S3
+#ExpectedOutput4: A generated work order for maintenance.
+
+status: Not accomplished
+can_answer_now:False

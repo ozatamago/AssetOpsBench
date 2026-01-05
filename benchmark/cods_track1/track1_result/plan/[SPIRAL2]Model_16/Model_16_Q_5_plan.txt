@@ -1,0 +1,17 @@
+Question: Retrieve metadata for Chiller 6 located at the MAIN site.
+Plan:
+ 
+#Task1: Retrieve the list of assets at the MAIN site.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at MAIN site
+
+#Task2: Check if Chiller 6 is among the assets at the MAIN site.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Confirmation if Chiller 6 exists
+
+#Task3: Retrieve metadata for Chiller 6 at the MAIN site.
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: Metadata for Chiller 6

@@ -1,0 +1,22 @@
+Question: Forecast 'Chiller 9 Condenser Water Flow' using data in 'chiller9_annotated_small_test.csv'. Use parameter 'Timestamp' as a timestamp.
+Plan:
+ 
+#Task1: Understand how to read the 'chiller9_annotated_small_test.csv' file.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Instructions on how to read or understand the CSV file.
+
+#Task2: Use the Time Series Analytics and Forecasting agent to forecast 'Chiller 9 Condenser Water Flow' based on the data in 'chiller9_annotated_small_test.csv', specifying 'Timestamp' as the timestamp column.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Forecasted values for 'Chiller 9 Condenser Water Flow'.
+
+#Task3: Analyze the forecasted 'Chiller 9 Condenser Water Flow' values to identify any anomalies or significant changes.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Analysis of the forecasted values, highlighting any anomalies.
+
+#Task4: Based on the analysis, generate a work order if any anomalies or significant changes are detected in the forecasted 'Chiller 9 Condenser Water Flow' values.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Work order generated if necessary.

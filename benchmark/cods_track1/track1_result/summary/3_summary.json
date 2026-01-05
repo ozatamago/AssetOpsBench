@@ -2,9 +2,9 @@
   "text": "What assets can be found at the MAIN site?",
   "tasks": [
     {
-      "task_description": "List assets at MAIN site",
+      "task_description": "List assets at site MAIN",
       "agent_name": "IoT Data Download",
-      "final_answer": "/tmp/cbmdir/ade01cf7-4424-48ca-98b2-0734a2561552.json </response>\nOr \n<response> ≤ 10 words </response>\n\n<response>/tmp/cbmdir/ade01cf7-4424-48ca-98b2-0734a2561552.json</response>",
+      "final_answer": "<response> /tmp/cbmdir/ade01cf7-4424-48ca-98b2-0734a2561552.json </response>",
       "review": "Task Status: Accomplished | used assets tool correctly | provide JSON content summary</response>"
     }
   ]

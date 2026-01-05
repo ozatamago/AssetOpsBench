@@ -1,0 +1,15 @@
+stop_index: 2
+
+truncated_plan:  
+#Task1: Download sensor data for chiller tonnage.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Sensor data for chiller tonnage in a JSON file.
+
+#Task2: Analyze the downloaded sensor data for chiller tonnage to identify any anomalies.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Analysis report indicating any anomalies in chiller tonnage.
+
+status: Not accomplished
+can_answer_now:False

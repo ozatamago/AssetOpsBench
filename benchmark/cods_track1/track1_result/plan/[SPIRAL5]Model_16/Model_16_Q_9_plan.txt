@@ -1,0 +1,7 @@
+Question: Retrieve sensor data for Chiller 6's % Loaded from June 2020 at MAIN.
+Plan:
+ 
+#Task1: Retrieve the list of sites to identify the site name 'MAIN'.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of sites including 'MAIN'.

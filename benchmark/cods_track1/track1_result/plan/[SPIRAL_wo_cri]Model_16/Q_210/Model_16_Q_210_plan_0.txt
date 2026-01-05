@@ -1,8 +1,0 @@
-Question: Is any model with context length 1024 supported in TSFM?
-Plan:
-#Task1: Check if any model with context length 1024 is supported in TSFM.
-#Agent1: Time Series Analytics and Forecasting
-#Dependency1: None
-#ExpectedOutput1: Confirmation on whether a model with context length 1024 is supported in TSFM.
-
-The plan has been generated with a single step as it directly relates to the capabilities of the Time Series Analytics and Forecasting agent, which can assist with model selection and context length specifications.

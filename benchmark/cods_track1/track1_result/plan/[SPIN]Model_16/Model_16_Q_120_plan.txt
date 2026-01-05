@@ -1,0 +1,11 @@
+Question: I want to build an anomaly model for identifying a chiller trip failure for POKMAIN chiller 6. Provide me a list of sensors that I should use, along with the temporal behavior,
+Plan:
+#Task1: Identify relevant sensors for chiller trip failure of POKMAIN chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of relevant sensors for chiller trip failure
+
+#Task2: Determine the temporal behavior of the relevant sensors for chiller trip failure
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: Temporal behavior of the relevant sensors

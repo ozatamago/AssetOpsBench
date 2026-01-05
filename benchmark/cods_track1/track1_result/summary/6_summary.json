@@ -4,8 +4,8 @@
     {
       "task_description": "Fetch Chiller 9 asset details at MAIN site.",
       "agent_name": "IoT Data Download",
-      "final_answer": "Question</response> or a single value if it exists.",
-      "review": "Task Status: Accomplished | identified Chiller 9 as asset | provide summary directly</response>\n```<response>identified Chiller 9 as asset | provide summary directly</response>```"
+      "final_answer": "MAIN</response>",
+      "review": "Task Status: Accomplished | Chiller 9 asset and sensor details summary provided directly."
     }
   ]
 }

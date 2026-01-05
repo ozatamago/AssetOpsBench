@@ -1,0 +1,8 @@
+Question: List all failure modes of asset Chiller 6.
+Plan:
+#Task1: List all failure modes of asset Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes for Chiller 6.
+
+The plan is complete with a single step that directly addresses the problem by utilizing the appropriate agent.

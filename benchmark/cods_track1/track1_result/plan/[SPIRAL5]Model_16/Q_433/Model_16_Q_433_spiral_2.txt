@@ -1,0 +1,25 @@
+stop_index: 4
+
+truncated_plan:  
+#Task1: Retrieve historical data for Chiller 9 at main site from 2020-04-20T12:30:00 to 2020-05-12T19:30:00.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for Chiller 9 at main site from 2020-04-20T12:30:00 to 2020-05-12T19:30:00 in JSON format.
+
+#Task2: Analyze the retrieved historical data to identify any anomalous behaviors related to condenser Water side fouling for Chiller 9.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly detection results for Chiller 9 related to condenser Water side fouling.
+
+#Task3: Identify relevant sensors for monitoring condenser Water side fouling failure of Chiller 9.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: None
+#ExpectedOutput3: List of relevant sensors for monitoring condenser Water side fouling failure of Chiller 9.
+
+#Task4: Generate a work order recommendation based on the anomaly detection results and relevant sensors.
+#Agent4: WorkOrder Agent
+#Dependency4: #S2 #S3
+#ExpectedOutput4: Work order recommendation for Chiller 9.
+
+status: Not accomplished
+can_answer_now:False

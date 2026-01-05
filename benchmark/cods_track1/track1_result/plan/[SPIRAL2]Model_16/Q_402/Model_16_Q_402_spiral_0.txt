@@ -1,0 +1,9 @@
+stop_index: 1
+
+truncated_plan: #Task1: Identify the relevant equipment and time frame for the work order.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of assets at the site where CWC04013 is located.
+
+status: Not accomplished
+can_answer_now:False

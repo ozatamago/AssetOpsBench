@@ -1,0 +1,30 @@
+Question: Retrieve metadata for Chiller 6 located at the MAIN site.
+Plan:
+#Task1: Retrieve the list of sites available.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of available sites
+
+#Task2: Check if MAIN is among the available sites.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Confirmation if MAIN site exists
+
+#Task3: Retrieve the list of assets at the MAIN site.
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: List of assets at MAIN site
+
+#Task4: Retrieve metadata for Chiller 6 at the MAIN site.
+#Agent4: IoT Data Download
+#Dependency4: #S3
+#ExpectedOutput4: Metadata for Chiller 6
+
+The generated plan is a 4-step process that uses the IoT Data Download agent to retrieve the required metadata for Chiller 6 at the MAIN site. 
+
+First, it retrieves the list of available sites. 
+Then, it checks if the MAIN site is among the available sites. 
+Next, it retrieves the list of assets at the MAIN site. 
+Finally, it retrieves the metadata for Chiller 6.
+
+Let's execute this plan.

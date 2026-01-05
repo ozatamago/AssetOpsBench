@@ -1,2 +1,0 @@
-Predicted result: 
-[{'step': 1, 'agent': 'Time Series Analytics and Forecasting', 'task': 'Check if Anomaly Detection is supported in TSFM', 'expected_output': 'Confirmation on whether Anomaly Detection is supported', 'predicted_output': 'Yes, Anomaly Detection is supported.'}]

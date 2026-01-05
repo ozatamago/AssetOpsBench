@@ -1,0 +1,15 @@
+stop_index: 2
+
+truncated_plan:  
+#Task1: Determine the start date for the week of 2020-04-27.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The start date for the week of 2020-04-27.
+
+#Task2: Download the sensor data for Chiller 6's Tonnage at the MAIN site for the week of 2020-04-27.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: The sensor data for Chiller 6's Tonnage at the MAIN site for the specified week.
+
+status: Not accomplished
+can_answer_now:False

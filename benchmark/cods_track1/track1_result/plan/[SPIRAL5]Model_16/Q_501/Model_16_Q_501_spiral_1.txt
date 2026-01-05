@@ -1,0 +1,10 @@
+stop_index: 1
+
+truncated_plan:  
+#Task1: Calculate the start date for the week of 2020-04-27.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The start date for the week of 2020-04-27.
+
+status: Not accomplished
+can_answer_now:False

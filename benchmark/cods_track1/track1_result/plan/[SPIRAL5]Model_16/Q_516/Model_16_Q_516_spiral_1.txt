@@ -1,0 +1,10 @@
+stop_index: 1
+
+truncated_plan:  
+#Task1: Retrieve historical energy consumption data for Chiller 6 at MAIN for the week of 2020-04-27.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical energy consumption data for Chiller 6 at MAIN for the specified week in JSON format.
+
+status: Not accomplished
+can_answer_now:False

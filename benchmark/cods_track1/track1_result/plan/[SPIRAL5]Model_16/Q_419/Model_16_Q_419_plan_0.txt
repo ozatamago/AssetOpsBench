@@ -1,0 +1,23 @@
+Question: Using your knowledge of the industrial asset, can you suggest me a work order for alert RUL0014 with the context of 'Chiller - Cooling Substance Delta T Low' for closed-loop water-cool chiller its load is higher than the upper bound?
+Plan:
+#Task1: Identify the relevant sensors and failure modes associated with the alert RUL0014 and 'Chiller - Cooling Substance Delta T Low' for a closed-loop water-cool chiller.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of relevant sensors and failure modes for the given alert and chiller type.
+
+#Task2: Retrieve historical sensor data for the identified relevant sensors for the chiller in question.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Historical sensor data for the relevant sensors.
+
+#Task3: Analyze the retrieved sensor data to detect any anomalies or patterns that could be related to the alert RUL0014 when the chiller load is higher than the upper bound.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Analysis results indicating any anomalies or patterns.
+
+#Task4: Based on the analysis results, generate a work order for the chiller with appropriate recommendations for preventive or corrective actions.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: A generated work order with recommendations.
+
+The plan is designed to be executed in 4 steps, utilizing the available agents to address the problem. It starts by identifying relevant sensors and failure modes, followed by retrieving historical sensor data, analyzing the data for anomalies, and finally generating a work order based on the analysis.

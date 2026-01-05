@@ -1,0 +1,10 @@
+stop_index: 1
+
+truncated_plan:  
+#Task1: Download sensor data for CU02004 at SiteX for June 2020.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Sensor data for CU02004 for June 2020.
+
+status: Not accomplished
+can_answer_now:False

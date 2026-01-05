@@ -1,0 +1,15 @@
+stop_index: 2
+
+truncated_plan:  
+#Task1: Identify the failure modes of Chiller 6 at MAIN site.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of failure modes of Chiller 6.
+
+#Task2: Determine the relevant sensors for the identified failure modes of Chiller 6.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: Mapping between failure modes and relevant sensors.
+
+status: Not accomplished
+can_answer_now:False

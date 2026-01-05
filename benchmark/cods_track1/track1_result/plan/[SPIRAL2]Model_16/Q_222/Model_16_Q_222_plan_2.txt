@@ -1,0 +1,44 @@
+Question: I need to perform Time Series anomaly detection of 'Chiller 9 Condenser Water Flow' using data in chiller9_tsad.csv
+Plan:
+ 
+#Task1: Analyze the time-series data in chiller9_tsad.csv and look for anomalies in 'Chiller 9 Condenser Water Flow'.
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: Anomaly detection results for 'Chiller 9 Condenser Water Flow' in chiller9_tsad.csv.
+
+#Task2: Create a work order for inspecting Chiller 9 due to detected anomalies in 'Chiller 9 Condenser Water Flow'.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: A generated work order for inspecting Chiller 9.
+
+#Task3: List all failure modes of Chiller 9 that can be detected by monitoring 'Chiller 9 Condenser Water Flow'.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S1
+#ExpectedOutput3: Failure modes of Chiller 9 detectable by 'Chiller 9 Condenser Water Flow'. 
+
+{
+  "type": "function",
+  "name": "generate_plan",
+  "parameters": {
+    "tasks": [
+      {
+        "task": "Analyze the time-series data in chiller9_tsad.csv and look for anomalies in 'Chiller 9 Condenser Water Flow'.",
+        "agent": "Time Series Analytics and Forecasting",
+        "dependency": null,
+        "expected_output": "Anomaly detection results for 'Chiller 9 Condenser Water Flow' in chiller9_tsad.csv."
+      },
+      {
+        "task": "Create a work order for inspecting Chiller 9 due to detected anomalies in 'Chiller 9 Condenser Water Flow'.",
+        "agent": "WorkOrder Agent",
+        "dependency": "#S1",
+        "expected_output": "A generated work order for inspecting Chiller 9."
+      },
+      {
+        "task": "List all failure modes of Chiller 9 that can be detected by monitoring 'Chiller 9 Condenser Water Flow'.",
+        "agent": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
+        "dependency": "#S1",
+        "expected_output": "Failure modes of Chiller 9 detectable by 'Chiller 9 Condenser Water Flow'."
+      }
+    ]
+  }
+}

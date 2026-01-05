@@ -1,0 +1,10 @@
+stop_index: 1
+
+truncated_plan:  
+#Task1: Determine the start date for last week
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Start date for last week
+
+status: Not accomplished
+can_answer_now:False

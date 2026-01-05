@@ -1,2 +1,0 @@
-Predicted result: 
-[{'step': 1, 'agent': 'Time Series Analytics and Forecasting', 'task': 'Check if TTM (Tiny Time Mixture) is a supported time series model.', 'expected_output': 'Confirmation on whether TTM is supported or not.', 'predicted_output': 'Yes, TTM is supported with the following models available: ttm_96_28, ttm_512_96, ttm_energy_96_28, ttm_energy_512_96.'}]

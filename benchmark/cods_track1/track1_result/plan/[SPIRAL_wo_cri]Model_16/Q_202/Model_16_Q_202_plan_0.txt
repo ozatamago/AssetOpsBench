@@ -1,8 +1,0 @@
-Question: What are time series pretrained models are available in system?
-Plan:
-#Task1: List available time series pretrained models in the system.
-#Agent1: Time Series Analytics and Forecasting
-#Dependency1: None
-#ExpectedOutput1: List of available time series pretrained models.
-
-Since there is only one task and one agent involved, the plan is straightforward and meets the constraints. The task is to directly ask the Time Series Analytics and Forecasting agent about the available pretrained models, as it is the most relevant agent for this query.

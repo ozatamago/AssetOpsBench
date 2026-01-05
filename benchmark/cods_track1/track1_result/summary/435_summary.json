@@ -2,16 +2,16 @@
   "text": "Assume today is early of July 2020, I would like to review the alerts for chiller 9 with equipment ID CWC04009 for June 2020 and the work order should be generated based on the type of alerts.",
   "tasks": [
     {
-      "task_description": "Download historical data for Chiller 9 with ID CWC04009 June 2020.",
+      "task_description": "Download historical data for Chiller 9 with ID CWC04009 June 2020",
       "agent_name": "IoT Data Download",
-      "final_answer": "/tmp/cbmdir/2ca4473c-7d3f-4e26-a874-d33b302ede08.json\n/tmp/cbmdir/2ca4473c-7d3f-4e26-a874-d33b302ede08.json\nbecomes \n/tmp/cbmdir/2ca4473c-7d3f-4e26-a874-d33b302ede08.json",
+      "final_answer": "File exists or /tmp/cbmdir/2ca4473c-7d3f-4e26-a874-d33b302ede08.json\nFile exists.",
       "review": "Task Status: Accomplished | identified site correctly | none."
     },
     {
-      "task_description": "Analyze Chiller 9 data for anomalies and violations.",
+      "task_description": "Analyze Chiller 9 for anomalies and violations.",
       "agent_name": "Time Series Analytics and Forecasting",
-      "final_answer": "tsfm_integrated_tsad, tsfm_forecasting, tsfm_forecasting_finetune, tsfm_forecasting_evaluation",
-      "review": "Task Status: Not Accomplished | identified unavailability of data file|provide detailed info on expected data file or suggest sources"
+      "final_answer": "MAIN, SECONDARY, TERTIARY.",
+      "review": "Task Status: Not Accomplished | identified unavailability of data file | provide detailed info on expected data file or suggest sources</response>\n</response>"
     },
     {
       "task_description": "Generate work order for Chiller 9 alerts",

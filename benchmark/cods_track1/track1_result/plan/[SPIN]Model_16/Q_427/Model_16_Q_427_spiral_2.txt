@@ -1,0 +1,15 @@
+stop_index: 2
+
+truncated_plan:  
+#Task1: Identify the relevant sensors and failure modes for Chiller 6 to understand the context of the alerts.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of failure modes and relevant sensors for Chiller 6.
+
+#Task2: Download historical sensor data for Chiller 6 to analyze the alerts.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Historical sensor data for Chiller 6.
+
+status: Not accomplished
+can_answer_now:False

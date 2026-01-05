@@ -1,0 +1,17 @@
+Question: After checking existing work orders, anomalies and alerts in May and June 2020 for Chiller 9 with equipment ID CWC04009, should I recommend a new work order or is it too early to decide for July 2020?
+Plan:
+ 
+#Task1: Retrieve existing work orders for Chiller 9 (CWC04009) in May and June 2020.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: List of work orders for Chiller 9 in May and June 2020.
+
+#Task2: Analyze anomalies and alerts for Chiller 9 (CWC04009) in May and June 2020.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Historical data and metadata for Chiller 9, including anomalies and alerts.
+
+#Task3: Examine the historical data and metadata to identify any patterns or potential issues with Chiller 9.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Analysis of time-series data for Chiller 9, highlighting any anomalies or potential issues.

@@ -1,0 +1,9 @@
+stop_index: 1
+
+truncated_plan: #Task1: Retrieve historical data for relevant KPIs of Chiller 6.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for "CHILLED WATER LEAVING TEMP" and "CHILLED WATER RETURN TEMP" for CU02004 at SiteX.
+
+status: Not accomplished
+can_answer_now:False

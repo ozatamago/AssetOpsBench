@@ -1,0 +1,22 @@
+Question: Since we know 80% of alerts are likely spurious, can you identify the meaningful 20% for further analysis for any chillers?
+Plan:
+ 
+#Task1: Identify the relevant sensors and failure modes for Chiller 6 to understand the context of the alerts.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of failure modes and relevant sensors for Chiller 6.
+
+#Task2: Download historical sensor data for Chiller 6 to analyze the alerts.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Historical sensor data for Chiller 6.
+
+#Task3: Analyze the downloaded sensor data to identify anomalies and potential meaningful alerts.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Anomaly detection results and potential meaningful alerts.
+
+#Task4: Generate work orders for the identified meaningful alerts.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Work orders for the meaningful alerts.

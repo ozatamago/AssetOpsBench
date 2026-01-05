@@ -1,0 +1,7 @@
+Question: I need to perform Time Series anomaly detection of 'Chiller 9 Condenser Water Flow' using data in chiller9_tsad.csv
+Plan:
+ 
+#Task1: Analyze the time-series data in chiller9_tsad.csv and look for anomalies in 'Chiller 9 Condenser Water Flow'.
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: Anomaly detection results for 'Chiller 9 Condenser Water Flow' in chiller9_tsad.csv.

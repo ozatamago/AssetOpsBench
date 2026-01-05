@@ -1,0 +1,12 @@
+Question: Provide some sensors of asset Wind Turbine.
+Plan:
+ 
+#Task1: List all failure modes of Wind Turbine
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of failure modes for Wind Turbine
+
+#Task2: Identify relevant sensors for a specific failure mode of Wind Turbine
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: List of relevant sensors for Wind Turbine failure mode

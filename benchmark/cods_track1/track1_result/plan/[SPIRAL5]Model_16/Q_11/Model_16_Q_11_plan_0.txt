@@ -1,0 +1,23 @@
+Question: Download all sensor data for Chiller 6 from the last week of April '20 at the MAIN site.
+Plan:
+#Task1: Identify the relevant site and asset for the task
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Site name (MAIN) and asset name (Chiller 6) or their identifiers
+
+#Task2: Determine the start and end dates for the last week of April '20
+#Agent2: IoT Data Download
+#Dependency2: None
+#ExpectedOutput2: Start and end dates in the required format
+
+#Task3: Download sensor data for Chiller 6 at the MAIN site for the specified date range
+#Agent3: IoT Data Download
+#Dependency3: #Task1, #Task2
+#ExpectedOutput3: Sensor data for Chiller 6 in JSON format
+
+#Task4: Verify if the downloaded data contains the required sensor information
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency4: #Task3
+#ExpectedOutput4: Confirmation on whether the downloaded data contains relevant sensor information for Chiller 6
+
+The plan is complete.

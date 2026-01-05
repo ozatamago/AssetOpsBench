@@ -1,0 +1,20 @@
+stop_index: 3
+
+truncated_plan:  
+#Task1: Retrieve the historical data for Chiller 9's Tonnage and Power Input at the MAIN site for the week of 2020-04-27.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for Chiller 9's Tonnage and Power Input at the MAIN site for the specified week.
+
+#Task2: Analyze the retrieved data for anomalies in Chiller 9's Tonnage and Power Input.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly detection results for Chiller 9's Tonnage and Power Input.
+
+#Task3: Generate a work order based on the anomaly detection results for Chiller 9.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A work order for Chiller 9 based on the detected anomalies.
+
+status: Not accomplished
+can_answer_now:False

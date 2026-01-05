@@ -1,2 +1,0 @@
-Predicted result: 
-[{'step': 1, 'agent': 'Failure Mode and Sensor Relevancy Expert for Industrial Asset', 'task': 'List all failure modes of Chiller 6 at MAIN site.', 'expected_output': 'A list of failure modes for Chiller 6.', 'predicted_output': 'Output: \n``` \n7 failure modes \n```'}]

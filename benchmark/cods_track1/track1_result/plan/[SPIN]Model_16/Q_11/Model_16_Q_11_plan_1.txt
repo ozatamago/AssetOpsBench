@@ -1,0 +1,19 @@
+Question: Download all sensor data for Chiller 6 from the last week of April '20 at the MAIN site.
+Plan:
+ 
+#Task1: Calculate the start and end dates for the last week of April '20
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Start and end dates for the last week of April '20
+
+#Task2: Download sensor data for Chiller 6 at the MAIN site for the specified date range
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Sensor data for Chiller 6 at the MAIN site for the last week of April '20
+
+#Task3: Confirm the site and asset details
+#Agent3: IoT Data Download
+#Dependency3: None
+#ExpectedOutput3: Confirmation that the site is "MAIN" and the asset is "Chiller 6"
+
+The plan is complete.

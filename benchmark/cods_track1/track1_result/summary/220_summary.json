@@ -2,22 +2,22 @@
   "text": "Finetune a forecasting model for 'Chiller 9 Condenser Water Flow' using data in 'chiller9_finetuning_small.csv' with 'Timestamp' as a timestamp.",
   "tasks": [
     {
-      "task_description": "Read chiller9_finetuning_small CSV file and understand its structure.",
+      "task_description": "Read CSV file chiller9_finetuning_small and understand structure",
       "agent_name": "IoT Data Download",
       "final_answer": "pd.read_csv('chiller9_finetuning_small.csv')",
-      "review": "Task Status: Not Accomplished | did not read CSV file | should have used available action or stated limitation</response>\n</response>"
+      "review": "Task Status: Not Accomplished | Use available action or state limitation."
     },
     {
-      "task_description": "Finetune forecasting model with chiller9_finetuning_small.csv.",
+      "task_description": "Finetune forecasting model using chiller9_finetuning_small.csv data</response> \nFinetune forecasting model using chiller9_finetuning_small.csv data",
       "agent_name": "Time Series Analytics and Forecasting",
       "final_answer": "",
       "review": "Task Status: Not Accomplished | Verify dataset file path and existence to resolve finetuning failure."
     },
     {
-      "task_description": "Test finetuned model.",
+      "task_description": "Test finetuned model on test dataset for performance.",
       "agent_name": "Time Series Analytics and Forecasting",
       "final_answer": "",
-      "review": "Task Status: Not Accomplished | Ensure test dataset files are available and correctly referenced to verify the finetuned model."
+      "review": "Task Status: Not Accomplished | Ensure test dataset files are available and correctly referenced."
     }
   ]
 }

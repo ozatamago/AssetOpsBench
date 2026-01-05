@@ -1,0 +1,9 @@
+stop_index: 1
+
+truncated_plan: #Task1: Identify the sites available and check if MAIN facility is among them.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of available sites
+
+status: Not accomplished
+can_answer_now:False

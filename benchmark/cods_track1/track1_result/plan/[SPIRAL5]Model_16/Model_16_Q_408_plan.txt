@@ -1,0 +1,7 @@
+Question: Get the daily count of the events of alert, anomaly for the May 2020 for equipment CWC04009.
+Plan:
+ 
+#Task1: Retrieve historical data for equipment CWC04009 for May 2020.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for CWC04009 for May 2020.

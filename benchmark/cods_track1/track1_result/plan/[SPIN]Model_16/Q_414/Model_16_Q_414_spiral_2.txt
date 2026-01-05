@@ -1,0 +1,15 @@
+stop_index: 2
+
+truncated_plan:  
+#Task1: Determine the start date and end date for last week
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Start date and end date for last week
+
+#Task2: Download historical sensor data for CWC04009 for the last week
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Historical sensor data for CWC04009 for the last week
+
+status: Not accomplished
+can_answer_now:False

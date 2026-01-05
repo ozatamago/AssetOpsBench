@@ -1,2 +1,0 @@
-Predicted result: 
-[{'step': 1, 'agent': 'Time Series Analytics and Forecasting', 'task': 'Check if any model with context length 96 is supported in TSFM.', 'expected_output': 'Confirmation on whether a model with context length 96 is supported in TSFM.', 'predicted_output': 'ttm_96_28, ttm_energy_96_28</response> \nOR \nttm_96_28, ttm_energy_96_28 \nThe final answer is ttm_96_28, ttm_energy_96_28.'}]

@@ -1,0 +1,20 @@
+stop_index: 3
+
+truncated_plan:  
+#Task1: Identify the potential failure that causes a drop in power input of Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of potential failures that cause a drop in power input of Chiller 6.
+
+#Task2: Verify if the identified potential failures can be detected by any sensors.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: Relevant sensors that can detect the potential failures.
+
+#Task3: Retrieve historical data for Chiller 6 power input and relevant sensor data.
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: Historical data for Chiller 6 power input and relevant sensor data.
+
+status: Not accomplished
+can_answer_now:False

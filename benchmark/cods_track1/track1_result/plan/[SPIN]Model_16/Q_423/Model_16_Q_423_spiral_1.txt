@@ -1,0 +1,15 @@
+stop_index: 2
+
+truncated_plan:  
+#Task1: Retrieve historical work order information for Chiller 9 with equipment ID CWC04009 upto end of June 2020.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: Historical work order data for Chiller 9 (CWC04009) upto June 2020.
+
+#Task2: Analyze the historical work order data to identify patterns or critical issues for Chiller 9.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: Analysis of historical work orders highlighting critical issues or patterns.
+
+status: Not accomplished
+can_answer_now:False

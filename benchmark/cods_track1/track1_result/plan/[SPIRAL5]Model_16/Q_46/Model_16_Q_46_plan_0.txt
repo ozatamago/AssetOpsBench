@@ -1,0 +1,23 @@
+Question: retrieve the supply temperature data recorded last week for Chiller 3 (MAIN site)?
+Plan:
+#Task1: Determine the start and end dates for last week.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Start and end dates for last week in the required format.
+
+#Task2: Retrieve the supply temperature data for Chiller 3 at the MAIN site for last week.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Supply temperature data for Chiller 3 at the MAIN site for last week.
+
+#Task3: Analyze the retrieved supply temperature data for any anomalies.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Analysis report highlighting any anomalies in the supply temperature data.
+
+#Task4: Generate a work order for Chiller 3 if any anomalies are detected in the supply temperature data.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Work order generated for Chiller 3 if anomalies are detected.
+
+The plan is complete.

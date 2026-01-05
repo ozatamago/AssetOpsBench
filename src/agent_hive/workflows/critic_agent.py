@@ -847,95 +847,102 @@ def parse_plan_text_to_dag_prefix(plan_text: str) -> List[Dict[str, Any]]:
 
 def main() -> None:
     """
-    Minimal CLI-style test for CriticAgent.
+    Minimal CLI-style test for CriticAgent using two provided examples.
 
-    We simulate the situation where a SimulatorAgent has already produced
-    a predicted answer for a given DAG prefix and user question.
+    Rule:
+      - success_flag is True iff status is "Accomplished" or "Partially accomplished".
 
-    Test 1:
-        - simulated_predicted_answer_1 is a full natural-language list
-          of assets at MAIN.
-        - We expect the Critic to judge this as "Accomplished".
-
-    Test 2:
-        - simulated_predicted_answer_2 is only a file path that (presumably)
-          contains the list of assets.
-        - We expect the Critic to judge this as "Partially accomplished".
+    Notes:
+      - We build dag_prefix from truncated_plan using parse_plan_text_to_dag_prefix().
+      - candidate_answer is not provided in the examples, so we use a minimal placeholder.
+        Replace it with the SimulatorAgent output (or execution output) in your real pipeline.
     """
     critic = CriticAgent()
 
-    user_question = "Which assets are located at the MAIN facility?"
+    def _status_to_bool(status: str) -> bool:
+        return status in {"Accomplished", "Partially accomplished"}
 
-    # DAG prefix built from the ground-truth execution_steps:
-    #   step1: IoTAgent -> assets(site_name='MAIN')
-    #   finish: IoTAgent -> Finish(argument='The assets for site MAIN are: ...')
-    dag_prefix_full = [
-        "IoTAgent -> assets(site_name='MAIN')",
-        (
-            "IoTAgent -> Finish("
-            "argument='The assets for site MAIN are: "
-            "CQPA AHU 1, CQPA AHU 2B, Chiller 4, "
-            "Chiller 6, Chiller 9, Chiller 3.')"
-        ),
+    examples = [
+        {
+            "name": "Example A (expected: Not accomplished)",
+            "user_question": "What assets can be found at the MAIN site?",
+            "stop_index": 1,
+            "truncated_plan": (
+                "#Task1: List the assets available at SiteX.\n"
+                "#Agent1: IoT Data Download\n"
+                "#Dependency1: None\n"
+                "#ExpectedOutput1: A list of assets at SiteX.\n"
+            ),
+            # Not provided by the user; placeholder
+            "candidate_answer": (
+                "The User Question is: What assets can be found at the MAIN site?\n"
+                "The Target Task is: Agent: IoT Data Download, Task description: List the assets available at SiteX.\n"
+                "The DAG Prefix is: Step 1: {'task': 'List the assets available at SiteX.', 'agent': 'IoT Data Download', "
+                "'dependency': 'None', 'expected_output': 'A list of assets at SiteX.'}\n"
+                "The Similar Past Tasks show that the agent has successfully listed assets at the MAIN site or facility in various ways.\n\n"
+                "Predict the output."
+            ),            
+            # Optional: for logging/expectation only
+            "expected_status": "Not accomplished",
+            "expected_can_answer_now": False,
+        },
+        {
+            "name": "Example B (expected: Partially accomplished)",
+            "user_question": "What assets can be found at the MAIN site?",
+            "stop_index": 1,
+            "truncated_plan": (
+                "#Task1: List the assets available at the MAIN site.\n"
+                "#Agent1: IoT Data Download\n"
+                "#Dependency1: None\n"
+                "#ExpectedOutput1: A list of assets at the MAIN site.\n"
+            ),
+            # Not provided by the user; placeholder (replace with Simulator output)
+            "candidate_answer": ("The available IoT site is MAIN. \nThe assets at the MAIN site are: CQPA AHU 1, CQPA AHU 2B, Chiller 4, Chiller 6, Chiller 9, Chiller 3. \nThe assets for site MAIN are: CQPA AHU 1, CQPA AHU 2B, Chiller 4, Chiller 6, Chiller 9, Chiller 3. \nThe metadata for Chiller 6 at MAIN site includes: Chiller 6 Condenser Water Return To Tower Temperature, Chiller 6 Chiller Efficiency, Chiller 6 Tonnage, Chiller 6 Supply Temperature, Chiller 6 Return Temperature, Chiller 6 Run Status, Chiller 6 Condenser Water Flow, Chiller 6 Schedule, Chiller 6 Power Input, Chiller 6 Chiller % Loaded, Chiller 6 Liquid Refrigerant Evaporator Temperature, Chiller 6 Setpoint Temperature. \nThe metadata for Chiller 3 at MAIN facility has been downloaded and includes the following sensors: Chiller 3 Condenser Water Flow, Chiller 3 Chiller Efficiency, Chiller 3 Liquid Refrigerant Evaporator Temperature, Chiller 3 Run Status, Chiller 3 Tonnage, Chiller 3 Chiller % Loaded, Chiller 3 Supply Temperature, Chiller 3 Condenser Water Supply To Chiller Temperature, Chiller 3 Schedule, Chiller 3 Setpoint Temperature, Chiller 3 Power Input, Chiller 3 Return Temperature. \nThe asset details for Chiller 9 at MAIN site include the following sensors: Chiller 9 Setpoint Temperature, Chiller 9 Supply Temperature, Chiller 9 Tonnage, Chiller 9 Run Status, Chiller 9 Return Temperature, Chiller Efficiency, Chiller 9 Schedule, Chiller 9 Power Input, Chiller 9 Chiller % Loaded, Chiller 9 Condenser Water Flow, Chiller 9 Liquid Refrigerant Evaporator Temperature, Chiller 9 Condenser Water Supply To Chiller Temperature. \nMAIN \nCQPA AHU 1, CQPA AHU 2B, Chiller 4, Chiller 6, Chiller 9, Chiller 3 \nThe available IoT sites are: MAIN. \nThe assets at MAIN are: CQPA AHU 1, CQPA AHU 2B, Chiller 4, Chiller 6, Chiller 9, Chiller 3. \nThe assets at the MAIN site are listed in /tmp/cbmdir/ade01cf7-4424-48ca-98b2-0734a2561552.json. \nThe assets for site MAIN are listed in /tmp/cbmdir/5d20d546-3f34-4607-8b77-67ebb099f801.json. \nThe metadata for Chiller 6 at MAIN site is in /var/folders/fz/l1h7gpv96rv5lg6m_d6bk0gc0000gn/T/cbmdir/1cf556ab-b911-422b-9b9e-daf67076a38f.json. \nThe metadata for Chiller 9 at MAIN site is in /var/folders/fz/l1h7gpv96rv5lg6m_d6bk0gc0000gn/T/cbmdir/81ea7d5b-4667-452e-9c0f-eff30353858b.json. \nThe metadata for Chiller 3 at MAIN facility is in /var/folders/fz/l1h7gpv96rv5lg6m_d6bk0gc0000gn/T/cbmdir/bbbb2e97-77d5-4376-8a21-32a67dda0169.json. \n\nPredict the output for the task: \nAgent: IoT Data Download \nTask description: List the assets available at SiteX. \nUser Question: What assets can be found at the MAIN site? \nDAG Prefix: Step 1: {'task': 'List the assets available at SiteX.', 'agent': 'IoT Data Download', 'dependency': 'None', 'expected_output': 'A list of assets at SiteX.'} \nSimilar Past Tasks: ... \n/ tmp / cbmdir / 12345678 - 1234 - 1234 - 1234 - 123456789012. Json /tmp/cbmdir/ade01cf7-4424-48ca-98b2-0734a2561552.json /tmp/cbmdir/5d20d546-3f34-4607-8b77-67ebb099f801.json CQPA AHU 1, CQPA AHU 2B, Chiller 4, Chiller 6, Chiller 9, Chiller 3 CQPA AHU 1, CQPA AHU 2B, Chiller 3, Chiller 4, Chiller 6, Chiller 9 The assets at MAIN are: CQPA AHU 1, CQPA AHU 2B, Chiller 4, Chiller 6, Chiller 9, Chiller 3. The assets for site MAIN are: CQPA AHU 1, CQPA AHU 2B, Chiller 4, Chiller 6, Chiller 9, Chiller 3. The assets at the MAIN site are: CQPA AHU 1, CQPA AHU 2B, Chiller 4, Chiller 6, Chiller 9, Chiller 3. The assets for MAIN site are listed in /tmp/cbmdir/ade01cf7-4424-48ca-98b2-0734a2561552.json. The assets for site MAIN are listed in /tmp/cbmdir/5d20d546-3f34-4607-8b77-67ebb099f801.json. \nThe final answer is: /tmp/cbmdir/12345678-1234-1234-1234-123456789012.json"),
+            "expected_status": "Partially accomplished",
+            "expected_can_answer_now": True,
+        },
     ]
 
-    print("=== CriticAgent manual test (few-shot based) ===")
-    print(f"User Question: {user_question}")
-    print("DAG Prefix (full):")
-    for s in dag_prefix_full:
-        print("  ", s)
+    print("=== CriticAgent test (two provided examples) ===")
+
+    for ex in examples:
+        print()
+        print(f"--- {ex['name']} ---")
+        print(f"Question: {ex['user_question']}")
+        print(f"stop_index: {ex['stop_index']}")
+        print("truncated_plan:")
+        print(ex["truncated_plan"].rstrip())
+        print()
+
+        # Build DAG prefix from the truncated plan using the same helper function
+        dag_prefix = parse_plan_text_to_dag_prefix(ex["truncated_plan"])
+
+        # Evaluate with the Critic
+        parsed, in_tok, out_tok = critic.evaluate(
+            user_question=ex["user_question"],
+            candidate_answer=ex["candidate_answer"],
+            dag_prefix=dag_prefix,
+        )
+
+        status = parsed.get("status", "Not accomplished")
+        can_answer_now = bool(parsed.get("can_answer_now", False))
+        rationale = parsed.get("rationale", "")
+
+        success_flag = _status_to_bool(status)
+
+        print("Critic output JSON:")
+        print(json.dumps(parsed, ensure_ascii=False, indent=2))
+        print(f"success_flag (Accomplished or Partially accomplished => True): {success_flag}")
+        print(f"token_usage: in={in_tok}, out={out_tok}")
+
+        # Optional: show the expected labels (from your example text) for quick manual check
+        print(f"expected_status (from example text): {ex['expected_status']}")
+        print(f"expected_can_answer_now (from example text): {ex['expected_can_answer_now']}")
+        print(f"actual_can_answer_now: {can_answer_now}")
+        if rationale:
+            print(f"rationale: {rationale}")
+
     print()
-
-    # ------------------------------------------------------------------
-    # Test 1: SimulatorAgent hypothetical output (good natural-language list)
-    # ------------------------------------------------------------------
-    simulated_predicted_answer_1 = (
-        "The assets for site MAIN are: "
-        "CQPA AHU 1, CQPA AHU 2B, Chiller 4, "
-        "Chiller 6, Chiller 9, Chiller 3."
-    )
-
-    print(">> Test 1: Hypothetical SimulatorAgent predicted answer (full list)")
-    print("simulated_predicted_answer_1:")
-    print("  ", simulated_predicted_answer_1)
-    print()
-
-    result1 = critic.evaluate(
-        user_question=user_question,
-        candidate_answer=simulated_predicted_answer_1,
-        dag_prefix=dag_prefix_full,
-    )
-    print("Critic result for Test 1:")
-    print(json.dumps(result1, indent=2))
-    print()
-
-    # ------------------------------------------------------------------
-    # Test 2: SimulatorAgent hypothetical output (file reference only)
-    #   Here we only assume the first step of the DAG has run (assets call),
-    #   and the simulated predicted answer is a file path.
-    # ------------------------------------------------------------------
-    dag_prefix_partial = [
-        "IoTAgent -> assets(site_name='MAIN')",
-    ]
-    simulated_predicted_answer_2 = "/tmp/cbmdir/MAIN_assets.json"
-
-    print(">> Test 2: Hypothetical SimulatorAgent predicted answer (file path only)")
-    print("DAG Prefix (partial):")
-    for s in dag_prefix_partial:
-        print("  ", s)
-    print("simulated_predicted_answer_2:")
-    print("  ", simulated_predicted_answer_2)
-    print()
-
-    result2 = critic.evaluate(
-        user_question=user_question,
-        candidate_answer=simulated_predicted_answer_2,
-        dag_prefix=dag_prefix_partial,
-    )
-    print("Critic result for Test 2:")
-    print(json.dumps(result2, indent=2))
-    print()
-
     print("=== End CriticAgent test ===")
 
 

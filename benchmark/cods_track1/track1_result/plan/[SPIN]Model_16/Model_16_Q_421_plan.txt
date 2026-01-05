@@ -1,0 +1,6 @@
+Question: In May and June of 2020, numerous anomalies and alerts have been reported for Chiller 9 with equipment ID CWC04009. Could you review them and suggest appropriate work orders or actions?
+Plan:
+#Task1: Retrieve historical data for Chiller 9 (CWC04009) for May and June 2020 to identify anomalies and alerts.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for Chiller 9 (CWC04009) for May and June 2020.

@@ -5,9 +5,9 @@ services:
     volumes:
       - ./track1_result:/home/track1_result
 
-      - ./entrypoint_baseline.sh:/home/entrypoint.sh
-      - ./run_track_1_baseline.py:/home/run_track_1.py
-      - ../../src/agent_hive/workflows/track1_planning_baseline.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/track1_planning.py
+      - ./entrypoint_spin.sh:/home/entrypoint.sh
+      - ./run_track_1_spin.py:/home/run_track_1.py
+      - ../../src/agent_hive/workflows/track1_planning_spin.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/track1_planning.py
       
       - ../../src/assetopsbench/sample_data:/sample_data:ro
       - ../../scenarios:/home/scenarios:ro  

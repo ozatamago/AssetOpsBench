@@ -1,0 +1,16 @@
+stop_index: 2
+
+truncated_plan:  
+
+#Task1: Identify the available sensors for Chiller 6 at MAIN site by retrieving asset details.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of available sensors for Chiller 6 at MAIN site.
+
+#Task2: Get all failure modes for Chiller 6.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: None
+#ExpectedOutput2: List of all failure modes for Chiller 6.
+
+status: Not accomplished
+can_answer_now:False

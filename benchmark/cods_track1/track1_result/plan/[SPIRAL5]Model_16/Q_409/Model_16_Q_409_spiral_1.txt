@@ -1,0 +1,10 @@
+stop_index: 1
+
+truncated_plan:  
+#Task1: Identify the site where equipment CWC04009 is located and download the historical data for May 2020.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for CWC04009 for May 2020 and the site where it is located.
+
+status: Not accomplished
+can_answer_now:False

@@ -1,0 +1,12 @@
+Question: Get the work order of equipment CWC04013 for year 2017.
+Plan:
+ 
+#Task1: Use the WorkOrder Agent to retrieve the work order for equipment CWC04013 for the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: Work order data for equipment CWC04013 for the year 2017.
+
+#Task2: Verify if the retrieved data is in the correct format and contains the necessary information.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Confirmation that the retrieved work order data is valid and contains the required details.

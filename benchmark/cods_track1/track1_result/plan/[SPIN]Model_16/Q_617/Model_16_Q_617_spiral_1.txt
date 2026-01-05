@@ -1,0 +1,15 @@
+stop_index: 2
+
+truncated_plan:  
+#Task1: Understand the failure mode and relevant sensor data
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: Information on the temporal behavior of the power input when the compressor motor of Chiller 6 fails
+
+#Task2: Retrieve historical power input data for Chiller 6 at MAIN site
+#Agent2: IoT Data Download
+#Dependency2: None
+#ExpectedOutput2: Historical power input data for Chiller 6
+
+status: Not accomplished
+can_answer_now:False

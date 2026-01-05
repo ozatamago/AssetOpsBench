@@ -1,0 +1,7 @@
+Question: Get the daily count of alert, anomaly and work order event for the May 2020 for equipment CWC04009.
+Plan:
+ 
+#Task1: Get the list of sites and identify the site where equipment CWC04009 is located, and download the historical data for equipment CWC04009 at the identified site for May 2020.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for CWC04009 for May 2020 and the site where it is located.

@@ -1,0 +1,21 @@
+Question: Retrieve sensor data for Chiller 6's % Loaded from June 2020 at MAIN.
+Plan:
+ #Task1: Retrieve the list of sites and identify if MAIN is among them.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of sites including MAIN if it exists.
+
+#Task2: Identify the assets available at the MAIN site.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: List of assets at MAIN, confirming if Chiller 6 is present.
+
+#Task3: Download sensor data for Chiller 6's % Loaded at MAIN from June 2020.
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: Sensor data for Chiller 6's % Loaded.
+
+#Task4: Analyze the downloaded data for any anomalies in Chiller 6's % Loaded.
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: #S3
+#ExpectedOutput4: Anomaly detection results for Chiller 6's % Loaded data.

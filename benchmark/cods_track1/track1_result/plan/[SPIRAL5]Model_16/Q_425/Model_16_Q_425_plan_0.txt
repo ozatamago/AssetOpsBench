@@ -1,0 +1,23 @@
+Question: How can I analyze anomalies across multiple KPIs to better diagnose the root cause of these issues?
+Plan:
+#Task1: Identify the relevant KPIs and their corresponding sensor data for the asset Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of relevant sensors and KPIs for Chiller 6.
+
+#Task2: Retrieve historical sensor data for the identified KPIs of Chiller 6.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Historical sensor data for the relevant KPIs of Chiller 6.
+
+#Task3: Analyze the retrieved sensor data to detect anomalies across the identified KPIs.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: Anomaly detection results across multiple KPIs.
+
+#Task4: Generate a work order based on the anomaly detection results to address potential issues with Chiller 6.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: A work order for inspecting or maintaining Chiller 6.
+
+The plan is designed to be executed in 4 steps, leveraging the capabilities of the available agents to analyze anomalies across multiple KPIs for Chiller 6 and generate a work order based on the findings.

@@ -1,0 +1,7 @@
+Question: Find all models with context length 96.
+Plan:
+ 
+#Task1: List all available models with their context lengths.
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: A list of models with their respective context lengths.

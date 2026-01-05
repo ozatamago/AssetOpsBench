@@ -1,0 +1,23 @@
+Question: What are the failure modes of Chiller 6 that can be identified by analyzing the data from the available sensors?
+Plan:
+#Task1: List all failure modes of Chiller 6.
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: A list of failure modes of Chiller 6.
+
+#Task2: Identify the relevant sensors for each failure mode of Chiller 6.
+#Agent2: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency2: #S1
+#ExpectedOutput2: A mapping between failure modes of Chiller 6 and relevant sensors.
+
+#Task3: Download the relevant sensor data for Chiller 6.
+#Agent3: IoT Data Download
+#Dependency3: #S2
+#ExpectedOutput3: Sensor data for Chiller 6.
+
+#Task4: Analyze the downloaded sensor data to identify potential anomalies or failure modes.
+#Agent4: Time Series Analytics and Forecasting
+#Dependency4: #S3
+#ExpectedOutput4: Insights into potential anomalies or failure modes in Chiller 6.
+
+The generated plan has 4 steps, which is within the limit of fewer than 5 steps. It uses the available agents to identify the failure modes of Chiller 6, download relevant sensor data, and analyze it to identify potential anomalies or failure modes.

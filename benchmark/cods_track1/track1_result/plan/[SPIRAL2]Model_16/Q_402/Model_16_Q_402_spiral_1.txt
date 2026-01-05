@@ -1,0 +1,10 @@
+stop_index: 1
+
+truncated_plan:  
+#Task1: Retrieve historical data for CWC04013 for the year 2017.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for CWC04013 for the year 2017.
+
+status: Not accomplished
+can_answer_now:False

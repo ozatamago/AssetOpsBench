@@ -1,0 +1,4 @@
+Method,CommonRuns,ExcludedZeroTaskRuns,BASE_longer,Method_longer,Ties
+[SPIN],141,0,86,3,52
+[SPIN_wo_sim],141,2,77,3,59
+[SPIN_wo_cri2],141,0,63,6,72

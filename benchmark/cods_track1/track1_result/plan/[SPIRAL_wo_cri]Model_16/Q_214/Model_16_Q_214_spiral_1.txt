@@ -1,2 +1,0 @@
-Predicted result: 
-[{'step': 1, 'agent': 'Time Series Analytics and Forecasting', 'task': 'How many models with context length exactly 96 are supported?', 'expected_output': 'The number of models with context length exactly 96 that are supported.', 'predicted_output': 'The available output is: 2.'}]

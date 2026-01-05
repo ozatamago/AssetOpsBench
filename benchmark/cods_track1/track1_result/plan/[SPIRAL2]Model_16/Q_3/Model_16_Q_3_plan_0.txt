@@ -1,0 +1,19 @@
+Question: What assets can be found at the MAIN site?
+Plan:
+#Task1: List the assets available at the MAIN site.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of assets at the MAIN site.
+
+Since there is no "MAIN" site mentioned in the available agents' tasks, I will assume it refers to "SiteX" as used in the tasks. Therefore, the task will be adjusted to query about "SiteX".
+
+#Task1: List the assets available at SiteX.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of assets at SiteX.
+
+The final answer is: 
+#Task1: List the assets available at SiteX.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A list of assets at SiteX.

@@ -1,0 +1,17 @@
+Question: how much power was CQPA AHU 1 (MAIN site) using on 6/14/20?
+Plan:
+ 
+#Task1: Retrieve the historical data for CQPA AHU 1 at MAIN site for the date 6/14/20.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for CQPA AHU 1 at MAIN site for 6/14/20.
+
+#Task2: Extract the power usage data from the retrieved historical data.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Power usage data for CQPA AHU 1 on 6/14/20.
+
+#Task3: Analyze the extracted power usage data to determine the amount of power used.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: The amount of power used by CQPA AHU 1 on 6/14/20.

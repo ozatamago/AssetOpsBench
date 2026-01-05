@@ -1,2 +1,0 @@
-Predicted result: 
-[{'step': 1, 'agent': 'IoT Data Download', 'task': 'Retrieve the historical data for the supply temperature of CQPA AHU 2B on Sept 19, 2020, at 23:45, at site MAIN.', 'expected_output': 'Historical data for the supply temperature of CQPA AHU 2B on Sept 19, 2020, at 23:45, at site MAIN in a file.', 'predicted_output': 'The output: /tmp/cbmdir/0a9756e0-e781-4205-bfce-d29a0cf83f17.json. The supply temperature for CQPA AHU 2B at 23:45 on September 19, 2020, at site MAIN is 12.34 degrees Celsius.'}]

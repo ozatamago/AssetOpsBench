@@ -2,22 +2,22 @@
   "text": "What are the failure modes of Chiller 6 at MAIN site that can be identified by analyzing the data from the available sensors?",
   "tasks": [
     {
-      "task_description": "Enumerate all failure modes of Chiller 6",
+      "task_description": "List all Chiller 6 failure modes -> List Chiller 6 failure modes. \nList Chiller 6 failure modes.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
       "final_answer": "7 failure modes</response>",
-      "review": "Task Status: Accomplished | used tool to retrieve failure modes | none."
+      "review": "Task Status: Accomplished | used tool to retrieve failure modes | none</response>"
     },
     {
-      "task_description": "Identify relevant sensors for Chiller 6 failures.",
+      "task_description": "Identify relevant sensors for Chiller 6 failure modes.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Chiller Power, Water Flow Rate, Temperature.",
-      "review": "Task Status: Accomplished | identified relevant sensors | improve tool usage and error handling</response>\n</response>"
+      "final_answer": "Chiller Power, Water Flow Rate, Temperature Difference.",
+      "review": "Task Status: Accomplished | identified relevant sensors | improve tool usage and error handling</response>\n```<response>identified relevant sensors | improve tool usage and error handling</response>```"
     },
     {
-      "task_description": "Analyze Chiller 6 data to detect failure modes",
+      "task_description": "Analyze Chiller 6 data for failure modes.",
       "agent_name": "Failure Mode and Sensor Relevancy Expert for Industrial Asset",
-      "final_answer": "Multiple failure modes for Chiller 6 exist.",
-      "review": "Task Status: Partially Accomplished | identified available sensors | revisit file paths, enhance error handling</response>"
+      "final_answer": "Four failure modes",
+      "review": "Task Status: Partially Accomplished | identified available sensors | revisit file paths and enhance error handling</response>"
     }
   ]
 }

@@ -4,8 +4,8 @@
     {
       "task_description": "List assets at MAIN facility.",
       "agent_name": "IoT Data Download",
-      "final_answer": "Chiller 3, Chiller 4, Chiller 6, Chiller 9, CQPA AHU 1, CQPA AHU 2B\nbecomes \nChiller 3,4,6,9, CQPA AHU 1,2B. \nChiller 3,4,6,9, CQPA AHU 1,2B.",
-      "review": "Task Status: Accomplished | retrieved assets list correctly | none"
+      "final_answer": "Chiller 3, 4, 6, 9, CQPA AHU 1, 2B",
+      "review": "Task Status: Accomplished | executed necessary actions | none</response>\n```<response>executed necessary actions | none</response>```"
     }
   ]
 }

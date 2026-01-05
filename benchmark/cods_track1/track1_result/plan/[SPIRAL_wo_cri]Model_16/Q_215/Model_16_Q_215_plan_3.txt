@@ -1,8 +1,0 @@
-Question: Does TSFM support time series regression tasks or any model for forecasting with context length 1024?
-Plan:
- 
-
-#Task1: Check if TSFM supports time series regression tasks or any model for forecasting with context length 1024.
-#Agent1: Time Series Analytics and Forecasting
-#Dependency1: None
-#ExpectedOutput1: Confirmation on whether TSFM supports time series regression tasks or any model for forecasting with context length 1024.

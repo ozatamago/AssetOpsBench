@@ -1,0 +1,18 @@
+Question: Forecast 'Chiller 9 Condenser Water Flow' using data in 'chiller9_annotated_small_test.csv'. Use the following parameters as inputs 'Chiller 9 Liquid Refrigerant Evaporator Temperature,Chiller 9 Return Temperature,Chiller 9 Tonnage,Chiller 9 Setpoint Temperature,Chiller 9 Supply Temperature,Chiller 9 Chiller % Loaded,Chiller 9 Condenser Water Supply To Chiller Temperature,Chiller 9 Power Input,Chiller 9 Chiller Efficiency'
+Plan:
+ 
+
+#Task1: Read the 'chiller9_annotated_small_test.csv' file to understand its content and structure.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Understanding of the data structure and content of 'chiller9_annotated_small_test.csv'
+
+#Task2: Use the Time Series Analytics and Forecasting agent to forecast 'Chiller 9 Condenser Water Flow' using the specified input parameters.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Forecasted values for 'Chiller 9 Condenser Water Flow'
+
+#Task3: Create a work order for inspecting Chiller 9 based on the forecasted values.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A work order is generated for inspecting Chiller 9

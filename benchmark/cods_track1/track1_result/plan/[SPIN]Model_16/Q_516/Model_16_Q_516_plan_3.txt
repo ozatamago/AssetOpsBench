@@ -1,0 +1,28 @@
+Question: What's the forecast for Chiller 6's future energy consumption for next week based on data from the week of 2020-04-27 at MAIN?
+Plan:
+ 
+#Task1: Retrieve historical energy consumption data for Chiller 6 at MAIN for the week of 2020-04-27.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical energy consumption data for Chiller 6 at MAIN for the specified week.
+
+#Task2: Forecast Chiller 6's energy consumption for the next week based on the historical data retrieved.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Forecasted energy consumption for Chiller 6 for the next week.
+
+#Task3: Determine the start and end dates for "next week" to ensure the forecast is correctly interpreted.
+#Agent3: IoT Data Download
+#Dependency3: None
+#ExpectedOutput3: Start and end dates for next week.
+
+The final answer is: 
+#Task1: Retrieve historical energy consumption data for Chiller 6 at MAIN for the week of 2020-04-27.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical energy consumption data for Chiller 6 at MAIN for the specified week.
+
+#Task2: Forecast Chiller 6's energy consumption for the next week based on the historical data retrieved.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Forecasted energy consumption for Chiller 6 for the next week.

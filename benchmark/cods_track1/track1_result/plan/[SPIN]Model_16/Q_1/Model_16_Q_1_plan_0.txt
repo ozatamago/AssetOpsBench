@@ -1,0 +1,8 @@
+Question: What IoT sites are available?
+Plan:
+#Task1: List all available IoT sites
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of available IoT sites
+
+Your output should be a clear, step-by-step plan to solve the given problem using the available agents.

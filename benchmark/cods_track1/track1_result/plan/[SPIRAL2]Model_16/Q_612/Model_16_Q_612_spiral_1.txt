@@ -1,0 +1,25 @@
+stop_index: 4
+
+truncated_plan:  
+#Task1: Identify the available sensors for Chiller 6 at MAIN site.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of available sensors for Chiller 6 at MAIN site.
+
+#Task2: Retrieve the historical data for the identified sensors for Chiller 6 at MAIN site.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Historical data for the identified sensors.
+
+#Task3: Analyze the retrieved data to identify potential failure modes of Chiller 6.
+#Agent3: Time Series Analytics and Forecasting
+#Dependency3: #S2
+#ExpectedOutput3: List of potential failure modes detected in the data.
+
+#Task4: Map the identified failure modes to the relevant sensors and determine the detectable failure modes.
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency4: #S3
+#ExpectedOutput4: List of failure modes of Chiller 6 that can be detected by analyzing the data from the available sensors.
+
+status: Partially accomplished
+can_answer_now:False

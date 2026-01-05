@@ -1,0 +1,22 @@
+Question: Forecast 'Chiller 9 Condenser Water Flow' using data in 'chiller9_annotated_small_test.csv'. Use parameter 'Timestamp' as a timestamp. Use the following parameters as inputs 'Chiller 9 Liquid Refrigerant Evaporator Temperature,Chiller 9 Return Temperature,Chiller 9 Tonnage,Chiller 9 Setpoint Temperature,Chiller 9 Supply Temperature,Chiller 9 Chiller % Loaded,Chiller 9 Condenser Water Supply To Chiller Temperature,Chiller 9 Power Input,Chiller 9 Chiller Efficiency'
+Plan:
+ 
+#Task1: Read the 'chiller9_annotated_small_test.csv' file and understand its structure, including the 'Timestamp' and other relevant parameters.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Understanding of the CSV file structure and confirmation that it contains the required parameters.
+
+#Task2: Use the Time Series Analytics and Forecasting agent to forecast 'Chiller 9 Condenser Water Flow' based on the provided input parameters and 'Timestamp'.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Forecasted values for 'Chiller 9 Condenser Water Flow'.
+
+#Task3: Validate the forecasted values to ensure they are reasonable and align with expected patterns.
+#Agent3: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency3: #S2
+#ExpectedOutput3: Validation of the forecasted values and identification of any potential issues.
+
+#Task4: Create a work order based on the forecasted values and potential issues identified.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: A generated work order for necessary actions.

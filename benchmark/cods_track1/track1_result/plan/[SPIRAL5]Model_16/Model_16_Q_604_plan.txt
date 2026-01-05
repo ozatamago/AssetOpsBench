@@ -1,0 +1,7 @@
+Question: List all failure modes of Chiller 6 at MAIN site that can be detected by Chiller 6 Chiller Efficiency.
+Plan:
+ 
+#Task1: Verify if Chiller 6 is located at MAIN site.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Confirmation if Chiller 6 is at MAIN site.

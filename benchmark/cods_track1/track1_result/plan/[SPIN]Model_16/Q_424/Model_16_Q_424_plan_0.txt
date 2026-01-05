@@ -1,0 +1,23 @@
+Question: Can you provide guidance on bundling corrective work orders together to optimize the maintenance schedule for Chiller 9 with equipment ID CWC04009 covering years of 2017, 2018 and 2019, bundle has to be happen within two weeks and have at least two work orders, also tell the details of each bundle?
+Plan:
+#Task1: Retrieve historical work orders for Chiller 9 with equipment ID CWC04009 for the years 2017, 2018, and 2019.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: A list of historical work orders for Chiller 9 (CWC04009) covering 2017, 2018, and 2019.
+
+#Task2: Analyze the retrieved work orders to identify corrective work orders that can be bundled together within a two-week window.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: Identified bundles of corrective work orders for Chiller 9 (CWC04009) that meet the bundling criteria.
+
+#Task3: Provide details of each identified bundle, including the work orders contained within them.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Detailed information on each bundle, including the specific work orders and their characteristics.
+
+#Task4: Summarize the guidance on bundling corrective work orders for Chiller 9 (CWC04009) based on the analysis.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: A summary providing guidance on optimizing the maintenance schedule through bundling corrective work orders for Chiller 9.
+
+The plan is a 4-step process that utilizes the WorkOrder Agent to retrieve historical work orders, analyze them for bundling opportunities, provide details on the bundles, and summarize the findings to guide maintenance scheduling optimization for Chiller 9.

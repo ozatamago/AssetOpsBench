@@ -812,48 +812,106 @@ you must PREDICT the output that the agent will produce for this target task.
 Do NOT explain your reasoning. Respond ONLY with the predicted output.
 """.strip()
 
-
 def _make_dummy_dag_prefix() -> Sequence[Any]:
     """
-    Small helper to create a fake DAG prefix for testing.
+    Build a minimal DAG prefix from the provided 'truncated_plan' text.
 
-    In the real system, you would pass actual step objects (or a list of
-    dicts) from your planning workflow. For now we just return a couple
-    of strings.
+    Constraint: Use only functions/methods already appearing in this file.
+    Therefore, we do inline parsing with basic string operations (no new helpers).
     """
-    return [
-        "Step 1: Fetch list of sites from IoT database.",
-        "Step 2: Filter sites for MAIN facility.",
-    ]
+    example = {
+        "name": "Example A (expected: Not accomplished)",
+        "user_question": "What assets can be found at the MAIN site?",
+        "stop_index": 1,
+        "truncated_plan": (
+            "#Task1: List the assets available at SiteX.\n"
+            "#Agent1: IoT Data Download\n"
+            "#Dependency1: None\n"
+            "#ExpectedOutput1: A list of assets at SiteX.\n"
+        ),
+        "candidate_answer": "",
+        "expected_status": "Not accomplished",
+        "expected_can_answer_now": False,
+    }
+
+    plan_text = example["truncated_plan"]
+
+    step: dict = {}
+    for line in plan_text.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        if line.startswith("#Task1:"):
+            step["task"] = line.split(":", 1)[1].strip()
+        elif line.startswith("#Agent1:"):
+            step["agent"] = line.split(":", 1)[1].strip()
+        elif line.startswith("#Dependency1:"):
+            step["dependency"] = line.split(":", 1)[1].strip()
+        elif line.startswith("#ExpectedOutput1:"):
+            step["expected_output"] = line.split(":", 1)[1].strip()
+
+    # Return as a list of dict steps (allowed by downstream code/comments).
+    return [step]
 
 
 def main() -> None:
-    # 1) Load DB URL from environment
+    # 1) Load DB URL from environment (standard behavior of os.getenv()).
     db_url = os.getenv("DB_URL") or os.getenv("DATABASE_URL")
     if not db_url:
         raise RuntimeError("DB_URL / DATABASE_URL is not set in the environment.")
 
-    # 2) Define a test query
-    user_question = "Which assets are located at the MAIN facility?"
-    task_description = "List assets at MAIN facility using the IoT Data Download agent."
-    agent_name = "IoT Data Download"
+    # 2) Use the provided Example A as the test case
+    example =         {
+            "name": "Example B (expected: Partially accomplished)",
+            "user_question": "What assets can be found at the MAIN site?",
+            "stop_index": 1,
+            "truncated_plan": (
+                "#Task1: List the assets available at the MAIN site.\n"
+                "#Agent1: IoT Data Download\n"
+                "#Dependency1: None\n"
+                "#ExpectedOutput1: A list of assets at the MAIN site.\n"
+            ),
+            # Not provided by the user; placeholder (replace with Simulator output)
+            "candidate_answer": "",
+            "expected_status": "Partially accomplished",
+            "expected_can_answer_now": True,
+        }
+
+    user_question = example["user_question"]
     dag_prefix = _make_dummy_dag_prefix()
 
-    print("=== SimulatorAgent manual test ===")
+    # 3) Derive agent_name and task_description from the parsed prefix (no new helper funcs)
+    agent_name = ""
+    task_description = ""
+    if dag_prefix and isinstance(dag_prefix[0], dict):
+        agent_name = str(dag_prefix[0].get("agent", "")).strip()
+        task_description = str(dag_prefix[0].get("task", "")).strip()
+
+    # Fallbacks (should not trigger for Example A)
+    if not agent_name:
+        agent_name = "IoT Data Download"
+    if not task_description:
+        task_description = "List assets using the IoT Data Download agent."
+
+    print("=== SimulatorAgent manual test (Example A) ===")
     print(f"DB_URL: {db_url}")
+    print(f"Test case: {example.get('name','')}")
     print(f"User question: {user_question}")
     print(f"Agent name: {agent_name}")
     print(f"Task description: {task_description}")
+    print("DAG prefix:")
+    for s in dag_prefix:
+        print("  ", s)
     print()
 
-    # 3) Instantiate the SimulatorAgent
+    # 4) Instantiate the SimulatorAgent
     sim = SimulatorAgent(
         db_url=db_url,
         system_prompt=SIMULATOR_SYSTEM_PROMPT,
         max_similar_tasks=5,
     )
 
-    # 4) (Optional) directly test search_task_summaries before full run
+    # 5) (Optional) directly test search_task_summaries before full run
     print(">> Running search_task_summaries()...")
     query_text = sim._build_query_text(
         user_question=user_question,
@@ -867,7 +925,7 @@ def main() -> None:
         status_filter=["Accomplished"],
     )
     print(f"Found {len(hits)} similar tasks.")
-    for h in hits[:3]:  # show up to 3
+    for h in hits[:3]:
         print(
             f"  - doc_id={h['doc_id']} task_id={h['task_id']} "
             f"status={h.get('status')} score={h['similarity_score']:.3f}"
@@ -875,7 +933,7 @@ def main() -> None:
         print(f"    summary={h['summary'][:200]}{'...' if len(h['summary']) > 200 else ''}")
     print()
 
-    # 5) Run the full simulation (search + LLM)
+    # 6) Run the full simulation (search + LLM)
     print(">> Running sim.run(...) to get predicted output...")
     predicted_output = sim.run(
         user_question=user_question,

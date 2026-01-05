@@ -1,0 +1,12 @@
+Question: When an anomaly happens for equipment CWC04009, can you recommend a list of candidate work orders and give me a summary of work order as percentage?
+Plan:
+ 
+#Task1: Analyze the time-series data for CWC04009 to detect anomalies.
+#Agent1: Time Series Analytics and Forecasting
+#Dependency1: None
+#ExpectedOutput1: Anomaly detection results for CWC04009.
+
+#Task2: Generate candidate work orders based on the anomaly detection results and provide a summary as percentage.
+#Agent2: WorkOrder Agent
+#Dependency2: #S1
+#ExpectedOutput2: List of candidate work orders and summary as percentage.

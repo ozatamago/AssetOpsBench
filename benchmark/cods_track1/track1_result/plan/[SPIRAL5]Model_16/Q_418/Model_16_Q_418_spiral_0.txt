@@ -1,0 +1,9 @@
+stop_index: 1
+
+truncated_plan: #Task1: Retrieve historical data for equipment CWC04009 related to 'KPI Cooling Load' and 'KPI Delta Setpoint'
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for 'KPI Cooling Load' and 'KPI Delta Setpoint' for equipment CWC04009
+
+status: Not accomplished
+can_answer_now:False

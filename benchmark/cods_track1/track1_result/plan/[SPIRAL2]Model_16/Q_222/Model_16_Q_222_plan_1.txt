@@ -1,0 +1,22 @@
+Question: I need to perform Time Series anomaly detection of 'Chiller 9 Condenser Water Flow' using data in chiller9_tsad.csv
+Plan:
+ 
+#Task1: Read the chiller9_tsad.csv file to understand its structure and content.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: The content and structure of the chiller9_tsad.csv file.
+
+#Task2: Analyze the time-series data in chiller9_tsad.csv and look for anomalies in 'Chiller 9 Condenser Water Flow'.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly detection results for 'Chiller 9 Condenser Water Flow' in chiller9_tsad.csv.
+
+#Task3: Create a work order for inspecting Chiller 9 due to detected anomalies in 'Chiller 9 Condenser Water Flow'.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: A generated work order for inspecting Chiller 9.
+
+#Task4: List all failure modes of Chiller 9 that can be detected by monitoring 'Chiller 9 Condenser Water Flow'.
+#Agent4: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency4: #S2
+#ExpectedOutput4: Failure modes of Chiller 9 detectable by 'Chiller 9 Condenser Water Flow'.

@@ -1,0 +1,10 @@
+stop_index: 1
+
+truncated_plan:  
+#Task1: Identify the relevant agent to retrieve work order data for equipment CWC04013 for the year 2017.
+#Agent1: WorkOrder Agent
+#Dependency1: None
+#ExpectedOutput1: The WorkOrder Agent is capable of retrieving work order data.
+
+status: Not accomplished
+can_answer_now:False

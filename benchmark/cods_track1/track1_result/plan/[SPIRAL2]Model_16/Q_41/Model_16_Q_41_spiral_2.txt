@@ -1,0 +1,10 @@
+stop_index: 1
+
+truncated_plan:  
+#Task1: Retrieve the historical data for CQPA AHU 1 at site MAIN on Sept 3, 2015, specifically for the supply humidity.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for supply humidity of CQPA AHU 1 at site MAIN on Sept 3, 2015.
+
+status: Not accomplished
+can_answer_now:False

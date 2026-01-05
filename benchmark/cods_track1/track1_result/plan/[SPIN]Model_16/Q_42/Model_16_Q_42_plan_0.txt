@@ -1,0 +1,20 @@
+Question: what was the supply temperature from CQPA AHU 2B on sept 19, 2020 at quarter to midnight, at site MAIN? return in a file
+Plan:
+#Task1: Retrieve the historical data for the supply temperature of CQPA AHU 2B on Sept 19, 2020, at 23:45, at site MAIN.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: A JSON file containing the supply temperature data for CQPA AHU 2B on Sept 19, 2020, at 23:45.
+
+#Task2: Verify if the retrieved data is in the correct format and contains the required information.
+#Agent2: IoT Data Download
+#Dependency2: #S1
+#ExpectedOutput2: Confirmation that the data is correctly formatted and contains the supply temperature value.
+
+#Task3: Save the retrieved data to a file as specified.
+#Agent3: IoT Data Download
+#Dependency3: #S1, #S2
+#ExpectedOutput3: A file containing the supply temperature data for CQPA AHU 2B on Sept 19, 2020, at 23:45.
+
+The plan is a 3-step process that utilizes the IoT Data Download agent to retrieve the historical data, verify its format, and save it to a file. 
+
+Let's execute the plan.

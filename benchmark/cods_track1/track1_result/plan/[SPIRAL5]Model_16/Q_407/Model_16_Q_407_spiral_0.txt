@@ -1,0 +1,9 @@
+stop_index: 1
+
+truncated_plan: #Task1: Get the list of sites and identify the site where equipment CWC04009 is located.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: List of sites and the site where CWC04009 is located.
+
+status: Not accomplished
+can_answer_now:False

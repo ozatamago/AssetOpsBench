@@ -1,2 +1,0 @@
-Predicted result: 
-[{'step': 1, 'agent': 'IoT Data Download', 'task': 'Retrieve the historical data for the supply temperature of CQPA AHU 2B on Sept 19, 2020, at 23:45, at site MAIN.', 'expected_output': 'Historical data for the supply temperature of CQPA AHU 2B on Sept 19, 2020, at 23:45, at site MAIN in a file.', 'predicted_output': 'The output: \n```json\n{\n  "response": "/tmp/cbmdir/0a9756e0-e781-4205-bfce-d29a0cf83f17.json",\n  "data": {\n    "site": "MAIN",\n    "asset": "CQPA AHU 2B",\n    "timestamp": "2020-09-19T23:45:00",\n    "value": 12.34\n  }\n}\n```'}]

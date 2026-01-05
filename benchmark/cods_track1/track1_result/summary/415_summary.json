@@ -5,7 +5,7 @@
       "task_description": "Detect anomalies in time-series data for CWC04009.",
       "agent_name": "Time Series Analytics and Forecasting",
       "final_answer": "tsfm_integrated_tsad</response>",
-      "review": "Task Status: Not Accomplished | failed to detect anomalies | provide correct dataset path or sample data"
+      "review": "Task Status: Not Accomplished | failed to detect anomalies | provide correct dataset path or sample data."
     }
   ]
 }

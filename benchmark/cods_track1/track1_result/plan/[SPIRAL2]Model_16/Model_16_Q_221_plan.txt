@@ -1,0 +1,7 @@
+Question: Finetune a forecasting model for 'Chiller 9 Condenser Water Flow' using data in 'chiller9_finetuning_small.csv' with 'Timestamp' as a timestamp. Use 1% of data for tuning
+Plan:
+ 
+#Task1: Understand the structure of 'chiller9_finetuning_small.csv'.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Confirmation that 'chiller9_finetuning_small.csv' contains 'Timestamp' and 'Chiller 9 Condenser Water Flow'.

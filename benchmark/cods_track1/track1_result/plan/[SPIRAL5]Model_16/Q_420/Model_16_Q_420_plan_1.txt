@@ -1,0 +1,22 @@
+Question: Assume today is early of July 2020, I would like to review the performance of chiller 9 with equipment ID CWC04009 for June 2020 and track any anomalies or operation violations as alerts.
+Plan:
+ 
+#Task1: Retrieve historical data for chiller 9 with equipment ID CWC04009 for June 2020.
+#Agent1: IoT Data Download
+#Dependency1: None
+#ExpectedOutput1: Historical data for CWC04009 in June 2020.
+
+#Task2: Analyze the retrieved data to identify any anomalies or operation violations.
+#Agent2: Time Series Analytics and Forecasting
+#Dependency2: #S1
+#ExpectedOutput2: Anomaly detection results for CWC04009 in June 2020.
+
+#Task3: Generate work orders based on the anomalies or operation violations detected.
+#Agent3: WorkOrder Agent
+#Dependency3: #S2
+#ExpectedOutput3: Work orders for addressing detected anomalies or operation violations.
+
+#Task4: Review the generated work orders and provide recommendations for preventive or corrective actions.
+#Agent4: WorkOrder Agent
+#Dependency4: #S3
+#ExpectedOutput4: Recommendations for preventive or corrective actions.

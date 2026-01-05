@@ -1,0 +1,10 @@
+stop_index: 1
+
+truncated_plan:  
+#Task1: Identify relevant sensors for chiller trip failure of MAIN chiller 6
+#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
+#Dependency1: None
+#ExpectedOutput1: List of relevant sensors for chiller trip failure
+
+status: Not accomplished
+can_answer_now:False
