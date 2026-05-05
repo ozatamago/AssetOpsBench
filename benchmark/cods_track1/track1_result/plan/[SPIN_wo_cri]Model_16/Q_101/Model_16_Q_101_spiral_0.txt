@@ -1,2 +1,0 @@
-Predicted result: 
-[{'step': 1, 'agent': 'Failure Mode and Sensor Relevancy Expert for Industrial Asset', 'task': 'List all failure modes of asset Chiller.', 'expected_output': 'A list of failure modes associated with the asset Chiller.', 'predicted_output': 'The available action is "List failure modes of Chiller". The expected output is a list of failure modes associated with the asset Chiller. \n\nPredict the output.'}]

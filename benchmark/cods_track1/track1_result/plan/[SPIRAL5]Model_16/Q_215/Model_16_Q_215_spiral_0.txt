@@ -1,9 +1,0 @@
-stop_index: 1
-
-truncated_plan: #Task1: Check if TSFM supports time series regression tasks.
-#Agent1: Time Series Analytics and Forecasting
-#Dependency1: None
-#ExpectedOutput1: Confirmation on whether TSFM supports time series regression tasks.
-
-status: Accomplished
-can_answer_now:True

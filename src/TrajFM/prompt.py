@@ -7,7 +7,6 @@ Instructions:
 - For any detected failure, briefly explain it in the 'summary' field.
 - Indicate whether the task is completed or not using a boolean.
 - Answer all failure modes explicitly as true, or false.
-- Optionally, suggest up to two new failure modes not on the predefined list.
 
 Return your output as a valid JSON object only — do not include any text or explanation outside the JSON.
 
@@ -30,21 +29,9 @@ Return your output as a valid JSON object only — do not include any text or ex
     "3.1 Premature Termination": <true | false>,
     "3.2 No or Incorrect Verification": <true | false>,
     "3.3 Weak Verification": <true | false>
-  }},
-  "additional_failure_modes": [
-    {{
-      "title": "<Title of new failure mode>",
-      "description": "<1–2 sentence description with evidence from the trace>"
-    }},
-    {{
-      "title": "<Title of new failure mode>",
-      "description": "<1–2 sentence description with evidence from the trace>"
-    }}
-  ]
+  }}
 }}
 @@
-
-If no new failure modes are found, return an empty array for "additional_failure_modes".
 
 Here is the trace:
 {trace}

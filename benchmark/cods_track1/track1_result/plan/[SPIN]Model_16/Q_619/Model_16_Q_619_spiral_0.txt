@@ -1,9 +1,0 @@
-stop_index: 1
-
-truncated_plan: #Task1: Identify the relevant sensors that can be used to monitor the failure modes of Chiller 6 when the Liquid Refrigerant Evaporator Temperature drops.
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency1: None
-#ExpectedOutput1: List of relevant sensors for monitoring failure modes related to Liquid Refrigerant Evaporator Temperature drop in Chiller 6.
-
-status: Not accomplished
-can_answer_now:False

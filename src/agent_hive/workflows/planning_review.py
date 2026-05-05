@@ -132,6 +132,10 @@ class PlanningReviewWorkflow(Workflow):
         dependencies = re.findall(dependency_pattern, final_plan)
         outputs = re.findall(output_pattern, final_plan)
 
+        print(f"=====================\n{final_plan}\n===================")
+        import time
+        # time.sleep(10)
+
         if save_plan:
             if not saved_plan_filename.endswith(".txt"):
                 saved_plan_filename += ".txt"

@@ -1506,8 +1506,8 @@ class NewPlanningWorkflow(Workflow):
 
         The repaired prompt explicitly asks the planner to construct a DAG
         with the bare minimum set of tasks needed to answer the user’s
-        question, guided by SPIRAL feedback. It also briefly explains how
-        to interpret the main SPIRAL fields (status, can_answer_now,
+        question, guided by SPIN feedback. It also briefly explains how
+        to interpret the main SPIN fields (status, can_answer_now,
         stop_index) for planning.
         """
         OUTPUT_MARKER = "Output (your generated plan) ⬇️:"
@@ -1516,7 +1516,7 @@ class NewPlanningWorkflow(Workflow):
         base_wo_marker = base_prompt.replace(OUTPUT_MARKER, "", 1).rstrip()
 
 
-        # ---- SPIRAL-style evaluation summary (status, rationale, etc.) ----
+        # ---- SPIN-style evaluation summary (status, rationale, etc.) ----
         if spiral_feedback:
             status = spiral_feedback.get("status", "Unknown")
             rationale = spiral_feedback.get("rationale", "")
@@ -1524,14 +1524,14 @@ class NewPlanningWorkflow(Workflow):
             stop_index = spiral_feedback.get("stop_index", None)
 
             lines_sf: list[str] = []
-            lines_sf.append("SPIRAL-style evaluation of the current plan:")
+            lines_sf.append("SPIN-style evaluation of the current plan:")
             lines_sf.append(f"- Status: {status}")
             if can_answer_now is not None:
                 lines_sf.append(f"- can_answer_now: {can_answer_now}")
             if stop_index is not None:
                 lines_sf.append(
                     f"- stop_index: {stop_index} "
-                    "(earliest step index after which SPIRAL believes the plan can already answer)"
+                    "(earliest step index after which SPIN believes the plan can already answer)"
                 )
             lines_sf.append(f"- Critic rationale: {rationale}")
 
@@ -1545,7 +1545,7 @@ class NewPlanningWorkflow(Workflow):
         else:
             lines_sf: list[str] = []
             lines_sf.append(
-                "SPIRAL-style evaluation of the current plan is not available for this round.\n"
+                "SPIN-style evaluation of the current plan is not available for this round.\n"
                 "Assume the current plan may still be suboptimal and try to improve it based "
                 "on the issues and the planning instructions."
             )
@@ -1566,21 +1566,21 @@ class NewPlanningWorkflow(Workflow):
             # Even if there are no structural errors, we still allow semantic refinement
             issues_text = (
                 "No structural issues were detected by the validator. However, you should still "
-                "consider the SPIRAL evaluation feedback above and improve the DAG minimally if needed.\n"
+                "consider the SPIN evaluation feedback above and improve the DAG minimally if needed.\n"
             )
 
         # ---- Repair rules ----
         # We explicitly instruct the planner to:
-        # - interpret SPIRAL fields briefly (status, can_answer_now, stop_index),
+        # - interpret SPIN fields briefly (status, can_answer_now, stop_index),
         # - build a DAG with the bare minimum number of tasks needed,
         # - and only make minimal changes if the current plan is already good.
         rules = (
             "Repair rules:\n"
-            "- Interpret the SPIRAL feedback as follows in your planning:\n"
+            "- Interpret the SPIN feedback as follows in your planning:\n"
             "  * status: how complete and correct the current answer is.\n"
             "  * can_answer_now=True: you may safely stop planning and keep the plan minimal.\n"
             "  * stop_index: earliest step index after which the plan already supports answering.\n"
-            "- Use the SPIRAL evaluation feedback and the issues above to decide how to fix the plan.\n"
+            "- Use the SPIN evaluation feedback and the issues above to decide how to fix the plan.\n"
             "- Construct the DAG using the bare minimum number of tasks required to satisfy the user question and constraints. "
             "Avoid redundant or unnecessary tasks.\n"
             "- Make the minimal changes necessary; if there is no problem, you MUST output the Original Plan as-is.\n"
@@ -1596,7 +1596,7 @@ class NewPlanningWorkflow(Workflow):
 
         return (
             f"{base_wo_marker}\n\n"
-            "=== SPIRAL Evaluation Feedback ===\n"
+            "=== SPIN Evaluation Feedback ===\n"
             f"{spiral_text}\n"
             "=== Detected Issues ===\n"
             f"{issues_text}\n"

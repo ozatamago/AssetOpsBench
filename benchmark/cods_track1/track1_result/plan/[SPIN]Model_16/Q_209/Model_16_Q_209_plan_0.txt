@@ -1,8 +1,0 @@
-Question: Is any model with context length 96 supported in TSFM?
-Plan:
-#Task1: Check if any model with context length 96 is supported in TSFM.
-#Agent1: Time Series Analytics and Forecasting
-#Dependency1: None
-#ExpectedOutput1: Confirmation on whether a model with context length 96 is supported.
-
-The final answer is: $\boxed{Yes}$

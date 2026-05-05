@@ -18,426 +18,428 @@ from summarize import get_watsonx_embedder_for_summary, watsonx_llm
 # ------------------------------------------------------------------
 # Ground-truth trajectories for few-shot prompting
 # ------------------------------------------------------------------
-GROUND_TRUTH_TRAJECTORIES_JSON: List[str] = [
-    '''{
-    "uuid": "c50d83ca-6082-447d-a030-70b38a4e4a4b",
-    "id": 1,
-    "type": "IoT",
-    "text": "What IoT sites are available?",
-    "category": "Knowledge Query",
-    "characteristic_form": "first call action sites with no parameters",
-    "expected_result": null,
-    "data": {},
-    "planning_steps": [
-        {
-            "agent": "IoTAgent",
-            "instruction": "list all the sites"
-        }
-    ],
-    "execution_steps": [
-        {
-            "name": "step1",
-            "action": "sites",
-            "agent": "IoTAgent",
-            "arguments": {},
-            "outputs": []
-        },
-        {
-            "name": "finish",
-            "action": "Finish",
-            "agent": "IoTAgent",
-            "argument": "The available IoT site is MAIN.  The final answer is The available IoT site is MAIN.",
-            "deterministic": {
-                "name": false,
-                "action": true,
-                "arguments": true,
-                "outputs": true
-            }
-        }
-    ],
-    "execution_links": [
-        {
-            "source": "step1",
-            "target": "finish"
-        }
-    ],
-    "possible_alternatives": {}
-}''', 
-'''{
-    "uuid": "9f645a51-c34b-46c8-b166-b23d4a1acada",
-    "id": 2,
-    "type": "IoT",
-    "text": "Can you list the IoT sites?",
-    "category": "Knowledge Query",
-    "characteristic_form": "The expected response should be the return value of all sites, either as text or as a reference to a file",
-    "expected_result": null,
-    "data": {},
-    "planning_steps": [
-        {
-            "agent": "IoTAgent",
-            "instruction": "list all the sites"
-        }
-    ],
-    "execution_steps": [
-        {
-            "name": "step1",
-            "action": "sites",
-            "agent": "IoTAgent",
-            "arguments": {},
-            "outputs": []
-        },
-        {
-            "name": "finish",
-            "action": "Finish",
-            "agent": "IoTAgent",
-            "argument": "The available IoT sites are: MAIN.",
-            "deterministic": {
-                "name": false,
-                "action": true,
-                "arguments": true,
-                "outputs": true
-            }
-        }
-    ],
-    "execution_links": [
-        {
-            "source": "step1",
-            "target": "finish"
-        }
-    ],
-    "possible_alternatives": {}
-}''', 
-'''{
-    "uuid": "efc94d35-5236-410c-9e4f-5dcdfee818cc",
-    "id": 3,
-    "type": "IoT",
-    "text": "What assets can be found at the MAIN site?",
-    "category": "Knowledge Query",
-    "characteristic_form": "The expected response should be the return value from querying the assets at the MAIN site. The response should be a reference to a file containing the list of assets",
-    "expected_result": null,
-    "data": {},
-    "planning_steps": [
-        {
-            "agent": "IoTAgent",
-            "instruction": "list assets for site MAIN"
-        }
-    ],
-    "execution_steps": [
-        {
-            "name": "step1",
-            "action": "assets",
-            "agent": "IoTAgent",
-            "arguments": {
-                "site_name": "MAIN"
-            },
-            "outputs": []
-        },
-        {
-            "name": "finish",
-            "action": "Finish",
-            "agent": "IoTAgent",
-            "argument": "The assets at the MAIN site are: CQPA AHU 1, CQPA AHU 2B, Chiller 4, Chiller 6, Chiller 9, Chiller 3.",
-            "deterministic": {
-                "name": false,
-                "action": true,
-                "arguments": true,
-                "outputs": true
-            }
-        }
-    ],
-    "execution_links": [
-        {
-            "source": "step1",
-            "target": "finish"
-        }
-    ],
-    "possible_alternatives": {}
-}''',
-'''{
-    "uuid": "bd83d19e-ca09-43e7-89ac-51dfc5088588",
-    "id": 4,
-    "type": "IoT",
-    "text": "Which assets are located at the MAIN facility?",
-    "category": "Knowledge Query",
-    "characteristic_form": "The expected response should be the return value from querying the assets at the MAIN site. The response should be a reference to a file containing the list of assets",
-    "expected_result": null,
-    "data": {},
-    "planning_steps": [
-        {
-            "agent": "IoTAgent",
-            "instruction": "list assets for site MAIN"
-        }
-    ],
-    "execution_steps": [
-        {
-            "name": "step1",
-            "action": "assets",
-            "agent": "IoTAgent",
-            "arguments": {
-                "site_name": "MAIN"
-            },
-            "outputs": []
-        },
-        {
-            "name": "finish",
-            "action": "Finish",
-            "agent": "IoTAgent",
-            "argument": "The assets for site MAIN are: CQPA AHU 1, CQPA AHU 2B, Chiller 4, Chiller 6, Chiller 9, Chiller 3.",
-            "deterministic": {
-                "name": false,
-                "action": true,
-                "arguments": true,
-                "outputs": true
-            }
-        }
-    ],
-    "execution_links": [
-        {
-            "source": "step1",
-            "target": "finish"
-        }
-    ],
-    "possible_alternatives": {}
-}''',
-'''{
-    "uuid": "0a220b4f-2c2e-4dcd-adc2-0a2f7f15853e",
-    "id": 5,
-    "type": "IoT",
-    "text": "Retrieve metadata for Chiller 6 located at the MAIN site.",
-    "category": "Data Query",
-    "characteristic_form": "The expected response should be the metadata for asset 'Chiller 6' at the MAIN site.  The metadata may be in the return value, or the may be returned as a reference to a file containing the metadata",
-    "expected_result": null,
-    "data": {},
-    "planning_steps": [
-        {
-            "agent": "IoTAgent",
-            "instruction": "retrieve metadata for Chiller 6 at MAIN site"
-        }
-    ],
-    "execution_steps": [
-        {
-            "name": "step1",
-            "action": "assets",
-            "agent": "IoTAgent",
-            "arguments": {
-                "site_name": "MAIN"
-            },
-            "outputs": []
-        },
-        {
-            "name": "step2",
-            "action": "jsonreader",
-            "agent": "IoTAgent",
-            "arguments": {
-                "file_name": "/var/folders/fz/l1h7gpv96rv5lg6m_d6bk0gc0000gn/T/cbmdir/6d1c069b-39f3-4849-9c23-defd183367a5.json"
-            },
-            "outputs": []
-        },
-        {
-            "name": "step3",
-            "action": "sensors",
-            "agent": "IoTAgent",
-            "arguments": {
-                "site_name": "MAIN",
-                "assetnum": "Chiller 6"
-            },
-            "outputs": []
-        },
-        {
-            "name": "step4",
-            "action": "jsonreader",
-            "agent": "IoTAgent",
-            "arguments": {
-                "file_name": "/var/folders/fz/l1h7gpv96rv5lg6m_d6bk0gc0000gn/T/cbmdir/1cf556ab-b911-422b-9b9e-daf67076a38f.json"
-            },
-            "outputs": [
-                "The metadata for Chiller 6 at MAIN site includes: Chiller 6 Condenser Water Return To Tower Temperature, Chiller 6 Chiller Efficiency, Chiller 6 Tonnage, Chiller 6 Supply Temperature, Chiller 6 Return Temperature, Chiller 6 Run Status, Chiller 6 Condenser Water Flow, Chiller 6 Schedule, Chiller 6 Power Input, Chiller 6 Chiller % Loaded, Chiller 6 Liquid Refrigerant Evaporator Temperature, Chiller 6 Setpoint Temperature."
-            ]
-        },
-        {
-            "name": "finish",
-            "action": "Finish",
-            "agent": "IoTAgent",
-            "argument": "The metadata for Chiller 6 at MAIN site includes: Chiller 6 Condenser Water Return To Tower Temperature, Chiller 6 Chiller Efficiency, Chiller 6 Tonnage, Chiller 6 Supply Temperature, Chiller 6 Return Temperature, Chiller 6 Run Status, Chiller 6 Condenser Water Flow, Chiller 6 Schedule, Chiller 6 Power Input, Chiller 6 Chiller % Loaded, Chiller 6 Liquid Refrigerant Evaporator Temperature, Chiller 6 Setpoint Temperature.",
-            "deterministic": {
-                "name": false,
-                "action": true,
-                "arguments": true,
-                "outputs": true
-            }
-        }
-    ],
-    "execution_links": [
-        {
-            "source": "step1",
-            "target": "step2"
-        },
-        {
-            "source": "step2",
-            "target": "step3"
-        },
-        {
-            "source": "step3",
-            "target": "step4"
-        },
-        {
-            "source": "step5",
-            "target": "finish"
-        }
-    ],
-    "possible_alternatives": {}
-}''',
-'''{
-    "uuid": "592c6bf8-9866-44b6-808e-8db4564ac8ad",
-    "id": 6,
-    "type": "IoT",
-    "text": "Get the asset details for Chiller 9 at the MAIN site.",
-    "category": "Data Query",
-    "characteristic_form": "The expected response should be the details for asset 'Chiller 9' at the MAIN site.  The details may be in the return value, or the may be returned as a reference to a file containing the details",
-    "expected_result": null,
-    "data": {},
-    "planning_steps": [
-        {
-            "agent": "IoTAgent",
-            "instruction": "get asset details for Chiller 9 at MAIN site"
-        }
-    ],
-    "execution_steps": [
-        {
-            "name": "step1",
-            "action": "assets",
-            "agent": "IoTAgent",
-            "arguments": {
-                "site_name": "MAIN"
-            },
-            "outputs": []
-        },
-        {
-            "name": "step2",
-            "action": "jsonreader",
-            "agent": "IoTAgent",
-            "arguments": {
-                "file_name": "/var/folders/fz/l1h7gpv96rv5lg6m_d6bk0gc0000gn/T/cbmdir/81ea7d5b-4667-452e-9c0f-eff30353858b.json"
-            },
-            "outputs": []
-        },
-        {
-            "name": "step3",
-            "action": "sensors",
-            "agent": "IoTAgent",
-            "arguments": {
-                "site_name": "MAIN",
-                "assetnum": "Chiller 9"
-            },
-            "outputs": []
-        },
-        {
-            "name": "step4",
-            "action": "jsonreader",
-            "agent": "IoTAgent",
-            "arguments": {
-                "file_name": "/var/folders/fz/l1h7gpv96rv5lg6m_d6bk0gc0000gn/T/cbmdir/81ea7d5b-4667-452e-9c0f-eff30353858b.json"
-            },
-            "outputs": [
-                "The asset details for Chiller 9 at MAIN site include the following sensors: Chiller 9 Setpoint Temperature, Chiller 9 Supply Temperature, Chiller 9 Tonnage, Chiller 9 Run Status, Chiller 9 Return Temperature, Chiller Efficiency, Chiller 9 Schedule, Chiller 9 Power Input, Chiller 9 Chiller % Loaded, Chiller 9 Condenser Water Flow, Chiller 9 Liquid Refrigerant Evaporator Temperature, Chiller 9 Condenser Water Supply To Chiller Temperature."
-            ]
-        },
-        {
-            "name": "finish",
-            "action": "Finish",
-            "agent": "IoTAgent",
-            "argument": "The metadata for Chiller 6 at MAIN site includes: Chiller 6 Condenser Water Return To Tower Temperature, Chiller 6 Chiller Efficiency, Chiller 6 Tonnage, Chiller 6 Supply Temperature, Chiller 6 Return Temperature, Chiller 6 Run Status, Chiller 6 Condenser Water Flow, Chiller 6 Schedule, Chiller 6 Power Input, Chiller 6 Chiller % Loaded, Chiller 6 Liquid Refrigerant Evaporator Temperature, Chiller 6 Setpoint Temperature.",
-            "deterministic": {
-                "name": false,
-                "action": true,
-                "arguments": true,
-                "outputs": true
-            }
-        }
-    ],
-    "execution_links": [
-        {
-            "source": "step1",
-            "target": "step2"
-        },
-        {
-            "source": "step2",
-            "target": "step3"
-        },
-        {
-            "source": "step3",
-            "target": "step4"
-        },
-        {
-            "source": "step4",
-            "target": "finish"
-        }
-    ],
-    "possible_alternatives": {}
-}''',
-'''{
-    "uuid": "4e825afb-3b00-473c-b19f-52284d5c08f4",
-    "id": 7,
-    "type": "IoT",
-    "text": "Download the metadata for Chiller 3 at the MAIN facility.",
-    "category": "Data Query",
-    "characteristic_form": "The expected response should be the metadata for asset 'Chiller 3' as the MAIN site.  The metadata may be in the return value, or the may be returned as a reference to a file containing the metadata",
-    "expected_result": null,
-    "data": {},
-    "planning_steps": [
-        {
-            "agent": "IoTAgent",
-            "instruction": "download metadata for Chiller 3 at MAIN facility"
-        }
-    ],
-    "execution_steps": [
-        {
-            "name": "step1",
-            "action": "sensors",
-            "agent": "IoTAgent",
-            "arguments": {
-                "site_name": "MAIN",
-                "assetnum": "Chiller 3"
-            },
-            "outputs": []
-        },
-        {
-            "name": "step2",
-            "action": "jsonreader",
-            "agent": "IoTAgent",
-            "arguments": {
-                "file_name": "/var/folders/fz/l1h7gpv96rv5lg6m_d6bk0gc0000gn/T/cbmdir/bbbb2e97-77d5-4376-8a21-32a67dda0169.json"
-            },
-            "outputs": [
-                "The metadata for Chiller 3 at MAIN facility has been downloaded and includes the following sensors: Chiller 3 Condenser Water Flow, Chiller 3 Chiller Efficiency, Chiller 3 Liquid Refrigerant Evaporator Temperature, Chiller 3 Run Status, Chiller 3 Tonnage, Chiller 3 Chiller % Loaded, Chiller 3 Supply Temperature, Chiller 3 Condenser Water Supply To Chiller Temperature, Chiller 3 Schedule, Chiller 3 Setpoint Temperature, Chiller 3 Power Input, Chiller 3 Return Temperature."
-            ]
-        },
-        {
-            "name": "finish",
-            "action": "Finish",
-            "agent": "IoTAgent",
-            "argument": "The metadata for Chiller 3 at MAIN facility has been downloaded and includes the following sensors: Chiller 3 Condenser Water Flow, Chiller 3 Chiller Efficiency, Chiller 3 Liquid Refrigerant Evaporator Temperature, Chiller 3 Run Status, Chiller 3 Tonnage, Chiller 3 Chiller % Loaded, Chiller 3 Supply Temperature, Chiller 3 Condenser Water Supply To Chiller Temperature, Chiller 3 Schedule, Chiller 3 Setpoint Temperature, Chiller 3 Power Input, Chiller 3 Return Temperature.",
-            "deterministic": {
-                "name": false,
-                "action": true,
-                "arguments": true,
-                "outputs": true
-            }
-        }
-    ],
-    "execution_links": [
-        {
-            "source": "step1",
-            "target": "step2"
-        },
-        {
-            "source": "step2",
-            "target": "finish"
-        }
-    ],
-    "possible_alternatives": {}
-}'''
-]
+GROUND_TRUTH_TRAJECTORIES_JSON: List[str] = []
+
+# GROUND_TRUTH_TRAJECTORIES_JSON: List[str] = [
+#     '''{
+#     "uuid": "c50d83ca-6082-447d-a030-70b38a4e4a4b",
+#     "id": 1,
+#     "type": "IoT",
+#     "text": "What IoT sites are available?",
+#     "category": "Knowledge Query",
+#     "characteristic_form": "first call action sites with no parameters",
+#     "expected_result": null,
+#     "data": {},
+#     "planning_steps": [
+#         {
+#             "agent": "IoTAgent",
+#             "instruction": "list all the sites"
+#         }
+#     ],
+#     "execution_steps": [
+#         {
+#             "name": "step1",
+#             "action": "sites",
+#             "agent": "IoTAgent",
+#             "arguments": {},
+#             "outputs": []
+#         },
+#         {
+#             "name": "finish",
+#             "action": "Finish",
+#             "agent": "IoTAgent",
+#             "argument": "The available IoT site is MAIN.  The final answer is The available IoT site is MAIN.",
+#             "deterministic": {
+#                 "name": false,
+#                 "action": true,
+#                 "arguments": true,
+#                 "outputs": true
+#             }
+#         }
+#     ],
+#     "execution_links": [
+#         {
+#             "source": "step1",
+#             "target": "finish"
+#         }
+#     ],
+#     "possible_alternatives": {}
+# }''', 
+# '''{
+#     "uuid": "9f645a51-c34b-46c8-b166-b23d4a1acada",
+#     "id": 2,
+#     "type": "IoT",
+#     "text": "Can you list the IoT sites?",
+#     "category": "Knowledge Query",
+#     "characteristic_form": "The expected response should be the return value of all sites, either as text or as a reference to a file",
+#     "expected_result": null,
+#     "data": {},
+#     "planning_steps": [
+#         {
+#             "agent": "IoTAgent",
+#             "instruction": "list all the sites"
+#         }
+#     ],
+#     "execution_steps": [
+#         {
+#             "name": "step1",
+#             "action": "sites",
+#             "agent": "IoTAgent",
+#             "arguments": {},
+#             "outputs": []
+#         },
+#         {
+#             "name": "finish",
+#             "action": "Finish",
+#             "agent": "IoTAgent",
+#             "argument": "The available IoT sites are: MAIN.",
+#             "deterministic": {
+#                 "name": false,
+#                 "action": true,
+#                 "arguments": true,
+#                 "outputs": true
+#             }
+#         }
+#     ],
+#     "execution_links": [
+#         {
+#             "source": "step1",
+#             "target": "finish"
+#         }
+#     ],
+#     "possible_alternatives": {}
+# }''', 
+# '''{
+#     "uuid": "efc94d35-5236-410c-9e4f-5dcdfee818cc",
+#     "id": 3,
+#     "type": "IoT",
+#     "text": "What assets can be found at the MAIN site?",
+#     "category": "Knowledge Query",
+#     "characteristic_form": "The expected response should be the return value from querying the assets at the MAIN site. The response should be a reference to a file containing the list of assets",
+#     "expected_result": null,
+#     "data": {},
+#     "planning_steps": [
+#         {
+#             "agent": "IoTAgent",
+#             "instruction": "list assets for site MAIN"
+#         }
+#     ],
+#     "execution_steps": [
+#         {
+#             "name": "step1",
+#             "action": "assets",
+#             "agent": "IoTAgent",
+#             "arguments": {
+#                 "site_name": "MAIN"
+#             },
+#             "outputs": []
+#         },
+#         {
+#             "name": "finish",
+#             "action": "Finish",
+#             "agent": "IoTAgent",
+#             "argument": "The assets at the MAIN site are: CQPA AHU 1, CQPA AHU 2B, Chiller 4, Chiller 6, Chiller 9, Chiller 3.",
+#             "deterministic": {
+#                 "name": false,
+#                 "action": true,
+#                 "arguments": true,
+#                 "outputs": true
+#             }
+#         }
+#     ],
+#     "execution_links": [
+#         {
+#             "source": "step1",
+#             "target": "finish"
+#         }
+#     ],
+#     "possible_alternatives": {}
+# }''',
+# '''{
+#     "uuid": "bd83d19e-ca09-43e7-89ac-51dfc5088588",
+#     "id": 4,
+#     "type": "IoT",
+#     "text": "Which assets are located at the MAIN facility?",
+#     "category": "Knowledge Query",
+#     "characteristic_form": "The expected response should be the return value from querying the assets at the MAIN site. The response should be a reference to a file containing the list of assets",
+#     "expected_result": null,
+#     "data": {},
+#     "planning_steps": [
+#         {
+#             "agent": "IoTAgent",
+#             "instruction": "list assets for site MAIN"
+#         }
+#     ],
+#     "execution_steps": [
+#         {
+#             "name": "step1",
+#             "action": "assets",
+#             "agent": "IoTAgent",
+#             "arguments": {
+#                 "site_name": "MAIN"
+#             },
+#             "outputs": []
+#         },
+#         {
+#             "name": "finish",
+#             "action": "Finish",
+#             "agent": "IoTAgent",
+#             "argument": "The assets for site MAIN are: CQPA AHU 1, CQPA AHU 2B, Chiller 4, Chiller 6, Chiller 9, Chiller 3.",
+#             "deterministic": {
+#                 "name": false,
+#                 "action": true,
+#                 "arguments": true,
+#                 "outputs": true
+#             }
+#         }
+#     ],
+#     "execution_links": [
+#         {
+#             "source": "step1",
+#             "target": "finish"
+#         }
+#     ],
+#     "possible_alternatives": {}
+# }''',
+# '''{
+#     "uuid": "0a220b4f-2c2e-4dcd-adc2-0a2f7f15853e",
+#     "id": 5,
+#     "type": "IoT",
+#     "text": "Retrieve metadata for Chiller 6 located at the MAIN site.",
+#     "category": "Data Query",
+#     "characteristic_form": "The expected response should be the metadata for asset 'Chiller 6' at the MAIN site.  The metadata may be in the return value, or the may be returned as a reference to a file containing the metadata",
+#     "expected_result": null,
+#     "data": {},
+#     "planning_steps": [
+#         {
+#             "agent": "IoTAgent",
+#             "instruction": "retrieve metadata for Chiller 6 at MAIN site"
+#         }
+#     ],
+#     "execution_steps": [
+#         {
+#             "name": "step1",
+#             "action": "assets",
+#             "agent": "IoTAgent",
+#             "arguments": {
+#                 "site_name": "MAIN"
+#             },
+#             "outputs": []
+#         },
+#         {
+#             "name": "step2",
+#             "action": "jsonreader",
+#             "agent": "IoTAgent",
+#             "arguments": {
+#                 "file_name": "/var/folders/fz/l1h7gpv96rv5lg6m_d6bk0gc0000gn/T/cbmdir/6d1c069b-39f3-4849-9c23-defd183367a5.json"
+#             },
+#             "outputs": []
+#         },
+#         {
+#             "name": "step3",
+#             "action": "sensors",
+#             "agent": "IoTAgent",
+#             "arguments": {
+#                 "site_name": "MAIN",
+#                 "assetnum": "Chiller 6"
+#             },
+#             "outputs": []
+#         },
+#         {
+#             "name": "step4",
+#             "action": "jsonreader",
+#             "agent": "IoTAgent",
+#             "arguments": {
+#                 "file_name": "/var/folders/fz/l1h7gpv96rv5lg6m_d6bk0gc0000gn/T/cbmdir/1cf556ab-b911-422b-9b9e-daf67076a38f.json"
+#             },
+#             "outputs": [
+#                 "The metadata for Chiller 6 at MAIN site includes: Chiller 6 Condenser Water Return To Tower Temperature, Chiller 6 Chiller Efficiency, Chiller 6 Tonnage, Chiller 6 Supply Temperature, Chiller 6 Return Temperature, Chiller 6 Run Status, Chiller 6 Condenser Water Flow, Chiller 6 Schedule, Chiller 6 Power Input, Chiller 6 Chiller % Loaded, Chiller 6 Liquid Refrigerant Evaporator Temperature, Chiller 6 Setpoint Temperature."
+#             ]
+#         },
+#         {
+#             "name": "finish",
+#             "action": "Finish",
+#             "agent": "IoTAgent",
+#             "argument": "The metadata for Chiller 6 at MAIN site includes: Chiller 6 Condenser Water Return To Tower Temperature, Chiller 6 Chiller Efficiency, Chiller 6 Tonnage, Chiller 6 Supply Temperature, Chiller 6 Return Temperature, Chiller 6 Run Status, Chiller 6 Condenser Water Flow, Chiller 6 Schedule, Chiller 6 Power Input, Chiller 6 Chiller % Loaded, Chiller 6 Liquid Refrigerant Evaporator Temperature, Chiller 6 Setpoint Temperature.",
+#             "deterministic": {
+#                 "name": false,
+#                 "action": true,
+#                 "arguments": true,
+#                 "outputs": true
+#             }
+#         }
+#     ],
+#     "execution_links": [
+#         {
+#             "source": "step1",
+#             "target": "step2"
+#         },
+#         {
+#             "source": "step2",
+#             "target": "step3"
+#         },
+#         {
+#             "source": "step3",
+#             "target": "step4"
+#         },
+#         {
+#             "source": "step5",
+#             "target": "finish"
+#         }
+#     ],
+#     "possible_alternatives": {}
+# }''',
+# '''{
+#     "uuid": "592c6bf8-9866-44b6-808e-8db4564ac8ad",
+#     "id": 6,
+#     "type": "IoT",
+#     "text": "Get the asset details for Chiller 9 at the MAIN site.",
+#     "category": "Data Query",
+#     "characteristic_form": "The expected response should be the details for asset 'Chiller 9' at the MAIN site.  The details may be in the return value, or the may be returned as a reference to a file containing the details",
+#     "expected_result": null,
+#     "data": {},
+#     "planning_steps": [
+#         {
+#             "agent": "IoTAgent",
+#             "instruction": "get asset details for Chiller 9 at MAIN site"
+#         }
+#     ],
+#     "execution_steps": [
+#         {
+#             "name": "step1",
+#             "action": "assets",
+#             "agent": "IoTAgent",
+#             "arguments": {
+#                 "site_name": "MAIN"
+#             },
+#             "outputs": []
+#         },
+#         {
+#             "name": "step2",
+#             "action": "jsonreader",
+#             "agent": "IoTAgent",
+#             "arguments": {
+#                 "file_name": "/var/folders/fz/l1h7gpv96rv5lg6m_d6bk0gc0000gn/T/cbmdir/81ea7d5b-4667-452e-9c0f-eff30353858b.json"
+#             },
+#             "outputs": []
+#         },
+#         {
+#             "name": "step3",
+#             "action": "sensors",
+#             "agent": "IoTAgent",
+#             "arguments": {
+#                 "site_name": "MAIN",
+#                 "assetnum": "Chiller 9"
+#             },
+#             "outputs": []
+#         },
+#         {
+#             "name": "step4",
+#             "action": "jsonreader",
+#             "agent": "IoTAgent",
+#             "arguments": {
+#                 "file_name": "/var/folders/fz/l1h7gpv96rv5lg6m_d6bk0gc0000gn/T/cbmdir/81ea7d5b-4667-452e-9c0f-eff30353858b.json"
+#             },
+#             "outputs": [
+#                 "The asset details for Chiller 9 at MAIN site include the following sensors: Chiller 9 Setpoint Temperature, Chiller 9 Supply Temperature, Chiller 9 Tonnage, Chiller 9 Run Status, Chiller 9 Return Temperature, Chiller Efficiency, Chiller 9 Schedule, Chiller 9 Power Input, Chiller 9 Chiller % Loaded, Chiller 9 Condenser Water Flow, Chiller 9 Liquid Refrigerant Evaporator Temperature, Chiller 9 Condenser Water Supply To Chiller Temperature."
+#             ]
+#         },
+#         {
+#             "name": "finish",
+#             "action": "Finish",
+#             "agent": "IoTAgent",
+#             "argument": "The metadata for Chiller 6 at MAIN site includes: Chiller 6 Condenser Water Return To Tower Temperature, Chiller 6 Chiller Efficiency, Chiller 6 Tonnage, Chiller 6 Supply Temperature, Chiller 6 Return Temperature, Chiller 6 Run Status, Chiller 6 Condenser Water Flow, Chiller 6 Schedule, Chiller 6 Power Input, Chiller 6 Chiller % Loaded, Chiller 6 Liquid Refrigerant Evaporator Temperature, Chiller 6 Setpoint Temperature.",
+#             "deterministic": {
+#                 "name": false,
+#                 "action": true,
+#                 "arguments": true,
+#                 "outputs": true
+#             }
+#         }
+#     ],
+#     "execution_links": [
+#         {
+#             "source": "step1",
+#             "target": "step2"
+#         },
+#         {
+#             "source": "step2",
+#             "target": "step3"
+#         },
+#         {
+#             "source": "step3",
+#             "target": "step4"
+#         },
+#         {
+#             "source": "step4",
+#             "target": "finish"
+#         }
+#     ],
+#     "possible_alternatives": {}
+# }''',
+# '''{
+#     "uuid": "4e825afb-3b00-473c-b19f-52284d5c08f4",
+#     "id": 7,
+#     "type": "IoT",
+#     "text": "Download the metadata for Chiller 3 at the MAIN facility.",
+#     "category": "Data Query",
+#     "characteristic_form": "The expected response should be the metadata for asset 'Chiller 3' as the MAIN site.  The metadata may be in the return value, or the may be returned as a reference to a file containing the metadata",
+#     "expected_result": null,
+#     "data": {},
+#     "planning_steps": [
+#         {
+#             "agent": "IoTAgent",
+#             "instruction": "download metadata for Chiller 3 at MAIN facility"
+#         }
+#     ],
+#     "execution_steps": [
+#         {
+#             "name": "step1",
+#             "action": "sensors",
+#             "agent": "IoTAgent",
+#             "arguments": {
+#                 "site_name": "MAIN",
+#                 "assetnum": "Chiller 3"
+#             },
+#             "outputs": []
+#         },
+#         {
+#             "name": "step2",
+#             "action": "jsonreader",
+#             "agent": "IoTAgent",
+#             "arguments": {
+#                 "file_name": "/var/folders/fz/l1h7gpv96rv5lg6m_d6bk0gc0000gn/T/cbmdir/bbbb2e97-77d5-4376-8a21-32a67dda0169.json"
+#             },
+#             "outputs": [
+#                 "The metadata for Chiller 3 at MAIN facility has been downloaded and includes the following sensors: Chiller 3 Condenser Water Flow, Chiller 3 Chiller Efficiency, Chiller 3 Liquid Refrigerant Evaporator Temperature, Chiller 3 Run Status, Chiller 3 Tonnage, Chiller 3 Chiller % Loaded, Chiller 3 Supply Temperature, Chiller 3 Condenser Water Supply To Chiller Temperature, Chiller 3 Schedule, Chiller 3 Setpoint Temperature, Chiller 3 Power Input, Chiller 3 Return Temperature."
+#             ]
+#         },
+#         {
+#             "name": "finish",
+#             "action": "Finish",
+#             "agent": "IoTAgent",
+#             "argument": "The metadata for Chiller 3 at MAIN facility has been downloaded and includes the following sensors: Chiller 3 Condenser Water Flow, Chiller 3 Chiller Efficiency, Chiller 3 Liquid Refrigerant Evaporator Temperature, Chiller 3 Run Status, Chiller 3 Tonnage, Chiller 3 Chiller % Loaded, Chiller 3 Supply Temperature, Chiller 3 Condenser Water Supply To Chiller Temperature, Chiller 3 Schedule, Chiller 3 Setpoint Temperature, Chiller 3 Power Input, Chiller 3 Return Temperature.",
+#             "deterministic": {
+#                 "name": false,
+#                 "action": true,
+#                 "arguments": true,
+#                 "outputs": true
+#             }
+#         }
+#     ],
+#     "execution_links": [
+#         {
+#             "source": "step1",
+#             "target": "step2"
+#         },
+#         {
+#             "source": "step2",
+#             "target": "finish"
+#         }
+#     ],
+#     "possible_alternatives": {}
+# }'''
+# ]
 
 
 # --------------------------------------------------------------------
@@ -906,7 +908,7 @@ def main() -> None:
 
     # 4) Instantiate the SimulatorAgent
     sim = SimulatorAgent(
-        db_url=db_url,
+        # db_url=db_url,
         system_prompt=SIMULATOR_SYSTEM_PROMPT,
         max_similar_tasks=5,
     )

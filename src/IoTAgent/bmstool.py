@@ -1,6 +1,7 @@
 import couchdb3
 import json 
 import logging
+import os
 
 from typing import Optional, Type
 from typing import Optional
@@ -11,13 +12,17 @@ from langchain_core.tools import BaseTool
 from iotagent.demo.tool import getTempFilename
 from datetime import datetime
 
-client = couchdb3.Server("http://admin:password@localhost:5984/")
+couchdbURL = os.environ.get('COUCHDB_URL')
+couchdbDBName = os.environ.get('COUCHDB_DBNAME')
+couchdbUser = os.environ.get('COUCHDB_USERNAME')
+couchdbPassword = os.environ.get('COUCHDB_PASSWORD')
 
-db = client.get("main")
+db = couchdb3.Database(couchdbDBName, url=couchdbURL, user=couchdbUser, password=couchdbPassword)
 
 print(db)
 
 logger: logging.Logger = logging.getLogger(__name__)
+
 
 
 def custom_json(obj):
@@ -164,7 +169,45 @@ SENSORS = {
         'Chiller 3 Setpoint Temperature',
         'Chiller 3 Power Input',
         'Chiller 3 Return Temperature',
-    ]
+    ],
+    'hp_1': [
+        'PS1_Pressure_bar_100Hz',
+        'PS2_Pressure_bar_100Hz',
+        'PS3_Pressure_bar_100Hz',
+        'PS4_Pressure_bar_100Hz',
+        'PS5_Pressure_bar_100Hz',
+        'PS6_Pressure_bar_100Hz',
+        'FS1_VolumeFlow_l_per_min_10Hz',
+        'FS2_VolumeFlow_l_per_min_10Hz',
+        'TS1_Temperature_C_1Hz',
+        'TS2_Temperature_C_1Hz',
+        'TS3_Temperature_C_1Hz',
+        'TS4_Temperature_C_1Hz',
+        'P1_MotorPower_W_100Hz',
+        'VS1_Vibration_mm_per_s_1Hz',
+        'CE_CoolingEfficiency_percent_1Hz',
+        'CP_CoolingPower_kW_1Hz',
+        'SE_EfficiencyFactor_percent_1Hz',
+        'cycle',
+    ],
+    'mp_1': [
+        'Compressor_Pressure_bar',
+        'Pneumatic_Panel_Pressure_bar',
+        'Cyclone_Filter_Drop_Pressure_bar',
+        'Tower_Discharge_Pressure_Drop_bar',
+        'Reservoir_Pressure_bar',
+        'Oil_Temperature_C',
+        'Motor_Current_A',
+        'Air_Intake_Valve_Status',
+        'Compressor_Outlet_Valve_Status',
+        'Active_Tower_ID',
+        'Load_Start_Signal',
+        'Low_Pressure_Switch_Status',
+        'Tower_Discharge_Switch_Status',
+        'Low_Oil_Level_Alarm',
+        'Airflow_Pulse_Counter',
+    ],
+
 }
 
 # class SensorDescription:

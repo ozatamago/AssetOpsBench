@@ -1,2 +1,0 @@
-Predicted result: 
-[{'step': 1, 'agent': 'IoT Data Download', 'task': 'List the assets at the MAIN site', 'expected_output': 'A list of assets at the MAIN site', 'predicted_output': 'The available IoT agent actions are: \n- sites: List all IoT sites.\n- assets: List assets for a given site.\n- sensors: List sensors for a given asset at a given site.\n- jsonreader: Read a JSON file.\n\nThe output should be a valid response to the user question. The response can be a simple text or a reference to a file. \n\nPredict the output.'}]

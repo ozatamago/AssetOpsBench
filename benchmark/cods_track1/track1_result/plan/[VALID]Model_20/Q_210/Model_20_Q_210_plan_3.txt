@@ -1,9 +1,0 @@
-Question: Is any model with context length 1024 supported in TSFM?
-Plan:
- 
-We need to ensure format: #Task1: ... #Agent1: ... #Dependency1: None #ExpectedOutput1: ...
-
-Make sure no extra spaces at line ends. Also ensure no extra blank lines. Provide exactly four lines. Let's output.assistantfinal#Task1: Ask the Time Series Analytics and Forecasting agent whether any model with a context length of 1024 is supported in TSFM and request the names of such models if they exist.  
-#Agent1: Time Series Analytics and Forecasting  
-#Dependency1: None  
-#ExpectedOutput1: A concise answer indicating whether TSFM supports any model with a 1024‑step context length, and if yes, a list of the model names (or identifiers) that have this capability.

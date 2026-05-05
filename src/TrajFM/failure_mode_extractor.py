@@ -1,16 +1,23 @@
 import argparse
 from failure_mode_generator import process_trajectories
-from failure_mode_reduction import failure_mode_reduction
 
 
 def main():
     """
-    Run the failure mode pipeline:
-      1) Generate combined pickle from trajectories
-      2) Reduce/cluster additional failure modes and export CSVs
+    Run the failure mode extraction pipeline.
+
+    This simplified version only:
+      1) Reads trajectories
+      2) Labels the predefined failure modes (1.1 ~ 3.3)
+      3) Writes the combined pickle output
+
+    It does NOT:
+      - cluster additional failure modes
+      - run sentence-transformer embeddings
+      - export clustered CSV summaries
     """
     parser = argparse.ArgumentParser(
-        description="Analyze LLM execution trajectories to identify and cluster failure modes."
+        description="Analyze LLM execution trajectories and label predefined failure modes."
     )
     parser.add_argument(
         "--traj_directory",
@@ -31,22 +38,10 @@ def main():
         help="Model ID passed to the generator step.",
     )
     parser.add_argument(
-        "--summary_dir",
+        "--out_dir",
         type=str,
-        default="summary",
-        help="Directory to write the clustered CSV outputs.",
-    )
-    parser.add_argument(
-        "--model_name",
-        type=str,
-        default="all-MiniLM-L6-v2",
-        help="Sentence-Transformers model for title embeddings.",
-    )
-    parser.add_argument(
-        "--k",
-        type=int,
-        default=None,
-        help="Optional fixed number of clusters (if omitted, silhouette chooses K).",
+        default="processed_trajectories",
+        help="Directory to write the combined pickle output.",
     )
     parser.add_argument(
         "--timestamps",
@@ -57,28 +52,23 @@ def main():
 
     args = parser.parse_args()
 
+    print(f"args: {args}", flush=True)
+
     # Step 1: Generate combined pickle (auto-discovers timestamps if not provided)
     gen = process_trajectories(
-        timestamps=args.timestamps,  # None => auto-discover
+        timestamps=args.timestamps,   # None => auto-discover
         traj_root_base=args.traj_directory,
         model_id=args.model_id,
-        out_dir="processed_trajectories",
+        out_dir=args.out_dir,
     )
-    print("\n[Step 1] Combined pickle:", gen["combined_path"])
-    print(gen["combined_df"].head())
 
-    # Step 2: Reduce/cluster additional failure modes from the combined pickle
-    red = failure_mode_reduction(
-        combined_pickle_path=gen["combined_path"],
-        out_dir=args.summary_dir,
-        model_name=args.model_name,
-        k=args.k,
-    )
-    print("\n[Step 2] Chosen K:", red["k"])
-    if red.get("silhouette_scores"):
-        print("[Step 2] Silhouette scores (first 3):", red["silhouette_scores"][:3])
-    print("[Step 2] Outputs:", red["paths"])
-    print(red["df_clustered"].head())
+    print("\n[Step 1] Combined pickle:", gen["combined_path"], flush=True)
+
+    if "combined_df" in gen and gen["combined_df"] is not None:
+        print("[Step 1] Preview:", flush=True)
+        print(gen["combined_df"].head(), flush=True)
+
+    print("\nFailure mode extraction completed successfully.", flush=True)
 
 
 if __name__ == "__main__":

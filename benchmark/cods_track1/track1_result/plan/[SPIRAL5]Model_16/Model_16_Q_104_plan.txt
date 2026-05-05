@@ -1,7 +1,0 @@
-Question: List all installed sensors of asset Chiller 6.
-Plan:
- 
-#Task1: List all assets at SiteX.
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: List of assets at SiteX

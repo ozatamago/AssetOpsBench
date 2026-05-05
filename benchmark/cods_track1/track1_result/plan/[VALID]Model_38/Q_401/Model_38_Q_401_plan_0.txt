@@ -1,6 +1,0 @@
-Question: I would like to check the work order distribution for the equipment labeled as CWC04013 for the year 2017.
-Plan:
-#Task1: Retrieve work order data for equipment CWC04013 for the year 2017
-#Agent1: WorkOrder Agent
-#Dependency1: None
-#ExpectedOutput1: Work order data for equipment CWC04013 in 2017

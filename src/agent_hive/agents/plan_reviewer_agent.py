@@ -4,7 +4,7 @@ import json
 import re
 from agent_hive.agents.base_agent import BaseAgent
 from typing import List, Dict
-
+import time
 from agent_hive.logger import get_custom_logger
 
 logger = get_custom_logger(__name__)
@@ -99,7 +99,6 @@ class PlanReviewerAgent(BaseAgent):
 
     def execute_task(self, question: str, agent_descriptions: str, plan: str):
         """
-
         Evaluate the plan based on the question and agent expertise.
 
         Args:
@@ -108,8 +107,13 @@ class PlanReviewerAgent(BaseAgent):
             plan (str): The plan to evaluate.
 
         Returns:
-            dict: The evaluation result.
+            tuple[dict, int, int]:
+                - parsed review result
+                - total input token count
+                - total generated token count
         """
+        input_tokens_count = 0
+        generated_tokens_count = 0
 
         prompt = review_plan_system_prompt_template.format(
             question=question,
@@ -117,27 +121,39 @@ class PlanReviewerAgent(BaseAgent):
             plan=plan,
         )
         logger.info(f"Review Prompt: {prompt}")
+
         for it_index in range(self.max_retries):
-            review_result = watsonx_llm(
-                prompt, model_id=self.llm, stop=["\n(END OF RESPONSE)"]
-            )["generated_text"]
-            # logger.info(f'review_result: {review_result}')
-            parsed_result = self.extract_and_parse_json(review_result)
-
-            # Check if parsing succeeded
-            if parsed_result.get("status") != "Error":
-                return parsed_result
-
-            parsed_result = self.extract_and_parse_json_using_manual_parser(
-                review_result
+            resp = watsonx_llm(
+                prompt,
+                model_id=self.llm,
+                stop=["\n(END OF RESPONSE)"],
             )
-            # Check if parsing succeeded
-            if parsed_result.get("status") != "Error":
-                return parsed_result
+            llm_response = resp.get("generated_text", "")
+            in_tok = resp.get("input_token_count", 0)
+            out_tok = resp.get("generated_token_count", 0)
 
-        # Return error after exceeding retries
-        return {
+            print(f"in_tok2: {in_tok}")
+            print(f"type(in_tok): {type(in_tok)}")
+            print(f"out_tok2: {out_tok}")
+            print(f"type(out_tok): {type(out_tok)}")
+
+            input_tokens_count += in_tok
+            generated_tokens_count += out_tok
+            logger.info(f"Plan: \n{llm_response}")
+
+            review_result = llm_response
+
+            parsed_result = self.extract_and_parse_json(review_result)
+            if parsed_result.get("status") != "Error":
+                return parsed_result, input_tokens_count, generated_tokens_count
+
+            parsed_result = self.extract_and_parse_json_using_manual_parser(review_result)
+            if parsed_result.get("status") != "Error":
+                return parsed_result, input_tokens_count, generated_tokens_count
+
+        review = {
             "status": "Error",
             "reasoning": f"Failed to produce valid JSON after {self.max_retries} attempts.",
             "suggestions": "Review the prompt and refine the LLM response strategy.",
         }
+        return review, input_tokens_count, generated_tokens_count

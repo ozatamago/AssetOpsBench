@@ -1,9 +1,0 @@
-stop_index: 1
-
-truncated_plan: #Task1: Ask Time Series Analytics and Forecasting agent about the number of models with context length exactly 96 that are supported.
-#Agent1: Time Series Analytics and Forecasting
-#Dependency1: None
-#ExpectedOutput1: The number of models with context length exactly 96 that are supported.
-
-status: Accomplished
-can_answer_now:True

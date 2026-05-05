@@ -1,7 +1,0 @@
-Question: Using your knowledge of the industrial asset, can you suggest me a work order for alert RUL0014 with the context of 'Chiller - Cooling Substance Delta T Low' for closed-loop water-cool chiller its load is higher than the upper bound?
-Plan:
- 
-We need to ensure counts match: we have Task1, Agent1, Dependency1, ExpectedOutput1. That's fine. Ensure no extra spaces at start. Provide exactly.assistantanalysisWe need to output plan lines only. Ensure no extra blank lines.assistantfinal #Task1: Create a work order to address alert RUL0014 for a closed-loop water-cooled chiller experiencing low cooling-substance ΔT while operating above its load upper bound
-#Agent1: WorkOrder Agent
-#Dependency1: None
-#ExpectedOutput1: Work order details (WO ID, description, priority, recommended inspection/repair actions) for the chiller related to low ΔT and high load

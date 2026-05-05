@@ -1,8 +1,0 @@
-Question: Is Chronos model supported in TSFM?
-Plan:
-We need to answer: "Is Chronos model supported in TSFM?" This is a question about Time Series Forecasting Model (TSFM) and Chronos model support. Likely need to consult knowledge base or ask Time Series Analytics and Forecasting agent? The agents available: IoT Data Download, Failure Mode and Sensor Relevancy Expert, Time Series Analytics and Forecasting, WorkOrder Agent. None directly about model support. However Time Series Analytics and Forecasting agent may know about models. Could ask it: "Is Chronos model supported in TSFM?" That seems like a question it can answer. So single step: ask Time Series Analytics and Forecasting agent. No dependencies. Expected output: a clear answer yes/no with explanation.
-
-Thus plan with one step. Ensure format.assistantfinal#Task1: Determine whether the Chronos model is supported in the Time Series Forecasting Model (TSFM) framework.
-#Agent1: Time Series Analytics and Forecasting
-#Dependency1: None
-#ExpectedOutput1: A concise answer stating if Chronos is supported in TSFM, including any relevant details or references.

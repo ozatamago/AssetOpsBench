@@ -1,6 +1,0 @@
-Question: What are time series pretrained models are available in system?
-Plan:
-assistantfinal #Task1: Retrieve the list of time series pretrained models available in the system.  
-#Agent1: Time Series Analytics and Forecasting  
-#Dependency1: None  
-#ExpectedOutput1: A concise list of all time‑series pretrained models currently available (e.g., Prophet, ARIMA, LSTM, etc.).

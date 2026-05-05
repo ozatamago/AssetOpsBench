@@ -1,9 +1,0 @@
-stop_index: 1
-
-truncated_plan: #Task1: Retrieve the historical data for 'Chiller 9 Condenser Water Flow' at the MAIN site for the past week (2020-04-20 to 2020-04-26).
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: Historical data for 'Chiller 9 Condenser Water Flow' at the MAIN site for the past week.
-
-status: Not accomplished
-can_answer_now:False

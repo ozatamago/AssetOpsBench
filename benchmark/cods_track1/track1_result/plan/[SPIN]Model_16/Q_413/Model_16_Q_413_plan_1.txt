@@ -1,7 +1,0 @@
-Question: Assuming that the current date is 2018-01-02, can you predict next work order probability for me for equipment CWC04009 using predict_next_work_order_probability function?
-Plan:
- 
-#Task1: Predict the next work order probability for equipment CWC04009 using the predict_next_work_order_probability function
-#Agent1: WorkOrder Agent
-#Dependency1: None
-#ExpectedOutput1: Predicted probability of next work order for CWC04009

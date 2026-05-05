@@ -1,3 +1,0 @@
-ok: False
-errs:
-['Agent numbers must be 1..N in order; got [1, 2, 2, 3]', 'Counts of Task/Agent/Dependency/ExpectedOutput must match', "Dependency2 must be 'None' or '#S1 #S2 ...'; got '#Task1'", "Dependency3 must be 'None' or '#S1 #S2 ...'; got '#Task2'", "Agent2 unknown 'Since the task requires identifying relevant sensors for a specific failure mode, we need to use the same agent as in Task 1.'. Allowed: ['Failure Mode and Sensor Relevancy Expert for Industrial Asset', 'IoT Data Download', 'Time Series Analytics and Forecasting', 'WorkOrder Agent']"]

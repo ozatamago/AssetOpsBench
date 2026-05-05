@@ -1,7 +1,0 @@
-Question: What types of time series analysis are supported?
-Plan:
-assistantanalysisWe need to ensure format exactly. No extra spaces? Should be fine. Use #Task1: line, #Agent1, #Dependency1, #ExpectedOutput1. Ensure no extra spaces at line ends. Provide one line each. No extra blank lines. Let's output.assistantfinal
-#Task1: Query the Time Series Analytics and Forecasting agent to list all supported time series analysis types and provide a brief description of each.  
-#Agent1: Time Series Analytics and Forecasting  
-#Dependency1: None  
-#ExpectedOutput1: A concise list of supported analysis types (e.g., forecasting, anomaly detection, trend/seasonality decomposition, regression, model selection, pretrained‑model usage, context‑length specification) with short descriptions.

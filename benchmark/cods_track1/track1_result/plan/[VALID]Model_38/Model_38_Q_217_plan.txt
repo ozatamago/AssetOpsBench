@@ -1,6 +1,0 @@
-Question: Forecast 'Chiller 9 Condenser Water Flow' using data in 'chiller9_annotated_small_test.csv'. Use parameter 'Timestamp' as a timestamp.
-Plan:
-#Task1: Analyze the time-series data in 'chiller9_annotated_small_test.csv' and forecast 'Chiller 9 Condenser Water Flow' using 'Timestamp' as the timestamp parameter.
-#Agent1: Time Series Analytics and Forecasting
-#Dependency1: None
-#ExpectedOutput1: A forecast of 'Chiller 9 Condenser Water Flow' based on the provided data, with 'Timestamp' used as the timestamp parameter.

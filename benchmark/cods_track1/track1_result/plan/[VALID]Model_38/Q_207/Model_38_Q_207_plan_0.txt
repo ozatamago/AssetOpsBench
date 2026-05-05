@@ -1,6 +1,0 @@
-Question: Is Anomaly Detection supported in TSFM?
-Plan:
-#Task1: Determine if Anomaly Detection is supported in TSFM
-#Agent1: Time Series Analytics and Forecasting
-#Dependency1: None
-#ExpectedOutput1: Yes, Anomaly Detection is supported in TSFM. The agent can analyze time-series data and look for anomalies.

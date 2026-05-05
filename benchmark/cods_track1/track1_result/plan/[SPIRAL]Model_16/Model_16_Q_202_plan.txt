@@ -1,7 +1,0 @@
-Question: What are time series pretrained models are available in system?
-Plan:
- 
-#Task1: Identify the available pretrained models for time series analysis in the system.
-#Agent1: Time Series Analytics and Forecasting
-#Dependency1: None
-#ExpectedOutput1: List of available pretrained models for time series analysis.

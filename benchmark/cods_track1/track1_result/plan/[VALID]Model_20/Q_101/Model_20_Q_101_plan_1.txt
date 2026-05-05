@@ -1,8 +1,0 @@
-Question: List all failure modes of asset Chiller.
-Plan:
-
-
-#Task1: Retrieve a comprehensive list of all known failure modes for a chiller asset (e.g., Chiller 6) using the Failure Mode and Sensor Relevancy Expert for Industrial Asset.  
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
-#Dependency1: None  
-#ExpectedOutput1: A structured list (e.g., bullet points or JSON array) enumerating every failure mode applicable to the chiller asset, such as compressor failure, refrigerant leak, sensor drift, loose wiring, etc.

@@ -1,9 +1,0 @@
-stop_index: 1
-
-truncated_plan: #Task1: Understand the task and identify the relevant agent to solve it.
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency1: None
-#ExpectedOutput1: The agent should provide information on the temporal behavior of the power input when the compressor motor of Chiller 6 fails.
-
-status: Not accomplished
-can_answer_now:False

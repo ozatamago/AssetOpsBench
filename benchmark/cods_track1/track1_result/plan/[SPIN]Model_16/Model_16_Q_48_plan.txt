@@ -1,7 +1,0 @@
-Question: what was the return temperature from CQPA AHU 2B on sept 19, 2020 at 7pm, at site MAIN? return data in a file
-Plan:
- 
-#Task1: Retrieve the historical data for CQPA AHU 2B at Site MAIN on Sept 19, 2020 at 7pm for return temperature.
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: Historical data for CQPA AHU 2B return temperature at Site MAIN on Sept 19, 2020 at 7pm.

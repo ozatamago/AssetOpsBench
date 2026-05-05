@@ -1,7 +1,0 @@
-Question: When power input of Chiller 6 at MAIN site drops, what is the potential failure that causes it?
-Plan:
- 
-We need to output plan with fewer than 5 steps. Already one step. Ensure format exactly. No extra spaces. Ensure #Dependency1: None. Ensure #ExpectedOutput1: one line. Provide concise description. Should be fine.assistantfinal_output#Task1: Identify the potential failure that causes a drop in power input of Chiller 6 at the MAIN site.
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency1: None
-#ExpectedOutput1: A concise description of the likely failure mode(s) responsible for the power‑input drop in Chiller 6 at the MAIN site, including any relevant sensors or conditions.

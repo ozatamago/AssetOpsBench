@@ -5,15 +5,78 @@ services:
     volumes:
       - ./track1_result:/home/track1_result
 
-      - ./entrypoint_spin.sh:/home/entrypoint.sh
-      - ./run_track_1_spin.py:/home/run_track_1.py
-      - ../../src/agent_hive/workflows/track1_planning_spin.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/track1_planning.py
-      
+      # - ./entrypoint_failure_modes_analysis.sh:/home/entrypoint.sh
+      # - ./entrypoint_exception_reason_taxonomy.sh:/home/entrypoint.sh
+      # - ./entrypoint_modular_planner.sh:/home/entrypoint.sh
+      # - ../../src/TrajFM:/home/TrajFM:ro
+      # - ../../src/TrajFM_w_verification_recovery:/home/TrajFM:ro
+      # - ../../src/TrajFM_w_verification_recovery:/home/TrajFM:ro
+      - ./entrypoint_failure_modes_analysis_new.sh:/home/entrypoint.sh
+      - ../../src/TrajFM_vr/failure_mode_analysis.py:/home/failure_mode_analysis.py
+
+      # # for ReAct conditional planning
+      # - ./entrypoint_react_conditional_planning.sh:/home/entrypoint.sh
+      # - ./run_track_1_react_conditional_planning.py:/home/run_track_1.py
+      # - ../../src/agent_hive/workflows/track1_planning_react_conditional_planning.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/track1_planning.py
+      # - ../../src/agent_hive/agents/plan_reviewer_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/agents/plan_reviewer_agent.py
+      # - ../../src/agent_hive/workflows/sequential_conditional_planning.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/sequential.py
+      # - ../../src/agent_hive/agents/react_reflect_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/agents/react_reflect_agent.py
+
+      # # for ReActXen conditional planning
+      # - ./entrypoint_reactxen_conditional_planning.sh:/home/entrypoint.sh
+      # - ../../src/agent_hive/tests/multi_agent/run_reactxen_conditional_planning.py:/home/run_track_1.py
+      # - ../../src/agent_hive/workflows/planning_review_reactxen_conditional_planning.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/track1_planning.py
+      # - ../../src/agent_hive/agents/plan_reviewer_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/agents/plan_reviewer_agent.py
+      # - ../../src/agent_hive/workflows/sequential_conditional_planning.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/sequential.py
+      # - ../../src/agent_hive/agents/react_reflect_agent_conditional_planning.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/agents/react_reflect_agent.py
+
+      # # for RAFA conditional planning
+      # - ./entrypoint_rafa_conditional_planning.sh:/home/entrypoint.sh
+      # - ../../src/agent_hive/tests/multi_agent/run_rafa_conditional_planning.py:/home/run_track_1.py
+      # - ../../src/agent_hive/workflows/planning_review_rafa_conditional_planning.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/track1_planning.py
+      # - ../../src/agent_hive/agents/plan_reviewer_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/agents/plan_reviewer_agent.py
+      # - ../../src/agent_hive/workflows/sequential_conditional_planning.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/sequential.py
+      # - ../../src/agent_hive/agents/rafa_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/agents/react_reflect_agent.py
+
+      # # for ReActXen conditional planning
+      # - ./entrypoint_reactxen_conditional_planning.sh:/home/entrypoint.sh
+      # - ../../src/agent_hive/tests/multi_agent/run_reactxen_conditional_planning.py:/home/run_track_1.py
+      # - ../../src/agent_hive/workflows/planning_review_reactxen_conditional_planning.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/track1_planning.py
+      # - ../../src/agent_hive/agents/plan_reviewer_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/agents/plan_reviewer_agent.py
+      # - ../../src/agent_hive/workflows/sequential_conditional_planning.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/sequential.py
+      # - ../../src/agent_hive/agents/react_reflect_agent_conditional_planning.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/agents/react_reflect_agent.py
+
+      # # for RAFA conditional planning
+      # - ./entrypoint_baseline_rafa.sh:/home/entrypoint.sh
+      # - ../../src/agent_hive/tests/multi_agent/run_baseline_rafa.py:/home/run_track_1.py
+      # - ../../src/agent_hive/workflows/planning_review_baseline_rafa.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/planning_review.py
+      # - ../../src/agent_hive/agents/plan_reviewer_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/agents/plan_reviewer_agent.py
+      # - ../../src/agent_hive/workflows/sequential.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/sequential.py
+      # - ../../src/agent_hive/agents/rafa_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/agents/react_reflect_agent.py
+
       - ../../src/assetopsbench/sample_data:/sample_data:ro
+      - ../../src/IoTAgent/bmstool.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/iotagent/demo/bmstool.py
       - ../../scenarios:/home/scenarios:ro  
       - ../../summarize.py:/home/summarize.py  
+      - ../../exception_reason_taxonomy.py:/home/exception_reason_taxonomy.py  
+      - ../../build_plan_taxonomies_all_in_one.py:/home/build_plan_taxonomies_all_in_one.py  
+      - ../../src/agent_hive/workflows/build_frequency_model.py:/home/build_frequency_model.py  
+      - ../../src/agent_hive/workflows/verification_f1_score.py:/home/verification_f1_score.py  
+      - ../../src/agent_hive/workflows/compare_annotated_vs_allocation.py:/home/compare_annotated_vs_allocation.py  
+      - ../../src/agent_hive/workflows/eval_module2.py:/home/eval_module2.py  
+      - ../../src/agent_hive/workflows/eval_module3.py:/home/eval_module3.py  
+      - ../../src/agent_hive/workflows/build_node_signature_table.py:/home/build_node_signature_table.py  
+      - ../../src/agent_hive/workflows/build_frequency_model_with_risk_from_node_table.py:/home/build_frequency_model_with_risk_from_node_table.py  
+      - ../../src/agent_hive/workflows/verifier_oracle_threshold_sweep.py:/home/verifier_oracle_threshold_sweep.py        
+      
       - ../../auto_scoring.py:/home/auto_scoring.py  
+      - ../../src/agent_hive/task.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/task.py
       - ../../src/agent_hive/workflows/simulator_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/simulator_agent.py
+      - ../../src/agent_hive/workflows/planning.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/planning.py
+      - ../../src/agent_hive/workflows/branching_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/branching_agent.py
+      - ../../src/agent_hive/workflows/verification_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/verification_agent.py
+      - ../../src/agent_hive/workflows/recovery_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/recovery_agent.py
+      - ../../src/agent_hive/workflows/replanning_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/replanning_agent.py
       - ../../src/agent_hive/workflows/critic_agent.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/critic_agent.py
       - ../../src/agent_hive/workflows/critic_agent_without_simulator.py:/opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/critic_agent_without_simulator.py
     env_file:

@@ -1,8 +1,0 @@
-Question: Are any time series forecasting models supported?
-Plan:
-#Task1: Check if Time Series Analytics and Forecasting agent supports time series forecasting models.
-#Agent1: Time Series Analytics and Forecasting
-#Dependency1: None
-#ExpectedOutput1: Confirmation on whether time series forecasting models are supported.
-
-The plan has only one step because the problem directly relates to the capabilities of the Time Series Analytics and Forecasting agent, which is explicitly described as being able to assist with time series analysis, forecasting, and other related tasks. The agent's description implies that it supports forecasting, thus directly addressing the problem.

@@ -20,13 +20,14 @@ class ReactReflectAgent(BaseAgent):
     task_examples: Optional[List[str]] = None
 
     def __init__(self, name: str, description: str, tools: list[BaseTool], llm: str, few_shots: str = MPE_SIMPLE4,
-                 task_examples: Optional[List[str]] = None):
+                 task_examples: Optional[List[str]] = None, reflect_step=5):
         self.name = name
         self.description = description
         self.tools = tools
         self.llm = llm
         self.memory = []
         self.few_shots = few_shots
+        self.reflect_step=reflect_step
         if task_examples:
             self.task_examples = task_examples
         else:
@@ -43,11 +44,18 @@ class ReactReflectAgent(BaseAgent):
             react_llm_model_id=self.llm,
             reflect_llm_model_id=self.llm,
             react_example=self.few_shots,
-            num_reflect_iteration=5,
+            num_reflect_iteration=self.reflect_step,
             handle_context_length_overflow=True,
             apply_loop_detection_check=True,
             log_structured_messages=True,
             early_stop=True,
         )
-        self.agent_executor.run()
-        return self.agent_executor.answer
+        run_ret = self.agent_executor.run()
+
+        print(f"type(run_ret): {type(run_ret)}", flush=True)
+        print(f"run_ret: {run_ret}", flush=True)
+
+        print(f"type(self.agent_executor.answer): {type(self.agent_executor.answer)}", flush=True)
+        print(f"self.agent_executor.answer: {self.agent_executor.answer}", flush=True)
+
+        return self.agent_executor.answer, run_ret

@@ -1,8 +1,0 @@
-Question: Is Anomaly Detection supported in TSFM?
-Plan:
-#Task1: Check if Anomaly Detection is supported in TSFM
-#Agent1: Time Series Analytics and Forecasting
-#Dependency1: None
-#ExpectedOutput1: Confirmation on whether Anomaly Detection is supported
-
-Since there is only one task required to solve the problem, the plan is straightforward and directly utilizes the Time Series Analytics and Forecasting agent to check if Anomaly Detection is supported. The task is self-contained and does not depend on any other steps.

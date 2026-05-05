@@ -1,7 +1,0 @@
-Question: List all failure modes of Chiller 6 that can be detected by temperature sensors and power input sensors.
-Plan:
- 
-assistantfinal #Task1: List all failure modes of Chiller 6 that can be detected by temperature sensors and power‑input sensors.
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency1: None
-#ExpectedOutput1: A concise list (e.g., bullet points) of the failure modes of Chiller 6 that are detectable using temperature‑type sensors (e.g., leaving/return water temperature, evaporator temperature) and power‑input sensors (e.g., electrical power consumption, voltage).

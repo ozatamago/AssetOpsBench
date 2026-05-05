@@ -1,6 +1,0 @@
-Question: Is TTM (Tiny Time Mixture), a time series model supported?
-Plan:
-#Task1: Check if TTM (Tiny Time Mixture) is a supported time series model
-#Agent1: Time Series Analytics and Forecasting
-#Dependency1: None
-#ExpectedOutput1: Confirmation whether TTM is supported or not, along with any relevant details about its usage or alternatives if not supported.

@@ -1,7 +1,0 @@
-Question: I would like to retrieve the corrective work order details for the equipment labeled as CWC04013 for the year 2017.
-Plan:
- 
-#Task1: Retrieve corrective work order details for CWC04013 for the year 2017.
-#Agent1: WorkOrder Agent
-#Dependency1: None
-#ExpectedOutput1: Corrective work order details for CWC04013 in 2017.

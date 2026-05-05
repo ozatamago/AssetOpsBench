@@ -1,8 +1,0 @@
-Question: What types of time series analysis are supported?
-Plan:
- 
-#Task1: 
-We need to output plan. The original plan had one step. It is correct. Ensure format exactly. Provide #Task1 line with description. #Agent1: Time Series Analytics and Forecasting. #Dependency1: None. #ExpectedOutput1: list. Ensure no extra spaces at line ends. Provide exactly.assistantanalysisWe need to output only the plan lines, no extra. Provide #Task1: <description>. Ensure one line. Let's craft description: "Ask the Time Series Analytics and Forecasting agent to list all supported time series analysis types and give a brief description of each." #ExpectedOutput1: "A concise list of supported analysis types (e.g., forecasting, anomaly detection, trend/seasonality decomposition, regression, model selection, pretrained‑model usage, context‑length specification) with short descriptions." Ensure no extra spaces.assistantfinal#Task1: Ask the Time Series Analytics and Forecasting agent to list all supported time series analysis types and give a brief description of each.  
-#Agent1: Time Series Analytics and Forecasting  
-#Dependency1: None  
-#ExpectedOutput1: A concise list of supported analysis types (e.g., forecasting, anomaly detection, trend/seasonality decomposition, regression, model selection, pretrained‑model usage, context‑length specification) with short descriptions.

@@ -1,3 +1,0 @@
-ok: False
-errs:
-["Dependency2 must be 'None' or '#S1 #S2 ...'; got '#Task1'", "Dependency3 must be 'None' or '#S1 #S2 ...'; got '#Task1'"]

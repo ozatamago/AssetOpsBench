@@ -1,6 +1,0 @@
-Question: Does TSFM support time series regression tasks or any model for forecasting with context length 1024?
-Plan:
-assistantanalysisWe need to output plan with correct format. Ensure tags exactly "#Task1:", "#Agent1:", "#Dependency1:", "#ExpectedOutput1:". No extra spaces? The format: "#Task<N>: <Describe your task here>" etc. Use exact agent name "Time Series Analytics and Forecasting". Provide expected output one line. Let's craft.assistantfinal#Task1: Inquire whether the Time Series Foundation Model (TSFM) supports time series regression tasks and if it offers any forecasting model with a context length of 1024.  
-#Agent1: Time Series Analytics and Forecasting  
-#Dependency1: None  
-#ExpectedOutput1: A concise answer indicating whether TSFM supports regression tasks and whether it includes a model capable of forecasting with a context length of 1024, with any relevant details.

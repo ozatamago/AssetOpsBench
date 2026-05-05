@@ -1,7 +1,0 @@
-Question: When power input of Chiller 6 drops, what is the potential failure that causes it?
-Plan:
- 
-We need to produce plan with fewer than 5 steps. The problem: "When power input of Chiller 6 drops, what is the potential failure that causes it?" So we need to ask Failure Mode and Sensor Relevancy Expert for Industrial Asset. Only one step needed. Ensure format correct. Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1. No extra spaces? Should be exactly as required. Provide one line each. No extra blank lines. Let's output.assistantfinalassistantfinal#Task1: Identify the potential failure(s) that cause a drop in power input of Chiller 6.  
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
-#Dependency1: None  
-#ExpectedOutput1: A concise description of likely failure(s) (e.g., compressor motor failure, power supply fault, sensor malfunction) that would result in reduced power input for Chiller 6, with brief reasoning.

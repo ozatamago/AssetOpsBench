@@ -1,9 +1,0 @@
-stop_index: 1
-
-truncated_plan: #Task1: Retrieve historical data for Chiller 9 (CWC04009) for May and June 2020 to identify anomalies and alerts.
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: Historical data for Chiller 9 (CWC04009) for May and June 2020.
-
-status: Accomplished
-can_answer_now:True

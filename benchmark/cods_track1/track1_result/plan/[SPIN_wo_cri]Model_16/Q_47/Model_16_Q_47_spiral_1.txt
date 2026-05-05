@@ -1,2 +1,0 @@
-Predicted result: 
-[{'step': 1, 'agent': 'IoT Data Download', 'task': 'List all the assets at site MAIN', 'expected_output': 'List of assets at site MAIN', 'predicted_output': 'Chiller 4, Chiller 6, Chiller 9, Chiller 3'}, {'step': 2, 'agent': 'Failure Mode and Sensor Relevancy Expert for Industrial Asset', 'task': 'Identify which assets are chillers', 'expected_output': 'List of chillers at site MAIN', 'predicted_output': 'Chiller 4, Chiller 6, Chiller 9, Chiller 3'}]

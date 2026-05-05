@@ -1,3 +1,0 @@
-ok: False
-errs:
-['Task lines missing', 'Agent lines missing', 'Dependency lines missing', 'ExpectedOutput lines missing']

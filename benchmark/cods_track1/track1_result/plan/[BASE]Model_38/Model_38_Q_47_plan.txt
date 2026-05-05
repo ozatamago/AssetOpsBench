@@ -1,6 +1,0 @@
-Question: list all the chillers at site MAIN
-Plan:
-#Task1: List all chillers at site MAIN
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: A list of chillers at site MAIN

@@ -1,7 +1,0 @@
-Question: Can you provide guidance on bundling corrective work orders together to optimize the maintenance schedule for Chiller 9 with equipment ID CWC04009 covering years of 2017, 2018 and 2019, bundle has to be happen within two weeks and have at least two work orders, also tell the details of each bundle?
-Plan:
- 
-We need to output plan lines only. No extra text. Let's produce final answer.assistantfinal#Task1: Request bundling guidance for corrective work orders for Chiller 9 (CWC04009) covering 2017‑2019, each bundle within two weeks and at least two work orders, with details of each bundle.  
-#Agent1: WorkOrder Agent  
-#Dependency1: None  
-#ExpectedOutput1: Recommendation listing number of bundles, work‑order IDs/descriptions, failure types, two‑week windows, required resources, and justification for each bundle.

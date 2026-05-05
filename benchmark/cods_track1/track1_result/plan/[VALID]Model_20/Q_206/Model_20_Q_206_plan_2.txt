@@ -1,7 +1,0 @@
-Question: Is Chronos model supported in TSFM?
-Plan:
- 
-We need to produce plan with fewer than 5 steps. Only one step is fine. Must include Task, Agent, Dependency, ExpectedOutput. Use correct agent name exactly as listed. "Time Series Analytics and Forecasting". Provide answer about Chronos model support. That seems fine. Ensure format exactly. No extra spaces at line start. Use #Task1 etc. Provide ExpectedOutput one line. Let's output.assistantfinal#Task1: Determine whether the Chronos model is supported in the Time Series Forecasting Model (TSFM) framework.  
-#Agent1: Time Series Analytics and Forecasting  
-#Dependency1: None  
-#ExpectedOutput1: A concise answer stating if Chronos is supported in TSFM, including any relevant details or references.

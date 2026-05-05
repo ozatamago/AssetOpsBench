@@ -1,7 +1,0 @@
-{
-  "elapsed_seconds": 128.57269964099987,
-  "llm_model": 16,
-  "qid": 212,
-  "total_generated_tokens": 652,
-  "total_input_tokens": 19589
-}

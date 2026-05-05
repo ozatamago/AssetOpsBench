@@ -1,2 +1,0 @@
-Predicted result: 
-[{'step': 1, 'agent': 'Time Series Analytics and Forecasting', 'task': 'List available time series pretrained models in the system.', 'expected_output': 'List of available time series pretrained models.', 'predicted_output': 'The available time series pretrained models are: \nttm_96_28\nttm_512_96\nttm_energy_96_28\nttm_energy_512_96.'}]

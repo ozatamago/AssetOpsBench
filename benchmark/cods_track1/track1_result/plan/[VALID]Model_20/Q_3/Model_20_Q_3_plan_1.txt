@@ -1,7 +1,0 @@
-Question: What assets can be found at the MAIN site?
-Plan:
- 
-We need to output plan lines exactly as required. Already have plan lines. Ensure no extra spaces. Use #Task1: ... #Agent1: IoT Data Download #Dependency1: None #ExpectedOutput1: ... All on separate lines. No extra spaces at end. Provide final answer.assistantfinal#Task1: Retrieve the list of assets located at the MAIN site.  
-#Agent1: IoT Data Download  
-#Dependency1: None  
-#ExpectedOutput1: A JSON (or plain‑text) list containing the identifiers and brief descriptions of all assets present at the MAIN site.

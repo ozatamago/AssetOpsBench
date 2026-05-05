@@ -1,7 +1,0 @@
-Question: Is Anomaly Detection supported in TSFM?
-Plan:
- 
-We need to output plan. Already prepared. Ensure format exactly. No extra spaces. Use #Dependency1: None. Ensure no extra spaces after colon? The format says "#TaskN: <one-line>" etc. We'll follow. Ensure each line ends with newline. Provide exactly four lines. No extra.assistantfinal#Task1: Ask the Time Series Analytics and Forecasting agent if anomaly detection is supported in TSFM.
-#Agent1: Time Series Analytics and Forecasting
-#Dependency1: None
-#ExpectedOutput1: Confirmation whether anomaly detection is supported in TSFM.

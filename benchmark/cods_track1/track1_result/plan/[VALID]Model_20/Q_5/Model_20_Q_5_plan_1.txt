@@ -1,6 +1,0 @@
-Question: Retrieve metadata for Chiller 6 located at the MAIN site.
-Plan:
-assistantfinal #Task1: Retrieve metadata for Chiller 6 located at the MAIN site.
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: JSON object containing Chiller 6's metadata (asset ID, description, commissioning date, location, associated sensors, etc.)

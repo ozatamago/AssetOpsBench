@@ -1,2 +1,0 @@
-Predicted result: 
-[{'step': 1, 'agent': 'Time Series Analytics and Forecasting', 'task': 'Find a model for energy forecasting with context length 96', 'expected_output': 'A model for energy forecasting with context length 96', 'predicted_output': 'ttm_energy_96_28, ttm_96_28'}]

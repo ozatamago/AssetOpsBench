@@ -1,7 +1,0 @@
-Question: I would like to retrieve the corrective work order details for the equipment labeled as CWC04013 for the year 2017.
-Plan:
- 
-We need to output plan lines. Ensure no extra spaces at line ends. Provide exactly as required. Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1. No extra blank lines. Let's output.assistantfinal#Task1: Retrieve corrective work order details for equipment CWC04013 for the year 2017.  
-#Agent1: WorkOrder Agent  
-#Dependency1: None  
-#ExpectedOutput1: A structured list (e.g., JSON) of all corrective work orders for equipment CWC04013 from 2017, including work order IDs, dates, descriptions, status, and relevant notes.

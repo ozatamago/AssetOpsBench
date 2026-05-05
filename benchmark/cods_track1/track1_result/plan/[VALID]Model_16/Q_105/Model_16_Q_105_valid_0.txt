@@ -1,3 +1,0 @@
-ok: False
-errs:
-['Task numbers must be 1..N in order; got [1, 2, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3]', 'Agent numbers must be 1..N in order; got [1, 2, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3]', 'Dependency numbers must be 1..N in order; got [1, 2, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3]', 'ExpectedOutput numbers must be 1..N in order; got [1, 2, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3]']

@@ -1,7 +1,0 @@
-Question: Find a model for energy forecasting with context length 96 and nothing else.
-Plan:
- 
-We need to output plan lines exactly. Ensure no extra spaces at line ends. Provide #Task1 line, #Agent1 line, #Dependency1 line, #ExpectedOutput1 line. No extra lines. Ensure agent name matches exactly "Time Series Analytics and Forecasting". Provide context length 96. Done.assistantanalysisWe need to output exactly the plan lines. Ensure no extra spaces. Provide as per format.assistantfinal#Task1: Request a suitable forecasting model for energy consumption that uses a context length of 96.  
-#Agent1: Time Series Analytics and Forecasting  
-#Dependency1: None  
-#ExpectedOutput1: A concise model recommendation (model name, architecture, and key settings) explicitly designed for energy forecasting with a context length of 96.

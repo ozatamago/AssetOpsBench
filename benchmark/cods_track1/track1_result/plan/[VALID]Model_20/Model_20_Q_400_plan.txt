@@ -1,7 +1,0 @@
-Question: Get the work order of equipment CWC04013 for year 2017.
-Plan:
- 
-We need to output only the plan lines, no extra text. The final answer should be exactly the four lines. Ensure no extra lines after? The instruction says output only lines in this exact format, no extra prose. So we should output exactly those four lines, nothing else. Let's produce that.assistantfinal#Task1: Retrieve all work orders associated with equipment CWC04013 for the calendar year 2017.
-#Agent1: WorkOrder Agent
-#Dependency1: None
-#ExpectedOutput1: A list of work orders for equipment CWC04013 in 2017, including each work order’s ID, creation date, description of the issue/maintenance, status, and any relevant notes.

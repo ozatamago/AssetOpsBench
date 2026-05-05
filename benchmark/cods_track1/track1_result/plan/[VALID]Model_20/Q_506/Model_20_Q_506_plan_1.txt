@@ -1,3 +1,0 @@
-Question: Is there any anomaly detected in Chiller 9's Condenser Water Flow in the week of 2020-04-27 at MAIN?
-Plan:
- 

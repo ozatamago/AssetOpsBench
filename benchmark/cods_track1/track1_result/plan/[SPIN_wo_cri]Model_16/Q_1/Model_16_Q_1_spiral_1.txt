@@ -1,2 +1,0 @@
-Predicted result: 
-[{'step': 1, 'agent': 'IoT Data Download', 'task': 'List all available IoT sites.', 'expected_output': 'A list of available IoT sites.', 'predicted_output': 'MAIN.'}]

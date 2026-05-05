@@ -1,8 +1,0 @@
-Question: What are the failure modes of Chiller 6 at MAIN site that can be identified by analyzing the data from the available sensors?
-Plan:
- 
-assistantfinal_output
-#Task1: Query the Failure Mode and Sensor Relevancy Expert for Industrial Asset to obtain a comprehensive list of all failure modes of Chiller 6 at the MAIN site together with the specific sensors whose data can be used to detect each failure mode.  
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
-#Dependency1: None  
-#ExpectedOutput1: A structured response (e.g., a table or JSON) enumerating each failure mode of Chiller 6 and, for each, the relevant sensor(s) (including sensor names/IDs) that can be analyzed to identify that failure.

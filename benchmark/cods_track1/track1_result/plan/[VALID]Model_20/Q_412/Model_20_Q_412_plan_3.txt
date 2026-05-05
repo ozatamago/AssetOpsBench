@@ -1,3 +1,0 @@
-Question: I would like to predict the next work order probability for the equipment labeled as CWC04013.
-Plan:
- 

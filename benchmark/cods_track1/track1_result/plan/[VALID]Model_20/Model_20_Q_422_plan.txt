@@ -1,3 +1,0 @@
-Question: After checking existing work orders, anomalies and alerts in May and June 2020 for Chiller 9 with equipment ID CWC04009, should I recommend a new work order or is it too early to decide for July 2020?
-Plan:
- 

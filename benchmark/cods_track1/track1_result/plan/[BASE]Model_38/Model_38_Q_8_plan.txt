@@ -1,6 +1,0 @@
-Question: Download sensor data for Chiller 6's Tonnage from the last week of 2020 at the MAIN site
-Plan:
-#Task1: Download sensor data for Chiller 6's Tonnage from the last week of 2020 at the MAIN site
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: JSON file containing Chiller 6 Tonnage sensor data from 2020-12-22 to 2020-12-31 at MAIN site

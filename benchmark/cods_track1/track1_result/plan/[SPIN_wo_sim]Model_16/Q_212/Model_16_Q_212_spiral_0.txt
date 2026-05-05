@@ -1,9 +1,0 @@
-stop_index: 1
-
-truncated_plan: #Task1: Find a model for energy forecasting with context length 96
-#Agent1: Time Series Analytics and Forecasting
-#Dependency1: None
-#ExpectedOutput1: A model for energy forecasting with context length 96
-
-status: Not accomplished
-can_answer_now:False

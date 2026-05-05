@@ -1,3 +1,0 @@
-ok: False
-errs:
-['Task numbers must be 1..N in order; got [1, 2, 3, 4, 1, 2, 3, 1, 2, 3]', 'Agent numbers must be 1..N in order; got [1, 2, 3, 4, 1, 2, 3, 1, 2, 3]', 'Dependency numbers must be 1..N in order; got [1, 2, 3, 4, 1, 2, 3, 1, 2, 3]', 'ExpectedOutput numbers must be 1..N in order; got [1, 2, 3, 4, 1, 2, 3, 1, 2, 3]', "Dependency2 must be 'None' or '#S1 #S2 ...'; got '#Task1'", "Dependency3 must be 'None' or '#S1 #S2 ...'; got '#Task2'", "Dependency4 must be 'None' or '#S1 #S2 ...'; got '#Task3'", "Dependency2 must be 'None' or '#S1 #S2 ...'; got '#Task1'", "Dependency3 must be 'None' or '#S1 #S2 ...'; got '#Task2'", "Dependency2 must be 'None' or '#S1 #S2 ...'; got '#Task1'", "Dependency3 must be 'None' or '#S1 #S2 ...'; got '#Task2'"]

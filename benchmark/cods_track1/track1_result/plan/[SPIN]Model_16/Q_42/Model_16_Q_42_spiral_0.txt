@@ -1,9 +1,0 @@
-stop_index: 1
-
-truncated_plan: #Task1: Retrieve the historical data for the supply temperature of CQPA AHU 2B on Sept 19, 2020, at 23:45, at site MAIN.
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: A JSON file containing the supply temperature data for CQPA AHU 2B on Sept 19, 2020, at 23:45.
-
-status: Not accomplished
-can_answer_now:False

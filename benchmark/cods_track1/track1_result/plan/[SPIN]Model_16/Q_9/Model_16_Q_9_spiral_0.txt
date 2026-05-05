@@ -1,9 +1,0 @@
-stop_index: 1
-
-truncated_plan: #Task1: Retrieve the list of sites and identify if MAIN is among them.
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: List of sites including MAIN if it exists.
-
-status: Not accomplished
-can_answer_now:False

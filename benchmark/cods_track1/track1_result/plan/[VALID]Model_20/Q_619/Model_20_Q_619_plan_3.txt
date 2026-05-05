@@ -1,3 +1,0 @@
-Question: When the Liquid Refrigerant Evaporator Temperature of Chiller 6 at MAIN site drops, what failure is most likely to occur?
-Plan:
- 

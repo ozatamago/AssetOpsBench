@@ -1,7 +1,0 @@
-Question: Is Time Series Classification supported in TSFM?
-Plan:
- 
-#Task1: Check if Time Series Classification is supported in TSFM
-#Agent1: Time Series Analytics and Forecasting
-#Dependency1: None
-#ExpectedOutput1: A clear confirmation on whether TSFM supports Time Series Classification

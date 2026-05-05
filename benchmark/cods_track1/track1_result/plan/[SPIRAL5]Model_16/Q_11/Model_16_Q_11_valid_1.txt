@@ -1,3 +1,0 @@
-ok: False
-errs:
-['Counts of Task/Agent/Dependency/ExpectedOutput must match']

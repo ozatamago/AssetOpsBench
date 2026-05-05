@@ -1,7 +1,0 @@
-Question: Retrieve sensor data for Chiller 6 from June 2020.
-Plan:
- 
-#Task1: Retrieve sensor data for Chiller 6 from June 2020.
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: Sensor data for Chiller 6 from June 2020.

@@ -1,9 +1,0 @@
-stop_index: 1
-
-truncated_plan: #Task1: Retrieve the list of assets at SiteX.
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: List of assets at SiteX.
-
-status: Not accomplished
-can_answer_now:False

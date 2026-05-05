@@ -1,7 +1,0 @@
-Question: List all failure modes of asset Wind Turbine.
-Plan:
- 
-We need to output only the plan lines. Ensure no extra spaces at end. Use #Task1 etc. Provide exactly as required. No extra text. Let's output.assistantfinal#Task1: List all failure modes of asset Wind Turbine.
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency1: None
-#ExpectedOutput1: A comprehensive list of failure modes associated with the Wind Turbine asset.

@@ -1,9 +1,0 @@
-Question: What are the failure modes of Chiller 6 at MAIN site that can be identified by analyzing the data from the available sensors?
-Plan:
- 
-We need to output plan lines exactly. Ensure no extra spaces at end. Use #Task1: ... #Agent1: ... #Dependency1: None #ExpectedOutput1: ...
-
-Make sure each line separate. No extra punctuation. Let's produce.assistantfinal#Task1: Query the Failure Mode and Sensor Relevancy Expert for Industrial Asset to list all failure modes of Chiller 6 at the MAIN site and the sensors whose data can be used to detect each failure mode
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency1: None
-#ExpectedOutput1: A structured list (e.g., table or JSON) mapping each failure mode of Chiller 6 to the relevant sensor(s) that can be analyzed to identify that failure

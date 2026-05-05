@@ -1,7 +1,0 @@
-Question: Which assets are located at the MAIN facility?
-Plan:
- 
-We need to output plan lines exactly. Ensure tags #Task1, #Agent1, #Dependency1, #ExpectedOutput1. No extra spaces? Should be fine. Provide one line each. Ensure no extra punctuation. Let's output.assistantfinalassistantfinal#Task1: Retrieve the list of assets located at the MAIN facility.  
-#Agent1: IoT Data Download  
-#Dependency1: None  
-#ExpectedOutput1: A list of asset identifiers (IDs or names) present at the site named “MAIN”.

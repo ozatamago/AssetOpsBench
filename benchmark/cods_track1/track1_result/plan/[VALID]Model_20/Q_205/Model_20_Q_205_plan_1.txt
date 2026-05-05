@@ -1,7 +1,0 @@
-Question: Is LSTM model supported in TSFM?
-Plan:
- 
-assistantfinal_outputassistantanalysisWe need to output only the plan lines. Already prepared. Ensure format exactly. No extra spaces? Should be fine.assistantfinal#Task1: Ask the Time Series Analytics and Forecasting agent whether the LSTM model is supported in the TSFM framework and request a brief explanation of its support status.  
-#Agent1: Time Series Analytics and Forecasting  
-#Dependency1: None  
-#ExpectedOutput1: A concise answer indicating if LSTM is supported in TSFM (e.g., “Yes, LSTM is supported…” or “No, LSTM is not currently supported…”) along with a brief rationale or reference to the relevant capability.

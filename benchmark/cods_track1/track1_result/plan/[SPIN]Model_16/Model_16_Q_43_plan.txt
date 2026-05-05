@@ -1,7 +1,0 @@
-Question: how much power was CQPA AHU 1 (MAIN site) using on 6/14/20?
-Plan:
- 
-#Task1: Retrieve the historical data for CQPA AHU 1 at MAIN site for the date 6/14/20.
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: Historical data for CQPA AHU 1 at MAIN site for 6/14/20.

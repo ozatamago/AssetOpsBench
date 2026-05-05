@@ -1,7 +1,0 @@
-Question: I want to build an anomaly model for identifying a chiller trip failure for MAIN chiller 6. Provide me a list of sensors that I should use, along with the temporal behavior,
-Plan:
- 
-We need to output plan with fewer than 5 steps. Provide step(s). The problem: "I want to build an anomaly model for identifying a chiller trip failure for MAIN chiller 6. Provide me a list of sensors that I should use, along with the temporal behavior". So we need to ask Failure Mode and Sensor Relevancy Expert for list of sensors and temporal behavior. That's one step. Ensure format exactly. No extra spaces? Should be fine. Provide #Task1 line, #Agent1 line, #Dependency1 line, #ExpectedOutput1 line. No extra lines. Ensure no markdown. Provide exactly.assistantanalysisWe need to output plan. Ensure no extra spaces at start? The format: "#Task1: ..." etc. Provide exactly.assistantfinal#Task1: Request from the Failure Mode and Sensor Relevancy Expert a concise list of the most relevant sensors for detecting a chiller trip failure on MAIN chiller 6, and a description of the expected temporal behavior of each sensor during a trip event.  
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
-#Dependency1: None  
-#ExpectedOutput1: Bullet‑point list of sensor names (e.g., power input, compressor discharge pressure, leaving water temperature, etc.) with a brief description of how each sensor’s signal typically changes over time during a chiller trip.

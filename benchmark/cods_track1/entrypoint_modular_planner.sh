@@ -1,0 +1,72 @@
+#!/bin/bash
+set -euo pipefail
+
+# ---- GLOBAL CONFIG (defaults; can be overridden by env) ----
+GENERATE_STEPS_ONLY="${GENERATE_STEPS_ONLY:-True}"   # keep "True" because your CLI currently uses "--generate_steps_only True"
+LLM_MODELS="${LLM_MODELS:-6}"   # e.g. "38" or "38,39,40" or "38 39 40"
+RUN_TRACK="/home/run_track_1.py"
+
+# ==== PATHS ====
+JSONL_FILE="/home/scenarios/all_utterance.jsonl"
+
+# ==== Conda ====
+source /opt/conda/etc/profile.d/conda.sh
+conda activate assetopsbench
+
+: "${GHE_USER:?GHE_USER is not set. Check compose env_file (.env.local).}"
+: "${GHE_TOKEN:?GHE_TOKEN is not set. Check compose env_file (.env.local).}"
+
+python -m pip show agent_hive || true
+# ===== Patch reactxen files from IBM/ReActXen commit 97606e8 =====
+PATCH_COMMIT="97606e87e0ee94e6c23af72fbf55e26246aae200"
+PATCH_BASE="https://raw.githubusercontent.com/IBM/ReActXen/${PATCH_COMMIT}/src/reactxen"
+
+# (module_spec | raw_url) のペアを列挙（commit 97606e8 の変更対象2ファイル） :contentReference[oaicite:1]{index=1}
+PATCH_TARGETS=(
+  "reactxen.utils.model_inference|${PATCH_BASE}/utils/model_inference.py"
+  "reactxen.agents.react.agents|${PATCH_BASE}/agents/react/agents.py"
+)
+
+for item in "${PATCH_TARGETS[@]}"; do
+  MODULE="${item%%|*}"
+  PATCH_URL="${item#*|}"
+
+  TARGET_PATH="$(python - <<PY
+import importlib.util
+spec = importlib.util.find_spec("${MODULE}")
+print(spec.origin if spec and spec.origin else "")
+PY
+)"
+
+  if [ -z "$TARGET_PATH" ]; then
+    echo "[patch] ERROR: Could not locate ${MODULE} in this env." >&2
+    python - <<PY
+import ${MODULE%.*} as pkg
+print("module base:", pkg, "file:", getattr(pkg, "__file__", None))
+PY
+    exit 1
+  fi
+
+  echo "[patch] MODULE=${MODULE}"
+  echo "[patch] PATCH_URL=${PATCH_URL}"
+  echo "[patch] TARGET_PATH=$TARGET_PATH"
+
+  cp -v "$TARGET_PATH" "${TARGET_PATH}.bak.$(date +%Y%m%d%H%M%S)" || true
+
+  python - <<PY "$PATCH_URL" "$TARGET_PATH"
+import sys, urllib.request
+url, dst = sys.argv[1], sys.argv[2]
+urllib.request.urlretrieve(url, dst)
+print("[patch] updated:", dst)
+PY
+done
+python -m pip show reactxen || true
+python -m pip show fmsr_agent || true
+python -m pip show iotagent || true
+python -m pip show tsfmagent || true
+
+python -m pip install -qU "psycopg[binary]>=3.1" "ibm-watsonx-ai>=1.4.0"
+
+# python /home/run_track_1.py --utterance_ids "1,2,3,4,5,6,7,8,9,10,11,12,41,42,43,44,45,46,47,48,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,400,401,402,403,404,405,406,407,408,409,410,411,412,413,414,415,416,417,418,419,420,421,422,423,424,425,426,427,428,429,430,431,432,433,434,435,501,502,503,504,505,506,507,508,509,510,511,512,513,514,515,516,517,518,519,520,601,602,603,604,605,606,607,608,609,610,611,612,613,614,615,616,617,618,619,620,621,622,1001,1002,1003,1004,1005,1006,1007,1008,1009,1010,1011,1012,1013,1014,1015,4001,4002,4003,4004,4005,4006,4007,4008,4009,40010,40011,40012,40013,40014,40015,40016,40017,40018,40019,40020,40021,40022,40023,40024,40025,40026,40027,40028,40029,40030,40031,40032,40033,40034,40035,40036,40037,40038,40039,40040,40041,40042,40043,40044,40045,40046,40047,40048,40049,40050,40051,40052,40053,40054,40055,40056,40057,40058,40059,40060,40061,40062,40063,40064,40065,40066,40067,40068,40069,40070,40071,40072,40073,40074,40075,40076,40077,40078,40079,40080,40081,40082,40083,40084,40085,40086,40087,40088,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2101,2102,2103,2104,2105,2106,2107" 
+python /opt/conda/envs/assetopsbench/lib/python3.12/site-packages/agent_hive/workflows/planning.py \
+  # --max_cases 5

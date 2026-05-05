@@ -784,7 +784,7 @@ def main() -> None:
 
         table1_rows.append(row)
 
-    out1 = os.path.join(args.out_dir, "table1_overall.csv")
+    out1 = os.path.join(args.out_dir, "table2_overall.csv")
     write_csv(out1, TABLE1_FIELDS, table1_rows)
     print(f"Wrote: {out1}")
 
@@ -809,7 +809,7 @@ def main() -> None:
         }
         table2_rows.append(row)
 
-    out2 = os.path.join(args.out_dir, "table2_task_length_vs_base.csv")
+    out2 = os.path.join(args.out_dir, "task_length_vs_base.csv")
     write_csv(out2, TABLE2_FIELDS, table2_rows)
     print(f"Wrote: {out2}")
 

@@ -599,15 +599,34 @@ def save_dag_traj_score(
     return row
 
 
-def load_scenarios(utterance_ids):
-    ds = load_dataset("ibm-research/AssetOpsBench", "scenarios")
-    train_ds = ds["train"]
-    df = train_ds.to_pandas()
+# def load_scenarios(utterance_ids):
+#     ds = load_dataset("ibm-research/AssetOpsBench", "scenarios")
+#     train_ds = ds["train"]
+#     df = train_ds.to_pandas()
 
-    filtered_df = df[df["id"].isin(utterance_ids)]
+#     filtered_df = df[df["id"].isin(utterance_ids)]
 
-    return filtered_df.to_dict(orient="records")
+#     return filtered_df.to_dict(orient="records")
 
+def load_scenarios_local(utterance_ids, jsonl_path="/home/scenarios/all_utterance.jsonl"):
+    want = set(map(str, utterance_ids))  # id は string 扱いが安全
+    out = []
+
+    with open(jsonl_path, "r", encoding="utf-8") as f:
+        for line in f:
+            if not line.strip():
+                continue
+            rec = json.loads(line)
+            if str(rec.get("id")) in want:
+                out.append(rec)
+
+    # 見つからないIDがあるときに即気付けるようにする
+    found = {str(r["id"]) for r in out if "id" in r}
+    missing = sorted(want - found)
+    if missing:
+        raise ValueError(f"Missing scenario ids in {jsonl_path}: {missing[:20]} ... (total {len(missing)})")
+
+    return out
 
 def run_planning_workflow(
         question, qid, llm_model=16, generate_steps_only=False
@@ -772,7 +791,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     utterance_ids = [int(uid.strip()) for uid in args.utterance_ids.split(",")]
-    utterances = load_scenarios(utterance_ids)    
+    utterances = load_scenarios_local(utterance_ids)    
 
     run(
         utterances,

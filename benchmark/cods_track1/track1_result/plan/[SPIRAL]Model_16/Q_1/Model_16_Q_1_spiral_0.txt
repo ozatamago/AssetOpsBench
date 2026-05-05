@@ -1,9 +1,0 @@
-stop_index: 1
-
-truncated_plan: #Task1: List all available IoT sites
-#Agent1: IoT Data Download
-#Dependency1: None
-#ExpectedOutput1: A list of available IoT sites
-
-status: Not accomplished
-can_answer_now:False

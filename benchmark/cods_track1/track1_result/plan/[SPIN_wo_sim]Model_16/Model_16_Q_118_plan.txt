@@ -1,6 +1,0 @@
-Question: When power input of Chiller 6 drops, what is the potential failure that causes it?
-Plan:
-#Task1: Identify the potential failure that causes a drop in power input of Chiller 6.
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset
-#Dependency1: None
-#ExpectedOutput1: List of potential failures that cause a drop in power input of Chiller 6.

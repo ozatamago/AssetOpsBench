@@ -1,7 +1,0 @@
-Question: When compressor motor of Chiller 6 fails, what is the temporal behavior of the power input?
-Plan:
- 
-We need to output plan with fewer than 5 steps. The problem: "When compressor motor of Chiller 6 fails, what is the temporal behavior of the power input?" The appropriate agent is Failure Mode and Sensor Relevancy Expert for Industrial Asset. So one step. Provide expected output. Ensure format exactly. Use #Task1, #Agent1, #Dependency1, #ExpectedOutput1. No extra spaces? Should be fine. Provide one line each. Ensure no extra blank lines. Let's output.assistantfinal #Task1: Ask the Failure Mode and Sensor Relevancy Expert for Industrial Asset about the temporal behavior of power input when the compressor motor of Chiller 6 fails.  
-#Agent1: Failure Mode and Sensor Relevancy Expert for Industrial Asset  
-#Dependency1: None  
-#ExpectedOutput1: A description of how power input changes over time (e.g., sudden drop, gradual decline, transient spikes) following a compressor‑motor failure in Chiller 6.

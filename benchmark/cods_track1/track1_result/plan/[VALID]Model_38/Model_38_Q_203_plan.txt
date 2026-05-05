@@ -1,6 +1,0 @@
-Question: Are any time series forecasting models supported?
-Plan:
-#Task1: Determine if time series forecasting models are supported
-#Agent1: Time Series Analytics and Forecasting
-#Dependency1: None
-#ExpectedOutput1: List of supported time series forecasting models
