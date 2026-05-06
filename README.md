@@ -1,124 +1,88 @@
-<div align="center">
+# SPIN Artifact on AssetOpsBench
 
-# AssetOpsBench: Benchmarking AI Agents for Industrial Asset Operations & Maintenance
+## Overview
+This repository contains the code and saved artifacts used to reproduce the main results of the paper on SPIN, a planning wrapper for tool-using LLM agents that combines executable DAG validation with prefix-based execution control.
 
-![AssetOps](https://img.shields.io/badge/Domain-Asset_Operations-blue) 
-![MultiAgentBench](https://img.shields.io/badge/Domain-Multi--agent_Bench-blue) 
-![OpenAI](https://img.shields.io/badge/Model-OpenAI-21C2A4)
-![Llama](https://img.shields.io/badge/Model-Llama-21C2A4)
-![Mistral](https://img.shields.io/badge/Model-Mistral-21C2A4) 
-![Granite](https://img.shields.io/badge/Model-Granite-21C2A4)
+The repository supports:
+- deterministic recomputation of the reported tables and figures from saved artifacts
+- end-to-end replay of benchmark trajectories through Docker Compose
+- failure mode analysis replay and figure generation
 
-📄 [Paper](https://arxiv.org/pdf/2506.03828) | 🤗 [Huggingface](https://huggingface.co/papers/2506.03828) | 📢 [Blog](https://research.ibm.com/blog/asset-ops-benchmark)
+## Repository Structure
+- `benchmark/cods_track1/`: benchmark configuration, Docker Compose files, and experiment outputs
+- `src/agent_hive/`: main implementation of planning and execution workflows
+- `infra/postgres/`: PostgreSQL-related infrastructure
+- `benchmark/cods_track1/track1_result/trajectory/`: saved execution trajectories
+- `benchmark/cods_track1/track1_result/exp/`: experiment summaries
+- `benchmark/cods_track1/track1_result/trajfm_outputs/`: failure mode analysis outputs
 
-</div>
+Key implementation files include:
+- `src/agent_hive/workflows/track1_planning_baseline.py`
+- `src/agent_hive/workflows/track1_planning_spin.py`
+- `src/agent_hive/workflows/critic_agent.py`
+- `src/agent_hive/workflows/simulator_agent.py`
+- `src/agent_hive/workflows/validate_plan_text.py`
 
----
-
-## 📑 Table of Contents
-1. [Announcements](#announcements)
-2. [Introduction](#introduction)
-3. [Datasets](#datasets-140-scenarios)
-4. [AI Agents](#ai-agents)
-5. [Multi-Agent Frameworks](#multi-agent-frameworks)
-6. [System Diagram](#system-diagram)
-7. [Leaderboards](#leaderboards)
-8. [Docker Setup](#run-assetopsbench-in-docker)
-9. [Talks & Events](#talks--events)
-10. [External Resources](#external-resources)
-11. [Contributors](#contributors)
-
----
-
-## 📣 Announcements
-- **2025-06-01**: AssetOpsBench v1.0 released with 140+ industrial scenarios.  
-- **2025-09-01**: [CODS](https://ikdd.acm.org/cods-2025/) Competition launched.  
-- **Upcoming Events**: *Tutorial at AAAI 2026* – Agents for Industry 4.0 Applications.  
-- Stay tuned for new tracks, competitions, and community events.
----
-
-## 🏗️ Introduction
-AssetOpsBench is a **unified framework for developing, orchestrating, and evaluating domain-specific AI agents** in industrial asset operations and maintenance.  
-
-It provides:
-- 4 **domain-specific agents**  
-- 2 **multi-agent orchestration frameworks**  
-
-Designed for **maintenance engineers, reliability specialists, and facility planners**, it allows reproducible evaluation of multi-step workflows in simulated industrial environments.
-
----
-
-## 📂 Datasets: 140+ Scenarios
-AssetOpsBench scenarios span multiple domains:  
-
-| Domain | Example Task |
-|--------|--------------|
-| IoT | "List all sensors of Chiller 6 in MAIN site" |
-| FSMR | "Identify failure modes detected by Chiller 6 Supply Temperature" |
-| TSFM | "Forecast 'Chiller 9 Condenser Water Flow' for the week of 2020-04-27" |
-| WO | "Generate a work order for Chiller 6 anomaly detection" |
-
-Some tasks focus on a **single domain**, others are **multi-step end-to-end workflows**.  
-Explore all scenarios [here](https://github.com/IBM/AssetOpsBench/tree/main/scenarios).
-
----
-
-## 🤖 AI Agents
-### Domain-Specific Agents
-- **IoT Agent**: `get_sites`, `get_history`, `get_assets`, `get_sensors`  
-- **FMSR Agent**: `get_sensors`, `get_failure_modes`, `get_failure_sensor_mapping`  
-- **TSFM Agent**: `forecasting`, `timeseries_anomaly_detection`  
-- **WO Agent**: `generate_work_order`  
-
-### Multi-Agent Frameworks
-- **[MetaAgent](https://github.com/IBM/AssetOpsBench/tree/main/src/meta_agent)**: reAct-based single-agent-as-tool orchestration  
-- **[AgentHive](https://github.com/IBM/AssetOpsBench/tree/main/src/agent_hive)**: plan-and-execute sequential workflow  
-
----
-
-## 🖼️ System Diagram
-Visual overview of AssetOpsBench workflow:  
-
-![System Diagram](path/to/system_diagram.png)  <!-- Replace with your image path -->
-
----
-
-## 🏆 Leaderboards
-- Evaluated with **7 Large Language Models**  
-- Trajectories scored using **LLM Judge (Llama-4-Maverick-17B)**  
-- **6-dimensional criteria** measure reasoning, execution, and data handling  
-
-Example: MetaAgent leaderboard  
-
-![meta_agent_leaderboard](https://github.com/user-attachments/assets/615059be-e296-40d3-90ec-97ee6cb00412)
-
----
-
-## 🐳 Run AssetOpsBench in Docker
-- Pre-built Docker Images: `assetopsbench-basic` (minimal) & `assetopsbench-extra` (full)  
-- Conda environment: `assetopsbench`  
-- [Full setup guide](https://github.com/IBM/AssetOpsBench/tree/main/benchmark/README.md)  
+## Setup
+Clone the repository and switch to the target branch:
 
 ```bash
-cd /path/to/AssetOpsBench
-chmod +x benchmark/entrypoint.sh
-docker-compose -f benchmark/docker-compose.yml build
-docker-compose -f benchmark/docker-compose.yml up
+git clone https://github.com/ozatamago/AssetOpsBench.git
+cd AssetOpsBench
+git checkout UACap10
 ```
 
----
+To run end-to-end replay, create:
 
-## 🎤 Talks & Events
-- **Workshops**: Participate in *GenAIBench-26* at AAAI 2025 focusing on multi-agent AI workflows.  
-- **Webinars & Seminars**: Learn best practices for industrial task automation with AI agents.  
-- **Competitions**: Benchmark your agents on real-world industrial scenarios using AssetOpsBench.
+```bash
+benchmark/cods_track1/.env.local
+```
 
----
+## Reproducing Main Results
 
-## 🔗 External Resources
-- 📄 **Paper**: [AssetOpsBench: Benchmarking AI Agents for Industrial Asset Operations](https://arxiv.org/pdf/2506.03828)  
-- 🤗 **HuggingFace**: [Scenario & Model Hub](https://huggingface.co/papers/2506.03828)  
-- 📢 **Blog**: [Insights, Tutorials, and Updates](https://research.ibm.com/blog/asset-ops-benchmark)  
-- 🎥 **Recorded Talks**: Link coming soon.
+### 1. Deterministic table recomputation from saved artifacts
+The reported tables can be recomputed directly from saved trajectories and experiment summaries without re-running the benchmark or calling external APIs.
 
----
+Example:
+```bash
+python3 make_table_2.py \
+  --trajectory_root "./benchmark/cods_track1/track1_result/trajectory" \
+  --exp_root "./benchmark/cods_track1/track1_result/exp" \
+  --model "Model_16" \
+  --tags "BASE,SPIN,SPIN_wo_sim,SPIN_wo_cri" \
+  --out_dir "./benchmark/cods_track1/track1_result/tables3" \
+  --debug
+```
+
+### 2. End-to-end trajectory replay
+```bash
+docker compose -f benchmark/cods_track1/docker-compose.yml up -d --build
+```
+### 3. Failure mode analysis replay
+```bash
+docker compose -f benchmark/cods_track1/docker-compose.yml exec -T assetopsbench \
+  bash /home/entrypoint_failure_modes_analysis.sh
+```
+
+### 4. Figure generation
+```bash
+python make_fma_figure.py
+```
+
+## Outputs
+
+### Main outputs are written under:
+
+- benchmark/cods_track1/track1_result/trajectory/
+- benchmark/cods_track1/track1_result/exp/
+- benchmark/cods_track1/track1_result/trajfm_outputs/
+
+### Generated FMA figures include:
+
+- fma_full_rate.pdf
+- fma_category_rate.pdf
+
+### Notes
+Table and figure recomputation from saved artifacts is deterministic.
+End-to-end replay depends on external model/API calls and is not guaranteed to be bitwise identical across runs.
+Exact replay may break if external provider-side model routing or API mappings change.
