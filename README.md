@@ -1,124 +1,119 @@
-<div align="center">
+## Reproducing the Trajectory-Level FMA and Verifier-Oracle Pipeline
 
-# AssetOpsBench: Benchmarking AI Agents for Industrial Asset Operations & Maintenance
+This section describes how to reproduce the main analysis pipeline used in the paper, including plan/trajectory generation, node-signature construction, risk estimation, and verifier-oracle threshold sweeping.
 
-![AssetOps](https://img.shields.io/badge/Domain-Asset_Operations-blue) 
-![MultiAgentBench](https://img.shields.io/badge/Domain-Multi--agent_Bench-blue) 
-![OpenAI](https://img.shields.io/badge/Model-OpenAI-21C2A4)
-![Llama](https://img.shields.io/badge/Model-Llama-21C2A4)
-![Mistral](https://img.shields.io/badge/Model-Mistral-21C2A4) 
-![Granite](https://img.shields.io/badge/Model-Granite-21C2A4)
+### 1. Launch the customized Track-1 environment
 
-📄 [Paper](https://arxiv.org/pdf/2506.03828) | 🤗 [Huggingface](https://huggingface.co/papers/2506.03828) | 📢 [Blog](https://research.ibm.com/blog/asset-ops-benchmark)
-
-</div>
-
----
-
-## 📑 Table of Contents
-1. [Announcements](#announcements)
-2. [Introduction](#introduction)
-3. [Datasets](#datasets-140-scenarios)
-4. [AI Agents](#ai-agents)
-5. [Multi-Agent Frameworks](#multi-agent-frameworks)
-6. [System Diagram](#system-diagram)
-7. [Leaderboards](#leaderboards)
-8. [Docker Setup](#run-assetopsbench-in-docker)
-9. [Talks & Events](#talks--events)
-10. [External Resources](#external-resources)
-11. [Contributors](#contributors)
-
----
-
-## 📣 Announcements
-- **2025-06-01**: AssetOpsBench v1.0 released with 140+ industrial scenarios.  
-- **2025-09-01**: [CODS](https://ikdd.acm.org/cods-2025/) Competition launched.  
-- **Upcoming Events**: *Tutorial at AAAI 2026* – Agents for Industry 4.0 Applications.  
-- Stay tuned for new tracks, competitions, and community events.
----
-
-## 🏗️ Introduction
-AssetOpsBench is a **unified framework for developing, orchestrating, and evaluating domain-specific AI agents** in industrial asset operations and maintenance.  
-
-It provides:
-- 4 **domain-specific agents**  
-- 2 **multi-agent orchestration frameworks**  
-
-Designed for **maintenance engineers, reliability specialists, and facility planners**, it allows reproducible evaluation of multi-step workflows in simulated industrial environments.
-
----
-
-## 📂 Datasets: 140+ Scenarios
-AssetOpsBench scenarios span multiple domains:  
-
-| Domain | Example Task |
-|--------|--------------|
-| IoT | "List all sensors of Chiller 6 in MAIN site" |
-| FSMR | "Identify failure modes detected by Chiller 6 Supply Temperature" |
-| TSFM | "Forecast 'Chiller 9 Condenser Water Flow' for the week of 2020-04-27" |
-| WO | "Generate a work order for Chiller 6 anomaly detection" |
-
-Some tasks focus on a **single domain**, others are **multi-step end-to-end workflows**.  
-Explore all scenarios [here](https://github.com/IBM/AssetOpsBench/tree/main/scenarios).
-
----
-
-## 🤖 AI Agents
-### Domain-Specific Agents
-- **IoT Agent**: `get_sites`, `get_history`, `get_assets`, `get_sensors`  
-- **FMSR Agent**: `get_sensors`, `get_failure_modes`, `get_failure_sensor_mapping`  
-- **TSFM Agent**: `forecasting`, `timeseries_anomaly_detection`  
-- **WO Agent**: `generate_work_order`  
-
-### Multi-Agent Frameworks
-- **[MetaAgent](https://github.com/IBM/AssetOpsBench/tree/main/src/meta_agent)**: reAct-based single-agent-as-tool orchestration  
-- **[AgentHive](https://github.com/IBM/AssetOpsBench/tree/main/src/agent_hive)**: plan-and-execute sequential workflow  
-
----
-
-## 🖼️ System Diagram
-Visual overview of AssetOpsBench workflow:  
-
-![System Diagram](path/to/system_diagram.png)  <!-- Replace with your image path -->
-
----
-
-## 🏆 Leaderboards
-- Evaluated with **7 Large Language Models**  
-- Trajectories scored using **LLM Judge (Llama-4-Maverick-17B)**  
-- **6-dimensional criteria** measure reasoning, execution, and data handling  
-
-Example: MetaAgent leaderboard  
-
-![meta_agent_leaderboard](https://github.com/user-attachments/assets/615059be-e296-40d3-90ec-97ee6cb00412)
-
----
-
-## 🐳 Run AssetOpsBench in Docker
-- Pre-built Docker Images: `assetopsbench-basic` (minimal) & `assetopsbench-extra` (full)  
-- Conda environment: `assetopsbench`  
-- [Full setup guide](https://github.com/IBM/AssetOpsBench/tree/main/benchmark/README.md)  
+From the repository root:
 
 ```bash
-cd /path/to/AssetOpsBench
-chmod +x benchmark/entrypoint.sh
-docker-compose -f benchmark/docker-compose.yml build
-docker-compose -f benchmark/docker-compose.yml up
+cd benchmark/cods_track1
+docker compose up --build
 ```
 
----
+This launches the customized AssetOpsBench Track-1 environment. The main outputs are written under:
+```bash
+benchmark/cods_track1/track1_result/
+```
 
-## 🎤 Talks & Events
-- **Workshops**: Participate in *GenAIBench-26* at AAAI 2025 focusing on multi-agent AI workflows.  
-- **Webinars & Seminars**: Learn best practices for industrial task automation with AI agents.  
-- **Competitions**: Benchmark your agents on real-world industrial scenarios using AssetOpsBench.
+Inside the container, the main scripts used in the paper are mounted at:
+```bash
+/home/run_track_1.py
+/home/build_node_signature_table.py
+/home/build_frequency_model_with_risk_from_node_table.py
+/home/verifier_oracle_threshold_sweep.py
+/home/auto_scoring.py
+```
 
----
+### 2. Generate plans and trajectories
+Run the Track-1 workflow with a comma-separated list of scenario IDs:
+```bash
+python /home/run_track_1.py \
+  --utterance_ids "1,2,3,4,5" \
+  --generate_steps_only False
+  ```
 
-## 🔗 External Resources
-- 📄 **Paper**: [AssetOpsBench: Benchmarking AI Agents for Industrial Asset Operations](https://arxiv.org/pdf/2506.03828)  
-- 🤗 **HuggingFace**: [Scenario & Model Hub](https://huggingface.co/papers/2506.03828)  
-- 📢 **Blog**: [Insights, Tutorials, and Updates](https://research.ibm.com/blog/asset-ops-benchmark)  
-- 🎥 **Recorded Talks**: Link coming soon.
+- --utterance_ids: comma-separated list of scenario IDs
+- --generate_steps_only: if True, stop after plan generation; if False, execute the full Plan-Execute workflow
 
----
+
+### 3. Build the node-signature table
+Construct a node-signature table from generated plans and trajectories:
+```bash
+python /home/build_node_signature_table.py \
+  --builder_script /home/build_frequency_model.py \
+  --plan_dir /path/to/track1_result/plan/<planner_condition>/<model_id> \
+  --trajectory_dir /path/to/track1_result/trajectory/<planner_condition>/<model_id> \
+  --task_taxonomy_json /path/to/merged_task_taxonomy.json \
+  --contract_taxonomy_json /path/to/merged_node_contract_taxonomy.json \
+  --exception_taxonomy /path/to/exception_reason_taxonomy.json \
+  --output_json /path/to/node_signature_table_v2.json \
+  --output_errors /path/to/node_signature_errors.json \
+  --output_summary /path/to/node_signature_summary.json
+```
+
+### 4. Build the frequency model with risk
+
+Estimate p(Y | state, label) and derive risk values from the node-signature table:
+
+```bash
+python /home/build_frequency_model_with_risk_from_node_table.py \
+  --node-signature-table /path/to/node_signature_table_v2.json \
+  --weights-json /path/to/weights.json \
+  --output-json /path/to/frequency_model_with_risk.json \
+  --alpha 1.0 \
+  --oracle-quantile 0.80 \
+  --observed-label-source failure_reason_labels \
+  --expected-label-source expected_exception_labels \
+  --fallback-expected-label-source failure_reason_labels \
+  --dep-key-mode both
+```
+
+Arguments:
+```bash
+--node-signature-table: node-signature table JSON
+--weights-json: outcome weights JSON
+--output-json: output frequency/risk model JSON
+--alpha: additive smoothing parameter
+--oracle-quantile: quantile used to derive stored oracle flags
+--observed-label-source: label source for estimating p(Y | state, label)
+--expected-label-source: label source for assembling signature-level risk
+--fallback-expected-label-source: fallback label field if the expected source is absent
+--dep-key-mode: one of both, bucket_only, or raw_only
+```
+
+### 5. Attach oracle decisions or resweep thresholds
+
+Use the stored oracle flags already present in the risk table:
+
+```bash
+python /home/verifier_oracle_threshold_sweep.py \
+  --node-signature-table /path/to/node_signature_table_v2.json \
+  --frequency-model /path/to/frequency_model_with_risk.json \
+  --output-dir /path/to/oracle_eval_dir \
+  --mode use_existing_oracle \
+  --oracle-field oracle_verify_weighted_q80 \
+  --expected-label-source expected_exception_labels \
+  --fallback-expected-label-source failure_reason_labels
+```
+Or resweep thresholds directly from assigned risk:
+```bash
+python /home/verifier_oracle_threshold_sweep.py \
+  --node-signature-table /path/to/node_signature_table_v2.json \
+  --frequency-model /path/to/frequency_model_with_risk.json \
+  --output-dir /path/to/oracle_eval_dir \
+  --mode resweep \
+  --risk-field assigned_risk_weighted \
+  --target-miss-rate 0.10 \
+  --harmful-outcomes P,N,E \
+  --expected-label-source expected_exception_labels \
+  --fallback-expected-label-source failure_reason_labels
+```
+Arguments:
+```bash
+--mode: use_existing_oracle or resweep
+--oracle-field: boolean oracle field in the risk table, used when mode=use_existing_oracle
+--risk-field: one of assigned_risk_weighted or assigned_risk_simple, used when mode=resweep
+--target-miss-rate: upper bound on miss rate for threshold resweep
+--harmful-outcomes: comma-separated outcomes treated as oracle positives
+```
